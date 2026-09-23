@@ -32,8 +32,10 @@ Dates are actual work/documentation dates. This project was bootstrapped in one 
 
 **Verification observed before commit:** Ruff lint passed; all 28 Python files passed formatting checks; pytest passed 87 tests; pip check found no broken requirements. The bounded repository checker passed required-document/link/exclusion/credential checks. Its initial unused-import lint finding was removed before the final passing run. The earlier 84-test XML was preserved; the status report was regenerated using the new software test count and unchanged experimental reports. A repository-local commit hook runs the publication checker. Existing model/live observations are historical evidence from WL-001; they were not rerun for this publication task.
 
-**Commit/push verification:** to be appended after the remote state is observed. No GitHub Actions run is claimed.
+**Commit/push verification:** successful. No GitHub Actions run is claimed.
 
 Initial local commit: `cda1f53721e341a8c7d4c7dd38425ce0b85b48a7` (`feat: establish tested honors research prototype and strict documentation`), 119 files. The actual pre-commit hook ran and passed. A post-commit correction addresses the evidence-file CRLF whitespace warning (INC-017); rechecking both the committed snapshot and working diff returned exit 0. Experimental bytes remain unchanged. Subsequent publication command sequences stop on failure.
+
+Publication correction commit: `144e401878c8c403413a2c41b67d1581d32b3856` (`fix: preserve evidence line endings and document publication checks`). `git push -u origin main` succeeded. `gh repo view` returned PRIVATE and main; the GitHub commits API and `git ls-remote origin refs/heads/main` both returned that same SHA as local HEAD. Working tree was clean at this observation. This follow-up documentation entry records the already-observed publication receipt; its own commit is discoverable in Git history without a self-referential hash.
 
 **Remaining:** independently validated research results, broader literature verification, model reliability/latency and later runtime work remain open in TASKS.md.

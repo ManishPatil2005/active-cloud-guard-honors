@@ -10,7 +10,7 @@ Current smoke model: qwen2.5:3b. Latest saved three-case inference times are app
 
 ## Current work
 
-Strict documentation and private GitHub publication, authorized by the user. Remote: https://github.com/ManishPatil2005/active-cloud-guard-honors. Repository created; initial commit/push verification is tracked in WORK_LOG. Preserve the existing architecture, setup and tech stack.
+Strict documentation and private GitHub publication are complete. Remote: https://github.com/ManishPatil2005/active-cloud-guard-honors, visibility PRIVATE, default branch main. Initial publication was verified through both GitHub API and git ls-remote, matching the local commit; see WORK_LOG. Git history identifies subsequent documentation receipt commits. Preserve the existing architecture, setup and tech stack.
 
 The documentation/publication checker adds three software tests. The refreshed local suite passes **87 tests**, with Ruff format/lint and dependency checks passing. The original 84-test report is preserved as output/test-results-initial-84.xml. Model and service experiments were not rerun for this documentation-only/application-unchanged publication task. A repository-local pre-commit hook runs the bounded publication check; this is not hosted CI.
 
