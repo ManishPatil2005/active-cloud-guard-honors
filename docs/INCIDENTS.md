@@ -30,6 +30,10 @@ Recorded 2026-09-23. INC-001 through INC-014 reconstruct the initial implementat
 
 ## Required new-incident format
 
+### INC-020 - 2026-09-23 - Verification linkage and context gap
+
+Task E1R-001..004. Expected research direction: reviewed semantic candidates linked to scoped verification with explicit intended policy. Observed in pre-refinement pipeline: only network rule findings received TCP evidence, inventory mappings lacked configuration-byte binding and no intended-access assessment existed. Code inspection establishes this design gap with high confidence; it was not a claimed full research implementation. Added strict inventory/policy/review validation, exact request/candidate approval and separate model evidence. During review, required model digest as well as request hash so an unbound model tag cannot authorize reuse. Verification: 136 tests, including model-only approval and stale/digest-negative paths; real loopback/synthetic-policy smoke passed five checks. Status: linkage/context gap mitigated, not fully resolved scientifically. Deployment attestation, authentication checks and independent human-reviewed evaluation remain open. No vulnerability or false-positive reduction claim follows.
+
 ### INC-018 - 2026-09-23 - V2 live-run startup interruptions
 
 Task: v2 efficiency smoke. Expected: existing local lab available. Observed: Docker pipe absent after returning to this task; an earlier startup attempt was not executed because approval-service usage was exhausted. Confirmed current daemon absence via compose error (high-confidence immediate cause, not an application bug). After user resumed, restarted Docker Desktop hidden and ran `docker compose -f testbed/compose.yaml --profile ai up -d`; all five containers started, saved model list present. Successful live benchmark is output/v2-efficiency-smoke.json. No data volumes removed, new external endpoints or architecture changes. This does not establish continuous uptime.

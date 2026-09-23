@@ -25,6 +25,8 @@ The historical environment snapshot is not a manifest of documentation added lat
 
 ## Evidence preservation
 
+V2.1 additions: [136-test report](../output/verification-v21-tests.xml) and [real loopback/synthetic-policy smoke](../output/verification-v21-smoke.json). [Refinement report](ENGINE1_REFINEMENT.md) defines their scope. Model-review integration is mock-tested, not independently reviewed or live-model evaluated. No historical result is replaced.
+
 V2 additions: [efficiency smoke](../output/v2-efficiency-smoke.json) records actual model/index/probe observations, full model/corpus identity and timings. [V2 test report](../output/v2-test-results.xml) records software regression results. Historical v1 artifacts above remain unchanged. ENGINE1_V2.md describes conditions and limitations.
 
 For a changed experiment, preserve the earlier report under a descriptive revision name or rely on an already committed version, then record the new run's date, command, inputs, software/model identities and changed conditions. Keep failures, exclusions and abstentions. Never claim a mock-based unit test is a live inference run. Derived summaries must identify their source reports.

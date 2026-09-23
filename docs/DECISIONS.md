@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-014 - 2026-09-23 - Reviewed verification before broader automation
+
+Keep the stack and existing rule scoring. Add strict hash-bound operator policy and model-candidate approval, restricting execution to existing loopback TCP probes. Require digest-bound model requests and exact retained candidate fingerprints. Treat operator deployment equivalence as an assertion, not machine attestation; label it false in verified-equality fields. Model evidence remains unscored/review-required; expected reachability never clears unrelated risk. This prioritizes provenance and reviewability over unsupported automated actionability. Authentication-aware probes, independent labels and deployment attestation remain future work; see ENGINE1_REFINEMENT.md.
+
 Entries below document decisions made during the initial implementation on 2026-09-23. This is a retrospective record; no earlier Git commits or approval dates are implied.
 
 | ID | Decision and reason | Consequence / status |

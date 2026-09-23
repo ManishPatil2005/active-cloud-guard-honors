@@ -2,6 +2,14 @@
 
 Changes are recorded on the date they occurred or were documented. Historical failures are retained, not removed from the narrative.
 
+## 2026-09-23 - Reviewed verification (Engine 1 v2.1, package 0.3.0)
+
+- Added strict loopback inventory and hash-bound operator policy/review validation; reject stale context, duplicate records and unauthorized scope.
+- Linked explicitly approved retained model candidates to inventory TCP observations, while preserving review requirements and withholding automatic model scores.
+- Added expected/unexpected reachability assessments without suppressing findings or claiming deployment equivalence, authentication bypass or vulnerability confirmation.
+- Added 30 regression cases (136 total) and a real-loopback/synthetic-policy smoke with five passing checks; preserved historical reports.
+- Added a detailed refinement report, operator templates, trust boundaries and remaining research gates. No Engine 2 or independent effectiveness claim.
+
 ## 2026-09-23 - Research-facing README
 
 - Reorganized the GitHub landing page around an abstract, research questions, architecture, linked measurements and threats to validity.

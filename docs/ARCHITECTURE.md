@@ -19,7 +19,7 @@ Explicit staging inventory -> loopback TCP evidence -> network rule findings
 All stages -> JSON evidence -> evaluation/status scripts -> reviewed research report
 ```
 
-Staging services already exist before verification. The program does not deploy arbitrary input manifests. Model candidates remain separate from rule findings and do not directly dispatch probes. Current automatic probe linkage/scoring applies to network rule findings; LLM asset/location review remains a gate.
+Staging services already exist before verification. The program does not deploy arbitrary input manifests. Model candidates remain separate from rule findings. V2.1 permits TCP evidence only for candidates explicitly approved through hash-bound operator review and inventory policy; they receive no automatic score. Unapproved candidates never dispatch probes. Network rule linkage/scoring remains unchanged. See [refinement report](ENGINE1_REFINEMENT.md).
 
 ## Module ownership
 
@@ -32,6 +32,7 @@ Staging services already exist before verification. The program does not deploy 
 | cache.py | Opt-in bounded exact-request response reuse; never caches probes |
 | grounding.py | Narrow PostgreSQL-trust and Redis-protection corroboration |
 | probe.py | Explicit loopback TCP checks and timestamped outcomes |
+| verification.py | Strict inventory/policy/review validation; exact-byte/request/candidate binding and conservative assessments |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
 | pipeline.py | Connect stages; retain origin and review boundaries |
 | metrics.py | Confusion counts, explicit undefined ratios and descriptive intervals |

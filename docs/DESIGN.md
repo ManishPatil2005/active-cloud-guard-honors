@@ -11,3 +11,5 @@ This project has no web interface. This document defines the current research in
 - Prefer plain language and reproducible commands over screenshots of terminal output. Never display generated credential values.
 
 Expected user journey: read scope -> set up local prerequisites -> reproduce fixtures/tests -> start declared lab -> perform audit/probes -> inspect raw outputs and rejected candidates -> review measured report and unresolved gates.
+
+V2.1 adds optional run flags `--policy` and `--reviews`. Reports retain legacy findings while adding `verification`, `model_candidate_ids`, `model_verifications`, `configuration_bytes_sha256` and `verification_context`. Policy judgments are scoped observations, not security verdicts. Review documents use byte hashes rather than the scanner's normalized-text hash. See [refinement workflow](ENGINE1_REFINEMENT.md).

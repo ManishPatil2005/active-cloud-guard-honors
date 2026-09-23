@@ -204,7 +204,10 @@ def test_probes_repeat_across_runs_even_if_audit_cached(tmp_path):
         json.dumps([dict(asset_id="compose/redis", host="127.0.0.1", port=16379)])
     )
     with (
-        patch("cloudguard.pipeline.audit", return_value={"cache_status": "hit"}),
+        patch(
+            "cloudguard.pipeline.audit",
+            return_value={"cache_status": "hit", "output": {"findings": []}},
+        ),
         patch(
             "cloudguard.pipeline.probe", return_value={"outcome": "reachable"}
         ) as probe,
@@ -218,4 +221,4 @@ def test_probes_repeat_across_runs_even_if_audit_cached(tmp_path):
                 cache_dir=tmp_path,
             )
     assert probe.call_count == 2
-    assert report["engine_version"] == "2.0" and report["timings_ms"]["total_ms"] >= 0
+    assert report["engine_version"] == "2.1" and report["timings_ms"]["total_ms"] >= 0

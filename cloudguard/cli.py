@@ -35,6 +35,8 @@ def main():
     e.add_argument("--cache-dir")
     e.add_argument("--timeout", type=float, default=180)
     e.add_argument("--max-tokens", type=int, default=512)
+    e.add_argument("--policy", help="Hash-bound operator reachability policy JSON")
+    e.add_argument("--reviews", help="Hash-bound human candidate approvals JSON")
     v = sub.add_parser("index")
     v.add_argument("--kb", default="knowledge/sources.json")
     v.add_argument("--index", default="output/chroma")
@@ -66,6 +68,8 @@ def main():
                 args.inventory,
                 args.model,
                 args.vector_index,
+                policy=args.policy,
+                reviews=args.reviews,
                 cache_dir=args.cache_dir,
                 timeout=args.timeout,
                 max_tokens=args.max_tokens,

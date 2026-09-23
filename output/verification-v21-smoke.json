@@ -1,0 +1,270 @@
+{
+  "started_at": "2026-09-23T12:29:04.476498+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "observations": [
+    {
+      "expectation": "allowed",
+      "report": {
+        "schema_version": "1.0",
+        "file": "C:\\Users\\manis\\AppData\\Local\\Temp\\cloudguard-verification-pp4ejapr\\input.yaml",
+        "sha256": "7637557a37fe5a72835cb6c733f59847e279c708459eccf1ac3e53443c423eb8",
+        "findings": [
+          {
+            "id": "1a7bcc25149e2f8014c0",
+            "asset_id": "compose/probe_target",
+            "rule_id": "NET001",
+            "title": "Service published beyond loopback",
+            "static_score": 0.65,
+            "location": "services.probe_target.ports[0]",
+            "source_ids": [
+              "docker-ports"
+            ],
+            "origin": "rule_baseline",
+            "evidence": "Configuration predicate matched; no exploitation claim.",
+            "probe": {
+              "asset_id": "compose/probe_target",
+              "host": "127.0.0.1",
+              "port": 52908,
+              "vantage": "local-host",
+              "outcome": "reachable",
+              "reason": "TCP connection accepted; authentication not tested",
+              "elapsed_ms": 1.287,
+              "observed_at": "2026-09-23T12:29:04.557268+00:00",
+              "protocol": "tcp"
+            },
+            "verification": {
+              "status": "expected_reachability",
+              "policy": {
+                "asset_id": "compose/probe_target",
+                "expected_reachability": "allowed",
+                "relationship": "analogue"
+              },
+              "deployment_equivalence_verified": false,
+              "vulnerability_confirmed": false,
+              "finding_suppressed": false,
+              "scope": "TCP only; operator-declared mapping is not deployment attestation"
+            },
+            "priority": {
+              "value": 0.678125,
+              "runtime_observed": false,
+              "exposure": "reachable",
+              "policy": "tci-v0.1-provisional",
+              "calibrated": false
+            }
+          }
+        ],
+        "warnings": [],
+        "coverage": "selected predicates only; absence of findings is not proof of safety",
+        "retrieved_sources": [
+          {
+            "id": "docker-ports",
+            "title": "Docker published ports and host bindings",
+            "url": "https://docs.docker.com/engine/network/port-publishing/",
+            "reviewed": "2026-09-23",
+            "kind": "author-written source summary",
+            "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+            "relevance": 3.733495,
+            "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+          },
+          {
+            "id": "aws-sg",
+            "title": "AWS security group ingress rules",
+            "url": "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+            "reviewed": "2026-09-23",
+            "kind": "author-written source summary",
+            "text": "An ingress CIDR of 0.0.0.0/0 permits all IPv4 sources and ::/0 permits all IPv6 sources for the specified traffic. Reachability also depends on routing, addresses, network ACLs and listening services. Terraform security group configuration alone does not prove access.",
+            "relevance": 1.386294,
+            "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+          },
+          {
+            "id": "k8s-service",
+            "title": "Kubernetes service exposure types",
+            "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+            "reviewed": "2026-09-23",
+            "kind": "author-written source summary",
+            "text": "NodePort publishes service ports on nodes and LoadBalancer requests an external load balancer. ClusterIP is cluster internal by default. These types indicate intended exposure, not proof of public Internet reachability or a vulnerability.",
+            "relevance": 1.386294,
+            "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+          }
+        ],
+        "retrieval_mode": "lexical",
+        "rag": null,
+        "model_verifications": [],
+        "configuration_bytes_sha256": "f22ce9815d07ede98f8fbf0e88a77dc5b205deb7faa7fcf54d5f71ffcef1620b",
+        "inventory_sha256": "9deb18b52de1087a00cf63a28e85802b5c0ff6d47be18947ae22fc195123cb79",
+        "verification_context": {
+          "policy": {
+            "document": {
+              "version": "1.0",
+              "configuration_sha256": "f22ce9815d07ede98f8fbf0e88a77dc5b205deb7faa7fcf54d5f71ffcef1620b",
+              "inventory_sha256": "9deb18b52de1087a00cf63a28e85802b5c0ff6d47be18947ae22fc195123cb79",
+              "reviewed_by": "synthetic-smoke-policy-not-human-review",
+              "rationale": "Controlled software check only",
+              "assets": [
+                {
+                  "asset_id": "compose/probe_target",
+                  "expected_reachability": "allowed",
+                  "relationship": "analogue"
+                }
+              ]
+            },
+            "sha256": "d338e0ebd23e1ec8664e145278e6976de084125bd53ae0f1bcf4c5486a3c39b1"
+          },
+          "review": null
+        },
+        "policy_notes": [
+          "Inventory maps candidate assets to staging endpoints; it does not establish Internet reachability.",
+          "Only network rules and explicitly reviewed model candidates receive TCP evidence; no finding is refuted by TCP refusal.",
+          "Asset criticality 0.5 and weights are illustrative, not calibrated.",
+          "Model approval authorizes TCP evidence only, not correctness, vulnerability confirmation or automatic scoring.",
+          "Hash-bound operator policy is not proof of deployment equivalence; legacy inventory mappings remain unverified."
+        ],
+        "timings_ms": {
+          "scan_ms": 4.609,
+          "retrieval_ms": 0.447,
+          "audit_ms": 0.0,
+          "verification_and_score_ms": 1.424,
+          "total_ms": 6.482
+        },
+        "engine_version": "2.1"
+      }
+    },
+    {
+      "expectation": "forbidden",
+      "report": {
+        "schema_version": "1.0",
+        "file": "C:\\Users\\manis\\AppData\\Local\\Temp\\cloudguard-verification-pp4ejapr\\input.yaml",
+        "sha256": "7637557a37fe5a72835cb6c733f59847e279c708459eccf1ac3e53443c423eb8",
+        "findings": [
+          {
+            "id": "1a7bcc25149e2f8014c0",
+            "asset_id": "compose/probe_target",
+            "rule_id": "NET001",
+            "title": "Service published beyond loopback",
+            "static_score": 0.65,
+            "location": "services.probe_target.ports[0]",
+            "source_ids": [
+              "docker-ports"
+            ],
+            "origin": "rule_baseline",
+            "evidence": "Configuration predicate matched; no exploitation claim.",
+            "probe": {
+              "asset_id": "compose/probe_target",
+              "host": "127.0.0.1",
+              "port": 52908,
+              "vantage": "local-host",
+              "outcome": "reachable",
+              "reason": "TCP connection accepted; authentication not tested",
+              "elapsed_ms": 12.613,
+              "observed_at": "2026-09-23T12:29:04.575882+00:00",
+              "protocol": "tcp"
+            },
+            "verification": {
+              "status": "unexpected_reachability",
+              "policy": {
+                "asset_id": "compose/probe_target",
+                "expected_reachability": "forbidden",
+                "relationship": "analogue"
+              },
+              "deployment_equivalence_verified": false,
+              "vulnerability_confirmed": false,
+              "finding_suppressed": false,
+              "scope": "TCP only; operator-declared mapping is not deployment attestation"
+            },
+            "priority": {
+              "value": 0.678125,
+              "runtime_observed": false,
+              "exposure": "reachable",
+              "policy": "tci-v0.1-provisional",
+              "calibrated": false
+            }
+          }
+        ],
+        "warnings": [],
+        "coverage": "selected predicates only; absence of findings is not proof of safety",
+        "retrieved_sources": [
+          {
+            "id": "docker-ports",
+            "title": "Docker published ports and host bindings",
+            "url": "https://docs.docker.com/engine/network/port-publishing/",
+            "reviewed": "2026-09-23",
+            "kind": "author-written source summary",
+            "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+            "relevance": 3.733495,
+            "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+          },
+          {
+            "id": "aws-sg",
+            "title": "AWS security group ingress rules",
+            "url": "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+            "reviewed": "2026-09-23",
+            "kind": "author-written source summary",
+            "text": "An ingress CIDR of 0.0.0.0/0 permits all IPv4 sources and ::/0 permits all IPv6 sources for the specified traffic. Reachability also depends on routing, addresses, network ACLs and listening services. Terraform security group configuration alone does not prove access.",
+            "relevance": 1.386294,
+            "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+          },
+          {
+            "id": "k8s-service",
+            "title": "Kubernetes service exposure types",
+            "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+            "reviewed": "2026-09-23",
+            "kind": "author-written source summary",
+            "text": "NodePort publishes service ports on nodes and LoadBalancer requests an external load balancer. ClusterIP is cluster internal by default. These types indicate intended exposure, not proof of public Internet reachability or a vulnerability.",
+            "relevance": 1.386294,
+            "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+          }
+        ],
+        "retrieval_mode": "lexical",
+        "rag": null,
+        "model_verifications": [],
+        "configuration_bytes_sha256": "f22ce9815d07ede98f8fbf0e88a77dc5b205deb7faa7fcf54d5f71ffcef1620b",
+        "inventory_sha256": "9deb18b52de1087a00cf63a28e85802b5c0ff6d47be18947ae22fc195123cb79",
+        "verification_context": {
+          "policy": {
+            "document": {
+              "version": "1.0",
+              "configuration_sha256": "f22ce9815d07ede98f8fbf0e88a77dc5b205deb7faa7fcf54d5f71ffcef1620b",
+              "inventory_sha256": "9deb18b52de1087a00cf63a28e85802b5c0ff6d47be18947ae22fc195123cb79",
+              "reviewed_by": "synthetic-smoke-policy-not-human-review",
+              "rationale": "Controlled software check only",
+              "assets": [
+                {
+                  "asset_id": "compose/probe_target",
+                  "expected_reachability": "forbidden",
+                  "relationship": "analogue"
+                }
+              ]
+            },
+            "sha256": "eb5898ae85b6542db01a466876a83cc8a2ba707324ec8f37c8940c08c2dcc6ce"
+          },
+          "review": null
+        },
+        "policy_notes": [
+          "Inventory maps candidate assets to staging endpoints; it does not establish Internet reachability.",
+          "Only network rules and explicitly reviewed model candidates receive TCP evidence; no finding is refuted by TCP refusal.",
+          "Asset criticality 0.5 and weights are illustrative, not calibrated.",
+          "Model approval authorizes TCP evidence only, not correctness, vulnerability confirmation or automatic scoring.",
+          "Hash-bound operator policy is not proof of deployment equivalence; legacy inventory mappings remain unverified."
+        ],
+        "timings_ms": {
+          "scan_ms": 4.31,
+          "retrieval_ms": 0.351,
+          "audit_ms": 0.0,
+          "verification_and_score_ms": 12.774,
+          "total_ms": 17.437
+        },
+        "engine_version": "2.1"
+      }
+    }
+  ],
+  "scope": "Synthetic configuration analogue and real loopback listener; no actual service deployment, model inference, human review or independent benchmark",
+  "stale_binding_rejected": true,
+  "checks": {
+    "real_connections": true,
+    "policy_distinction": true,
+    "no_suppression": true,
+    "fresh_observations": true,
+    "stale_binding_rejected": true
+  },
+  "completed_at": "2026-09-23T12:29:05.072454+00:00"
+}

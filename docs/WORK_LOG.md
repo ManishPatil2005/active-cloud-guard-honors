@@ -1,5 +1,19 @@
 # Work log
 
+## WL-005 - 2026-09-23 - Engine 1 reviewed verification (E1R-001..004)
+
+**Request/acceptance:** refine Engine 1 following the discussion, supply a report, maintain documentation and commits. Keep the existing stack. This increment targets strict context binding, explicit policy, reviewed model-to-inventory linkage and honest assessment; it does not claim all research gates complete.
+
+**Work and rationale:** inspected current code/evidence and required docs. Added verification.py for bounded duplicate-safe JSON, strict loopback inventory, policy/review schemas and conservative outcomes. Pipeline snapshots inventory, records byte hashes, checks source consistency before probing, matches exact retained candidate fingerprints and model request identity, then attaches TCP observations only with explicit operator approval. Added CLI flags, package 0.3.0 / engine2.1 identity and review templates. Retained legacy rule-score behavior; model verification remains unscored and all deployment equivalence remains unverified.
+
+**Problems handled:** initial atomic patch rejected because a CLI context line did not match; no files were changed by the rejection, and corrected patches applied. Review identified that request hashes without model digests would not adequately bind model identity, so the approval gate requires digest-bound audits (existing cache-enabled path). Updated the old pipeline mock and version expectation to the new output contract. Tests cover wrong/missing digest, changed request/candidate/input, rejected candidates, invalid scope and no unauthorized probes. No experimental failure was hidden or overwritten.
+
+**Observed verification:** Ruff lint passed; pytest passed 136 tests with output/verification-v21-tests.xml; pip check passed; CLI run --help exposes policy/reviews; git diff --check passed. `python scripts/verification_check.py --output output/verification-v21-smoke.json` passed all five checks using real local connections and explicitly synthetic policies. Model integration is mock-tested, not live-model/human-reviewed; no Docker deployment or energy/accuracy study was run. Final formatting/publication and remote checks are recorded at handoff.
+
+**Artifacts and limits:** ENGINE1_REFINEMENT.md is the requested report. Existing output files remain intact. E1R-004 (actual deployment attestation/auth-aware checks), independent labels, matched baselines, latency, calibration and Engine 2 remain open. Hashes prevent stale document reuse, not malicious operator records; reviewed_by is not authenticated. No research approval, deployment equivalence or completed human review was fabricated.
+
+**Final pre-publication verification:** `python -m ruff check cloudguard scripts tests` passed; `python -m ruff format --check cloudguard scripts tests` passed all 34 files; `python -m pytest -q --junitxml=output/verification-v21-tests.xml` passed 136 tests; `python -m pip check` passed. Reviewed 24 staged files. `python scripts/repository_check.py` passed 131 publication files; `git diff --cached --check` passed. Numeric inventory ports are explicitly Python integers as well as schema-valid, preventing JSON integer-valued floats from passing preflight then failing at the socket boundary. Runtime caches, environments and secrets remain excluded. Commit/push and exact remote SHA are verified during publication and reported in the task handoff.
+
 ## WL-004 - 2026-09-23 - Research-facing GitHub README (DOC-002)
 
 **Request/acceptance:** make the README formal, visually organized and suitable for research review. Include motivation/questions, actual architecture and scope, evidence-linked observations, reproducibility and validity limits; do not invent endorsement, novelty, a DOI or an open-source license.

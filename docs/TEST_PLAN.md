@@ -31,6 +31,8 @@ A script's successful return does not prove the model's conclusions correct. Ins
 
 ## Change-specific policy
 
+V2.1: `python -m pytest -q --junitxml=output/verification-v21-tests.xml` records 136 tests (use a new report filename for future revisions). `python scripts/verification_check.py --output output/verification-v21-new-run.json` starts an ephemeral loopback listener, observes allowed/forbidden synthetic policies and rejects stale binding. No Docker/model/real-human-review inference is implied. Unit checks cover approved/unapproved and model-only candidates, request/candidate/model identity changes, scope rejection, duplicate JSON/policies, strict inventory, source changes during audit, fresh probes and no finding suppression.
+
 V2 regression suite: `python -m pytest -q` covers exact reuse, changed model/source/input/policy/budget, expiry, corrupted/schema-invalid records, truncation, rejected-candidate preservation, failed writes, index reuse/repair and repeated probes. `python scripts/benchmark_v2.py --output output/v2-new-run.json` performs real forced/reused indexing and four sequential lexical pipeline runs with one development fixture. Preserve the output on failure; choose a new filename on rerun. Unit mocks do not establish live latency. The script intentionally does not run the old reports/summary generators.
 
 Documentation-only changes need document/link/publication checks; a final software regression run may establish the committed snapshot. Do not repeat expensive live experiments without a relevant change or uncertainty. Log old evidence as historical when it was not rerun. Preserve prior reports before a rerun that changes their experimental meaning.

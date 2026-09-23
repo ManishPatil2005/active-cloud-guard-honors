@@ -4,7 +4,7 @@
 
 ### Evidence-linked configuration auditing for cloud-hosted open-source software
 
-Honors research · Engine 1 v2 · Python package 0.2.0
+Honors research · Engine 1 v2.1 · Python package 0.3.0
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
@@ -18,6 +18,8 @@ Active Cloud Guard investigates how configuration analysis, retrieval-assisted l
 
 The implementation combines a transparent rule baseline, source-backed retrieval, structured local-model auditing, and explicit staging probes. Engine 1 v2 adds bounded response reuse, reusable vector indexing, generation controls, and stage-level timing. This repository includes development fixtures, reproducibility scripts, raw observations, negative model results, and a documented evaluation protocol.
 
+V2.1 adds hash-bound operator policies and reviewed model-to-endpoint verification. Approved candidates receive scoped TCP evidence—not automatic vulnerability confirmation or scoring. Read the [refinement report and operator workflow](docs/ENGINE1_REFINEMENT.md).
+
 **Research status:** implemented, software-tested and live-smoke-observed. Independent effectiveness evaluation remains pending. This is a research prototype—not a production security control or a claim of validated vulnerability prevention.
 
 | Project | Details |
@@ -26,7 +28,7 @@ The implementation combines a transparent rule baseline, source-backed retrieval
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | First-three-month engineering deliverables and Engine 1 v2 efficiency improvements |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 23 September 2026; 106 passing software tests in the saved v2 report |
+| Evidence snapshot | 23 September 2026; 136 passing software tests in the v2.1 report |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
@@ -46,6 +48,8 @@ flowchart TD
     C --> D[Local Ollama audit or exact-request cache]
     D --> E[Schema, source, location and narrow policy checks]
     E --> F[Review-required model candidates]
+    F --> L[Explicit hash-bound operator approval and policy]
+    L --> I
     B --> G[Network-rule candidates]
     H[Explicit loopback inventory] --> I[Fresh bounded TCP probes]
     G --> I
@@ -76,7 +80,8 @@ The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as th
 
 | Observation | Evidence | Interpretation |
 |---|---|---|
-| 106 passing software tests | [V2 test report](output/v2-test-results.xml) | Regression checks; not detection accuracy |
+| 136 passing software tests | [V2.1 test report](output/verification-v21-tests.xml) | Regression checks; not detection accuracy |
+| Policy-aware real loopback observations | [V2.1 smoke report](output/verification-v21-smoke.json) | Synthetic policies and accept-only listener; no deployment or model claim |
 | 45 development fixtures matched expected rule sets | [Development baseline](output/baseline-development.json) | Seeded-predicate coverage, not generalization |
 | Four local TCP accepts and two HTTP 200 responses | [Historical lab observation](output/live-testbed.json) | Time- and vantage-specific availability |
 | Vector retrieval and integrated model/probe execution | [Vector smoke](output/vector-smoke.json), [integrated run](output/integrated-demo.json) | Historical functional observations |
@@ -217,6 +222,6 @@ The [task ledger](TASKS.md) records completed engineering work, partial research
 
 For review, begin with the [protocol](docs/EXPERIMENT_PROTOCOL.md), [evidence index](docs/EVIDENCE.md), [decision register](docs/DECISIONS.md) and [incident ledger](docs/INCIDENTS.md). Changes follow the [documentation maintenance contract](docs/DOCUMENTATION_WORKFLOW.md): record what changed, why, exact checks, failures and remaining limits. The commit guard runs locally; no hosted CI result or peer-review endorsement is implied.
 
-When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.2.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
+When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.3.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
 
 The repository is private. No open-source license has been selected; access does not itself grant redistribution rights. Contact the repository owner before external reuse or publication of project materials.
