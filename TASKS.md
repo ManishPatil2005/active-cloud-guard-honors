@@ -17,6 +17,7 @@ Status as of 2026-09-23. Completed means the stated acceptance criterion was met
 | M3-003 | Controlled TCP probe and integrated pipeline | Implemented/live-observed | output/integrated-demo.json |
 | M3-004 | Regression tests and reproducibility metadata | Complete baseline | 84 tests; lock, image/model digests and raw results |
 | DOC-001 | Strict documentation and maintenance process | Complete | Documentation index, incident/decision ledgers, checked local commit guard |
+| DOC-002 | Research-oriented GitHub README | Complete | Formal abstract, questions, architecture, linked evidence, reproduction and validity limits; no new research claims |
 | VCS-001 | Private GitHub repository and initial publication | Complete | Private main verified on GitHub; local/remote commit match; see WORK_LOG |
 | RES-001 | Independent labels and untouched grouped test set | Open | Two-reviewer workflow; adjudicated labels; no leakage |
 | V2-001 | Exact-request audit reuse with bounded local retention | Implemented/tested/live-observed | Miss then two hits; context invalidation and corruption/expiry tests |

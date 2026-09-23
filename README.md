@@ -1,101 +1,222 @@
-# Active Cloud Guard - Honors Research
+<div align="center">
 
-Working first-three-month research prototype for Manish Patil's proposal, **An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software**.
+# Active Cloud Guard
 
-Read [the deck audit](docs/DECK_AUDIT.md), [experimental protocol](docs/EXPERIMENT_PROTOCOL.md), and [source audit](docs/LITERATURE.md). These explain the scope, corrected score and what the experiments can actually establish.
+### Evidence-linked configuration auditing for cloud-hosted open-source software
 
-Start with [the actual results ledger](output/RESEARCH_STATUS.md) for measured outcomes, model failures and remaining research gates.
+Honors research · Engine 1 v2 · Python package 0.2.0
 
-For detailed project context and maintenance, use the [documentation index](docs/INDEX.md), [work log](docs/WORK_LOG.md), [incident history](docs/INCIDENTS.md) and [task ledger](TASKS.md). The repository is private: [ManishPatil2005/active-cloud-guard-honors](https://github.com/ManishPatil2005/active-cloud-guard-honors).
+[Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
-Enable the included local commit guard after cloning: `git config core.hooksPath .githooks`. It checks documentation and publication exclusions; see the [maintenance contract](docs/DOCUMENTATION_WORKFLOW.md). No GitHub-hosted CI run is implied.
+</div>
 
-## What is implemented
+---
 
-- Nine explicit baseline predicates across selected Compose, Kubernetes, Terraform, Dockerfile and service configuration constructs.
-- A 45-case development corpus with labels and content hashes, generated reproducibly.
-- Nine source summaries with official documentation provenance; lexical retrieval and persistent Chroma semantic retrieval using local Ollama embeddings.
-- Actual local Ollama auditing with JSON-schema validation and source-ID checks. The model is not allowed to execute tools or choose network destinations.
-- Explicit loopback inventory, bounded TCP probes, tri-state evidence and configuration-to-staging linkage.
-- Monotonic provisional prioritization; a refused or inconclusive probe never erases a static finding.
-- A four-service Docker lab, testing scripts and machine-readable observations.
+## Abstract
 
-No runtime anomaly model, eBPF collector, automated isolation or production deployment is included in this M1-3 milestone. They belong to later months in the supplied deck. The existing fixtures are not a held-out benchmark.
+Active Cloud Guard investigates how configuration analysis, retrieval-assisted local language models, and controlled network observations can support security review of cloud-hosted open-source software. The prototype separates three concepts: a configuration-level candidate, observed reachability from a specified vantage point, and an actionable vulnerability.
 
-## Reproduce on Windows PowerShell
+The implementation combines a transparent rule baseline, source-backed retrieval, structured local-model auditing, and explicit staging probes. Engine 1 v2 adds bounded response reuse, reusable vector indexing, generation controls, and stage-level timing. This repository includes development fixtures, reproducibility scripts, raw observations, negative model results, and a documented evaluation protocol.
 
-Use Python 3.11+ and Docker Desktop with Linux containers. All commands run from this repository. On this computer the virtual environment is already installed.
+**Research status:** implemented, software-tested and live-smoke-observed. Independent effectiveness evaluation remains pending. This is a research prototype—not a production security control or a claim of validated vulnerability prevention.
+
+| Project | Details |
+|---|---|
+| Researcher | Manish Patil |
+| Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
+| Current scope | First-three-month engineering deliverables and Engine 1 v2 efficiency improvements |
+| Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
+| Evidence snapshot | 23 September 2026; 106 passing software tests in the saved v2 report |
+| Evaluation data | 45 synthetic development cases; **not an independent test set** |
+
+## Research questions
+
+1. **Retrieved context:** does security-context retrieval improve finding-level precision and recall relative to the same local model without retrieval?
+2. **Verification:** can scoped verification improve prioritization without concealing false negatives or unsupported conclusions?
+3. **Runtime evidence, later work:** what additional value and overhead would runtime observations provide?
+
+These are questions to be evaluated, not established results. The [experimental protocol](docs/EXPERIMENT_PROTOCOL.md) defines independent annotation, grouped data separation, matched comparisons, abstention handling and uncertainty reporting. The [literature audit](docs/LITERATURE.md) distinguishes verified sources from references requiring further review.
+
+## System architecture
+
+```mermaid
+flowchart TD
+    A[Configuration input] --> B[Explicit rule baseline]
+    A --> C[Lexical or Chroma retrieval]
+    C --> D[Local Ollama audit or exact-request cache]
+    D --> E[Schema, source, location and narrow policy checks]
+    E --> F[Review-required model candidates]
+    B --> G[Network-rule candidates]
+    H[Explicit loopback inventory] --> I[Fresh bounded TCP probes]
+    G --> I
+    I --> J[Provisional prioritization]
+    B --> K[Structured research evidence]
+    F --> K
+    J --> K
+```
+
+Model candidates remain separate from rule findings. They do not execute commands, choose probe destinations, or automatically trigger remediation. A TCP connection is reachability evidence, not proof of authentication bypass or Internet exposure. See the [architecture](docs/ARCHITECTURE.md) and [security boundaries](docs/SECURITY.md).
+
+### Implemented capabilities
+
+| Component | Present implementation | Boundary |
+|---|---|---|
+| Configuration baseline | Nine explicit predicates across selected Compose, Kubernetes, Terraform, Dockerfile and service-configuration constructs | Not a general IaC evaluator |
+| Knowledge retrieval | Nine summaries with official-source provenance; lexical and Chroma retrieval | Source membership does not establish entailment |
+| Local-model auditing | Ollama, structured JSON, exact-location checks and two narrow authentication-policy guards | All candidates require human review |
+| Active verification | Explicit loopback inventory; reachable, refused or inconclusive TCP evidence | No credential, exploitability or public-exposure validation |
+| Prioritization | Monotonic provisional scoring; missing evidence remains explicit | Weights are not empirically calibrated |
+| V2 efficiency | Opt-in exact-request cache, index reuse, generation limits and stage timings | Repeat-work optimization, not demonstrated energy savings |
+
+The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as the model service. Runtime anomaly detection, eBPF collection, autonomous isolation and production deployment are outside the current milestone.
+
+## Results and evidence
+
+### Software and integration evidence
+
+| Observation | Evidence | Interpretation |
+|---|---|---|
+| 106 passing software tests | [V2 test report](output/v2-test-results.xml) | Regression checks; not detection accuracy |
+| 45 development fixtures matched expected rule sets | [Development baseline](output/baseline-development.json) | Seeded-predicate coverage, not generalization |
+| Four local TCP accepts and two HTTP 200 responses | [Historical lab observation](output/live-testbed.json) | Time- and vantage-specific availability |
+| Vector retrieval and integrated model/probe execution | [Vector smoke](output/vector-smoke.json), [integrated run](output/integrated-demo.json) | Historical functional observations |
+| Trivy executed on 11 compatible fixtures; 34 excluded | [Trivy baseline](output/trivy-baseline.json) | Different policy coverage; not a head-to-head accuracy result |
+
+### Engine 1 v2: repeat-work efficiency
+
+These measurements come from **one development fixture**, executed sequentially on the recorded Windows environment with `qwen2.5:3b` and `nomic-embed-text`. Pipeline runs used lexical retrieval; index timings are separate operations.
+
+| Operation | Observed wall time | Work performed |
+|---|---:|---|
+| Forced vector-index build | 5.804 s | Nine documents embedded |
+| Unchanged index reuse | 0.084 s | Zero documents embedded |
+| First uncached pipeline | 17.424 s | Fresh generation and TCP probe |
+| Warm cache-miss pipeline | 5.256 s | Fresh generation and TCP probe |
+| Cache-hit pipeline, repeat 1 | 0.084 s | Revalidated cached output; fresh TCP probe |
+| Cache-hit pipeline, repeat 2 | 0.072 s | Revalidated cached output; fresh TCP probe |
+
+Source: [raw v2 observation](output/v2-efficiency-smoke.json). Conditions, identities and metric semantics: [Engine 1 v2 design](docs/ENGINE1_V2.md).
+
+Cached candidates were preserved and probes received new timestamps. These observations establish functional reuse on this input; they do **not** establish a latency distribution, a matched v1 improvement, or energy/carbon savings. The 3.5-second uncached inference target remains unmet.
+
+### Negative results and validity limits
+
+- **Model reliability:** earlier runs produced malformed output and unsupported claims. Both [initial failures](output/rag-smoke-initial-failures.json) and [unsupported candidates](output/rag-smoke-ungrounded-candidates.json) are retained.
+- **Limited guards:** the 3B model inferred trust authentication from a password placeholder. The [pre-guard observation](output/rag-smoke-3b-before-policy-guard.json) remains available. Narrow guards mitigate known predicates; hallucinations are not generally solved.
+- **Data leakage risk:** prompts and model choices were tuned on development cases. These cases cannot subsequently be described as untouched evaluation data.
+- **Coverage:** no general Terraform evaluation, Helm rendering, comprehensive secret detection or role-binding graph is implemented. Unsupported cases must not disappear from evaluation denominators.
+- **External validity:** no independently labeled effectiveness study, calibrated prioritization, production-safety assessment or Linux runtime validation is claimed.
+
+An empty candidate list is not a security certification. A rejected model candidate is an abstention, not a clean verdict. The [evidence index](docs/EVIDENCE.md) distinguishes current v2 artifacts from historical observations; the older [results ledger](output/RESEARCH_STATUS.md) is not a v2 summary.
+
+## Reproducibility
+
+### 1. Prepare the environment
+
+Prerequisites: repository access, Python 3.11+, Git, and Docker with Linux-container support for live experiments. Model/image downloads require several GB. Recorded execution used Windows and Python 3.12.14; other platforms require separate validation.
+
+From the repository root, create and activate an environment.
+
+**Windows PowerShell**
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
-.\.venv\Scripts\python.exe scripts\build_corpus.py
-.\.venv\Scripts\python.exe -m pytest -q --junitxml=output/test-results.xml
-.\.venv\Scripts\python.exe scripts\evaluate.py
-.\.venv\Scripts\python.exe scripts\init_secrets.py
+.\.venv\Scripts\Activate.ps1
+```
+
+**Linux/macOS shell — setup guidance, not a validated run**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Then install the research package and enable the local publication guard:
+
+```bash
+python -m pip install -e ".[vector,test]"
+git config core.hooksPath .githooks
+```
+
+For the captured Windows dependency versions, use `python -m pip install -r requirements-lock.txt` before the editable installation. The [lockfile](requirements-lock.txt) is an environment snapshot, not a guarantee of cross-platform resolution. The [historical environment report](output/environment.json) records earlier image/model identities; v2 model and corpus digests are in its raw observation.
+
+### 2. Run software checks and a model-free scan
+
+```bash
+python -m pytest -q
+python -m pip check
+python -m cloudguard.cli scan data/development/postgres-trust.yaml
+python -m cloudguard.cli retrieve "PostgreSQL trust authentication"
+python scripts/repository_check.py
+```
+
+These commands do not require the live Docker lab. The 45 development fixtures are already versioned; rebuilding them is not required for a first inspection. Lint/format commands and experiment prerequisites are documented in the [test plan](docs/TEST_PLAN.md).
+
+### 3. Start the controlled lab and local models
+
+```bash
+python scripts/init_secrets.py
 docker compose -f testbed/compose.yaml --profile ai up -d
 docker compose -f testbed/compose.yaml exec -T ollama ollama pull qwen2.5:3b
 docker compose -f testbed/compose.yaml exec -T ollama ollama pull nomic-embed-text
-.\.venv\Scripts\python.exe scripts\live_check.py
-.\.venv\Scripts\python.exe scripts\rag_check.py
-.\.venv\Scripts\python.exe scripts\vector_check.py
-.\.venv\Scripts\python.exe scripts\integrated_check.py
-docker pull aquasec/trivy:0.60.0
-.\.venv\Scripts\python.exe scripts\trivy_baseline.py
-.\.venv\Scripts\python.exe scripts\capture_environment.py
-.\.venv\Scripts\python.exe scripts\summarize.py
-.\.venv\Scripts\python.exe scripts\repository_check.py
+python -m cloudguard.cli index
 ```
 
-For a minimal installation without semantic retrieval use `pip install -e .` plus pytest. Chroma can be installed with `pip install -e '.[vector,test]'`. The captured full lock records the tested Windows/Python environment; other platforms may need a separately resolved lock. Initial image/model downloads consume several GB. CPU inference can take much longer than the deck's target latency.
+Model tags can resolve to different artifacts over time. Compare downloaded digests with the saved report before claiming matched reproduction. Pinned historical container versions support reproducibility; they are not a recommendation for production deployment.
 
-## CLI examples
+### 4. Audit, verify and measure
 
-```powershell
-.\.venv\Scripts\python.exe -m cloudguard.cli scan data/development/postgres-trust.yaml
-.\.venv\Scripts\python.exe -m cloudguard.cli retrieve "PostgreSQL trust authentication"
-.\.venv\Scripts\python.exe -m cloudguard.cli audit data/development/postgres-trust.yaml --model qwen2.5:3b
-.\.venv\Scripts\python.exe -m cloudguard.cli index
-.\.venv\Scripts\python.exe -m cloudguard.cli vector-retrieve "Redis protected mode"
-.\.venv\Scripts\python.exe -m cloudguard.cli probe --inventory testbed/inventory.json --asset compose/redis
-.\.venv\Scripts\python.exe -m cloudguard.cli run data/development/redis-all.yaml --inventory testbed/inventory.json
+```bash
+python -m cloudguard.cli run data/development/redis-all.yaml --inventory testbed/inventory.json --model qwen2.5:3b --cache-dir output/audit-cache --max-tokens 512 --timeout 180
+python -m cloudguard.cli probe --inventory testbed/inventory.json --asset compose/redis
+python scripts/benchmark_v2.py --output output/v2-new-run.json
 ```
 
-`run` defaults to lexical retrieval; add `--vector-index output/chroma --model qwen2.5:3b` to use semantic retrieval and real model auditing. LLM candidates remain review-required and separate from rule findings; schema validity, source membership and exact input-location checks do not establish factual correctness.
+Repeat the `run` command to observe exact-request reuse. Omit `--cache-dir` for fresh generation; add `--vector-index output/chroma` for semantic retrieval. Use `index --force` to rebuild embeddings. The timeout is an HTTP socket timeout, not a total workflow deadline or guaranteed cancellation of server work.
 
-## Lab behavior
+The benchmark requires a **new output filename** and preserves partial observations on failure. Do not overwrite committed evidence. Older evaluation scripts may write fixed report paths; run them only in a separate experimental checkout or after explicitly arranging evidence preservation. Consult the [test plan](docs/TEST_PLAN.md) before reproducing historical experiments.
 
-Engine 1 v2 (package 0.2.0) supports optional repeated-audit reuse with `--cache-dir output/audit-cache`, generation limits with `--max-tokens 512 --timeout 180`, and index reuse (`index --force` rebuilds). Applicable probes always run fresh. See [v2 design and reproduction](docs/ENGINE1_V2.md). No faster uncached inference, general accuracy improvement or energy saving is implied by cache-hit speed.
+Stop the lab without deleting model volumes:
 
-Ports: Redis 16379, PostgreSQL 15432, Nginx 18080, MinIO 19000, Ollama 11434; all bind to 127.0.0.1. The dedicated bridge is **not egress-isolated**. Docker's internal-network configuration on this host ignored published mappings, so a standard bridge is used. Do not treat local reachability as public exposure.
-
-PostgreSQL and MinIO credentials are generated under ignored `testbed/secrets/` and never printed. PostgreSQL and MinIO data are disposable tmpfs; container recreation discards that lab data. Redis persistence is disabled. Model downloads are retained in a named Docker volume. Image tags are pinned for this reproduction; their digests are recorded in output/environment.json. These historical lab image versions are not a production-hardening recommendation.
-
-Stop without deleting model data:
-
-```powershell
+```bash
 docker compose -f testbed/compose.yaml --profile ai stop
 ```
 
-Restart with `up -d`. Only run the declared lab services. Corpus files with intentionally weak settings are static scan inputs, not deployment recipes.
+### Lab safety and data handling
 
-## Evidence and limitations
+All published ports bind to `127.0.0.1`: Redis `16379`, PostgreSQL `15432`, Nginx `18080`, MinIO `19000`, and Ollama `11434`. The dedicated bridge is **not egress-isolated**. Only use explicitly authorized local endpoints; intentionally weak fixtures are analysis inputs, not deployment recipes.
 
-| Artifact | Meaning |
+PostgreSQL/MinIO data are disposable; Redis persistence is disabled. Credentials, model weights, vector databases and audit caches are not committed. Generated cache content can repeat sensitive input: use a trusted local directory and preserve exclusions. See [security policy](docs/SECURITY.md) for the complete boundaries.
+
+## Repository guide
+
+| Location | Purpose |
 |---|---|
-| output/test-results.xml | Automated software checks |
-| output/baseline-development.json | Exact seeded-rule regression and timings; not independent accuracy |
-| output/live-testbed.json | Time- and vantage-specific live service observations |
-| output/pipeline-demo.json | Static finding, staging TCP evidence and provisional priority |
-| output/rag-smoke.json | Three real local-model audits including errors and timing |
-| output/vector-smoke.json | Semantic index/retrieval and one real RAG audit |
-| output/trivy-baseline.json | Established-tool execution on 11 supported-format fixtures; different policy coverage |
-| output/environment.json | Versions, image/model digests and file identities |
+| [cloudguard/](cloudguard/) | Parser/rules, retrieval, local audit, cache, probes, scoring and CLI |
+| [tests/](tests/) | Software regression and boundary checks |
+| [data/](data/) | Synthetic development fixtures and labels |
+| [knowledge/](knowledge/) | Source summaries and provenance |
+| [testbed/](testbed/) | Docker lab and explicit endpoint inventory |
+| [scripts/](scripts/) | Reproduction, measurement and publication checks |
+| [output/](output/) | Reviewed observations, failures and test reports |
+| [docs/](docs/INDEX.md) | Protocol, design, evidence, decisions and maintenance history |
 
-Important limits: no general Terraform evaluation, no Helm rendering, no arbitrary service discovery, no auth/exploitability checks, no comprehensive secret detector, no role-binding graph, no calibrated TCI and no independently labeled effectiveness study. Unsupported constructs produce warnings or errors where recognized; the parser is not a completeness validator. Do not interpret an empty finding list as security certification.
+## Research roadmap
 
-The first 1.5B-model runs contained invalid schemas and unsupported findings; those observations are preserved in `output/rag-smoke-initial-failures.json` and `output/rag-smoke-ungrounded-candidates.json`. The default 3B model and input-location constraints were selected using development cases. This is prompt/model tuning, so those cases cannot later be claimed as an untouched test set.
+The next scientific milestone is independent evaluation:
 
-The 3B model also made a false trust-authentication claim on a password placeholder. `grounding.py` adds narrow deterministic corroboration for PostgreSQL trust and Redis protected mode, preserving rejected candidates and an abstention flag. This guard is an engineering control, not independent ground truth or evidence that RAG outperforms the rule baseline. Other policies remain review-required. See `output/rag-smoke-3b-before-policy-guard.json` for the earlier unfiltered observation.
+1. Obtain independent reviewer labels and an untouched, grouped evaluation set.
+2. Run matched rule-baseline, local-model and retrieval-assisted comparisons with coverage and abstentions reported.
+3. Evaluate evidence-linked prioritization, false negatives and uncertainty under an agreed threat model.
+4. Measure unseen-input latency, CPU/memory and power before making broader efficiency or sustainability claims.
+5. Investigate runtime evidence in later milestones after the Engine 1 evaluation gates are met.
 
-Run the established-tool smoke baseline with `python scripts/trivy_baseline.py` after pulling `aquasec/trivy:0.60.0`. It runs containers with networking disabled and bundled checks. Dockerfile, Kubernetes and Terraform fixtures are scanned independently; the other 34 cases are explicitly excluded. Trivy checks additional policies that the small custom baseline does not label, so its extra findings cannot automatically be counted as false positives.
+The [task ledger](TASKS.md) records completed engineering work, partial research work and deferred milestones. Engineering completion is not equivalent to validating the research hypothesis.
+
+## Review, attribution and maintenance
+
+For review, begin with the [protocol](docs/EXPERIMENT_PROTOCOL.md), [evidence index](docs/EVIDENCE.md), [decision register](docs/DECISIONS.md) and [incident ledger](docs/INCIDENTS.md). Changes follow the [documentation maintenance contract](docs/DOCUMENTATION_WORKFLOW.md): record what changed, why, exact checks, failures and remaining limits. The commit guard runs locally; no hosted CI result or peer-review endorsement is implied.
+
+When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.2.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
+
+The repository is private. No open-source license has been selected; access does not itself grant redistribution rights. Contact the repository owner before external reuse or publication of project materials.

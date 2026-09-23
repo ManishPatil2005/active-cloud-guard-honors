@@ -1,5 +1,15 @@
 # Work log
 
+## WL-004 - 2026-09-23 - Research-facing GitHub README (DOC-002)
+
+**Request/acceptance:** make the README formal, visually organized and suitable for research review. Include motivation/questions, actual architecture and scope, evidence-linked observations, reproducibility and validity limits; do not invent endorsement, novelty, a DOI or an open-source license.
+
+**Work:** replaced the operational-note-led introduction with a centered project identity, abstract, reviewer navigation, Mermaid architecture, capability/results tables and explicit research gates. Preserved Python/Docker/Ollama/Chroma. Separated v2 observations from historical reports. Organized setup into environment, model-free checks, lab and experiments; removed the old default sequence that regenerated fixtures and overwrote saved reports. Added cross-platform activation guidance marked unvalidated, safety boundaries and attribution instructions.
+
+**Verification scope:** checked claims against PRD, architecture/protocol and saved v2 evidence. Documentation-only: no runtime changes or new model/experiment results. Publication/link checks and staged review are recorded below after execution. An initial patch syntax attempt was rejected before editing files; the corrected atomic README replacement succeeded. No project data were lost or runtime incident introduced. Historical scripts and evidence were not modified.
+
+**Observed checks:** Python structure check passed balanced code fences/div markup and all 40 local README links. `.venv/Scripts/python.exe scripts/repository_check.py` passed all 125 publication files; `git diff --check` and `git diff --cached --check` passed. Staged review contains exactly five documentation files. GitHub visual rendering was not separately inspected; software tests and live experiments were not rerun for this prose-only change. The cited 106-test result is the saved v2 run. Commit/push verification is performed at publication, with the exact receipt supplied in the task handoff.
+
 Dates are actual work/documentation dates. This project was bootstrapped in one development session; the M1-3 label describes deliverables, not elapsed historical activity.
 
 ## WL-001 - 2026-09-23 - Initial implementation (retrospective)

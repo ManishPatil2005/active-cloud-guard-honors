@@ -10,6 +10,8 @@ Current smoke model: qwen2.5:3b. Latest saved three-case inference times are app
 
 ## Current work
 
+The README now serves as a formal research entry point: abstract, questions, architecture, evidence-linked results, reproduction, safety and roadmap. This documentation-only revision changes no implementation or measurements. Linux/macOS setup guidance is explicitly unvalidated; old fixed-output experiment scripts are excluded from the first-run sequence to protect saved evidence.
+
 Engine 1 v2 efficiency implementation (package 0.2.0) is now implemented and live-smoke-observed: opt-in exact-request caching, index reuse, generation ceilings/socket timeout and stage timing. The suite passes 106 tests. See ENGINE1_V2.md and output/v2-efficiency-smoke.json. First uncached pipeline: 17.424 s; warm cache miss: 5.256 s; hits: 0.084/0.072 s with fresh TCP observations. Index rebuild/reuse: 5.804/0.084 s, nine/zero embedded documents. These are one-fixture repeat-work observations, not an independent speed/accuracy/energy benchmark. Uncached latency and general hallucination research remain open. Git history identifies the v2 snapshot; verify the remote commit rather than inferring publication from this file.
 
 Strict documentation and private GitHub publication are complete. Remote: https://github.com/ManishPatil2005/active-cloud-guard-honors, visibility PRIVATE, default branch main. Initial publication was verified through both GitHub API and git ls-remote, matching the local commit; see WORK_LOG. Git history identifies subsequent documentation receipt commits. Preserve the existing architecture, setup and tech stack.

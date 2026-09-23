@@ -2,6 +2,12 @@
 
 Changes are recorded on the date they occurred or were documented. Historical failures are retained, not removed from the narrative.
 
+## 2026-09-23 - Research-facing README
+
+- Reorganized the GitHub landing page around an abstract, research questions, architecture, linked measurements and threats to validity.
+- Added staged reproduction instructions, evidence-preservation warnings, repository navigation and version-specific attribution guidance.
+- Distinguished v2 measurements from historical reports and local software checks from independent evaluation; no implementation, stack, measurements or license changed.
+
 ## 2026-09-23 - Engine 1 v2 efficiency (package 0.2.0)
 
 - Added opt-in bounded exact-request audit cache, current model identity checks and cached-output revalidation; probes remain fresh.
