@@ -34,4 +34,6 @@ Dates are actual work/documentation dates. This project was bootstrapped in one 
 
 **Commit/push verification:** to be appended after the remote state is observed. No GitHub Actions run is claimed.
 
+Initial local commit: `cda1f53721e341a8c7d4c7dd38425ce0b85b48a7` (`feat: establish tested honors research prototype and strict documentation`), 119 files. The actual pre-commit hook ran and passed. A post-commit correction addresses the evidence-file CRLF whitespace warning (INC-017); rechecking both the committed snapshot and working diff returned exit 0. Experimental bytes remain unchanged. Subsequent publication command sequences stop on failure.
+
 **Remaining:** independently validated research results, broader literature verification, model reliability/latency and later runtime work remain open in TASKS.md.

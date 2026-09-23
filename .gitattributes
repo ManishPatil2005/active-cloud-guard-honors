@@ -9,4 +9,4 @@
 *.pdf binary
 .githooks/* text eol=lf
 # Preserve original experiment bytes, including their original line endings.
-output/** -text
+output/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
