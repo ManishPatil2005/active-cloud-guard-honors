@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "file": "D:\\research f1\\data\\development\\redis-all.yaml",
+  "sha256": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d",
+  "findings": [
+    {
+      "id": "11ef54a87dd6175a41b3",
+      "asset_id": "compose/redis",
+      "rule_id": "NET001",
+      "title": "Service published beyond loopback",
+      "static_score": 0.65,
+      "location": "services.redis.ports[0]",
+      "source_ids": [
+        "docker-ports"
+      ],
+      "origin": "rule_baseline",
+      "evidence": "Configuration predicate matched; no exploitation claim.",
+      "probe": {
+        "asset_id": "compose/redis",
+        "host": "127.0.0.1",
+        "port": 16379,
+        "vantage": "local-host",
+        "outcome": "reachable",
+        "reason": "TCP connection accepted; authentication not tested",
+        "elapsed_ms": 17.493,
+        "observed_at": "2026-09-22T20:32:55.189491+00:00",
+        "protocol": "tcp"
+      },
+      "priority": {
+        "value": 0.678125,
+        "runtime_observed": false,
+        "exposure": "reachable",
+        "policy": "tci-v0.1-provisional",
+        "calibrated": false
+      }
+    }
+  ],
+  "warnings": [],
+  "coverage": "selected predicates only; absence of findings is not proof of safety",
+  "retrieved_sources": [
+    {
+      "id": "redis-security",
+      "title": "Redis protected mode and access control",
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/security/",
+      "reviewed": "2026-09-23",
+      "kind": "author-written source summary",
+      "text": "Redis is intended for trusted clients in trusted environments. Restrict network access and configure authentication. Disabling protected-mode removes a protective mechanism; inspect network boundaries and ACLs before concluding that unauthenticated access is possible.",
+      "distance": 0.24709552526474,
+      "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    },
+    {
+      "id": "docker-ports",
+      "title": "Docker published ports and host bindings",
+      "url": "https://docs.docker.com/engine/network/port-publishing/",
+      "reviewed": "2026-09-23",
+      "kind": "author-written source summary",
+      "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+      "distance": 0.3454800844192505,
+      "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    },
+    {
+      "id": "k8s-service",
+      "title": "Kubernetes service exposure types",
+      "url": "https://kubernetes.io/docs/concepts/services-networking/service/",
+      "reviewed": "2026-09-23",
+      "kind": "author-written source summary",
+      "text": "NodePort publishes service ports on nodes and LoadBalancer requests an external load balancer. ClusterIP is cluster internal by default. These types indicate intended exposure, not proof of public Internet reachability or a vulnerability.",
+      "distance": 0.4184647798538208,
+      "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    }
+  ],
+  "retrieval_mode": "chroma_ollama",
+  "rag": {
+    "output": {
+      "findings": [
+        {
+          "asset_id": "services/redis",
+          "title": "Redis published on all host addresses by default",
+          "location": "/services/redis/ports/0",
+          "score": 0.75,
+          "source_ids": [
+            "docker-ports"
+          ],
+          "grounding_status": "requires_human_entailment_review"
+        }
+      ]
+    },
+    "model": "qwen2.5:3b",
+    "origin": "ollama_rag",
+    "review_required": true,
+    "rejected_findings": [],
+    "abstained": false,
+    "grounding": "source membership and exact input location checked; entailment requires review",
+    "guard_policy": "Known PostgreSQL trust and Redis protected-mode predicates only; not an independent accuracy evaluator",
+    "total_duration_ns": 10533058404,
+    "prompt_eval_count": 762
+  },
+  "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+  "policy_notes": [
+    "Inventory maps candidate assets to staging endpoints; it does not establish Internet reachability.",
+    "Only network findings receive TCP evidence. Secrets and authorization findings cannot be refuted by TCP refusal.",
+    "Asset criticality 0.5 and weights are illustrative, not calibrated.",
+    "LLM candidates require human location/asset/entailment review before verification or scoring."
+  ]
+}

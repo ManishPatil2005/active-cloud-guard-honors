@@ -1,0 +1,134 @@
+{
+  "observed_at": "2026-09-22T20:18:54.592647+00:00",
+  "model": "qwen2.5:1.5b",
+  "cases": [
+    {
+      "case": "postgres-trust.yaml",
+      "sha256": "409b67d24104ca5c96daa610d3f14c857c9d888f4c2374607c7e9bc8ad9abbee",
+      "sources": [
+        {
+          "id": "postgres-trust",
+          "title": "PostgreSQL trust authentication",
+          "url": "https://www.postgresql.org/docs/current/auth-trust.html",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "PostgreSQL trust authentication permits connecting clients to claim a database user without a password. Treat POSTGRES_HOST_AUTH_METHOD trust or a matching pg_hba host trust rule as a candidate weak-authentication finding. TCP reachability alone does not prove a database login succeeds.",
+          "relevance": 5.772779,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "aws-sg",
+          "title": "AWS security group ingress rules",
+          "url": "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "An ingress CIDR of 0.0.0.0/0 permits all IPv4 sources and ::/0 permits all IPv6 sources for the specified traffic. Reachability also depends on routing, addresses, network ACLs and listening services. Terraform security group configuration alone does not prove access.",
+          "relevance": 1.386294,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "docker-ports",
+          "title": "Docker published ports and host bindings",
+          "url": "https://docs.docker.com/engine/network/port-publishing/",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+          "relevance": 1.386294,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        }
+      ],
+      "result": null,
+      "error": "ValidationError",
+      "elapsed_s": 13.230915299998742
+    },
+    {
+      "case": "redis-unprotected.yaml",
+      "sha256": "70e97e27923a8e0620b3f0f6e31407596010c138ca17ddc02b64764065b65b66",
+      "sources": [
+        {
+          "id": "redis-security",
+          "title": "Redis protected mode and access control",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/security/",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "Redis is intended for trusted clients in trusted environments. Restrict network access and configure authentication. Disabling protected-mode removes a protective mechanism; inspect network boundaries and ACLs before concluding that unauthenticated access is possible.",
+          "relevance": 8.119979,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "docker-ports",
+          "title": "Docker published ports and host bindings",
+          "url": "https://docs.docker.com/engine/network/port-publishing/",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+          "relevance": 2.772589,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "nginx-autoindex",
+          "title": "Nginx directory indexing",
+          "url": "https://nginx.org/en/docs/http/ngx_http_autoindex_module.html",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "The Nginx autoindex module generates directory listings. The autoindex directive defaults to off. Explicit autoindex on may reveal directory contents when no index file is available; whether this violates policy depends on the intended content.",
+          "relevance": 1.704748,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        }
+      ],
+      "result": {
+        "output": {
+          "findings": [
+            {
+              "asset_id": "app",
+              "title": "Redis protected mode and access control misconfiguration",
+              "location": "services/app/command: --protected-mode no",
+              "score": 0.819979,
+              "source_ids": [
+                "redis-security"
+              ]
+            }
+          ]
+        },
+        "model": "qwen2.5:1.5b",
+        "origin": "ollama_rag",
+        "review_required": true,
+        "grounding": "source membership checked; entailment and locations require review",
+        "total_duration_ns": 5970819917,
+        "prompt_eval_count": 709
+      },
+      "error": null,
+      "elapsed_s": 6.026634300000296
+    },
+    {
+      "case": "postgres-reference.yaml",
+      "sha256": "4c62e35533fc078d6fa5b6d24ee8879a27de8459bdcad758d8eda84445aaa69f",
+      "sources": [
+        {
+          "id": "aws-sg",
+          "title": "AWS security group ingress rules",
+          "url": "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "An ingress CIDR of 0.0.0.0/0 permits all IPv4 sources and ::/0 permits all IPv6 sources for the specified traffic. Reachability also depends on routing, addresses, network ACLs and listening services. Terraform security group configuration alone does not prove access.",
+          "relevance": 1.386294,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "docker-ports",
+          "title": "Docker published ports and host bindings",
+          "url": "https://docs.docker.com/engine/network/port-publishing/",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+          "relevance": 1.386294,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        }
+      ],
+      "result": null,
+      "error": "ValidationError",
+      "elapsed_s": 4.838786699998309
+    }
+  ],
+  "scope": "three-case functional smoke test; not RAG accuracy benchmark"
+}

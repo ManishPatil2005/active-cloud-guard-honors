@@ -1,0 +1,7 @@
+services:
+  nginx:
+    image: nginx
+    ports:
+    - host_ip: 0.0.0.0
+      published: 80
+      target: 80

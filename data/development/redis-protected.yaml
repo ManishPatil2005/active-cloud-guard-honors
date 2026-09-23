@@ -1,0 +1,6 @@
+services:
+  app:
+    command:
+    - redis-server
+    - --protected-mode
+    - 'yes'

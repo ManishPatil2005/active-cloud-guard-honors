@@ -1,0 +1,5 @@
+services:
+  postgres:
+    image: postgres
+    ports:
+    - '[::1]:5432:5432'

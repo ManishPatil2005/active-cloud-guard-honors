@@ -1,0 +1,459 @@
+[
+  {
+    "id": "redis-all.yaml",
+    "path": "data/development/redis-all.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "redis-binding",
+    "split": "development",
+    "sha256": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-loopback.yaml",
+    "path": "data/development/redis-loopback.yaml",
+    "expected_rules": [],
+    "family": "redis-binding",
+    "split": "development",
+    "sha256": "e32f6c4fa769ce889b2a72e6346f02e3e3c2f1846441572092bd23ade137a347",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-ipv6.yaml",
+    "path": "data/development/redis-ipv6.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "redis-binding",
+    "split": "development",
+    "sha256": "6a975b1e3d8d1fb8f5c3ee1b682359aa7615fe4fb283eb59892e088aa8dbdbeb",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-ipv6-loopback.yaml",
+    "path": "data/development/redis-ipv6-loopback.yaml",
+    "expected_rules": [],
+    "family": "redis-binding",
+    "split": "development",
+    "sha256": "78696264585840aeaf5abbf0ec2a6b89c708e3cbf5bab708aeca2044f065e5e3",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-long.yaml",
+    "path": "data/development/redis-long.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "redis-binding",
+    "split": "development",
+    "sha256": "93149399b079e9ecff11bdbdeb2e3480005eba5f3634cb84d3c85743309efc26",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-all.yaml",
+    "path": "data/development/postgres-all.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "postgres-binding",
+    "split": "development",
+    "sha256": "3ff05ee87d0b26a09732e728aea3a2224de6daeb014b6213a7e96e794b652f83",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-loopback.yaml",
+    "path": "data/development/postgres-loopback.yaml",
+    "expected_rules": [],
+    "family": "postgres-binding",
+    "split": "development",
+    "sha256": "c1f180b468c3383722dda4d961929926d4d4699f41c2caf6a4550f2ff079a873",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-ipv6.yaml",
+    "path": "data/development/postgres-ipv6.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "postgres-binding",
+    "split": "development",
+    "sha256": "95c85b02cbb801812b39754adb2c1ddeadf7ecdbf16709fbc2e8f69c55630c89",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-ipv6-loopback.yaml",
+    "path": "data/development/postgres-ipv6-loopback.yaml",
+    "expected_rules": [],
+    "family": "postgres-binding",
+    "split": "development",
+    "sha256": "5d342df54b664611be07e90b5b4ec340cc334b0d3fe98e0b5853907fd6bd9312",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-long.yaml",
+    "path": "data/development/postgres-long.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "postgres-binding",
+    "split": "development",
+    "sha256": "c3484433b9bb01104dcf86e75fbf5a26db1b60330bdf4b047b32b150302d563e",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-all.yaml",
+    "path": "data/development/nginx-all.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "nginx-binding",
+    "split": "development",
+    "sha256": "bceb52d066f5fecd40e61710c4d65780552cef61047921afe671f96c1aa1c018",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-loopback.yaml",
+    "path": "data/development/nginx-loopback.yaml",
+    "expected_rules": [],
+    "family": "nginx-binding",
+    "split": "development",
+    "sha256": "712dd7537abe74e0a9e86a9ed0bebc131d0f66e30713379a3619c157796320cb",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-ipv6.yaml",
+    "path": "data/development/nginx-ipv6.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "nginx-binding",
+    "split": "development",
+    "sha256": "c99069f94b712bcb0d82448ddd431230036738450169d0fef8dc67ace7a5b63c",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-ipv6-loopback.yaml",
+    "path": "data/development/nginx-ipv6-loopback.yaml",
+    "expected_rules": [],
+    "family": "nginx-binding",
+    "split": "development",
+    "sha256": "72bcd95ff9aa49f070a9814111f777b7a8791afbc3307303387d1a34d6ff127a",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-long.yaml",
+    "path": "data/development/nginx-long.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "nginx-binding",
+    "split": "development",
+    "sha256": "770331419de0ff312f13efdc51cfbbc6ec6e354418a8af9c633b197cd811c248",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "minio-all.yaml",
+    "path": "data/development/minio-all.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "minio-binding",
+    "split": "development",
+    "sha256": "bfbf99d9b701f4194bcfd770406a1bb7b0a2c79ab828d32304bd62d17d2a06c6",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "minio-loopback.yaml",
+    "path": "data/development/minio-loopback.yaml",
+    "expected_rules": [],
+    "family": "minio-binding",
+    "split": "development",
+    "sha256": "6247945663a529c3f88d841e02f8ba0aa4297b2255862814cabc584ad233f484",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "minio-ipv6.yaml",
+    "path": "data/development/minio-ipv6.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "minio-binding",
+    "split": "development",
+    "sha256": "5ddf834019a56bf1105ed2acf5d641e1d511dede6c8cd63432b7d13a56d9e1f4",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "minio-ipv6-loopback.yaml",
+    "path": "data/development/minio-ipv6-loopback.yaml",
+    "expected_rules": [],
+    "family": "minio-binding",
+    "split": "development",
+    "sha256": "bba014e7b12caeea1c1b33bf627e3093076aec1ee8760af579e8a096fa30c4c6",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "minio-long.yaml",
+    "path": "data/development/minio-long.yaml",
+    "expected_rules": [
+      "NET001"
+    ],
+    "family": "minio-binding",
+    "split": "development",
+    "sha256": "7c2cc406635dd3e623a85f123ebd595fa3ff393f8d33e44e495f6e8f652cf399",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-trust.yaml",
+    "path": "data/development/postgres-trust.yaml",
+    "expected_rules": [
+      "AUTH001"
+    ],
+    "family": "postgres-trust",
+    "split": "development",
+    "sha256": "409b67d24104ca5c96daa610d3f14c857c9d888f4c2374607c7e9bc8ad9abbee",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-secret.yaml",
+    "path": "data/development/postgres-secret.yaml",
+    "expected_rules": [
+      "SEC001"
+    ],
+    "family": "postgres-secret",
+    "split": "development",
+    "sha256": "a1dd0a8fde0db0efc3c41efe7217a7a9afa412cde103f9c820c534c8727be2fa",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "postgres-reference.yaml",
+    "path": "data/development/postgres-reference.yaml",
+    "expected_rules": [],
+    "family": "postgres-reference",
+    "split": "development",
+    "sha256": "4c62e35533fc078d6fa5b6d24ee8879a27de8459bdcad758d8eda84445aaa69f",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-unprotected.yaml",
+    "path": "data/development/redis-unprotected.yaml",
+    "expected_rules": [
+      "AUTH002"
+    ],
+    "family": "redis-unprotected",
+    "split": "development",
+    "sha256": "70e97e27923a8e0620b3f0f6e31407596010c138ca17ddc02b64764065b65b66",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-protected.yaml",
+    "path": "data/development/redis-protected.yaml",
+    "expected_rules": [],
+    "family": "redis-protected",
+    "split": "development",
+    "sha256": "110c3cdcda60d1fd6df3534221ad9c5acdd77cf0899cd6d74ea8138d9541a7c1",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "privileged.yaml",
+    "path": "data/development/privileged.yaml",
+    "expected_rules": [
+      "PRIV001"
+    ],
+    "family": "privileged",
+    "split": "development",
+    "sha256": "4a5b344df2d516354263d45d32c05f96385b118963a11fa72ded95fc88904bde",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "unprivileged.yaml",
+    "path": "data/development/unprivileged.yaml",
+    "expected_rules": [],
+    "family": "unprivileged",
+    "split": "development",
+    "sha256": "cd5ab1dcc50e919efc59827dfdc9746fc0dccf9e6eb20ad2752b8c937f91de1d",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "minio-secret.yaml",
+    "path": "data/development/minio-secret.yaml",
+    "expected_rules": [
+      "SEC001"
+    ],
+    "family": "minio-secret",
+    "split": "development",
+    "sha256": "98a710dcba44548df8ac500d67f24575c447d00fedfbc62d2dcd5ff3a6b8453f",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-NodePort.yaml",
+    "path": "data/development/k8s-NodePort.yaml",
+    "expected_rules": [
+      "NET002"
+    ],
+    "family": "k8s-service",
+    "split": "development",
+    "sha256": "f64244cd4e6342297df49deb0b41712e7f99f48dee8cc72a90d2809365451bf3",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-LoadBalancer.yaml",
+    "path": "data/development/k8s-LoadBalancer.yaml",
+    "expected_rules": [
+      "NET002"
+    ],
+    "family": "k8s-service",
+    "split": "development",
+    "sha256": "de140ec71ee69bc93c5294414f2773e7075c0f7e80b3b88a5a2a700a089272e9",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-ClusterIP.yaml",
+    "path": "data/development/k8s-ClusterIP.yaml",
+    "expected_rules": [],
+    "family": "k8s-service",
+    "split": "development",
+    "sha256": "27619daa230535fcf38e93a3969612ac03abe814b1799664959da432919aa1ee",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-role-True.yaml",
+    "path": "data/development/k8s-role-True.yaml",
+    "expected_rules": [
+      "RBAC001"
+    ],
+    "family": "k8s-rbac",
+    "split": "development",
+    "sha256": "d7d58d8f6a47a53b5f6a9bdbeab6827593bdc905af9e4d000055d6f29c1a8404",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-role-False.yaml",
+    "path": "data/development/k8s-role-False.yaml",
+    "expected_rules": [],
+    "family": "k8s-rbac",
+    "split": "development",
+    "sha256": "f0efc6a2e512c5a38536dd4b1b47c7dfc79acd1583ec85f74dd748a22f935a8d",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-pod-True.yaml",
+    "path": "data/development/k8s-pod-True.yaml",
+    "expected_rules": [
+      "PRIV001"
+    ],
+    "family": "k8s-privilege",
+    "split": "development",
+    "sha256": "de716b585c439ee8e92fbb9f46ce315b1ae1cf553ce4557217a6996c64d2b1cc",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "k8s-pod-False.yaml",
+    "path": "data/development/k8s-pod-False.yaml",
+    "expected_rules": [],
+    "family": "k8s-privilege",
+    "split": "development",
+    "sha256": "3d24eb3226dea78607a8d1b08a5b3f073838d030178b4041d83b8b5b56b0907e",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "sg-world.tf",
+    "path": "data/development/sg-world.tf",
+    "expected_rules": [
+      "NET003"
+    ],
+    "family": "terraform-sg",
+    "split": "development",
+    "sha256": "19f663535d3d6b20c39296199571724da7c5d9922aa6dd09d9eb35f358f263ed",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "sg-private.tf",
+    "path": "data/development/sg-private.tf",
+    "expected_rules": [],
+    "family": "terraform-sg",
+    "split": "development",
+    "sha256": "029b4cb48f99b1271468b3674f6c5f226dd29ebbeeaa4bd2af93e08f6493f107",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "Dockerfile.secret",
+    "path": "data/development/Dockerfile.secret",
+    "expected_rules": [
+      "SEC001"
+    ],
+    "family": "docker-credentials",
+    "split": "development",
+    "sha256": "4486fc7d43f54cc552d34988980e03ecbbca209dab52669738d5ff3eeef3bb3d",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "Dockerfile.clean",
+    "path": "data/development/Dockerfile.clean",
+    "expected_rules": [],
+    "family": "docker-credentials",
+    "split": "development",
+    "sha256": "99f67ef907b63b38d272890159f5d1cd955ad78efb0dfaf5aa57153b3c25cdf6",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-on.conf",
+    "path": "data/development/nginx-on.conf",
+    "expected_rules": [
+      "WEB001"
+    ],
+    "family": "nginx-listing",
+    "split": "development",
+    "sha256": "251a4ba12e2b13d83e1098dce720e9362cc4d822403b812627755474160c35c6",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "nginx-off.conf",
+    "path": "data/development/nginx-off.conf",
+    "expected_rules": [],
+    "family": "nginx-listing",
+    "split": "development",
+    "sha256": "63f3decc6b8ec9f57f99ce0780b498d0126eff9e1d37b260cc3b32d893edccd4",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-off.conf",
+    "path": "data/development/redis-off.conf",
+    "expected_rules": [
+      "AUTH002"
+    ],
+    "family": "redis-directive",
+    "split": "development",
+    "sha256": "7e4cfac23370f1703da46ed3321d0d45cd638aeac7b66d78da1c0563de1152d2",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "redis-on.conf",
+    "path": "data/development/redis-on.conf",
+    "expected_rules": [],
+    "family": "redis-directive",
+    "split": "development",
+    "sha256": "0ef30fe42c835b161d1ebfa93db6ca75975a80a69e8b2ecad0a38ba5b4f5339c",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "pg-trust.conf",
+    "path": "data/development/pg-trust.conf",
+    "expected_rules": [
+      "AUTH001"
+    ],
+    "family": "postgres-hba",
+    "split": "development",
+    "sha256": "a263f29bccce21de19b4d4619b656519626886f42ffe8bb2409f7e0faa997a9c",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  },
+  {
+    "id": "pg-scram.conf",
+    "path": "data/development/pg-scram.conf",
+    "expected_rules": [],
+    "family": "postgres-hba",
+    "split": "development",
+    "sha256": "3c698f65615a26244b528a7a62f1995c5bc0b90467e40faab21260b952c3e1ae",
+    "label_basis": "manually specified seeded policy predicate; not real-world vulnerability ground truth"
+  }
+]

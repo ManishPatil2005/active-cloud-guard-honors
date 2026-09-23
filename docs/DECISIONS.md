@@ -1,0 +1,20 @@
+# Decision register
+
+Entries below document decisions made during the initial implementation on 2026-09-23. This is a retrospective record; no earlier Git commits or approval dates are implied.
+
+| ID | Decision and reason | Consequence / status |
+|---|---|---|
+| ADR-001 | Preserve Python CLI/library plus Docker, Ollama and Chroma, following the research deck | Current architecture; user explicitly reaffirmed preservation |
+| ADR-002 | Scope the present milestone to M1-3/early Engine 1 | Runtime ML, isolation and full-system benchmarking remain later work |
+| ADR-003 | Keep candidate configuration issues distinct from reachability and actionability | TCP acceptance is not proof of authentication bypass or public exposure |
+| ADR-004 | Replace the ambiguous negative reachability adjustment with a monotonic provisional policy | Exposure cannot reduce risk; calibration still required |
+| ADR-005 | Keep refused/inconclusive evidence from erasing static findings | Conservative behavior may not reduce FP counts; that remains a hypothesis |
+| ADR-006 | Implement lexical retrieval alongside Chroma local embeddings | Supports future ablation; nine summaries are only an initial corpus |
+| ADR-007 | Preserve failed 1.5B runs and use 3B for final smoke checks | Model selection was development tuning; no held-out claim; latency increased |
+| ADR-008 | Check exact input locations and add narrow deterministic auth corroboration | Rejects observed unsupported claims; does not establish general semantic correctness |
+| ADR-009 | Use a dedicated bridge with localhost publishing after internal-network port mapping failed | Live checks work; outbound traffic is permitted and documented |
+| ADR-010 | Scan supported Trivy fixtures independently with bundled checks and networking disabled | Avoids merging Terraform cases or policy-update incompatibility; rule coverage differs |
+| ADR-011 | Commit raw evidence, synthetic fixtures, source deck and documentation; exclude secrets/caches/weights | Repository is reproducible without publishing generated credentials |
+| ADR-012 | Create a private GitHub repository by default | Avoids an unrequested public research release; no open-source license inferred |
+
+Supersede decisions with a new entry linked to the old ID. Record rationale, consequences and verification; do not silently rewrite the historical rationale. Architecture changes require the owner's authorization.

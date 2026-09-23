@@ -1,0 +1,7 @@
+services:
+  minio:
+    image: minio
+    ports:
+    - host_ip: 0.0.0.0
+      published: 9000
+      target: 9000

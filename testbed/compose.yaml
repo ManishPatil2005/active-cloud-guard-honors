@@ -1,0 +1,51 @@
+name: honors-cloud-guard
+services:
+  redis:
+    image: redis:7.4.2-alpine
+    command: [redis-server, --save, "", --appendonly, "no", --protected-mode, "yes"]
+    ports: ["127.0.0.1:16379:6379"]
+    networks: [lab]
+    mem_limit: 192m
+  postgres:
+    image: postgres:17.4-alpine
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/pg_password
+    secrets: [pg_password]
+    ports: ["127.0.0.1:15432:5432"]
+    networks: [lab]
+    mem_limit: 384m
+    tmpfs: [/var/lib/postgresql/data]
+  nginx:
+    image: nginx:1.28.0-alpine
+    ports: ["127.0.0.1:18080:80"]
+    networks: [lab]
+    mem_limit: 128m
+  minio:
+    image: quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z
+    command: [server, /data, --console-address, ":9001"]
+    environment:
+      MINIO_ROOT_USER: research-admin
+      MINIO_ROOT_PASSWORD_FILE: /run/secrets/minio_password
+    secrets: [minio_password]
+    ports: ["127.0.0.1:19000:9000"]
+    networks: [lab]
+    mem_limit: 512m
+    tmpfs: [/data]
+  ollama:
+    image: ollama/ollama:0.6.5
+    profiles: [ai]
+    ports: ["127.0.0.1:11434:11434"]
+    volumes: [ollama_models:/root/.ollama]
+    mem_limit: 3g
+networks:
+  lab:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.host_binding_ipv4: "127.0.0.1"
+secrets:
+  pg_password:
+    file: ./secrets/pg_password.txt
+  minio_password:
+    file: ./secrets/minio_password.txt
+volumes:
+  ollama_models:

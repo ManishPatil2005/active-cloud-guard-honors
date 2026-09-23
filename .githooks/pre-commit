@@ -1,0 +1,10 @@
+#!/bin/sh
+# Repository-local documentation/publication guard; no network or mutation.
+repo_root=$(git rev-parse --show-toplevel) || exit 1
+if [ -x "$repo_root/.venv/Scripts/python.exe" ]; then
+    exec "$repo_root/.venv/Scripts/python.exe" "$repo_root/scripts/repository_check.py"
+elif [ -x "$repo_root/.venv/bin/python" ]; then
+    exec "$repo_root/.venv/bin/python" "$repo_root/scripts/repository_check.py"
+else
+    exec python3 "$repo_root/scripts/repository_check.py"
+fi

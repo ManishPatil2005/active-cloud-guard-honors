@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "file": "D:\\research f1\\data\\development\\redis-all.yaml",
+  "sha256": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d",
+  "findings": [
+    {
+      "id": "11ef54a87dd6175a41b3",
+      "asset_id": "compose/redis",
+      "rule_id": "NET001",
+      "title": "Service published beyond loopback",
+      "static_score": 0.65,
+      "location": "services.redis.ports[0]",
+      "source_ids": [
+        "docker-ports"
+      ],
+      "origin": "rule_baseline",
+      "evidence": "Configuration predicate matched; no exploitation claim.",
+      "probe": {
+        "asset_id": "compose/redis",
+        "host": "127.0.0.1",
+        "port": 16379,
+        "vantage": "local-host",
+        "outcome": "reachable",
+        "reason": "TCP connection accepted; authentication not tested",
+        "elapsed_ms": 24.147,
+        "observed_at": "2026-09-22T20:18:22.966624+00:00",
+        "protocol": "tcp"
+      },
+      "priority": {
+        "value": 0.678125,
+        "runtime_observed": false,
+        "exposure": "reachable",
+        "policy": "tci-v0.1-provisional",
+        "calibrated": false
+      }
+    }
+  ],
+  "warnings": [],
+  "coverage": "selected predicates only; absence of findings is not proof of safety",
+  "retrieved_sources": [
+    {
+      "id": "docker-ports",
+      "title": "Docker published ports and host bindings",
+      "url": "https://docs.docker.com/engine/network/port-publishing/",
+      "reviewed": "2026-09-23",
+      "kind": "author-written source summary",
+      "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+      "relevance": 5.119789,
+      "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    },
+    {
+      "id": "redis-security",
+      "title": "Redis protected mode and access control",
+      "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/security/",
+      "reviewed": "2026-09-23",
+      "kind": "author-written source summary",
+      "text": "Redis is intended for trusted clients in trusted environments. Restrict network access and configure authentication. Disabling protected-mode removes a protective mechanism; inspect network boundaries and ACLs before concluding that unauthenticated access is possible.",
+      "relevance": 2.3472,
+      "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    },
+    {
+      "id": "aws-sg",
+      "title": "AWS security group ingress rules",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html",
+      "reviewed": "2026-09-23",
+      "kind": "author-written source summary",
+      "text": "An ingress CIDR of 0.0.0.0/0 permits all IPv4 sources and ::/0 permits all IPv6 sources for the specified traffic. Reachability also depends on routing, addresses, network ACLs and listening services. Terraform security group configuration alone does not prove access.",
+      "relevance": 1.386294,
+      "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    }
+  ],
+  "rag": null,
+  "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+  "policy_notes": [
+    "Inventory maps candidate assets to staging endpoints; it does not establish Internet reachability.",
+    "Only network findings receive TCP evidence. Secrets and authorization findings cannot be refuted by TCP refusal.",
+    "Asset criticality 0.5 and weights are illustrative, not calibrated.",
+    "LLM candidates require human location/asset/entailment review before verification or scoring."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "observed_at": "2026-09-22T20:18:22.839822+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tcp": [
+    {
+      "asset_id": "compose/redis",
+      "host": "127.0.0.1",
+      "port": 16379,
+      "vantage": "local-host",
+      "outcome": "reachable",
+      "reason": "TCP connection accepted; authentication not tested",
+      "elapsed_ms": 2.535,
+      "observed_at": "2026-09-22T20:18:22.775651+00:00",
+      "protocol": "tcp"
+    },
+    {
+      "asset_id": "compose/postgres",
+      "host": "127.0.0.1",
+      "port": 15432,
+      "vantage": "local-host",
+      "outcome": "reachable",
+      "reason": "TCP connection accepted; authentication not tested",
+      "elapsed_ms": 0.224,
+      "observed_at": "2026-09-22T20:18:22.775651+00:00",
+      "protocol": "tcp"
+    },
+    {
+      "asset_id": "compose/nginx",
+      "host": "127.0.0.1",
+      "port": 18080,
+      "vantage": "local-host",
+      "outcome": "reachable",
+      "reason": "TCP connection accepted; authentication not tested",
+      "elapsed_ms": 18.403,
+      "observed_at": "2026-09-22T20:18:22.794352+00:00",
+      "protocol": "tcp"
+    },
+    {
+      "asset_id": "compose/minio",
+      "host": "127.0.0.1",
+      "port": 19000,
+      "vantage": "local-host",
+      "outcome": "reachable",
+      "reason": "TCP connection accepted; authentication not tested",
+      "elapsed_ms": 15.093,
+      "observed_at": "2026-09-22T20:18:22.809288+00:00",
+      "protocol": "tcp"
+    }
+  ],
+  "http": [
+    {
+      "port": 18080,
+      "path": "/",
+      "status": 200
+    },
+    {
+      "port": 19000,
+      "path": "/minio/health/live",
+      "status": 200
+    }
+  ],
+  "scope": "localhost service availability only; not authentication or Internet exposure"
+}

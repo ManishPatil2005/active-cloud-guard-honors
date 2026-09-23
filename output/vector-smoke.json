@@ -1,0 +1,105 @@
+{
+  "observed_at": "2026-09-22T20:30:49.230415+00:00",
+  "index": {
+    "count": 9,
+    "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24",
+    "embedding_model": "nomic-embed-text",
+    "embedding_digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+    "collection": "knowledge-a6032783e8c29ebce0b2218b"
+  },
+  "checks": [
+    {
+      "query": "PostgreSQL trust authentication",
+      "expected": "postgres-trust",
+      "retrieved": [
+        "postgres-trust",
+        "redis-security",
+        "k8s-secrets"
+      ],
+      "passed": true
+    },
+    {
+      "query": "Redis protected-mode disabled",
+      "expected": "redis-security",
+      "retrieved": [
+        "redis-security",
+        "k8s-rbac",
+        "k8s-security"
+      ],
+      "passed": true
+    },
+    {
+      "query": "wildcard Kubernetes RBAC permissions",
+      "expected": "k8s-rbac",
+      "retrieved": [
+        "k8s-rbac",
+        "redis-security",
+        "k8s-secrets"
+      ],
+      "passed": true
+    }
+  ],
+  "rag": {
+    "case": "postgres-trust.yaml",
+    "sources": [
+      {
+        "id": "postgres-trust",
+        "title": "PostgreSQL trust authentication",
+        "url": "https://www.postgresql.org/docs/current/auth-trust.html",
+        "reviewed": "2026-09-23",
+        "kind": "author-written source summary",
+        "text": "PostgreSQL trust authentication permits connecting clients to claim a database user without a password. Treat POSTGRES_HOST_AUTH_METHOD trust or a matching pg_hba host trust rule as a candidate weak-authentication finding. TCP reachability alone does not prove a database login succeeds.",
+        "distance": 0.24160510301589966,
+        "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+      },
+      {
+        "id": "docker-ports",
+        "title": "Docker published ports and host bindings",
+        "url": "https://docs.docker.com/engine/network/port-publishing/",
+        "reviewed": "2026-09-23",
+        "kind": "author-written source summary",
+        "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+        "distance": 0.36408674716949463,
+        "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+      },
+      {
+        "id": "redis-security",
+        "title": "Redis protected mode and access control",
+        "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/security/",
+        "reviewed": "2026-09-23",
+        "kind": "author-written source summary",
+        "text": "Redis is intended for trusted clients in trusted environments. Restrict network access and configure authentication. Disabling protected-mode removes a protective mechanism; inspect network boundaries and ACLs before concluding that unauthenticated access is possible.",
+        "distance": 0.3663952946662903,
+        "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+      }
+    ],
+    "result": {
+      "output": {
+        "findings": [
+          {
+            "asset_id": "services/app",
+            "title": "PostgreSQL trust authentication is enabled",
+            "location": "/services/app/environment/POSTGRES_HOST_AUTH_METHOD",
+            "score": 0.6,
+            "source_ids": [
+              "postgres-trust"
+            ],
+            "grounding_status": "corroborated"
+          }
+        ]
+      },
+      "model": "qwen2.5:3b",
+      "origin": "ollama_rag",
+      "review_required": true,
+      "rejected_findings": [],
+      "abstained": false,
+      "grounding": "source membership and exact input location checked; entailment requires review",
+      "guard_policy": "Known PostgreSQL trust and Redis protected-mode predicates only; not an independent accuracy evaluator",
+      "total_duration_ns": 17184367598,
+      "prompt_eval_count": 741
+    },
+    "error": null
+  },
+  "elapsed_s": 22.539270500001294,
+  "limitation": "Functional checks on three hand-selected queries; not retrieval generalization or RAG accuracy."
+}

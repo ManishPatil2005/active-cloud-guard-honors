@@ -1,0 +1,32 @@
+# Incident and resolution ledger
+
+Recorded 2026-09-23. INC-001 through INC-014 reconstruct the initial implementation from the conversation/tool evidence and saved artifacts. They are retrospective records, not invented contemporaneous issue tickets. Root-cause certainty is stated where evidence is limited.
+
+| ID | Symptom and impact | Diagnosis / evidence | Resolution and verification | Status / residual limit |
+|---|---|---|---|---|
+| INC-001 | Initial PDF extraction failed: pymupdf unavailable | ModuleNotFoundError in bundled Python | Used installed pypdf; rendered all 15 pages using bundled Poppler | Resolved for document review |
+| INC-002 | PDF text printing failed on a Unicode checkmark | Windows cp1252 UnicodeEncodeError | Enabled Python UTF-8 mode; full slide text extracted | Resolved |
+| INC-003 | Dependency download denied in sandbox | WinError 10013 socket-permission failure | Used approved host execution to install pinned dependencies into project .venv | Resolved environment access; no credential bypass |
+| INC-004 | Docker API pipe unavailable | Docker Desktop installed but engine not running/reachable | Started Docker Desktop; server 29.4.1 subsequently reported | Resolved then; uptime is not guaranteed forever |
+| INC-005 | Tests could not collect llm.py | Missing closing brace in initial schema dictionary caused SyntaxError | Corrected schema; later compilation, lint and full regression passed | Resolved; initial failure is recorded here |
+| INC-006 | Generated fixture hash check failed | Text was hashed with LF but Windows text write translated newlines | Wrote generated fixture content explicitly with LF; all 45 hashes and rule sets passed | Resolved; preserve LF through Git attributes |
+| INC-007 | Docker Hub MinIO pull denied/not found | Exact minio/minio image reference unavailable through that registry | Switched the same MinIO release to quay.io/minio/minio; container started and health HTTP returned 200 | Resolved registry selection; no evidence that authentication was the cause |
+| INC-008 | All four target host probes timed out while services ran | Container Redis PING and PostgreSQL readiness worked; Docker ps showed target ports without host mappings on internal network. Ollama's ordinary network mapping worked. | Recreated only this lab on a dedicated bridge with explicit localhost publication. Four TCP checks and two HTTP checks passed | Operationally resolved. Internal-network mapping was the supported diagnosis, not a proven universal Docker defect. Bridge is not egress-isolated |
+| INC-009 | Initial 1.5B output rejected by schema validation | Two of three lexical smoke cases recorded ValidationError; raw malformed bodies were not captured in that earliest run | Preserved error summary; tightened schema/prompt, removed ranking values from model evidence, added tests and later rejected-output capture | Mitigated. Exact original invalid fields cannot be reconstructed; ranking contamination was a suspected risk, not conclusively proven cause |
+| INC-010 | Valid JSON contained invented fields and irrelevant findings | Saved 1.5B candidates referenced security_groups/ports absent from input and treated a placeholder as an exposed password | Added canonical input-location enumeration and checks; retained earlier output in rag-smoke-ungrounded-candidates.json | Mitigated; an existing location alone does not prove a correct claim |
+| INC-011 | 3B model claimed trust authentication from POSTGRES_PASSWORD placeholder | Saved pre-guard output points to a password-reference field, not HOST_AUTH_METHOD=trust | Added narrow PostgreSQL/Redis policy corroboration. Final negative example retained zero candidates and one rejection; regression tests cover this case | Guarded for known predicates; model hallucination is NOT generally solved |
+| INC-012 | Inference exceeded 3.5-second target | Final three lexical smoke cases approximately 12.44, 12.30, 12.83 seconds | Recorded the miss; kept scanner-only timing separate | Open research/performance issue; no fabricated pass |
+| INC-013 | Trivy fetched policy content incompatible with pinned scanner and logged parse/fallback messages | Exploratory directory scan showed Rego parsing/fallback output | Reproduction script uses bundled policies, skip-check-update and disabled container networking | Resolved reproducibility path; exploratory full raw output was not saved as a standalone file |
+| INC-014 | Independent Terraform fixture names could be combined as one module | Two generated cases reuse the same resource name; whole-directory scanning would not preserve case independence | Ran 11 supported-format files separately; saved raw outputs, stderr and 34 exclusions | Resolved experimental setup; coverage is still unequal across tools |
+| INC-015 | GitHub CLI config access denied in sandbox | Config-file access denial before authentication check | Approved host execution read the existing authenticated account; created private repository | Resolved. No credentials were copied into project files |
+| INC-016 | Git staging warned that some fixture checkouts would become CRLF | Existing host Git defaults would translate .tf/.conf/Dockerfile fixture text | Applied LF checkout policy for source/fixtures and disabled conversion for saved output evidence | Resolved publication configuration; original evidence bytes retained |
+
+## Other important corrections
+
+- The original TCI formula can reduce the static contribution if reachability=1; the prototype explicitly uses monotonic exposure adjustment. The intended original binary semantics were ambiguous, so this is a documented design correction, not an accusation that the original author intended a reversed policy.
+- Actual-source review distinguishes the prior paper's 93% claim from this project's results and records arithmetic/denominator concerns. Some full texts remain inaccessible; see LITERATURE.md.
+- Literature, labels and source summaries were not fabricated to meet target metrics. The development corpus's perfect seeded-rule match is not general security accuracy.
+
+## Required new-incident format
+
+ID/date; task; expected behavior; observed behavior; minimal reproduction; evidence path; root cause and confidence; smallest fix or containment; exact verification; status; remaining risks; commit reference. If unresolved, say what remains and what evidence would resolve it. Never delete a negative observation because a subsequent run succeeded.

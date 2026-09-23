@@ -1,0 +1,6 @@
+[
+  {"asset_id":"compose/redis","host":"127.0.0.1","port":16379},
+  {"asset_id":"compose/postgres","host":"127.0.0.1","port":15432},
+  {"asset_id":"compose/nginx","host":"127.0.0.1","port":18080},
+  {"asset_id":"compose/minio","host":"127.0.0.1","port":19000}
+]

@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: redis
+    ports:
+    - host_ip: 0.0.0.0
+      published: 6379
+      target: 6379
