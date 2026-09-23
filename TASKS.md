@@ -19,6 +19,10 @@ Status as of 2026-09-23. Completed means the stated acceptance criterion was met
 | DOC-001 | Strict documentation and maintenance process | Complete | Documentation index, incident/decision ledgers, checked local commit guard |
 | VCS-001 | Private GitHub repository and initial publication | Complete | Private main verified on GitHub; local/remote commit match; see WORK_LOG |
 | RES-001 | Independent labels and untouched grouped test set | Open | Two-reviewer workflow; adjudicated labels; no leakage |
+| V2-001 | Exact-request audit reuse with bounded local retention | Implemented/tested/live-observed | Miss then two hits; context invalidation and corruption/expiry tests |
+| V2-002 | Idempotent vector indexing and explicit generation controls | Implemented/tested/live-observed | Reuse embedded zero documents; forced rebuild nine; truncation/budget unit tests |
+| V2-003 | Stage timing and fresh verification across reuse | Implemented/tested/live-observed | Four distinct TCP timestamps; cache hits 0.084/0.072 s on one development fixture |
+| V2-004 | Resource/accuracy evaluation beyond repeat-work smoke | Open | Unseen-input distribution, matched conditions, independent labels and power measurement needed |
 | RES-002 | Matched scanner/LLM/RAG/probe ablation study | Open | Comparable rule scope; paired confidence intervals; abstentions |
 | RES-003 | Reduce and evaluate model hallucinations | Open | Broader held-out measurement, not only two guarded predicates |
 | RES-004 | Meet or revise model latency target | Open | Current approximately 12-second smoke cases miss 3.5 seconds |

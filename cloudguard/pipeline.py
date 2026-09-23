@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import time
 from pathlib import Path
 from .scanner import scan
 from .retrieval import retrieve
@@ -12,8 +13,21 @@ from .scoring import score
 NETWORK_RULES = {"NET001", "NET002", "NET003"}
 
 
-def run(path, kb, inventory=None, model=None, vector_index=None):
+def run(
+    path,
+    kb,
+    inventory=None,
+    model=None,
+    vector_index=None,
+    *,
+    cache_dir=None,
+    timeout=180,
+    max_tokens=512,
+):
+    started = time.perf_counter()
     report = scan(path)
+    timings = {"scan_ms": (time.perf_counter() - started) * 1000}
+    stage = time.perf_counter()
     text = Path(path).read_text(encoding="utf-8")
     if vector_index:
         from .vector import retrieve_vector
@@ -22,10 +36,21 @@ def run(path, kb, inventory=None, model=None, vector_index=None):
     else:
         report["retrieved_sources"] = retrieve(text, kb)
     report["retrieval_mode"] = "chroma_ollama" if vector_index else "lexical"
+    timings["retrieval_ms"] = (time.perf_counter() - stage) * 1000
+    stage = time.perf_counter()
     report["rag"] = None
     if model:
         # Model candidates remain separately identified; never silently replace rule findings.
-        report["rag"] = audit(text, report["retrieved_sources"], model)
+        report["rag"] = audit(
+            text,
+            report["retrieved_sources"],
+            model,
+            cache_dir=cache_dir,
+            timeout=timeout,
+            max_tokens=max_tokens,
+        )
+    timings["audit_ms"] = (time.perf_counter() - stage) * 1000
+    stage = time.perf_counter()
     endpoints = json.loads(Path(inventory).read_text()) if inventory else []
     if len({e["asset_id"] for e in endpoints}) != len(endpoints):
         raise ValueError("duplicate inventory asset")
@@ -63,4 +88,8 @@ def run(path, kb, inventory=None, model=None, vector_index=None):
         "Asset criticality 0.5 and weights are illustrative, not calibrated.",
         "LLM candidates require human location/asset/entailment review before verification or scoring.",
     ]
+    timings["verification_and_score_ms"] = (time.perf_counter() - stage) * 1000
+    timings["total_ms"] = (time.perf_counter() - started) * 1000
+    report["timings_ms"] = {k: round(v, 3) for k, v in timings.items()}
+    report["engine_version"] = "2.0"
     return report

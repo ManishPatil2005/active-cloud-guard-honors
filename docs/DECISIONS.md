@@ -18,3 +18,7 @@ Entries below document decisions made during the initial implementation on 2026-
 | ADR-012 | Create a private GitHub repository by default | Avoids an unrequested public research release; no open-source license inferred |
 
 Supersede decisions with a new entry linked to the old ID. Record rationale, consequences and verification; do not silently rewrite the historical rationale. Architecture changes require the owner's authorization.
+
+## ADR-013 - 2026-09-23 - Engine 1 v2 repeat-work efficiency
+
+Use opt-in exact-request response caching, content/model-addressed index reuse, bounded generation and explicit stage timings. Preserve ADR-001/002/008: same stack, Engine 1 scope and review boundaries. Revalidate cached output; never persist probe decisions for reuse. Avoided model work is measurable, whereas energy savings are not measured here. Default one-hour/128-entry local cache bounds sequential storage; no distributed cache or new service dependency. See ENGINE1_V2.md for tradeoffs and acceptance criteria.

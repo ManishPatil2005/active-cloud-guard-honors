@@ -6,6 +6,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 |---|---|
 | [PRD](PRD.md) | What the research prototype must do and why |
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |
+| [Engine 1 v2](ENGINE1_V2.md) | Repeat-work efficiency, budgets, cache contracts and reproduction |
 | [Interface design](DESIGN.md) | CLI/output contracts; no proposed web redesign |
 | [Rules](../RULES.md) | Implementation, evidence and Git rules |
 | [Working agreement](../AGENTS.md) | Required context and maintenance for future work |

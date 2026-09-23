@@ -51,8 +51,20 @@ def collection(kb_path, index_path, model):
     return col, docs, digest
 
 
-def index(kb_path, index_path, model="nomic-embed-text"):
+def index(kb_path, index_path, model="nomic-embed-text", *, force=False):
     col, docs, digest = collection(kb_path, index_path, model)
+    expected = {d["id"] for d in docs}
+    existing = set(col.get(include=[])["ids"])
+    if not force and col.count() == len(docs) and existing == expected:
+        return dict(
+            count=col.count(),
+            corpus_sha256=digest,
+            embedding_model=model,
+            embedding_digest=col.metadata["embedding_digest"],
+            collection=col.name,
+            reused=True,
+            embedded_documents=0,
+        )
     vectors = embed([d["title"] + " " + d["text"] for d in docs], model)
     col.upsert(
         ids=[d["id"] for d in docs],
@@ -60,12 +72,16 @@ def index(kb_path, index_path, model="nomic-embed-text"):
         documents=[d["text"] for d in docs],
         metadatas=[{"source_json": json.dumps(d)} for d in docs],
     )
+    if existing - expected:
+        col.delete(ids=sorted(existing - expected))
     return dict(
         count=col.count(),
         corpus_sha256=digest,
         embedding_model=model,
         embedding_digest=col.metadata["embedding_digest"],
         collection=col.name,
+        reused=False,
+        embedded_documents=len(docs),
     )
 
 

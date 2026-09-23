@@ -5,6 +5,7 @@ def test_runtime_material_is_excluded():
     for path in [
         "testbed/secrets/pg_password.txt",
         "output/chroma/chroma.sqlite3",
+        "output/audit-cache/sample.json",
         ".venv/a.py",
         ".env.local",
         "tmp/pdfs/page.png",

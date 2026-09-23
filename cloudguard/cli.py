@@ -20,6 +20,9 @@ def main():
     a.add_argument("path")
     a.add_argument("--model", required=True)
     a.add_argument("--kb", default="knowledge/sources.json")
+    a.add_argument("--cache-dir")
+    a.add_argument("--timeout", type=float, default=180)
+    a.add_argument("--max-tokens", type=int, default=512)
     p = sub.add_parser("probe")
     p.add_argument("--inventory", required=True)
     p.add_argument("--asset", required=True)
@@ -29,9 +32,13 @@ def main():
     e.add_argument("--inventory")
     e.add_argument("--model")
     e.add_argument("--vector-index")
+    e.add_argument("--cache-dir")
+    e.add_argument("--timeout", type=float, default=180)
+    e.add_argument("--max-tokens", type=int, default=512)
     v = sub.add_parser("index")
     v.add_argument("--kb", default="knowledge/sources.json")
     v.add_argument("--index", default="output/chroma")
+    v.add_argument("--force", action="store_true")
     v = sub.add_parser("vector-retrieve")
     v.add_argument("query")
     v.add_argument("--kb", default="knowledge/sources.json")
@@ -44,15 +51,29 @@ def main():
             result = retrieve(args.query, args.kb)
         elif args.command == "audit":
             text = Path(args.path).read_text(encoding="utf-8")
-            result = audit(text, retrieve(text, args.kb), args.model)
+            result = audit(
+                text,
+                retrieve(text, args.kb),
+                args.model,
+                cache_dir=args.cache_dir,
+                timeout=args.timeout,
+                max_tokens=args.max_tokens,
+            )
         elif args.command == "run":
             result = run(
-                args.path, args.kb, args.inventory, args.model, args.vector_index
+                args.path,
+                args.kb,
+                args.inventory,
+                args.model,
+                args.vector_index,
+                cache_dir=args.cache_dir,
+                timeout=args.timeout,
+                max_tokens=args.max_tokens,
             )
         elif args.command == "index":
             from .vector import index
 
-            result = index(args.kb, args.index)
+            result = index(args.kb, args.index, force=args.force)
         elif args.command == "vector-retrieve":
             from .vector import retrieve_vector
 

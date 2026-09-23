@@ -9,3 +9,4 @@ tmp/
 !.env.example
 testbed/secrets/
 output/chroma/
+output/audit-cache/

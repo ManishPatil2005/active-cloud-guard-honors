@@ -41,7 +41,9 @@ def forbidden(path):
         for p in parts
     ):
         return True
-    if path.startswith(("testbed/secrets/", "output/chroma/", "tmp/")):
+    if path.startswith(
+        ("testbed/secrets/", "output/chroma/", "output/audit-cache/", "tmp/")
+    ):
         return True
     name = parts[-1]
     return (name == ".env" or name.startswith(".env.")) and name != ".env.example"

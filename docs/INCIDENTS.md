@@ -30,4 +30,12 @@ Recorded 2026-09-23. INC-001 through INC-014 reconstruct the initial implementat
 
 ## Required new-incident format
 
+### INC-018 - 2026-09-23 - V2 live-run startup interruptions
+
+Task: v2 efficiency smoke. Expected: existing local lab available. Observed: Docker pipe absent after returning to this task; an earlier startup attempt was not executed because approval-service usage was exhausted. Confirmed current daemon absence via compose error (high-confidence immediate cause, not an application bug). After user resumed, restarted Docker Desktop hidden and ran `docker compose -f testbed/compose.yaml --profile ai up -d`; all five containers started, saved model list present. Successful live benchmark is output/v2-efficiency-smoke.json. No data volumes removed, new external endpoints or architecture changes. This does not establish continuous uptime.
+
+### INC-019 - 2026-09-23 - Standalone v2 benchmark import
+
+Expected: `python scripts/benchmark_v2.py --output output/v2-efficiency-smoke.json` runs from repository root. Observed: ModuleNotFoundError for cloudguard before creating a report. `pip show active-cloud-guard` confirmed no installed package in this environment; direct script execution puts scripts/ rather than repository root on sys.path. High-confidence cause. Fixed by adding the same repository-root import bootstrap as existing reproduction scripts. Re-executed the exact command successfully; three automated smoke checks passed. No earlier live observation was overwritten. Future installed-package packaging tests are distinct from this source-tree script check.
+
 ID/date; task; expected behavior; observed behavior; minimal reproduction; evidence path; root cause and confidence; smallest fix or containment; exact verification; status; remaining risks; commit reference. If unresolved, say what remains and what evidence would resolve it. Never delete a negative observation because a subsequent run succeeded.

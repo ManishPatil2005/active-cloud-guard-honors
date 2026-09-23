@@ -39,3 +39,23 @@ Initial local commit: `cda1f53721e341a8c7d4c7dd38425ce0b85b48a7` (`feat: establi
 Publication correction commit: `144e401878c8c403413a2c41b67d1581d32b3856` (`fix: preserve evidence line endings and document publication checks`). `git push -u origin main` succeeded. `gh repo view` returned PRIVATE and main; the GitHub commits API and `git ls-remote origin refs/heads/main` both returned that same SHA as local HEAD. Working tree was clean at this observation. This follow-up documentation entry records the already-observed publication receipt; its own commit is discoverable in Git history without a self-referential hash.
 
 **Remaining:** independently validated research results, broader literature verification, model reliability/latency and later runtime work remain open in TASKS.md.
+
+## WL-003 - 2026-09-23 - Engine 1 v2 bounded efficiency
+
+**Request:** continue improving Engine 1 for efficiency, feasibility and sustainability; preserve the stack and maintain documentation/Git history.
+
+**Inspection and acceptance:** read current rules, tasks, architecture, state and test/security contracts; baseline 87 tests passed. Target avoidable repeat generation/embedding work, explicit budgets and transparent timing, not a new architecture or invented energy improvement. See ENGINE1_V2.md for task acceptance and ADR-013 for tradeoffs.
+
+**Implementation:** response cache keyed by full request/evidence/model digest/corpus/policy; TTL/count/size bounds, atomic writes and corruption checks. Revalidate reused output and preserve rejected candidates. Keep fresh scan/retrieval/probes. Add token ceiling/socket timeout and reject explicit incomplete generation. Index checks identity/count/IDs before reusing; force rebuild and remove unexpected IDs after successful upsert. Add timing and inference provenance, CLI switches, publication exclusion and 19 regression cases. Package version 0.2.0, engine report 2.0; no production certification.
+
+**Problems/fixes:** startup approval/daemon interruption (INC-018); standalone benchmark import fixed consistently with existing scripts (INC-019). Review also found stale unexpected index IDs could survive an upsert; removed them after successful embedding/upsert and added an assertion to the repair regression. Historical evidence was not replaced.
+
+**Live command and outcome:** `python scripts/benchmark_v2.py --output output/v2-efficiency-smoke.json` passed cache sequence, candidate preservation and zero-embedding reuse checks. Forced/reused index 5803.760/83.761 ms. Four lexical pipeline totals 17423.946, 5255.791, 83.908, 72.360 ms (disabled, miss, hit, hit). Saved Redis probes have distinct timestamps and reachable outcomes. First and warm inference conditions differ: do not label the difference a v1 improvement. Actual cached candidate still needs human asset/entailment review. No auth/exploit/energy/general accuracy claim.
+
+**Validation so far:** `python -m pytest -q` passed 106 tests after implementation. Final lint, formatting, dependency, publication and test-report checks recorded below after execution. Source-tree execution uses the existing .venv; no package-install or Linux runtime test is claimed. Old reports and negative model results remain intact.
+
+**Remaining:** independent evaluation, unseen-input latency and power measurements; RES gates remain open. Git commit/push receipt will be verified separately, not inferred from local implementation.
+
+**Final local validation:** `.venv/Scripts/python.exe -m ruff check cloudguard scripts tests` passed; `-m ruff format --check cloudguard scripts tests` passed (31 files); `-m pytest -q --junitxml=output/v2-test-results.xml` passed 106 tests; `-m pip check` reported no broken requirements; `git diff --check` passed. These checks ran on Windows, not Linux. Repository publication check and staged review are required before the commit; remote verification remains a separate operation.
+
+**Pre-publication check:** staged 27 reviewed files (code, documentation and two new evidence reports); `.venv/Scripts/python.exe scripts/repository_check.py` passed 125 publication files, document links, exclusions and bounded credential checks. `git diff --cached --check` passed. No existing output artifact is in the change list; runtime cache/vector/secret directories are excluded. This is a bounded publication check, not a formal security audit.

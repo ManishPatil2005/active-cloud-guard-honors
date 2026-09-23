@@ -29,6 +29,7 @@ Staging services already exist before verification. The program does not deploy 
 | retrieval.py | Deterministic lexical comparison baseline |
 | vector.py | Chroma index; Ollama embeddings; corpus/model identity |
 | llm.py | Local request, structured output and source/location validation |
+| cache.py | Opt-in bounded exact-request response reuse; never caches probes |
 | grounding.py | Narrow PostgreSQL-trust and Redis-protection corroboration |
 | probe.py | Explicit loopback TCP checks and timestamped outcomes |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
@@ -39,6 +40,8 @@ Staging services already exist before verification. The program does not deploy 
 `data/` contains synthetic development inputs and labels; `knowledge/` contains reviewed summaries; `testbed/` contains service definitions/inventory; `scripts/` contains reproduction/evaluation commands; `tests/` contains software regression checks; `output/` contains saved evidence. The generated Chroma database is local, reproducible and excluded from Git.
 
 ## Operational boundaries
+
+Engine 1 v2 adds optional local response reuse, idempotent vector indexing, explicit generation limits and per-stage timing without changing the stack. Cached responses still pass current guards and remain review-required. See [v2 design](ENGINE1_V2.md) for identity, retention and metric semantics. Package 0.2.0 remains pre-production research software.
 
 All published ports bind to 127.0.0.1: 16379, 15432, 18080, 19000 and 11434. The dedicated bridge permits outbound traffic; it is not an egress sandbox. PostgreSQL/MinIO data are disposable tmpfs, Redis persistence is disabled, model downloads persist in a named volume. Local generated secrets are mounted from ignored files.
 

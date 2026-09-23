@@ -65,6 +65,8 @@ For a minimal installation without semantic retrieval use `pip install -e .` plu
 
 ## Lab behavior
 
+Engine 1 v2 (package 0.2.0) supports optional repeated-audit reuse with `--cache-dir output/audit-cache`, generation limits with `--max-tokens 512 --timeout 180`, and index reuse (`index --force` rebuilds). Applicable probes always run fresh. See [v2 design and reproduction](docs/ENGINE1_V2.md). No faster uncached inference, general accuracy improvement or energy saving is implied by cache-hit speed.
+
 Ports: Redis 16379, PostgreSQL 15432, Nginx 18080, MinIO 19000, Ollama 11434; all bind to 127.0.0.1. The dedicated bridge is **not egress-isolated**. Docker's internal-network configuration on this host ignored published mappings, so a standard bridge is used. Do not treat local reachability as public exposure.
 
 PostgreSQL and MinIO credentials are generated under ignored `testbed/secrets/` and never printed. PostgreSQL and MinIO data are disposable tmpfs; container recreation discards that lab data. Redis persistence is disabled. Model downloads are retained in a named Docker volume. Image tags are pinned for this reproduction; their digests are recorded in output/environment.json. These historical lab image versions are not a production-hardening recommendation.

@@ -2,6 +2,14 @@
 
 Changes are recorded on the date they occurred or were documented. Historical failures are retained, not removed from the narrative.
 
+## 2026-09-23 - Engine 1 v2 efficiency (package 0.2.0)
+
+- Added opt-in bounded exact-request audit cache, current model identity checks and cached-output revalidation; probes remain fresh.
+- Reuse complete unchanged Chroma collections without re-embedding; support forced rebuild and repair unexpected IDs.
+- Expose generation ceilings, socket timeout, cache/inference provenance and per-stage timings. Reject explicitly truncated output.
+- Added 19 v2 test cases (106 total), a non-overwriting live benchmark and separate v2 evidence; preserved all v1 reports.
+- Live single-fixture smoke: warm miss 5.256 s; hits 0.084/0.072 s; index rebuild/reuse 5.804/0.084 s. Uncached first run 17.424 s; no energy or independent accuracy claim.
+
 ## 2026-09-23 - Initial research implementation (retrospective entry)
 
 - Created the bounded Python rule scanner, local model adapter, lexical and Chroma retrieval, explicit TCP probe, provisional risk score and integrated CLI.
