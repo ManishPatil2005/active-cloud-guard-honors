@@ -23,7 +23,7 @@ Status as of 2026-09-23. Completed means the stated acceptance criterion was met
 | E1R-001 | Hash-bound inventory/policy and candidate review | Implemented/tested | Exact configuration/inventory/request/candidate identity; strict scope; 136-test suite |
 | E1R-002 | Conservative policy-aware observations | Implemented/tested/live-observed | Real loopback listener and synthetic policies; no finding suppression or vulnerability confirmation |
 | E1R-003 | Reviewed model-to-endpoint linkage | Implemented/unit-tested | Approved model-only candidate path; live human-reviewed model workflow remains unexecuted |
-| E1R-004 | Deployment attestation and authentication-aware checks | Open | Operator assertions currently not verified; needs controlled service scenarios |
+| E1R-004 | Bounded deployment identity and authentication-boundary checks | Implemented/tested/live-observed | Actual Compose Redis/PostgreSQL identity before/after; protected-mode/SASL observations; full mounted-file/application-state attestation remains open |
 | V2-001 | Exact-request audit reuse with bounded local retention | Implemented/tested/live-observed | Miss then two hits; context invalidation and corruption/expiry tests |
 | V2-002 | Idempotent vector indexing and explicit generation controls | Implemented/tested/live-observed | Reuse embedded zero documents; forced rebuild nine; truncation/budget unit tests |
 | V2-003 | Stage timing and fresh verification across reuse | Implemented/tested/live-observed | Four distinct TCP timestamps; cache hits 0.084/0.072 s on one development fixture |

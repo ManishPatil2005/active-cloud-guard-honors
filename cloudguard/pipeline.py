@@ -142,5 +142,5 @@ def run(
     timings["verification_and_score_ms"] = (time.perf_counter() - stage) * 1000
     timings["total_ms"] = (time.perf_counter() - started) * 1000
     report["timings_ms"] = {k: round(v, 3) for k, v in timings.items()}
-    report["engine_version"] = "2.1"
+    report["engine_version"] = "2.2"
     return report

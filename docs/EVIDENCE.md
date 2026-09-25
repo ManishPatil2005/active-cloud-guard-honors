@@ -25,6 +25,8 @@ The historical environment snapshot is not a manifest of documentation added lat
 
 ## Evidence preservation
 
+V2.2: [initial local service observation](../output/service-identity-v22.json), [final identity/protocol observation](../output/service-identity-v22-final.json), [168-test report](../output/engine1-v22-tests.xml). Both real lab services matched selected identity checks; Redis denied via protected mode, PostgreSQL challenged via SASL. No passwords/data/SQL were sent. Interpretation: ENGINE1_BASELINE.md.
+
 V2.1 additions: [136-test report](../output/verification-v21-tests.xml) and [real loopback/synthetic-policy smoke](../output/verification-v21-smoke.json). [Refinement report](ENGINE1_REFINEMENT.md) defines their scope. Model-review integration is mock-tested, not independently reviewed or live-model evaluated. No historical result is replaced.
 
 V2 additions: [efficiency smoke](../output/v2-efficiency-smoke.json) records actual model/index/probe observations, full model/corpus identity and timings. [V2 test report](../output/v2-test-results.xml) records software regression results. Historical v1 artifacts above remain unchanged. ENGINE1_V2.md describes conditions and limitations.

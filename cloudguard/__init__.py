@@ -1,3 +1,3 @@
 """Research prototype. Findings are candidates, not proof of exploitation."""
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"

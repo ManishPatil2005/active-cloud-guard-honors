@@ -1,5 +1,19 @@
 # Work log
 
+## WL-007 - 2026-09-25 - Resume and freeze Engine 1 baseline
+
+User asked to continue publication and begin Engine 2. Re-inspected the uncommitted Engine 1 work and required context. On 25 September, Ruff lint and formatting (38 files), all 168 tests, dependency consistency and git whitespace checks passed again. The live service observations remain the actual 23 September runs; they were not relabeled or rerun merely for publication. Freeze the reviewed v2.2 snapshot before runtime additions. Publication/link checks and remote commit/tag verification are performed at the commit boundary.
+
+## WL-006 - 2026-09-23 - Engine 1 v2.2 baseline before runtime work
+
+**Request/acceptance:** proceed with remaining critical Engine 1 gaps, freeze a tested baseline, then begin minimal observation-only Engine 2. Preserve documentation, reports and Git history.
+
+**Implementation:** read required docs and actual code; inspected existing running Docker lab and current Compose service hashes. Consulted official Compose, Redis and PostgreSQL protocol references. Added local-daemon-only identity comparison (Compose labels/hash, image, declared command/env/ports and running state), source stability and pre/post container identity. Added fixed Redis PING/PostgreSQL startup without passwords/queries. No deployment or container mutations. New verify-service command scans the actual deployed Compose file rather than a development analogue.
+
+**Checks/results:** Ruff passed; pytest 168 passed in output/engine1-v22-tests.xml; pip check passed. Two `python scripts/service_check.py --output ...` runs saved separately as service-identity-v22.json and service-identity-v22-final.json. Both checked Redis and PostgreSQL identities before/after; Redis protected-mode denial, PostgreSQL SASL challenge. No protocol responses or environment secrets logged. Review hardened local Docker endpoint enforcement, response framing, and preserved selected-scope rather than full-attestation language. No failed live observation was discarded.
+
+**Scope/next:** ENGINE1_BASELINE.md is the report and freeze contract. Identity evidence trusts Docker, not a hostile administrator; mounted content and application state remain outside scope. Independent accuracy/latency evaluation still open. Freeze this revision before runtime scaffold work. Final publication checks and exact commit/tag receipts are verified during publication.
+
 ## WL-005 - 2026-09-23 - Engine 1 reviewed verification (E1R-001..004)
 
 **Request/acceptance:** refine Engine 1 following the discussion, supply a report, maintain documentation and commits. Keep the existing stack. This increment targets strict context binding, explicit policy, reviewed model-to-inventory linkage and honest assessment; it does not claim all research gates complete.

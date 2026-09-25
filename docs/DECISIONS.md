@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-015 - 2026-09-23 - Bounded identity and protocol verification
+
+Before Engine 2, bind observations to the actual Compose source using local daemon checks and pre/post identity comparison. Add only fixed credential-free Redis/PostgreSQL protocol exchanges, separate from the lower-evidence generic TCP pipeline. Do not weaken the testbed to manufacture findings or silently label selected identity checks as full runtime attestation. No score/suppression change. This supports a reproducible Engine 1 freeze while leaving application-state verification and independent evaluation open.
+
 ## ADR-014 - 2026-09-23 - Reviewed verification before broader automation
 
 Keep the stack and existing rule scoring. Add strict hash-bound operator policy and model-candidate approval, restricting execution to existing loopback TCP probes. Require digest-bound model requests and exact retained candidate fingerprints. Treat operator deployment equivalence as an assertion, not machine attestation; label it false in verified-equality fields. Model evidence remains unscored/review-required; expected reachability never clears unrelated risk. This prioritizes provenance and reviewability over unsupported automated actionability. Authentication-aware probes, independent labels and deployment attestation remain future work; see ENGINE1_REFINEMENT.md.

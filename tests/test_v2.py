@@ -221,4 +221,4 @@ def test_probes_repeat_across_runs_even_if_audit_cached(tmp_path):
                 cache_dir=tmp_path,
             )
     assert probe.call_count == 2
-    assert report["engine_version"] == "2.1" and report["timings_ms"]["total_ms"] >= 0
+    assert report["engine_version"] == "2.2" and report["timings_ms"]["total_ms"] >= 0

@@ -10,6 +10,8 @@ Current smoke model: qwen2.5:3b. Latest saved three-case inference times are app
 
 ## Current work
 
+Engine 1 v2.2 / package 0.4.0 adds actual-Compose local Docker identity checks and credential-free Redis/PostgreSQL observations. 168 software tests passed. Real lab: identities stable before/after, Redis protected-mode denial, PostgreSQL SASL challenge; reports in output/service-identity-v22*. No settings or data modified. This establishes selected local identity/protocol evidence, not full application-state equivalence. Freeze this baseline before an observation-only Engine 2. See ENGINE1_BASELINE.md; older refinement entries below are historical.
+
 Latest refinement is Engine 1 v2.1 / package 0.3.0: strict inventory validation, exact-byte policy binding, digest/request/candidate-bound operator approvals, conservative policy judgments and reviewed model TCP evidence. Saved suite: 136 passing tests. Real loopback/synthetic-policy smoke passed five checks; no live model or human-reviewed deployment evaluation was performed. See ENGINE1_REFINEMENT.md and output/verification-v21-*. Model candidates remain unscored/review-required; deployment equivalence is explicitly not verified. Historical v2 efficiency observations below were not rerun for this change.
 
 The README now serves as a formal research entry point: abstract, questions, architecture, evidence-linked results, reproduction, safety and roadmap. This documentation-only revision changes no implementation or measurements. Linux/macOS setup guidance is explicitly unvalidated; old fixed-output experiment scripts are excluded from the first-run sequence to protect saved evidence.
@@ -22,7 +24,7 @@ The earlier documentation/publication task passed 87 tests; that report and the 
 
 ## Known limitations
 
-Model hallucinations remain possible; two guarded predicates do not cover all findings. The 3.5-second inference target is missed. There is no independently labeled held-out effectiveness study, calibrated TCI, general IaC evaluator, auth-aware probe or runtime engine. Some reference full texts were inaccessible. The bridge is not egress-isolated. Historical image versions are for reproduction, not production recommendations.
+Model hallucinations remain possible; two guarded predicates do not cover all findings. The 3.5-second inference target is missed. There is no independently labeled held-out effectiveness study, calibrated TCI or general IaC evaluator. Authentication-boundary checks are limited to the documented Redis/PostgreSQL exchanges. Some reference full texts were inaccessible. The bridge is not egress-isolated. Historical image versions are for reproduction, not production recommendations.
 
 ## Next scientific gate
 

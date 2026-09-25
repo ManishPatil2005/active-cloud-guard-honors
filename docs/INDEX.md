@@ -8,6 +8,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |
 | [Engine 1 v2](ENGINE1_V2.md) | Repeat-work efficiency, budgets, cache contracts and reproduction |
 | [Engine 1 refinement](ENGINE1_REFINEMENT.md) | V2.1 reviewed verification, operator templates, results and remaining gates |
+| [Engine 1 baseline](ENGINE1_BASELINE.md) | V2.2 local deployment identity and bounded Redis/PostgreSQL checks |
 | [Interface design](DESIGN.md) | CLI/output contracts; no proposed web redesign |
 | [Rules](../RULES.md) | Implementation, evidence and Git rules |
 | [Working agreement](../AGENTS.md) | Required context and maintenance for future work |

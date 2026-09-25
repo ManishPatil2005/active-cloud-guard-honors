@@ -45,6 +45,15 @@ def main():
     v.add_argument("query")
     v.add_argument("--kb", default="knowledge/sources.json")
     v.add_argument("--index", default="output/chroma")
+    sv = sub.add_parser(
+        "verify-service",
+        help="Read-only Compose identity and credential-free protocol check",
+    )
+    sv.add_argument(
+        "path", help="Actual deployed Compose file, not a synthetic analogue"
+    )
+    sv.add_argument("--inventory", required=True)
+    sv.add_argument("--service", choices=["redis", "postgres"], required=True)
     args = parser.parse_args()
     try:
         if args.command == "scan":
@@ -82,6 +91,10 @@ def main():
             from .vector import retrieve_vector
 
             result = retrieve_vector(args.query, args.kb, args.index)
+        elif args.command == "verify-service":
+            from .service_probe import verify_service
+
+            result = verify_service(args.path, args.inventory, args.service)
         else:
             inventory = json.loads(Path(args.inventory).read_text())
             entries = [e for e in inventory if e["asset_id"] == args.asset]

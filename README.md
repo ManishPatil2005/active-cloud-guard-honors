@@ -4,7 +4,7 @@
 
 ### Evidence-linked configuration auditing for cloud-hosted open-source software
 
-Honors research · Engine 1 v2.1 · Python package 0.3.0
+Honors research · Engine 1 v2.2 · Python package 0.4.0
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
@@ -20,6 +20,8 @@ The implementation combines a transparent rule baseline, source-backed retrieval
 
 V2.1 adds hash-bound operator policies and reviewed model-to-endpoint verification. Approved candidates receive scoped TCP evidence—not automatic vulnerability confirmation or scoring. Read the [refinement report and operator workflow](docs/ENGINE1_REFINEMENT.md).
 
+V2.2 adds actual-Compose local deployment identity checks and credential-free Redis/PostgreSQL observations. Both were exercised against the existing loopback lab. See the [baseline report, commands and limitations](docs/ENGINE1_BASELINE.md).
+
 **Research status:** implemented, software-tested and live-smoke-observed. Independent effectiveness evaluation remains pending. This is a research prototype—not a production security control or a claim of validated vulnerability prevention.
 
 | Project | Details |
@@ -28,7 +30,7 @@ V2.1 adds hash-bound operator policies and reviewed model-to-endpoint verificati
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | First-three-month engineering deliverables and Engine 1 v2 efficiency improvements |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 23 September 2026; 136 passing software tests in the v2.1 report |
+| Evidence snapshot | 23 September 2026; 168 passing software tests in the v2.2 report |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
@@ -68,7 +70,7 @@ Model candidates remain separate from rule findings. They do not execute command
 | Configuration baseline | Nine explicit predicates across selected Compose, Kubernetes, Terraform, Dockerfile and service-configuration constructs | Not a general IaC evaluator |
 | Knowledge retrieval | Nine summaries with official-source provenance; lexical and Chroma retrieval | Source membership does not establish entailment |
 | Local-model auditing | Ollama, structured JSON, exact-location checks and two narrow authentication-policy guards | All candidates require human review |
-| Active verification | Explicit loopback inventory; reachable, refused or inconclusive TCP evidence | No credential, exploitability or public-exposure validation |
+| Active verification | Loopback TCP plus identity-gated Redis PING/PostgreSQL startup | No supplied credentials, data access, exploitability or public-exposure validation |
 | Prioritization | Monotonic provisional scoring; missing evidence remains explicit | Weights are not empirically calibrated |
 | V2 efficiency | Opt-in exact-request cache, index reuse, generation limits and stage timings | Repeat-work optimization, not demonstrated energy savings |
 
@@ -80,7 +82,8 @@ The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as th
 
 | Observation | Evidence | Interpretation |
 |---|---|---|
-| 136 passing software tests | [V2.1 test report](output/verification-v21-tests.xml) | Regression checks; not detection accuracy |
+| 168 passing software tests | [V2.2 test report](output/engine1-v22-tests.xml) | Regression checks; not detection accuracy |
+| Stable identity and service observations | [V2.2 live lab report](output/service-identity-v22-final.json) | Redis protected-mode denial and PostgreSQL SASL challenge; no full attestation |
 | Policy-aware real loopback observations | [V2.1 smoke report](output/verification-v21-smoke.json) | Synthetic policies and accept-only listener; no deployment or model claim |
 | 45 development fixtures matched expected rule sets | [Development baseline](output/baseline-development.json) | Seeded-predicate coverage, not generalization |
 | Four local TCP accepts and two HTTP 200 responses | [Historical lab observation](output/live-testbed.json) | Time- and vantage-specific availability |
@@ -222,6 +225,6 @@ The [task ledger](TASKS.md) records completed engineering work, partial research
 
 For review, begin with the [protocol](docs/EXPERIMENT_PROTOCOL.md), [evidence index](docs/EVIDENCE.md), [decision register](docs/DECISIONS.md) and [incident ledger](docs/INCIDENTS.md). Changes follow the [documentation maintenance contract](docs/DOCUMENTATION_WORKFLOW.md): record what changed, why, exact checks, failures and remaining limits. The commit guard runs locally; no hosted CI result or peer-review endorsement is implied.
 
-When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.3.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
+When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.4.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
 
 The repository is private. No open-source license has been selected; access does not itself grant redistribution rights. Contact the repository owner before external reuse or publication of project materials.

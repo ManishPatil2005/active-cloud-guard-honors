@@ -2,6 +2,13 @@
 
 Changes are recorded on the date they occurred or were documented. Historical failures are retained, not removed from the narrative.
 
+## 2026-09-23 - Engine 1 v2.2 baseline (package 0.4.0)
+
+- Added local Compose/container identity verification before and after fixed credential-free service observations.
+- Added read-only Redis PING and PostgreSQL startup classification, bounded framing/deadline, strict loopback scope and remote-Docker rejection.
+- Passed 168 tests and two real lab runs: stable selected identities; Redis protected-mode denial and PostgreSQL SASL challenge.
+- Kept all prior evidence and unchanged service settings; documented selected-identity scope, missing full attestation and remaining scientific gates.
+
 ## 2026-09-23 - Reviewed verification (Engine 1 v2.1, package 0.3.0)
 
 - Added strict loopback inventory and hash-bound operator policy/review validation; reject stale context, duplicate records and unauthorized scope.
