@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-25 - Engine 2 host preflight tooling
+
+- Added read-only platform/Linux-marker facts and a non-overwriting report script; no sensor installation or compatibility claim.
+- Added eight tests; full suite 204 passed. Saved actual Windows preflight and separate regression evidence.
+- Documented stopped Docker WSL environment and unavailable daemon as live-telemetry prerequisites. Engine 1 and replay contracts unchanged.
+
 Changes are recorded on the date they occurred or were documented. Historical failures are retained, not removed from the narrative.
 
 ## 2026-09-25 - Engine 1 freeze and Engine 2 foundation (package 0.5.0)

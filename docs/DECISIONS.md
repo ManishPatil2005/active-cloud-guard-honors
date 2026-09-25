@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-017 - 2026-09-25 - Host facts before sensor provisioning
+
+E2-003 inspection found Windows with only stopped Docker-managed WSL and no responding Docker daemon. Add read-only local preflight rather than install a privileged collector implicitly. Marker presence never certifies compatibility. No sensor selected yet; a user-supplied or explicitly approved research Linux environment and sensor-specific privilege plan are required. Linux branches use mocked software tests only. Engine 1 and the Python/Docker/Ollama/Chroma architecture remain unchanged.
+
 ## ADR-016 - 2026-09-25 - Observation-only Engine 2 foundation
 
 Freeze Engine 1 before runtime changes. Start with a strict normalized capture contract and transparent standardized-count comparator using existing dependencies, not immediate sensor installation/ML claims. Preserve the planned eBPF/Kubernetes and Isolation Forest/autoencoder path as explicit next work. Require separate declared groups/event records for baseline versus observations and expose unknown coverage. No zero-filling gaps, automated actions, threat confirmation or TCI integration. This makes the future sensor/ML path testable without representing synthetic data as real telemetry.

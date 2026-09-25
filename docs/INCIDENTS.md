@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-021 - 2026-09-25 - Live runtime host unavailable
+
+Expected next gate: validate Linux host before Engine 2 sensor work. Initial WSL enumeration failed with E_ACCESSDENIED inside the sandbox; Docker config access also failed. Approved host retry listed only stopped docker-desktop (WSL 2); Docker server query still failed because its Linux engine pipe was absent. High confidence in current availability failure, not in why Docker stopped. No startup/install attempted. Containment: added read-only preflight, saved output/engine2-windows-preflight.json, documented separate host/sensor setup gate. 204 software tests passed; live sensor remains blocked until suitable Linux setup is supplied/approved. Earlier successful Docker observations remain historical, not invalidated.
+
 Recorded 2026-09-23. INC-001 through INC-014 reconstruct the initial implementation from the conversation/tool evidence and saved artifacts. They are retrospective records, not invented contemporaneous issue tickets. Root-cause certainty is stated where evidence is limited.
 
 | ID | Symptom and impact | Diagnosis / evidence | Resolution and verification | Status / residual limit |

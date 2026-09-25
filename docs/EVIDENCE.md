@@ -1,5 +1,10 @@
 # Evidence index
 
+## Engine 2 host preflight (2026-09-25)
+
+- [Windows host facts](../output/engine2-windows-preflight.json): actual local OS observation, linux_host_required. Not a Linux/sensor test.
+- [Preflight regression suite](../output/engine2-preflight-tests.xml): 204 software tests passed; Linux branches mocked. No accuracy, collection or overhead claim.
+
 These files are observations, not marketing claims. Timestamps in JSON are UTC; work occurred on 2026-09-23 in Asia/Calcutta. Original reports can contain local file paths. Repository visibility is private.
 
 | ID | Artifact | What it establishes / limit |

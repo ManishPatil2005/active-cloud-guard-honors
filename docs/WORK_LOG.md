@@ -1,5 +1,19 @@
 # Work log
 
+## WL-009 - 2026-09-25 - Engine 2 host preflight (E2-003, partial)
+
+**Request/acceptance:** continue Engine 2 without changing Engine 1 or the stack. Establish actual host availability; provide reproducible read-only facts, distinguish unavailable/absent prerequisites, never certify a sensor from path presence, and preserve existing reports.
+
+**Prior publication:** replay foundation main was published as `52efa64a82431d05a4beaaa47dd530900f91f4db`; working tree was clean at this increment's start.
+
+**Environment observed:** initial sandbox WSL enumeration returned E_ACCESSDENIED and Docker config access was denied. Approved host retry of `wsl --list --verbose` listed only docker-desktop, Stopped, WSL 2. `docker version --format '{{.Server.Version}}'` could not connect to the Docker Desktop Linux engine pipe. No distribution, service, package, privilege or kernel settings were changed. These observations do not invalidate historical successful service experiments.
+
+**Implementation:** runtime_preflight module reports local platform, Linux effective UID and file-type facts for BTF, tracefs path and cgroup-v2 marker. Errors remain unavailable, not absent. No subprocess/network/driver operations. The script exclusively creates a report. Even all markers present yields requires_sensor_specific_validation, never readiness. Package/replay schemas and Engine 1 unchanged.
+
+**Verification commands/results:** `.venv\Scripts\python.exe -m ruff check cloudguard scripts tests` passed; `-m ruff format --check cloudguard scripts tests` passed (44 files); `-m pytest -q --junitxml=output/engine2-preflight-tests.xml` passed 204 tests including eight new cases; `scripts/runtime_preflight.py --output output/engine2-windows-preflight.json` saved actual Windows facts, linux_host_required; `-m pip check` passed. Script zero exit means report saved, not readiness. Publication checker and Git staged/whitespace review precede commit; remote SHA is verified after push and reported in chat.
+
+**Limits/next:** Linux branches use mocked tests, not live Linux validation. E2-003 remains partial; host/setup selection and a scoped sensor privilege plan are needed before a real capture. No live runtime, ML, overhead or independent effectiveness experiment. See INC-021. No historical evidence overwritten.
+
 ## WL-008 - 2026-09-25 - Engine 2 replay foundation (E2-001/002)
 
 **Publication receipt:** Engine 1 baseline committed as `6736a577f1ba08b4700daf8a86370ec3bbd1c019`; tag `engine1-v2.2`. Pre-commit publication checker passed 139 files. Push succeeded; git ls-remote returned the same SHA for main and the tag. Working tree was clean before Engine 2 implementation. Historical live reports remain dated 23 September.

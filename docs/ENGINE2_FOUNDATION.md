@@ -74,6 +74,16 @@ The [software test report](../output/engine2-foundation-tests.xml) records the c
 
 ## Next acceptance gates
 
+### Host preflight increment (25 September)
+
+Run `python scripts/runtime_preflight.py --output output/engine2-host-new.json` on the intended research host with a new filename. This standard-library script saves OS/release/architecture, effective UID on Linux, and present/absent/unavailable/unexpected-type facts for `/sys/kernel/btf/vmlinux`, `/sys/kernel/tracing` and `/sys/fs/cgroup/cgroup.controllers`. Other systems report not_applicable. No installs, subprocesses, socket connections or privilege changes. Exit zero means the report was saved, not sensor readiness.
+
+These are diagnostic hints, not universal prerequisites or a compatibility test. Paths may exist without usable mounts/capabilities; absent markers do not rule out every collector. Facts describe the Python process's host/namespace, not another WSL distribution or remote Docker host. Linux always returns requires_sensor_specific_validation. Do not run as root merely to obtain this report.
+
+Actual [Windows report](../output/engine2-windows-preflight.json) returned linux_host_required. Approved `wsl --list --verbose` listed only docker-desktop, Stopped, version 2. Docker server query failed with an unavailable engine pipe. No general-purpose research Linux distribution was listed; no services were started. The [204-test report](../output/engine2-preflight-tests.xml) covers mocked Linux branches and local script execution/overwrite refusal, not live Linux compatibility.
+
+Next setup decision: supply a Linux research host/VM/WSL distribution (or explicitly approve provisioning one), then run preflight there. Select a sensor against official version-specific requirements and agree privileges, capture scope, retention and stop procedure before installation. Starting Docker alone does not establish eBPF compatibility. Do not treat the Docker-managed distribution as an approved general-purpose sensor host.
+
 1. Validate a supported Linux host and select/configure one sensor with bounded privileges; record its version and event-selection rules.
 2. Build the raw-sensor adapter, derive trustworthy container/deployment mappings and add coverage/loss accounting.
 3. Record actual benign workloads and safe labeled simulations with grouped train/validation/test separation.

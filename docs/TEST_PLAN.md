@@ -31,6 +31,8 @@ A script's successful return does not prove the model's conclusions correct. Ins
 
 ## Change-specific policy
 
+Engine 2 preflight: eight additional cases cover non-Linux path skipping, Linux no-certification outcomes, path type/absence, permission failure and real CLI non-overwrite behavior. Full suite: output/engine2-preflight-tests.xml, 204 passed. `python scripts/runtime_preflight.py --output output/engine2-host-new.json` saves facts; zero exit is not readiness. Windows executed live; Linux branches use mocks. No sensor/kernel capability or live capture test has run.
+
 Engine 2 foundation: `python -m pytest -q --junitxml=output/engine2-foundation-tests.xml` records regression results; choose a new filename for subsequent experiments. `python scripts/runtime_check.py --output output/engine2-new-replay.json` checks versioned synthetic data without network/Docker/model access. Expected statuses exercise a constructed count deviation, not threat-detection accuracy. Real sensor capture, ML and CPU overhead have not been tested.
 
 V2.2: `python -m pytest -q --junitxml=output/engine1-v22-tests.xml` captured 168 checks. Use a new filename for future revisions. `python scripts/service_check.py --output output/service-new-observation.json` captures identity and actual credential-free protocol checks against the already-running local lab. A mismatch blocks protocol traffic; all historical reports are retained. Protocol positive/negative alternatives use mocks; only observed live outcomes are claimed in ENGINE1_BASELINE.md.

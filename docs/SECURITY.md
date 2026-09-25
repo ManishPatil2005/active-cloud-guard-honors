@@ -2,6 +2,8 @@
 
 ## Research execution
 
+Engine 2 preflight inspects fixed path metadata and platform facts only, without privilege changes, driver loading or process execution. OS/kernel details need review before public sharing. Running inside a namespace/container does not establish host capabilities. Sensor installation and permissions remain a separate explicitly scoped setup decision.
+
 Only declared localhost lab endpoints are eligible for probes. IPs are literal loopback addresses and endpoints are allowlisted; no DNS rebinding path or model-directed arbitrary network scan is provided. TCP outcomes do not validate credentials or prove Internet exposure. The current lab bridge permits outbound traffic.
 
 IaC and retrieved text are untrusted data. No model output is executed as shell code. Model transport uses the local Ollama endpoint, bypassing system HTTP proxies. Schema, source membership, exact locations and two narrow policy guards constrain output, but human entailment review is still necessary. No automatic isolation or deployment decision is implemented.
