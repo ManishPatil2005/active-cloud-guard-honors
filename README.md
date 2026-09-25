@@ -4,7 +4,7 @@
 
 ### Evidence-linked configuration auditing for cloud-hosted open-source software
 
-Honors research · Engine 1 v2.2 · Python package 0.4.0
+Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
@@ -22,15 +22,17 @@ V2.1 adds hash-bound operator policies and reviewed model-to-endpoint verificati
 
 V2.2 adds actual-Compose local deployment identity checks and credential-free Redis/PostgreSQL observations. Both were exercised against the existing loopback lab. See the [baseline report, commands and limitations](docs/ENGINE1_BASELINE.md).
 
+Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has begun with an **observation-only replay foundation**: normalized events, time-window features and a simple statistical comparator. Its demonstration is synthetic, not live telemetry or validated ML. See the [Engine 2 report](docs/ENGINE2_FOUNDATION.md).
+
 **Research status:** implemented, software-tested and live-smoke-observed. Independent effectiveness evaluation remains pending. This is a research prototype—not a production security control or a claim of validated vulnerability prevention.
 
 | Project | Details |
 |---|---|
 | Researcher | Manish Patil |
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
-| Current scope | First-three-month engineering deliverables and Engine 1 v2 efficiency improvements |
+| Current scope | Frozen Engine 1 baseline and initial observation-only Engine 2 replay |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 23 September 2026; 168 passing software tests in the v2.2 report |
+| Evidence snapshot | 25 September 2026; 196 passing software tests; live Engine 1 observations remain dated 23 September |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
@@ -74,7 +76,7 @@ Model candidates remain separate from rule findings. They do not execute command
 | Prioritization | Monotonic provisional scoring; missing evidence remains explicit | Weights are not empirically calibrated |
 | V2 efficiency | Opt-in exact-request cache, index reuse, generation limits and stage timings | Repeat-work optimization, not demonstrated energy savings |
 
-The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as the model service. Runtime anomaly detection, eBPF collection, autonomous isolation and production deployment are outside the current milestone.
+The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as the model service. Engine 2 currently supports replay-based count deviations only. Live eBPF/Kubernetes collection, trained runtime ML, autonomous isolation and production deployment are not implemented.
 
 ## Results and evidence
 
@@ -82,7 +84,8 @@ The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as th
 
 | Observation | Evidence | Interpretation |
 |---|---|---|
-| 168 passing software tests | [V2.2 test report](output/engine1-v22-tests.xml) | Regression checks; not detection accuracy |
+| 196 passing software tests | [Current test report](output/engine2-foundation-tests.xml) | Regression checks; not detection accuracy |
+| Engine 2 constructed count deviation | [Synthetic replay report](output/engine2-replay-smoke.json) | No live sensor or independent threat labels |
 | Stable identity and service observations | [V2.2 live lab report](output/service-identity-v22-final.json) | Redis protected-mode denial and PostgreSQL SASL challenge; no full attestation |
 | Policy-aware real loopback observations | [V2.1 smoke report](output/verification-v21-smoke.json) | Synthetic policies and accept-only listener; no deployment or model claim |
 | 45 development fixtures matched expected rule sets | [Development baseline](output/baseline-development.json) | Seeded-predicate coverage, not generalization |
@@ -196,6 +199,15 @@ All published ports bind to `127.0.0.1`: Redis `16379`, PostgreSQL `15432`, Ngin
 
 PostgreSQL/MinIO data are disposable; Redis persistence is disabled. Credentials, model weights, vector databases and audit caches are not committed. Generated cache content can repeat sensitive input: use a trusted local directory and preserve exclusions. See [security policy](docs/SECURITY.md) for the complete boundaries.
 
+## Engine 2: observation-only replay
+
+```bash
+python -m cloudguard.cli runtime-replay data/runtime/observation-synthetic.json --baseline data/runtime/baseline-synthetic.json --inventory testbed/inventory.json
+python scripts/runtime_check.py --output output/engine2-new-replay.json
+```
+
+This opens no network connection and executes no response action. The fixtures contain invented timestamps and a placeholder container ID. Missing windows remain unknown; deviations require review and are not attack probabilities. Live sensor integration, trusted identity mapping, independent runtime labels and ML comparison are next gates, not implied capabilities. Read the [contract and limitations](docs/ENGINE2_FOUNDATION.md).
+
 ## Repository guide
 
 | Location | Purpose |
@@ -217,7 +229,7 @@ The next scientific milestone is independent evaluation:
 2. Run matched rule-baseline, local-model and retrieval-assisted comparisons with coverage and abstentions reported.
 3. Evaluate evidence-linked prioritization, false negatives and uncertainty under an agreed threat model.
 4. Measure unseen-input latency, CPU/memory and power before making broader efficiency or sustainability claims.
-5. Investigate runtime evidence in later milestones after the Engine 1 evaluation gates are met.
+5. Extend the Engine 2 replay foundation with validated Linux sensor capture, coverage accounting and independently evaluated runtime models.
 
 The [task ledger](TASKS.md) records completed engineering work, partial research work and deferred milestones. Engineering completion is not equivalent to validating the research hypothesis.
 
@@ -225,6 +237,6 @@ The [task ledger](TASKS.md) records completed engineering work, partial research
 
 For review, begin with the [protocol](docs/EXPERIMENT_PROTOCOL.md), [evidence index](docs/EVIDENCE.md), [decision register](docs/DECISIONS.md) and [incident ledger](docs/INCIDENTS.md). Changes follow the [documentation maintenance contract](docs/DOCUMENTATION_WORKFLOW.md): record what changed, why, exact checks, failures and remaining limits. The commit guard runs locally; no hosted CI result or peer-review endorsement is implied.
 
-When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.4.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
+When referring to this software in an internal report, identify **Manish Patil, Active Cloud Guard, package version 0.5.0**, the exact Git commit and the specific evidence artifact used. This is software attribution guidance, not a publication citation; no DOI is claimed.
 
 The repository is private. No open-source license has been selected; access does not itself grant redistribution rights. Contact the repository owner before external reuse or publication of project materials.

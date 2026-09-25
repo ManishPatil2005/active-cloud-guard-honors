@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "synthetic-baseline",
+  "scenario_group": "synthetic-baseline-family",
+  "source": "synthetic",
+  "bindings": [
+    {
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "asset_id": "compose/redis"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "synthetic-baseline-0-0",
+      "timestamp": "2026-01-01T00:00:00Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "synthetic-baseline-0-1",
+      "timestamp": "2026-01-01T00:00:01Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-baseline-0-2",
+      "timestamp": "2026-01-01T00:00:02Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "synthetic-baseline-1-0",
+      "timestamp": "2026-01-01T00:01:00Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "synthetic-baseline-1-1",
+      "timestamp": "2026-01-01T00:01:01Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-baseline-1-2",
+      "timestamp": "2026-01-01T00:01:02Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "synthetic-baseline-2-0",
+      "timestamp": "2026-01-01T00:02:00Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "synthetic-baseline-2-1",
+      "timestamp": "2026-01-01T00:02:01Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-baseline-2-2",
+      "timestamp": "2026-01-01T00:02:02Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "file_open"
+    }
+  ]
+}

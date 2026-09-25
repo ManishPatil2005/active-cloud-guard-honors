@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-016 - 2026-09-25 - Observation-only Engine 2 foundation
+
+Freeze Engine 1 before runtime changes. Start with a strict normalized capture contract and transparent standardized-count comparator using existing dependencies, not immediate sensor installation/ML claims. Preserve the planned eBPF/Kubernetes and Isolation Forest/autoencoder path as explicit next work. Require separate declared groups/event records for baseline versus observations and expose unknown coverage. No zero-filling gaps, automated actions, threat confirmation or TCI integration. This makes the future sensor/ML path testable without representing synthetic data as real telemetry.
+
 ## ADR-015 - 2026-09-23 - Bounded identity and protocol verification
 
 Before Engine 2, bind observations to the actual Compose source using local daemon checks and pre/post identity comparison. Add only fixed credential-free Redis/PostgreSQL protocol exchanges, separate from the lower-evidence generic TCP pipeline. Do not weaken the testbed to manufacture findings or silently label selected identity checks as full runtime attestation. No score/suppression change. This supports a reproducible Engine 1 freeze while leaving application-state verification and independent evaluation open.

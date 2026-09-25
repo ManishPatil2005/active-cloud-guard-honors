@@ -14,6 +14,8 @@ Commit reproducible code, labels, official-source summaries, dependency lock, do
 
 ## Residual risks
 
+Engine 2 replay treats telemetry as untrusted structured data. Unknown fields (including commands), oversized/duplicate records and unbound assets are rejected. No sensor input is executed or used as a network destination; the runtime module has no action path. Source/container bindings are declarations, not authenticated evidence. Missing windows are not normal behavior. Keep raw telemetry in ignored/publication-blocked output/runtime-raw/ until reviewed and redacted. Observation scores are not threat probabilities or isolation authority.
+
 V2.2 `verify-service` trusts a local Docker daemon and selected inspect fields/Compose hashes. It rejects remote contexts and never prints resolved secrets. Only credential-free Redis PING or PostgreSQL startup is sent to a matched loopback endpoint; no AUTH/password, SQL, application data access or configuration write. Server logs can be generated. Mounted-file/application state and malicious-admin resistance are not attested. No outcome is a complete authorization/vulnerability verdict. See ENGINE1_BASELINE.md.
 
 V2.1 policy/review files are trusted operator authority; a reviewer label is not authenticated. Never accept model-authored approvals automatically. They authorize only TCP observations at validated inventory endpoints. Hashes prevent stale-document reuse, not malicious approval forgery or proof of deployment equivalence. No policy outcome suppresses a finding. Review documents have no TTL; operators must renew review when deployment or intended access changes. See [contracts and examples](ENGINE1_REFINEMENT.md).

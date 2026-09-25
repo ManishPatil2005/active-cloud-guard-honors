@@ -6,6 +6,7 @@ def test_runtime_material_is_excluded():
         "testbed/secrets/pg_password.txt",
         "output/chroma/chroma.sqlite3",
         "output/audit-cache/sample.json",
+        "output/runtime-raw/events.json",
         ".venv/a.py",
         ".env.local",
         "tmp/pdfs/page.png",

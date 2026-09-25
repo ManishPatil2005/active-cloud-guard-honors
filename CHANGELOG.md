@@ -2,6 +2,14 @@
 
 Changes are recorded on the date they occurred or were documented. Historical failures are retained, not removed from the narrative.
 
+## 2026-09-25 - Engine 1 freeze and Engine 2 foundation (package 0.5.0)
+
+- Published Engine 1 v2.2 at commit 6736a57 and tag engine1-v2.2 before runtime changes; local/remote references matched.
+- Added bounded normalized runtime capture ingestion, declared container-to-inventory bindings and UTC count windows.
+- Added a separate-baseline standardized-count comparator, leakage guards, unknown/insufficient-data states and observation-only CLI. No actions, sensor connection or TCI updates.
+- Added explicit synthetic fixtures/replay evidence and 28 tests; full suite passes 196. No independent accuracy, live telemetry or ML-model claim.
+- Excluded raw runtime logs from publication and documented live Linux/sensor prerequisites. Existing stack and dependencies preserved.
+
 ## 2026-09-23 - Engine 1 v2.2 baseline (package 0.4.0)
 
 - Added local Compose/container identity verification before and after fixed credential-free service observations.

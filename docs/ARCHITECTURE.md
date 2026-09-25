@@ -35,6 +35,7 @@ Staging services already exist before verification. The program does not deploy 
 | verification.py | Strict inventory/policy/review validation; exact-byte/request/candidate binding and conservative assessments |
 | deployment.py | Read-only local Docker/Compose identity checks for Redis/PostgreSQL |
 | service_probe.py | Identity-gated credential-free Redis PING/PostgreSQL startup observations |
+| runtime.py | Engine 2 normalized replay, explicit asset bindings, windows and count-deviation baseline; no sensor or actions |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
 | pipeline.py | Connect stages; retain origin and review boundaries |
 | metrics.py | Confusion counts, explicit undefined ratios and descriptive intervals |
@@ -50,4 +51,6 @@ Engine 1 v2 adds optional local response reuse, idempotent vector indexing, expl
 
 All published ports bind to 127.0.0.1: 16379, 15432, 18080, 19000 and 11434. The dedicated bridge permits outbound traffic; it is not an egress sandbox. PostgreSQL/MinIO data are disposable tmpfs, Redis persistence is disabled, model downloads persist in a named volume. Local generated secrets are mounted from ignored files.
 
-The custom scanner is incomplete by design. Chroma/source-ID checks do not prove entailment. Grounding guards cover two predicates only. TCI settings are uncalibrated. Runtime telemetry/anomaly detection remains on the later-month roadmap, not a hidden implemented component.
+The custom scanner is incomplete by design. Chroma/source-ID checks do not prove entailment. Grounding guards cover two predicates only. TCI settings are uncalibrated. Engine 2 now has an observation-only replay foundation; live telemetry, ML models and integrated threat evaluation remain later work.
+
+Engine 2 flow: declared normalized capture -> schema/asset/time checks -> nonempty per-asset time windows -> comparison with separate baseline captures -> reviewable deviations. It neither imports executable models nor feeds provisional runtime scores into TCI. See [foundation report](ENGINE2_FOUNDATION.md).

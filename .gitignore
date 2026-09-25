@@ -10,3 +10,4 @@ tmp/
 testbed/secrets/
 output/chroma/
 output/audit-cache/
+output/runtime-raw/

@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "synthetic-observation",
+  "scenario_group": "synthetic-observation-family",
+  "source": "synthetic",
+  "bindings": [
+    {
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "asset_id": "compose/redis"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "synthetic-observation-0-0",
+      "timestamp": "2026-01-02T00:00:00Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "synthetic-observation-0-1",
+      "timestamp": "2026-01-02T00:00:01Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-0-2",
+      "timestamp": "2026-01-02T00:00:02Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "synthetic-observation-1-0",
+      "timestamp": "2026-01-02T00:01:00Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-1",
+      "timestamp": "2026-01-02T00:01:01Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-2",
+      "timestamp": "2026-01-02T00:01:02Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-3",
+      "timestamp": "2026-01-02T00:01:03Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-4",
+      "timestamp": "2026-01-02T00:01:04Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-5",
+      "timestamp": "2026-01-02T00:01:05Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-6",
+      "timestamp": "2026-01-02T00:01:06Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-7",
+      "timestamp": "2026-01-02T00:01:07Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "synthetic-observation-1-8",
+      "timestamp": "2026-01-02T00:01:08Z",
+      "container_id": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "kind": "network_connect"
+    }
+  ]
+}

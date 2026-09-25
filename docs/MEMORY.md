@@ -1,6 +1,6 @@
 # Current project state
 
-Updated 2026-09-23. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
+Updated 2026-09-25. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
 
 ## Implemented and observed
 
@@ -9,6 +9,8 @@ Python CLI/library with nine rule predicates, lexical and Chroma retrieval, loca
 Current smoke model: qwen2.5:3b. Latest saved three-case inference times are approximately 12.44, 12.30 and 12.83 seconds. Two supported candidates were retained; one unsupported password-placeholder/trust claim was rejected by a narrow guard. These are tuned development examples, not an accuracy benchmark.
 
 ## Current work
+
+Engine 1 baseline is frozen and published at `6736a577f1ba08b4700daf8a86370ec3bbd1c019`, tag `engine1-v2.2`; both remote references were verified on 25 September. Engine 2 now has an initial observation-only replay implementation (engine 0.1, package 0.5.0): normalized capture/asset validation, time-window counts, separate-baseline statistical comparison, explicit missing-data/insufficient-baseline states, no actions. Full suite: 196 tests passed; four synthetic replay checks passed. No sensor is connected and no ML threat model or real runtime accuracy/overhead result exists. ENGINE2_FOUNDATION.md explains the contract and next Linux/sensor steps. Earlier version snapshots below are historical.
 
 Engine 1 v2.2 / package 0.4.0 adds actual-Compose local Docker identity checks and credential-free Redis/PostgreSQL observations. 168 software tests passed. Real lab: identities stable before/after, Redis protected-mode denial, PostgreSQL SASL challenge; reports in output/service-identity-v22*. No settings or data modified. This establishes selected local identity/protocol evidence, not full application-state equivalence. Freeze this baseline before an observation-only Engine 2. See ENGINE1_BASELINE.md; older refinement entries below are historical.
 

@@ -42,7 +42,13 @@ def forbidden(path):
     ):
         return True
     if path.startswith(
-        ("testbed/secrets/", "output/chroma/", "output/audit-cache/", "tmp/")
+        (
+            "testbed/secrets/",
+            "output/chroma/",
+            "output/audit-cache/",
+            "output/runtime-raw/",
+            "tmp/",
+        )
     ):
         return True
     name = parts[-1]

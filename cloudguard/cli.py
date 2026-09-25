@@ -54,6 +54,19 @@ def main():
     )
     sv.add_argument("--inventory", required=True)
     sv.add_argument("--service", choices=["redis", "postgres"], required=True)
+    rt = sub.add_parser(
+        "runtime-replay", help="Observation-only Engine 2 normalized-event replay"
+    )
+    rt.add_argument("path", help="Observation capture JSON")
+    rt.add_argument(
+        "--baseline",
+        action="append",
+        required=True,
+        help="Separate baseline capture; repeat for multiple captures",
+    )
+    rt.add_argument("--inventory", required=True)
+    rt.add_argument("--window-seconds", type=int, default=60)
+    rt.add_argument("--threshold", type=float, default=3.0)
     args = parser.parse_args()
     try:
         if args.command == "scan":
@@ -91,6 +104,16 @@ def main():
             from .vector import retrieve_vector
 
             result = retrieve_vector(args.query, args.kb, args.index)
+        elif args.command == "runtime-replay":
+            from .runtime import analyze
+
+            result = analyze(
+                args.baseline,
+                args.path,
+                args.inventory,
+                window_seconds=args.window_seconds,
+                threshold=args.threshold,
+            )
         elif args.command == "verify-service":
             from .service_probe import verify_service
 

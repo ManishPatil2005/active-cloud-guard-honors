@@ -1,5 +1,19 @@
 # Work log
 
+## WL-008 - 2026-09-25 - Engine 2 replay foundation (E2-001/002)
+
+**Publication receipt:** Engine 1 baseline committed as `6736a577f1ba08b4700daf8a86370ec3bbd1c019`; tag `engine1-v2.2`. Pre-commit publication checker passed 139 files. Push succeeded; git ls-remote returned the same SHA for main and the tag. Working tree was clean before Engine 2 implementation. Historical live reports remain dated 23 September.
+
+**Scope/acceptance:** user asked to proceed after freezing Engine 1. Implement a minimal observation-only runtime data path, preserving Python/Docker/Ollama/Chroma and scientific boundaries. No authorization inferred for background monitoring, kernel changes, isolation, production data or fabricated real captures.
+
+**Implementation:** added strict normalized captures, bounded parsing, declared full-container-ID inventory bindings, timezone-aware sorted events, nonempty count windows, per-asset baseline statistics and review-only deviations. Same group/capture and overlapping event reuse across fitting/observation are rejected. Baseline is never fitted on observation records. No zero-fill of collection gaps, no threat verdict, no actions or TCI integration. Added runtime-replay CLI, synthetic provenance/fixtures and a non-overwriting smoke script. No new dependencies. Deferred raw sensor adapters and ML pending real-data contracts rather than claiming them implemented.
+
+**Verification observed:** Ruff lint passed; full pytest suite 196 passed, saved as output/engine2-foundation-tests.xml; pip check passed. `python scripts/runtime_check.py --output output/engine2-replay-smoke.json` passed all four checks. CLI help and subprocess smoke passed. Synthetic normal-count window scored zero; constructed nine-connect window scored 8.0 and flagged review. This is software behavior, not measured threat detection. No new live Docker/model/sensor experiment was run for Engine 2. Publication/formatting checks repeated before commit.
+
+**Problems/limits:** preventing data leakage, falsely treating silence as normal and trusting imported identity are explicit design constraints, covered by negative tests and documentation—not problems claimed solved scientifically. Capture metadata can be forged; independent benign labels and completeness are absent. Scoring floor/threshold and three-window minimum are engineering choices, not validated statistics. Real Linux sensor/adapter, coverage accounting, ML models and independent runtime evaluation remain open. No failed experiment or historical artifact was overwritten.
+
+**Final publication checks:** Ruff lint passed and all 41 Python files passed formatting; 196 tests passed again; pip check passed; staged whitespace check passed. Inspected 27 staged files. `python scripts/repository_check.py` passed 148 publication files, links, exclusions and bounded credential checks. Raw telemetry publication is blocked at output/runtime-raw/. No hosted CI or live sensor test is claimed. Exact final commit/remote match is checked during push and reported in the task handoff.
+
 ## WL-007 - 2026-09-25 - Resume and freeze Engine 1 baseline
 
 User asked to continue publication and begin Engine 2. Re-inspected the uncommitted Engine 1 work and required context. On 25 September, Ruff lint and formatting (38 files), all 168 tests, dependency consistency and git whitespace checks passed again. The live service observations remain the actual 23 September runs; they were not relabeled or rerun merely for publication. Freeze the reviewed v2.2 snapshot before runtime additions. Publication/link checks and remote commit/tag verification are performed at the commit boundary.
