@@ -10,6 +10,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Engine 1 refinement](ENGINE1_REFINEMENT.md) | V2.1 reviewed verification, operator templates, results and remaining gates |
 | [Engine 1 baseline](ENGINE1_BASELINE.md) | V2.2 local deployment identity and bounded Redis/PostgreSQL checks |
 | [Engine 2 foundation](ENGINE2_FOUNDATION.md) | Observation-only replay contract, statistical baseline, evidence and sensor prerequisites |
+| [Windows/Linux setup](WINDOWS_LINUX_SETUP.md) | Installed research WSL distribution, actual Linux preflight, Docker integration handoff and sensor gates |
 | [Interface design](DESIGN.md) | CLI/output contracts; no proposed web redesign |
 | [Rules](../RULES.md) | Implementation, evidence and Git rules |
 | [Working agreement](../AGENTS.md) | Required context and maintenance for future work |

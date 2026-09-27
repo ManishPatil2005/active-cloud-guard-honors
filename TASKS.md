@@ -34,7 +34,7 @@ Status as of 2026-09-25. Completed means the stated acceptance criterion was met
 | RES-005 | Calibrate TCI and enrich verification | Open | Development-only calibration; authentication/multiple vantages |
 | E2-001 | Observation-only replay and normalized event contract | Implemented/software-tested | Strict source/asset/time validation; grouped baseline separation; 196-test suite |
 | E2-002 | Window features and simple statistical comparator | Implemented/synthetic-replay-tested | Count deviation for review; missing coverage stays unknown; no actions |
-| E2-003 | Live Linux sensor and raw-event adapter | Partial: preflight only | Read-only host-facts tool, 204-test suite; Windows observed, only stopped Docker WSL distribution; live Linux sensor, adapter and authenticated mapping remain open |
+| E2-003 | Live Linux sensor and raw-event adapter | Partial: Linux provisioned/preflight observed | ACG-Research Ubuntu WSL installed; actual UID-1000 Linux preflight; Docker integration needs owner setting; sensor, adapter and authenticated mapping remain open |
 | E2-004 | Independent runtime labels, ML and overhead evaluation | Open | Isolation Forest/autoencoder and matched real workloads not implemented/evaluated |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Initial replay foundation only; live sensor and ML gates above remain open |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |

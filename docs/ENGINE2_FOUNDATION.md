@@ -74,6 +74,8 @@ The [software test report](../output/engine2-foundation-tests.xml) records the c
 
 ## Next acceptance gates
 
+Latest setup update: a separate ACG-Research Ubuntu WSL distribution is now installed; [Linux preflight](../output/engine2-linux-wsl-preflight.json) actually ran as UID 1000. Docker Desktop is responding, but this distribution's Docker integration needs enabling. See [setup and handoff](WINDOWS_LINUX_SETUP.md). No live sensor is installed. The initial host-preflight findings below remain historical observations.
+
 ### Host preflight increment (25 September)
 
 Run `python scripts/runtime_preflight.py --output output/engine2-host-new.json` on the intended research host with a new filename. This standard-library script saves OS/release/architecture, effective UID on Linux, and present/absent/unavailable/unexpected-type facts for `/sys/kernel/btf/vmlinux`, `/sys/kernel/tracing` and `/sys/fs/cgroup/cgroup.controllers`. Other systems report not_applicable. No installs, subprocesses, socket connections or privilege changes. Exit zero means the report was saved, not sensor readiness.

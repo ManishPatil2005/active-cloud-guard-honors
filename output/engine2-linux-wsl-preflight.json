@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "executed_at": "2026-09-25T17:11:05.525598+00:00",
+  "evidence_level": "local_host_facts",
+  "host": {
+    "system": "Linux",
+    "release": "6.6.114.1-microsoft-standard-WSL2",
+    "machine": "x86_64",
+    "effective_uid": 1000
+  },
+  "linux_markers": {
+    "kernel_btf": "present",
+    "tracefs_path": "present",
+    "cgroup_v2_controllers": "present"
+  },
+  "status": "requires_sensor_specific_validation",
+  "sensor_compatibility_verified": false,
+  "runtime_sensor_connected": false,
+  "actions_executed": [],
+  "limitations": [
+    "Facts describe this process's host and namespace, not a remote Docker daemon or another WSL distribution.",
+    "Path presence does not prove readable BTF, mounted tracefs, effective capabilities or usable eBPF support.",
+    "No driver load, sensor execution, Docker connection, network access or privilege change was attempted.",
+    "Sensor version, event coverage, loss accounting, deployment identity and overhead remain unvalidated."
+  ]
+}

@@ -1,5 +1,23 @@
 # Work log
 
+## WL-010 - 2026-09-25 - Windows-hosted Linux provisioning (E2-003)
+
+Publication resumed 27 September after interruption; the implementation/host observations below occurred on 25 September. No fresh live availability or sensor test is implied by publication.
+
+**Scope:** user asked to proceed after the Windows/WSL explanation. Provision a separate research Linux environment, verify actual host facts without loading a sensor, preserve architecture/Engine 1 and publish honest setup evidence. Prior increment published as `973a81ca22c3f5ee7a37ac3b45d01e670e7ab42d`.
+
+**Commands/observations:** `wsl --status`, `--version`, `--list --verbose`, `--list --online` and local help confirmed WSL 2.7.3.0, kernel package 6.6.114.1-1, only stopped docker-desktop, available Ubuntu-24.04 and custom name/location support. CIM reported hypervisor and 16,886,128,640 bytes RAM. Two non-terminal install attempts (normal then --web-download) showed no progress or registration; verified only their matching process IDs before stopping them. Repeated `wsl --install Ubuntu-24.04 --name ACG-Research --location D:\ACG-Research-WSL --no-launch --web-download` with a terminal attached: download, registration and exit zero. No removal/reset. Exact root cause of initial stall unknown.
+
+**Linux validation:** `wsl -d ACG-Research -u root --exec sh -c 'uname -r; cat /etc/os-release; python3 --version; id nobody'` reported kernel 6.6.114.1-microsoft-standard-WSL2, Ubuntu 24.04.5 and Python 3.12.3. Direct useradd lookup failed; explicit `/usr/sbin/useradd --create-home --shell /bin/bash acgresearch` succeeded. `wsl --manage ACG-Research --set-default-user acgresearch` set only this distribution's non-admin default user. Password remains locked, no sudo group granted. Global default unchanged.
+
+**Saved evidence:** `wsl -d ACG-Research --cd '/mnt/d/research f1' --exec python3 scripts/runtime_preflight.py --output output/engine2-linux-wsl-preflight.json` succeeded as UID 1000. Three markers present; separate checks showed BTF readable, tracefs and cgroup2 mounted. No bpftool found. No probe loaded or kernel capability test performed. Installer disk resides outside repository, not committed.
+
+**Docker boundary:** direct --exec docker lookup failed; shell invocation found Docker's shim and its explicit integration-disabled message. Started existing `C:\Program Files\Docker\Docker\Docker Desktop.exe` hidden. Windows server returned 29.8.0; both WSL distributions running. New distribution still requires Docker Desktop Settings > Resources > WSL Integration > ACG-Research. No integration setting, Compose configuration, container recreation, sensor service or global WSL setting changed.
+
+**Checks:** `.venv\Scripts\python.exe -m pytest -q`: 204 passed; `-m ruff check cloudguard scripts tests`, `-m ruff format --check cloudguard scripts tests` (44 files), and `-m pip check` passed. These are Windows suite checks; Linux only ran the standard-library preflight, not the full suite. Documentation/publication and staged whitespace checks run before commit; remote verified after push in chat. No old reports overwritten.
+
+**Next/limits:** owner enables the named Docker integration; then validate container visibility and agree bounded sensor privileges/capture/loss accounting. No real telemetry, ML or accuracy result yet. Setup guide records official references, reproduction and scope. INC-022 and ADR-018 preserve operational decisions.
+
 ## WL-009 - 2026-09-25 - Engine 2 host preflight (E2-003, partial)
 
 **Request/acceptance:** continue Engine 2 without changing Engine 1 or the stack. Establish actual host availability; provide reproducible read-only facts, distinguish unavailable/absent prerequisites, never certify a sensor from path presence, and preserve existing reports.

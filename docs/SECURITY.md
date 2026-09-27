@@ -2,6 +2,8 @@
 
 ## Research execution
 
+ACG-Research is a separately registered Ubuntu WSL distribution with password-locked non-admin acgresearch user. This is not a hardened boundary: WSL distributions share a kernel and standard Windows drive mounts remain accessible. Docker WSL integration grants daemon management access, not read-only access; enabling it is an explicit owner action. No sensor, privileged container or new Docker daemon installed. See WINDOWS_LINUX_SETUP.md.
+
 Engine 2 preflight inspects fixed path metadata and platform facts only, without privilege changes, driver loading or process execution. OS/kernel details need review before public sharing. Running inside a namespace/container does not establish host capabilities. Sensor installation and permissions remain a separate explicitly scoped setup decision.
 
 Only declared localhost lab endpoints are eligible for probes. IPs are literal loopback addresses and endpoints are allowlisted; no DNS rebinding path or model-directed arbitrary network scan is provided. TCP outcomes do not validate credentials or prove Internet exposure. The current lab bridge permits outbound traffic.

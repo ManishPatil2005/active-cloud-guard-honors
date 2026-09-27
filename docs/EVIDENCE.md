@@ -1,5 +1,9 @@
 # Evidence index
 
+## Linux provisioning (2026-09-25)
+
+[WSL Linux preflight](../output/engine2-linux-wsl-preflight.json): actual ACG-Research execution, UID 1000, Linux 6.6.114.1, three markers present. Not a loaded-probe test, full Linux regression suite or real telemetry capture. [Setup record](WINDOWS_LINUX_SETUP.md) and WL-010 document commands and unresolved Docker integration.
+
 ## Engine 2 host preflight (2026-09-25)
 
 - [Windows host facts](../output/engine2-windows-preflight.json): actual local OS observation, linux_host_required. Not a Linux/sensor test.

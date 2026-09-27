@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-022 - 2026-09-25 - WSL installer invocation and Docker integration
+
+E2-003: two non-terminal WSL Ubuntu install attempts (default and web-download) produced no progress or registered distribution. Checked matching process command lines before stopping only task-owned installer processes; no distro unregistered. Terminal-attached retry of the web-download command succeeded. Invocation mode is a suspected factor, not a conclusive causal finding; no claim of corrupt WSL/network. Direct useradd lookup failed, then explicit /usr/sbin/useradd succeeded, verified UID 1000 and preflight. Docker --exec lookup failed; shell invocation produced Docker's explicit integration-disabled message. Starting Docker Desktop restored Windows server access (29.8.0) but did not enable the new distro. Remaining action: owner enables ACG-Research WSL integration. No sensor, kernel changes or credential workaround. Setup evidence: output/engine2-linux-wsl-preflight.json and WL-010.
+
 ### INC-021 - 2026-09-25 - Live runtime host unavailable
 
 Expected next gate: validate Linux host before Engine 2 sensor work. Initial WSL enumeration failed with E_ACCESSDENIED inside the sandbox; Docker config access also failed. Approved host retry listed only stopped docker-desktop (WSL 2); Docker server query still failed because its Linux engine pipe was absent. High confidence in current availability failure, not in why Docker stopped. No startup/install attempted. Containment: added read-only preflight, saved output/engine2-windows-preflight.json, documented separate host/sensor setup gate. 204 software tests passed; live sensor remains blocked until suitable Linux setup is supplied/approved. Earlier successful Docker observations remain historical, not invalidated.

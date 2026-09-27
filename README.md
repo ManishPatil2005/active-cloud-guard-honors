@@ -8,6 +8,8 @@ Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
 Latest engineering check: **204 software tests passed**. Engine 2 now includes read-only host preflight tooling; live Linux telemetry remains pending. See [host prerequisites and limitations](docs/ENGINE2_FOUNDATION.md#host-preflight-increment-25-september).
 
+Windows-hosted Linux setup is now provisioned and preflight-observed; Docker integration and live sensor validation remain open. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
+
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
 </div>

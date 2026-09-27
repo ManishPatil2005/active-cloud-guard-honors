@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-25 - Windows-hosted Linux research setup
+
+- Provisioned dedicated ACG-Research Ubuntu WSL distribution outside Git; added non-admin Linux user and saved actual Linux preflight evidence.
+- Documented installer retries and successful terminal-attached install, host resources, security scope and reproduction.
+- Restarted existing Docker Desktop; Docker access from the new distribution awaits its explicit WSL integration setting. No sensor installed or runtime accuracy claim. Windows 204-test regression rerun passed.
+
 ## 2026-09-25 - Engine 2 host preflight tooling
 
 - Added read-only platform/Linux-marker facts and a non-overwriting report script; no sensor installation or compatibility claim.

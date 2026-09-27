@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-018 - 2026-09-25 - Dedicated WSL research distribution
+
+After user requested proceeding on Windows, install separately named Ubuntu-24.04 as ACG-Research, with disk outside Git and unprivileged password-locked user. Preserve Windows/Docker Desktop and global WSL defaults. Separate distribution is not hardened isolation: WSL shares a kernel and automounts Windows files. No second Docker daemon, sensor install, custom kernel or blanket privileged collector. Use Docker's documented explicit distribution integration, requiring owner setting, then independently validate sensor visibility. Actual host preflight is live evidence; it cannot establish eBPF compatibility or completeness. Extends ADR-017; architecture unchanged.
+
 ## ADR-017 - 2026-09-25 - Host facts before sensor provisioning
 
 E2-003 inspection found Windows with only stopped Docker-managed WSL and no responding Docker daemon. Add read-only local preflight rather than install a privileged collector implicitly. Marker presence never certifies compatibility. No sensor selected yet; a user-supplied or explicitly approved research Linux environment and sensor-specific privilege plan are required. Linux branches use mocked software tests only. Engine 1 and the Python/Docker/Ollama/Chroma architecture remain unchanged.
