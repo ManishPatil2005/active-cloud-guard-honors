@@ -37,6 +37,7 @@ Staging services already exist before verification. The program does not deploy 
 | service_probe.py | Identity-gated credential-free Redis PING/PostgreSQL startup observations |
 | runtime.py | Engine 2 normalized replay, explicit asset bindings, windows and count-deviation baseline; no sensor or actions |
 | runtime_preflight.py | Read-only host and Linux marker facts; no compatibility certification, sensor or subprocess |
+| scripts/sensor_trial.py | Separate bounded Falco/Redis smoke harness; local raw logs and minimized summary, not connected to runtime.py |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
 | pipeline.py | Connect stages; retain origin and review boundaries |
 | metrics.py | Confusion counts, explicit undefined ratios and descriptive intervals |

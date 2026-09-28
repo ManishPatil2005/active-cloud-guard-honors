@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-024 - 2026-09-28 - Sensor startup compatibility
+
+BusyBox rejected GNU timeout flags (exit 1); first report incorrectly labeled this no_matching_events and harness returned success. Preserve the report, interpret exit 1 as failure. Retry failed YAML conversion from list-valued command-line overrides. High-confidence causes from retained logs. Fixed BusyBox options, minimal standalone YAML and failure exit classification. Successful retry warned on deprecated evt.dir; removed it before final successful 40-event/PONG run. All attempts retained; see ENGINE2_SENSOR_TRIAL.md. Twelve new tests and both 216-test suites passed. Not all lifecycle failure branches are validated.
+
+### INC-025 - 2026-09-28 - Redis unavailable between trials
+
+Trial refused before sensor launch: no running target. Inspection showed Redis stopped at 13:29:46Z, exit 0, no OOM/error. Cause unknown; no attribution to Falco. Started only existing Redis, then a separate verified run captured 40 events/PONG. No data/settings recreated; Redis running at final check. Unexpected stop cause remains unresolved.
+
 ### INC-023 - 2026-09-28 - Linux pytest cache permission warnings
 
 Expected clean Linux regression. First full Linux run passed all 204 assertions but emitted two PytestCacheWarning entries: EACCES writing nodeids/stepwise beneath the existing Windows .pytest_cache on /mnt/d. Evidence: actual command output in WL-011, corresponding successful XML output/engine2-linux-tests-20260928.xml (XML does not preserve the complete warning text). High confidence in failing cache writes; no claim about a particular NTFS ACL cause. Fix: command-line `-o cache_dir=/home/acgresearch/.cache/acg-pytest`; no permission change or deletion. Rerun: 204 passed, no warnings, separate output/engine2-linux-tests-final-20260928.xml. No application assertion failure or model/sensor result involved.

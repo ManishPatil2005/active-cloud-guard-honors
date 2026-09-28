@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Latest (28 September): a bounded Falco trial was run and removed; earlier sensor-absent statements are historical. It grants BPF/PERFMON/SYS_RESOURCE/SYS_PTRACE and read-only proc/tracing mounts, without privileged mode, host PID namespace, Docker socket or network. Filtering is not kernel isolation. Raw logs remain ignored/publication-blocked; summaries contain identities/hashes/counts. Watchdog/resource/log ceilings do not prove completeness. Digest pinning is not signature verification. No permanent collector or automated response. See ENGINE2_SENSOR_TRIAL.md.
+
 ## Research execution
 
 ACG-Research is a separately registered Ubuntu WSL distribution with password-locked acgresearch user, no sudo membership. This is not a hardened boundary: WSL distributions share a kernel and standard Windows drive mounts remain accessible. Docker WSL integration was enabled on 28 September at the user's request and grants daemon management access, not read-only access; the account is therefore not a least-privilege Docker reader. No sensor, privileged container or new Docker daemon installed. See WINDOWS_LINUX_SETUP.md.

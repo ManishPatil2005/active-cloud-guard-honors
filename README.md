@@ -6,9 +6,9 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
-Latest engineering check: **204 software tests passed**. Engine 2 now includes read-only host preflight tooling; live Linux telemetry remains pending. See [host prerequisites and limitations](docs/ENGINE2_FOUNDATION.md#host-preflight-increment-25-september).
+Latest engineering check: **216 software tests passed on both Windows and Linux**. A bounded live Falco trial observed 40 selected Redis-cgroup syscall records, PONG and sensor cleanup. Live normalization and loss accounting remain open. See the [trial and preserved failures](docs/ENGINE2_SENSOR_TRIAL.md).
 
-Windows-hosted Linux setup and Docker integration are verified; **204 tests also pass on Linux**. Live sensor validation remains open. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
+Windows-hosted Linux setup and Docker integration are verified. No temporary sensor remains running. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
@@ -36,7 +36,7 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has begun with an *
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | Frozen Engine 1 baseline and initial observation-only Engine 2 replay |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 25 September 2026; 204 passing software tests; live Engine 1 observations remain dated 23 September |
+| Evidence snapshot | 28 September 2026; 216 tests on each OS; bounded sensor smoke; live Engine 1 observations remain dated 23 September |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
@@ -88,7 +88,7 @@ The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as th
 
 | Observation | Evidence | Interpretation |
 |---|---|---|
-| 204 passing software tests | [Current test report](output/engine2-preflight-tests.xml) | Regression checks; Linux preflight branches mocked, not detection accuracy |
+| 216 software tests on each OS | [Windows](output/engine2-sensor-windows-tests-20260928.xml), [Linux](output/engine2-sensor-linux-tests-20260928.xml) | Regression checks, not detection accuracy |
 | Engine 2 constructed count deviation | [Synthetic replay report](output/engine2-replay-smoke.json) | No live sensor or independent threat labels |
 | Stable identity and service observations | [V2.2 live lab report](output/service-identity-v22-final.json) | Redis protected-mode denial and PostgreSQL SASL challenge; no full attestation |
 | Policy-aware real loopback observations | [V2.1 smoke report](output/verification-v21-smoke.json) | Synthetic policies and accept-only listener; no deployment or model claim |
@@ -120,7 +120,7 @@ Cached candidates were preserved and probes received new timestamps. These obser
 - **Limited guards:** the 3B model inferred trust authentication from a password placeholder. The [pre-guard observation](output/rag-smoke-3b-before-policy-guard.json) remains available. Narrow guards mitigate known predicates; hallucinations are not generally solved.
 - **Data leakage risk:** prompts and model choices were tuned on development cases. These cases cannot subsequently be described as untouched evaluation data.
 - **Coverage:** no general Terraform evaluation, Helm rendering, comprehensive secret detection or role-binding graph is implemented. Unsupported cases must not disappear from evaluation denominators.
-- **External validity:** no independently labeled effectiveness study, calibrated prioritization, production-safety assessment or Linux runtime validation is claimed.
+- **External validity:** no independently labeled effectiveness study, calibrated prioritization or production-safety assessment is claimed. Linux sensor validation is limited to the documented bounded smoke trial.
 
 An empty candidate list is not a security certification. A rejected model candidate is an abstention, not a clean verdict. The [evidence index](docs/EVIDENCE.md) distinguishes current v2 artifacts from historical observations; the older [results ledger](output/RESEARCH_STATUS.md) is not a v2 summary.
 

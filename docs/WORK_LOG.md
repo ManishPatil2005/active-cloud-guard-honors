@@ -1,5 +1,11 @@
 # Work log
 
+## WL-012 - 2026-09-28 - Bounded live sensor
+
+E2-003 acceptance: selected existing Redis cgroup events, fixed PING, preserved evidence and sensor cleanup. Added scripts/sensor_trial.py, minimal Falco configuration and 12 tests. Two startup failures, a deprecated-field warning and an unavailable-target refusal were preserved; see ENGINE2_SENSOR_TRIAL.md for exact commands, evidence paths, fixes and limits. Final successful run: 40 events, PONG, exit 0, sensor removed. Final Docker enumeration: no trial sensors, only Redis running. No lab recreation or automated security response.
+
+Windows pytest: 216 passed in 2.73 s; Linux pytest with Linux-local cache: 216 passed in 3.40 s. Separate XML reports retained. Windows Ruff lint/format passed (46 files); Windows/Linux pip check passed. Cleanup-on-client-failure hardening was added after live capture, not live fault-injected. Publication review excludes raw logs. Adapter, loss accounting, authenticated identity and independent evaluation remain open. Git history identifies publication; this entry alone is not proof of a push.
+
 ## WL-011 - 2026-09-28 - Docker integration and Linux application verification
 
 **Request/acceptance:** user explicitly asked to enable integration and proceed with important next steps. Verify actual Docker access, run the full software suite on Linux, preserve failures/warnings, maintain the stack and Engine 1 freeze. Previous publication: `9d505444dea907189d672de6749837ef8e76a6c3`.

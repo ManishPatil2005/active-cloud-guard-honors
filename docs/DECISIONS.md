@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-019 - 2026-09-28 - Bounded sensor before integration
+
+Use a digest-pinned Falco modern-eBPF experiment harness, not a permanent collector or architecture replacement. Filter by full Redis cgroup ID without Docker socket, disable network/sensitive fields, keep raw logs local and publish hashes/counts. Filtering is not kernel isolation or authenticated deployment identity. Keep coverage unknown and replay disconnected until adapter/loss gates pass. Preserve failures. See ENGINE2_SENSOR_TRIAL.md.
+
 ## ADR-018 - 2026-09-25 - Dedicated WSL research distribution
 
 After user requested proceeding on Windows, install separately named Ubuntu-24.04 as ACG-Research, with disk outside Git and unprivileged password-locked user. Preserve Windows/Docker Desktop and global WSL defaults. Separate distribution is not hardened isolation: WSL shares a kernel and automounts Windows files. No second Docker daemon, sensor install, custom kernel or blanket privileged collector. Use Docker's documented explicit distribution integration, requiring owner setting, then independently validate sensor visibility. Actual host preflight is live evidence; it cannot establish eBPF compatibility or completeness. Extends ADR-017; architecture unchanged.

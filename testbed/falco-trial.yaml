@@ -1,0 +1,24 @@
+# Standalone smoke configuration: no default plugins, rule downloads or outputs.
+config_files: []
+rules_files: []
+plugins: []
+load_plugins: []
+append_output: []
+engine:
+  kind: modern_ebpf
+json_output: true
+stdout_output:
+  enabled: true
+syslog_output:
+  enabled: false
+file_output:
+  enabled: false
+http_output:
+  enabled: false
+program_output:
+  enabled: false
+webserver:
+  enabled: false
+log_stderr: true
+log_syslog: false
+log_level: info

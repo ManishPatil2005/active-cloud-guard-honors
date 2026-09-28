@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-28 - Bounded Engine 2 live sensor smoke
+
+- Added digest-pinned, time/resource-bounded Falco trial with local-only raw logs, minimized published summaries and scoped cleanup.
+- Observed 40 selected Redis-cgroup syscall records and PONG; preserved failed attempts and their fixes. No ongoing sensor, threat or completeness claim.
+- Added 12 regression tests; 216 pass on both Windows and Linux. Raw adapter, coverage accounting and independent evaluation remain open.
+
 ## 2026-09-28 - Docker WSL integration and Linux regression validation
 
 - Enabled ACG-Research Docker Desktop integration through its UI; verified server and matching running Redis identity from Windows/WSL.

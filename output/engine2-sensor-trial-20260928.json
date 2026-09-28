@@ -1,0 +1,19 @@
+{
+  "executed_at": "2026-09-28T13:26:23.011350+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "fc2bb1f42cf555ed73e972acce2580d60af5bc4ab93560e3f4bf0d2c11375ba2",
+  "sensor_container_id": "4bea61d15b61cf16de4fd7485169c00173992b6318e92cc9c7d8996773a6a625",
+  "workload_executed": false,
+  "raw_log_sha256": "1b46b5b476d43fc80d93ca416a925919fc0b73d76352050c8f8ac9bf8a5dbffa",
+  "exit_code": 1,
+  "matched_event_count": 0,
+  "status": "no_matching_events",
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}

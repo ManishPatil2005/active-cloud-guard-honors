@@ -1,0 +1,11 @@
+{
+  "executed_at": "2026-09-28T13:31:26.730939+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "status": "trial_failed",
+  "error_type": "ValueError"
+}

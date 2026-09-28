@@ -1,5 +1,9 @@
 # Evidence index
 
+## Bounded sensor smoke (2026-09-28)
+
+[Trial record](ENGINE2_SENSOR_TRIAL.md) explains all preserved attempts and limits. [Verified summary](../output/engine2-sensor-trial-verified-20260928.json): 40 selected syscall records, PONG, exit 0, sensor removed; no threat/completeness claim. Raw logs local only, digest published. [Windows](../output/engine2-sensor-windows-tests-20260928.xml) and [Linux](../output/engine2-sensor-linux-tests-20260928.xml): 216 tests passed each. Earlier sensor-absent snapshots remain historical.
+
 ## Linux regression and Docker integration (2026-09-28)
 
 - [First Linux suite](../output/engine2-linux-tests-20260928.xml): 204 passed; two cache warnings in command output, recorded in INC-023.

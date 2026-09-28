@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest sensor increment (28 September): 216 tests pass on Windows and Linux; separate output/engine2-sensor-{windows,linux}-tests-20260928.xml reports. Twelve additions validate rule IDs, minimized fields, report preservation and selected event scope/results. Live smoke separately observed 40 Redis-cgroup records, PONG and cleanup. See ENGINE2_SENSOR_TRIAL.md for commands/failures. Live normalization, complete loss accounting, accuracy and all Docker lifecycle failures remain untested. Earlier no-sensor statements below are historical snapshots.
+
 ## Software checks
 
 Run from the repository root with the project environment:

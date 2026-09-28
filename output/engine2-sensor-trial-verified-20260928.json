@@ -1,0 +1,29 @@
+{
+  "executed_at": "2026-09-28T13:32:19.199880+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d7973d1524a2a7c7ad1e396148bee9a235fa372f4a8f7e01530ff097c6b96c9d",
+  "config_sha256": "f89f70af719dcc35c119a2a88892d8dfc2675d41e24b90546a7be984b26cebf3",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "1a7dccd83a8c99ef8ed3ef57a965f5fdab8c6f7aa5b5051b6cde9efb77a944c3",
+  "workload_executed": true,
+  "workload_result": "PONG",
+  "raw_log_sha256": "1a9d553988542359a36bc23dffc5b697427ed410ce1f2701c7b6889d5bdb396b",
+  "exit_code": 0,
+  "event_type_counts": {
+    "execve": 2,
+    "openat": 25,
+    "openat2": 8,
+    "open": 4,
+    "connect": 1
+  },
+  "matched_event_count": 40,
+  "status": "events_observed",
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}
