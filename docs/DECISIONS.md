@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-020 - 2026-09-28 - Fail-closed offline adapter and unknown loss
+
+Extend the existing normalized contract without changing Engine 1 or runtime scoring. Bind saved raw bytes to a successful pinned-trial receipt; require exact accepted-count agreement and reject the entire capture on invalid records. Minimize fields and keep stable projected event IDs; reject indistinguishable duplicate projections rather than assume they are retransmissions. Parser accounting is distinct from unmeasured sensor loss. No baseline score from one development smoke. See ENGINE2_ADAPTER.md.
+
 ## ADR-019 - 2026-09-28 - Bounded sensor before integration
 
 Use a digest-pinned Falco modern-eBPF experiment harness, not a permanent collector or architecture replacement. Filter by full Redis cgroup ID without Docker socket, disable network/sensitive fields, keep raw logs local and publish hashes/counts. Filtering is not kernel isolation or authenticated deployment identity. Keep coverage unknown and replay disconnected until adapter/loss gates pass. Preserve failures. See ENGINE2_SENSOR_TRIAL.md.

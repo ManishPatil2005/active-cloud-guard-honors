@@ -1,5 +1,11 @@
 # Work log
 
+## WL-013 - 2026-09-28 - Offline sensor normalization
+
+User requested next steps. Acceptance: receipt/hash-bound, bounded parser; explicit identity/time checks; minimal runtime capture; input accounting without sensor-completeness claims; no historical overwrite. Implemented cloudguard/sensor_adapter.py and scripts/normalize_sensor.py with fail-closed record/count handling, stable projected identities, nanosecond preservation and new-directory output. Added 34 tests. Processed the existing verified raw log offline: 40 accepted, zero rejected, 21 diagnostic lines; runtime.load_capture/windows accepted one partial window. No new sensor run, baseline fit or score.
+
+Exact normalization/test commands and evidence paths are in ENGINE2_ADAPTER.md. Windows suite: 250 passed in 2.10 s; Linux suite: 250 passed in 2.34 s. Windows Ruff lint/format: passed, 49 files; pip check passed. No test failure encountered in this increment. Code-review refinements reject boolean receipt counts and document microsecond truncation in downstream windowing. Raw logs remain unpublished; only reviewed minimized lab capture/accounting and regression XMLs are staged. Collector readiness/loss and authenticated identity remain unresolved, not silently set to zero/true. Git history records publication.
+
 ## WL-012 - 2026-09-28 - Bounded live sensor
 
 E2-003 acceptance: selected existing Redis cgroup events, fixed PING, preserved evidence and sensor cleanup. Added scripts/sensor_trial.py, minimal Falco configuration and 12 tests. Two startup failures, a deprecated-field warning and an unavailable-target refusal were preserved; see ENGINE2_SENSOR_TRIAL.md for exact commands, evidence paths, fixes and limits. Final successful run: 40 events, PONG, exit 0, sensor removed. Final Docker enumeration: no trial sensors, only Redis running. No lab recreation or automated security response.

@@ -11,6 +11,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Engine 1 baseline](ENGINE1_BASELINE.md) | V2.2 local deployment identity and bounded Redis/PostgreSQL checks |
 | [Engine 2 foundation](ENGINE2_FOUNDATION.md) | Observation-only replay contract, statistical baseline, evidence and sensor prerequisites |
 | [Engine 2 sensor trial](ENGINE2_SENSOR_TRIAL.md) | Bounded live Falco observation, failed attempts, privileges, tests and remaining integration gates |
+| [Engine 2 adapter](ENGINE2_ADAPTER.md) | Offline raw-event validation, minimized normalized capture, accounting and remaining coverage gates |
 | [Windows/Linux setup](WINDOWS_LINUX_SETUP.md) | Installed research WSL distribution, actual Linux preflight, Docker integration handoff and sensor gates |
 | [Interface design](DESIGN.md) | CLI/output contracts; no proposed web redesign |
 | [Rules](../RULES.md) | Implementation, evidence and Git rules |

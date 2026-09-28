@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-28 - Offline Engine 2 sensor normalization
+
+- Added bounded, receipt/hash-bound Falco adapter and non-overwriting CLI; minimized output uses the existing runtime capture contract.
+- Processed the prior live sample: 40 events, zero rejected records; sensor loss stays unknown. No new capture or threat score.
+- Added 34 tests; 250 passed on both Windows and Linux. Saved accounting, normalized capture and regression evidence; Engine 1 unchanged.
+
 ## 2026-09-28 - Bounded Engine 2 live sensor smoke
 
 - Added digest-pinned, time/resource-bounded Falco trial with local-only raw logs, minimized published summaries and scoped cleanup.

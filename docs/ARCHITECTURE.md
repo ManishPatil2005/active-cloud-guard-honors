@@ -38,6 +38,7 @@ Staging services already exist before verification. The program does not deploy 
 | runtime.py | Engine 2 normalized replay, explicit asset bindings, windows and count-deviation baseline; no sensor or actions |
 | runtime_preflight.py | Read-only host and Linux marker facts; no compatibility certification, sensor or subprocess |
 | scripts/sensor_trial.py | Separate bounded Falco/Redis smoke harness; local raw logs and minimized summary, not connected to runtime.py |
+| sensor_adapter.py / scripts/normalize_sensor.py | Offline saved-trial hash/schema validation and minimized runtime capture; parser accounting, no measured sensor loss |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
 | pipeline.py | Connect stages; retain origin and review boundaries |
 | metrics.py | Confusion counts, explicit undefined ratios and descriptive intervals |
@@ -55,4 +56,4 @@ All published ports bind to 127.0.0.1: 16379, 15432, 18080, 19000 and 11434. The
 
 The custom scanner is incomplete by design. Chroma/source-ID checks do not prove entailment. Grounding guards cover two predicates only. TCI settings are uncalibrated. Engine 2 now has an observation-only replay foundation; live telemetry, ML models and integrated threat evaluation remain later work.
 
-Engine 2 flow: declared normalized capture -> schema/asset/time checks -> nonempty per-asset time windows -> comparison with separate baseline captures -> reviewable deviations. It neither imports executable models nor feeds provisional runtime scores into TCI. See [foundation report](ENGINE2_FOUNDATION.md).
+Engine 2 flow: saved bounded Falco trial -> offline adapter -> declared normalized capture -> schema/asset/time checks -> nonempty per-asset time windows -> comparison with separate baseline captures -> reviewable deviations. Only the synthetic example has a fitted comparator; the real 40-event sample has normalization/windowing evidence, not a separate real baseline. It neither imports executable models nor feeds provisional runtime scores into TCI. See [foundation report](ENGINE2_FOUNDATION.md) and [adapter](ENGINE2_ADAPTER.md).

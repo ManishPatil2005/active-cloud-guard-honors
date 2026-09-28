@@ -1,5 +1,9 @@
 # Evidence index
 
+## Offline adapter (2026-09-28)
+
+[Adapter report](ENGINE2_ADAPTER.md), [minimized capture](../output/engine2-normalized-20260928/capture.json) and [accounting](../output/engine2-normalized-20260928/accounting.json): prior live log processed offline, 40 validated records, zero rejected, unknown sensor loss. [Windows tests](../output/engine2-adapter-windows-tests-20260928.xml) and [Linux tests](../output/engine2-adapter-linux-tests-20260928.xml): 250 passed each. No independent baseline or detection result.
+
 ## Bounded sensor smoke (2026-09-28)
 
 [Trial record](ENGINE2_SENSOR_TRIAL.md) explains all preserved attempts and limits. [Verified summary](../output/engine2-sensor-trial-verified-20260928.json): 40 selected syscall records, PONG, exit 0, sensor removed; no threat/completeness claim. Raw logs local only, digest published. [Windows](../output/engine2-sensor-windows-tests-20260928.xml) and [Linux](../output/engine2-sensor-linux-tests-20260928.xml): 216 tests passed each. Earlier sensor-absent snapshots remain historical.

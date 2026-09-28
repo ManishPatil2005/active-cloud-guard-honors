@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Offline adapter update: untrusted saved logs are size/record bounded, receipt-hash checked and schema validated; no content is executed. Published capture omits raw output/cgroup strings but retains lab identities/timestamps. Receipts and operator asset mappings are not authenticated. Rejected records block capture output; diagnostics cannot establish sensor completeness. See ENGINE2_ADAPTER.md.
+
 Latest (28 September): a bounded Falco trial was run and removed; earlier sensor-absent statements are historical. It grants BPF/PERFMON/SYS_RESOURCE/SYS_PTRACE and read-only proc/tracing mounts, without privileged mode, host PID namespace, Docker socket or network. Filtering is not kernel isolation. Raw logs remain ignored/publication-blocked; summaries contain identities/hashes/counts. Watchdog/resource/log ceilings do not prove completeness. Digest pinning is not signature verification. No permanent collector or automated response. See ENGINE2_SENSOR_TRIAL.md.
 
 ## Research execution

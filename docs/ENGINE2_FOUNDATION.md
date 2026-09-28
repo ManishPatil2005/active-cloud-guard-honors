@@ -1,5 +1,7 @@
 # Engine 2 initial foundation: observation-only replay
 
+Latest extension (28 September): bounded live trial and offline adapter now exist; see ENGINE2_SENSOR_TRIAL.md and ENGINE2_ADAPTER.md. The prior real log normalizes to 40 events accepted by this runtime loader/windowing. No matched real baseline or detection evaluation exists. Earlier no-collector/no-adapter statements below describe the original foundation snapshot.
+
 Implemented 2026-09-25. Engine 2 report version 0.1; package 0.5.0. Engine 1 remains v2.2, frozen at commit `6736a577f1ba08b4700daf8a86370ec3bbd1c019`, Git tag `engine1-v2.2`. Both baseline references were verified on the remote before runtime work began.
 
 ## Purpose and acceptance
