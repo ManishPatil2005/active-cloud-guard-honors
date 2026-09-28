@@ -1,5 +1,19 @@
 # Work log
 
+## WL-011 - 2026-09-28 - Docker integration and Linux application verification
+
+**Request/acceptance:** user explicitly asked to enable integration and proceed with important next steps. Verify actual Docker access, run the full software suite on Linux, preserve failures/warnings, maintain the stack and Engine 1 freeze. Previous publication: `9d505444dea907189d672de6749837ef8e76a6c3`.
+
+**Integration:** initial `wsl -d ACG-Research --exec sh -lc 'docker version'` returned integration-disabled; Windows server 29.8.0 responded. Docker Desktop CLI enable help exposed model-runner only, not WSL. Used the computer-use skill to navigate Docker Desktop Settings > Resources > WSL integration, toggle only ACG-Research, then Apply & restart. No containers were running before apply. Initial immediate check still saw the old message; subsequent check returned server 29.8.0 and all five existing stopped lab containers. Global default distribution/integration toggle left unchanged. This grants Docker management access to ACG-Research, not read-only access or sensor visibility.
+
+**Linux environment:** Python lacked pip. Ran `wsl -d ACG-Research -u root --exec apt-get update` and `apt-get install -y --no-install-recommends python3-venv`. Apt installed four venv/wheel packages and updated five Python packages to Ubuntu 3.12.3-1ubuntu0.17; no kernel or Docker daemon installed. As UID 1000 created `/home/acgresearch/acg-venv` only after checking it did not exist. Installed pinned PyYAML 6.0.3, jsonschema 4.23.0, python-hcl2 7.3.1, pytest 8.3.5 and Ruff 0.11.2. Captured actual transitive pip-freeze versions in requirements-linux-core-20260928.txt; optional Chroma/model/sensor dependencies not installed. Windows .venv untouched.
+
+**Commands/results:** Linux commands used `wsl -d ACG-Research --cd '/mnt/d/research f1' --exec /home/acgresearch/acg-venv/bin/python`. `-m pytest -q --junitxml=output/engine2-linux-tests-20260928.xml`: 204 passed, two pytest cache permission warnings. Preserved report. Repeated with `-o cache_dir=/home/acgresearch/.cache/acg-pytest --junitxml=output/engine2-linux-tests-final-20260928.xml`: 204 passed, no warnings. `-m ruff check cloudguard scripts tests` passed; `-m ruff format --check cloudguard scripts tests`: 44 files passed; `-m pip check`: no broken requirements. `scripts/runtime_check.py --output output/engine2-linux-replay-20260928.json`: all four synthetic replay checks true. No live model/vector experiment or detection benchmark.
+
+**Container visibility:** `docker compose -f testbed/compose.yaml start redis` started only the existing Redis container, without recreate/change to Compose. `docker ps --no-trunc --filter label=com.docker.compose.project=honors-cloud-guard --format '{{.ID}} {{.Names}} {{.Status}}'` from Windows and via WSL shell returned the same running Redis ID `2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b`. Other services were not started. This proves daemon-level visibility at observation time, not kernel event visibility, deployment attestation or authentication behavior. Redis remains running after the check.
+
+**Sensor boundary:** read-only apt-cache queries found no standalone bpftool candidate; kernel-specific tools exist but were not installed. No probe loaded, no privileged sensor/container, no telemetry capture or persistent monitoring. Next gate is an explicitly scoped kernel-sensor trial: pin and verify artifact, privileges, duration, event selection, loss counters and shutdown. Do not claim integration completes E2-003. INC-023 records the cache issue. Publication checker/staged review precede commit; remote verified after push and reported in chat.
+
 ## WL-010 - 2026-09-25 - Windows-hosted Linux provisioning (E2-003)
 
 Publication resumed 27 September after interruption; the implementation/host observations below occurred on 25 September. No fresh live availability or sensor test is implied by publication.

@@ -1,6 +1,6 @@
 # Current project state
 
-Updated 2026-09-25. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
+Updated 2026-09-28. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
 
 ## Implemented and observed
 
@@ -9,6 +9,8 @@ Python CLI/library with nine rule predicates, lexical and Chroma retrieval, loca
 Current smoke model: qwen2.5:3b. Latest saved three-case inference times are approximately 12.44, 12.30 and 12.83 seconds. Two supported candidates were retained; one unsupported password-placeholder/trust claim was rejected by a narrow guard. These are tuned development examples, not an accuracy benchmark.
 
 ## Current work
+
+28 September: Docker Desktop integration for ACG-Research enabled through the computer-use skill and verified from Linux (server 29.8.0). Separate Linux core/test venv: /home/acgresearch/acg-venv. Full 204-test suite passed on Linux; initial two shared-cache warnings resolved using a Linux-local cache, with both reports preserved. Lint/format/pip checks and synthetic replay passed. Started only existing Redis; Windows and WSL returned the same full running container ID. Redis remains running at last observation. No sensor loaded, no kernel telemetry or live Linux model/vector experiment. The integration-disabled entries below are historical. See WL-011 and WINDOWS_LINUX_SETUP.md.
 
 Latest: ACG-Research WSL 2 distribution installed at D:\ACG-Research-WSL, Ubuntu 24.04.5/Python 3.12.3, default non-admin acgresearch UID 1000. Actual Linux preflight saved as output/engine2-linux-wsl-preflight.json; all three markers present, compatibility still unverified. Docker Desktop started and Windows server 29.8.0 responded, but ACG-Research integration is disabled. Owner must enable this distribution in Docker Desktop Settings > Resources > WSL Integration. Both distributions running at last check. No sensor installed, no kernel change, no Compose recreation. Windows 204-test suite rerun successfully; Linux full suite not run. See WINDOWS_LINUX_SETUP.md. Earlier stopped/missing-Linux observations below are historical.
 

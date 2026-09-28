@@ -15,9 +15,27 @@ Task E2-003. Preserve Windows as the development host and the existing Python/Do
 
 WSL distributions share a kernel; separate registration is organizational separation, not a hardened security boundary. Windows drives are available inside this distribution under standard WSL automount behavior.
 
-## Required next user action
+## Integration completed, 28 September 2026
 
-In Docker Desktop, open **Settings > Resources > WSL Integration**, enable **ACG-Research**, and select **Apply** (or Apply & restart as shown). This exposes Docker management access to the research distribution; it is not a read-only permission. Follow [Docker's official integration instructions](https://docs.docker.com/desktop/features/wsl/). Do not enable unrelated distributions. The setting was not changed automatically.
+Following explicit user instruction, the computer-use skill enabled ACG-Research under Resources > WSL integration and applied the restart. Docker CLI subsequently reported server 29.8.0 inside the distribution and listed the existing lab containers. Only the existing Redis container was started using `docker compose -f testbed/compose.yaml start redis`; Windows and Linux returned the same full running ID (see WL-011). No other service started/recreated. No WSL global defaults changed. Integration grants daemon management access, not read-only access. This gate is no longer blocked on user settings.
+
+### Linux application verification
+
+Installed Ubuntu python3-venv support and created `/home/acgresearch/acg-venv` as acgresearch. Windows .venv remains separate. The [observed dependency snapshot](../requirements-linux-core-20260928.txt) covers core/tests only, not Chroma or live sensor tooling. For a fresh Linux environment after venv support is installed:
+
+```bash
+python3 -m venv /home/acgresearch/acg-venv
+/home/acgresearch/acg-venv/bin/python -m pip install -r requirements-linux-core-20260928.txt
+/home/acgresearch/acg-venv/bin/python -m pytest -q -o cache_dir=/home/acgresearch/.cache/acg-pytest
+```
+
+Run creation only if the target is absent; run project commands from `/mnt/d/research f1`. Full suite [204 passed on Linux](../output/engine2-linux-tests-final-20260928.xml), plus Ruff lint/format, pip check and [synthetic replay](../output/engine2-linux-replay-20260928.json). The [first test run](../output/engine2-linux-tests-20260928.xml) also passed but emitted two cache permission warnings, recorded in INC-023. Using the Linux-local cache removed them without changing permissions or deleting Windows caches. Vector/LLM transports in software tests use mocks; this is not a Linux live Chroma/Ollama validation.
+
+No kernel-level sensor or bpftool probe was executed. Container CLI access is established; kernel event visibility and representative telemetry remain unverified. Before the next trial, explicitly scope the sensor artifact/privileges, bounded duration, lab allowlist, event selection, data minimization, loss counters and cleanup. Leave automatic responses disabled.
+
+## Historical integration handoff (25 September)
+
+The initial handoff requested **Settings > Resources > WSL Integration**, enable **ACG-Research**, and **Apply**. This was completed on 28 September as recorded above. Follow [Docker's official integration instructions](https://docs.docker.com/desktop/features/wsl/) on fresh setups; do not enable unrelated distributions.
 
 Then verify `wsl -d ACG-Research --exec sh -lc 'docker version'`. A working CLI still does not prove sensor event/container visibility. Do not install a second Docker daemon inside this distribution just to bypass the integration gate.
 

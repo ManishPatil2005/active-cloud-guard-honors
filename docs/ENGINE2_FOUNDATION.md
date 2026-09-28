@@ -74,7 +74,7 @@ The [software test report](../output/engine2-foundation-tests.xml) records the c
 
 ## Next acceptance gates
 
-Latest setup update: a separate ACG-Research Ubuntu WSL distribution is now installed; [Linux preflight](../output/engine2-linux-wsl-preflight.json) actually ran as UID 1000. Docker Desktop is responding, but this distribution's Docker integration needs enabling. See [setup and handoff](WINDOWS_LINUX_SETUP.md). No live sensor is installed. The initial host-preflight findings below remain historical observations.
+Latest setup update (28 September): ACG-Research Docker integration is enabled and verified; Windows/WSL see the same running lab Redis container ID. Full Linux suite: 204 passed; synthetic replay passed. See [setup record](WINDOWS_LINUX_SETUP.md). No live sensor installed or kernel event visibility verified. Earlier host-preflight findings below remain historical.
 
 ### Host preflight increment (25 September)
 

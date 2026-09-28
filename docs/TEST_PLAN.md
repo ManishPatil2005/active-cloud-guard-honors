@@ -31,6 +31,8 @@ A script's successful return does not prove the model's conclusions correct. Ins
 
 ## Change-specific policy
 
+28 September Linux validation: full suite 204 passed in ACG-Research, with pinned core/test packages in requirements-linux-core-20260928.txt. Use `-o cache_dir=/home/acgresearch/.cache/acg-pytest` to avoid sharing Windows cache permissions. Both initial (two cache warnings) and final clean XML reports retained as output/engine2-linux-tests*-20260928.xml. Ruff lint/format, pip check and synthetic runtime replay passed. This validates software on Linux, not live Chroma/LLM transport, loaded sensor, performance or independent detection accuracy.
+
 Engine 2 preflight: eight additional cases cover non-Linux path skipping, Linux no-certification outcomes, path type/absence, permission failure and real CLI non-overwrite behavior. Full suite: output/engine2-preflight-tests.xml, 204 passed. `python scripts/runtime_preflight.py --output output/engine2-host-new.json` saves facts; zero exit is not readiness. Windows executed live; Linux branches use mocks. No sensor/kernel capability or live capture test has run.
 
 Engine 2 foundation: `python -m pytest -q --junitxml=output/engine2-foundation-tests.xml` records regression results; choose a new filename for subsequent experiments. `python scripts/runtime_check.py --output output/engine2-new-replay.json` checks versioned synthetic data without network/Docker/model access. Expected statuses exercise a constructed count deviation, not threat-detection accuracy. Real sensor capture, ML and CPU overhead have not been tested.

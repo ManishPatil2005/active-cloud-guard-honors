@@ -1,5 +1,12 @@
 # Evidence index
 
+## Linux regression and Docker integration (2026-09-28)
+
+- [First Linux suite](../output/engine2-linux-tests-20260928.xml): 204 passed; two cache warnings in command output, recorded in INC-023.
+- [Clean Linux rerun](../output/engine2-linux-tests-final-20260928.xml): 204 passed after Linux-local cache selection.
+- [Linux synthetic replay](../output/engine2-linux-replay-20260928.json): all four software smoke checks passed, no live telemetry.
+- [Core/test dependency snapshot](../requirements-linux-core-20260928.txt) and WL-011 record reproduction and actual Windows/WSL Redis ID match. No claim of sensor visibility.
+
 ## Linux provisioning (2026-09-25)
 
 [WSL Linux preflight](../output/engine2-linux-wsl-preflight.json): actual ACG-Research execution, UID 1000, Linux 6.6.114.1, three markers present. Not a loaded-probe test, full Linux regression suite or real telemetry capture. [Setup record](WINDOWS_LINUX_SETUP.md) and WL-010 document commands and unresolved Docker integration.

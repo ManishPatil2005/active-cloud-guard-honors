@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-28 - Docker WSL integration and Linux regression validation
+
+- Enabled ACG-Research Docker Desktop integration through its UI; verified server and matching running Redis identity from Windows/WSL.
+- Created separate Linux core/test virtual environment with an observed dependency snapshot. Full Linux suite: 204 passed; lint/format/dependency checks and synthetic replay passed.
+- Preserved initial cache warnings; isolated Linux pytest cache and reran successfully. No Engine 1 code change, kernel sensor, live telemetry or accuracy claim.
+
 ## 2026-09-25 - Windows-hosted Linux research setup
 
 - Provisioned dedicated ACG-Research Ubuntu WSL distribution outside Git; added non-admin Linux user and saved actual Linux preflight evidence.
