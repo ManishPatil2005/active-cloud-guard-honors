@@ -1,6 +1,6 @@
 # Current project state
 
-Updated 2026-09-28. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
+Updated 2026-09-29. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
 
 ## Implemented and observed
 
@@ -9,6 +9,8 @@ Python CLI/library with nine rule predicates, lexical and Chroma retrieval, loca
 Current smoke model: qwen2.5:3b. Latest saved three-case inference times are approximately 12.44, 12.30 and 12.83 seconds. Two supported candidates were retained; one unsupported password-placeholder/trust claim was rejected by a narrow guard. These are tuned development examples, not an accuracy benchmark.
 
 ## Current work
+
+29 September latest: measured four-second workload schedules and exact interval reporting added. Predeclared two-run pilot: ping_1 rejected (1.117-second wall/monotonic disagreement), ping_4 accepted (four PONGs, 160 events inside interval, 40 outside). Both sensors removed; no retries or tolerance relaxation. Sensor-free diagnostic did not reproduce clock discrepancy; cause unresolved (INC-026). Suites: 279 tests each OS. No valid paired baseline or overhead estimate. Next: clock/interval robustness and matched sensor-off controls before repeated baseline collection. See RUNTIME_WORKLOAD_PROTOCOL.md / WL-015; earlier snapshots below are historical.
 
 28 September latest: instrumented bounded trial live-observed matching-event readiness (second canary), stable selected Redis identity before/after, PONG, 80 events and sensor cleanup. Sixteen collector metrics snapshots: event delta 7621, reported kernel/output-queue drop deltas 0; not target-specific completeness. All 80 records normalized; same development scenario group as prior sample, no baseline score. Suites pass 268 on Windows/Linux. See ENGINE2_INSTRUMENTATION.md / WL-014. No trial sensor remains at final check; Redis running. Next: separated, comparable workload protocol with canary boundaries, coverage and overhead, not premature ML accuracy claims. Earlier missing-readiness/metrics entries are historical.
 

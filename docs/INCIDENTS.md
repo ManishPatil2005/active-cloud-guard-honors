@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-026 - 2026-09-29 - Measured interval clock disagreement
+
+Expected four-second interval with wall/monotonic elapsed agreement within 50 ms. First predeclared ping_1 trial returned PONG but measured 1,117,025,466 ns disagreement; output/engine2-ping1-measured-20260929.json. High confidence in recorded discrepancy, low confidence in underlying cause: wall-clock adjustment or non-atomic clock sampling/scheduling could contribute. No causal attribution to Falco/WSL established. Guard rejected the interval and cleanup succeeded; raw log retained. No post-identity/metrics receipt from the failed branch. Kept tolerance unchanged and did not retry. Second predeclared profile passed (6,738 ns difference); separate sensor-free diagnostic difference 1,877 ns. Root cause unresolved, containment verified. No baseline comparison or clock setting change; follow-up needs robust clock diagnostics before further comparison runs.
+
 ### INC-024 - 2026-09-28 - Sensor startup compatibility
 
 BusyBox rejected GNU timeout flags (exit 1); first report incorrectly labeled this no_matching_events and harness returned success. Preserve the report, interpret exit 1 as failure. Retry failed YAML conversion from list-valued command-line overrides. High-confidence causes from retained logs. Fixed BusyBox options, minimal standalone YAML and failure exit classification. Successful retry warned on deprecated evt.dir; removed it before final successful 40-event/PONG run. All attempts retained; see ENGINE2_SENSOR_TRIAL.md. Twelve new tests and both 216-test suites passed. Not all lifecycle failure branches are validated.

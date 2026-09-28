@@ -1,5 +1,13 @@
 # Work log
 
+## WL-015 - 2026-09-29 - Measured workload intervals and retained timing failure
+
+Added cloudguard/workload.py fixed four-second ping_1/ping_4 schedules, monotonic dispatch/round-trip timings and wall/monotonic agreement guard; sensor_trial now selects a fixed profile after readiness plus one-second guard. Added workload_report.py strict raw revalidation and exact nanosecond half-open selection. Predeclared pilot sequence in RUNTIME_WORKLOAD_PROTOCOL.md before execution. No architecture/privilege changes.
+
+Actual results: ping_1 PONG but timing rejection (clock difference 1,117,025,466 ns), raw log preserved and sensor removed. ping_4 passed, four PONGs, stable identity, 200 capture events, 160 inside measured interval and 40 outside; sensor removed. One accepted/one rejected, no comparison score. Independent sensor-free diagnostic: 1,877 ns disagreement; no confirmed root cause. INC-026 records limits. Final Docker enumeration: no trial sensors, only Redis running. UTC receipts dated 28 September correspond to 29 September local time; no backdating.
+
+Exact commands and artifacts in RUNTIME_WORKLOAD_PROTOCOL.md. Eleven new tests, full Windows 279 passed (2.11 s), Linux 279 passed (2.56 s). Ruff lint/format passed (55 files). Raw data excluded from publication; original negative receipt retained. No accuracy, overhead or complete-coverage claim. Git history records publication.
+
 ## WL-014 - 2026-09-28 - Readiness, selected identity and metrics
 
 User requested continuation. Added bounded event-observed PING readiness, pre/post selected Redis Docker identity equality, local-only 1-second Falco metrics and hash-bound minimized metric summary. No privileges/network broadened; Engine 1 unchanged. Acceptance/live result: second canary ready, final PONG, 80 target events, identity stable, exit 0 and sensor removed. Sixteen collector-wide snapshots yielded event delta 7621 and zero reported drop deltas. All 80 events normalized, no rejections. First canary did not establish visibility; retain partial-coverage interpretation, not invented causal attribution. Exact commands, artifacts, test scope and limitations: ENGINE2_INSTRUMENTATION.md.

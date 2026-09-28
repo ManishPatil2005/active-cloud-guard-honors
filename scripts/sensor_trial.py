@@ -15,6 +15,7 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.deployment import local_daemon
+from cloudguard.workload import PROFILES, run as run_workload
 
 IMAGE = "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
 
@@ -122,6 +123,7 @@ def summarize_events(stdout, container_id):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--profile", choices=tuple(PROFILES), default="ping_1")
     args = parser.parse_args()
     report = dict(
         executed_at=datetime.now(timezone.utc).isoformat(),
@@ -223,12 +225,18 @@ def main():
             report["sensor_container_id"] = sensor_id
             time.sleep(1)
             report["readiness"] = await_canary(name, container_id)
+            # Guard interval separates dispatches, not proven causal event ownership.
+            time.sleep(1)
             report["workload_executed"] = True
-            report["workload_result"] = command(
-                "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
+            report["measurement"] = run_workload(
+                args.profile,
+                lambda: command(
+                    "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
+                ),
             )
-            if report["workload_result"] != "PONG":
-                raise ValueError("fixed workload did not return PONG")
+            if report["measurement"]["status"] != "completed":
+                raise ValueError("measured workload failed or timing outside tolerance")
+            report["workload_result"] = "PONG"
             command("wait", name, timeout=32)
             report["target_identity_after"] = target_identity(container_id)
             report["target_identity_stable"] = (

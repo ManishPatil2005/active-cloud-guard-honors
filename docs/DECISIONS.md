@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-022 - 2026-09-29 - Declared workload intervals and timing abstention
+
+Use fixed credential-free schedules within four-second measured intervals after readiness, retain both wall and monotonic timing, and reject unsuitable timing rather than silently relabel it. Preserve failed attempts and related scenario grouping. Exact temporal filtering does not prove causal attribution. Docker-exec round-trip time is not sensor overhead. A failed pilot cannot be replaced until a favorable pair appears; future repeated/control runs require a separately declared protocol.
+
 ## ADR-021 - 2026-09-28 - Observed readiness and separate collector metrics
 
 Require observed selected process/network records during bounded fixed canaries, rather than liveness alone. Compare minimal pre/post Docker identity; retain unauthenticated mapping. Keep metrics in a local sensor file and publish only hash-bound counter summaries. Collector-wide drops are distinct from Redis event accounting; retain unknown coverage even when counters report zero. Canary attempts stay declared as development workload, not independent benign data. See ENGINE2_INSTRUMENTATION.md.

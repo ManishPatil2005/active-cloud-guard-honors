@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 - Measured runtime workload pilot
+
+- Added fixed four-second one/four-PING schedules, timing guards and exact interval reports.
+- Preserved one timing-rejected pilot and one accepted pilot (160 events inside, 40 outside); no paired comparison or overhead claim.
+- Added 11 tests; 279 pass on Windows and Linux. Documented unresolved clock discrepancy and next controls.
+
 ## 2026-09-28 - Instrumented Engine 2 trial
 
 - Added bounded matching-event readiness and selected pre/post Redis identity continuity checks.

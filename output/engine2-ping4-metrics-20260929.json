@@ -1,0 +1,32 @@
+{
+  "metrics_sha256": "7aa46914053ded2875a6b4685c8419ba77057228c1ad06ad255473a0b374bb91",
+  "snapshot_count": 16,
+  "first": {
+    "evt.time": 1790620484866211000,
+    "falco.duration_sec": 0,
+    "scap.n_evts": 4,
+    "scap.n_drops": 0,
+    "falco.outputs_queue_num_drops": 0
+  },
+  "last": {
+    "evt.time": 1790620498890751000,
+    "falco.duration_sec": 14,
+    "scap.n_evts": 10685,
+    "scap.n_drops": 0,
+    "falco.outputs_queue_num_drops": 0
+  },
+  "observed_counter_deltas": {
+    "scap.n_evts": 10681,
+    "scap.n_drops": 0,
+    "falco.outputs_queue_num_drops": 0
+  },
+  "scope": "collector-wide, not Redis-specific",
+  "coverage": "partial_or_unknown",
+  "threat_confirmed": false,
+  "limits": [
+    "Snapshots do not prove full capture interval coverage or absence of log rotation.",
+    "Counters describe selected collector events, not all possible syscalls.",
+    "Zero reported drops is not proof of complete delivery or benign behavior."
+  ],
+  "trial_sha256": "ec4727629d9e992ca440abc0fd5fa1848df1b68bb595860b6b0f1b9843a4c259"
+}

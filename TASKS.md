@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-09-28. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven.
+Status as of 2026-09-29. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -36,5 +36,6 @@ Status as of 2026-09-28. Completed means the stated acceptance criterion was met
 | E2-002 | Window features and simple statistical comparator | Implemented/synthetic-replay-tested | Count deviation for review; missing coverage stays unknown; no actions |
 | E2-003 | Live Linux sensor and raw-event adapter | Partial: instrumented live smoke + adapter | 80 records normalized; event-observed readiness, stable selected pre/post identity and 16 collector metrics snapshots; 268 Windows/Linux tests each. Full coverage, authenticated mapping and comparable workload protocol remain open; docs/ENGINE2_INSTRUMENTATION.md |
 | E2-004 | Independent runtime labels, ML and overhead evaluation | Open | Isolation Forest/autoencoder and matched real workloads not implemented/evaluated |
+| E2-005 | Comparable measured workload protocol | Partial: timing controls live-tested | Four-second fixed profiles; one rejected clock-disagreement pilot and one accepted pilot, no valid comparison pair. 279 tests each OS; clock robustness, controls and repeated runs open; docs/RUNTIME_WORKLOAD_PROTOCOL.md |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Replay foundation plus bounded live sensor smoke; normalized live integration and ML gates remain open |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |

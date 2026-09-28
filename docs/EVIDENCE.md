@@ -1,5 +1,9 @@
 # Evidence index
 
+## Measured workloads (2026-09-29 local)
+
+[Protocol/results](RUNTIME_WORKLOAD_PROTOCOL.md), [rejected ping_1](../output/engine2-ping1-measured-20260929.json), [accepted ping_4](../output/engine2-ping4-measured-20260929.json), [interval](../output/engine2-ping4-interval-20260929.json), [metrics](../output/engine2-ping4-metrics-20260929.json). One accepted/one rejected pilot is not a valid paired benchmark. [Windows](../output/engine2-workload-windows-tests-20260929.xml) and [Linux](../output/engine2-workload-linux-tests-20260929.xml): 279 tests each.
+
 ## Instrumented trial (2026-09-28)
 
 [Trial](../output/engine2-instrumented-trial-20260928.json), [metrics](../output/engine2-metrics-20260928.json), [normalized accounting](../output/engine2-instrumented-normalized-20260928/accounting.json): observed readiness, stable selected identity, 80 records, 16 collector-wide snapshots and cleanup. [Windows](../output/engine2-instrumented-windows-tests-20260928.xml) / [Linux](../output/engine2-instrumented-linux-tests-20260928.xml): 268 tests each. Interpretation and exact commands: [instrumentation report](ENGINE2_INSTRUMENTATION.md). Not independent evaluation or full-coverage evidence.

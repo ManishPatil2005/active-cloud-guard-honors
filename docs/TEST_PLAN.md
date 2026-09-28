@@ -1,5 +1,7 @@
 # Test and verification plan
 
+29 September workload increment: 279 passed on Windows/Linux, output/engine2-workload-{windows,linux}-tests-20260929.xml. Eleven tests cover fixed scheduling, overrun/clock/PONG rejection, profile allowlist and nanosecond half-open selection. Live pilot: one timing-rejected run, one accepted run. See RUNTIME_WORKLOAD_PROTOCOL.md; no retrospective boundary assignment or score for failed run.
+
 Latest instrumentation: 268 tests passed on each OS; output/engine2-instrumented-{windows,linux}-tests-20260928.xml. Eighteen new tests cover selected identity, bounded readiness and metric integrity/minimization. Separate live trial observed readiness, stable identity, 80 events and 16 metrics snapshots; collector-wide zero drops is not a complete-coverage assertion. See ENGINE2_INSTRUMENTATION.md for exact commands and untested lifecycle branches.
 
 Latest adapter increment: 250 tests pass on Windows and Linux, saved separately as output/engine2-adapter-windows-tests-20260928.xml and output/engine2-adapter-linux-tests-20260928.xml. Thirty-four additions cover strict offline normalization and CLI preservation. The prior real log was normalized and accepted by runtime loader/windowing; no new live collector or baseline-score experiment. See ENGINE2_ADAPTER.md for exact commands and limits.

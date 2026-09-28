@@ -1,0 +1,58 @@
+{
+  "trial_sha256": "ec4727629d9e992ca440abc0fd5fa1848df1b68bb595860b6b0f1b9843a4c259",
+  "raw_sha256": "ba91029d205e3ed89d5cb73e106f8464f9c736279acb0cd5cbf3bf2e6f1fb484",
+  "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790620487003056937,
+    "end_unix_ns": 1790620491003214048,
+    "elapsed_monotonic_ns": 4000150373,
+    "clock_difference_ns": 6738,
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 222790,
+        "docker_exec_round_trip_ns": 63878758,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000149652,
+        "docker_exec_round_trip_ns": 62602379,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000065401,
+        "docker_exec_round_trip_ns": 56935599,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000072583,
+        "docker_exec_round_trip_ns": 60968712,
+        "pong": true
+      }
+    ],
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "interval_semantics": "half-open [start,end)",
+  "measured_event_count": 160,
+  "measured_kind_counts": {
+    "process_start": 8,
+    "file_open": 148,
+    "network_connect": 4
+  },
+  "outside_interval_event_count": 40,
+  "coverage": "partial_or_unknown",
+  "independent_evaluation": false,
+  "threat_confirmed": false,
+  "limits": [
+    "Time exclusion is not causal attribution or complete canary exclusion.",
+    "Round trip includes Docker exec overhead; no sensor-off comparison exists."
+  ]
+}

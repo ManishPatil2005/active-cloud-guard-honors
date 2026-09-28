@@ -1,0 +1,54 @@
+{
+  "executed_at": "2026-09-28T18:34:03.714595+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "target_identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-28T13:32:18.294523417Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d7973d1524a2a7c7ad1e396148bee9a235fa372f4a8f7e01530ff097c6b96c9d",
+  "config_sha256": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "2066037c36c364bd5f16f3a56e6595a47d31107b5af0ae24810b9d5e3d277def",
+  "readiness": {
+    "status": "matching_events_observed",
+    "canary_attempts": 2,
+    "causal_attribution": "not_proven",
+    "canary_included_in_capture": true
+  },
+  "workload_executed": true,
+  "measurement": {
+    "profile": "ping_1",
+    "scenario_group": "redis-ping-development",
+    "status": "timing_outside_tolerance",
+    "start_unix_ns": 1790620448545778676,
+    "end_unix_ns": 1790620453662889933,
+    "elapsed_monotonic_ns": 4000085791,
+    "clock_difference_ns": 1117025466,
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 65210,
+        "docker_exec_round_trip_ns": 64198538,
+        "pong": true
+      }
+    ],
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "status": "trial_failed",
+  "error_type": "ValueError",
+  "raw_log_sha256": "f7fc732d25a0e3dad706a5c80c9125a5e1310fecaad0c1b7833769fa313060b3",
+  "sensor_removed": true
+}

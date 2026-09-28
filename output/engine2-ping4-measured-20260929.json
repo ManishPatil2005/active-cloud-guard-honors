@@ -1,0 +1,93 @@
+{
+  "executed_at": "2026-09-28T18:34:43.558704+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "target_identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-28T13:32:18.294523417Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d7973d1524a2a7c7ad1e396148bee9a235fa372f4a8f7e01530ff097c6b96c9d",
+  "config_sha256": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "40bb5733a99ec0b75a1ad9cc6f01c6364c233eeff2fc372b4bd023c8859a5a25",
+  "readiness": {
+    "status": "matching_events_observed",
+    "canary_attempts": 1,
+    "causal_attribution": "not_proven",
+    "canary_included_in_capture": true
+  },
+  "workload_executed": true,
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790620487003056937,
+    "end_unix_ns": 1790620491003214048,
+    "elapsed_monotonic_ns": 4000150373,
+    "clock_difference_ns": 6738,
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 222790,
+        "docker_exec_round_trip_ns": 63878758,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000149652,
+        "docker_exec_round_trip_ns": 62602379,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000065401,
+        "docker_exec_round_trip_ns": 56935599,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000072583,
+        "docker_exec_round_trip_ns": 60968712,
+        "pong": true
+      }
+    ],
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "workload_result": "PONG",
+  "target_identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-28T13:32:18.294523417Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "target_identity_stable": true,
+  "metrics_raw_sha256": "7aa46914053ded2875a6b4685c8419ba77057228c1ad06ad255473a0b374bb91",
+  "raw_log_sha256": "ba91029d205e3ed89d5cb73e106f8464f9c736279acb0cd5cbf3bf2e6f1fb484",
+  "exit_code": 0,
+  "event_type_counts": {
+    "execve": 10,
+    "openat": 125,
+    "openat2": 40,
+    "open": 20,
+    "connect": 5
+  },
+  "matched_event_count": 200,
+  "status": "events_observed",
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}

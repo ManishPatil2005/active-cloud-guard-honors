@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Measured workload update (29 September): profiles permit only one or four fixed loopback Redis PING commands over four seconds, plus existing bounded readiness canaries. No arbitrary workload commands or destinations. Sensor privileges/watchdog unchanged. Timing-invalid runs fail and retain evidence; wall-clock alignment and Docker identity are not authenticated. No new network endpoints or persistent monitor.
+
 Instrumentation update: fixed PING readiness canaries (maximum three) and final PING affect only existing lab Redis. Pre/post inspection exports selected identity fields, not credentials/environment. Metrics are written inside the isolated sensor then copied to the ignored raw directory; default metrics may contain host/network metadata, so only allowlisted counter summaries are published. No extra privileges, host mounts or network endpoints. Identity continuity is not cryptographic attestation. See ENGINE2_INSTRUMENTATION.md.
 
 Offline adapter update: untrusted saved logs are size/record bounded, receipt-hash checked and schema validated; no content is executed. Published capture omits raw output/cgroup strings but retains lab identities/timestamps. Receipts and operator asset mappings are not authenticated. Rejected records block capture output; diagnostics cannot establish sensor completeness. See ENGINE2_ADAPTER.md.
