@@ -1,0 +1,494 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "redis-instrumented-20260928",
+  "scenario_group": "redis-ping-development",
+  "source": "normalized_sensor_export",
+  "bindings": [
+    {
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "asset_id": "compose/redis"
+    }
+  ],
+  "events": [
+    {
+      "event_id": "646625c2fd9d65d55c851841c8c75a5aaa0205cdc1650aba20a3f9da3c1eef81",
+      "timestamp": "2026-09-28T14:53:36.663496934Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "9e498246da0c1b850946fed64ff5b7b2c2b723ed5f8e07a78b895dddd970c93e",
+      "timestamp": "2026-09-28T14:53:36.663569059Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "184a561bc857c5f03181110e9a3dd51d56e24e4e18c54e635f78a8133ef2a46a",
+      "timestamp": "2026-09-28T14:53:36.663578718Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "60945364663bbafaab39a66c459ba81d16e88476a573522925e32cf0ba4877b8",
+      "timestamp": "2026-09-28T14:53:36.663597548Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "eed8be30f897eeebc0019ebb4838e511ccd80faf63210f8ccb92dc91f0b0bbf7",
+      "timestamp": "2026-09-28T14:53:36.664126366Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "1c9473ec0bc5accebe434ae6532cc1e020413849490eb00c60661db81928c96e",
+      "timestamp": "2026-09-28T14:53:36.664484428Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "650e34973acd18c2fb816fadb850829db9b23efe6ea545b5db3edd659f97d937",
+      "timestamp": "2026-09-28T14:53:36.664509411Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "9dab11c7de65b77256076ed84998a5d26f51dca38aede10bd5e4a6770f3c4db7",
+      "timestamp": "2026-09-28T14:53:36.664513750Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "43236f09935298a04aa5da5dde8a34e75ef89d7a4a6f8ee2981f65b9015c31d4",
+      "timestamp": "2026-09-28T14:53:36.664517940Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "f10e359d0eb7b963b11ba51378d4970cbd125593ccbb8c70023752852ba0a17a",
+      "timestamp": "2026-09-28T14:53:36.664522394Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "684ef1fe3a440c131a6d4fc67e15dea7a1e28b8a513edeb0722ebe66f055a03b",
+      "timestamp": "2026-09-28T14:53:36.664526425Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "40f5742de3afea98e2d22e1deddd2f9311c20ed022b513c8020a79941acd0cd2",
+      "timestamp": "2026-09-28T14:53:36.664530974Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "4ac1807e9eb8e26f77b7dd34d442606ec1d0673b60447c4c64f79db335fee6f2",
+      "timestamp": "2026-09-28T14:53:36.665015006Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "82c82f3e96154e1d94812278b0d96d0f41897f11862da4aa6f2eda6a2bc6a8fe",
+      "timestamp": "2026-09-28T14:53:36.665060870Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "aaee04cf0260885207cce26a09c8dd4fe72f825a23b3194e7ccc6c04e4571f1b",
+      "timestamp": "2026-09-28T14:53:36.665279666Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "c136080a79df12ef54407c55856614b3a349c376d594a8083c972a4592bfd3cd",
+      "timestamp": "2026-09-28T14:53:36.665308051Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "51ba729b0dc88ec1fc86e2eca58b442eb26aef1c76b76e996b24a76d330a82d0",
+      "timestamp": "2026-09-28T14:53:36.665346863Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "d8c9fcf0fdae43a1ef0a2357dc0877be75a5c1dc0a5c816c179318b638c3eed7",
+      "timestamp": "2026-09-28T14:53:36.677239788Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "1988416b628b414993e18bbb4db4eb159e1a8d32471c56edeedfc74400e1da03",
+      "timestamp": "2026-09-28T14:53:36.677270147Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "e834c62f53d9b3e35cbd2ea6c659de7d0eb9bf85d8d6e1b99a4ddad9ea70c607",
+      "timestamp": "2026-09-28T14:53:36.677313222Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "194a8d5320418d2d9c271a2ce11b715549742b99fc037062b69ae5998d68c3ae",
+      "timestamp": "2026-09-28T14:53:36.677318783Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "cfc0cab5833502b78d32cd337a957889288d8b467017c780c0d2054de709fd53",
+      "timestamp": "2026-09-28T14:53:36.677323489Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "90d5f2142656bfc4cb2a54e50cefa9da45786d78ab585c3ec9184da435161a54",
+      "timestamp": "2026-09-28T14:53:36.677329079Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "71db9f116ef56a1aeeaf55874ac9ba108a2cc35214300dfdbfe149c0dd73ead0",
+      "timestamp": "2026-09-28T14:53:36.677331159Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "133b5983b7b3658afd5f1d80827751b46ef858ffa81450e6568d451bbefd8c3f",
+      "timestamp": "2026-09-28T14:53:36.677339086Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "73f6ac04992808362d03c4617623058adf608b6ebafdf723970f2785255f2204",
+      "timestamp": "2026-09-28T14:53:36.677341626Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "93492d20d660485cae2b4ac91abfefe649f3ccfee4ce42146d800ca67eee6038",
+      "timestamp": "2026-09-28T14:53:36.677348291Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "b590fed2863c3153bd0c94058c192c5d359a1f11090ad1603ac31154ec2fb7f4",
+      "timestamp": "2026-09-28T14:53:36.677582028Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "341efab937519fc971e7e54ca80622be1233439fe18809714567c176ace85440",
+      "timestamp": "2026-09-28T14:53:36.677586761Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "81f48c9cfe9e70942da32fcdeeaa87b8ff9027b56a8f30712ba692e6a7f3dee6",
+      "timestamp": "2026-09-28T14:53:36.677589308Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "1dddcab924485e428fad58f3aec1aa5bfdb91ea34e5fbc68f2a83df28548076f",
+      "timestamp": "2026-09-28T14:53:36.677591314Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "d2e8f987a44d7dcc72badd8ac048d25b763529b96cc786f7878327508871d42f",
+      "timestamp": "2026-09-28T14:53:36.677594468Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "f323dc6b280ced41de054c0c6fe839cd8294e5a9366d3ff43884b54d9a8cd188",
+      "timestamp": "2026-09-28T14:53:36.677596107Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "ab4606f1d913b79713d5a54bb0ea965f62aaf1d1c8745f1df15b7ac975773b8e",
+      "timestamp": "2026-09-28T14:53:36.677600600Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "60d46f1201966008d959828420595b83cc2693132cff7e0105da256c1653705c",
+      "timestamp": "2026-09-28T14:53:36.678124409Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "c56c404e59ec671b4a36b157fad65c248ae64712191c70071a9768326e569736",
+      "timestamp": "2026-09-28T14:53:36.678361341Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "15bb4762bfdb1a70e18fb15263e70c3b47847a48973ef541b56acc1af61da54a",
+      "timestamp": "2026-09-28T14:53:36.678403784Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "ab239c76823f911d39447c8814057f6f693be4d8ac2cac1b387dc9adf16ac624",
+      "timestamp": "2026-09-28T14:53:36.678949234Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "a8da4d6d9ce680adb9d91fbc748895a2f6add29da4e85b8d1b83438cae035f0d",
+      "timestamp": "2026-09-28T14:53:36.678956983Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "a6e483f9edf09ac082fec00f1e857a6d46294f20c8481984b13d2c299069a96b",
+      "timestamp": "2026-09-28T14:53:36.679150623Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "network_connect"
+    },
+    {
+      "event_id": "5ab02a97c7d66f8f50d26f6340e9160d3c90784f18eb2f7dbdc8499beb72910a",
+      "timestamp": "2026-09-28T14:53:37.750856676Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "d3368d1b96713b8130808e2fd19ccc1a1be250e740bc72ff7b893ea94c52bb86",
+      "timestamp": "2026-09-28T14:53:37.750929208Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "5382375caa350fddd1f07ba1cec2fac1954191619921bdf0bbeb2199af1e8a3c",
+      "timestamp": "2026-09-28T14:53:37.750938331Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "e7139aec1daad09aa68eae448bbdd2fe76fcd5de93d6125e16abca7c461635c7",
+      "timestamp": "2026-09-28T14:53:37.750957932Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "349cd910c1076bee14513280851913035673e74ef1f0328ad0ecf9594520be42",
+      "timestamp": "2026-09-28T14:53:37.751675813Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "620936941e524e8ecbae5751bd2a1ea680eeea896d34a49d6360a52cbfe26040",
+      "timestamp": "2026-09-28T14:53:37.751877409Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "36a94d0f0f485c7d5b8192f7249fe735feb88884c0e6cee236cb3c381aa74ecf",
+      "timestamp": "2026-09-28T14:53:37.751966598Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "074f32e0f74e960e845b04260341323f9e56458746ef95054f21f750e276d4bf",
+      "timestamp": "2026-09-28T14:53:37.751994210Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "2768ecd05091063e36bc7a94e7abba450e52a8e966bc915ca8b02df74a61a6ab",
+      "timestamp": "2026-09-28T14:53:37.751998965Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "f4023edeb5255305cc5fbf85918d161ab82ff1580e908d8b8c533905f8ee6c6d",
+      "timestamp": "2026-09-28T14:53:37.752002949Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "92ebf6dbc6525a358e76c99d101ceac244900fac7c26fe2485610a5cfdca7337",
+      "timestamp": "2026-09-28T14:53:37.752006990Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "4d8f328894ab7af8fcef9fe69708c6308a4fae91db0bfbc6e075f1a2c8b4bec4",
+      "timestamp": "2026-09-28T14:53:37.752011542Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "5bb199206c84dab54f80d37cd2dfccd3d5ce14727f00806cec9bd85e0827e61d",
+      "timestamp": "2026-09-28T14:53:37.752306679Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "e79760898cea0a4d5fc9bc2af82856d1a568d24fa66d7da2dad76b6181c7916b",
+      "timestamp": "2026-09-28T14:53:37.752362126Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "8dd233c19dee75b64f90b6be77b0d488b937e24abeae2bf0cf9b28b6880c80ff",
+      "timestamp": "2026-09-28T14:53:37.752675850Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "433e23a3aa9ee4b1d79d8a76fc810034c25bef0bba1f3f15eaa1fe1cddc2781c",
+      "timestamp": "2026-09-28T14:53:37.752686928Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "4bfbbb2e9fdd2e689ff634f18c624c732975858ac9906f4ae3d8998a1c0b384f",
+      "timestamp": "2026-09-28T14:53:37.752727010Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "bed21c05badbd81d123444b76c5158eb050364a1f62f83eba0e4be129292218e",
+      "timestamp": "2026-09-28T14:53:37.764641735Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "5c38967d07abce2633548906faf9b9116e2855b3cc49694bb8da6c955c72ad68",
+      "timestamp": "2026-09-28T14:53:37.764663816Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "aa855a53000bd696987d03d73323c96496582dcad7b1bc07e4669bfeaef69658",
+      "timestamp": "2026-09-28T14:53:37.764711429Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "77a3560366cef23e3e99a4311b16e9b74e99094ece9ec4a3bd19dbfd2663b001",
+      "timestamp": "2026-09-28T14:53:37.764719172Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "ccd4ee4c459e0b13a87819f198b62bb98cef8ea5762f482d5239a36b66535c59",
+      "timestamp": "2026-09-28T14:53:37.764724747Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "e10c42f134402a1832cf37805021283cf2efc0418938437f5df5489197acd2ea",
+      "timestamp": "2026-09-28T14:53:37.764733211Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "d85dfefd12a4d9153b50194a3121441d46ed2f6b666aaa0cd421952181670b6a",
+      "timestamp": "2026-09-28T14:53:37.764735602Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "c68e3f52285f9a65af71c7495b0ea9a8911942cf0aa717367ff6d62f395df41f",
+      "timestamp": "2026-09-28T14:53:37.764743957Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "be41dd2b847b62ad64f2ebc15cb41634d762eecb12fe710108a3c35b8637168d",
+      "timestamp": "2026-09-28T14:53:37.764747057Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "a0b1e5f621c5d1ed65c73ef09378047ad303be6ea863ad1c96560fb045300817",
+      "timestamp": "2026-09-28T14:53:37.764758050Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "341a452c69acee60b2c912f050bce9b257086b927b085f055d263d859bb56c38",
+      "timestamp": "2026-09-28T14:53:37.765090259Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "5515624eb00e9e990b83543a883798a4693130837007ed364ca34c4bea8583d4",
+      "timestamp": "2026-09-28T14:53:37.765099898Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "f0adf0acd7873121cba1387fbd51e1ed474214692bed548fb6a6f7358e92bbe8",
+      "timestamp": "2026-09-28T14:53:37.765104869Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "c1838fc42af3a05b7dd406bbd46f5a9f27a47020a6f9f46bf9454dda01c80878",
+      "timestamp": "2026-09-28T14:53:37.765107388Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "1384ed095355fd25ed3f3cc7926b46453d735100045d8585e823de92938f6194",
+      "timestamp": "2026-09-28T14:53:37.765110989Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "cbd9b9e9d116a14ae69cd4e7624b251bcc6f4d3c3688c6bdad8b60a88c30f1f2",
+      "timestamp": "2026-09-28T14:53:37.765112883Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "5172795f2ca9b9bb48a7885ee022b1797135d446716b487d6f2309ae4bf55501",
+      "timestamp": "2026-09-28T14:53:37.765121301Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "54669fc230f6e5d7a63f79ea4c52813ad142bc58b09b7f64aa49f9ecec99a1ac",
+      "timestamp": "2026-09-28T14:53:37.765606631Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "process_start"
+    },
+    {
+      "event_id": "f9b853d0bdee764bdac5a494b0fc62aef04595694605dc308cefa20db135c371",
+      "timestamp": "2026-09-28T14:53:37.765896318Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "9d44448d777bbb8146d06aaa9da404bdc7ab04af45d8a7ea95ca469d6444062d",
+      "timestamp": "2026-09-28T14:53:37.765927927Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "3a1f15c7b4144a67158ad0d6e68e23ec7fa9f43139bcb0017aa79c520b92669a",
+      "timestamp": "2026-09-28T14:53:37.766373920Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "79c8d0d19678b34fd595111fd754dbf86e4b47f3757b5ffc90aafcee8c8cd94d",
+      "timestamp": "2026-09-28T14:53:37.766382083Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "file_open"
+    },
+    {
+      "event_id": "2ffd7d213ae7344e42e476e27393515ae9c929b386f24b985d2dde52bf5d4bfd",
+      "timestamp": "2026-09-28T14:53:37.766703308Z",
+      "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+      "kind": "network_connect"
+    }
+  ]
+}

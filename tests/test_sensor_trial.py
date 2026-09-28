@@ -7,6 +7,56 @@ from scripts import sensor_trial
 
 
 @pytest.mark.parametrize(
+    "change", ["none", "running", "id", "project", "service", "restarts"]
+)
+def test_target_identity_scope(monkeypatch, change):
+    fields = dict(
+        id="a" * 64,
+        image="sha256:" + "b" * 64,
+        started_at="2026-09-28T00:00:00Z",
+        running=True,
+        restarts=0,
+        project="honors-cloud-guard",
+        service="redis",
+    )
+    if change != "none":
+        fields[change] = False if change in {"running", "restarts"} else "wrong"
+    monkeypatch.setattr(sensor_trial, "command", lambda *a: json.dumps(fields))
+    if change == "none":
+        assert sensor_trial.target_identity("a" * 64) == fields
+    else:
+        with pytest.raises(ValueError):
+            sensor_trial.target_identity("a" * 64)
+
+
+@pytest.mark.parametrize("mode", ["ready", "stopped", "no_events"])
+def test_readiness_requires_events(monkeypatch, mode):
+    calls = []
+
+    def command(*args):
+        calls.append(args)
+        if args[0] == "inspect":
+            return "false" if mode == "stopped" else "true"
+        if args[0] == "exec":
+            return "PONG"
+        return "log"
+
+    monkeypatch.setattr(sensor_trial, "command", command)
+    monkeypatch.setattr(sensor_trial.time, "sleep", lambda _: None)
+    monkeypatch.setattr(
+        sensor_trial,
+        "summarize_events",
+        lambda *a: {"execve": 1, "connect": 1} if mode == "ready" else {},
+    )
+    if mode == "ready":
+        assert sensor_trial.await_canary("sensor", "a" * 64)["canary_attempts"] == 1
+    else:
+        with pytest.raises(ValueError):
+            sensor_trial.await_canary("sensor", "a" * 64)
+    assert len([c for c in calls if c[0] == "exec"]) <= 3
+
+
+@pytest.mark.parametrize(
     "value", ["short", "a" * 63, "A" * 64, "a" * 64 + "\n", "x; command"]
 )
 def test_rules_reject_untrusted_identity(value):

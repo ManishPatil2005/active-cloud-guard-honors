@@ -1,0 +1,55 @@
+{
+  "executed_at": "2026-09-28T14:53:33.968458+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "target_identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-28T13:32:18.294523417Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d7973d1524a2a7c7ad1e396148bee9a235fa372f4a8f7e01530ff097c6b96c9d",
+  "config_sha256": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "f743cc07a346c9199f44e281601caa0bdab5b76bf4c2e2fd6c2ef88e3bc80bc9",
+  "readiness": {
+    "status": "matching_events_observed",
+    "canary_attempts": 2,
+    "causal_attribution": "not_proven",
+    "canary_included_in_capture": true
+  },
+  "workload_executed": true,
+  "workload_result": "PONG",
+  "target_identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-28T13:32:18.294523417Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "target_identity_stable": true,
+  "metrics_raw_sha256": "8d35153af496b418ea48ee4d9bf6c8099091495c81f90eacadcf4a172e87d9cb",
+  "raw_log_sha256": "c1fa31563c7ff07ba1663e11849e8e0160b7294e8e48af689b2a7a5ceda08fea",
+  "exit_code": 0,
+  "event_type_counts": {
+    "execve": 4,
+    "openat": 50,
+    "openat2": 16,
+    "open": 8,
+    "connect": 2
+  },
+  "matched_event_count": 80,
+  "status": "events_observed",
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}

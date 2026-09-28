@@ -19,6 +19,55 @@ from cloudguard.deployment import local_daemon
 IMAGE = "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
 
 
+def target_identity(container_id):
+    """Select only non-secret fields; trust the local daemon, not attestation."""
+    fields = json.loads(
+        command(
+            "inspect",
+            "--format",
+            '{"id":{{json .Id}},"image":{{json .Image}},"started_at":{{json .State.StartedAt}},'
+            '"running":{{json .State.Running}},"restarts":{{json .RestartCount}},'
+            '"project":{{json (index .Config.Labels "com.docker.compose.project")}},'
+            '"service":{{json (index .Config.Labels "com.docker.compose.service")}}}',
+            container_id,
+        )
+    )
+    if (
+        fields.get("id") != container_id
+        or fields.get("running") is not True
+        or fields.get("project") != "honors-cloud-guard"
+        or fields.get("service") != "redis"
+        or not isinstance(fields.get("image"), str)
+        or not fields["image"].startswith("sha256:")
+        or not fields.get("started_at")
+        or type(fields.get("restarts")) is not int
+    ):
+        raise ValueError("running lab identity required")
+    return fields
+
+
+def await_canary(name, container_id):
+    """Bounded fixed PING attempts; observed matching events, not mere liveness."""
+    for attempt in range(1, 4):
+        if command("inspect", "--format", "{{.State.Running}}", name) != "true":
+            raise ValueError("sensor stopped before readiness")
+        pong = command("exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING")
+        time.sleep(1)
+        counts = summarize_events(command("logs", name), container_id)
+        if (
+            pong == "PONG"
+            and counts.get("execve", 0) + counts.get("execveat", 0) > 0
+            and counts.get("connect", 0) > 0
+        ):
+            return dict(
+                status="matching_events_observed",
+                canary_attempts=attempt,
+                causal_attribution="not_proven",
+                canary_included_in_capture=True,
+            )
+    raise ValueError("matching readiness events not observed")
+
+
 def command(*args, timeout=20):
     return subprocess.run(
         ["docker", *args], capture_output=True, text=True, timeout=timeout, check=True
@@ -100,6 +149,7 @@ def main():
             if len(ids) != 1:
                 raise ValueError("one running lab Redis required")
             container_id = ids[0]
+            report["target_identity_before"] = target_identity(container_id)
             raw_dir = ROOT / "output/runtime-raw" / name
             raw_dir.mkdir(parents=True, exist_ok=False)
             rule_path = raw_dir / "rules.yaml"
@@ -171,17 +221,28 @@ def main():
             if not re.fullmatch("[a-f0-9]{64}", sensor_id):
                 raise ValueError("unexpected sensor ID")
             report["sensor_container_id"] = sensor_id
-            # Being alive is not proof of probe readiness; matching events are required.
-            time.sleep(3)
-            running = (
-                command("inspect", "--format", "{{.State.Running}}", name) == "true"
+            time.sleep(1)
+            report["readiness"] = await_canary(name, container_id)
+            report["workload_executed"] = True
+            report["workload_result"] = command(
+                "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
             )
-            report["workload_executed"] = running
-            if running:
-                report["workload_result"] = command(
-                    "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
-                )
+            if report["workload_result"] != "PONG":
+                raise ValueError("fixed workload did not return PONG")
             command("wait", name, timeout=32)
+            report["target_identity_after"] = target_identity(container_id)
+            report["target_identity_stable"] = (
+                report["target_identity_before"] == report["target_identity_after"]
+            )
+            if not report["target_identity_stable"]:
+                raise ValueError("target changed during collection")
+            # Copy only the fixed sensor metrics file to this unique local raw dir.
+            command(
+                "cp", name + ":/tmp/acg-metrics.jsonl", str(raw_dir / "metrics.jsonl")
+            )
+            report["metrics_raw_sha256"] = hashlib.sha256(
+                (raw_dir / "metrics.jsonl").read_bytes()
+            ).hexdigest()
             log_result = subprocess.run(
                 ["docker", "logs", name], capture_output=True, timeout=10, check=True
             )

@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-021 - 2026-09-28 - Observed readiness and separate collector metrics
+
+Require observed selected process/network records during bounded fixed canaries, rather than liveness alone. Compare minimal pre/post Docker identity; retain unauthenticated mapping. Keep metrics in a local sensor file and publish only hash-bound counter summaries. Collector-wide drops are distinct from Redis event accounting; retain unknown coverage even when counters report zero. Canary attempts stay declared as development workload, not independent benign data. See ENGINE2_INSTRUMENTATION.md.
+
 ## ADR-020 - 2026-09-28 - Fail-closed offline adapter and unknown loss
 
 Extend the existing normalized contract without changing Engine 1 or runtime scoring. Bind saved raw bytes to a successful pinned-trial receipt; require exact accepted-count agreement and reject the entire capture on invalid records. Minimize fields and keep stable projected event IDs; reject indistinguishable duplicate projections rather than assume they are retransmissions. Parser accounting is distinct from unmeasured sensor loss. No baseline score from one development smoke. See ENGINE2_ADAPTER.md.

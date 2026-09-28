@@ -1,5 +1,9 @@
 # Evidence index
 
+## Instrumented trial (2026-09-28)
+
+[Trial](../output/engine2-instrumented-trial-20260928.json), [metrics](../output/engine2-metrics-20260928.json), [normalized accounting](../output/engine2-instrumented-normalized-20260928/accounting.json): observed readiness, stable selected identity, 80 records, 16 collector-wide snapshots and cleanup. [Windows](../output/engine2-instrumented-windows-tests-20260928.xml) / [Linux](../output/engine2-instrumented-linux-tests-20260928.xml): 268 tests each. Interpretation and exact commands: [instrumentation report](ENGINE2_INSTRUMENTATION.md). Not independent evaluation or full-coverage evidence.
+
 ## Offline adapter (2026-09-28)
 
 [Adapter report](ENGINE2_ADAPTER.md), [minimized capture](../output/engine2-normalized-20260928/capture.json) and [accounting](../output/engine2-normalized-20260928/accounting.json): prior live log processed offline, 40 validated records, zero rejected, unknown sensor loss. [Windows tests](../output/engine2-adapter-windows-tests-20260928.xml) and [Linux tests](../output/engine2-adapter-linux-tests-20260928.xml): 250 passed each. No independent baseline or detection result.

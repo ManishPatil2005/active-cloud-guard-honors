@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest instrumentation: 268 tests passed on each OS; output/engine2-instrumented-{windows,linux}-tests-20260928.xml. Eighteen new tests cover selected identity, bounded readiness and metric integrity/minimization. Separate live trial observed readiness, stable identity, 80 events and 16 metrics snapshots; collector-wide zero drops is not a complete-coverage assertion. See ENGINE2_INSTRUMENTATION.md for exact commands and untested lifecycle branches.
+
 Latest adapter increment: 250 tests pass on Windows and Linux, saved separately as output/engine2-adapter-windows-tests-20260928.xml and output/engine2-adapter-linux-tests-20260928.xml. Thirty-four additions cover strict offline normalization and CLI preservation. The prior real log was normalized and accepted by runtime loader/windowing; no new live collector or baseline-score experiment. See ENGINE2_ADAPTER.md for exact commands and limits.
 
 Latest sensor increment (28 September): 216 tests pass on Windows and Linux; separate output/engine2-sensor-{windows,linux}-tests-20260928.xml reports. Twelve additions validate rule IDs, minimized fields, report preservation and selected event scope/results. Live smoke separately observed 40 Redis-cgroup records, PONG and cleanup. See ENGINE2_SENSOR_TRIAL.md for commands/failures. Live normalization, complete loss accounting, accuracy and all Docker lifecycle failures remain untested. Earlier no-sensor statements below are historical snapshots.

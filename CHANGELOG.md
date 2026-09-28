@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-28 - Instrumented Engine 2 trial
+
+- Added bounded matching-event readiness and selected pre/post Redis identity continuity checks.
+- Added local Falco kernel metrics and minimized hash-bound summaries; no privilege/network expansion.
+- Live trial: 80 normalized events, 16 snapshots, zero reported drop deltas, cleanup verified; completeness remains unknown.
+- Eighteen new tests; 268 pass on Windows and Linux. No independent detection/overhead claim.
+
 ## 2026-09-28 - Offline Engine 2 sensor normalization
 
 - Added bounded, receipt/hash-bound Falco adapter and non-overwriting CLI; minimized output uses the existing runtime capture contract.

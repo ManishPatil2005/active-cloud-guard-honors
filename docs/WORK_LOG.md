@@ -1,5 +1,11 @@
 # Work log
 
+## WL-014 - 2026-09-28 - Readiness, selected identity and metrics
+
+User requested continuation. Added bounded event-observed PING readiness, pre/post selected Redis Docker identity equality, local-only 1-second Falco metrics and hash-bound minimized metric summary. No privileges/network broadened; Engine 1 unchanged. Acceptance/live result: second canary ready, final PONG, 80 target events, identity stable, exit 0 and sensor removed. Sixteen collector-wide snapshots yielded event delta 7621 and zero reported drop deltas. All 80 events normalized, no rejections. First canary did not establish visibility; retain partial-coverage interpretation, not invented causal attribution. Exact commands, artifacts, test scope and limitations: ENGINE2_INSTRUMENTATION.md.
+
+Windows/Linux full suites: 268 passed each; Windows Ruff lint/format passed (52 files), pip check passed. No test failure encountered. Final PONG failure guard added after the successful live run, not negative-live tested. Final Docker enumeration found no trial sensor and only Redis running. Raw metrics include potential host metadata and stay ignored; publication includes minimized counts/capture only. No independent labels, baseline score, complete coverage or overhead claim. Git history identifies publication.
+
 ## WL-013 - 2026-09-28 - Offline sensor normalization
 
 User requested next steps. Acceptance: receipt/hash-bound, bounded parser; explicit identity/time checks; minimal runtime capture; input accounting without sensor-completeness claims; no historical overwrite. Implemented cloudguard/sensor_adapter.py and scripts/normalize_sensor.py with fail-closed record/count handling, stable projected identities, nanosecond preservation and new-directory output. Added 34 tests. Processed the existing verified raw log offline: 40 accepted, zero rejected, 21 diagnostic lines; runtime.load_capture/windows accepted one partial window. No new sensor run, baseline fit or score.
