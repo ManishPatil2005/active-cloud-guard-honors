@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest paired tooling: 298 tests passed on each OS; output/engine2-paired-final-{windows,linux}-tests-20260929.xml. Ten new tests cover two-PING warm-up, target preflight and complete-pair summary guards. Real batch passed clock gate but failed OFF-1 before measurement; no sensor-on/control comparison. Preflight passed after Docker/Redis recovery. See PAIRED_PILOT.md; source hashes preserve pre-hardening execution.
+
 Latest clock/control increment: initial 287 and final 288 tests passed each OS; final output/engine2-control-final-{windows,linux}-tests-20260929.xml. Tests include no Docker access on failed diagnostic. Real six-sample clock check rejected one sample; controls were not run. See CLOCK_AND_CONTROLS.md. Do not equate unit-tested controls with live-observed controls.
 
 29 September workload increment: 279 passed on Windows/Linux, output/engine2-workload-{windows,linux}-tests-20260929.xml. Eleven tests cover fixed scheduling, overrun/clock/PONG rejection, profile allowlist and nanosecond half-open selection. Live pilot: one timing-rejected run, one accepted run. See RUNTIME_WORKLOAD_PROTOCOL.md; no retrospective boundary assignment or score for failed run.

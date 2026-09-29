@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 - Fixed paired-pilot tooling and prerequisite recovery
+
+- Added fixed warm-up, declared OFF/ON/ON/OFF orchestration, source manifests and guarded descriptive summaries.
+- Preserved batch abort at OFF-1; restored guest NTP and recovered Docker/Redis prerequisites without retrying workloads.
+- Added preflight and failure phases; 298 tests pass on each OS. No real paired or overhead result.
+
 ## 2026-09-29 - Read-only time synchronization diagnosis
 
 - Confirmed both Hyper-V implicit time synchronization and guest timesyncd enabled; documented official conflict guidance and limits of causality.

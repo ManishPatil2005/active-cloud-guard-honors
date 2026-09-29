@@ -6,6 +6,42 @@ import pytest
 from scripts import sensor_trial
 
 
+@pytest.mark.parametrize("ready", [True, False])
+def test_fixed_warmup_always_two_or_reject(monkeypatch, ready):
+    calls = []
+
+    def command(*args):
+        calls.append(args[0])
+        return (
+            "true" if args[0] == "inspect" else "PONG" if args[0] == "exec" else "log"
+        )
+
+    monkeypatch.setattr(sensor_trial, "command", command)
+    monkeypatch.setattr(sensor_trial.time, "sleep", lambda _: None)
+    monkeypatch.setattr(
+        sensor_trial,
+        "summarize_events",
+        lambda *a: {"execve": 1, "connect": 1} if ready else {},
+    )
+    if ready:
+        assert (
+            sensor_trial.await_canary("sensor", "a" * 64, fixed_two=True)[
+                "canary_attempts"
+            ]
+            == 2
+        )
+    else:
+        with pytest.raises(ValueError):
+            sensor_trial.await_canary("sensor", "a" * 64, fixed_two=True)
+    assert calls.count("exec") == 2
+    if ready:
+        monkeypatch.setattr(
+            sensor_trial, "command", lambda *a: "true" if a[0] == "inspect" else "bad"
+        )
+        with pytest.raises(ValueError, match="fixed warmup"):
+            sensor_trial.await_canary("sensor", "a" * 64, fixed_two=True)
+
+
 @pytest.mark.parametrize(
     "change", ["none", "running", "id", "project", "service", "restarts"]
 )

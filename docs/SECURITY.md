@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Paired pilot adds fixed two-PING warm-up and bounded four-run orchestration, with no broader sensor capabilities. Prerequisite preflight must precede approved guest-NTP stop; restoration remains external try/finally with explicit state checks. Docker/Redis recovery started existing services only. No control/sensor workloads were retried after batch abort. Manifest hashes are provenance, not authentication; comparisons remain observation-only.
+
 Clock/control tooling reads clocks without changing settings. Sensor-off controls perform only existing Redis PINGs and selected Docker identity/known-sensor checks; never stop unrelated collectors or fabricate telemetry. A passing clock report is operator-declared input, not authenticated/fresh evidence. The actual failed diagnostic blocked planned controls; no new sensor or host service change occurred.
 
 Measured workload update (29 September): profiles permit only one or four fixed loopback Redis PING commands over four seconds, plus existing bounded readiness canaries. No arbitrary workload commands or destinations. Sensor privileges/watchdog unchanged. Timing-invalid runs fail and retain evidence; wall-clock alignment and Docker identity are not authenticated. No new network endpoints or persistent monitor.

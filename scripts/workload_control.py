@@ -37,6 +37,7 @@ def main():
             absence_scope="known trial name/image at endpoints only; not all host collectors",
         )
         try:
+            report["phase"] = "clock_gate"
             diagnostic, diagnostic_hash = read_json(args.clock_report)
             if (
                 not isinstance(diagnostic, dict)
@@ -44,6 +45,7 @@ def main():
             ):
                 raise ValueError("passing clock diagnostic required before control")
             report["clock_diagnostic_sha256"] = diagnostic_hash
+            report["phase"] = "docker_prerequisites"
             local_daemon()
             check_sensor_absent()
             ids = command(
@@ -58,8 +60,13 @@ def main():
             if len(ids) != 1:
                 raise ValueError("one running Redis required")
             container = ids[0]
+            report["phase"] = "target_identity_before"
             report["identity_before"] = target_identity(container)
-            # Fixed warm-up differs from variable sensor readiness: do not claim exact pairing.
+            report["warmup_protocol"] = "two_pings_v1"
+            report["phase"] = "warmup"
+            time.sleep(1)
+            # Same command/sleep schedule as sensor --fixed-warmup; sensor log
+            # inspection still adds processing time and must be acknowledged.
             for _ in range(2):
                 if (
                     command("exec", container, "redis-cli", "-h", "127.0.0.1", "PING")
@@ -69,12 +76,14 @@ def main():
                 time.sleep(1)
             report["warmup_pings"] = 2
             time.sleep(1)
+            report["phase"] = "measurement"
             report["measurement"] = run(
                 args.profile,
                 lambda: command(
                     "exec", container, "redis-cli", "-h", "127.0.0.1", "PING"
                 ),
             )
+            report["phase"] = "post_checks"
             report["identity_after"] = target_identity(container)
             check_sensor_absent()
             report["identity_stable"] = (
@@ -86,6 +95,7 @@ def main():
                 and report["measurement"]["status"] == "completed"
                 else "rejected"
             )
+            report["phase"] = "finished"
         except Exception as error:
             report.update(status="failed", error_type=type(error).__name__)
             raise

@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-028 - 2026-09-29 - Paired batch stopped before first measurement
+
+Planned clock gate/OFF-1/ON-1/ON-2/OFF-2. Gate passed; OFF-1 failed with generic ValueError before identity/measurement fields, later jobs not executed. Follow-up Docker calls found missing Linux-engine pipe; high confidence in daemon unavailability then, but original generic error lacks exact phase attribution. Guest timesyncd restored active/enabled in finally. Restored Docker Desktop; existing Redis stopped exit 255 (cause unknown), other services stopped. Preflight refused until only existing Redis was started; preflight then passed. No volume deletion/recreation or batch retry. Added preflight before any time-service change and future control phase fields; 298-test suites passed. Failed batch remains output/engine2-paired-pilot-20260929; new empirical comparison still pending.
+
 ### INC-027 follow-up - 2026-09-29 - Competing synchronization paths observed
 
 Approved one-batch intervention subsequently completed: guest timesyncd stopped temporarily, six checks passed (max 3,505 ns disagreement), service restored and active/enabled verified. Journal confirms stopped interval. Supports hypothesis but not a permanent resolution: no same-boot on/off repeated comparison or long-term study. Controls remain deferred in restored state. See saved engine2-clock-guest-ntp-stopped-20260929.json and TIME_SYNC_DIAGNOSIS.md; previous failure evidence unchanged.

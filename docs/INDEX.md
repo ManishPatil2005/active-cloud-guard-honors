@@ -16,6 +16,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Runtime workload protocol](RUNTIME_WORKLOAD_PROTOCOL.md) | Fixed measured profiles, timing gates, preserved pilot failure and next control experiments |
 | [Clock and controls](CLOCK_AND_CONTROLS.md) | Bracketed diagnostics, reproduced timing failure and deferred sensor-off controls |
 | [Time-sync diagnosis](TIME_SYNC_DIAGNOSIS.md) | Read-only evidence of competing synchronization paths and proposed reversible test |
+| [Paired pilot](PAIRED_PILOT.md) | Fixed warm-up, comparison guards, aborted batch and prerequisite recovery |
 | [Windows/Linux setup](WINDOWS_LINUX_SETUP.md) | Installed research WSL distribution, actual Linux preflight, Docker integration handoff and sensor gates |
 | [Interface design](DESIGN.md) | CLI/output contracts; no proposed web redesign |
 | [Rules](../RULES.md) | Implementation, evidence and Git rules |

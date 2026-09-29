@@ -6,7 +6,7 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
-Latest engineering check: **288 software tests passed on both Windows and Linux**. Bracketed sensor-free diagnostics reproduced a clock disagreement, so planned sensor-off controls were deferred. Control tooling is implemented but not live-validated; no paired overhead estimate exists. See the [clock investigation](docs/CLOCK_AND_CONTROLS.md) and [measured pilot results](docs/RUNTIME_WORKLOAD_PROTOCOL.md).
+Latest engineering check: **298 software tests passed on both Windows and Linux**. Fixed sensor-off/on pilot tooling is implemented. Its first batch passed the clock gate but aborted before measurement; Docker/Redis prerequisites were recovered and preflight now passes. No paired overhead estimate exists. See the [paired-pilot record](docs/PAIRED_PILOT.md) and [clock investigation](docs/TIME_SYNC_DIAGNOSIS.md).
 
 Windows-hosted Linux setup and Docker integration are verified. No temporary sensor remains running. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
 
@@ -36,7 +36,7 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has begun with an *
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | Frozen Engine 1 baseline and initial observation-only Engine 2 replay |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 29 September 2026; 288 tests on each OS; reproduced clock disagreement and deferred controls; live Engine 1 observations remain dated 23 September |
+| Evidence snapshot | 29 September 2026; 298 tests on each OS; aborted paired pilot and restored prerequisites; live Engine 1 observations remain dated 23 September |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
@@ -88,7 +88,7 @@ The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as th
 
 | Observation | Evidence | Interpretation |
 |---|---|---|
-| 288 software tests on each OS | [Windows](output/engine2-control-final-windows-tests-20260929.xml), [Linux](output/engine2-control-final-linux-tests-20260929.xml) | Regression checks, not detection accuracy |
+| 298 software tests on each OS | [Windows](output/engine2-paired-final-windows-tests-20260929.xml), [Linux](output/engine2-paired-final-linux-tests-20260929.xml) | Regression checks, not detection accuracy |
 | Engine 2 constructed count deviation | [Synthetic replay report](output/engine2-replay-smoke.json) | No live sensor or independent threat labels |
 | Stable identity and service observations | [V2.2 live lab report](output/service-identity-v22-final.json) | Redis protected-mode denial and PostgreSQL SASL challenge; no full attestation |
 | Policy-aware real loopback observations | [V2.1 smoke report](output/verification-v21-smoke.json) | Synthetic policies and accept-only listener; no deployment or model claim |

@@ -1,5 +1,13 @@
 # Work log
 
+## WL-018 - 2026-09-29 - Fixed paired-pilot tooling and environment recovery
+
+Final review: fixed sensor warm-up now rejects any non-PONG immediately, matching controls rather than accepting a later PONG. Existing test extended; no additional case count. Post-review full reruns without overwriting XML: Windows 298 passed in 2.15 s, Linux 298 in 3.08 s. No live batch rerun. Saved XML timings below precede this final guard; source/test output distinction retained.
+
+Owner authorized proceeding with temporary-NTP-stop comparison. Predeclared OFF/ON/ON/OFF ping_4 batch after a new clock gate; fixed two-PING warm-up added to sensor mode, matched command/sleep schedule in controls (sensor log-processing remains extra work). Added orchestration/source-hash manifest and guarded descriptive-summary utility. Clock gate passed, OFF-1 failed before measurement, later jobs skipped without retry. Guest NTP restored active/running/enabled. Follow-up Docker pipe unavailable; original failure ValueError is less specific. Preserved aborted receipts.
+
+Restored existing Docker Desktop via docker desktop start; lab Redis was stopped, preflight correctly refused; started only existing Redis via compose start redis, then preflight passed. No recreation, new sensor or rerun. Added prerequisite preflight and safe future phase fields. Ten new tests; Windows/Linux final suites 298 each; initial Windows 290 report retained. Exact commands, timings and source-hash interpretation in PAIRED_PILOT.md. Lint/format and Windows dependency checks passed. INC-028 records environmental failure. No empirical paired latency, overhead, baseline or accuracy result; Git history records publication.
+
 ## WL-017 - 2026-09-29 - Read-only time-sync path diagnosis
 
 Follow-up during same increment: explicit owner approval received for temporary stop/test/restore. Executed once with try/finally restoration; six diagnostic samples passed with max 3,505 ns disagreement. Verified restored active/running/enabled and journal stop/start bracketing. New output/engine2-clock-guest-ntp-stopped-20260929.json preserved. Earlier "no change yet" account below is the pre-approval phase. No permanent configuration change, host clock setting or control workload. Interpretation/confounders and exact invocation are in TIME_SYNC_DIAGNOSIS.md. Diagnostic script's clock_settings_modified=false does not describe external service manipulation. No application code change or software-test rerun.

@@ -1,0 +1,10 @@
+{
+  "executed_at": "2026-09-29T14:04:39.590989+00:00",
+  "mode": "sensor_off_control",
+  "sensor_started": false,
+  "overhead_estimate": null,
+  "absence_scope": "known trial name/image at endpoints only; not all host collectors",
+  "clock_diagnostic_sha256": "506a509e40d0b3773838ef22f93d77de98aede8514b4455f849b06bbe7510e4c",
+  "status": "failed",
+  "error_type": "ValueError"
+}

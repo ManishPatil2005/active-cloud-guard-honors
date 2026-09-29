@@ -1,0 +1,23 @@
+{
+  "executed_at": "2026-09-29T14:04:15.324268+00:00",
+  "protocol": "off_on_on_off_ping4_v1",
+  "sequence": [
+    {
+      "name": "clock",
+      "exit_code": 0
+    },
+    {
+      "name": "off-1",
+      "exit_code": 1
+    }
+  ],
+  "status": "failed",
+  "source_sha256": {
+    "scripts/paired_pilot.py": "d762a1fc36adcff9b6be7c007c22106bbe062f2f98ff4893ae58703d7b569a8b",
+    "scripts/sensor_trial.py": "030a5b4355017636f41d49b721cc207ab51ecf4e53540e454aece30464f068c3",
+    "scripts/workload_control.py": "0cb6d5cc6dc4ae30e2c6158ea9937015f80f0b7289456ca699e0e6676b0b1243",
+    "cloudguard/workload.py": "1f403bbccf9120821a51b064619d3039142230cdaa1217d26034a0e4ef4d0dea",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+  },
+  "error_type": "ValueError"
+}

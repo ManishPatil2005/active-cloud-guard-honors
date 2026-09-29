@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-024 - 2026-09-29 - Preflight and complete-pair reporting
+
+Use a fixed two-PING command/sleep warm-up and declared OFF/ON/ON/OFF order for a small latency pilot, with explicit remaining processing/host confounders. Require Docker/Redis preflight before temporary clock-service changes; retain failures and skip subsequent jobs rather than retry. Reject summary generation for incomplete manifests or incompatible identities/profiles. No survivor-only overhead claim. Recovering a stopped daemon/target does not authorize overwriting an aborted batch.
+
 ## ADR-023 - 2026-09-29 - Sampling uncertainty and explicit sensor-off mode
 
 Bracket wall reads with monotonic samples and reject excess uncertainty without widening existing disagreement tolerance. Sensor-off controls reuse fixed profiles but never emit synthetic sensor records or an unearned overhead estimate. Require a passing operator clock receipt before Docker access and preserve planned run deferrals/failures. Clock service changes and disruptive WSL actions are not incidental experiment steps.

@@ -47,16 +47,19 @@ def target_identity(container_id):
     return fields
 
 
-def await_canary(name, container_id):
+def await_canary(name, container_id, *, fixed_two=False):
     """Bounded fixed PING attempts; observed matching events, not mere liveness."""
-    for attempt in range(1, 4):
+    for attempt in range(1, 3 if fixed_two else 4):
         if command("inspect", "--format", "{{.State.Running}}", name) != "true":
             raise ValueError("sensor stopped before readiness")
         pong = command("exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING")
+        if fixed_two and pong != "PONG":
+            raise ValueError("fixed warmup PING failed")
         time.sleep(1)
         counts = summarize_events(command("logs", name), container_id)
         if (
             pong == "PONG"
+            and (not fixed_two or attempt == 2)
             and counts.get("execve", 0) + counts.get("execveat", 0) > 0
             and counts.get("connect", 0) > 0
         ):
@@ -124,6 +127,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
     parser.add_argument("--profile", choices=tuple(PROFILES), default="ping_1")
+    parser.add_argument("--fixed-warmup", action="store_true")
     args = parser.parse_args()
     report = dict(
         executed_at=datetime.now(timezone.utc).isoformat(),
@@ -224,7 +228,12 @@ def main():
                 raise ValueError("unexpected sensor ID")
             report["sensor_container_id"] = sensor_id
             time.sleep(1)
-            report["readiness"] = await_canary(name, container_id)
+            report["readiness"] = await_canary(
+                name, container_id, fixed_two=args.fixed_warmup
+            )
+            report["warmup_protocol"] = (
+                "two_pings_v1" if args.fixed_warmup else "adaptive_v1"
+            )
             # Guard interval separates dispatches, not proven causal event ownership.
             time.sleep(1)
             report["workload_executed"] = True

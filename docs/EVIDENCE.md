@@ -1,5 +1,9 @@
 # Evidence index
 
+## Aborted paired pilot (2026-09-29)
+
+[Manifest](../output/engine2-paired-pilot-20260929/manifest.json), [clock](../output/engine2-paired-pilot-20260929/clock.json), [OFF-1 failure](../output/engine2-paired-pilot-20260929/off-1.json): later jobs not executed; no empirical paired result. [Report](PAIRED_PILOT.md) records restored guest NTP and Docker/Redis recovery. [Windows](../output/engine2-paired-final-windows-tests-20260929.xml) / [Linux](../output/engine2-paired-final-linux-tests-20260929.xml): 298 tests each.
+
 ## Clock/control gate (2026-09-29 local)
 
 [Diagnostic](../output/engine2-clock-diagnostic-20260929.json): one of six sensor-free intervals rejected. [Report](CLOCK_AND_CONTROLS.md) includes time-service observations, exact commands and deferred controls. Final [Windows](../output/engine2-control-final-windows-tests-20260929.xml) and [Linux](../output/engine2-control-final-linux-tests-20260929.xml) suites: 288 each. No live control or overhead result.
