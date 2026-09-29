@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-027 - 2026-09-29 - Sensor-free clock disagreement reproduced
+
+Follow-up to INC-026. Fourth of six predeclared four-second bracketed checks failed: wall-minus-monotonic 1,129,990,064 ns, estimated sampling uncertainty 1,094 ns; output/engine2-clock-diagnostic-20260929.json. High confidence in reproduced discrepancy without a sensor; endpoint sampling delay unlikely for this observation, root mechanism unknown. Linux reports NTP=yes and NTPSynchronized=yes; Windows w32tm reports service-not-started 0x80070426. No causal inference from those statuses alone. Containment: retain 50 ms agreement threshold, bracket-width guard, block planned controls. No retries, clock changes or WSL restart. Software guard verified in 288-test suites; system clock issue unresolved.
+
 ### INC-026 - 2026-09-29 - Measured interval clock disagreement
 
 Expected four-second interval with wall/monotonic elapsed agreement within 50 ms. First predeclared ping_1 trial returned PONG but measured 1,117,025,466 ns disagreement; output/engine2-ping1-measured-20260929.json. High confidence in recorded discrepancy, low confidence in underlying cause: wall-clock adjustment or non-atomic clock sampling/scheduling could contribute. No causal attribution to Falco/WSL established. Guard rejected the interval and cleanup succeeded; raw log retained. No post-identity/metrics receipt from the failed branch. Kept tolerance unchanged and did not retry. Second predeclared profile passed (6,738 ns difference); separate sensor-free diagnostic difference 1,877 ns. Root cause unresolved, containment verified. No baseline comparison or clock setting change; follow-up needs robust clock diagnostics before further comparison runs.

@@ -41,6 +41,8 @@ Staging services already exist before verification. The program does not deploy 
 | sensor_adapter.py / scripts/normalize_sensor.py | Offline saved-trial hash/schema validation and minimized runtime capture; parser accounting, no measured sensor loss |
 | sensor_metrics.py / scripts/sensor_metrics_report.py | Hash-bound minimized collector-wide metric snapshots; separate from target-specific event accounting |
 | workload.py / scripts/workload_report.py | Fixed measured PING schedules with timing rejection and exact interval counts; no model fitting or overhead estimate |
+| clock_check.py / scripts/clock_diagnostic.py | Bracketed wall/monotonic sampling and six fixed diagnostic intervals; never changes clocks |
+| scripts/workload_control.py | Gated sensor-off fixed workload controls, not sensor exports or overhead estimates |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
 | pipeline.py | Connect stages; retain origin and review boundaries |
 | metrics.py | Confusion counts, explicit undefined ratios and descriptive intervals |

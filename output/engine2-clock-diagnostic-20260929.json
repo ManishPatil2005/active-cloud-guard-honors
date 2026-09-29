@@ -1,0 +1,104 @@
+{
+  "executed_at": "2026-09-28T18:46:22.478252+00:00",
+  "samples": [
+    {
+      "first": {
+        "wall_ns": 1790621182478265499,
+        "monotonic_mid_ns": 18864528804393,
+        "sampling_span_ns": 489
+      },
+      "last": {
+        "wall_ns": 1790621186478336618,
+        "monotonic_mid_ns": 18868528874465,
+        "sampling_span_ns": 4719
+      },
+      "elapsed_monotonic_ns": 4000070072,
+      "clock_difference_ns": 1047,
+      "sampling_uncertainty_ns": 2604,
+      "within_tolerance": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790621186478364535,
+        "monotonic_mid_ns": 18868528903597,
+        "sampling_span_ns": 119
+      },
+      "last": {
+        "wall_ns": 1790621190478431632,
+        "monotonic_mid_ns": 18872528970385,
+        "sampling_span_ns": 1743
+      },
+      "elapsed_monotonic_ns": 4000066788,
+      "clock_difference_ns": 309,
+      "sampling_uncertainty_ns": 931,
+      "within_tolerance": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790621190478449729,
+        "monotonic_mid_ns": 18872528988800,
+        "sampling_span_ns": 172
+      },
+      "last": {
+        "wall_ns": 1790621194478575646,
+        "monotonic_mid_ns": 18876529114210,
+        "sampling_span_ns": 1842
+      },
+      "elapsed_monotonic_ns": 4000125410,
+      "clock_difference_ns": 507,
+      "sampling_uncertainty_ns": 1007,
+      "within_tolerance": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790621194478591149,
+        "monotonic_mid_ns": 18876529130202,
+        "sampling_span_ns": 94
+      },
+      "last": {
+        "wall_ns": 1790621199608648154,
+        "monotonic_mid_ns": 18880529197143,
+        "sampling_span_ns": 2093
+      },
+      "elapsed_monotonic_ns": 4000066941,
+      "clock_difference_ns": 1129990064,
+      "sampling_uncertainty_ns": 1094,
+      "within_tolerance": false
+    },
+    {
+      "first": {
+        "wall_ns": 1790621199608672908,
+        "monotonic_mid_ns": 18880529222230,
+        "sampling_span_ns": 116
+      },
+      "last": {
+        "wall_ns": 1790621203609031589,
+        "monotonic_mid_ns": 18884529579807,
+        "sampling_span_ns": 4295
+      },
+      "elapsed_monotonic_ns": 4000357577,
+      "clock_difference_ns": 1104,
+      "sampling_uncertainty_ns": 2206,
+      "within_tolerance": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790621203609094576,
+        "monotonic_mid_ns": 18884529643888,
+        "sampling_span_ns": 380
+      },
+      "last": {
+        "wall_ns": 1790621207609195260,
+        "monotonic_mid_ns": 18888529744100,
+        "sampling_span_ns": 1844
+      },
+      "elapsed_monotonic_ns": 4000100212,
+      "clock_difference_ns": 472,
+      "sampling_uncertainty_ns": 1112,
+      "within_tolerance": true
+    }
+  ],
+  "clock_settings_modified": false,
+  "historical_cause_resolved": false,
+  "status": "timing_rejected"
+}

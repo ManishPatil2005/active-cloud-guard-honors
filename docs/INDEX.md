@@ -14,6 +14,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Engine 2 adapter](ENGINE2_ADAPTER.md) | Offline raw-event validation, minimized normalized capture, accounting and remaining coverage gates |
 | [Engine 2 instrumentation](ENGINE2_INSTRUMENTATION.md) | Event-observed readiness, selected identity continuity and collector-wide loss counters |
 | [Runtime workload protocol](RUNTIME_WORKLOAD_PROTOCOL.md) | Fixed measured profiles, timing gates, preserved pilot failure and next control experiments |
+| [Clock and controls](CLOCK_AND_CONTROLS.md) | Bracketed diagnostics, reproduced timing failure and deferred sensor-off controls |
 | [Windows/Linux setup](WINDOWS_LINUX_SETUP.md) | Installed research WSL distribution, actual Linux preflight, Docker integration handoff and sensor gates |
 | [Interface design](DESIGN.md) | CLI/output contracts; no proposed web redesign |
 | [Rules](../RULES.md) | Implementation, evidence and Git rules |

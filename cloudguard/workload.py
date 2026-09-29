@@ -1,6 +1,7 @@
 """Fixed-duration development PING schedules; not independent labeled workloads."""
 
 import time
+from .clock_check import sample, compare
 
 PROFILES = {"ping_1": (0,), "ping_4": (0, 1, 2, 3)}
 
@@ -15,8 +16,9 @@ def run(
 ):
     if profile not in PROFILES:
         raise ValueError("unsupported fixed workload profile")
-    start = monotonic_ns()
-    wall_start = wall_ns()
+    first = sample(monotonic_ns, wall_ns)
+    start = first["monotonic_mid_ns"]
+    wall_start = first["wall_ns"]
     duration = 4_000_000_000
     calls = []
     failure = None
@@ -40,11 +42,13 @@ def run(
             failure = "workload_failed"
             break
     sleep(max(0, (start + duration - monotonic_ns()) / 10**9))
-    elapsed = monotonic_ns() - start
-    wall_end = wall_ns()
-    drift = (wall_end - wall_start) - elapsed
+    last = sample(monotonic_ns, wall_ns)
+    timing = compare(first, last)
+    elapsed = timing["elapsed_monotonic_ns"]
+    wall_end = last["wall_ns"]
+    drift = timing["clock_difference_ns"]
     if failure is None and (
-        abs(drift) > 50_000_000
+        not timing["within_tolerance"]
         or not duration <= elapsed <= duration + 100_000_000
         or any(
             c["dispatch_offset_ns"] - c["scheduled_offset_ns"] > 250_000_000
@@ -60,6 +64,7 @@ def run(
         end_unix_ns=wall_end,
         elapsed_monotonic_ns=elapsed,
         clock_difference_ns=drift,
+        clock_sampling=dict(first=first, last=last, **timing),
         planned_duration_ns=duration,
         calls=calls,
         causal_attribution="not_proven",

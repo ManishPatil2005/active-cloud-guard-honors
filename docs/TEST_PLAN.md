@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest clock/control increment: initial 287 and final 288 tests passed each OS; final output/engine2-control-final-{windows,linux}-tests-20260929.xml. Tests include no Docker access on failed diagnostic. Real six-sample clock check rejected one sample; controls were not run. See CLOCK_AND_CONTROLS.md. Do not equate unit-tested controls with live-observed controls.
+
 29 September workload increment: 279 passed on Windows/Linux, output/engine2-workload-{windows,linux}-tests-20260929.xml. Eleven tests cover fixed scheduling, overrun/clock/PONG rejection, profile allowlist and nanosecond half-open selection. Live pilot: one timing-rejected run, one accepted run. See RUNTIME_WORKLOAD_PROTOCOL.md; no retrospective boundary assignment or score for failed run.
 
 Latest instrumentation: 268 tests passed on each OS; output/engine2-instrumented-{windows,linux}-tests-20260928.xml. Eighteen new tests cover selected identity, bounded readiness and metric integrity/minimization. Separate live trial observed readiness, stable identity, 80 events and 16 metrics snapshots; collector-wide zero drops is not a complete-coverage assertion. See ENGINE2_INSTRUMENTATION.md for exact commands and untested lifecycle branches.

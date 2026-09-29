@@ -1,5 +1,9 @@
 # Evidence index
 
+## Clock/control gate (2026-09-29 local)
+
+[Diagnostic](../output/engine2-clock-diagnostic-20260929.json): one of six sensor-free intervals rejected. [Report](CLOCK_AND_CONTROLS.md) includes time-service observations, exact commands and deferred controls. Final [Windows](../output/engine2-control-final-windows-tests-20260929.xml) and [Linux](../output/engine2-control-final-linux-tests-20260929.xml) suites: 288 each. No live control or overhead result.
+
 ## Measured workloads (2026-09-29 local)
 
 [Protocol/results](RUNTIME_WORKLOAD_PROTOCOL.md), [rejected ping_1](../output/engine2-ping1-measured-20260929.json), [accepted ping_4](../output/engine2-ping4-measured-20260929.json), [interval](../output/engine2-ping4-interval-20260929.json), [metrics](../output/engine2-ping4-metrics-20260929.json). One accepted/one rejected pilot is not a valid paired benchmark. [Windows](../output/engine2-workload-windows-tests-20260929.xml) and [Linux](../output/engine2-workload-linux-tests-20260929.xml): 279 tests each.

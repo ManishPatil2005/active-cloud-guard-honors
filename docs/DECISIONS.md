@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-023 - 2026-09-29 - Sampling uncertainty and explicit sensor-off mode
+
+Bracket wall reads with monotonic samples and reject excess uncertainty without widening existing disagreement tolerance. Sensor-off controls reuse fixed profiles but never emit synthetic sensor records or an unearned overhead estimate. Require a passing operator clock receipt before Docker access and preserve planned run deferrals/failures. Clock service changes and disruptive WSL actions are not incidental experiment steps.
+
 ## ADR-022 - 2026-09-29 - Declared workload intervals and timing abstention
 
 Use fixed credential-free schedules within four-second measured intervals after readiness, retain both wall and monotonic timing, and reject unsuitable timing rather than silently relabel it. Preserve failed attempts and related scenario grouping. Exact temporal filtering does not prove causal attribution. Docker-exec round-trip time is not sensor overhead. A failed pilot cannot be replaced until a favorable pair appears; future repeated/control runs require a separately declared protocol.

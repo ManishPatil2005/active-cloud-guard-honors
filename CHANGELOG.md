@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 - Clock sampling and sensor-off control gate
+
+- Added bracketed clock reads, a fixed six-sample diagnostic and sensor-off control tooling.
+- Reproduced sensor-free clock disagreement; retained failure and deferred control workloads under the predeclared gate. No clock changes.
+- Nine new tests; final 288 pass on each OS. No overhead estimate or live control success claimed.
+
 ## 2026-09-29 - Measured runtime workload pilot
 
 - Added fixed four-second one/four-PING schedules, timing guards and exact interval reports.

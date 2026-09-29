@@ -1,5 +1,11 @@
 # Work log
 
+## WL-016 - 2026-09-29 - Bracketed clocks and gated sensor-off controls
+
+User requested continuation. Added clock_check.py, six-sample clock_diagnostic.py, bracketed workload boundaries and workload_control.py with explicit sensor-off mode, fixed warm-up, existing profile reuse, known trial-sensor refusal and selected pre/post target identity. Predeclared diagnostics then controls only on pass. Diagnostic fourth sample reproduced a 1.130-second discrepancy with microsecond uncertainty; controls correctly deferred. No sensor launched or clock setting changed. Read-only Linux synchronized NTP status and Windows time-service-stopped error are leads, not root-cause proof. Exact commands/results and limits: CLOCK_AND_CONTROLS.md; INC-027.
+
+Initial 287-test Windows/Linux reports preserved; final 288 after adding a clock-failure guard regression. Windows final 2.02 s, Linux 3.75 s. Ruff lint/format and Windows pip check passed. Final Docker snapshot: no trial sensors, only Redis running. No control performance, overhead or detection claim. Control CLI passing receipt is operator-supplied, not authenticated/fresh; live controls and exhaustive lifecycle testing remain pending. Git history identifies publication.
+
 ## WL-015 - 2026-09-29 - Measured workload intervals and retained timing failure
 
 Added cloudguard/workload.py fixed four-second ping_1/ping_4 schedules, monotonic dispatch/round-trip timings and wall/monotonic agreement guard; sensor_trial now selects a fixed profile after readiness plus one-second guard. Added workload_report.py strict raw revalidation and exact nanosecond half-open selection. Predeclared pilot sequence in RUNTIME_WORKLOAD_PROTOCOL.md before execution. No architecture/privilege changes.
