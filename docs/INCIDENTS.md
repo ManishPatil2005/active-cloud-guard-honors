@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-027 follow-up - 2026-09-29 - Competing synchronization paths observed
+
+Approved one-batch intervention subsequently completed: guest timesyncd stopped temporarily, six checks passed (max 3,505 ns disagreement), service restored and active/enabled verified. Journal confirms stopped interval. Supports hypothesis but not a permanent resolution: no same-boot on/off repeated comparison or long-term study. Controls remain deferred in restored state. See saved engine2-clock-guest-ntp-stopped-20260929.json and TIME_SYNC_DIAGNOSIS.md; previous failure evidence unchanged.
+
+Read-only check found hv_utils.timesync_implicit=Y plus enabled/running systemd-timesyncd. Canonical documents their potential conflict. This is a plausible mechanism, not proven causality; current journal contains later boot activity and does not attribute the original diagnostic event. No clock/service changes. Proposed temporary guest NTP stop/test/restore requires owner approval due to shared WSL clock. See TIME_SYNC_DIAGNOSIS.md. Incident remains unresolved.
+
 ### INC-027 - 2026-09-29 - Sensor-free clock disagreement reproduced
 
 Follow-up to INC-026. Fourth of six predeclared four-second bracketed checks failed: wall-minus-monotonic 1,129,990,064 ns, estimated sampling uncertainty 1,094 ns; output/engine2-clock-diagnostic-20260929.json. High confidence in reproduced discrepancy without a sensor; endpoint sampling delay unlikely for this observation, root mechanism unknown. Linux reports NTP=yes and NTPSynchronized=yes; Windows w32tm reports service-not-started 0x80070426. No causal inference from those statuses alone. Containment: retain 50 ms agreement threshold, bracket-width guard, block planned controls. No retries, clock changes or WSL restart. Software guard verified in 288-test suites; system clock issue unresolved.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-29 - Read-only time synchronization diagnosis
+
+- Confirmed both Hyper-V implicit time synchronization and guest timesyncd enabled; documented official conflict guidance and limits of causality.
+- Initial phase was read-only; reversible diagnostic proposed for owner approval. Software unchanged.
+- Subsequent explicit approval: guest timesyncd temporarily stopped for one diagnostic, all six checks passed, original running/enabled state restored. No permanent synchronization policy change or workload run; software unchanged.
+
 ## 2026-09-29 - Clock sampling and sensor-off control gate
 
 - Added bracketed clock reads, a fixed six-sample diagnostic and sensor-off control tooling.
