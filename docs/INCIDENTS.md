@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-030 - 2026-09-30 - Docker unavailable before warmup diagnostic
+
+Preflight failed before launching a sensor or creating trial output. Windows Docker Linux-engine pipe absent; WSL docker command unavailable; Docker Desktop status unavailable. High confidence daemon unavailable then, underlying stop cause unknown. Started existing Docker Desktop; Redis found exited 255, cause unknown. Started only existing Redis through compose start redis (no recreation/data deletion). Preflight then passed; one intended sensor run succeeded. New start time retained, so conditions differ from prior captures. No claim of environment stability or root-cause repair; reproducibility limit documented.
+
+### INC-029 follow-up - First warmup association absent in v2
+
+V2 identified all six command PIDs: first warmup has zero connect records, second one, measured four one each. This narrows where the gap occurs in this run, not why; historical cause remains open. No unassigned connects. Preserve partial_or_unknown coverage and false all-six flag. Next: identified-canary readiness with fixed limits. No clock correction, full coverage claim or evidence replacement.
+
 ### INC-029 follow-up - PID-correlated trial, historical cause still open
 
 30 September one new diagnostic uniquely matched four measured process IDs and connect timestamps compatible with their command brackets. It does not identify the cause of the earlier discrepancy. Capture contains five connects despite six total PINGs including warmup; all four measured IDs matched, but warmup IDs were not recorded. Do not infer which warmup event is absent or equate readiness with complete coverage. Preserve unknown coverage, original counts and all raw evidence. Next: explicit warmup identity/accounting; no correction or favorable retry. See PID_CORRELATION.md.

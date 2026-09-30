@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Warmup v2: 338 tests each OS, output/engine2-warmup-{windows,linux}-tests-20260930.xml. Six new cases cover missing/ambiguous/all matched warmup, invalid overlaps/booleans and fixed two callback uses. Live first warmup absent, remaining five PIDs matched. Passing measured correlation does not imply all-six capture; see PID_CORRELATION.md.
+
 PID diagnostic: 332 tests each OS; output/engine2-correlation-{windows,linux}-tests-20260930.xml. Fourteen cases added for strict fields/scope/times, match ambiguity, helper PID/PONG, opt-in output and comparison exclusion. One live four-command correlation succeeded; full warmup coverage not established. See PID_CORRELATION.md.
 
 Clock bridge: 318 tests pass each OS; output/engine2-clock-bridge-{windows,linux}-tests-20260930.xml. Ten added checks for TIME parsing and offset/uncertainty rejection. Six live read-only samples succeeded; no Falco sensor calibration. CLI failure branches not exhaustively fault-injected. See CLOCK_BRIDGE.md.

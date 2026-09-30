@@ -1,5 +1,17 @@
 # Bounded process-ID correlation diagnostic
 
+## Predeclared follow-up: warmup accounting v2
+
+Next bounded run uses container_pid_connect_v2: the same fixed PID-print/exec helper also identifies each of the two warmup commands. No extra commands, privileges or raw fields; helper processing now affects warmup as well, so do not compare timing as unchanged instrumentation. Four measured commands retain the strict unique-match gate. Warmup results separately report unique_match, not_observed or ambiguous; absence does not automatically mean kernel drop or startup cause. All six IDs must be distinct; unknown PID connects counted separately. Even all six observed does not certify every syscall or full coverage. One fresh trial after preflight, no retries, no time-service changes. New path output/engine2-warmup-correlation-20260930.json; historical v1 evidence unchanged.
+
+### Follow-up execution
+
+[V2 receipt](../output/engine2-warmup-correlation-20260930.json): first warmup PID 21 had zero connect records; second PID 27 had one. Measured PIDs 33/39/45/51 each had one, all four clock bounds include zero. No unassigned connects. Total 205 selected records, five connects. all_six_commands_uniquely_observed=false and coverage remains partial_or_unknown. This localizes the missing command association to warmup attempt 1 in this run; it does not establish startup loss as the cause or retrospectively identify earlier gaps.
+
+Before execution, preflight failed because Docker Desktop was unavailable; Windows Linux-engine pipe absent and WSL docker executable unavailable. Started existing Docker Desktop, then observed existing Redis stopped exit 255. Started only Redis with compose start, then preflight passed. No container recreation/deletion. Redis start time changed to 2026-09-30T16:39:50.097383311Z; identity stable within the new trial, not identical across historical runs. No sensor launched before preflight passed; one trial only. Sensor removed, no acg-falco containers at follow-up, timesyncd active with no time-service changes.
+
+Full tests: Windows 338/2.53 s, Linux 338/3.96 s; output/engine2-warmup-{windows,linux}-tests-20260930.xml. Six new cases cover missing/ambiguous/complete warmup, overlapping/boolean IDs and two fixed callback invocations. Ruff lint/format (66 files) and Windows dependency checks pass. Next: make readiness explicitly require a uniquely observed identified canary before measured dispatch, retaining startup misses and fixed attempt limits. No longer waits or retries chosen merely to hide missing evidence; predeclare any revised readiness protocol before collection.
+
 Predeclared 30 September 2026, before live execution. E2-012. One new sensor trial only, fixed two-PING warmup and ping_4 schedule, existing digest/capabilities/mounts/network isolation/watchdog/resource limits. No time-service or Redis configuration changes. Prerequisite: normal local Docker/Redis/known-sensor preflight. Abort on failed timing, missing or ambiguous correlation; preserve output, no retries.
 
 ## Correlation and privacy contract

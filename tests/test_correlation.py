@@ -90,3 +90,34 @@ def test_opt_in_fields():
     diagnostic = rules("a" * 64, correlation=True)
     assert "proc.vpid" in diagnostic
     assert "proc.cmdline" not in diagnostic
+
+
+@pytest.mark.parametrize("mode", ["missing", "both", "ambiguous", "overlap", "boolean"])
+def test_warmup_accounting(mode):
+    calls, events = inputs()
+    warmup = [5, 6]
+    if mode in {"both", "ambiguous"}:
+        for pid in [5, 6] + ([5] if mode == "ambiguous" else []):
+            event = json.loads(json.dumps(events[0]))
+            event["output_fields"]["proc.vpid"] = pid
+            events.append(event)
+    if mode == "overlap":
+        warmup = [1, 6]
+    if mode == "boolean":
+        warmup = [True, 6]
+    raw = "\n".join(json.dumps(e) for e in events).encode()
+    if mode in {"overlap", "boolean"}:
+        with pytest.raises(ValueError):
+            correlate(raw, "a" * 64, [1, 2, 3, 4], calls, warmup_pids=warmup)
+    else:
+        report = correlate(raw, "a" * 64, [1, 2, 3, 4], calls, warmup_pids=warmup)
+        assert report["all_six_commands_uniquely_observed"] is (mode == "both")
+        assert (
+            report["warmup_accounting"][0]["status"]
+            == {
+                "missing": "not_observed",
+                "both": "unique_match",
+                "ambiguous": "ambiguous",
+            }[mode]
+        )
+        assert report["coverage"] == "partial_or_unknown"

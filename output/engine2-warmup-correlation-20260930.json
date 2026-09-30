@@ -1,0 +1,239 @@
+{
+  "executed_at": "2026-09-30T16:39:51.257705+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "target_identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-30T16:39:50.097383311Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d914225cd6401759d746f2732b2d46c747168d676248c01f48b1fabcbfd3b681",
+  "config_sha256": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "20430faeba8e38163f9c7ebfa1283cd144b9b786bc81ef3ea9b29e642457c953",
+  "diagnostic_protocol": "container_pid_connect_v2",
+  "warmup_process_ids": [
+    21,
+    27
+  ],
+  "readiness": {
+    "status": "matching_events_observed",
+    "canary_attempts": 2,
+    "causal_attribution": "not_proven",
+    "canary_included_in_capture": true
+  },
+  "warmup_protocol": "two_pings_v1",
+  "workload_executed": true,
+  "correlation_process_ids": [
+    33,
+    39,
+    45,
+    51
+  ],
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790786395975273790,
+    "end_unix_ns": 1790786399975369363,
+    "elapsed_monotonic_ns": 4000095557,
+    "clock_difference_ns": 16,
+    "clock_sampling": {
+      "first": {
+        "wall_ns": 1790786395975273790,
+        "monotonic_mid_ns": 127977137486,
+        "sampling_span_ns": 1635
+      },
+      "last": {
+        "wall_ns": 1790786399975369363,
+        "monotonic_mid_ns": 131977233043,
+        "sampling_span_ns": 1533
+      },
+      "elapsed_monotonic_ns": 4000095557,
+      "clock_difference_ns": 16,
+      "sampling_uncertainty_ns": 1584,
+      "within_tolerance": true
+    },
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 104632,
+        "docker_exec_round_trip_ns": 75372347,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786395975374186,
+            "monotonic_mid_ns": 127977238100,
+            "sampling_span_ns": 912
+          },
+          "last": {
+            "wall_ns": 1790786396050751850,
+            "monotonic_mid_ns": 128052615774,
+            "sampling_span_ns": 638
+          },
+          "elapsed_monotonic_ns": 75377674,
+          "clock_difference_ns": -10,
+          "sampling_uncertainty_ns": 775,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000452294,
+        "docker_exec_round_trip_ns": 70073804,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786396975380203,
+            "monotonic_mid_ns": 128977243899,
+            "sampling_span_ns": 2211
+          },
+          "last": {
+            "wall_ns": 1790786397045801061,
+            "monotonic_mid_ns": 129047665124,
+            "sampling_span_ns": 407
+          },
+          "elapsed_monotonic_ns": 70421225,
+          "clock_difference_ns": -367,
+          "sampling_uncertainty_ns": 1309,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000174109,
+        "docker_exec_round_trip_ns": 64298947,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786397975431257,
+            "monotonic_mid_ns": 129977294381,
+            "sampling_span_ns": 3845
+          },
+          "last": {
+            "wall_ns": 1790786398039747641,
+            "monotonic_mid_ns": 130041611635,
+            "sampling_span_ns": 500
+          },
+          "elapsed_monotonic_ns": 64317254,
+          "clock_difference_ns": -870,
+          "sampling_uncertainty_ns": 2173,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000146506,
+        "docker_exec_round_trip_ns": 58067470,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786398975407367,
+            "monotonic_mid_ns": 130977271086,
+            "sampling_span_ns": 2074
+          },
+          "last": {
+            "wall_ns": 1790786399033488173,
+            "monotonic_mid_ns": 131035352206,
+            "sampling_span_ns": 387
+          },
+          "elapsed_monotonic_ns": 58081120,
+          "clock_difference_ns": -314,
+          "sampling_uncertainty_ns": 1231,
+          "within_tolerance": true
+        }
+      }
+    ],
+    "timing_protocol": "per_call_brackets_v1",
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "workload_result": "PONG",
+  "target_identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-30T16:39:50.097383311Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "target_identity_stable": true,
+  "metrics_raw_sha256": "7106afc1daefacc5ce72cb7d532ef040345a16e50445b74101f180e820308449",
+  "raw_log_sha256": "f030488d9f17ebfc17da1be10c9ed4e2edbfbcb74e4be13cdb4a718f4e006f2c",
+  "exit_code": 0,
+  "event_type_counts": {
+    "execve": 15,
+    "openat": 125,
+    "openat2": 40,
+    "open": 20,
+    "connect": 5
+  },
+  "matched_event_count": 205,
+  "status": "events_observed",
+  "correlation": {
+    "protocol": "container_pid_connect_v2",
+    "matches": [
+      {
+        "process_id": 33,
+        "event_unix_ns": 1790786396040977104,
+        "offset_lower_ns": -9775531,
+        "offset_upper_ns": 65603703,
+        "zero_within_bounds": true
+      },
+      {
+        "process_id": 39,
+        "event_unix_ns": 1790786397037472590,
+        "offset_lower_ns": -8330147,
+        "offset_upper_ns": 62094063,
+        "zero_within_bounds": true
+      },
+      {
+        "process_id": 45,
+        "event_unix_ns": 1790786398029942980,
+        "offset_lower_ns": -9807704,
+        "offset_upper_ns": 54514766,
+        "zero_within_bounds": true
+      },
+      {
+        "process_id": 51,
+        "event_unix_ns": 1790786399027030735,
+        "offset_lower_ns": -6458983,
+        "offset_upper_ns": 51624913,
+        "zero_within_bounds": true
+      }
+    ],
+    "zero_excluded_samples": 0,
+    "authenticated": false,
+    "correction_applied": false,
+    "coverage": "partial_or_unknown",
+    "warmup_accounting": [
+      {
+        "attempt": 1,
+        "process_id": 21,
+        "connect_count": 0,
+        "status": "not_observed"
+      },
+      {
+        "attempt": 2,
+        "process_id": 27,
+        "connect_count": 1,
+        "status": "unique_match"
+      }
+    ],
+    "unassigned_connect_count": 0,
+    "all_six_commands_uniquely_observed": false
+  },
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}

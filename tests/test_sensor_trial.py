@@ -6,6 +6,24 @@ import pytest
 from scripts import sensor_trial
 
 
+def test_fixed_canaries_use_identity_callback(monkeypatch):
+    ids = []
+
+    def ping():
+        ids.append(len(ids) + 100)
+        return "PONG"
+
+    monkeypatch.setattr(
+        sensor_trial, "command", lambda *args: "true" if args[0] == "inspect" else "log"
+    )
+    monkeypatch.setattr(sensor_trial.time, "sleep", lambda _: None)
+    monkeypatch.setattr(
+        sensor_trial, "summarize_events", lambda *args: {"execve": 1, "connect": 1}
+    )
+    sensor_trial.await_canary("sensor", "a" * 64, fixed_two=True, ping=ping)
+    assert ids == [100, 101]
+
+
 @pytest.mark.parametrize("ready", [True, False])
 def test_fixed_warmup_always_two_or_reject(monkeypatch, ready):
     calls = []

@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+Latest progress: **338 tests pass on both operating systems**. We now track the two preparation PINGs separately. The new trial found no connection record for the first preparation command, but found the second and all four measured commands. This identifies where the gap occurred in this trial, not its cause; overall completeness is still unproven. Docker/Redis needed restarting before the test; nothing was recreated or deleted. Next is stricter sensor-readiness checking. See [detailed diagnostic](PID_CORRELATION.md).
+
 Latest sensor step: **332 tests pass on each OS**. In one new supervised trial we identified each of four measured PING processes and found exactly one matching sensor connection for each. Their timestamps were compatible with the command timings. This is useful progress, but the earlier clock issue is not proven fixed and total warmup coverage is still uncertain. The sensor was removed and no time settings changed. See [PID correlation](PID_CORRELATION.md). Older totals below are historical snapshots.
 
 Latest clock investigation: **318 tests now pass on each OS**. We asked the existing Redis lab for its time six times and compared it with the measuring program, allowing for command delay. None of these samples demonstrated a clock difference. This was a later check with no sensor running, so the earlier sensor-timing problem remains open. No clocks or database data were changed. See [clock diagnostic and limits](CLOCK_BRIDGE.md). Older test totals below describe earlier snapshots.

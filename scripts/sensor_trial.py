@@ -48,12 +48,16 @@ def target_identity(container_id):
     return fields
 
 
-def await_canary(name, container_id, *, fixed_two=False):
+def await_canary(name, container_id, *, fixed_two=False, ping=None):
     """Bounded fixed PING attempts; observed matching events, not mere liveness."""
     for attempt in range(1, 3 if fixed_two else 4):
         if command("inspect", "--format", "{{.State.Running}}", name) != "true":
             raise ValueError("sensor stopped before readiness")
-        pong = command("exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING")
+        pong = (
+            ping()
+            if ping is not None
+            else command("exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING")
+        )
         if fixed_two and pong != "PONG":
             raise ValueError("fixed warmup PING failed")
         time.sleep(1)
@@ -77,6 +81,18 @@ def command(*args, timeout=20):
     return subprocess.run(
         ["docker", *args], capture_output=True, text=True, timeout=timeout, check=True
     ).stdout.strip()
+
+
+def identified_ping(container_id, ids):
+    reply = command(
+        "exec",
+        container_id,
+        "/bin/sh",
+        "-c",
+        'printf "%s\\n" "$$"; exec redis-cli -h 127.0.0.1 PING',
+    )
+    ids.append(parse_ping(reply))
+    return "PONG"
 
 
 def rules(container_id, *, correlation=False):
@@ -234,8 +250,17 @@ def main():
                 raise ValueError("unexpected sensor ID")
             report["sensor_container_id"] = sensor_id
             time.sleep(1)
+            warmup_pids = []
+            if args.correlate:
+                report["diagnostic_protocol"] = "container_pid_connect_v2"
+                report["warmup_process_ids"] = warmup_pids
             report["readiness"] = await_canary(
-                name, container_id, fixed_two=args.fixed_warmup
+                name,
+                container_id,
+                fixed_two=args.fixed_warmup,
+                ping=(lambda: identified_ping(container_id, warmup_pids))
+                if args.correlate
+                else None,
             )
             report["warmup_protocol"] = (
                 "two_pings_v1" if args.fixed_warmup else "adaptive_v1"
@@ -250,14 +275,7 @@ def main():
                     return command(
                         "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
                     )
-                reply = command(
-                    "exec",
-                    container_id,
-                    "/bin/sh",
-                    "-c",
-                    'printf "%s\\n" "$$"; exec redis-cli -h 127.0.0.1 PING',
-                )
-                pids.append(parse_ping(reply))
+                identified_ping(container_id, pids)
                 report["correlation_process_ids"] = list(pids)
                 return "PONG"
 
@@ -304,9 +322,12 @@ def main():
                 else "no_matching_events"
             )
             if args.correlate:
-                report["diagnostic_protocol"] = "container_pid_connect_v1"
                 report["correlation"] = correlate(
-                    raw, container_id, pids, report["measurement"]["calls"]
+                    raw,
+                    container_id,
+                    pids,
+                    report["measurement"]["calls"],
+                    warmup_pids=warmup_pids,
                 )
             report["raw_log_local_only"] = True
         except Exception as error:

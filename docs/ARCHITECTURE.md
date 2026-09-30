@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+Correlation v2 adds optional identified warmup callbacks and separate two-warmup/four-measured PID accounting. Default noncorrelated mode remains unchanged. Diagnostic output includes warmup statuses, unassigned connects and all-six flag; coverage stays unknown regardless of counts.
+
 cloudguard/correlation.py validates opt-in diagnostic PID/connect associations and per-call clock bounds. sensor_trial --correlate requires fixed warmup/ping_4 and adds proc.vpid only in that mode. It is separate diagnostic evidence, not runtime baseline input; paired_report excludes its receipts. Default capture schema remains unchanged.
 
 scripts/clock_bridge.py is a separate bounded Redis TIME diagnostic: six local-identity-gated reads and delay-aware server/harness offset intervals. It does not collect sensor events, synchronize clocks, fit baselines or change the existing stack.

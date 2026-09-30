@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Warmup PID accounting
+
+- Track two warmup identities separately, report missing/ambiguous associations and unassigned connects; preserve unknown coverage.
+- One live v2 diagnostic localized absent connect to first warmup; second and four measured commands matched.
+- Recovered stopped Docker/Redis without recreation; 338 tests each OS; no time changes or historical edits.
+
 ## 2026-09-30 - PID-correlated sensor diagnostic
 
 - Added opt-in minimized process-ID correlation without changing ordinary captures; diagnostic runs excluded from paired latency reports.
