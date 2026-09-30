@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+30 September offline alignment diagnostics reuse strict bounded hash-validated normalization and export only event counts and relative connect timestamps. No raw commands, host metadata, new access or service changes. Relative times remain research metadata requiring review; offsets are not authenticated clock/correlation evidence. Historical artifacts remain unchanged.
+
 Paired pilot adds fixed two-PING warm-up and bounded four-run orchestration, with no broader sensor capabilities. Prerequisite preflight must precede approved guest-NTP stop; restoration remains external try/finally with explicit state checks. Docker/Redis recovery started existing services only. No control/sensor workloads were retried after batch abort. Manifest hashes are provenance, not authentication; comparisons remain observation-only.
 
 Clock/control tooling reads clocks without changing settings. Sensor-off controls perform only existing Redis PINGs and selected Docker identity/known-sensor checks; never stop unrelated collectors or fabricate telemetry. A passing clock report is operator-declared input, not authenticated/fresh evidence. The actual failed diagnostic blocked planned controls; no new sensor or host service change occurred.

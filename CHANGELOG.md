@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Offline interval-alignment diagnostics
+
+- Added before/inside/after counts, connect offsets and original-order timestamp-regression reporting; corrected per-report control wording.
+- Reanalyzed unchanged saved logs into new reports: ON-2 has six total connects, three before start. No boundary correction or causal attribution.
+- Full suites 300 tests each OS; clock alignment and broader research evaluation remain unresolved.
+
 ## 2026-09-30 - Audited paired-pilot results and coverage limitation
 
 - Reviewed the separately recorded 29 September complete OFF/ON/ON/OFF batch; service restoration and sensor cleanup verified.

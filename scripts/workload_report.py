@@ -37,11 +37,22 @@ def report(raw, trial_path, inventory):
         raise ValueError("raw normalization rejected")
     counts = Counter()
     outside = 0
+    regions = {name: Counter() for name in ("before", "inside", "after")}
+    connections = []
+    previous_ns = None
+    timestamp_regressions = 0
     for event in bundle["capture"]["events"]:
         seconds, fraction = event["timestamp"].split(".")
         ns = int(datetime.fromisoformat(seconds + "+00:00").timestamp()) * 10**9 + int(
             fraction[:-1]
         )
+        if previous_ns is not None and ns < previous_ns:
+            timestamp_regressions += 1
+        previous_ns = ns
+        region = "before" if ns < start else "inside" if ns < end else "after"
+        regions[region][event["kind"]] += 1
+        if event["kind"] == "network_connect":
+            connections.append(dict(offset_from_start_ns=ns - start, region=region))
         if start <= ns < end:
             counts[event["kind"]] += 1
         else:
@@ -55,12 +66,17 @@ def report(raw, trial_path, inventory):
         measured_event_count=sum(counts.values()),
         measured_kind_counts=dict(counts),
         outside_interval_event_count=outside,
+        event_regions={key: dict(value) for key, value in regions.items()},
+        network_connect_offsets=connections,
+        timestamp_regressions_in_export_order=timestamp_regressions,
         coverage="partial_or_unknown",
         independent_evaluation=False,
         threat_confirmed=False,
         limits=[
             "Time exclusion is not causal attribution or complete canary exclusion.",
-            "Round trip includes Docker exec overhead; no sensor-off comparison exists.",
+            "Round trip includes Docker exec overhead; this report does not join sensor-off controls.",
+            "Offsets compare recorded wall timestamps only; they do not identify a PING or prove clock alignment.",
+            "Export-order timestamp regressions do not distinguish clock changes from event reordering.",
         ],
     )
 

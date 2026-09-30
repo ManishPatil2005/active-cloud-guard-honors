@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-09-29. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven.
+Status as of 2026-09-30. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -40,6 +40,6 @@ Status as of 2026-09-29. Completed means the stated acceptance criterion was met
 | E2-006 | Clock diagnostics and sensor-off controls | Implemented/tested; live controls deferred | Bracketed sensor-free diagnostic rejected 1/6 intervals; control gate blocks workloads. 288 tests each OS. Root cause unresolved; no clock changes or overhead estimate; docs/CLOCK_AND_CONTROLS.md |
 | E2-007 | Investigate competing time synchronization | Temporary test completed; policy unresolved | Approved guest-NTP stop: 6/6 diagnostic checks passed; service restored active/enabled. Supports conflict hypothesis, not long-term proof. No permanent change or workload run; docs/TIME_SYNC_DIAGNOSIS.md |
 | E2-008 | Fixed sensor-off/on pilot | Complete engineering batch; evaluation limited | Fresh 29 September batch passed all jobs; reviewed 30 September. Contrasts +54.63% / -8.99%; not general overhead. Earlier abort preserved. 298 tests each OS; docs/PAIRED_PILOT_RESULTS.md |
-| E2-009 | Resolve measured event alignment and strengthen reporting | Open | ON-2 four PONGs but three interval connects; inspect saved timestamps before further collection/ML. Correct generic report wording and strengthen provenance gates; INC-029 |
+| E2-009 | Resolve measured event alignment and strengthen reporting | Partial: offline diagnosis tested | New region/offset diagnostics: ON-2 third connect is 65.428194 ms before start; alignment hypothesis not proven. Generic report wording fixed; 300 tests each OS. Per-call correlation/clock checks and stronger provenance gates remain open; docs/EVENT_ALIGNMENT.md / INC-029 |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Replay foundation plus bounded live sensor smoke; normalized live integration and ML gates remain open |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |

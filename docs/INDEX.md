@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest follow-up: [offline event alignment investigation](EVENT_ALIGNMENT.md); no new workload, no retrospective boundary correction.
+
 Latest experiment review: [audited paired pilot results](PAIRED_PILOT_RESULTS.md), including the unresolved interval-count discrepancy.
 
 Start here when reviewing or continuing the project. The owner is Manish Patil; repository: [active-cloud-guard-honors](https://github.com/ManishPatil2005/active-cloud-guard-honors), private.

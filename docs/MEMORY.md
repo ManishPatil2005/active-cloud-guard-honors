@@ -1,5 +1,7 @@
 # Current project state
 
+Latest 30 September follow-up: offline timestamp diagnostics implemented and tested (300 tests each OS). ON-2 has three connects before / three inside / none after; nearest pre-start connect is -65.428194 ms. All six exist in the full capture; causal PING mapping and cross-clock alignment remain unproven. No historical boundaries changed, no new workload or time-service action. INC-029 narrowed, not fixed. See EVENT_ALIGNMENT.md. Next: per-call clock/correlation diagnostic design and stronger report provenance before more collection.
+
 Updated 2026-09-30. Current authoritative update: the fresh 29 September OFF/ON/ON/OFF pilot completed all jobs; reviewed on 30 September. Guest NTP restored active/enabled, no sensor containers remain. Audit suites 298 each OS. Paired latency contrasts +54.63% / -8.99% are descriptive only. ON-2 has four PONGs but three interval connect events; alignment/coverage unresolved (INC-029). Next: investigate saved timestamps before more collection or baseline fitting. See PAIRED_PILOT_RESULTS.md. Entries below are historical snapshots, including older statements that controls have not run.
 
 ## Implemented and observed

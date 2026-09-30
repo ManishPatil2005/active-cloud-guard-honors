@@ -1,0 +1,116 @@
+{
+  "trial_sha256": "34de6a96f85089c95445e55f4b03adaa673ab9d409afdc2e38ee4cf94565fa0b",
+  "raw_sha256": "581aeb9af0992bee190596d415c955aee0c22db842493b651495526ca154f60c",
+  "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790691433519667217,
+    "end_unix_ns": 1790691437524489451,
+    "elapsed_monotonic_ns": 4004820023,
+    "clock_difference_ns": 2211,
+    "clock_sampling": {
+      "first": {
+        "wall_ns": 1790691433519667217,
+        "monotonic_mid_ns": 618712341625,
+        "sampling_span_ns": 4740
+      },
+      "last": {
+        "wall_ns": 1790691437524489451,
+        "monotonic_mid_ns": 622717161648,
+        "sampling_span_ns": 7829
+      },
+      "elapsed_monotonic_ns": 4004820023,
+      "clock_difference_ns": 2211,
+      "sampling_uncertainty_ns": 6285,
+      "within_tolerance": true
+    },
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 119143,
+        "docker_exec_round_trip_ns": 63652599,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000205617,
+        "docker_exec_round_trip_ns": 66279954,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000496980,
+        "docker_exec_round_trip_ns": 65069529,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000364271,
+        "docker_exec_round_trip_ns": 69260173,
+        "pong": true
+      }
+    ],
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "interval_semantics": "half-open [start,end)",
+  "measured_event_count": 120,
+  "measured_kind_counts": {
+    "process_start": 6,
+    "file_open": 111,
+    "network_connect": 3
+  },
+  "outside_interval_event_count": 86,
+  "event_regions": {
+    "before": {
+      "process_start": 5,
+      "file_open": 78,
+      "network_connect": 3
+    },
+    "inside": {
+      "process_start": 6,
+      "file_open": 111,
+      "network_connect": 3
+    },
+    "after": {}
+  },
+  "network_connect_offsets": [
+    {
+      "offset_from_start_ns": -3274947709,
+      "region": "before"
+    },
+    {
+      "offset_from_start_ns": -2158947420,
+      "region": "before"
+    },
+    {
+      "offset_from_start_ns": -65428194,
+      "region": "before"
+    },
+    {
+      "offset_from_start_ns": 936139707,
+      "region": "inside"
+    },
+    {
+      "offset_from_start_ns": 1935020974,
+      "region": "inside"
+    },
+    {
+      "offset_from_start_ns": 2937555580,
+      "region": "inside"
+    }
+  ],
+  "timestamp_regressions_in_export_order": 0,
+  "coverage": "partial_or_unknown",
+  "independent_evaluation": false,
+  "threat_confirmed": false,
+  "limits": [
+    "Time exclusion is not causal attribution or complete canary exclusion.",
+    "Round trip includes Docker exec overhead; this report does not join sensor-off controls.",
+    "Offsets compare recorded wall timestamps only; they do not identify a PING or prove clock alignment.",
+    "Export-order timestamp regressions do not distinguish clock changes from event reordering."
+  ]
+}

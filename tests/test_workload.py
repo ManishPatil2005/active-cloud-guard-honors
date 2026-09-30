@@ -81,6 +81,60 @@ def test_interval_is_half_open(monkeypatch):
     assert result["measured_event_count"] == 2
     assert result["outside_interval_event_count"] == 2
     assert result["coverage"] == "partial_or_unknown"
+    assert result["event_regions"] == {
+        "before": {"file_open": 1},
+        "inside": {"file_open": 2},
+        "after": {"file_open": 1},
+    }
+    assert result["network_connect_offsets"] == []
+    assert result["timestamp_regressions_in_export_order"] == 0
+
+
+def test_connection_offsets_preserve_order_and_boundaries(monkeypatch):
+    trial = dict(
+        target_identity_stable=True,
+        measurement=dict(
+            status="completed", start_unix_ns=10**9, end_unix_ns=2 * 10**9
+        ),
+    )
+    monkeypatch.setattr(workload_report, "read_json", lambda _: (trial, "a" * 64))
+    bundle = dict(
+        capture=dict(
+            events=[
+                dict(timestamp=t, kind="network_connect")
+                for t in [
+                    "1970-01-01T00:00:02.000000000Z",
+                    "1970-01-01T00:00:00.999999999Z",
+                    "1970-01-01T00:00:01.000000000Z",
+                ]
+            ]
+        ),
+        accounting=dict(raw_sha256="b" * 64, inventory_sha256="c" * 64),
+    )
+    monkeypatch.setattr(workload_report, "normalize", lambda *a, **kw: bundle)
+    result = workload_report.report("raw", "trial", "inventory")
+    assert result["network_connect_offsets"] == [
+        dict(offset_from_start_ns=10**9, region="after"),
+        dict(offset_from_start_ns=-1, region="before"),
+        dict(offset_from_start_ns=0, region="inside"),
+    ]
+    assert result["timestamp_regressions_in_export_order"] == 1
+    assert result["measured_event_count"] == 1
+    assert result["outside_interval_event_count"] == 2
+    assert result["coverage"] == "partial_or_unknown"
+
+
+def test_rejected_normalization_has_no_alignment_report(monkeypatch):
+    trial = dict(
+        target_identity_stable=True,
+        measurement=dict(status="completed", start_unix_ns=1, end_unix_ns=2),
+    )
+    monkeypatch.setattr(workload_report, "read_json", lambda _: (trial, "a" * 64))
+    monkeypatch.setattr(
+        workload_report, "normalize", lambda *a, **kw: {"capture": None}
+    )
+    with pytest.raises(ValueError, match="raw normalization rejected"):
+        workload_report.report("raw", "trial", "inventory")
 
 
 @pytest.mark.parametrize("mode", ["missing", "failed", "unstable", "boolean"])

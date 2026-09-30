@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-029 follow-up - 2026-09-30 - Boundary discrepancy localized, not resolved
+
+Offline hash-validated reports show ON-2 six total connect records: three before start, three inside, none after. Nearest pre-start connection offset -65.428194 ms; last four approximately one second apart. This supports an alignment hypothesis but lacks command correlation IDs, so it does not establish causal association or a correction. No export-order timestamp regressions. Historical raw/report files and boundaries unchanged; no retry. Added regression-tested region/offset diagnostics and corrected generic control wording. 300 tests pass each OS. Remaining: independently establish collector/harness clock relation and per-call correlation; no verified root-cause fix. See EVENT_ALIGNMENT.md.
+
 ### INC-029 - 2026-09-30 - Paired pilot interval-count discrepancy
 
 Review of the 29 September completed batch found ON-2 four measured PONGs but three network_connect events within the declared half-open interval (120 total events; 86 outside). Entire capture normalization accepted 206 events including six connects; collector metrics report zero drops and bracket the interval. Evidence: output/engine2-paired-audited-20260929/on-2*.json. High confidence in these counts; cause unresolved. Possible timing/alignment or observation limitations must be investigated, not asserted. No boundary shift, outlier exclusion, event invention or retry. Kept coverage partial_or_unknown and withheld completeness/overhead claims. Next: offline timestamp analysis; no fix verified yet. Also found pre-existing interval-report wording saying no control comparison exists; clarified its per-report scope in the result review, generator correction pending.

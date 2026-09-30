@@ -1,5 +1,11 @@
 # Work log
 
+## WL-020 - 2026-09-30 - Offline interval-alignment diagnosis
+
+User requested next steps and quality confirmation. E2-009 acceptance: reproducible timestamp diagnosis without new workloads, causal overclaim, boundary adjustment or evidence replacement. Read current contracts and source; extended workload_report with region counts, connect offsets and export-order regressions. Corrected misleading generic control sentence. Added two tests and extended boundary assertions. New reports normalize/hash-check unchanged raw logs: ON-2 three connects before / three inside, including one -65.428194 ms from start. Six total connects exist; identity of each PING and cross-clock relationship unproven. INC-029 remains open, narrowed toward an alignment hypothesis.
+
+Exact commands, output links and limitations: EVENT_ALIGNMENT.md. Targeted 13 tests passed; full Windows 300/2.08 s and Linux 300/3.45 s with separate XML files. Ruff lint/format (62 files) and Windows pip check passed. No Docker/workload/time-service changes, no Engine 1 change, no independent evaluation or revised historical count. Publication checker and staged review precede commit; remote verification is reported only after push. Next: explicit per-call clock/correlation diagnostics and stronger provenance validation before further collection.
+
 ## WL-019 - 2026-09-30 - Review and publish the audited paired pilot
 
 User requested audit before proceeding, then continuation. E2-008 acceptance: prerequisite checks, fresh declared batch, restoration and cleanup, preserve failures and no broad overhead claim. Audit and execution occurred 29 September; final receipt review/offline analysis completed 30 September. No backdating or rerun. Windows/Linux suites 298 each (2.03 / 2.97 s), Ruff lint/format, pip and publication checks passed before batch. Remote main and Engine 1 tag matched. Exact commands, evidence and audit scope are in PAIRED_PILOT_RESULTS.md.

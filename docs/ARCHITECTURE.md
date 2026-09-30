@@ -40,7 +40,7 @@ Staging services already exist before verification. The program does not deploy 
 | scripts/sensor_trial.py | Separate bounded Falco/Redis smoke harness; local raw logs and minimized summary, not connected to runtime.py |
 | sensor_adapter.py / scripts/normalize_sensor.py | Offline saved-trial hash/schema validation and minimized runtime capture; parser accounting, no measured sensor loss |
 | sensor_metrics.py / scripts/sensor_metrics_report.py | Hash-bound minimized collector-wide metric snapshots; separate from target-specific event accounting |
-| workload.py / scripts/workload_report.py | Fixed measured PING schedules with timing rejection and exact interval counts; no model fitting or overhead estimate |
+| workload.py / scripts/workload_report.py | Fixed measured PING schedules with timing rejection, exact interval/region counts and offline connect-offset diagnostics; no causal mapping, clock correction, model fitting or overhead estimate |
 | clock_check.py / scripts/clock_diagnostic.py | Bracketed wall/monotonic sampling and six fixed diagnostic intervals; never changes clocks |
 | scripts/workload_control.py | Gated sensor-off fixed workload controls, not sensor exports or overhead estimates |
 | scripts/paired_pilot.py / scripts/paired_report.py | Preflight, declared four-run orchestration and complete-pair descriptive latency reports; fresh completed pilot reviewed in PAIRED_PILOT_RESULTS.md, not general overhead |
