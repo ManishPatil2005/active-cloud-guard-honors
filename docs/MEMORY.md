@@ -1,6 +1,6 @@
 # Current project state
 
-Updated 2026-09-29. This file describes the current state; history belongs in WORK_LOG, INCIDENTS, DECISIONS and Git.
+Updated 2026-09-30. Current authoritative update: the fresh 29 September OFF/ON/ON/OFF pilot completed all jobs; reviewed on 30 September. Guest NTP restored active/enabled, no sensor containers remain. Audit suites 298 each OS. Paired latency contrasts +54.63% / -8.99% are descriptive only. ON-2 has four PONGs but three interval connect events; alignment/coverage unresolved (INC-029). Next: investigate saved timestamps before more collection or baseline fitting. See PAIRED_PILOT_RESULTS.md. Entries below are historical snapshots, including older statements that controls have not run.
 
 ## Implemented and observed
 

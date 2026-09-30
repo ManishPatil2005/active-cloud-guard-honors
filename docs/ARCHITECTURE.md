@@ -43,7 +43,7 @@ Staging services already exist before verification. The program does not deploy 
 | workload.py / scripts/workload_report.py | Fixed measured PING schedules with timing rejection and exact interval counts; no model fitting or overhead estimate |
 | clock_check.py / scripts/clock_diagnostic.py | Bracketed wall/monotonic sampling and six fixed diagnostic intervals; never changes clocks |
 | scripts/workload_control.py | Gated sensor-off fixed workload controls, not sensor exports or overhead estimates |
-| scripts/paired_pilot.py / scripts/paired_report.py | Preflight, declared four-run orchestration and complete-pair descriptive latency reports; no empirical result from aborted batch |
+| scripts/paired_pilot.py / scripts/paired_report.py | Preflight, declared four-run orchestration and complete-pair descriptive latency reports; fresh completed pilot reviewed in PAIRED_PILOT_RESULTS.md, not general overhead |
 | scoring.py | Bounded monotonic provisional score with missing-data handling |
 | pipeline.py | Connect stages; retain origin and review boundaries |
 | metrics.py | Confusion counts, explicit undefined ratios and descriptive intervals |

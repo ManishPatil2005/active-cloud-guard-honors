@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Audited paired-pilot results and coverage limitation
+
+- Reviewed the separately recorded 29 September complete OFF/ON/ON/OFF batch; service restoration and sensor cleanup verified.
+- Published minimized latency, interval and collector metrics evidence; preserved conflicting latency contrasts and ON-2 interval-count discrepancy.
+- Documented passing 298-test Windows/Linux audit and remaining scientific gates. No architecture or source change; no general overhead/accuracy claim.
+
 ## 2026-09-29 - Fixed paired-pilot tooling and prerequisite recovery
 
 - Added fixed warm-up, declared OFF/ON/ON/OFF orchestration, source manifests and guarded descriptive summaries.

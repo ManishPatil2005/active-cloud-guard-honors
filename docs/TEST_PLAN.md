@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest audit (29 September, reviewed 30 September): unchanged source passed 298 tests on Windows (2.03 s) and Linux (2.97 s), Ruff lint/format (62 files), Windows pip check and publication checks. Fresh paired batch passed all five jobs; subsequent offline normalization/metrics succeeded. ON-2 interval discrepancy remains unresolved despite passing software tests. See PAIRED_PILOT_RESULTS.md. No new independent accuracy or full overhead validation.
+
 Latest paired tooling: 298 tests passed on each OS; output/engine2-paired-final-{windows,linux}-tests-20260929.xml. Ten new tests cover two-PING warm-up, target preflight and complete-pair summary guards. Real batch passed clock gate but failed OFF-1 before measurement; no sensor-on/control comparison. Preflight passed after Docker/Redis recovery. See PAIRED_PILOT.md; source hashes preserve pre-hardening execution.
 
 Latest clock/control increment: initial 287 and final 288 tests passed each OS; final output/engine2-control-final-{windows,linux}-tests-20260929.xml. Tests include no Docker access on failed diagnostic. Real six-sample clock check rejected one sample; controls were not run. See CLOCK_AND_CONTROLS.md. Do not equate unit-tested controls with live-observed controls.

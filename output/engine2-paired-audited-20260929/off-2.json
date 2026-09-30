@@ -1,0 +1,85 @@
+{
+  "executed_at": "2026-09-29T14:17:26.518837+00:00",
+  "mode": "sensor_off_control",
+  "sensor_started": false,
+  "overhead_estimate": null,
+  "absence_scope": "known trial name/image at endpoints only; not all host collectors",
+  "phase": "finished",
+  "clock_diagnostic_sha256": "d59aba0931996adbbb2f651b132ebe6742116381632e6801521ccd38cbbd7908",
+  "identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-29T14:07:43.183076409Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "warmup_protocol": "two_pings_v1",
+  "warmup_pings": 2,
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790691450781249956,
+    "end_unix_ns": 1790691454783151620,
+    "elapsed_monotonic_ns": 4001901836,
+    "clock_difference_ns": -172,
+    "clock_sampling": {
+      "first": {
+        "wall_ns": 1790691450781249956,
+        "monotonic_mid_ns": 635973924232,
+        "sampling_span_ns": 6088
+      },
+      "last": {
+        "wall_ns": 1790691454783151620,
+        "monotonic_mid_ns": 639975826068,
+        "sampling_span_ns": 4163
+      },
+      "elapsed_monotonic_ns": 4001901836,
+      "clock_difference_ns": -172,
+      "sampling_uncertainty_ns": 5126,
+      "within_tolerance": true
+    },
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 216729,
+        "docker_exec_round_trip_ns": 75200730,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1001396154,
+        "docker_exec_round_trip_ns": 73305301,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2001492598,
+        "docker_exec_round_trip_ns": 79095546,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000228052,
+        "docker_exec_round_trip_ns": 62764971,
+        "pong": true
+      }
+    ],
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-29T14:07:43.183076409Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "identity_stable": true,
+  "status": "completed"
+}

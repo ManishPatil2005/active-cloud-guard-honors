@@ -1,5 +1,11 @@
 # Work log
 
+## WL-019 - 2026-09-30 - Review and publish the audited paired pilot
+
+User requested audit before proceeding, then continuation. E2-008 acceptance: prerequisite checks, fresh declared batch, restoration and cleanup, preserve failures and no broad overhead claim. Audit and execution occurred 29 September; final receipt review/offline analysis completed 30 September. No backdating or rerun. Windows/Linux suites 298 each (2.03 / 2.97 s), Ruff lint/format, pip and publication checks passed before batch. Remote main and Engine 1 tag matched. Exact commands, evidence and audit scope are in PAIRED_PILOT_RESULTS.md.
+
+One new batch passed clock/OFF-1/ON-1/ON-2/OFF-2; enclosing finally restored timesyncd. Follow-up confirmed active/enabled, Redis running and no sensor containers. Summary/strict raw normalization/metric reduction completed offline. Contrasts +54.63% and -8.99%; 160/120 interval events, zero collector-reported drops, but ON-2 has only three interval connects for four PONGs. INC-029 remains unresolved; no causal drop claim or favorable rerun. Earlier aborted batch unchanged. Raw telemetry remains excluded. No implementation change, independent evaluation, model rerun or resource-overhead estimate. Publication checker and staged review required before this increment's commit; commit/remote receipt is reported after actual verification.
+
 ## WL-018 - 2026-09-29 - Fixed paired-pilot tooling and environment recovery
 
 Final review: fixed sensor warm-up now rejects any non-PONG immediately, matching controls rather than accepting a later PONG. Existing test extended; no additional case count. Post-review full reruns without overwriting XML: Windows 298 passed in 2.15 s, Linux 298 in 3.08 s. No live batch rerun. Saved XML timings below precede this final guard; source/test output distinction retained.

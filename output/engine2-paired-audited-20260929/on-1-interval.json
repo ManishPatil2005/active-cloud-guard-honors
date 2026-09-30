@@ -1,0 +1,74 @@
+{
+  "trial_sha256": "3245a6c11d86e0953a46ad1e4d4a22864f54e72dafccac6e87335a65c6f4df8e",
+  "raw_sha256": "5cab7506485f3d0153cd6db3a6e1ca17293063412d101a75305a49662fa81261",
+  "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790691415700613242,
+    "end_unix_ns": 1790691419726922185,
+    "elapsed_monotonic_ns": 4026309394,
+    "clock_difference_ns": -451,
+    "clock_sampling": {
+      "first": {
+        "wall_ns": 1790691415700613242,
+        "monotonic_mid_ns": 601016156034,
+        "sampling_span_ns": 2844
+      },
+      "last": {
+        "wall_ns": 1790691419726922185,
+        "monotonic_mid_ns": 605042465428,
+        "sampling_span_ns": 1809
+      },
+      "elapsed_monotonic_ns": 4026309394,
+      "clock_difference_ns": -451,
+      "sampling_uncertainty_ns": 2327,
+      "within_tolerance": true
+    },
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 198094,
+        "docker_exec_round_trip_ns": 168491959,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000106655,
+        "docker_exec_round_trip_ns": 66027199,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000331166,
+        "docker_exec_round_trip_ns": 62734691,
+        "pong": true
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3006756843,
+        "docker_exec_round_trip_ns": 70296102,
+        "pong": true
+      }
+    ],
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "interval_semantics": "half-open [start,end)",
+  "measured_event_count": 160,
+  "measured_kind_counts": {
+    "process_start": 8,
+    "file_open": 148,
+    "network_connect": 4
+  },
+  "outside_interval_event_count": 80,
+  "coverage": "partial_or_unknown",
+  "independent_evaluation": false,
+  "threat_confirmed": false,
+  "limits": [
+    "Time exclusion is not causal attribution or complete canary exclusion.",
+    "Round trip includes Docker exec overhead; no sensor-off comparison exists."
+  ]
+}

@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-029 - 2026-09-30 - Paired pilot interval-count discrepancy
+
+Review of the 29 September completed batch found ON-2 four measured PONGs but three network_connect events within the declared half-open interval (120 total events; 86 outside). Entire capture normalization accepted 206 events including six connects; collector metrics report zero drops and bracket the interval. Evidence: output/engine2-paired-audited-20260929/on-2*.json. High confidence in these counts; cause unresolved. Possible timing/alignment or observation limitations must be investigated, not asserted. No boundary shift, outlier exclusion, event invention or retry. Kept coverage partial_or_unknown and withheld completeness/overhead claims. Next: offline timestamp analysis; no fix verified yet. Also found pre-existing interval-report wording saying no control comparison exists; clarified its per-report scope in the result review, generator correction pending.
+
 ### INC-028 - 2026-09-29 - Paired batch stopped before first measurement
 
 Planned clock gate/OFF-1/ON-1/ON-2/OFF-2. Gate passed; OFF-1 failed with generic ValueError before identity/measurement fields, later jobs not executed. Follow-up Docker calls found missing Linux-engine pipe; high confidence in daemon unavailability then, but original generic error lacks exact phase attribution. Guest timesyncd restored active/enabled in finally. Restored Docker Desktop; existing Redis stopped exit 255 (cause unknown), other services stopped. Preflight refused until only existing Redis was started; preflight then passed. No volume deletion/recreation or batch retry. Added preflight before any time-service change and future control phase fields; 298-test suites passed. Failed batch remains output/engine2-paired-pilot-20260929; new empirical comparison still pending.

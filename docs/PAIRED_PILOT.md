@@ -1,5 +1,7 @@
 # Sensor-off/on engineering pilot v1
 
+Update reviewed 30 September: a separate fresh batch completed on 29 September. See [results and unresolved coverage issue](PAIRED_PILOT_RESULTS.md). The aborted batch below remains historical evidence and was not overwritten.
+
 29 September 2026. Predeclared before execution after the owner authorized proceeding with the proposed temporary-NTP-stop comparison. One fixed order: OFF-1, ON-1, ON-2, OFF-2; four-second ping_4 profiles only, no retries. A new six-interval clock diagnostic must pass first. Guest timesyncd must be inactive at each job boundary and restored by the enclosing host try/finally after the batch. No persistent disable or Windows settings change. Abort remaining jobs on any failure and preserve receipts.
 
 Both modes now wait one second, issue two warm-up PINGs each followed by a one-second wait, then wait a one-second guard before measuring. Sensor mode additionally inspects logs for readiness and performs collector startup: total warm-up processing and startup are not identical. The measured schedule and target identity must match. Existing privileges, image, resource ceilings, watchdog, timing tolerance and cleanup remain unchanged. Controls never fabricate event captures.
