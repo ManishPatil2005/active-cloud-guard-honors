@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Timing-consistent paired reports
+
+- Recompute saved clock comparisons, check schedule/boundaries and per-call brackets, and reject mixed timing protocols.
+- Revalidate historical pilot without changing its results; explicitly label legacy timing. Seven new cases, 308 tests each OS.
+- No live calibration, new workload or general overhead claim.
+
 ## 2026-09-30 - Per-call timing safeguards and Progress Execution guide
 
 - Added per-PING clock brackets, transient clock-disagreement rejection and an explicit timing protocol label; 301 tests pass each OS.

@@ -1,0 +1,62 @@
+{
+  "manifest_sha256": "8feffbdb35d2e7094b40eff78ad85438e675319bb9a8f0baf67a5b0dcb352497",
+  "timing_protocol": "legacy_interval_brackets",
+  "runs": {
+    "off-1": {
+      "receipt_sha256": "0e95e0a28104a08c49e7c746b68f6ef53fd7577f8639e948084784c41a403029",
+      "mean_docker_exec_ms": 59.42273775,
+      "calls_ms": [
+        61.208258,
+        62.514718,
+        57.039315,
+        56.92866
+      ]
+    },
+    "on-1": {
+      "receipt_sha256": "3245a6c11d86e0953a46ad1e4d4a22864f54e72dafccac6e87335a65c6f4df8e",
+      "mean_docker_exec_ms": 91.88748775,
+      "calls_ms": [
+        168.491959,
+        66.027199,
+        62.734691,
+        70.296102
+      ]
+    },
+    "on-2": {
+      "receipt_sha256": "34de6a96f85089c95445e55f4b03adaa673ab9d409afdc2e38ee4cf94565fa0b",
+      "mean_docker_exec_ms": 66.06556375,
+      "calls_ms": [
+        63.652599,
+        66.279954,
+        65.069529,
+        69.260173
+      ]
+    },
+    "off-2": {
+      "receipt_sha256": "c785bc300f69c75ed6412acbb984d0983a4af517b5db157be7b3fe714bd77db8",
+      "mean_docker_exec_ms": 72.59163699999999,
+      "calls_ms": [
+        75.20073,
+        73.305301,
+        79.095546,
+        62.764971
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "on_minus_off_ms": 32.46475,
+      "relative_difference_percent": 54.63354808151699
+    },
+    {
+      "pair": 2,
+      "on_minus_off_ms": -6.526073249999996,
+      "relative_difference_percent": -8.990117208680658
+    }
+  ],
+  "independent_evaluation": false,
+  "sensor_cpu_memory_overhead": null,
+  "threat_confirmed": false,
+  "interpretation": "Descriptive two-pair Docker-exec latency contrasts only; not a calibrated sensor-overhead or significance estimate."
+}

@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Paired-report timing validation recomputes clock evidence and refuses inconsistent or mixed instrumentation. It grants no new access and does not authenticate operator-supplied receipts. Full initial-gate/manifest binding and identity-schema validation remain separate limitations.
+
 Per-call clock instrumentation only reads clocks around existing approved PING callbacks; it changes no time service, privilege or target. Beginner guidance separates offline demonstrations from supervised live collection and does not authorize permanent time-service changes.
 
 30 September offline alignment diagnostics reuse strict bounded hash-validated normalization and export only event counts and relative connect timestamps. No raw commands, host metadata, new access or service changes. Relative times remain research metadata requiring review; offsets are not authenticated clock/correlation evidence. Historical artifacts remain unchanged.

@@ -1,5 +1,7 @@
 # Sensor-off/on engineering pilot v1
 
+30 September report hardening: saved interval/per-call clocks are recomputed and cross-checked against boundaries, duration and dispatch schedule. Unknown/mixed timing protocols and missing per-call brackets are rejected. Historical receipts without per-call instrumentation are explicitly labeled legacy_interval_brackets, not silently upgraded. Revalidation output: output/engine2-paired-revalidated-20260930.json; unchanged contrasts, 308 tests each OS. Initial clock-gate/manifest binding and full identity schema remain incomplete; these checks are consistency guards, not authentication or collector-clock alignment.
+
 Update reviewed 30 September: a separate fresh batch completed on 29 September. See [results and unresolved coverage issue](PAIRED_PILOT_RESULTS.md). The aborted batch below remains historical evidence and was not overwritten.
 
 29 September 2026. Predeclared before execution after the owner authorized proceeding with the proposed temporary-NTP-stop comparison. One fixed order: OFF-1, ON-1, ON-2, OFF-2; four-second ping_4 profiles only, no retries. A new six-interval clock diagnostic must pass first. Guest timesyncd must be inactive at each job boundary and restored by the enclosing host try/finally after the batch. No persistent disable or Windows settings change. Abort remaining jobs on any failure and preserve receipts.

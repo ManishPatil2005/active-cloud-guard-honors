@@ -1,6 +1,22 @@
 import json
 import pytest
 from scripts import paired_pilot, paired_report
+from cloudguard.workload import run
+
+
+def measurement(on):
+    now = [0]
+
+    def sleep(seconds):
+        now[0] += int(seconds * 10**9)
+
+    def ping():
+        now[0] += 20_000_000 if on else 10_000_000
+        return "PONG"
+
+    return run(
+        "ping_4", ping, monotonic_ns=lambda: now[0], wall_ns=lambda: now[0], sleep=sleep
+    )
 
 
 @pytest.mark.parametrize("ids", ["", "a\nb"])
@@ -19,7 +35,21 @@ def test_preflight_requires_single_target(monkeypatch, ids):
 
 @pytest.mark.parametrize(
     "mode",
-    ["valid", "failed_manifest", "warmup", "identity", "cleanup", "boolean_latency"],
+    [
+        "valid",
+        "failed_manifest",
+        "warmup",
+        "identity",
+        "cleanup",
+        "boolean_latency",
+        "forged_clock",
+        "duration",
+        "schedule",
+        "call_clock",
+        "mixed",
+        "unknown",
+        "missing_call",
+    ],
 )
 def test_paired_summary(tmp_path, mode):
     manifest = dict(
@@ -40,18 +70,7 @@ def test_paired_summary(tmp_path, mode):
             mode="sensor_off_control",
             sensor_started=False,
             sensor_removed=True,
-            measurement=dict(
-                status="completed",
-                profile="ping_4",
-                scenario_group="redis-ping-development",
-                calls=[
-                    dict(
-                        pong=True,
-                        docker_exec_round_trip_ns=20_000_000 if on else 10_000_000,
-                    )
-                ]
-                * 4,
-            ),
+            measurement=measurement(on),
         )
         before, after = (
             ("target_identity_before", "target_identity_after")
@@ -68,6 +87,24 @@ def test_paired_summary(tmp_path, mode):
                 row["sensor_removed"] = False
             elif mode == "boolean_latency":
                 row["measurement"]["calls"][0]["docker_exec_round_trip_ns"] = True
+            elif mode == "forged_clock":
+                row["measurement"]["clock_sampling"]["last"]["wall_ns"] += 100_000_000
+            elif mode == "duration":
+                row["measurement"]["elapsed_monotonic_ns"] = 1
+            elif mode == "schedule":
+                row["measurement"]["calls"][0]["dispatch_offset_ns"] = 300_000_000
+            elif mode == "call_clock":
+                row["measurement"]["calls"][0]["clock_sampling"]["last"]["wall_ns"] += (
+                    100_000_000
+                )
+            elif mode == "mixed":
+                row["measurement"].pop("timing_protocol")
+                for call in row["measurement"]["calls"]:
+                    call.pop("clock_sampling")
+            elif mode == "unknown":
+                row["measurement"]["timing_protocol"] = "unknown"
+            elif mode == "missing_call":
+                row["measurement"]["calls"][0].pop("clock_sampling")
         (tmp_path / (name + ".json")).write_text(json.dumps(row))
     if mode == "valid":
         result = paired_report.summarize(tmp_path)

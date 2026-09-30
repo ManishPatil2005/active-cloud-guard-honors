@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+Latest follow-up: **308 software tests pass on each OS**. Comparison reports now double-check the saved clock readings and refuse to compare different timing methods. The old pilot was rechecked without changing its results. This protects reporting; it does not fix the sensor-clock discrepancy. The 301-test counts later in this guide identify the earlier timing-guard snapshot; a current checkout should report 308. Latest test records: [Windows](../output/engine2-report-guards-windows-tests-20260930.xml), [Linux](../output/engine2-report-guards-linux-tests-20260930.xml).
+
 Researcher: **Manish Patil**. Updated **30 September 2026**. This document explains the research, its actual progress, and how to try the implemented parts. It is written for students, supervisors and reviewers who do not work with software every day.
 
 Read sections 1–5 first. Sections 6–10 are practical steps. The safe demonstrations need no cloud account, paid API, AI model or running server. Advanced experiments are separate because they require additional permissions and careful measurement.
