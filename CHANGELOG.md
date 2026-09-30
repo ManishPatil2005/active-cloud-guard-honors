@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Per-call timing safeguards and Progress Execution guide
+
+- Added per-PING clock brackets, transient clock-disagreement rejection and an explicit timing protocol label; 301 tests pass each OS.
+- Created the plain-language Progress Execution guide with verified model-free demonstrations and clearly separated advanced steps.
+- No live timing revalidation, clock correction or architecture change; historical evidence preserved.
+
 ## 2026-09-30 - Offline interval-alignment diagnostics
 
 - Added before/inside/after counts, connect offsets and original-order timestamp-regression reporting; corrected per-report control wording.

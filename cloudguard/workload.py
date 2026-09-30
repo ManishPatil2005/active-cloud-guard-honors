@@ -24,22 +24,29 @@ def run(
     failure = None
     for offset in PROFILES[profile]:
         sleep(max(0, (start + offset * 10**9 - monotonic_ns()) / 10**9))
+        call_first = sample(monotonic_ns, wall_ns)
         dispatch = monotonic_ns()
         if dispatch - start >= duration:
             failure = "schedule_overrun"
             break
         result = ping()
         complete = monotonic_ns()
+        call_last = sample(monotonic_ns, wall_ns)
+        call_timing = compare(call_first, call_last)
         calls.append(
             dict(
                 scheduled_offset_ns=offset * 10**9,
                 dispatch_offset_ns=dispatch - start,
                 docker_exec_round_trip_ns=complete - dispatch,
                 pong=result == "PONG",
+                clock_sampling=dict(first=call_first, last=call_last, **call_timing),
             )
         )
         if result != "PONG":
             failure = "workload_failed"
+            break
+        if not call_timing["within_tolerance"]:
+            failure = "call_clock_outside_tolerance"
             break
     sleep(max(0, (start + duration - monotonic_ns()) / 10**9))
     last = sample(monotonic_ns, wall_ns)
@@ -67,6 +74,7 @@ def run(
         clock_sampling=dict(first=first, last=last, **timing),
         planned_duration_ns=duration,
         calls=calls,
+        timing_protocol="per_call_brackets_v1",
         causal_attribution="not_proven",
         overhead_estimate=None,
     )

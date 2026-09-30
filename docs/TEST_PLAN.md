@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest per-call guard: 301 tests each OS; output/engine2-call-clocks-{windows,linux}-tests-20260930.xml. New regression rejects a transient 100 ms call clock difference even when interval endpoints agree. Existing schedule tests verify per-call timing fields. This is synthetic validation, not live sensor-clock calibration. Beginner guide scan/retrieve/synthetic replay commands also rerun successfully; fresh install and AI commands not rerun.
+
 30 September alignment increment: 300 tests passed each OS (Windows 2.08 s, Linux 3.45 s), saved as output/engine2-alignment-{windows,linux}-tests-20260930.xml. Two new cases and extended boundary assertions cover signed offsets, exact half-open regions, preservation of export order and failed-normalization refusal. Both unchanged live logs reanalyzed offline; this does not validate cross-clock alignment. Ruff lint/format and Windows pip check pass. See EVENT_ALIGNMENT.md.
 
 Latest audit (29 September, reviewed 30 September): unchanged source passed 298 tests on Windows (2.03 s) and Linux (2.97 s), Ruff lint/format (62 files), Windows pip check and publication checks. Fresh paired batch passed all five jobs; subsequent offline normalization/metrics succeeded. ON-2 interval discrepancy remains unresolved despite passing software tests. See PAIRED_PILOT_RESULTS.md. No new independent accuracy or full overhead validation.

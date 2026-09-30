@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Per-call clock instrumentation only reads clocks around existing approved PING callbacks; it changes no time service, privilege or target. Beginner guidance separates offline demonstrations from supervised live collection and does not authorize permanent time-service changes.
+
 30 September offline alignment diagnostics reuse strict bounded hash-validated normalization and export only event counts and relative connect timestamps. No raw commands, host metadata, new access or service changes. Relative times remain research metadata requiring review; offsets are not authenticated clock/correlation evidence. Historical artifacts remain unchanged.
 
 Paired pilot adds fixed two-PING warm-up and bounded four-run orchestration, with no broader sensor capabilities. Prerequisite preflight must precede approved guest-NTP stop; restoration remains external try/finally with explicit state checks. Docker/Redis recovery started existing services only. No control/sensor workloads were retried after batch abort. Manifest hashes are provenance, not authentication; comparisons remain observation-only.

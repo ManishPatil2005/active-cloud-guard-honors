@@ -6,7 +6,7 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
-Latest engineering check: **298 software tests passed on both Windows and Linux**. Fixed sensor-off/on pilot tooling is implemented. Its first batch passed the clock gate but aborted before measurement; Docker/Redis prerequisites were recovered and preflight now passes. No paired overhead estimate exists. See the [paired-pilot record](docs/PAIRED_PILOT.md) and [clock investigation](docs/TIME_SYNC_DIAGNOSIS.md).
+Latest engineering check: **301 software tests passed on both Windows and Linux**. A fresh paired pilot completed, with inconsistent descriptive latency contrasts and unresolved event-clock alignment. Per-call timing guards are software-tested, not live-calibrated. No general overhead/accuracy claim. See [paired results](docs/PAIRED_PILOT_RESULTS.md), [alignment investigation](docs/EVENT_ALIGNMENT.md), and the beginner-friendly [Progress Execution guide](<docs/Progress Execution.md>).
 
 Windows-hosted Linux setup and Docker integration are verified. No temporary sensor remains running. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
 
@@ -36,7 +36,7 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has begun with an *
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | Frozen Engine 1 baseline and initial observation-only Engine 2 replay |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 29 September 2026; 298 tests on each OS; aborted paired pilot and restored prerequisites; live Engine 1 observations remain dated 23 September |
+| Evidence snapshot | 30 September 2026; 301 tests on each OS; paired pilot and unresolved clock alignment; live Engine 1 observations remain historical |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
@@ -80,7 +80,7 @@ Model candidates remain separate from rule findings. They do not execute command
 | Prioritization | Monotonic provisional scoring; missing evidence remains explicit | Weights are not empirically calibrated |
 | V2 efficiency | Opt-in exact-request cache, index reuse, generation limits and stage timings | Repeat-work optimization, not demonstrated energy savings |
 
-The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as the model service. Engine 2 currently supports replay-based count deviations only. Live eBPF/Kubernetes collection, trained runtime ML, autonomous isolation and production deployment are not implemented.
+The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as the model service. Engine 2 supports replay-based count deviations plus a separate bounded Falco/eBPF lab harness and offline adapter. Sensor-clock alignment and complete coverage remain unresolved. Kubernetes collection, trained runtime ML, autonomous isolation and production deployment are not implemented.
 
 ## Results and evidence
 
@@ -88,7 +88,7 @@ The local testbed contains Redis, PostgreSQL, Nginx and MinIO, with Ollama as th
 
 | Observation | Evidence | Interpretation |
 |---|---|---|
-| 298 software tests on each OS | [Windows](output/engine2-paired-final-windows-tests-20260929.xml), [Linux](output/engine2-paired-final-linux-tests-20260929.xml) | Regression checks, not detection accuracy |
+| 301 software tests on each OS | [Windows](output/engine2-call-clocks-windows-tests-20260930.xml), [Linux](output/engine2-call-clocks-linux-tests-20260930.xml) | Regression checks, not detection accuracy |
 | Engine 2 constructed count deviation | [Synthetic replay report](output/engine2-replay-smoke.json) | No live sensor or independent threat labels |
 | Stable identity and service observations | [V2.2 live lab report](output/service-identity-v22-final.json) | Redis protected-mode denial and PostgreSQL SASL challenge; no full attestation |
 | Policy-aware real loopback observations | [V2.1 smoke report](output/verification-v21-smoke.json) | Synthetic policies and accept-only listener; no deployment or model claim |

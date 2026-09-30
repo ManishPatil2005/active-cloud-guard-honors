@@ -1,5 +1,7 @@
 # Offline event alignment investigation
 
+Follow-up: per-call wall/monotonic brackets now implemented in workload.py (timing_protocol=per_call_brackets_v1). Each call retains first/last samples and comparison; >50 ms disagreement including uncertainty, or >5 ms sampling span, rejects the run as call_clock_outside_tolerance. Round-trip measurement remains the monotonic interval around ping(); bracket collection adds surrounding work. A synthetic transient-jump regression passes even though whole-interval difference is zero. Full suites 301 each OS. No new live run, no collector alignment or causal mapping established. Historical receipts lack these fields and are not upgraded retrospectively; no assumption of identical measurement overhead across protocols. Inter-call-only changes and callback exception partial evidence remain limitations.
+
 30 September 2026, E2-009 / INC-029. This is analysis of the unchanged 29 September raw logs, not new sensor collection or a corrected benchmark.
 
 ## Acceptance and implementation

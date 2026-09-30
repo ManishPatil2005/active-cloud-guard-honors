@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+Measured workload receipts now label timing_protocol=per_call_brackets_v1 and include per-PING before/after clock samples and rejection on call clock disagreement. This is harness instrumentation, not collector synchronization or event correlation; old receipts are preserved without fabricated fields.
+
 Python 3.11+ library/CLI (measured on Python 3.12.14, Windows 11), PyYAML, python-hcl2, jsonschema, pytest and Ruff. Docker Compose runs Redis, PostgreSQL, Nginx, MinIO and Ollama. Chroma stores locally generated nomic-embed-text vectors. Default smoke auditing uses qwen2.5:3b; the earlier 1.5B failures remain in evidence. No cloud model API is required.
 
 ## Flow

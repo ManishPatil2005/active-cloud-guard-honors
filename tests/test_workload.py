@@ -27,6 +27,8 @@ def test_fixed_schedule(profile, number):
     assert result["elapsed_monotonic_ns"] == 4 * 10**9
     assert result["clock_difference_ns"] == 0
     assert result["overhead_estimate"] is None
+    assert result["timing_protocol"] == "per_call_brackets_v1"
+    assert all(c["clock_sampling"]["within_tolerance"] for c in result["calls"])
 
 
 @pytest.mark.parametrize("mode", ["late", "clock", "pong"])
@@ -52,6 +54,31 @@ def test_failures_not_success(mode):
 def test_unknown_profile_does_not_execute():
     with pytest.raises(ValueError):
         run("arbitrary", lambda: pytest.fail("must not execute"))
+
+
+def test_transient_call_clock_jump_rejected_even_when_endpoint_clocks_agree():
+    now = [0]
+    readings = iter([0, 0, 200_000_000, 4_000_000_000])
+
+    def sleep(seconds):
+        now[0] += int(seconds * 10**9)
+
+    def ping():
+        now[0] += 100_000_000
+        return "PONG"
+
+    result = run(
+        "ping_4",
+        ping,
+        monotonic_ns=lambda: now[0],
+        wall_ns=lambda: next(readings),
+        sleep=sleep,
+    )
+    assert result["status"] == "call_clock_outside_tolerance"
+    assert len(result["calls"]) == 1
+    assert result["calls"][0]["pong"] is True
+    assert result["clock_difference_ns"] == 0
+    assert result["calls"][0]["clock_sampling"]["clock_difference_ns"] == 100_000_000
 
 
 def test_interval_is_half_open(monkeypatch):

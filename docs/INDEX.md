@@ -1,5 +1,7 @@
 # Documentation index
 
+Nontechnical starting point: [Progress Execution](<Progress Execution.md>) — research explained, current progress, safe beginner demonstrations, optional lab setup and result interpretation.
+
 Latest follow-up: [offline event alignment investigation](EVENT_ALIGNMENT.md); no new workload, no retrospective boundary correction.
 
 Latest experiment review: [audited paired pilot results](PAIRED_PILOT_RESULTS.md), including the unresolved interval-count discrepancy.
