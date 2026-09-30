@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+cloudguard/correlation.py validates opt-in diagnostic PID/connect associations and per-call clock bounds. sensor_trial --correlate requires fixed warmup/ping_4 and adds proc.vpid only in that mode. It is separate diagnostic evidence, not runtime baseline input; paired_report excludes its receipts. Default capture schema remains unchanged.
+
 scripts/clock_bridge.py is a separate bounded Redis TIME diagnostic: six local-identity-gated reads and delay-aware server/harness offset intervals. It does not collect sensor events, synchronize clocks, fit baselines or change the existing stack.
 
 Paired-report reduction recomputes saved clock comparisons and checks schedule/boundary/call-bracket consistency before comparing runs. All four runs must share a recognized timing protocol; legacy receipts stay explicitly legacy. This is local consistency validation, not authenticated experiment provenance.

@@ -49,6 +49,7 @@ def test_preflight_requires_single_target(monkeypatch, ids):
         "mixed",
         "unknown",
         "missing_call",
+        "diagnostic",
     ],
 )
 def test_paired_summary(tmp_path, mode):
@@ -105,6 +106,8 @@ def test_paired_summary(tmp_path, mode):
                 row["measurement"]["timing_protocol"] = "unknown"
             elif mode == "missing_call":
                 row["measurement"]["calls"][0].pop("clock_sampling")
+            elif mode == "diagnostic":
+                row["diagnostic_protocol"] = "container_pid_connect_v1"
         (tmp_path / (name + ".json")).write_text(json.dumps(row))
     if mode == "valid":
         result = paired_report.summarize(tmp_path)

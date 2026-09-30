@@ -1,5 +1,13 @@
 # Work log
 
+## WL-024 - 2026-09-30 - Opt-in PID correlation and live measured-command matches
+
+User requested next correlation step. Read project contracts and inspected collector; consulted official Falco proc.vpid definition. Predeclared PID_CORRELATION.md before execution. Added optional field to diagnostic rules only, fixed PID-print/exec-PING helper, strict diagnostic parser and four-distinct-PID/exactly-one-connect gate. Per-call offset intervals use measured brackets with uncertainty; no nearest-timestamp pairing. Paired reports reject diagnostic instrumentation; normal adapter/default rule unchanged. No command-line/environment/path capture. ADR-026 records limits.
+
+Ran wsl -d ACG-Research -u acgresearch --cd '/mnt/d/research f1' --exec /home/acgresearch/acg-venv/bin/python scripts/paired_pilot.py --preflight-only, then same WSL prefix with scripts/sensor_trial.py --profile ping_4 --fixed-warmup --correlate --output output/engine2-pid-correlation-20260930.json. One bounded run, unchanged privileges/watchdog, no time-service change. Four measured PIDs each uniquely matched; all ranges contain zero. Full capture five connects for six total PINGs leaves overall coverage unknown. Identity stable, cleanup confirmed; time service active. No retry or baseline fitting. INC-029 not declared fixed.
+
+Final Windows pytest -q --junitxml=output/engine2-correlation-windows-tests-20260930.xml: 332/2.19 s; Linux via same WSL Python -m pytest -q -o cache_dir=/home/acgresearch/.cache/acg-pytest --junitxml=output/engine2-correlation-linux-tests-20260930.xml: 332/3.33 s. Ruff check/format (66 files) and Windows pip check pass. Initial pre-live 331 suite passed; final extra exclusion test does not alter executed collector code. Publication checker/staged review before commit; remote verification after push. Next: readiness/warmup identity and coverage accounting before repeated collection.
+
 ## WL-023 - 2026-09-30 - Bounded live Redis clock bridge
 
 User requested next diagnostic. Inspected minimized collector fields: no per-command correlation. Chose a narrower read-only bridge to test WSL-harness versus Redis time without sensor privileges or clock changes (ADR-025). Implemented scripts/clock_bridge.py with six fixed TIME reads, local/label/identity/sensor-absence pre/post gates, bounded command and sampling checks, offset intervals without symmetric-delay assumptions, fresh output and failure preservation. Ten new numerical/parser tests. Predeclared method, exact live invocation and limits in CLOCK_BRIDGE.md.

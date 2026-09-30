@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - PID-correlated sensor diagnostic
+
+- Added opt-in minimized process-ID correlation without changing ordinary captures; diagnostic runs excluded from paired latency reports.
+- One live run matched all four measured PINGs, with compatible clock bounds; total warmup/capture coverage remains unknown.
+- 332 tests each OS; sensor cleanup confirmed, no clock changes or historical correction.
+
 ## 2026-09-30 - Read-only Redis clock bridge
 
 - Added six-sample identity-gated TIME diagnostic with delay-aware clock bounds and failure preservation.

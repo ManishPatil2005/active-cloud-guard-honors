@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest sensor diagnostic: [process-ID correlation](PID_CORRELATION.md), including successful measured matches and remaining warmup coverage uncertainty.
+
 Latest diagnostic: [Redis-to-harness clock bridge](CLOCK_BRIDGE.md), a bounded live read-only check, not Falco calibration.
 
 Nontechnical starting point: [Progress Execution](<Progress Execution.md>) — research explained, current progress, safe beginner demonstrations, optional lab setup and result interpretation.

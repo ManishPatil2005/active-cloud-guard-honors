@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Opt-in PID diagnostic adds only proc.vpid, using a fixed non-user-interpolated shell program that prints its PID then execs loopback redis-cli PING. No command-line/environment/path output, extra capabilities, mounts, network endpoints or clock changes. Raw diagnostic logs remain ignored. Container/PID association is not authenticated and does not defeat PID reuse; ambiguity rejects the result. Ordinary adapter rejects the extra field and paired reports reject diagnostic receipts.
+
 Clock bridge permits only six fixed Redis TIME reads via existing-container loopback redis-cli, gated by local daemon, exact lab selection, selected identity and known-sensor absence. No arbitrary commands/destinations, credentials, Redis data writes, time-service changes or added capabilities. TIME causes small lab process/network activity. Bounds/identity remain non-authenticated observations.
 
 Paired-report timing validation recomputes clock evidence and refuses inconsistent or mixed instrumentation. It grants no new access and does not authenticate operator-supplied receipts. Full initial-gate/manifest binding and identity-schema validation remain separate limitations.

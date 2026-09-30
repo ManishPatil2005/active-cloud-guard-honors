@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.deployment import local_daemon
 from cloudguard.workload import PROFILES, run as run_workload
+from cloudguard.correlation import parse_ping, correlate
 
 IMAGE = "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
 
@@ -78,7 +79,7 @@ def command(*args, timeout=20):
     ).stdout.strip()
 
 
-def rules(container_id):
+def rules(container_id, *, correlation=False):
     if not re.fullmatch("[a-f0-9]{64}", container_id):
         raise ValueError("full lowercase container ID required")
     return (
@@ -88,7 +89,9 @@ def rules(container_id):
         "    evt.type in (execve, execveat, open, openat, openat2, connect)\n"
         "    and evt.rawres >= 0\n"
         f"    and thread.cgroups contains {container_id}\n"
-        "  output: 'acg time=%evt.rawtime type=%evt.type result=%evt.rawres cgroups=%thread.cgroups'\n"
+        "  output: 'acg time=%evt.rawtime type=%evt.type result=%evt.rawres cgroups=%thread.cgroups"
+        + (" vpid=%proc.vpid" if correlation else "")
+        + "'\n"
         "  priority: INFORMATIONAL\n"
         "  source: syscall\n"
     )
@@ -128,7 +131,10 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--profile", choices=tuple(PROFILES), default="ping_1")
     parser.add_argument("--fixed-warmup", action="store_true")
+    parser.add_argument("--correlate", action="store_true")
     args = parser.parse_args()
+    if args.correlate and (args.profile != "ping_4" or not args.fixed_warmup):
+        parser.error("correlation requires ping_4 and fixed warmup")
     report = dict(
         executed_at=datetime.now(timezone.utc).isoformat(),
         image=IMAGE,
@@ -159,7 +165,7 @@ def main():
             raw_dir = ROOT / "output/runtime-raw" / name
             raw_dir.mkdir(parents=True, exist_ok=False)
             rule_path = raw_dir / "rules.yaml"
-            rule_text = rules(container_id)
+            rule_text = rules(container_id, correlation=args.correlate)
             rule_path.write_text(rule_text, encoding="utf-8", newline="\n")
             report.update(
                 container_id=container_id,
@@ -237,11 +243,27 @@ def main():
             # Guard interval separates dispatches, not proven causal event ownership.
             time.sleep(1)
             report["workload_executed"] = True
+            pids = []
+
+            def ping():
+                if not args.correlate:
+                    return command(
+                        "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
+                    )
+                reply = command(
+                    "exec",
+                    container_id,
+                    "/bin/sh",
+                    "-c",
+                    'printf "%s\\n" "$$"; exec redis-cli -h 127.0.0.1 PING',
+                )
+                pids.append(parse_ping(reply))
+                report["correlation_process_ids"] = list(pids)
+                return "PONG"
+
             report["measurement"] = run_workload(
                 args.profile,
-                lambda: command(
-                    "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
-                ),
+                ping,
             )
             if report["measurement"]["status"] != "completed":
                 raise ValueError("measured workload failed or timing outside tolerance")
@@ -281,6 +303,11 @@ def main():
                 if counts
                 else "no_matching_events"
             )
+            if args.correlate:
+                report["diagnostic_protocol"] = "container_pid_connect_v1"
+                report["correlation"] = correlate(
+                    raw, container_id, pids, report["measurement"]["calls"]
+                )
             report["raw_log_local_only"] = True
         except Exception as error:
             report["status"] = "trial_failed"

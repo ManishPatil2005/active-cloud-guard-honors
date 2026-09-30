@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-029 follow-up - PID-correlated trial, historical cause still open
+
+30 September one new diagnostic uniquely matched four measured process IDs and connect timestamps compatible with their command brackets. It does not identify the cause of the earlier discrepancy. Capture contains five connects despite six total PINGs including warmup; all four measured IDs matched, but warmup IDs were not recorded. Do not infer which warmup event is absent or equate readiness with complete coverage. Preserve unknown coverage, original counts and all raw evidence. Next: explicit warmup identity/accounting; no correction or favorable retry. See PID_CORRELATION.md.
+
 ### INC-029 follow-up - 2026-09-30 - Boundary discrepancy localized, not resolved
 
 Offline hash-validated reports show ON-2 six total connect records: three before start, three inside, none after. Nearest pre-start connection offset -65.428194 ms; last four approximately one second apart. This supports an alignment hypothesis but lacks command correlation IDs, so it does not establish causal association or a correction. No export-order timestamp regressions. Historical raw/report files and boundaries unchanged; no retry. Added regression-tested region/offset diagnostics and corrected generic control wording. 300 tests pass each OS. Remaining: independently establish collector/harness clock relation and per-call correlation; no verified root-cause fix. See EVENT_ALIGNMENT.md.

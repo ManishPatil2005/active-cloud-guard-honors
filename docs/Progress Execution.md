@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+Latest sensor step: **332 tests pass on each OS**. In one new supervised trial we identified each of four measured PING processes and found exactly one matching sensor connection for each. Their timestamps were compatible with the command timings. This is useful progress, but the earlier clock issue is not proven fixed and total warmup coverage is still uncertain. The sensor was removed and no time settings changed. See [PID correlation](PID_CORRELATION.md). Older totals below are historical snapshots.
+
 Latest clock investigation: **318 tests now pass on each OS**. We asked the existing Redis lab for its time six times and compared it with the measuring program, allowing for command delay. None of these samples demonstrated a clock difference. This was a later check with no sensor running, so the earlier sensor-timing problem remains open. No clocks or database data were changed. See [clock diagnostic and limits](CLOCK_BRIDGE.md). Older test totals below describe earlier snapshots.
 
 Latest follow-up: **308 software tests pass on each OS**. Comparison reports now double-check the saved clock readings and refuse to compare different timing methods. The old pilot was rechecked without changing its results. This protects reporting; it does not fix the sensor-clock discrepancy. The 301-test counts later in this guide identify the earlier timing-guard snapshot; a current checkout should report 308. Latest test records: [Windows](../output/engine2-report-guards-windows-tests-20260930.xml), [Linux](../output/engine2-report-guards-linux-tests-20260930.xml).

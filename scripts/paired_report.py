@@ -94,6 +94,8 @@ def summarize(directory):
         m = run.get("measurement", {})
         if (
             run.get("status") != status
+            or "diagnostic_protocol" in run
+            or "correlation_process_ids" in run
             or run.get("warmup_protocol") != "two_pings_v1"
             or m.get("status") != "completed"
             or m.get("profile") != "ping_4"

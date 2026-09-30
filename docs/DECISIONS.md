@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-026 - 2026-09-30 - Explicit opt-in PID correlation
+
+Use a fixed shell PID-print followed by exec-PING and Falco proc.vpid to correlate measured lab processes. Export no arbitrary arguments/environment/file paths; accept exactly one connect per distinct measured PID under target-cgroup checks. This is bounded correlation, not authenticated attribution against PID reuse or a hostile daemon. Keep ordinary rule/adapter unchanged; reject diagnostic receipts from latency pairing because the helper adds work. Retain zero-compatible intervals as one-run observations, not correction factors or completeness proof.
+
 ## ADR-025 - 2026-09-30 - Narrow clock bridge before collector correlation
 
 Use fixed read-only Redis TIME calls in the existing allowlisted container, bounded by local clock samples, as a narrower diagnostic before changing collector fields. Report intervals instead of midpoint estimates or assumed symmetric command delays. Do not adjust clocks, infer unique command identity from temporal proximity, or retrofit old captures. Live zero-compatible ranges do not certify Falco alignment. Future unique-event correlation needs a separate schema/privacy review; current stack and privileges unchanged.

@@ -1,5 +1,7 @@
 # Test and verification plan
 
+PID diagnostic: 332 tests each OS; output/engine2-correlation-{windows,linux}-tests-20260930.xml. Fourteen cases added for strict fields/scope/times, match ambiguity, helper PID/PONG, opt-in output and comparison exclusion. One live four-command correlation succeeded; full warmup coverage not established. See PID_CORRELATION.md.
+
 Clock bridge: 318 tests pass each OS; output/engine2-clock-bridge-{windows,linux}-tests-20260930.xml. Ten added checks for TIME parsing and offset/uncertainty rejection. Six live read-only samples succeeded; no Falco sensor calibration. CLI failure branches not exhaustively fault-injected. See CLOCK_BRIDGE.md.
 
 Latest paired-report guards: 308 tests passed each OS; output/engine2-report-guards-{windows,linux}-tests-20260930.xml. Seven added rejection modes: inconsistent clock, duration, schedule, per-call clock, mixed/unknown protocol and missing per-call samples. Historical pilot revalidated offline to engine2-paired-revalidated-20260930.json with unchanged latency contrasts. No sensor-clock calibration claimed.
