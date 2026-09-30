@@ -1,5 +1,11 @@
 # Work log
 
+## WL-023 - 2026-09-30 - Bounded live Redis clock bridge
+
+User requested next diagnostic. Inspected minimized collector fields: no per-command correlation. Chose a narrower read-only bridge to test WSL-harness versus Redis time without sensor privileges or clock changes (ADR-025). Implemented scripts/clock_bridge.py with six fixed TIME reads, local/label/identity/sensor-absence pre/post gates, bounded command and sampling checks, offset intervals without symmetric-delay assumptions, fresh output and failure preservation. Ten new numerical/parser tests. Predeclared method, exact live invocation and limits in CLOCK_BRIDGE.md.
+
+Live run succeeded: all six offset ranges include zero, identity unchanged, known sensors absent. No service change, data write, model operation or sensor capture. Does not calibrate Falco or establish earlier clock state; INC-029 open. Source semantics checked against official Redis TIME documentation. Full Windows pytest --junitxml=output/engine2-clock-bridge-windows-tests-20260930.xml: 318/1.97 s; Linux same suite via ACG-Research acgresearch /home/acgresearch/acg-venv/bin/python with -o cache_dir=/home/acgresearch/.cache/acg-pytest and separate Linux XML: 318/3.48 s. Ruff check/format (64 files) and Windows pip check passed. Update beginner guide; publication checker/staged review before commit, remote verification after push. Next: unique collector-event correlation design, preserving privacy and old schema/evidence.
+
 ## WL-022 - 2026-09-30 - Recompute comparison timing and refuse mixed protocols
 
 Next E2-009 increment: make paired_report validate clock/schedule evidence rather than relying on completed flags. Recomputes interval and per-call clock comparisons, validates integer samples (not booleans), boundary agreement, duration, dispatch schedule, positive latency and call bracketing. Refuses unknown/mixed timing protocols and unlabeled per-call data. Old receipts remain accepted only as explicit legacy_interval_brackets; no per-call fields invented. Seven new negative test modes. Saved pilot revalidated offline into output/engine2-paired-revalidated-20260930.json with unchanged contrasts and receipt hashes. Original evidence untouched; no live workload or service change.

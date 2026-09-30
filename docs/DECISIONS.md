@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-025 - 2026-09-30 - Narrow clock bridge before collector correlation
+
+Use fixed read-only Redis TIME calls in the existing allowlisted container, bounded by local clock samples, as a narrower diagnostic before changing collector fields. Report intervals instead of midpoint estimates or assumed symmetric command delays. Do not adjust clocks, infer unique command identity from temporal proximity, or retrofit old captures. Live zero-compatible ranges do not certify Falco alignment. Future unique-event correlation needs a separate schema/privacy review; current stack and privileges unchanged.
+
 ## ADR-024 - 2026-09-29 - Preflight and complete-pair reporting
 
 Use a fixed two-PING command/sleep warm-up and declared OFF/ON/ON/OFF order for a small latency pilot, with explicit remaining processing/host confounders. Require Docker/Redis preflight before temporary clock-service changes; retain failures and skip subsequent jobs rather than retry. Reject summary generation for incomplete manifests or incompatible identities/profiles. No survivor-only overhead claim. Recovering a stopped daemon/target does not authorize overwriting an aborted batch.

@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+scripts/clock_bridge.py is a separate bounded Redis TIME diagnostic: six local-identity-gated reads and delay-aware server/harness offset intervals. It does not collect sensor events, synchronize clocks, fit baselines or change the existing stack.
+
 Paired-report reduction recomputes saved clock comparisons and checks schedule/boundary/call-bracket consistency before comparing runs. All four runs must share a recognized timing protocol; legacy receipts stay explicitly legacy. This is local consistency validation, not authenticated experiment provenance.
 
 Measured workload receipts now label timing_protocol=per_call_brackets_v1 and include per-PING before/after clock samples and rejection on call clock disagreement. This is harness instrumentation, not collector synchronization or event correlation; old receipts are preserved without fabricated fields.

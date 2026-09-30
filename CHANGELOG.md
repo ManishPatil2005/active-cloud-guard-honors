@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Read-only Redis clock bridge
+
+- Added six-sample identity-gated TIME diagnostic with delay-aware clock bounds and failure preservation.
+- Live observation found zero compatible with all six bounds; not Falco calibration or resolution of earlier discrepancy.
+- Ten tests added; 318 pass each OS. No sensor, clock-service change or historical evidence modification.
+
 ## 2026-09-30 - Timing-consistent paired reports
 
 - Recompute saved clock comparisons, check schedule/boundaries and per-call brackets, and reject mixed timing protocols.

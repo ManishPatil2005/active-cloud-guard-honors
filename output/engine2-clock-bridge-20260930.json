@@ -1,0 +1,151 @@
+{
+  "executed_at": "2026-09-30T10:25:07.397226+00:00",
+  "protocol": "redis_time_brackets_v1",
+  "samples": [
+    {
+      "first": {
+        "wall_ns": 1790763907886151443,
+        "monotonic_mid_ns": 15990531944442,
+        "sampling_span_ns": 578
+      },
+      "last": {
+        "wall_ns": 1790763908046857959,
+        "monotonic_mid_ns": 15990692650954,
+        "sampling_span_ns": 660
+      },
+      "elapsed_monotonic_ns": 160706512,
+      "clock_difference_ns": 4,
+      "sampling_uncertainty_ns": 619,
+      "within_tolerance": true,
+      "redis_unix_ns": 1790763908030882000,
+      "offset_lower_ns": -15976582,
+      "offset_upper_ns": 144732179,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790763908046944595,
+        "monotonic_mid_ns": 15990692737820,
+        "sampling_span_ns": 138
+      },
+      "last": {
+        "wall_ns": 1790763908116689231,
+        "monotonic_mid_ns": 15990762482227,
+        "sampling_span_ns": 603
+      },
+      "elapsed_monotonic_ns": 69744407,
+      "clock_difference_ns": 229,
+      "sampling_uncertainty_ns": 371,
+      "within_tolerance": true,
+      "redis_unix_ns": 1790763908108048000,
+      "offset_lower_ns": -8641831,
+      "offset_upper_ns": 61105004,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790763908116714713,
+        "monotonic_mid_ns": 15990762507920,
+        "sampling_span_ns": 177
+      },
+      "last": {
+        "wall_ns": 1790763908180617691,
+        "monotonic_mid_ns": 15990826410629,
+        "sampling_span_ns": 717
+      },
+      "elapsed_monotonic_ns": 63902709,
+      "clock_difference_ns": 269,
+      "sampling_uncertainty_ns": 447,
+      "within_tolerance": true,
+      "redis_unix_ns": 1790763908173461000,
+      "offset_lower_ns": -7157407,
+      "offset_upper_ns": 56748002,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790763908180640056,
+        "monotonic_mid_ns": 15990826433275,
+        "sampling_span_ns": 116
+      },
+      "last": {
+        "wall_ns": 1790763908243038287,
+        "monotonic_mid_ns": 15990888831286,
+        "sampling_span_ns": 596
+      },
+      "elapsed_monotonic_ns": 62398011,
+      "clock_difference_ns": 220,
+      "sampling_uncertainty_ns": 356,
+      "within_tolerance": true,
+      "redis_unix_ns": 1790763908236389000,
+      "offset_lower_ns": -6649863,
+      "offset_upper_ns": 55750519,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790763908243061082,
+        "monotonic_mid_ns": 15990888854288,
+        "sampling_span_ns": 90
+      },
+      "last": {
+        "wall_ns": 1790763908309386408,
+        "monotonic_mid_ns": 15990955179432,
+        "sampling_span_ns": 543
+      },
+      "elapsed_monotonic_ns": 66325144,
+      "clock_difference_ns": 182,
+      "sampling_uncertainty_ns": 317,
+      "within_tolerance": true,
+      "redis_unix_ns": 1790763908296348000,
+      "offset_lower_ns": -13038907,
+      "offset_upper_ns": 53288416,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1790763908309408691,
+        "monotonic_mid_ns": 15990955201880,
+        "sampling_span_ns": 148
+      },
+      "last": {
+        "wall_ns": 1790763908371129773,
+        "monotonic_mid_ns": 15991016922709,
+        "sampling_span_ns": 746
+      },
+      "elapsed_monotonic_ns": 61720829,
+      "clock_difference_ns": 253,
+      "sampling_uncertainty_ns": 447,
+      "within_tolerance": true,
+      "redis_unix_ns": 1790763908364014000,
+      "offset_lower_ns": -7116473,
+      "offset_upper_ns": 54607008,
+      "zero_within_bounds": true
+    }
+  ],
+  "status": "observed",
+  "clock_settings_modified": false,
+  "sensor_started": false,
+  "falco_alignment_verified": false,
+  "correction_applied": false,
+  "phase": "postflight",
+  "identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-29T14:07:43.183076409Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-29T14:07:43.183076409Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "zero_excluded_samples": 0
+}

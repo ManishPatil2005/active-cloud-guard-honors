@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Clock bridge permits only six fixed Redis TIME reads via existing-container loopback redis-cli, gated by local daemon, exact lab selection, selected identity and known-sensor absence. No arbitrary commands/destinations, credentials, Redis data writes, time-service changes or added capabilities. TIME causes small lab process/network activity. Bounds/identity remain non-authenticated observations.
+
 Paired-report timing validation recomputes clock evidence and refuses inconsistent or mixed instrumentation. It grants no new access and does not authenticate operator-supplied receipts. Full initial-gate/manifest binding and identity-schema validation remain separate limitations.
 
 Per-call clock instrumentation only reads clocks around existing approved PING callbacks; it changes no time service, privilege or target. Beginner guidance separates offline demonstrations from supervised live collection and does not authorize permanent time-service changes.
