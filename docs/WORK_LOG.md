@@ -1,5 +1,13 @@
 # Work log
 
+## WL-026 - 2026-09-30 - Gate measurement on identified second canary
+
+E2-014: shared the strict diagnostic parser between readiness and final correlation. Diagnostic mode now requires exactly one connect for the second issued warmup PID, after exactly two fixed attempts. Unrelated/stale-only events cannot grant readiness, duplicate current PID matches abort, missing first evidence remains. Retained per-attempt PID/count/hash even on later failure. Default noncorrelated path unchanged. Predeclared in PID_CORRELATION.md; no new fields/privileges/clock changes.
+
+Executed via wsl -d ACG-Research -u acgresearch --cd '/mnt/d/research f1' --exec /home/acgresearch/acg-venv/bin/python: scripts/paired_pilot.py --preflight-only passed, then scripts/sensor_trial.py --profile ping_4 --fixed-warmup --correlate --output output/engine2-identified-readiness-20260930.json succeeded once. Two warmup and four measured PID connects uniquely observed; all measured clock bounds include zero. 246 selected records, no unassigned connects; identity stable. Follow-up docker ps -a --filter name=acg-falco- returned no containers; timesyncd active. No environment recovery or retry this increment. Historical missing-event/clock results unchanged, no completeness claim.
+
+Five added tests. Windows .venv/Scripts/python.exe -m pytest -q --junitxml=output/engine2-readiness-windows-tests-20260930.xml: 343/2.07 s; Linux same suite through WSL prefix, -o cache_dir=/home/acgresearch/.cache/acg-pytest and Linux XML: 343/2.82 s. Ruff check/format (66 files), Windows pip check pass. Snapshot bytes not separately persisted, so their hashes are provenance only. Publication/staged checks before commit; verify remote after push. Next: fixed repeated evaluation plan, not immediate ML or general overhead claims.
+
 ## WL-025 - 2026-09-30 - Warmup IDs localize the first-canary gap
 
 E2-013 acceptance: identify two warmup PINGs separately from four measured commands, preserve missing/ambiguous outcomes, reject overlapping IDs, keep default mode and historical data unchanged. Added optional readiness callback and reusable fixed identified_ping helper; correlation v2 records warmup counts/status, unassigned connects and all-six flag. Measured four unique matches remain required; missing warmup is visible uncertainty, not a fabricated event or full success claim. Predeclared protocol in PID_CORRELATION.md before live attempt.

@@ -1,0 +1,256 @@
+{
+  "executed_at": "2026-09-30T16:46:21.687160+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "target_identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-30T16:39:50.097383311Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d914225cd6401759d746f2732b2d46c747168d676248c01f48b1fabcbfd3b681",
+  "config_sha256": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "addb1486af202f1c249871e7a4865aac7d63e86e8173fc698e6e8d1e06a9504a",
+  "diagnostic_protocol": "container_pid_connect_v2",
+  "warmup_process_ids": [
+    57,
+    63
+  ],
+  "readiness_protocol": "identified_second_canary_v1",
+  "readiness_attempts": [
+    {
+      "attempt": 1,
+      "process_id": 57,
+      "connect_count": 1,
+      "unassigned_connect_count": 0,
+      "snapshot_sha256": "66665d2e7cd1f8967c3c3c42ab3208506f336ca62ee3484f6e21f6169e240e2c"
+    },
+    {
+      "attempt": 2,
+      "process_id": 63,
+      "connect_count": 1,
+      "unassigned_connect_count": 0,
+      "snapshot_sha256": "b1e28b2d3becaea4ee41fc84afe922b5258c679b05d912824c044a80247898d1"
+    }
+  ],
+  "readiness": {
+    "status": "identified_canary_observed",
+    "canary_attempts": 2,
+    "causal_attribution": "not_proven",
+    "canary_included_in_capture": true
+  },
+  "warmup_protocol": "two_pings_v1",
+  "workload_executed": true,
+  "correlation_process_ids": [
+    69,
+    75,
+    81,
+    87
+  ],
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1790786786323216032,
+    "end_unix_ns": 1790786790323315157,
+    "elapsed_monotonic_ns": 4000099065,
+    "clock_difference_ns": 60,
+    "clock_sampling": {
+      "first": {
+        "wall_ns": 1790786786323216032,
+        "monotonic_mid_ns": 518331372295,
+        "sampling_span_ns": 2205
+      },
+      "last": {
+        "wall_ns": 1790786790323315157,
+        "monotonic_mid_ns": 522331471360,
+        "sampling_span_ns": 2205
+      },
+      "elapsed_monotonic_ns": 4000099065,
+      "clock_difference_ns": 60,
+      "sampling_uncertainty_ns": 2205,
+      "within_tolerance": true
+    },
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 82065,
+        "docker_exec_round_trip_ns": 56841818,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786786323295321,
+            "monotonic_mid_ns": 518331451846,
+            "sampling_span_ns": 203
+          },
+          "last": {
+            "wall_ns": 1790786786380140658,
+            "monotonic_mid_ns": 518388297104,
+            "sampling_span_ns": 384
+          },
+          "elapsed_monotonic_ns": 56845258,
+          "clock_difference_ns": 79,
+          "sampling_uncertainty_ns": 294,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000069431,
+        "docker_exec_round_trip_ns": 58740870,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786787323277906,
+            "monotonic_mid_ns": 519331433994,
+            "sampling_span_ns": 2044
+          },
+          "last": {
+            "wall_ns": 1790786787382027446,
+            "monotonic_mid_ns": 519390183814,
+            "sampling_span_ns": 529
+          },
+          "elapsed_monotonic_ns": 58749820,
+          "clock_difference_ns": -280,
+          "sampling_uncertainty_ns": 1287,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000133384,
+        "docker_exec_round_trip_ns": 61016283,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786788323342414,
+            "monotonic_mid_ns": 520331498633,
+            "sampling_span_ns": 2055
+          },
+          "last": {
+            "wall_ns": 1790786788384366732,
+            "monotonic_mid_ns": 520392523036,
+            "sampling_span_ns": 679
+          },
+          "elapsed_monotonic_ns": 61024403,
+          "clock_difference_ns": -85,
+          "sampling_uncertainty_ns": 1367,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000300026,
+        "docker_exec_round_trip_ns": 59200941,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1790786789323507028,
+            "monotonic_mid_ns": 521331663190,
+            "sampling_span_ns": 3627
+          },
+          "last": {
+            "wall_ns": 1790786789382717609,
+            "monotonic_mid_ns": 521390874031,
+            "sampling_span_ns": 384
+          },
+          "elapsed_monotonic_ns": 59210841,
+          "clock_difference_ns": -260,
+          "sampling_uncertainty_ns": 2006,
+          "within_tolerance": true
+        }
+      }
+    ],
+    "timing_protocol": "per_call_brackets_v1",
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "workload_result": "PONG",
+  "target_identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-09-30T16:39:50.097383311Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "target_identity_stable": true,
+  "metrics_raw_sha256": "72087bb755f623d9a2ee33ed29fa8db25ad0723c70255f98e8dd2849fab1d977",
+  "raw_log_sha256": "efc90863dd0accbce12932c9fa3ecac5e09b88e349440f9fb86f638eef157f9a",
+  "exit_code": 0,
+  "event_type_counts": {
+    "execve": 18,
+    "openat": 150,
+    "openat2": 48,
+    "open": 24,
+    "connect": 6
+  },
+  "matched_event_count": 246,
+  "status": "events_observed",
+  "correlation": {
+    "protocol": "container_pid_connect_v2",
+    "matches": [
+      {
+        "process_id": 69,
+        "event_unix_ns": 1790786786374127784,
+        "offset_lower_ns": -6013247,
+        "offset_upper_ns": 50832836,
+        "zero_within_bounds": true
+      },
+      {
+        "process_id": 75,
+        "event_unix_ns": 1790786787375423768,
+        "offset_lower_ns": -6605245,
+        "offset_upper_ns": 52147429,
+        "zero_within_bounds": true
+      },
+      {
+        "process_id": 81,
+        "event_unix_ns": 1790786788377480294,
+        "offset_lower_ns": -6887890,
+        "offset_upper_ns": 54139332,
+        "zero_within_bounds": true
+      },
+      {
+        "process_id": 87,
+        "event_unix_ns": 1790786789375669452,
+        "offset_lower_ns": -7050423,
+        "offset_upper_ns": 52164690,
+        "zero_within_bounds": true
+      }
+    ],
+    "zero_excluded_samples": 0,
+    "authenticated": false,
+    "correction_applied": false,
+    "coverage": "partial_or_unknown",
+    "warmup_accounting": [
+      {
+        "attempt": 1,
+        "process_id": 57,
+        "connect_count": 1,
+        "status": "unique_match"
+      },
+      {
+        "attempt": 2,
+        "process_id": 63,
+        "connect_count": 1,
+        "status": "unique_match"
+      }
+    ],
+    "unassigned_connect_count": 0,
+    "all_six_commands_uniquely_observed": true
+  },
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}

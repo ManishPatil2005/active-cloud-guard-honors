@@ -1,5 +1,17 @@
 # Bounded process-ID correlation diagnostic
 
+## Predeclared identified-readiness follow-up
+
+One new trial after preflight, output/engine2-identified-readiness-20260930.json. Diagnostic mode retains exactly two warmup commands with one-second waits. The second canary's own PID must have exactly one successful connect in a strict validated log snapshot; an unrelated or earlier canary event cannot satisfy readiness. Duplicate current matches abort immediately; absent second match aborts before measured dispatch. The first missing match remains recorded, not retried away. Record each attempt's PID/count and snapshot hash in the receipt, including failures. Default noncorrelated readiness unchanged. No privileges/tolerance/time-service change. This proves a selected readiness event was observed, not complete collection or future uptime.
+
+### Identified-readiness execution
+
+[Receipt](../output/engine2-identified-readiness-20260930.json): preflight passed without environment recovery; one trial only. Warmup PIDs 57/63 each had exactly one connect in their readiness snapshots. Only after second-canary validation did measured PIDs 69/75/81/87 run; all four uniquely matched and had zero-compatible clock ranges. Final capture 246 selected records, all six command connects uniquely observed, zero unassigned. Selected Redis identity stable; sensor removed; follow-up no acg-falco containers and timesyncd active, unchanged.
+
+This successful selected-command accounting does not establish full syscall completeness, eliminate startup variability, prove authentication or solve the historical clock discrepancy. Previous first-warmup misses remain preserved. Snapshot hashes identify the bytes read but snapshots are not separately retained, so they are not independently replayable artifacts; the final raw log is kept privately. Changes were to readiness validation, not longer waits, extra commands or retries.
+
+Tests: Windows 343/2.07 s, Linux 343/2.82 s, separate output/engine2-readiness-{windows,linux}-tests-20260930.xml. Five new readiness cases cover own-PID success, stale-only events, ambiguity, first-canary absence retained and missing callback IDs. Shared strict parser retains previous scope/schema rejection coverage. Ruff lint/format (66 files) and Windows pip check pass. Next: freeze this diagnostic protocol and predeclare a small repeated readiness/correlation evaluation, including missing/failed runs and collector counters; do not extrapolate one success into a completeness or performance claim.
+
 ## Predeclared follow-up: warmup accounting v2
 
 Next bounded run uses container_pid_connect_v2: the same fixed PID-print/exec helper also identifies each of the two warmup commands. No extra commands, privileges or raw fields; helper processing now affects warmup as well, so do not compare timing as unchanged instrumentation. Four measured commands retain the strict unique-match gate. Warmup results separately report unique_match, not_observed or ambiguous; absence does not automatically mean kernel drop or startup cause. All six IDs must be distinct; unknown PID connects counted separately. Even all six observed does not certify every syscall or full coverage. One fresh trial after preflight, no retries, no time-service changes. New path output/engine2-warmup-correlation-20260930.json; historical v1 evidence unchanged.

@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.deployment import local_daemon
 from cloudguard.workload import PROFILES, run as run_workload
-from cloudguard.correlation import parse_ping, correlate
+from cloudguard.correlation import parse_ping, correlate, connection_counts
 
 IMAGE = "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
 
@@ -48,7 +48,15 @@ def target_identity(container_id):
     return fields
 
 
-def await_canary(name, container_id, *, fixed_two=False, ping=None):
+def await_canary(
+    name,
+    container_id,
+    *,
+    fixed_two=False,
+    ping=None,
+    identified_pids=None,
+    evidence=None,
+):
     """Bounded fixed PING attempts; observed matching events, not mere liveness."""
     for attempt in range(1, 3 if fixed_two else 4):
         if command("inspect", "--format", "{{.State.Running}}", name) != "true":
@@ -61,15 +69,39 @@ def await_canary(name, container_id, *, fixed_two=False, ping=None):
         if fixed_two and pong != "PONG":
             raise ValueError("fixed warmup PING failed")
         time.sleep(1)
-        counts = summarize_events(command("logs", name), container_id)
+        log = command("logs", name)
+        counts = summarize_events(log, container_id)
+        identified_ready = True
+        if identified_pids is not None:
+            if not fixed_two or len(identified_pids) != attempt:
+                raise ValueError("identified readiness requires fixed two fresh IDs")
+            matches, unassigned = connection_counts(
+                log.encode("utf-8"), container_id, identified_pids
+            )
+            current = identified_pids[-1]
+            snapshot = dict(
+                attempt=attempt,
+                process_id=current,
+                connect_count=len(matches[current]),
+                unassigned_connect_count=unassigned,
+                snapshot_sha256=hashlib.sha256(log.encode("utf-8")).hexdigest(),
+            )
+            if evidence is not None:
+                evidence.append(snapshot)
+            if len(matches[current]) > 1:
+                raise ValueError("ambiguous identified canary")
+            identified_ready = len(matches[current]) == 1
         if (
             pong == "PONG"
             and (not fixed_two or attempt == 2)
             and counts.get("execve", 0) + counts.get("execveat", 0) > 0
             and counts.get("connect", 0) > 0
+            and identified_ready
         ):
             return dict(
-                status="matching_events_observed",
+                status="identified_canary_observed"
+                if identified_pids is not None
+                else "matching_events_observed",
                 canary_attempts=attempt,
                 causal_attribution="not_proven",
                 canary_included_in_capture=True,
@@ -254,6 +286,8 @@ def main():
             if args.correlate:
                 report["diagnostic_protocol"] = "container_pid_connect_v2"
                 report["warmup_process_ids"] = warmup_pids
+                report["readiness_protocol"] = "identified_second_canary_v1"
+                report["readiness_attempts"] = []
             report["readiness"] = await_canary(
                 name,
                 container_id,
@@ -261,6 +295,8 @@ def main():
                 ping=(lambda: identified_ping(container_id, warmup_pids))
                 if args.correlate
                 else None,
+                identified_pids=warmup_pids if args.correlate else None,
+                evidence=report.get("readiness_attempts"),
             )
             report["warmup_protocol"] = (
                 "two_pings_v1" if args.fixed_warmup else "adaptive_v1"

@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Identified readiness reuses the strict bounded correlation parser and requires the current second canary PID's unique successful connect, not arbitrary earlier events. Snapshot hashes/counts are preserved without exporting command text. No new privilege or network scope. PID matching remains non-authenticated and readiness is a point-in-time observation, not uptime/coverage assurance.
+
 Warmup v2 reuses the fixed PID-print/exec-PING helper for two readiness commands, without new exported fields or privileges. Diagnostic IDs must be six distinct positive integers; missing warmup remains visible. Recovery starts existing Docker/Redis only; no data reset or time-service changes. PIDs remain bounded local correlation, not authenticated identities.
 
 Opt-in PID diagnostic adds only proc.vpid, using a fixed non-user-interpolated shell program that prints its PID then execs loopback redis-cli PING. No command-line/environment/path output, extra capabilities, mounts, network endpoints or clock changes. Raw diagnostic logs remain ignored. Container/PID association is not authenticated and does not defeat PID reuse; ambiguity rejects the result. Ordinary adapter rejects the extra field and paired reports reject diagnostic receipts.

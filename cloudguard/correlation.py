@@ -19,25 +19,18 @@ def parse_ping(reply):
     return int(parts[0])
 
 
-def correlate(raw, container, pids, calls, *, warmup_pids=None):
+def connection_counts(raw, container, tracked):
+    """Strict shared parser for readiness snapshots and final correlation."""
     if not re.fullmatch(r"[a-f0-9]{64}", container):
         raise ValueError("full target identity required")
     if (
-        len(pids) != 4
-        or len(calls) != 4
-        or len(set(pids)) != 4
-        or any(type(p) is not int or p <= 0 for p in pids)
+        not tracked
+        or any(type(p) is not int or p <= 0 for p in tracked)
+        or len(set(tracked)) != len(tracked)
     ):
-        raise ValueError("four distinct measured process identities required")
+        raise ValueError("distinct positive process identities required")
     if len(raw) > 1_000_000:
         raise ValueError("oversized diagnostic log")
-    tracked = pids + (warmup_pids or [])
-    if warmup_pids is not None and (
-        len(warmup_pids) != 2
-        or any(type(p) is not int or p <= 0 for p in warmup_pids)
-        or len(set(tracked)) != 6
-    ):
-        raise ValueError("two distinct warmup IDs disjoint from measured IDs required")
     matches = {p: [] for p in tracked}
     unassigned = 0
     for line in raw.decode("utf-8").splitlines():
@@ -95,6 +88,15 @@ def correlate(raw, container, pids, calls, *, warmup_pids=None):
                 matches[pid].append(ns)
             else:
                 unassigned += 1
+    return matches, unassigned
+
+
+def correlate(raw, container, pids, calls, *, warmup_pids=None):
+    if len(pids) != 4 or len(calls) != 4:
+        raise ValueError("four distinct measured process identities required")
+    if warmup_pids is not None and len(warmup_pids) != 2:
+        raise ValueError("two warmup identities required")
+    matches, unassigned = connection_counts(raw, container, pids + (warmup_pids or []))
     rows = []
     for pid, call in zip(pids, calls):
         if len(matches[pid]) != 1:
@@ -143,6 +145,6 @@ def correlate(raw, container, pids, calls, *, warmup_pids=None):
         ]
         report["unassigned_connect_count"] = unassigned
         report["all_six_commands_uniquely_observed"] = all(
-            len(matches[p]) == 1 for p in tracked
+            len(matches[p]) == 1 for p in pids + warmup_pids
         )
     return report

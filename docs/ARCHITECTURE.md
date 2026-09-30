@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+Diagnostic readiness protocol identified_second_canary_v1 shares connection_counts parsing with final correlation. It records two bounded attempt snapshots and gates measured dispatch on the second canary's unique connect. Default noncorrelated readiness remains unchanged; existing latency-pilot exclusions still apply.
+
 Correlation v2 adds optional identified warmup callbacks and separate two-warmup/four-measured PID accounting. Default noncorrelated mode remains unchanged. Diagnostic output includes warmup statuses, unassigned connects and all-six flag; coverage stays unknown regardless of counts.
 
 cloudguard/correlation.py validates opt-in diagnostic PID/connect associations and per-call clock bounds. sensor_trial --correlate requires fixed warmup/ping_4 and adds proc.vpid only in that mode. It is separate diagnostic evidence, not runtime baseline input; paired_report excludes its receipts. Default capture schema remains unchanged.

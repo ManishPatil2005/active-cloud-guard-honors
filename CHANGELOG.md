@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Identified second-canary readiness
+
+- Share strict event parsing and require the second warmup PID's unique connect before measured dispatch; preserve attempt evidence.
+- One bounded trial observed all six selected command connects; no broader completeness claim or historical correction.
+- 343 tests each OS; no time-service change, extra privileges or retries.
+
 ## 2026-09-30 - Warmup PID accounting
 
 - Track two warmup identities separately, report missing/ambiguous associations and unassigned connects; preserve unknown coverage.

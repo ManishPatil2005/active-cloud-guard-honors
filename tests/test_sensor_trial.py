@@ -6,6 +6,63 @@ import pytest
 from scripts import sensor_trial
 
 
+@pytest.mark.parametrize(
+    "mode", ["ready", "stale_only", "ambiguous", "first_missing", "no_ids"]
+)
+def test_identified_readiness_requires_second_pid(monkeypatch, mode):
+    ids, evidence = [], []
+
+    def ping():
+        if mode != "no_ids":
+            ids.append(100 + len(ids))
+        return "PONG"
+
+    monkeypatch.setattr(
+        sensor_trial, "command", lambda *a: "true" if a[0] == "inspect" else "log"
+    )
+    monkeypatch.setattr(sensor_trial.time, "sleep", lambda _: None)
+    monkeypatch.setattr(
+        sensor_trial, "summarize_events", lambda *a: {"execve": 1, "connect": 1}
+    )
+
+    def matches(raw, container, tracked):
+        count = (
+            0
+            if mode == "stale_only" or (mode == "first_missing" and len(ids) == 1)
+            else 2
+            if mode == "ambiguous"
+            else 1
+        )
+        return {p: ([1] * count if p == tracked[-1] else [1]) for p in tracked}, 0
+
+    monkeypatch.setattr(sensor_trial, "connection_counts", matches)
+    if mode in {"ready", "first_missing"}:
+        result = sensor_trial.await_canary(
+            "sensor",
+            "a" * 64,
+            fixed_two=True,
+            ping=ping,
+            identified_pids=ids,
+            evidence=evidence,
+        )
+        assert result["status"] == "identified_canary_observed"
+        assert len(evidence) == 2
+        assert evidence[-1]["process_id"] == 101
+        if mode == "first_missing":
+            assert evidence[0]["connect_count"] == 0
+    else:
+        with pytest.raises(ValueError):
+            sensor_trial.await_canary(
+                "sensor",
+                "a" * 64,
+                fixed_two=True,
+                ping=ping,
+                identified_pids=ids,
+                evidence=evidence,
+            )
+    assert len(ids) <= 2
+
+
 def test_fixed_canaries_use_identity_callback(monkeypatch):
     ids = []
 
