@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+Latest repeatability check: **351 software tests pass on each OS**. We planned three identical trials, but a path-handling error stopped the batch after the first passed. The other two never started. We preserved the incomplete study and improved the runner; we did not rerun until obtaining a favorable result. One successful run is not proof of repeatability. See [study record](READINESS_REPEATS.md).
+
 Latest readiness improvement: **343 tests pass on both operating systems**. Measurement now waits for evidence belonging specifically to the second preparation PING, rather than accepting any earlier activity. One new trial observed both preparation PINGs and all four measured PINGs. This is a successful six-command check, not proof of complete monitoring. Earlier misses remain documented; next is a fixed repeated evaluation rather than declaring the problem permanently solved.
 
 Latest progress: **338 tests pass on both operating systems**. We now track the two preparation PINGs separately. The new trial found no connection record for the first preparation command, but found the second and all four measured commands. This identifies where the gap occurred in this trial, not its cause; overall completeness is still unproven. Docker/Redis needed restarting before the test; nothing was recreated or deleted. Next is stricter sensor-readiness checking. See [detailed diagnostic](PID_CORRELATION.md).

@@ -1,5 +1,13 @@
 # Work log
 
+## WL-027 - 2026-09-30 - Frozen three-trial study stopped after one accepted run
+
+E2-015: predeclared READINESS_REPEATS.md, built bounded runner with source hashes, fixed three slots, acceptance gates, identity/cleanup checks, no retries and preserved failures. Exact execution: wsl -d ACG-Research -u acgresearch --cd '/mnt/d/research f1' --exec /home/acgresearch/acg-venv/bin/python scripts/repeat_readiness.py --output-dir output/engine2-readiness-repeats-20260930. Trial 1 accepted; Path.resolve for trial 2 raised FileNotFoundError before child creation; remaining study stopped. One launched, two not launched. Manifest's historical count semantics defect preserved and explained; future child_started accounting fixed. Absolute output root now resolved once before batch. No empirical rerun after mitigation. INC-031 unresolved root cause.
+
+Follow-up confirmed no sensor containers, active timesyncd and currently accessible WSL cwd. Trial 1 first-warmup missing, second and all four measured IDs matched with zero-compatible ranges. Offline raw hash selection plus correlate reproduced receipt exactly. scripts/sensor_metrics_report.py reduced hash-matched metrics into trial-1-metrics.json: 16 snapshots, 13,909 event delta, zero reported drops. No full coverage or three-run success claim. No clock/service changes, environment reset or baseline fitting.
+
+Final commands: .venv/Scripts/python.exe -m pytest -q --junitxml=output/engine2-repeat-windows-tests-20260930.xml (351/2.13 s); Linux same suite via WSL prefix with -o cache_dir=/home/acgresearch/.cache/acg-pytest and Linux XML (351/3.18 s). Ruff check/format (68 files), Windows pip check passed. Eight new cases; historical fixture acceptance is not fresh sensor evidence. Publication checker and staged review precede commit; verify remote after push. Next: separately recorded repeatability batch only after runner/preflight validation; no silent replacement of this incomplete study.
+
 ## WL-026 - 2026-09-30 - Gate measurement on identified second canary
 
 E2-014: shared the strict diagnostic parser between readiness and final correlation. Diagnostic mode now requires exactly one connect for the second issued warmup PID, after exactly two fixed attempts. Unrelated/stale-only events cannot grant readiness, duplicate current PID matches abort, missing first evidence remains. Retained per-attempt PID/count/hash even on later failure. Default noncorrelated path unchanged. Predeclared in PID_CORRELATION.md; no new fields/privileges/clock changes.

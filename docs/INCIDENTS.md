@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-031 - 2026-09-30 - Repeat runner path resolution fails before second child
+
+After trial 1 accepted, Path.resolve of trial-2 output raised FileNotFoundError in POSIX abspath, before subprocess.run. Manifest saved; no trial-2 receipt or child launched, third skipped. Follow-up WSL pwd/ls succeeded, no sensors remain, timesyncd active. High confidence in immediate failing operation; underlying transient cwd cause unproven. Mitigation: resolve destination once before collection, then use absolute paths; not experimentally revalidated. Also fixed future not_run accounting using child_started; original manifest not_run=1 counted untouched slots, while correct unlaunched total is two. Historical evidence untouched. Mock launch/timeout tests pass; complete repeated study still pending. No favorable retry or clock/environment reset.
+
 ### INC-030 - 2026-09-30 - Docker unavailable before warmup diagnostic
 
 Preflight failed before launching a sensor or creating trial output. Windows Docker Linux-engine pipe absent; WSL docker command unavailable; Docker Desktop status unavailable. High confidence daemon unavailable then, underlying stop cause unknown. Started existing Docker Desktop; Redis found exited 255, cause unknown. Started only existing Redis through compose start redis (no recreation/data deletion). Preflight then passed; one intended sensor run succeeded. New start time retained, so conditions differ from prior captures. No claim of environment stability or root-cause repair; reproducibility limit documented.

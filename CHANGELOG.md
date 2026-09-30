@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-30 - Fixed repeatability study and retained interruption
+
+- Added fixed three-trial orchestration, source hashes and conservative acceptance/abort rules.
+- Preserved one accepted trial followed by pre-launch path failure; two trials not launched, no replacement runs.
+- Resolve output destination before collection and distinguish future launch accounting; 351 tests each OS. No completed repeatability claim.
+
 ## 2026-09-30 - Identified second-canary readiness
 
 - Share strict event parsing and require the second warmup PID's unique connect before measured dispatch; preserve attempt evidence.

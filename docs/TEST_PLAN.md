@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Repeat runner: 351 tests each OS; output/engine2-repeat-{windows,linux}-tests-20260930.xml. Eight additions cover acceptance regressions and mocked launch/timeout abort accounting. One live trial accepted before orchestration path failure; remaining two not launched. This is not a completed repeatability evaluation. See READINESS_REPEATS.md.
+
 Identified readiness: 343 tests each OS; output/engine2-readiness-{windows,linux}-tests-20260930.xml. Five new cases reject stale-only/ambiguous/missing IDs and retain first-canary absence. Live readiness plus all six selected command connections observed once; no general completeness or repeated stability established.
 
 Warmup v2: 338 tests each OS, output/engine2-warmup-{windows,linux}-tests-20260930.xml. Six new cases cover missing/ambiguous/all matched warmup, invalid overlaps/booleans and fixed two callback uses. Live first warmup absent, remaining five PIDs matched. Passing measured correlation does not imply all-six capture; see PID_CORRELATION.md.

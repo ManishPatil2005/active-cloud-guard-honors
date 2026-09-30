@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest evaluation: [three-trial repeatability study](READINESS_REPEATS.md), interrupted before the second launch; negative result and runner mitigation preserved.
+
 Latest sensor diagnostic: [process-ID correlation](PID_CORRELATION.md), including successful measured matches and remaining warmup coverage uncertainty.
 
 Latest diagnostic: [Redis-to-harness clock bridge](CLOCK_BRIDGE.md), a bounded live read-only check, not Falco calibration.

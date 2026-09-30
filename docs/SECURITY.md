@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Repeat runner keeps existing sensor permissions/duration and uses fixed child arguments only. Three planned trials maximum, pre/post local readiness, no replacements or clock changes. Source/receipt hashes are integrity metadata, not authentication. On timeout the sensor watchdog still applies; inspect cleanup before any further workload. Raw logs remain excluded.
+
 Identified readiness reuses the strict bounded correlation parser and requires the current second canary PID's unique successful connect, not arbitrary earlier events. Snapshot hashes/counts are preserved without exporting command text. No new privilege or network scope. PID matching remains non-authenticated and readiness is a point-in-time observation, not uptime/coverage assurance.
 
 Warmup v2 reuses the fixed PID-print/exec-PING helper for two readiness commands, without new exported fields or privileges. Diagnostic IDs must be six distinct positive integers; missing warmup remains visible. Recovery starts existing Docker/Redis only; no data reset or time-service changes. PIDs remain bounded local correlation, not authenticated identities.

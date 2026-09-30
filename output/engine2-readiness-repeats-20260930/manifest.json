@@ -1,0 +1,31 @@
+{
+  "executed_at": "2026-09-30T17:00:40.616374+00:00",
+  "protocol": "three_readiness_trials_v1",
+  "planned_trials": 3,
+  "trials": [
+    {
+      "trial": 1,
+      "status": "accepted",
+      "exit_code": 0,
+      "receipt_sha256": "d2fa814d60b22a033476b6bbf49dfbc789726ec6440cf1dc25a6aacf68b26475",
+      "all_six_commands_uniquely_observed": false
+    },
+    {
+      "trial": 2,
+      "status": "failed"
+    }
+  ],
+  "status": "failed",
+  "source_sha256": {
+    "scripts/sensor_trial.py": "c6ff677cb293c67bb7d6fa74b8c247285747ac7b0c058a08d57b3f2b88273236",
+    "cloudguard/correlation.py": "e132d999ba4c7c5352595fe56b9b73205567d4489c681473d4a689371a71ede0",
+    "cloudguard/workload.py": "92f091f7ac030f67c797ec7474b413a0fd563cf7e8bcf2a29afcb87bfd3775dd",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc",
+    "testbed/falco-trial.yaml": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+    "scripts/repeat_readiness.py": "bf5e7dfd64d9231ff36b7fd5a39a63e35effc3d39bf186d7efb2e6f5936bb48e"
+  },
+  "independent_evaluation": false,
+  "phase": "trial_2",
+  "error_type": "FileNotFoundError",
+  "not_run_trials": 1
+}
