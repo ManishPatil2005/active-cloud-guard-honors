@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest result: [recorded collector-on boot/TIME follow-up](RECORDED_BOOT_CLOCK_FOLLOWUP.md), one compatible 27-sample trial. Exploratory between-run relationship change (+123.10316 s) remains unexplained; long-term timing gate still open (INC-034).
+
 Latest implementation/protocol: [collector-on boot/TIME recording](RECORDED_BOOT_CLOCK_FOLLOWUP.md), native endpoints retained before rejection; one new bounded follow-up predeclared, live pending at this checkpoint.
 
 Latest observation: [sensor-free TIME result](SENSOR_FREE_TIME_ATTEMPTS.md), one run six accepted reads; full offline consistency checks passed. No rejection reproduced or Falco alignment conclusion; timing gate remains open.

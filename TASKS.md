@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, E2-019 live diagnostic aborted, E2-021 sensor-free run passed. Latest E2-022 instrumentation software-tested/live pending; collector cause remains open.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Repeatability gate failed at E2-016; latest E2-022 single v2 diagnostic compatible, but exploratory between-run boot/wall relationship change leaves long-term timing/cause open.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -56,4 +56,4 @@ Status as of 2026-10-05. Completed means the stated acceptance criterion was met
 | E2-020 | Preserve rejected server-time bracket evidence | Implemented/software-tested | 414 tests each OS; saved sanitized stage/samples/comparison/rejection flags and response hash, no raw messages/replies. Gate/limits unchanged; seven failure regressions. No live rerun; old receipt immutable. Next separately declared sensor-free bracket diagnostics; INC-033 evidence fix not live-validated |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |
 | E2-021 | Sensor-free TIME failure diagnosis | Implemented/tested/live-observed, bounded | 421 tests each OS; one new run six accepted reads/five gaps, no rejection reproduced. Sources/response hashes/brackets/identity verified offline; no sensor/clock changes. Historical cause/Falco timing unresolved; SENSOR_FREE_TIME_ATTEMPTS.md. Next reviewed collector-on diagnostic with richer rejection evidence, not ML acceptance |
-| E2-022 | Collector-on TIME boot-endpoint evidence | Implemented/software-tested; live pending | 428 tests each OS; boot_v2 records native TIME endpoints before rejection; complete 27-sample protocol. One new bounded attempt declared in RECORDED_BOOT_CLOCK_FOLLOWUP.md; no correction, clock changes or old evidence replacement |
+| E2-022 | Collector-on TIME boot-endpoint evidence | Implemented/tested/live-observed, bounded | 428 tests each OS; one compatible four-PING/eight-TIME/27-sample v2 trial, offline checks/metrics/cleanup passed. Exploratory +123.10316 s prelaunch relationship difference vs E2-019; cause unobserved (INC-034). RECORDED_BOOT_CLOCK_FOLLOWUP.md; clock-lineage/stability/ML gates remain open |

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Preserve compatible collector diagnostic and exploratory clock change
+
+- Execute one declared boot_v2 trial: four unique measured PINGs, eight TIME brackets and 27 native samples compatible; sources/raw/response hashes and summaries checked offline.
+- Record 708 events, retained auxiliary connects, 16 collector snapshots/zero reported drops without coverage claims; sensor removed/time service unchanged.
+- Preserve exploratory +123.10316 s cross-receipt boot/wall relationship difference and limited history checks (INC-034). No causal fix, stable-clock/accuracy claim, retries or corrected historical evidence.
+
 ## 2026-10-05 - Record native boot endpoints around sensor-on TIME validation
 
 - Boot mode saves TIME boot/realtime endpoints before validation, including rejected clock brackets; safe stages retain early sampling failures.

@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-034 - 2026-10-05 - Native boot/wall relationship differs across receipts
+
+**Symptom/evidence:** exploratory post-run comparison of E2-019 07:43:31 and E2-022 08:26:18 prelaunch sandwiches yields +123103159572 to +123103161432 ns realtime-minus-boot change. Both bounds revalidate; recorded harness namespace/zero offsets/shared boot SHA and boot sampler source hash equal. New run has 27 within-run zero-compatible changes and four compatible event matches. Review binds both receipts; source/raw/summaries checked. High confidence in arithmetic/recorded endpoint difference, not authenticated global clock history or matched-protocol research confirmation.
+
+**Cause confidence:** exact change time/direction of individual clock adjustments and host/VM pause/suspend/NTP mechanism unknown. No continuous samples between receipts, no actual collector calibration value, no proven causal link to earlier ~1 s event lag. Narrow sufficient-permission timesyncd journal query (07:40–08:28 UTC) returned no entries; Windows Kernel-Power IDs 42/107/506/507 returned NoMatchingEventsFound. These absences cannot exclude adjustment/pause, log loss or other synchronization paths. Initial ordinary-user journal limited visibility, handled read-only with sufficient-permission repeat.
+
+**Response/verification:** preserve both original receipts/hashes and exploratory limits; no correction, retry, service/Windows/kernel settings change or WSL reset. New sensor removed, time service active/unchanged, preflight passed. No fix or long-term stability claim; INC-032 and original rejected-read cause remain open. Next reviewed host/WSL/native clock-lineage diagnostic, before baseline/ML acceptance. Raw collector data remain ignored/local; observed within-run compatibility is not independent accuracy or full coverage.
+
 ### INC-033 follow-up - 2026-10-05 - Separate sensor-free run does not reproduce rejection
 
 E2-021 ran once with shared sanitized recording, six reads/five fixed gaps, all accepted. Round trips 53.7–85.6 ms, max disagreement 343 ns; full brackets/source/response hashes/order/identity reproduced offline. Success recording path live-observed, failure paths remain unit-tested only. Different later sensor-free conditions cannot identify the earlier combined gate's trigger or restore lost inputs; cause confidence for original failure unchanged. Known sensors absent, timesyncd active/unchanged, no retry/service change. Original failed receipt hash unchanged. INC-032/Falco timing and repeatability remain unresolved; no causal fix, corrected baseline or full stability claim. Next separately reviewed collector-on protocol with retained failed inputs.

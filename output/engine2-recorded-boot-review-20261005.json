@@ -1,0 +1,43 @@
+{
+  "evidence_level": "offline_consistency_review",
+  "trial": "output/engine2-recorded-boot-clock-20261005.json",
+  "receipt_sha256": "1907d019f9555b81ee4ceaab7129d27ca236e49b87cedd8728b152ba87863fff",
+  "implementation_commit": "82e2a5a092e546454553c707c16c03ea2ea87280",
+  "sources_verified": 7,
+  "raw_hash_verified": true,
+  "correlation_reproduced": true,
+  "server_summary_reproduced": true,
+  "original_11_sample_boot_summary_reproduced": true,
+  "time_attempts_verified": 8,
+  "native_samples_verified": 27,
+  "native_change_union_from_prelaunch_ns": [-1380, 1826],
+  "native_samples_zero_compatible": 27,
+  "time_round_trip_range_ns": [52400758, 65822963],
+  "time_max_absolute_clock_disagreement_ns": 231,
+  "event_count": 708,
+  "connect_count": 14,
+  "unassigned_connect_count": 8,
+  "exploratory_cross_receipt_comparison": {
+    "historical_receipt": "output/engine2-boot-clock-20261005.json",
+    "historical_receipt_sha256": "754c29d9e63b9a13ab455b0bcb829a5ed340b0c1c8f70d1bdfe024c25fbecddb",
+    "prelaunch_offset_change_lower_ns": 123103159572,
+    "prelaunch_offset_change_upper_ns": 123103161432,
+    "harness_namespace_facts_equal": true,
+    "boot_sampler_source_hash_equal": true,
+    "predeclared_confirmatory_result": false,
+    "change_time_and_cause_observed": false,
+    "causal_link_to_historical_event_lag_proven": false
+  },
+  "read_only_history_checks": {
+    "interval_utc": ["2026-10-05T07:40:00Z", "2026-10-05T08:28:00Z"],
+    "timesyncd_system_journal_matching_entries": 0,
+    "windows_kernel_power_ids_queried": [42, 107, 506, 507],
+    "windows_query_error_id": "NoMatchingEventsFound,Microsoft.PowerShell.Commands.GetWinEventCommand",
+    "no_adjustment_or_pause_proven": false
+  },
+  "collector_calibration_value_observed": false,
+  "correction_applied": false,
+  "independent_evaluation": false,
+  "coverage": "partial_or_unknown",
+  "historical_cause_resolved": false
+}
