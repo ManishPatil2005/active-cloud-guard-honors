@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-029 - 2026-10-05 - Measure native boot relationship with explicit comparability gates
+
+Use opt-in native CLOCK_BOOTTIME/REALTIME sandwiches instead of monotonic substitution or a fitted timestamp shift. Require same local boot hash, zero namespace offsets, active/children equality and endpoint continuity; Linux source shows proc offsets use children namespace. Namespace IDs may differ across unshifted domains. Prelaunch/readiness only bracket initialization, not actual stored calibration value. Keep one declared bounded diagnostic separate from implementation and legacy repeat/latency protocols; preserve failure without replacement. Existing stack/permissions unchanged; 407 tests each OS, live execution pending at this decision checkpoint. No new authority to change clocks or make independent accuracy claims.
+
 ## ADR-028 - 2026-10-05 - Source-backed hypothesis before clock intervention
 
 Inspect pinned collector --version with all capabilities dropped and network/filesystem writes disabled, then hash allowlisted immutable official release files. Do not execute downloaded code or upgrade/rebuild the collector incidentally. Separate binary metadata, release-source mechanism and experimentally proven cause; matching version/digest is not reproducible-build attestation. Initialization calibration plus live boot-time formula motivates direct realtime/boot sampling, not a fitted correction or permanent NTP changes. Preserve source hashes/negative captures; default engines and architecture unchanged.

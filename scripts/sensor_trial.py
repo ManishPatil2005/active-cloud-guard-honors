@@ -5,6 +5,7 @@ from collections import Counter
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -19,6 +20,7 @@ from cloudguard.workload import PROFILES, run as run_workload
 from cloudguard.correlation import parse_ping, correlate, connection_counts
 from cloudguard.clock_check import sample, compare
 from cloudguard.clock_domains import redis_bracket, summarize as summarize_clocks
+from cloudguard import boot_clock
 
 IMAGE = "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
 
@@ -147,7 +149,7 @@ def rules(container_id, *, correlation=False):
     )
 
 
-def clocked_ping(container_id, pids, observations):
+def clocked_ping(container_id, pids, observations, *, boot=False):
     """Opt-in TIME/PING/TIME diagnostic; preserve partial observations on failure."""
     observation = {}
     observations.append(observation)
@@ -167,13 +169,43 @@ def clocked_ping(container_id, pids, observations):
         return redis_bracket(first, sample(), reply)
 
     observation["before"] = server_time()
+    if boot:
+        observation["boot_before"] = boot_clock.sample()
     first = sample()
     identified_ping(container_id, pids)
     last = sample()
     observation["process_id"] = pids[-1]
     observation["ping_clock"] = dict(first=first, last=last, **compare(first, last))
+    if boot:
+        observation["boot_after"] = boot_clock.sample()
     observation["after"] = server_time()
     return "PONG"
+
+
+def time_domain(container=None):
+    if container is None:
+        values = [os.readlink("/proc/self/ns/time")]
+        children = os.readlink("/proc/self/ns/time_for_children")
+        values += [
+            Path(p).read_text().strip()
+            for p in ("/proc/self/timens_offsets", "/proc/sys/kernel/random/boot_id")
+        ]
+    else:
+        if not re.fullmatch(r"[a-f0-9]{64}", container):
+            raise ValueError("full lab/sensor container identity required")
+        values = [command("exec", container, "readlink", "/proc/self/ns/time")]
+        children = command(
+            "exec", container, "readlink", "/proc/self/ns/time_for_children"
+        )
+        values += [
+            command("exec", container, "cat", p)
+            for p in ("/proc/self/timens_offsets", "/proc/sys/kernel/random/boot_id")
+        ]
+    if children != values[0]:
+        raise ValueError("time namespace differs from children; offsets ambiguous")
+    return dict(
+        boot_clock.namespace_facts(*values), time_namespace_for_children=children
+    )
 
 
 def summarize_events(stdout, container_id):
@@ -212,11 +244,14 @@ def main():
     parser.add_argument("--fixed-warmup", action="store_true")
     parser.add_argument("--correlate", action="store_true")
     parser.add_argument("--clock-domains", action="store_true")
+    parser.add_argument("--boot-clock", action="store_true")
     args = parser.parse_args()
     if args.correlate and (args.profile != "ping_4" or not args.fixed_warmup):
         parser.error("correlation requires ping_4 and fixed warmup")
     if args.clock_domains and not args.correlate:
         parser.error("clock domains requires correlated fixed ping_4")
+    if args.boot_clock and not args.clock_domains:
+        parser.error("boot clock requires clock domains mode")
     report = dict(
         executed_at=datetime.now(timezone.utc).isoformat(),
         image=IMAGE,
@@ -238,6 +273,13 @@ def main():
         report["clock_domain_source_sha256"] = {
             p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources
         }
+        if args.boot_clock:
+            report["clock_domain_source_sha256"]["cloudguard/boot_clock.py"] = (
+                hashlib.sha256(
+                    (ROOT / "cloudguard/boot_clock.py").read_bytes()
+                ).hexdigest()
+            )
+            sources.append("cloudguard/boot_clock.py")
     with Path(args.output).open("x", encoding="utf-8") as destination:
         name = "acg-falco-" + uuid.uuid4().hex
         started = False
@@ -256,6 +298,12 @@ def main():
                 raise ValueError("one running lab Redis required")
             container_id = ids[0]
             report["target_identity_before"] = target_identity(container_id)
+            if args.boot_clock:
+                report["time_domains_before"] = [
+                    time_domain(),
+                    time_domain(container_id),
+                ]
+                report["boot_clock_snapshots"] = []
             raw_dir = ROOT / "output/runtime-raw" / name
             raw_dir.mkdir(parents=True, exist_ok=False)
             rule_path = raw_dir / "rules.yaml"
@@ -271,6 +319,10 @@ def main():
             )
             # No socket or host /etc access. Filters minimize output, not kernel visibility.
             # Attempt cleanup even if the client times out after daemon-side creation.
+            if args.boot_clock:
+                report["boot_clock_snapshots"].append(
+                    dict(phase="before_sensor_launch", sample=boot_clock.sample())
+                )
             started = True
             sensor_id = command(
                 "run",
@@ -327,6 +379,12 @@ def main():
             if not re.fullmatch("[a-f0-9]{64}", sensor_id):
                 raise ValueError("unexpected sensor ID")
             report["sensor_container_id"] = sensor_id
+            if args.boot_clock:
+                report["boot_clock_snapshots"].append(
+                    dict(phase="after_sensor_launch", sample=boot_clock.sample())
+                )
+                report["time_domains_before"].append(time_domain(sensor_id))
+                boot_clock.checked_domains(report["time_domains_before"])
             time.sleep(1)
             warmup_pids = []
             if args.correlate:
@@ -335,6 +393,8 @@ def main():
                     if args.clock_domains
                     else "container_pid_connect_v2"
                 )
+                if args.boot_clock:
+                    report["diagnostic_protocol"] = "container_pid_connect_boot_v1"
                 report["warmup_process_ids"] = warmup_pids
                 report["readiness_protocol"] = "identified_second_canary_v1"
                 report["readiness_attempts"] = []
@@ -351,6 +411,10 @@ def main():
             report["warmup_protocol"] = (
                 "two_pings_v1" if args.fixed_warmup else "adaptive_v1"
             )
+            if args.boot_clock:
+                report["boot_clock_snapshots"].append(
+                    dict(phase="after_readiness", sample=boot_clock.sample())
+                )
             # Guard interval separates dispatches, not proven causal event ownership.
             time.sleep(1)
             report["workload_executed"] = True
@@ -366,7 +430,10 @@ def main():
                 if args.clock_domains:
                     try:
                         return clocked_ping(
-                            container_id, pids, report["clock_domain_samples"]
+                            container_id,
+                            pids,
+                            report["clock_domain_samples"],
+                            boot=args.boot_clock,
                         )
                     finally:
                         report["correlation_process_ids"] = list(pids)
@@ -381,6 +448,15 @@ def main():
             if report["measurement"]["status"] != "completed":
                 raise ValueError("measured workload failed or timing outside tolerance")
             report["workload_result"] = "PONG"
+            if args.boot_clock:
+                report["time_domains_after"] = [
+                    time_domain(),
+                    time_domain(container_id),
+                    time_domain(sensor_id),
+                ]
+                boot_clock.checked_domains(report["time_domains_after"])
+                if report["time_domains_before"] != report["time_domains_after"]:
+                    raise ValueError("time domains changed during diagnostic")
             command("wait", name, timeout=32)
             report["target_identity_after"] = target_identity(container_id)
             report["target_identity_stable"] = (
@@ -434,6 +510,12 @@ def main():
                     report["clock_domain_summary"] = summarize_clocks(
                         report["clock_domain_samples"], report["correlation"]
                     )
+                    if args.boot_clock:
+                        report["boot_clock_summary"] = boot_clock.summarize(
+                            report["boot_clock_snapshots"],
+                            report["clock_domain_samples"],
+                            report["correlation"],
+                        )
                     if report["clock_domain_source_sha256"] != {
                         p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
                         for p in sources

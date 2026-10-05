@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+sensor_trial --boot-clock requires the separate clock-domain diagnostic. cloudguard/boot_clock.py brackets native CLOCK_REALTIME with CLOCK_BOOTTIME, recomputes saved bounds and reports offset-change/event-implied ranges, never correction or scoring. Fixed proc reads gate active/children namespaces, zero offsets and shared boot-ID hash; facts must remain unchanged. Eleven sandwiches, seven frozen source hashes and distinct container_pid_connect_boot_v1 label; default engines unchanged. Extra proc execs perturb workload, so no latency/baseline reuse. Existing sensor duration/permissions retained; BOOT_CLOCK_DIAGNOSTIC.md.
+
 scripts/collector_source_check.py is a separate metadata/source reviewer: existing pinned image --version with no capabilities/network/mounts and read-only filesystem, followed by bounded HTTPS reads of six official immutable release files. Records hashes/versions/marker lines, never runs downloaded source or loads a sensor. No engine or clock-correction path; matching releases are not build attestation. See COLLECTOR_TIMESTAMP_REVIEW.md.
 
 Opt-in sensor_trial --clock-domains adds eight fixed Redis TIME reads around four precisely bracketed identified PINGs. cloudguard/clock_domains.py shares Redis bracket arithmetic with clock_bridge and produces separate server/harness and collector/server diagnostic bounds, without correction/score. Distinct container_pid_connect_clock_v1 receipts cannot enter repeat acceptance/latency pairing; ordinary sensor path unchanged. Extra TIME events/unassigned counts retained. Source hashes freeze this diagnostic; no new permissions or permanent collector. See CLOCK_DOMAINS.md.

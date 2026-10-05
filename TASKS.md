@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, latest source review is E2-018.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, latest implementation is E2-019 (live diagnostic pending).
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -52,4 +52,5 @@ Status as of 2026-10-05. Completed means the stated acceptance criterion was met
 | E2-017 | Same-trial server/harness/collector timing diagnostic | Implemented/tested/live-observed; cause unresolved | Eight TIME brackets include zero; four PING event times exclude both harness/server brackets. 368 tests each OS, offline source/raw/summary check; no offset correction or stability claim. CLOCK_DOMAINS.md / INC-032; inspect pinned collector timestamp path next |
 | E2-018 | Pinned collector metadata and timestamp-source review | Reviewer implemented/tested; source-reviewed | Exact local versions and six official release-file hashes recorded. Initialization boot-offset plus kernel boot time mechanism identified; drift is hypothesis, not measured cause. 378 tests each OS. COLLECTOR_TIMESTAMP_REVIEW.md; next realtime/boot sampling design, no sensor/clock change |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Replay foundation plus bounded live sensor smoke; normalized live integration and ML gates remain open |
+| E2-019 | Namespace-gated boot/realtime diagnostic | Implemented/software-tested; live pending | 407 tests each OS; native boot sandwiches and explicit namespace/boot identity gates, no correction. One new bounded trial predeclared; BOOT_CLOCK_DIAGNOSTIC.md. Calibration value/cause unobserved; timing gate remains open |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |

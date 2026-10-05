@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest implementation: [namespace-gated boot-clock diagnostic](BOOT_CLOCK_DIAGNOSTIC.md), 407 tests each OS; one live trial predeclared, not yet executed at this checkpoint. Timing gate remains open.
+
 Latest source review: [pinned collector timestamp path](COLLECTOR_TIMESTAMP_REVIEW.md), initialization boot-offset mechanism traced; causal drift still unproven, no clock intervention.
 
 Latest diagnostic: [same-trial clock-domain comparison](CLOCK_DOMAINS.md), server/harness compatible but four collector events outside both brackets; collector cause still unresolved.
@@ -32,6 +34,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Runtime workload protocol](RUNTIME_WORKLOAD_PROTOCOL.md) | Fixed measured profiles, timing gates, preserved pilot failure and next control experiments |
 | [Clock and controls](CLOCK_AND_CONTROLS.md) | Bracketed diagnostics, reproduced timing failure and deferred sensor-off controls |
 | [Clock domains](CLOCK_DOMAINS.md) | Opt-in server TIME/PING/TIME diagnostic, precise event bounds and preserved negative result |
+| [Boot-clock diagnostic](BOOT_CLOCK_DIAGNOSTIC.md) | Native boot/realtime sandwiches, namespace comparability gates and separate single-trial protocol |
 | [Collector timestamp review](COLLECTOR_TIMESTAMP_REVIEW.md) | Pinned local versions, official source hashes, timestamp mechanism and unproven cause |
 | [Time-sync diagnosis](TIME_SYNC_DIAGNOSIS.md) | Read-only evidence of competing synchronization paths and proposed reversible test |
 | [Paired pilot](PAIRED_PILOT.md) | Fixed warm-up, comparison guards, aborted batch and prerequisite recovery |

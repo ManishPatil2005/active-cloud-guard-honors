@@ -1,5 +1,9 @@
 # Evidence index
 
+## Boot-clock implementation (2026-10-05)
+
+[Protocol](BOOT_CLOCK_DIAGNOSTIC.md), software [Windows](../output/engine2-boot-clock-implementation-windows-tests-20261005.xml) / [Linux](../output/engine2-boot-clock-implementation-linux-tests-20261005.xml): 407 each. Native clock/namespace validation is software-tested; a live boot-clock trial has not run at this checkpoint. No corrected timestamp, causal or independent evaluation claim.
+
 ## Pinned collector source review (2026-10-05)
 
 [Review](COLLECTOR_TIMESTAMP_REVIEW.md), [metadata/source receipt](../output/engine2-collector-source-review-20261005.json), software [Windows](../output/engine2-collector-review-windows-tests-20261005.xml) / [Linux](../output/engine2-collector-review-linux-tests-20261005.xml): 378 each. Local Falco/libs versions, immutable upstream URLs, hashes and line markers; no copied/executed upstream source. Initialization-offset mechanism reviewed, not proven experimental cause or binary-source attestation. No new sensor/clock intervention.

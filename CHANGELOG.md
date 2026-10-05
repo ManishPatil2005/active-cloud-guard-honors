@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Implement namespace-gated boot-clock diagnostic
+
+- Add opt-in native boot/realtime brackets at launch/readiness and around four identified PINGs, with saved-bound recomputation and no timestamp correction.
+- Require active/children namespace agreement, zero offsets, shared kernel boot hash and unchanged endpoint facts. Default engines, permissions, watchdog and earlier evidence unchanged.
+- Predeclare one separate live diagnostic; not executed at this implementation checkpoint. 407 tests each OS; documentation and exact test receipts preserved.
+
 ## 2026-10-05 - Review pinned collector timestamp generation
 
 - Add bounded metadata/source reviewer: capability-free read-only version container, immutable official source URLs/hashes, size/marker/release checks and failure preservation.
