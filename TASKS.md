@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Repeatability gate failed at E2-016; latest E2-022 single v2 diagnostic compatible, but exploratory between-run boot/wall relationship change leaves long-term timing/cause open.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Repeatability gate failed at E2-016; latest E2-023 sensor-free lineage found a host/guest advance discrepancy, cause unproven; timing/stability/ML remain open.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -57,4 +57,4 @@ Status as of 2026-10-05. Completed means the stated acceptance criterion was met
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |
 | E2-021 | Sensor-free TIME failure diagnosis | Implemented/tested/live-observed, bounded | 421 tests each OS; one new run six accepted reads/five gaps, no rejection reproduced. Sources/response hashes/brackets/identity verified offline; no sensor/clock changes. Historical cause/Falco timing unresolved; SENSOR_FREE_TIME_ATTEMPTS.md. Next reviewed collector-on diagnostic with richer rejection evidence, not ML acceptance |
 | E2-022 | Collector-on TIME boot-endpoint evidence | Implemented/tested/live-observed, bounded | 428 tests each OS; one compatible four-PING/eight-TIME/27-sample v2 trial, offline checks/metrics/cleanup passed. Exploratory +123.10316 s prelaunch relationship difference vs E2-019; cause unobserved (INC-034). RECORDED_BOOT_CLOCK_FOLLOWUP.md; clock-lineage/stability/ML gates remain open |
-| E2-023 | Read-only Windows/WSL clock lineage | Implemented/software-tested; live pending | 455 tests each OS, 27 additions. CLOCK_LINEAGE.md: fixed sixteen native snapshots, delay-aware host intervals, strict sources/domains, sanitized first-failure receipt and offline recomputation. One observation pending after implementation publication; no clock intervention/correction or historical-cause/stability claim |
+| E2-023 | Read-only Windows/WSL clock lineage | Implemented/tested/live-observed; discrepancy retained | 455 tests each OS/27 additions; one run sixteen packets, complete offline consistency checks. 13/15 host/guest elapsed ranges exclude zero, final boot gap 0.701–1.024 s; native wall/boot/mono relationships sampled stable. INC-036 / CLOCK_LINEAGE.md; no intervention/correction or cause/stability claim. Next read-only provider/discipline facts then separately declared stability design |

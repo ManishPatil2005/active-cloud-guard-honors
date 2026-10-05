@@ -1,5 +1,9 @@
 # Evidence index
 
+## Sensor-free Windows/WSL lineage observation (2026-10-05)
+
+[Receipt](../output/engine2-clock-lineage-20261005.json), [offline review](../output/engine2-clock-lineage-review-20261005.json), [protocol/result](CLOCK_LINEAGE.md). One sixteen-packet run; four sources/all native+host samples/domains/gaps/gates/intervals checked. 13/15 elapsed comparisons and14/16 wall offsets exclude zero; native relative changes sampled zero-compatible. SHA179ebdfa0f8b26a27ba0ed83b2a921b865f4438077567fe3f2e503cb38722710; local consistency, not independent clock accuracy/attestation or explained historical cause. INC-036. No settings/service/sensor/clock action/retry; known-sensor absence/preflight/active time service checked externally; no source change since455-test suites.
+
 ## Clock-lineage implementation checks (2026-10-05)
 
 [Protocol](CLOCK_LINEAGE.md), [Windows suite](../output/engine2-clock-lineage-windows-tests-20261005.xml) / [Linux suite](../output/engine2-clock-lineage-linux-tests-20261005.xml): 455 each OS, 27 additions. Native bounds, fixed bridge, interval/strict-data/refusal/privacy/partial-receipt and offline-binding behavior tested. No live observation at implementation checkpoint; synthetic jump is not a reproduced historical incident. Existing failed receipts unchanged.

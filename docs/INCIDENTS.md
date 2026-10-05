@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-036 - 2026-10-05 - Host/WSL clocks advance differently in sensor-free observation
+
+**Symptom/evidence:** single predeclared E2-023 run completed16 packets; 13/15 QPC-minus-WSL boot/mono elapsed intervals exclude zero positively. Final boot difference [701218210,1023840119] ns after delay bounds; wall offset14/16 excludezero, moves toward overlap. WSL wall/boot and wall/mono relationships sampled stable. Receipt/review linked in CLOCK_LINEAGE.md, four execution hashes and exact intervals reproduced; no sensors running under known-trial endpoint checks.
+
+**Cause confidence:** cross-reference advance discrepancy directly observed under documented interval assumptions. Which reference is accurate, physical-clock/virtualization/synchronization mechanism, change instant/history and causal relationship to +123.10316 s/old Falco lag remain unproven. Whole-window Windows wall/QPC difference121650 ns is descriptive corroboration, not an independent time standard. No conclusion from missing old system logs.
+
+**Action/verification/limits:** preserve receipt and offline consistency review, source/domain/command gates pass; no correction/intervention/retry. Original rejected evidence unchanged, active time service/known-sensor absence/lab preflight checked before/after. Long-term timing/ML remain blocked by unfulfilled evidence gates, not fixed by collection status. Next read-only clocksource/kernel/time-discipline and host timer/virtualization facts, then a separately declared stability design; no automatic power/service changes.
+
 ### INC-035 - 2026-10-05 - Oversized test parameter diagnostics during lineage development
 
 **Symptom/evidence:** first targeted pytest command reported 51 passing cases and two setup errors; a 100001-byte parameter generated oversized test IDs/output, and returned diagnostics were truncated. Exact setup exception unavailable in captured output; do not infer a proven OS/filesystem cause.

@@ -41,3 +41,21 @@ Review recomputes count/order/gaps, samples, domain continuity, source hashes, h
 The [Python time API](https://docs.python.org/3.12/library/time.html) documents an undefined performance-counter reference point and integer nanosecond/native Unix APIs; [Microsoft QPC guidance](https://learn.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps) documents elapsed-time use including machine sleep. These semantics do not prove what caused this WSL incident. No induced sleep/pause, service intervention, actual Falco calibration-value read or historical correction is included. Endpoint facts do not exclude between-sample changes, unrelated collectors, or host/guest instrumentation perturbation. INC-032/INC-034, repeatability, matched baselines, independent labels and runtime ML remain open even if all sixteen snapshots complete.
 
 Implementation checkpoint: live observation pending. Test outcomes are recorded in WORK_LOG/TEST_PLAN after execution, not inferred from this protocol.
+
+## One declared observation: 5 October 2026
+
+Executed once after implementation `1f2e4d4d359a0e181195d35278ceb16fe129592f` was pushed/remote verified. Start 08:57:45 UTC (14:27:45 IST). [Receipt](../output/engine2-clock-lineage-20261005.json) SHA256 `179ebdfa0f8b26a27ba0ed83b2a921b865f4438077567fe3f2e503cb38722710`; [offline review](../output/engine2-clock-lineage-review-20261005.json). Sixteen accepted packets/fifteen gaps, exit 0; observed means collection completed, **not clock agreement**. All source/domain/sample/order/gate/summary checks passed offline. No replacement or retry.
+
+| Comparison | Observed result | Interpretation |
+|---|---|---|
+| WSL wall-minus-boot change from initial | 16 ranges include zero; union [-288,365] ns | Stable within these sampled native bounds only |
+| WSL wall-minus-monotonic change | 16 ranges include zero; union [-3742,4034] ns | Same local sample limitation |
+| Windows counter minus WSL boot elapsed | 13/15 ranges exclude zero positively; final [701218210,1023840119] ns | Host counter advanced more across guest sample instants, beyond dispatch/receive bounds |
+| Windows counter minus WSL monotonic elapsed | 13/15 ranges exclude zero positively; final [701215040,1023843702] ns | Similar discrepancy for both native elapsed clocks |
+| Guest-minus-host wall | 14/16 ranges exclude zero positively; initial [789558868,944589668] ns, final [-79923416,88219184] ns | Relationship moved toward overlap; compatible endpoint does not cancel earlier discrepancy |
+
+Final guest boot elapsed [16505688681,16505689290] ns versus bounded host elapsed [17206907500,17529528800] ns. Whole host first-dispatch to last-receive wall elapsed 17529650000 ns/performance-counter elapsed 17529528350 ns, difference 121650 ns; descriptive whole-window reduction, not an extra predeclared gate. Host implementation reports QueryPerformanceCounter(), monotonic true/adjustable false/resolution 100 ns; this is API metadata, not hardware accuracy attestation. Packet round trips 119691000–433885600 ns; endpoint wall/counter disagreement -941250..3200 ns. Maximum native boot/mono sampling spans 373/3956 ns, host sample span 2500 ns.
+
+All guest domain facts equal: namespace/children time:[4026531834], zero offsets and kernel boot hash e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61. Pre/post known-sensor absence/Redis preflight passed, time service active; no clock/service/power change. Original rejected receipt still SHA754c29d9e63b9a13ab455b0bcb829a5ed340b0c1c8f70d1bdfe024c25fbecddb.
+
+INC-036 preserves this **sensor-free cross-host/guest advance discrepancy**, not a proven cause or absolute clock-accuracy verdict. INC-034's between-run 123-second difference and earlier collector lag are not causally explained by this short run. Next review read-only guest clocksource/kernel/time-discipline and host timer/virtualization facts, then choose a separately declared stability protocol. No automatic clock fix, repeated-until-pass sensor trials or ML/baseline acceptance.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Preserve sensor-free Windows/WSL clock discrepancy
+
+- Execute exactly one declared sixteen-snapshot run after implementation publication; sources/domains/intervals/gates reproduced offline.
+- Preserve 13/15 host-versus-guest elapsed discrepancies despite stable sampled native wall/boot/mono relationships; collection completion is not agreement.
+- Record INC-036, unchanged active service/known-sensor absence/original rejected evidence. No clock correction, retries, causal/absolute-accuracy/stability or ML acceptance claim.
+
 ## 2026-10-05 - Add read-only Windows/WSL clock lineage
 
 - Add a fixed sixteen-snapshot host/guest diagnostic and offline interval reducer, no shared epoch or symmetric delay assumption.

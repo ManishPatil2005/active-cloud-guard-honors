@@ -1,0 +1,1340 @@
+{
+  "protocol": "windows_wsl_clock_lineage_v1",
+  "executed_at": "2026-10-05T08:57:45.280229+00:00",
+  "planned_reads": 16,
+  "spacing_seconds": 1,
+  "packets": [
+    {
+      "index": 0,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190665281230100,
+        "monotonic_mid_ns": 11314009956000,
+        "sampling_span_ns": 200
+      },
+      "host_last": {
+        "wall_ns": 1791190665435247300,
+        "monotonic_mid_ns": 11314164479550,
+        "sampling_span_ns": 700
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9125190785462,
+          "realtime_ns": 1791190666225312968,
+          "boot_after_ns": 9125190785723,
+          "sampling_span_ns": 261,
+          "offset_lower_ns": 1791181541034527245,
+          "offset_upper_ns": 1791181541034527506,
+          "mono_before_ns": 9125190784608,
+          "mono_after_ns": 9125190788269
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 154523550,
+        "clock_difference_ns": -506350,
+        "sampling_uncertainty_ns": 450,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 1,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190666436579200,
+        "monotonic_mid_ns": 11315165106650,
+        "sampling_span_ns": 2500
+      },
+      "host_last": {
+        "wall_ns": 1791190666586457100,
+        "monotonic_mid_ns": 11315315101200,
+        "sampling_span_ns": 800
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9126281527765,
+          "realtime_ns": 1791190667316055373,
+          "boot_after_ns": 9126281528138,
+          "sampling_span_ns": 373,
+          "offset_lower_ns": 1791181541034527235,
+          "offset_upper_ns": 1791181541034527608,
+          "mono_before_ns": 9126281526809,
+          "mono_after_ns": 9126281530755
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 149994550,
+        "clock_difference_ns": -116650,
+        "sampling_uncertainty_ns": 1650,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 2,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190667586931500,
+        "monotonic_mid_ns": 11316315417400,
+        "sampling_span_ns": 1200
+      },
+      "host_last": {
+        "wall_ns": 1791190667737412200,
+        "monotonic_mid_ns": 11316466839350,
+        "sampling_span_ns": 500
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9127372388199,
+          "realtime_ns": 1791190668406915706,
+          "boot_after_ns": 9127372388460,
+          "sampling_span_ns": 261,
+          "offset_lower_ns": 1791181541034527246,
+          "offset_upper_ns": 1791181541034527507,
+          "mono_before_ns": 9127372387294,
+          "mono_after_ns": 9127372390862
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 151421950,
+        "clock_difference_ns": -941250,
+        "sampling_uncertainty_ns": 850,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 3,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190668738651200,
+        "monotonic_mid_ns": 11317467375850,
+        "sampling_span_ns": 700
+      },
+      "host_last": {
+        "wall_ns": 1791190668862507000,
+        "monotonic_mid_ns": 11317591912700,
+        "sampling_span_ns": 600
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9128447930898,
+          "realtime_ns": 1791190669482458428,
+          "boot_after_ns": 9128447931199,
+          "sampling_span_ns": 301,
+          "offset_lower_ns": 1791181541034527229,
+          "offset_upper_ns": 1791181541034527530,
+          "mono_before_ns": 9128447930041,
+          "mono_after_ns": 9128447933397
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 124536850,
+        "clock_difference_ns": -681050,
+        "sampling_uncertainty_ns": 650,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 4,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190669863757400,
+        "monotonic_mid_ns": 11318592211350,
+        "sampling_span_ns": 700
+      },
+      "host_last": {
+        "wall_ns": 1791190670000242300,
+        "monotonic_mid_ns": 11318728693050,
+        "sampling_span_ns": 700
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9129527778799,
+          "realtime_ns": 1791190670562306315,
+          "boot_after_ns": 9129527779061,
+          "sampling_span_ns": 262,
+          "offset_lower_ns": 1791181541034527254,
+          "offset_upper_ns": 1791181541034527516,
+          "mono_before_ns": 9129527777582,
+          "mono_after_ns": 9129527781217
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 136481700,
+        "clock_difference_ns": 3200,
+        "sampling_uncertainty_ns": 700,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 5,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190671000603700,
+        "monotonic_mid_ns": 11319729382400,
+        "sampling_span_ns": 1200
+      },
+      "host_last": {
+        "wall_ns": 1791190671119799700,
+        "monotonic_mid_ns": 11319849073400,
+        "sampling_span_ns": 600
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9130596058140,
+          "realtime_ns": 1791190671630585718,
+          "boot_after_ns": 9130596058500,
+          "sampling_span_ns": 360,
+          "offset_lower_ns": 1791181541034527218,
+          "offset_upper_ns": 1791181541034527578,
+          "mono_before_ns": 9130596057123,
+          "mono_after_ns": 9130596061079
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 119691000,
+        "clock_difference_ns": -495000,
+        "sampling_uncertainty_ns": 900,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 6,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190672121219200,
+        "monotonic_mid_ns": 11320849702950,
+        "sampling_span_ns": 1500
+      },
+      "host_last": {
+        "wall_ns": 1791190672244001500,
+        "monotonic_mid_ns": 11320973423200,
+        "sampling_span_ns": 800
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9131665911904,
+          "realtime_ns": 1791190672700439407,
+          "boot_after_ns": 9131665912172,
+          "sampling_span_ns": 268,
+          "offset_lower_ns": 1791181541034527235,
+          "offset_upper_ns": 1791181541034527503,
+          "mono_before_ns": 9131665911198,
+          "mono_after_ns": 9131665914270
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 123720250,
+        "clock_difference_ns": -937950,
+        "sampling_uncertainty_ns": 1150,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 7,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190673245605100,
+        "monotonic_mid_ns": 11321974072500,
+        "sampling_span_ns": 1200
+      },
+      "host_last": {
+        "wall_ns": 1791190673388559200,
+        "monotonic_mid_ns": 11322117463000,
+        "sampling_span_ns": 800
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9132752032265,
+          "realtime_ns": 1791190673786559786,
+          "boot_after_ns": 9132752032539,
+          "sampling_span_ns": 274,
+          "offset_lower_ns": 1791181541034527247,
+          "offset_upper_ns": 1791181541034527521,
+          "mono_before_ns": 9132752031410,
+          "mono_after_ns": 9132752034918
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 143390500,
+        "clock_difference_ns": -436400,
+        "sampling_uncertainty_ns": 1000,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 8,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190674389222500,
+        "monotonic_mid_ns": 11323117675950,
+        "sampling_span_ns": 900
+      },
+      "host_last": {
+        "wall_ns": 1791190674520089500,
+        "monotonic_mid_ns": 11323249260450,
+        "sampling_span_ns": 700
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9133829083943,
+          "realtime_ns": 1791190674863611553,
+          "boot_after_ns": 9133829084313,
+          "sampling_span_ns": 370,
+          "offset_lower_ns": 1791181541034527240,
+          "offset_upper_ns": 1791181541034527610,
+          "mono_before_ns": 9133829083224,
+          "mono_after_ns": 9133829086699
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 131584500,
+        "clock_difference_ns": -717500,
+        "sampling_uncertainty_ns": 800,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 9,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190675521175400,
+        "monotonic_mid_ns": 11324249720800,
+        "sampling_span_ns": 1600
+      },
+      "host_last": {
+        "wall_ns": 1791190675668936300,
+        "monotonic_mid_ns": 11324397706450,
+        "sampling_span_ns": 700
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9134919482909,
+          "realtime_ns": 1791190675954010447,
+          "boot_after_ns": 9134919483210,
+          "sampling_span_ns": 301,
+          "offset_lower_ns": 1791181541034527237,
+          "offset_upper_ns": 1791181541034527538,
+          "mono_before_ns": 9134919482107,
+          "mono_after_ns": 9134919485564
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 147985650,
+        "clock_difference_ns": -224750,
+        "sampling_uncertainty_ns": 1150,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 10,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190676669497200,
+        "monotonic_mid_ns": 11325397997150,
+        "sampling_span_ns": 900
+      },
+      "host_last": {
+        "wall_ns": 1791190676815017000,
+        "monotonic_mid_ns": 11325543966900,
+        "sampling_span_ns": 800
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9135994248329,
+          "realtime_ns": 1791190677028775912,
+          "boot_after_ns": 9135994248672,
+          "sampling_span_ns": 343,
+          "offset_lower_ns": 1791181541034527240,
+          "offset_upper_ns": 1791181541034527583,
+          "mono_before_ns": 9135994247441,
+          "mono_after_ns": 9135994250782
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 145969750,
+        "clock_difference_ns": -449950,
+        "sampling_uncertainty_ns": 850,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 11,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190677816014300,
+        "monotonic_mid_ns": 11326544499900,
+        "sampling_span_ns": 1000
+      },
+      "host_last": {
+        "wall_ns": 1791190677939403900,
+        "monotonic_mid_ns": 11326668495950,
+        "sampling_span_ns": 500
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9137076942713,
+          "realtime_ns": 1791190678111470248,
+          "boot_after_ns": 9137076943026,
+          "sampling_span_ns": 313,
+          "offset_lower_ns": 1791181541034527222,
+          "offset_upper_ns": 1791181541034527535,
+          "mono_before_ns": 9137076941724,
+          "mono_after_ns": 9137076945417
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 123996050,
+        "clock_difference_ns": -606450,
+        "sampling_uncertainty_ns": 750,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 12,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190678940574700,
+        "monotonic_mid_ns": 11327669053850,
+        "sampling_span_ns": 1500
+      },
+      "host_last": {
+        "wall_ns": 1791190679374102600,
+        "monotonic_mid_ns": 11328102939450,
+        "sampling_span_ns": 700
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9138437523169,
+          "realtime_ns": 1791190679472050705,
+          "boot_after_ns": 9138437523458,
+          "sampling_span_ns": 289,
+          "offset_lower_ns": 1791181541034527247,
+          "offset_upper_ns": 1791181541034527536,
+          "mono_before_ns": 9138437522280,
+          "mono_after_ns": 9138437525981
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 433885600,
+        "clock_difference_ns": -357700,
+        "sampling_uncertainty_ns": 1100,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 13,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190680374973400,
+        "monotonic_mid_ns": 11329103430300,
+        "sampling_span_ns": 800
+      },
+      "host_last": {
+        "wall_ns": 1791190680494971300,
+        "monotonic_mid_ns": 11329223715150,
+        "sampling_span_ns": 900
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9139501846652,
+          "realtime_ns": 1791190680536374199,
+          "boot_after_ns": 9139501846948,
+          "sampling_span_ns": 296,
+          "offset_lower_ns": 1791181541034527251,
+          "offset_upper_ns": 1791181541034527547,
+          "mono_before_ns": 9139501845854,
+          "mono_after_ns": 9139501849035
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 120284850,
+        "clock_difference_ns": -286950,
+        "sampling_uncertainty_ns": 850,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 14,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190681496097300,
+        "monotonic_mid_ns": 11330224554700,
+        "sampling_span_ns": 1000
+      },
+      "host_last": {
+        "wall_ns": 1791190681642300400,
+        "monotonic_mid_ns": 11330371093950,
+        "sampling_span_ns": 500
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9140586613181,
+          "realtime_ns": 1791190681621140733,
+          "boot_after_ns": 9140586613497,
+          "sampling_span_ns": 316,
+          "offset_lower_ns": 1791181541034527236,
+          "offset_upper_ns": 1791181541034527552,
+          "mono_before_ns": 9140586612177,
+          "mono_after_ns": 9140586615812
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 146539250,
+        "clock_difference_ns": -336150,
+        "sampling_uncertainty_ns": 750,
+        "within_tolerance": true
+      }
+    },
+    {
+      "index": 15,
+      "status": "accepted",
+      "stage": "complete",
+      "host_first": {
+        "wall_ns": 1791190682642828100,
+        "monotonic_mid_ns": 11331371387850,
+        "sampling_span_ns": 900
+      },
+      "host_last": {
+        "wall_ns": 1791190682810880100,
+        "monotonic_mid_ns": 11331539484350,
+        "sampling_span_ns": 700
+      },
+      "guest": {
+        "sample": {
+          "boot_before_ns": 9141696474404,
+          "realtime_ns": 1791190682731001984,
+          "boot_after_ns": 9141696474752,
+          "sampling_span_ns": 348,
+          "offset_lower_ns": 1791181541034527232,
+          "offset_upper_ns": 1791181541034527580,
+          "mono_before_ns": 9141696473367,
+          "mono_after_ns": 9141696477068
+        },
+        "domain": {
+          "time_namespace": "time:[4026531834]",
+          "offsets": {
+            "monotonic": [
+              0,
+              0
+            ],
+            "boottime": [
+              0,
+              0
+            ]
+          },
+          "kernel_boot_sha256": "e69ba2ab8be4a58844aaa9f0b93d2ee394b083834d4c53f8035056b48df15c61",
+          "time_namespace_for_children": "time:[4026531834]"
+        },
+        "source_sha256": {
+          "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+          "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+          "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+          "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+        }
+      },
+      "comparison": {
+        "elapsed_monotonic_ns": 168096500,
+        "clock_difference_ns": -44500,
+        "sampling_uncertainty_ns": 800,
+        "within_tolerance": true
+      }
+    }
+  ],
+  "status": "observed",
+  "phase": "complete",
+  "clock_settings_modified": false,
+  "sensor_started": false,
+  "host_counter": {
+    "implementation": "QueryPerformanceCounter()",
+    "monotonic": true,
+    "adjustable": false,
+    "resolution_seconds": 1e-07
+  },
+  "source_sha256": {
+    "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+    "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+    "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+  },
+  "source_sha256_after": {
+    "scripts/clock_lineage.py": "3821a9bc4cde31506f22796a292f9cf7c6800670aa670cdc41506eb3fca00e24",
+    "cloudguard/clock_lineage.py": "232b25a3e8cb5ac7c212caa1c161190487a935a3ebfe4b0c1a2b48a1626eaae6",
+    "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc"
+  },
+  "summary": {
+    "protocol": "windows_wsl_clock_lineage_v1",
+    "rows": [
+      {
+        "index": 0,
+        "guest_minus_host_wall": {
+          "lower_ns": 789558868,
+          "upper_ns": 944589668,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -261,
+          "upper_ns": 261,
+          "includes_zero": true
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3661,
+          "upper_ns": 3661,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 1,
+        "guest_minus_host_wall": {
+          "lower_ns": 729479973,
+          "upper_ns": 879594473,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -271,
+          "upper_ns": 363,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": -90117176,
+          "upper_ns": 214403658,
+          "includes_zero": true
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3742,
+          "upper_ns": 3865,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": -90120647,
+          "upper_ns": 214407160,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 2,
+        "guest_minus_host_wall": {
+          "lower_ns": 668561406,
+          "upper_ns": 820926306,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -260,
+          "upper_ns": 262,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": -30666098,
+          "upper_ns": 275281224,
+          "includes_zero": true
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3516,
+          "upper_ns": 3713,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": -30669354,
+          "upper_ns": 275284675,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 3,
+        "guest_minus_host_wall": {
+          "lower_ns": 619269728,
+          "upper_ns": 744488928,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -277,
+          "upper_ns": 285,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 45749863,
+          "upper_ns": 324811925,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3329,
+          "upper_ns": 3688,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 45746811,
+          "upper_ns": 324815328,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 4,
+        "guest_minus_host_wall": {
+          "lower_ns": 562060115,
+          "upper_ns": 698552815,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -252,
+          "upper_ns": 271,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 90737501,
+          "upper_ns": 381744424,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3262,
+          "upper_ns": 4034,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 90734491,
+          "upper_ns": 381748187,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 5,
+        "guest_minus_host_wall": {
+          "lower_ns": 510290118,
+          "upper_ns": 630477918,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -288,
+          "upper_ns": 333,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 159628862,
+          "upper_ns": 433845383,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3721,
+          "upper_ns": 3896,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 159625429,
+          "upper_ns": 433848946,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 6,
+        "guest_minus_host_wall": {
+          "lower_ns": 455498807,
+          "upper_ns": 580159307,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -271,
+          "upper_ns": 258,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 210095590,
+          "upper_ns": 488341519,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3223,
+          "upper_ns": 3510,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 210092638,
+          "upper_ns": 488344771,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 7,
+        "guest_minus_host_wall": {
+          "lower_ns": 397563186,
+          "upper_ns": 541392086,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -259,
+          "upper_ns": 276,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 248344923,
+          "upper_ns": 546260958,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3492,
+          "upper_ns": 3677,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 248341690,
+          "upper_ns": 546264359,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 8,
+        "guest_minus_host_wall": {
+          "lower_ns": 342803753,
+          "upper_ns": 475107353,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -266,
+          "upper_ns": 365,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 314896749,
+          "upper_ns": 601006680,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3506,
+          "upper_ns": 3630,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 314893509,
+          "upper_ns": 601009945,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 9,
+        "guest_minus_host_wall": {
+          "lower_ns": 284848247,
+          "upper_ns": 433060947,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -269,
+          "upper_ns": 293,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 356542352,
+          "upper_ns": 659053714,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3477,
+          "upper_ns": 3641,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 356539144,
+          "upper_ns": 659057062,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 10,
+        "guest_minus_host_wall": {
+          "lower_ns": 213308112,
+          "upper_ns": 359729512,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -266,
+          "upper_ns": 338,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 430053590,
+          "upper_ns": 730548794,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3230,
+          "upper_ns": 3772,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 430050626,
+          "upper_ns": 730552228,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 11,
+        "guest_minus_host_wall": {
+          "lower_ns": 171459148,
+          "upper_ns": 296063148,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -284,
+          "upper_ns": 290,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 493861936,
+          "upper_ns": 772383310,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3529,
+          "upper_ns": 3825,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 493858691,
+          "upper_ns": 772386845,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 12,
+        "guest_minus_host_wall": {
+          "lower_ns": 97589305,
+          "upper_ns": 531834805,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -259,
+          "upper_ns": 291,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 257835204,
+          "upper_ns": 846246454,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3636,
+          "upper_ns": 3726,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 257831827,
+          "upper_ns": 846249889,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 13,
+        "guest_minus_host_wall": {
+          "lower_ns": 41115099,
+          "upper_ns": 161688599,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -255,
+          "upper_ns": 302,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 627888514,
+          "upper_ns": 902698771,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3196,
+          "upper_ns": 3646,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 627885573,
+          "upper_ns": 902702115,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 14,
+        "guest_minus_host_wall": {
+          "lower_ns": -21496567,
+          "upper_ns": 125380333,
+          "includes_zero": true
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -270,
+          "upper_ns": 307,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 664246265,
+          "upper_ns": 965310842,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3439,
+          "upper_ns": 3857,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 664243096,
+          "upper_ns": 965314392,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 15,
+        "guest_minus_host_wall": {
+          "lower_ns": -79923416,
+          "upper_ns": 88219184,
+          "includes_zero": true
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -274,
+          "upper_ns": 335,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 701218210,
+          "upper_ns": 1023840119,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3444,
+          "upper_ns": 3918,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 701215040,
+          "upper_ns": 1023843702,
+          "includes_zero": false
+        }
+      }
+    ],
+    "correction_applied": false,
+    "causal_attribution": "not_proven",
+    "independent_evaluation": false
+  }
+}

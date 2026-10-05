@@ -1,0 +1,452 @@
+{
+  "input_sha256": "179ebdfa0f8b26a27ba0ed83b2a921b865f4438077567fe3f2e503cb38722710",
+  "local_consistency_verified": true,
+  "summary": {
+    "protocol": "windows_wsl_clock_lineage_v1",
+    "rows": [
+      {
+        "index": 0,
+        "guest_minus_host_wall": {
+          "lower_ns": 789558868,
+          "upper_ns": 944589668,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -261,
+          "upper_ns": 261,
+          "includes_zero": true
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3661,
+          "upper_ns": 3661,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 1,
+        "guest_minus_host_wall": {
+          "lower_ns": 729479973,
+          "upper_ns": 879594473,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -271,
+          "upper_ns": 363,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": -90117176,
+          "upper_ns": 214403658,
+          "includes_zero": true
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3742,
+          "upper_ns": 3865,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": -90120647,
+          "upper_ns": 214407160,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 2,
+        "guest_minus_host_wall": {
+          "lower_ns": 668561406,
+          "upper_ns": 820926306,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -260,
+          "upper_ns": 262,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": -30666098,
+          "upper_ns": 275281224,
+          "includes_zero": true
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3516,
+          "upper_ns": 3713,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": -30669354,
+          "upper_ns": 275284675,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 3,
+        "guest_minus_host_wall": {
+          "lower_ns": 619269728,
+          "upper_ns": 744488928,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -277,
+          "upper_ns": 285,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 45749863,
+          "upper_ns": 324811925,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3329,
+          "upper_ns": 3688,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 45746811,
+          "upper_ns": 324815328,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 4,
+        "guest_minus_host_wall": {
+          "lower_ns": 562060115,
+          "upper_ns": 698552815,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -252,
+          "upper_ns": 271,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 90737501,
+          "upper_ns": 381744424,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3262,
+          "upper_ns": 4034,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 90734491,
+          "upper_ns": 381748187,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 5,
+        "guest_minus_host_wall": {
+          "lower_ns": 510290118,
+          "upper_ns": 630477918,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -288,
+          "upper_ns": 333,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 159628862,
+          "upper_ns": 433845383,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3721,
+          "upper_ns": 3896,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 159625429,
+          "upper_ns": 433848946,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 6,
+        "guest_minus_host_wall": {
+          "lower_ns": 455498807,
+          "upper_ns": 580159307,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -271,
+          "upper_ns": 258,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 210095590,
+          "upper_ns": 488341519,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3223,
+          "upper_ns": 3510,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 210092638,
+          "upper_ns": 488344771,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 7,
+        "guest_minus_host_wall": {
+          "lower_ns": 397563186,
+          "upper_ns": 541392086,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -259,
+          "upper_ns": 276,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 248344923,
+          "upper_ns": 546260958,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3492,
+          "upper_ns": 3677,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 248341690,
+          "upper_ns": 546264359,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 8,
+        "guest_minus_host_wall": {
+          "lower_ns": 342803753,
+          "upper_ns": 475107353,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -266,
+          "upper_ns": 365,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 314896749,
+          "upper_ns": 601006680,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3506,
+          "upper_ns": 3630,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 314893509,
+          "upper_ns": 601009945,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 9,
+        "guest_minus_host_wall": {
+          "lower_ns": 284848247,
+          "upper_ns": 433060947,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -269,
+          "upper_ns": 293,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 356542352,
+          "upper_ns": 659053714,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3477,
+          "upper_ns": 3641,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 356539144,
+          "upper_ns": 659057062,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 10,
+        "guest_minus_host_wall": {
+          "lower_ns": 213308112,
+          "upper_ns": 359729512,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -266,
+          "upper_ns": 338,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 430053590,
+          "upper_ns": 730548794,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3230,
+          "upper_ns": 3772,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 430050626,
+          "upper_ns": 730552228,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 11,
+        "guest_minus_host_wall": {
+          "lower_ns": 171459148,
+          "upper_ns": 296063148,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -284,
+          "upper_ns": 290,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 493861936,
+          "upper_ns": 772383310,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3529,
+          "upper_ns": 3825,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 493858691,
+          "upper_ns": 772386845,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 12,
+        "guest_minus_host_wall": {
+          "lower_ns": 97589305,
+          "upper_ns": 531834805,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -259,
+          "upper_ns": 291,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 257835204,
+          "upper_ns": 846246454,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3636,
+          "upper_ns": 3726,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 257831827,
+          "upper_ns": 846249889,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 13,
+        "guest_minus_host_wall": {
+          "lower_ns": 41115099,
+          "upper_ns": 161688599,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -255,
+          "upper_ns": 302,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 627888514,
+          "upper_ns": 902698771,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3196,
+          "upper_ns": 3646,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 627885573,
+          "upper_ns": 902702115,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 14,
+        "guest_minus_host_wall": {
+          "lower_ns": -21496567,
+          "upper_ns": 125380333,
+          "includes_zero": true
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -270,
+          "upper_ns": 307,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 664246265,
+          "upper_ns": 965310842,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3439,
+          "upper_ns": 3857,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 664243096,
+          "upper_ns": 965314392,
+          "includes_zero": false
+        }
+      },
+      {
+        "index": 15,
+        "guest_minus_host_wall": {
+          "lower_ns": -79923416,
+          "upper_ns": 88219184,
+          "includes_zero": true
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -274,
+          "upper_ns": 335,
+          "includes_zero": true
+        },
+        "host_minus_guest_boot_elapsed": {
+          "lower_ns": 701218210,
+          "upper_ns": 1023840119,
+          "includes_zero": false
+        },
+        "wall_minus_mono_change": {
+          "lower_ns": -3444,
+          "upper_ns": 3918,
+          "includes_zero": true
+        },
+        "host_minus_guest_mono_elapsed": {
+          "lower_ns": 701215040,
+          "upper_ns": 1023843702,
+          "includes_zero": false
+        }
+      }
+    ],
+    "correction_applied": false,
+    "causal_attribution": "not_proven",
+    "independent_evaluation": false
+  },
+  "independently_evaluated": false,
+  "authenticated_attestation": false
+}
