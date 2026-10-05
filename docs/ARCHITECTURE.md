@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-024 adds opt-in --raw-clock to existing lineage tool, native RAW enclosing the old sequence, strict raw-only field validation, separate protocol and extra host/raw/raw-minus-mono interval reductions. Same command/source/domain/privacy/fixed limits; ordinary engine/sensor/legacy sampling unchanged. Historical hashes remain revision-bound. Sequential provider facts are a manually transcribed evidence artifact, not an authenticated live timex snapshot. CLOCK_PROVIDER_REVIEW.md; no new dependencies or synchronization changes.
+
 E2-023 adds separate scripts/clock_lineage.py Windows-host orchestration and cloudguard/clock_lineage.py native/interval validation. Fixed WSL child reads clock/proc/source facts only; no Docker/sensor/service/model calls. Count/gap/timeout/strict source and namespace gates, sanitized partial receipts and offline full reduction; not runtime baseline input. Single-domain validation extracted from boot_clock's existing three-domain checks without changing those gates. Execution hashes are revision-specific; old receipt sources remain historical. CLOCK_LINEAGE.md; architecture/engines unchanged.
 
 E2-022 read_time optional boot flag surrounds each TIME command bracket with two validated native boot/realtime sandwiches, saved before existing acceptance validation. Only clocked_ping boot mode requests them; sensor-free/legacy/default paths unchanged. Boot_v2 receipt distinguishes 16 added nested TIME endpoints from original 11 launch/PING summary; complete ordered reduction reviewed offline. No collector calibration read/correction/new dependency; RECORDED_BOOT_CLOCK_FOLLOWUP.md.

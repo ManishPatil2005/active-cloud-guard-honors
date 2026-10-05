@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest review/implementation: [provider facts and raw-clock protocol](CLOCK_PROVIDER_REVIEW.md): two sync paths enabled, current tsc provider, cached NTP frequency distinguished from live kernel state. Opt-in RAW/adjusted/host comparison implemented, one separate observation pending after publication; cause/stability remain open.
+
 Latest result: [Windows/WSL clock lineage](CLOCK_LINEAGE.md), sixteen completed sensor-free packets but 13/15 elapsed comparisons disagree beyond delay bounds. WSL native clock relationships stable during sampling; cause unproven (INC-036), timing/ML gates open.
 
 Latest implementation/protocol: [Windows/WSL clock lineage](CLOCK_LINEAGE.md), a read-only fixed sixteen-snapshot observation with native boot/monotonic clocks and delay-aware host intervals. One observation pending after implementation publication; no clock changes or resolved-cause claim.

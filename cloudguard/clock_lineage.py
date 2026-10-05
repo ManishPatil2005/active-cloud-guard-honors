@@ -6,6 +6,7 @@ import time
 from cloudguard import boot_clock, clock_check
 
 PROTOCOL = "windows_wsl_clock_lineage_v1"
+RAW_PROTOCOL = "windows_wsl_raw_clock_lineage_v1"
 READS = 16
 GAP_SECONDS = 1
 TIMEOUT_SECONDS = 5
@@ -18,19 +19,25 @@ def interval(low, high):
     return dict(lower_ns=low, upper_ns=high, includes_zero=low <= 0 <= high)
 
 
-def native_snapshot(clock=None):
+def native_snapshot(clock=None, *, raw=False):
     if not hasattr(time, "CLOCK_BOOTTIME"):
         raise ValueError("native CLOCK_BOOTTIME required")
     clock = clock or time.clock_gettime_ns
+    if raw and not hasattr(time, "CLOCK_MONOTONIC_RAW"):
+        raise ValueError("native CLOCK_MONOTONIC_RAW required; no fallback")
+    raw_before = clock(time.CLOCK_MONOTONIC_RAW) if raw else None
     mono_before = clock(time.CLOCK_MONOTONIC)
     sample = boot_clock.sample(clock)
     mono_after = clock(time.CLOCK_MONOTONIC)
-    return checked_guest(
-        dict(**sample, mono_before_ns=mono_before, mono_after_ns=mono_after)
-    )
+    value = dict(**sample, mono_before_ns=mono_before, mono_after_ns=mono_after)
+    if raw:
+        value.update(
+            raw_before_ns=raw_before, raw_after_ns=clock(time.CLOCK_MONOTONIC_RAW)
+        )
+    return checked_guest(value, raw=raw)
 
 
-def checked_guest(value):
+def checked_guest(value, *, raw=False):
     expected = boot_clock.checked(value)
     before, after = value["mono_before_ns"], value["mono_after_ns"]
     if (
@@ -39,6 +46,14 @@ def checked_guest(value):
     ):
         raise ValueError("invalid guest monotonic bracket")
     expected.update(mono_before_ns=before, mono_after_ns=after)
+    if raw:
+        before, after = value["raw_before_ns"], value["raw_after_ns"]
+        if (
+            any(type(n) is not int or n < 0 for n in (before, after))
+            or not 0 <= after - before <= 5_000_000
+        ):
+            raise ValueError("invalid guest raw bracket")
+        expected.update(raw_before_ns=before, raw_after_ns=after)
     if value != expected or set(value) != set(expected):
         raise ValueError("unexpected guest sample fields")
     return expected
@@ -59,7 +74,7 @@ def counter_bounds(value):
     return value["monotonic_mid_ns"] - half, value["monotonic_mid_ns"] + half
 
 
-def checked_packet(packet, sources):
+def checked_packet(packet, sources, *, raw=False):
     if packet["status"] != "accepted":
         raise ValueError("incomplete packet")
     first, last = checked_host(packet["host_first"]), checked_host(packet["host_last"])
@@ -68,7 +83,7 @@ def checked_packet(packet, sources):
         raise ValueError("host clock bracket incompatible")
     if comparison["elapsed_monotonic_ns"] > MAX_ROUND_TRIP_NS:
         raise ValueError("host round trip exceeds diagnostic bound")
-    checked_reply(packet["guest"], sources)
+    checked_reply(packet["guest"], sources, raw=raw)
 
 
 def same(first, last):
@@ -78,7 +93,7 @@ def same(first, last):
     )
 
 
-def checked_reply(guest, sources):
+def checked_reply(guest, sources, *, raw=False):
     if set(guest) != {"sample", "domain", "source_sha256"}:
         raise ValueError("unexpected guest fields")
     if set(guest["domain"]) != {
@@ -91,11 +106,11 @@ def checked_reply(guest, sources):
     boot_clock.checked_domain(guest["domain"])
     if guest["source_sha256"] != sources:
         raise ValueError("guest source mismatch")
-    checked_guest(guest["sample"])
+    checked_guest(guest["sample"], raw=raw)
     return guest
 
 
-def summarize(packets, sources):
+def summarize(packets, sources, *, raw=False):
     if (
         len(packets) != READS
         or any(type(p["index"]) is not int for p in packets)
@@ -103,7 +118,7 @@ def summarize(packets, sources):
     ):
         raise ValueError("fixed sixteen-packet protocol required")
     for packet in packets:
-        checked_packet(packet, sources)
+        checked_packet(packet, sources, raw=raw)
     if any(p["guest"]["domain"] != packets[0]["guest"]["domain"] for p in packets):
         raise ValueError("guest domain changed")
     for first, last in zip(packets, packets[1:]):
@@ -113,7 +128,7 @@ def summarize(packets, sources):
             < GAP_SECONDS * 10**9
         ):
             raise ValueError("fixed gap not established")
-        for key in ("mono", "boot"):
+        for key in ("mono", "boot", "raw") if raw else ("mono", "boot"):
             if (
                 last["guest"]["sample"][f"{key}_before_ns"]
                 < first["guest"]["sample"][f"{key}_after_ns"]
@@ -136,7 +151,7 @@ def summarize(packets, sources):
                 guest["realtime_ns"] - first["wall_ns"] + allowance,
             ),
         )
-        for key in ("boot", "mono"):
+        for key in ("boot", "mono", "raw") if raw else ("boot", "mono"):
             low = guest["realtime_ns"] - guest[f"{key}_after_ns"]
             high = guest["realtime_ns"] - guest[f"{key}_before_ns"]
             origin_low = origin["realtime_ns"] - origin[f"{key}_after_ns"]
@@ -157,9 +172,17 @@ def summarize(packets, sources):
                 row[f"host_minus_guest_{key}_elapsed"] = interval(
                     host_low - guest_high, host_high - guest_low
                 )
+        if raw and packet["index"]:
+            raw_low = guest["raw_before_ns"] - origin["raw_after_ns"]
+            raw_high = guest["raw_after_ns"] - origin["raw_before_ns"]
+            mono_low = guest["mono_before_ns"] - origin["mono_after_ns"]
+            mono_high = guest["mono_after_ns"] - origin["mono_before_ns"]
+            row["raw_minus_mono_elapsed"] = interval(
+                raw_low - mono_high, raw_high - mono_low
+            )
         rows.append(row)
     return dict(
-        protocol=PROTOCOL,
+        protocol=RAW_PROTOCOL if raw else PROTOCOL,
         rows=rows,
         correction_applied=False,
         causal_attribution="not_proven",

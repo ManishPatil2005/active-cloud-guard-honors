@@ -1,5 +1,11 @@
 # Evidence index
 
+## Clock-provider facts and raw protocol (2026-10-05)
+
+[Minimized manually transcribed facts/commands](../output/engine2-clock-provider-facts-20261005.json), [review and raw protocol](CLOCK_PROVIDER_REVIEW.md). Sequential point-in-time tsc/alternatives, implicit/guest sync states, versions/minimized host hypervisor/services; no simultaneous attribution or authenticated clock accuracy. Frequency is cached in reviewed upstream source, not live timex. Raw trial pending at implementation checkpoint; old negative receipts unchanged.
+
+Software [Windows](../output/engine2-raw-lineage-windows-tests-20261005.xml) / [Linux](../output/engine2-raw-lineage-linux-tests-20261005.xml):468 each, thirteen additions. Synthetic raw difference is not a reproduced runtime cause; no independent evaluation.
+
 ## Sensor-free Windows/WSL lineage observation (2026-10-05)
 
 [Receipt](../output/engine2-clock-lineage-20261005.json), [offline review](../output/engine2-clock-lineage-review-20261005.json), [protocol/result](CLOCK_LINEAGE.md). One sixteen-packet run; four sources/all native+host samples/domains/gaps/gates/intervals checked. 13/15 elapsed comparisons and14/16 wall offsets exclude zero; native relative changes sampled zero-compatible. SHA179ebdfa0f8b26a27ba0ed83b2a921b865f4438077567fe3f2e503cb38722710; local consistency, not independent clock accuracy/attestation or explained historical cause. INC-036. No settings/service/sensor/clock action/retry; known-sensor absence/preflight/active time service checked externally; no source change since455-test suites.

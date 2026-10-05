@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-034 - 2026-10-05 - Compare RAW before synchronization intervention
+
+Static provider/service facts and a cached drift-frequency property cannot attribute the recorded cross-reference advance discrepancy. Add opt-in native RAW bracketing alongside adjusted guest clocks and Windows counter, preserving full intervals and distinguishing protocol/source revisions. No assumed physical clock authority, symmetric delays, direct adjustment syscall or NTP/service/provider changes. One predeclared observation after implementation publication; negative results retained. This narrows hypotheses while leaving absolute accuracy, historical cause and long-term/ML gates unresolved.
+
 ## ADR-033 - 2026-10-05 - Read-only lineage before time intervention
 
 Observe native WSL REALTIME/BOOT/MONOTONIC and Windows wall/performance-counter with full dispatch/receive intervals. Never equate clock epochs, assume symmetric launch delays, infer causes from missing logs or fit a correction. Keep fixed count/gaps/timeout/source/domain gates and first-failure evidence; separate complete offline review. One declared observation after implementation publication; no induced suspend, service stop or sensor run. Short compatible sampling cannot pass long-term stability or independent runtime gates. Shared domain validation extraction preserves existing behavior; historical hashes remain revision-bound.

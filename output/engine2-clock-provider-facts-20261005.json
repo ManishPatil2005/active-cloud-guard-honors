@@ -1,0 +1,51 @@
+{
+  "record_type": "manual_transcription_of_read_only_tool_outputs",
+  "observed_on": "2026-10-05",
+  "simultaneous_with_lineage_trial": false,
+  "settings_or_services_changed_by_this_task": false,
+  "guest": {
+    "distribution": "Ubuntu 24.04.5 LTS",
+    "kernel_release": "6.6.114.1-microsoft-standard-WSL2",
+    "systemd_version": "255.4-1ubuntu8.17",
+    "current_clocksource": "tsc",
+    "available_clocksources": ["tsc", "hyperv_clocksource_tsc_page", "hyperv_clocksource_msr", "acpi_pm"],
+    "hyperv_timesync_implicit": "Y",
+    "timesyncd": {"ActiveState": "active", "SubState": "running", "UnitFileState": "enabled"},
+    "timedatectl": {"CanNTP": "yes", "NTP": "yes", "NTPSynchronized": "yes"},
+    "timesync_properties": {"RootDistanceMaxUSec_display": "5s", "PollIntervalUSec_display": "32s", "Frequency_scaled_ppm": -861091},
+    "frequency_semantics_review": "upstream_v255_cached_manager_value; installed_binary_not_attested"
+  },
+  "host": {
+    "wsl_version": "2.7.3.0",
+    "wsl_reported_kernel_version": "6.6.114.1-1",
+    "windows_cim_version": "10.0.26200",
+    "windows_cim_build_number": "26200",
+    "wsl_reported_windows_version": "10.0.26200.9457",
+    "HypervisorPresent": true,
+    "services": [
+      {"Name": "vmictimesync", "Status": "Stopped", "StartType": "Manual"},
+      {"Name": "W32Time", "Status": "Running", "StartType": "Manual"}
+    ]
+  },
+  "commands": [
+    "wsl -d ACG-Research -u acgresearch --exec /usr/bin/timedatectl show-timesync --property=Frequency --property=PollIntervalUSec --property=RootDistanceMaxUSec",
+    "wsl -d ACG-Research -u acgresearch --exec /usr/bin/timedatectl show --property=NTPSynchronized --property=NTP --property=CanNTP",
+    "wsl -d ACG-Research -u acgresearch --exec /bin/cat /sys/devices/system/clocksource/clocksource0/current_clocksource /sys/devices/system/clocksource/clocksource0/available_clocksource /sys/module/hv_utils/parameters/timesync_implicit",
+    "wsl -d ACG-Research -u acgresearch --exec /usr/bin/uname -r",
+    "wsl --version",
+    "Get-Service W32Time,vmictimesync | Select-Object Name,Status,StartType",
+    "Get-CimInstance Win32_OperatingSystem | Select-Object Version,BuildNumber | ConvertTo-Json -Compress",
+    "Get-CimInstance Win32_ComputerSystem | Select-Object HypervisorPresent | ConvertTo-Json -Compress",
+    "wsl -d ACG-Research -u acgresearch --exec /usr/bin/systemctl show systemd-timesyncd --property=ActiveState --property=SubState --property=UnitFileState",
+    "wsl -d ACG-Research -u acgresearch --exec /usr/bin/systemctl --version",
+    "wsl -d ACG-Research -u acgresearch --exec /usr/bin/timedatectl --version",
+    "wsl -d ACG-Research -u acgresearch --exec /bin/cat /etc/os-release"
+  ],
+  "limits": [
+    "Sequential point-in-time local facts, not continuous history or authenticated attestation.",
+    "Provider names and service flags do not establish physical accuracy or causality.",
+    "Frequency is a systemd manager cached value in reviewed upstream source, not a live timex snapshot.",
+    "No direct kernel adjustment syscall, induced suspend, sensor workload or clock intervention.",
+    "Original failed experiments and clock-lineage discrepancy are unchanged."
+  ]
+}

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-05 - Review clock providers and add opt-in raw comparison
+
+- Preserve sequential read-only provider/sync facts, including changed Windows service snapshot and cached-versus-live frequency distinction; no settings changes.
+- Add native RAW endpoints/host and adjusted elapsed comparisons under a separate protocol, no fallback, same fixed limits/privacy and first-failure gates.
+- Predeclare one new observation after implementation publication; old evidence immutable/revision-bound, no causal/correction/stability claim.
+- 468 software tests pass on each OS (13 additions); lint/format/dependency checks pass, live pending at implementation checkpoint.
+
 ## 2026-10-05 - Preserve sensor-free Windows/WSL clock discrepancy
 
 - Execute exactly one declared sixteen-snapshot run after implementation publication; sources/domains/intervals/gates reproduced offline.
