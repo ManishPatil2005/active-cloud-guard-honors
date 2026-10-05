@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest implementation/protocol: [Windows/WSL clock lineage](CLOCK_LINEAGE.md), a read-only fixed sixteen-snapshot observation with native boot/monotonic clocks and delay-aware host intervals. One observation pending after implementation publication; no clock changes or resolved-cause claim.
+
 Latest result: [recorded collector-on boot/TIME follow-up](RECORDED_BOOT_CLOCK_FOLLOWUP.md), one compatible 27-sample trial. Exploratory between-run relationship change (+123.10316 s) remains unexplained; long-term timing gate still open (INC-034).
 
 Latest implementation/protocol: [collector-on boot/TIME recording](RECORDED_BOOT_CLOCK_FOLLOWUP.md), native endpoints retained before rejection; one new bounded follow-up predeclared, live pending at this checkpoint.

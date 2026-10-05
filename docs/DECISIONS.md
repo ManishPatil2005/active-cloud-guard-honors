@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-033 - 2026-10-05 - Read-only lineage before time intervention
+
+Observe native WSL REALTIME/BOOT/MONOTONIC and Windows wall/performance-counter with full dispatch/receive intervals. Never equate clock epochs, assume symmetric launch delays, infer causes from missing logs or fit a correction. Keep fixed count/gaps/timeout/source/domain gates and first-failure evidence; separate complete offline review. One declared observation after implementation publication; no induced suspend, service stop or sensor run. Short compatible sampling cannot pass long-term stability or independent runtime gates. Shared domain validation extraction preserves existing behavior; historical hashes remain revision-bound.
+
 ## ADR-032 - 2026-10-05 - Retain native relationship evidence before TIME rejection
 
 After the original sensor-on failure lost inputs and later sensor-free reads all passed, save boot/realtime endpoints around each TIME bracket before validation, only in boot mode. Distinct v2 protocol/exclusion, same gates/permissions/resources and no calibration-value or clock-fix claim. Original launch/PING summary unchanged; extra endpoints checked separately offline. One new collector-on attempt predeclared after implementation commit, no replacement/retry or adaptive extension. Negative outcomes remain valid evidence.

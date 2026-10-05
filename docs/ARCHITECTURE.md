@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-023 adds separate scripts/clock_lineage.py Windows-host orchestration and cloudguard/clock_lineage.py native/interval validation. Fixed WSL child reads clock/proc/source facts only; no Docker/sensor/service/model calls. Count/gap/timeout/strict source and namespace gates, sanitized partial receipts and offline full reduction; not runtime baseline input. Single-domain validation extracted from boot_clock's existing three-domain checks without changing those gates. Execution hashes are revision-specific; old receipt sources remain historical. CLOCK_LINEAGE.md; architecture/engines unchanged.
+
 E2-022 read_time optional boot flag surrounds each TIME command bracket with two validated native boot/realtime sandwiches, saved before existing acceptance validation. Only clocked_ping boot mode requests them; sensor-free/legacy/default paths unchanged. Boot_v2 receipt distinguishes 16 added nested TIME endpoints from original 11 launch/PING summary; complete ordered reduction reviewed offline. No collector calibration read/correction/new dependency; RECORDED_BOOT_CLOCK_FOLLOWUP.md.
 
 E2-021 extracts sanitized TIME recording into scripts/sensor_trial.read_time, shared by existing clocked_ping and opt-in clock_bridge --record-attempts. New sensor-free protocol has six reads maximum/five one-second gaps, source freeze/identity/known-sensor absence gates, stops on rejection. No PING, boot sample, collector startup, model or runtime baseline path. Legacy bridge mode unchanged; SENSOR_FREE_TIME_ATTEMPTS.md. Source hashes change through the refactor, historical receipts remain bound to old code.

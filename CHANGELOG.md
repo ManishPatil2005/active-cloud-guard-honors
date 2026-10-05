@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-05 - Add read-only Windows/WSL clock lineage
+
+- Add a fixed sixteen-snapshot host/guest diagnostic and offline interval reducer, no shared epoch or symmetric delay assumption.
+- Preserve first-failure inputs with safe classes/stages; refuse malformed replies/source/domain changes and overwrites. Extract single-domain validation while preserving existing three-domain gates.
+- Predeclare one observation after implementation publication, separate result commit; no clocks/services/sensors/default engine changes or cause/stability claims.
+- 455 tests pass on each OS; 27 added cases. Preserve initial test-diagnostic issue as INC-035; live observation pending at this checkpoint.
+
 ## 2026-10-05 - Preserve compatible collector diagnostic and exploratory clock change
 
 - Execute one declared boot_v2 trial: four unique measured PINGs, eight TIME brackets and 27 native samples compatible; sources/raw/response hashes and summaries checked offline.

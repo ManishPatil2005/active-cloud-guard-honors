@@ -1,5 +1,9 @@
 # Evidence index
 
+## Clock-lineage implementation checks (2026-10-05)
+
+[Protocol](CLOCK_LINEAGE.md), [Windows suite](../output/engine2-clock-lineage-windows-tests-20261005.xml) / [Linux suite](../output/engine2-clock-lineage-linux-tests-20261005.xml): 455 each OS, 27 additions. Native bounds, fixed bridge, interval/strict-data/refusal/privacy/partial-receipt and offline-binding behavior tested. No live observation at implementation checkpoint; synthetic jump is not a reproduced historical incident. Existing failed receipts unchanged.
+
 ## Recorded collector-on follow-up (2026-10-05)
 
 [Receipt](../output/engine2-recorded-boot-clock-20261005.json), [offline review](../output/engine2-recorded-boot-review-20261005.json), [metrics](../output/engine2-recorded-boot-metrics-20261005.json), [protocol/result](RECORDED_BOOT_CLOCK_FOLLOWUP.md). Four measured events, eight TIME reads and 27 native samples compatible in one new run; seven source/raw/response hashes/summaries/namespace facts checked. Metrics zero drops, unknown coverage. Exploratory prelaunch relationship difference +123.10316 s against original receipt; no cause/change time or long-term stability established. Failed history intact; no clock adjustments/correction/independent evaluation. Raw data retained locally/ignored; last software suite 428 each OS.

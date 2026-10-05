@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-035 - 2026-10-05 - Oversized test parameter diagnostics during lineage development
+
+**Symptom/evidence:** first targeted pytest command reported 51 passing cases and two setup errors; a 100001-byte parameter generated oversized test IDs/output, and returned diagnostics were truncated. Exact setup exception unavailable in captured output; do not infer a proven OS/filesystem cause.
+
+**Cause confidence/fix:** oversized parameter IDs are suspected as a contributor; assigned concise duplicate/nonfinite/overlarge IDs without changing tested inputs. Subsequent same targeted suite with --tb=short passed 52 cases. One setup/error-count difference remains unexplained; no live experiment affected, no prior evidence edited. Full suites are still required before publication. This is a test-development issue, not the INC-034 runtime clock cause.
+
 ### INC-034 - 2026-10-05 - Native boot/wall relationship differs across receipts
 
 **Symptom/evidence:** exploratory post-run comparison of E2-019 07:43:31 and E2-022 08:26:18 prelaunch sandwiches yields +123103159572 to +123103161432 ns realtime-minus-boot change. Both bounds revalidate; recorded harness namespace/zero offsets/shared boot SHA and boot sampler source hash equal. New run has 27 within-run zero-compatible changes and four compatible event matches. Review binds both receipts; source/raw/summaries checked. High confidence in arithmetic/recorded endpoint difference, not authenticated global clock history or matched-protocol research confirmation.

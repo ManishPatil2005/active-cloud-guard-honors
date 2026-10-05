@@ -1,5 +1,7 @@
 # Progress Execution
 
+**Next clock investigation, 5 October:** a new read-only tool will watch Windows time and three Linux clocks together, up to sixteen times. It keeps the uncertainty caused by command delays instead of assuming the computers share one clock. No time settings, services or sensors are changed. All 455 software tests pass on each OS. One short observation is planned after publishing the tool; even a successful result cannot explain a past clock change or prove long-term reliability. This remains Engine 2 groundwork, not Engine 3. [Simple protocol and commands](CLOCK_LINEAGE.md).
+
 ## A beginner's guide to Active Cloud Guard
 
 **Collector follow-up result, 5 October:** the one new sensor-on check completed, matched all four measured test connections and passed the recorded timing checks. We checked 27 boot/wall-time samples and the saved event summaries; sensor removed, no clock changes. However, comparing the earlier and current startup readings shows the boot/wall relationship differs by about 123 seconds between runs. We do not know when or why it changed, and missing service/power logs do not prove nothing happened. This is an exploratory finding, not proof of a cause. Engine 2 still needs trustworthy long-term timing and independent evaluation; the latest software suite passes 428 tests per OS. [Evidence and limits](RECORDED_BOOT_CLOCK_FOLLOWUP.md).

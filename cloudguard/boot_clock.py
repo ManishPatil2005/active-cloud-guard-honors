@@ -31,26 +31,31 @@ def namespace_facts(namespace, offsets, boot_id):
     )
 
 
+def checked_domain(domain):
+    """Validate one local domain without claiming other domains were observed."""
+    if not re.fullmatch(
+        r"time:\[[0-9]+\]", domain.get("time_namespace", "")
+    ) or not re.fullmatch(r"[0-9a-f]{64}", domain.get("kernel_boot_sha256", "")):
+        raise ValueError("invalid saved clock-domain facts")
+    offsets = domain.get("offsets", {})
+    if domain.get("time_namespace_for_children") != domain["time_namespace"]:
+        raise ValueError("time namespace differs from children; offsets ambiguous")
+    if set(offsets) != {"monotonic", "boottime"} or any(
+        not isinstance(row, list)
+        or len(row) != 2
+        or any(type(n) is not int for n in row)
+        for row in offsets.values()
+    ):
+        raise ValueError("invalid saved namespace offsets")
+    if domain["offsets"] != {"monotonic": [0, 0], "boottime": [0, 0]}:
+        raise ValueError("nonzero time namespace offset; boot comparison refused")
+
+
 def checked_domains(domains):
     if len(domains) != 3:
         raise ValueError("harness, Redis and sensor clock domains required")
     for domain in domains:
-        if not re.fullmatch(
-            r"time:\[[0-9]+\]", domain.get("time_namespace", "")
-        ) or not re.fullmatch(r"[0-9a-f]{64}", domain.get("kernel_boot_sha256", "")):
-            raise ValueError("invalid saved clock-domain facts")
-        offsets = domain.get("offsets", {})
-        if domain.get("time_namespace_for_children") != domain["time_namespace"]:
-            raise ValueError("time namespace differs from children; offsets ambiguous")
-        if set(offsets) != {"monotonic", "boottime"} or any(
-            not isinstance(row, list)
-            or len(row) != 2
-            or any(type(n) is not int for n in row)
-            for row in offsets.values()
-        ):
-            raise ValueError("invalid saved namespace offsets")
-        if domain["offsets"] != {"monotonic": [0, 0], "boottime": [0, 0]}:
-            raise ValueError("nonzero time namespace offset; boot comparison refused")
+        checked_domain(domain)
     if len({d["kernel_boot_sha256"] for d in domains}) != 1:
         raise ValueError("kernel identity differs; boot comparison refused")
 
