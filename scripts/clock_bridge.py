@@ -4,42 +4,15 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
-import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from cloudguard.clock_check import sample, compare
+from cloudguard.clock_check import sample
+from cloudguard.clock_domains import redis_bracket as bracket
 from cloudguard.deployment import local_daemon
 from scripts.sensor_trial import command, target_identity
 from scripts.workload_control import check_sensor_absent
-
-
-def bracket(first, last, reply):
-    timing = compare(first, last)
-    if not timing["within_tolerance"] or timing["elapsed_monotonic_ns"] > 500_000_000:
-        raise ValueError("unstable or excessively wide clock bracket")
-    parts = reply.splitlines()
-    if len(parts) != 2 or any(not re.fullmatch(r"[0-9]{1,10}", p) for p in parts):
-        raise ValueError("unexpected Redis TIME response")
-    seconds, micros = map(int, parts)
-    if not 0 <= seconds < 4133980800 or not 0 <= micros < 1_000_000:
-        raise ValueError("Redis TIME outside supported range")
-    remote = seconds * 10**9 + micros * 1000
-    # Bounds include read-bracket uncertainty, observed endpoint drift, and
-    # microsecond timestamp quantization. Network/exec latency is NOT halved.
-    allowance = timing["sampling_uncertainty_ns"] + abs(timing["clock_difference_ns"])
-    low = remote - last["wall_ns"] - allowance
-    high = remote + 999 - first["wall_ns"] + allowance
-    return dict(
-        first=first,
-        last=last,
-        **timing,
-        redis_unix_ns=remote,
-        offset_lower_ns=low,
-        offset_upper_ns=high,
-        zero_within_bounds=low <= 0 <= high,
-    )
 
 
 def main():

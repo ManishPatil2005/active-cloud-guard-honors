@@ -1,5 +1,9 @@
 # Evidence index
 
+## Same-trial clock domains (2026-10-05)
+
+[Protocol/results](CLOCK_DOMAINS.md), [receipt](../output/engine2-clock-domains-20261005.json), [metrics](../output/engine2-clock-domains-metrics-20261005.json), software [Windows](../output/engine2-clock-domains-windows-tests-20261005.xml) / [Linux](../output/engine2-clock-domains-linux-tests-20261005.xml): 368 each. Eight server/harness brackets include zero; all four collector events outside nested PING and server brackets. Offline source/raw/correlation/summary checks passed; sensor removed. Negative alignment result, not a corrected baseline, overhead study or proven cause. Raw logs remain private/local; INC-032.
+
 ## Separate repeatability follow-up (2026-10-05)
 
 [Protocol and review](READINESS_REPEATS.md), [manifest](../output/engine2-readiness-repeats-20261005/manifest.json), trial [1](../output/engine2-readiness-repeats-20261005/trial-1.json) / [2](../output/engine2-readiness-repeats-20261005/trial-2.json) / [3](../output/engine2-readiness-repeats-20261005/trial-3.json), metrics [1](../output/engine2-readiness-repeats-20261005/trial-1-metrics.json) / [2](../output/engine2-readiness-repeats-20261005/trial-2-metrics.json) / [3](../output/engine2-readiness-repeats-20261005/trial-3-metrics.json). Three launched, two accepted, third timing-rejected despite unique PID matches. Frozen source/receipt/raw-correlation and cross-trial identity checked offline. No repeated-stability, full coverage, ML accuracy or general overhead claim. Fresh [Windows](../output/engine2-repeat-followup-windows-tests-20261005.xml) / [Linux](../output/engine2-repeat-followup-linux-tests-20261005.xml) software reports: 351 each. Raw logs stay local/ignored; INC-032.

@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+Opt-in sensor_trial --clock-domains adds eight fixed Redis TIME reads around four precisely bracketed identified PINGs. cloudguard/clock_domains.py shares Redis bracket arithmetic with clock_bridge and produces separate server/harness and collector/server diagnostic bounds, without correction/score. Distinct container_pid_connect_clock_v1 receipts cannot enter repeat acceptance/latency pairing; ordinary sensor path unchanged. Extra TIME events/unassigned counts retained. Source hashes freeze this diagnostic; no new permissions or permanent collector. See CLOCK_DOMAINS.md.
+
 scripts/repeat_readiness.py orchestrates exactly three frozen diagnostic slots, hashes selected execution sources, validates saved measurement fields and aborts on failure without replacements. Absolute destination is resolved before collection. Child launch accounting distinguishes no-start from timeout; final sensor enumeration remains an operator requirement after interruption. No change to collector protocol or ML path.
 
 Diagnostic readiness protocol identified_second_canary_v1 shares connection_counts parsing with final correlation. It records two bounded attempt snapshots and gates measured dispatch on the second canary's unique connect. Default noncorrelated readiness remains unchanged; existing latency-pilot exclusions still apply.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-05 - Add bounded server/harness/collector clock diagnostic
+
+- Add opt-in TIME/PING/TIME sampling with precise nested PING brackets, frozen source hashes and conservative separate clock-domain bounds; preserve partial rows.
+- Reuse Redis bracket arithmetic through a shared module; default sensor/Engine 1 behavior unchanged, diagnostic excluded from repeatability acceptance and latency pairing.
+- One trial reproduced collector timestamp incompatibility while server/harness bounds included zero; retain negative result and eight unassigned auxiliary connects. No correction or clock changes.
+- 368 tests each OS, reviewed metrics/raw hashes, architecture/security/decision/progress updates; collector cause remains open.
+
 ## 2026-10-05 - Execute separate repeatability follow-up and preserve timing rejection
 
 - Launched all three declared diagnostic slots using the hardened runner; two accepted, third rejected by cross-clock timestamp bounds despite successful collection.

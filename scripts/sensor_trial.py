@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT))
 from cloudguard.deployment import local_daemon
 from cloudguard.workload import PROFILES, run as run_workload
 from cloudguard.correlation import parse_ping, correlate, connection_counts
+from cloudguard.clock_check import sample, compare
+from cloudguard.clock_domains import redis_bracket, summarize as summarize_clocks
 
 IMAGE = "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
 
@@ -145,6 +147,35 @@ def rules(container_id, *, correlation=False):
     )
 
 
+def clocked_ping(container_id, pids, observations):
+    """Opt-in TIME/PING/TIME diagnostic; preserve partial observations on failure."""
+    observation = {}
+    observations.append(observation)
+
+    def server_time():
+        first = sample()
+        reply = command(
+            "exec",
+            container_id,
+            "redis-cli",
+            "--raw",
+            "-h",
+            "127.0.0.1",
+            "TIME",
+            timeout=5,
+        )
+        return redis_bracket(first, sample(), reply)
+
+    observation["before"] = server_time()
+    first = sample()
+    identified_ping(container_id, pids)
+    last = sample()
+    observation["process_id"] = pids[-1]
+    observation["ping_clock"] = dict(first=first, last=last, **compare(first, last))
+    observation["after"] = server_time()
+    return "PONG"
+
+
 def summarize_events(stdout, container_id):
     counts = Counter()
     for line in stdout.splitlines():
@@ -180,9 +211,12 @@ def main():
     parser.add_argument("--profile", choices=tuple(PROFILES), default="ping_1")
     parser.add_argument("--fixed-warmup", action="store_true")
     parser.add_argument("--correlate", action="store_true")
+    parser.add_argument("--clock-domains", action="store_true")
     args = parser.parse_args()
     if args.correlate and (args.profile != "ping_4" or not args.fixed_warmup):
         parser.error("correlation requires ping_4 and fixed warmup")
+    if args.clock_domains and not args.correlate:
+        parser.error("clock domains requires correlated fixed ping_4")
     report = dict(
         executed_at=datetime.now(timezone.utc).isoformat(),
         image=IMAGE,
@@ -192,6 +226,18 @@ def main():
         coverage="unknown",
         actions_executed=[],
     )
+    if args.clock_domains:
+        sources = [
+            "scripts/sensor_trial.py",
+            "cloudguard/clock_domains.py",
+            "cloudguard/clock_check.py",
+            "cloudguard/correlation.py",
+            "cloudguard/workload.py",
+            "testbed/falco-trial.yaml",
+        ]
+        report["clock_domain_source_sha256"] = {
+            p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in sources
+        }
     with Path(args.output).open("x", encoding="utf-8") as destination:
         name = "acg-falco-" + uuid.uuid4().hex
         started = False
@@ -284,7 +330,11 @@ def main():
             time.sleep(1)
             warmup_pids = []
             if args.correlate:
-                report["diagnostic_protocol"] = "container_pid_connect_v2"
+                report["diagnostic_protocol"] = (
+                    "container_pid_connect_clock_v1"
+                    if args.clock_domains
+                    else "container_pid_connect_v2"
+                )
                 report["warmup_process_ids"] = warmup_pids
                 report["readiness_protocol"] = "identified_second_canary_v1"
                 report["readiness_attempts"] = []
@@ -305,12 +355,21 @@ def main():
             time.sleep(1)
             report["workload_executed"] = True
             pids = []
+            if args.clock_domains:
+                report["clock_domain_samples"] = []
 
             def ping():
                 if not args.correlate:
                     return command(
                         "exec", container_id, "redis-cli", "-h", "127.0.0.1", "PING"
                     )
+                if args.clock_domains:
+                    try:
+                        return clocked_ping(
+                            container_id, pids, report["clock_domain_samples"]
+                        )
+                    finally:
+                        report["correlation_process_ids"] = list(pids)
                 identified_ping(container_id, pids)
                 report["correlation_process_ids"] = list(pids)
                 return "PONG"
@@ -358,13 +417,30 @@ def main():
                 else "no_matching_events"
             )
             if args.correlate:
+                calls = report["measurement"]["calls"]
+                if args.clock_domains:
+                    calls = [
+                        dict(pong=True, clock_sampling=o["ping_clock"])
+                        for o in report["clock_domain_samples"]
+                    ]
                 report["correlation"] = correlate(
                     raw,
                     container_id,
                     pids,
-                    report["measurement"]["calls"],
+                    calls,
                     warmup_pids=warmup_pids,
                 )
+                if args.clock_domains:
+                    report["clock_domain_summary"] = summarize_clocks(
+                        report["clock_domain_samples"], report["correlation"]
+                    )
+                    if report["clock_domain_source_sha256"] != {
+                        p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
+                        for p in sources
+                    }:
+                        raise ValueError(
+                            "clock-domain sources changed during diagnostic"
+                        )
             report["raw_log_local_only"] = True
         except Exception as error:
             report["status"] = "trial_failed"

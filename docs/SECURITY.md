@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Clock-domain mode performs exactly eight read-only Redis TIME commands in the existing identity-gated loopback lab, before/after four identified PINGs; no credentials, application-data access/write, new endpoint, permission or clock-service action. Same Falco capabilities/watchdog. Partial rows and auxiliary unassigned connects retained; new diagnostic label excluded from old repeat/latency protocols. Numerical bounds/PIDs/hashes are not attestation or permission for timestamp correction. Raw logs remain excluded; source hashes validate bytes, not authority. See CLOCK_DOMAINS.md.
+
 Repeat runner keeps existing sensor permissions/duration and uses fixed child arguments only. Three planned trials maximum, pre/post local readiness, no replacements or clock changes. Source/receipt hashes are integrity metadata, not authentication. On timeout the sensor watchdog still applies; inspect cleanup before any further workload. Raw logs remain excluded.
 
 Identified readiness reuses the strict bounded correlation parser and requires the current second canary PID's unique successful connect, not arbitrary earlier events. Snapshot hashes/counts are preserved without exporting command text. No new privilege or network scope. PID matching remains non-authenticated and readiness is a point-in-time observation, not uptime/coverage assurance.

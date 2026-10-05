@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest diagnostic: [same-trial clock-domain comparison](CLOCK_DOMAINS.md), server/harness compatible but four collector events outside both brackets; collector cause still unresolved.
+
 Latest evaluation: [three-trial repeatability studies](READINESS_REPEATS.md): 5 October follow-up launched all three, two accepted and third timing-rejected. September interruption remains preserved; stability gate still unmet.
 
 Latest sensor diagnostic: [process-ID correlation](PID_CORRELATION.md), including successful measured matches and remaining warmup coverage uncertainty.
@@ -27,6 +29,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Engine 2 instrumentation](ENGINE2_INSTRUMENTATION.md) | Event-observed readiness, selected identity continuity and collector-wide loss counters |
 | [Runtime workload protocol](RUNTIME_WORKLOAD_PROTOCOL.md) | Fixed measured profiles, timing gates, preserved pilot failure and next control experiments |
 | [Clock and controls](CLOCK_AND_CONTROLS.md) | Bracketed diagnostics, reproduced timing failure and deferred sensor-off controls |
+| [Clock domains](CLOCK_DOMAINS.md) | Opt-in server TIME/PING/TIME diagnostic, precise event bounds and preserved negative result |
 | [Time-sync diagnosis](TIME_SYNC_DIAGNOSIS.md) | Read-only evidence of competing synchronization paths and proposed reversible test |
 | [Paired pilot](PAIRED_PILOT.md) | Fixed warm-up, comparison guards, aborted batch and prerequisite recovery |
 | [Windows/Linux setup](WINDOWS_LINUX_SETUP.md) | Installed research WSL distribution, actual Linux preflight, Docker integration handoff and sensor gates |

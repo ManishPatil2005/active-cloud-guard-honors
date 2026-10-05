@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-027 - 2026-10-05 - Bracket server time around identified PING without correction
+
+After unique events failed harness bounds, sample Redis TIME before/after each precise PING while the sensor runs, rather than fit an offset to the failed study or repeat until success. Keep server/harness, event/harness and event/server comparisons separate; sequential server bounds assume clock stability and do not authenticate ownership or calibrate Falco. Extra eight TIME calls alter workload, require a distinct opt-in diagnostic label and cannot enter old repeat acceptance/latency pairing. Preserve auxiliary counts and partial failures. Share existing TIME arithmetic; same Python/Docker/Ollama/Chroma architecture and sensor permissions, no clock-service change. One live observation narrowed mismatch toward collector timestamps; root cause remains unproven.
+
 ## ADR-026 - 2026-09-30 - Explicit opt-in PID correlation
 
 Use a fixed shell PID-print followed by exec-PING and Falco proc.vpid to correlate measured lab processes. Export no arbitrary arguments/environment/file paths; accept exactly one connect per distinct measured PID under target-cgroup checks. This is bounded correlation, not authenticated attribution against PID reuse or a hostile daemon. Keep ordinary rule/adapter unchanged; reject diagnostic receipts from latency pairing because the helper adds work. Retain zero-compatible intervals as one-run observations, not correction factors or completeness proof.

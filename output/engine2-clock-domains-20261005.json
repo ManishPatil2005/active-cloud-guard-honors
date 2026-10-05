@@ -1,0 +1,552 @@
+{
+  "executed_at": "2026-10-05T06:32:04.620520+00:00",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "evidence_level": "sensor_smoke_attempt",
+  "duration_seconds": 15,
+  "threat_confirmed": false,
+  "coverage": "unknown",
+  "actions_executed": [],
+  "clock_domain_source_sha256": {
+    "scripts/sensor_trial.py": "b4ad198e87178d1232ad170caa19d704b9bdd1b26a9a94e5e7114f80ee9ae4cc",
+    "cloudguard/clock_domains.py": "744ebb65e356abc8c97bf75b58c55ae9fcbc959ef3287d166d70bd35689c0e94",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc",
+    "cloudguard/correlation.py": "e132d999ba4c7c5352595fe56b9b73205567d4489c681473d4a689371a71ede0",
+    "cloudguard/workload.py": "92f091f7ac030f67c797ec7474b413a0fd563cf7e8bcf2a29afcb87bfd3775dd",
+    "testbed/falco-trial.yaml": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de"
+  },
+  "target_identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-10-05T06:19:20.530908254Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "container_id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+  "rules_sha256": "d914225cd6401759d746f2732b2d46c747168d676248c01f48b1fabcbfd3b681",
+  "config_sha256": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+  "deployment_binding_authenticated": false,
+  "sensor_container_id": "b283c516eda3c3e7b7b5254c471b3a4e0c9248032c8eb472cd59894399eecab6",
+  "diagnostic_protocol": "container_pid_connect_clock_v1",
+  "warmup_process_ids": [
+    129,
+    135
+  ],
+  "readiness_protocol": "identified_second_canary_v1",
+  "readiness_attempts": [
+    {
+      "attempt": 1,
+      "process_id": 129,
+      "connect_count": 1,
+      "unassigned_connect_count": 0,
+      "snapshot_sha256": "41459d5d67a4c8d391a8307f60d08e662923642b5cd43ee6ba75ca87be8e4453"
+    },
+    {
+      "attempt": 2,
+      "process_id": 135,
+      "connect_count": 1,
+      "unassigned_connect_count": 0,
+      "snapshot_sha256": "bba744e4d1cff75bdb1834df0115c4c8000b70b7e561b6a81332980c334e9dfc"
+    }
+  ],
+  "readiness": {
+    "status": "identified_canary_observed",
+    "canary_attempts": 2,
+    "causal_attribution": "not_proven",
+    "canary_included_in_capture": true
+  },
+  "warmup_protocol": "two_pings_v1",
+  "workload_executed": true,
+  "clock_domain_samples": [
+    {
+      "before": {
+        "first": {
+          "wall_ns": 1791181930289779365,
+          "monotonic_mid_ns": 785800659313,
+          "sampling_span_ns": 205
+        },
+        "last": {
+          "wall_ns": 1791181930348860413,
+          "monotonic_mid_ns": 785859740178,
+          "sampling_span_ns": 586
+        },
+        "elapsed_monotonic_ns": 59080865,
+        "clock_difference_ns": 183,
+        "sampling_uncertainty_ns": 396,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181930343049000,
+        "offset_lower_ns": -5811992,
+        "offset_upper_ns": 53271213,
+        "zero_within_bounds": true
+      },
+      "process_id": 147,
+      "ping_clock": {
+        "first": {
+          "wall_ns": 1791181930348952728,
+          "monotonic_mid_ns": 785859832689,
+          "sampling_span_ns": 188
+        },
+        "last": {
+          "wall_ns": 1791181930401557680,
+          "monotonic_mid_ns": 785912437470,
+          "sampling_span_ns": 527
+        },
+        "elapsed_monotonic_ns": 52604781,
+        "clock_difference_ns": 171,
+        "sampling_uncertainty_ns": 358,
+        "within_tolerance": true
+      },
+      "after": {
+        "first": {
+          "wall_ns": 1791181930401567989,
+          "monotonic_mid_ns": 785912447956,
+          "sampling_span_ns": 123
+        },
+        "last": {
+          "wall_ns": 1791181930452314387,
+          "monotonic_mid_ns": 785963194173,
+          "sampling_span_ns": 562
+        },
+        "elapsed_monotonic_ns": 50746217,
+        "clock_difference_ns": 181,
+        "sampling_uncertainty_ns": 343,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181930446642000,
+        "offset_lower_ns": -5672911,
+        "offset_upper_ns": 45075534,
+        "zero_within_bounds": true
+      }
+    },
+    {
+      "before": {
+        "first": {
+          "wall_ns": 1791181931289766628,
+          "monotonic_mid_ns": 786800646633,
+          "sampling_span_ns": 159
+        },
+        "last": {
+          "wall_ns": 1791181931342626893,
+          "monotonic_mid_ns": 786853506687,
+          "sampling_span_ns": 529
+        },
+        "elapsed_monotonic_ns": 52860054,
+        "clock_difference_ns": 211,
+        "sampling_uncertainty_ns": 344,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181931336563000,
+        "offset_lower_ns": -6064448,
+        "offset_upper_ns": 46797926,
+        "zero_within_bounds": true
+      },
+      "process_id": 165,
+      "ping_clock": {
+        "first": {
+          "wall_ns": 1791181931342653542,
+          "monotonic_mid_ns": 786853533506,
+          "sampling_span_ns": 151
+        },
+        "last": {
+          "wall_ns": 1791181931394034076,
+          "monotonic_mid_ns": 786904913907,
+          "sampling_span_ns": 436
+        },
+        "elapsed_monotonic_ns": 51380401,
+        "clock_difference_ns": 133,
+        "sampling_uncertainty_ns": 294,
+        "within_tolerance": true
+      },
+      "after": {
+        "first": {
+          "wall_ns": 1791181931394042399,
+          "monotonic_mid_ns": 786904922365,
+          "sampling_span_ns": 88
+        },
+        "last": {
+          "wall_ns": 1791181931444785968,
+          "monotonic_mid_ns": 786955665733,
+          "sampling_span_ns": 565
+        },
+        "elapsed_monotonic_ns": 50743368,
+        "clock_difference_ns": 201,
+        "sampling_uncertainty_ns": 327,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181931438748000,
+        "offset_lower_ns": -6038496,
+        "offset_upper_ns": 44707128,
+        "zero_within_bounds": true
+      }
+    },
+    {
+      "before": {
+        "first": {
+          "wall_ns": 1791181932289788716,
+          "monotonic_mid_ns": 787800668721,
+          "sampling_span_ns": 175
+        },
+        "last": {
+          "wall_ns": 1791181932343873584,
+          "monotonic_mid_ns": 787854753332,
+          "sampling_span_ns": 597
+        },
+        "elapsed_monotonic_ns": 54084611,
+        "clock_difference_ns": 257,
+        "sampling_uncertainty_ns": 386,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181932338394000,
+        "offset_lower_ns": -5480227,
+        "offset_upper_ns": 48606926,
+        "zero_within_bounds": true
+      },
+      "process_id": 183,
+      "ping_clock": {
+        "first": {
+          "wall_ns": 1791181932343898270,
+          "monotonic_mid_ns": 787854778244,
+          "sampling_span_ns": 84
+        },
+        "last": {
+          "wall_ns": 1791181932395202373,
+          "monotonic_mid_ns": 787906082180,
+          "sampling_span_ns": 497
+        },
+        "elapsed_monotonic_ns": 51303936,
+        "clock_difference_ns": 167,
+        "sampling_uncertainty_ns": 291,
+        "within_tolerance": true
+      },
+      "after": {
+        "first": {
+          "wall_ns": 1791181932395210910,
+          "monotonic_mid_ns": 787906090890,
+          "sampling_span_ns": 91
+        },
+        "last": {
+          "wall_ns": 1791181932445790114,
+          "monotonic_mid_ns": 787956669845,
+          "sampling_span_ns": 643
+        },
+        "elapsed_monotonic_ns": 50578955,
+        "clock_difference_ns": 249,
+        "sampling_uncertainty_ns": 367,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181932440316000,
+        "offset_lower_ns": -5474730,
+        "offset_upper_ns": 45106705,
+        "zero_within_bounds": true
+      }
+    },
+    {
+      "before": {
+        "first": {
+          "wall_ns": 1791181933289773696,
+          "monotonic_mid_ns": 788800653663,
+          "sampling_span_ns": 117
+        },
+        "last": {
+          "wall_ns": 1791181933344868720,
+          "monotonic_mid_ns": 788855748508,
+          "sampling_span_ns": 516
+        },
+        "elapsed_monotonic_ns": 55094845,
+        "clock_difference_ns": 179,
+        "sampling_uncertainty_ns": 317,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181933337406000,
+        "offset_lower_ns": -7463216,
+        "offset_upper_ns": 47633799,
+        "zero_within_bounds": true
+      },
+      "process_id": 201,
+      "ping_clock": {
+        "first": {
+          "wall_ns": 1791181933344893058,
+          "monotonic_mid_ns": 788855773009,
+          "sampling_span_ns": 104
+        },
+        "last": {
+          "wall_ns": 1791181933400464621,
+          "monotonic_mid_ns": 788911344331,
+          "sampling_span_ns": 687
+        },
+        "elapsed_monotonic_ns": 55571322,
+        "clock_difference_ns": 241,
+        "sampling_uncertainty_ns": 396,
+        "within_tolerance": true
+      },
+      "after": {
+        "first": {
+          "wall_ns": 1791181933400472654,
+          "monotonic_mid_ns": 788911352612,
+          "sampling_span_ns": 87
+        },
+        "last": {
+          "wall_ns": 1791181933452862792,
+          "monotonic_mid_ns": 788963742556,
+          "sampling_span_ns": 582
+        },
+        "elapsed_monotonic_ns": 52389944,
+        "clock_difference_ns": 194,
+        "sampling_uncertainty_ns": 335,
+        "within_tolerance": true,
+        "redis_unix_ns": 1791181933446441000,
+        "offset_lower_ns": -6422321,
+        "offset_upper_ns": 45969874,
+        "zero_within_bounds": true
+      }
+    }
+  ],
+  "correlation_process_ids": [
+    147,
+    165,
+    183,
+    201
+  ],
+  "measurement": {
+    "profile": "ping_4",
+    "scenario_group": "redis-ping-development",
+    "status": "completed",
+    "start_unix_ns": 1791181930289686731,
+    "end_unix_ns": 1791181934289763955,
+    "elapsed_monotonic_ns": 4000077417,
+    "clock_difference_ns": -193,
+    "clock_sampling": {
+      "first": {
+        "wall_ns": 1791181930289686731,
+        "monotonic_mid_ns": 785800566220,
+        "sampling_span_ns": 1864
+      },
+      "last": {
+        "wall_ns": 1791181934289763955,
+        "monotonic_mid_ns": 789800643637,
+        "sampling_span_ns": 1924
+      },
+      "elapsed_monotonic_ns": 4000077417,
+      "clock_difference_ns": -193,
+      "sampling_uncertainty_ns": 1894,
+      "within_tolerance": true
+    },
+    "planned_duration_ns": 4000000000,
+    "calls": [
+      {
+        "scheduled_offset_ns": 0,
+        "dispatch_offset_ns": 87761,
+        "docker_exec_round_trip_ns": 162568857,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1791181930289771075,
+            "monotonic_mid_ns": 785800651018,
+            "sampling_span_ns": 353
+          },
+          "last": {
+            "wall_ns": 1791181930452343295,
+            "monotonic_mid_ns": 785963223269,
+            "sampling_span_ns": 83
+          },
+          "elapsed_monotonic_ns": 162572251,
+          "clock_difference_ns": -31,
+          "sampling_uncertainty_ns": 218,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 1000000000,
+        "dispatch_offset_ns": 1000071923,
+        "docker_exec_round_trip_ns": 155055542,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1791181931289751652,
+            "monotonic_mid_ns": 786800631162,
+            "sampling_span_ns": 2001
+          },
+          "last": {
+            "wall_ns": 1791181931444814393,
+            "monotonic_mid_ns": 786955694365,
+            "sampling_span_ns": 135
+          },
+          "elapsed_monotonic_ns": 155063203,
+          "clock_difference_ns": -462,
+          "sampling_uncertainty_ns": 1068,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 2000000000,
+        "dispatch_offset_ns": 2000096360,
+        "docker_exec_round_trip_ns": 156033170,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1791181932289775290,
+            "monotonic_mid_ns": 787800654863,
+            "sampling_span_ns": 1903
+          },
+          "last": {
+            "wall_ns": 1791181932445816172,
+            "monotonic_mid_ns": 787956696132,
+            "sampling_span_ns": 104
+          },
+          "elapsed_monotonic_ns": 156041269,
+          "clock_difference_ns": -387,
+          "sampling_uncertainty_ns": 1004,
+          "within_tolerance": true
+        }
+      },
+      {
+        "scheduled_offset_ns": 3000000000,
+        "dispatch_offset_ns": 3000080434,
+        "docker_exec_round_trip_ns": 163121055,
+        "pong": true,
+        "clock_sampling": {
+          "first": {
+            "wall_ns": 1791181933289758804,
+            "monotonic_mid_ns": 788800638323,
+            "sampling_span_ns": 1902
+          },
+          "last": {
+            "wall_ns": 1791181933452888137,
+            "monotonic_mid_ns": 788963768104,
+            "sampling_span_ns": 93
+          },
+          "elapsed_monotonic_ns": 163129781,
+          "clock_difference_ns": -448,
+          "sampling_uncertainty_ns": 998,
+          "within_tolerance": true
+        }
+      }
+    ],
+    "timing_protocol": "per_call_brackets_v1",
+    "causal_attribution": "not_proven",
+    "overhead_estimate": null
+  },
+  "workload_result": "PONG",
+  "target_identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-10-05T06:19:20.530908254Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "target_identity_stable": true,
+  "metrics_raw_sha256": "2db7b3c16bfddd5e22f7ace6ced11c4ba34b3a4455b64276a8538ebe45be0054",
+  "raw_log_sha256": "df3d429d149e97bb293f898f92baaa3038e405cb9d9cf61a561adef99fc82e5d",
+  "exit_code": 0,
+  "event_type_counts": {
+    "execve": 34,
+    "openat": 350,
+    "openat2": 112,
+    "open": 56,
+    "connect": 14
+  },
+  "matched_event_count": 566,
+  "status": "events_observed",
+  "correlation": {
+    "protocol": "container_pid_connect_v2",
+    "matches": [
+      {
+        "process_id": 147,
+        "event_unix_ns": 1791181929310760179,
+        "offset_lower_ns": -1090798030,
+        "offset_upper_ns": -1038192020,
+        "zero_within_bounds": false
+      },
+      {
+        "process_id": 165,
+        "event_unix_ns": 1791181930303542935,
+        "offset_lower_ns": -1090491568,
+        "offset_upper_ns": -1039110180,
+        "zero_within_bounds": false
+      },
+      {
+        "process_id": 183,
+        "event_unix_ns": 1791181931304532579,
+        "offset_lower_ns": -1090670252,
+        "offset_upper_ns": -1039365233,
+        "zero_within_bounds": false
+      },
+      {
+        "process_id": 201,
+        "event_unix_ns": 1791181932309674000,
+        "offset_lower_ns": -1090791258,
+        "offset_upper_ns": -1035218421,
+        "zero_within_bounds": false
+      }
+    ],
+    "zero_excluded_samples": 4,
+    "authenticated": false,
+    "correction_applied": false,
+    "coverage": "partial_or_unknown",
+    "warmup_accounting": [
+      {
+        "attempt": 1,
+        "process_id": 129,
+        "connect_count": 1,
+        "status": "unique_match"
+      },
+      {
+        "attempt": 2,
+        "process_id": 135,
+        "connect_count": 1,
+        "status": "unique_match"
+      }
+    ],
+    "unassigned_connect_count": 8,
+    "all_six_commands_uniquely_observed": true
+  },
+  "clock_domain_summary": {
+    "protocol": "redis_time_ping_time_v1",
+    "samples": [
+      {
+        "process_id": 147,
+        "server_harness_before_zero": true,
+        "server_harness_after_zero": true,
+        "event_harness_zero": false,
+        "event_server_lower_ns": -1135882820,
+        "event_server_upper_ns": -1032288821,
+        "event_inside_server_bracket": false
+      },
+      {
+        "process_id": 165,
+        "server_harness_before_zero": true,
+        "server_harness_after_zero": true,
+        "event_harness_zero": false,
+        "event_server_lower_ns": -1135206064,
+        "event_server_upper_ns": -1033020065,
+        "event_inside_server_bracket": false
+      },
+      {
+        "process_id": 183,
+        "server_harness_before_zero": true,
+        "server_harness_after_zero": true,
+        "event_harness_zero": false,
+        "event_server_lower_ns": -1135784420,
+        "event_server_upper_ns": -1033861421,
+        "event_inside_server_bracket": false
+      },
+      {
+        "process_id": 201,
+        "server_harness_before_zero": true,
+        "server_harness_after_zero": true,
+        "event_harness_zero": false,
+        "event_server_lower_ns": -1136767999,
+        "event_server_upper_ns": -1027732000,
+        "event_inside_server_bracket": false
+      }
+    ],
+    "correction_applied": false,
+    "falco_alignment_verified": false,
+    "independent_evaluation": false,
+    "limits": [
+      "Sequential read bounds assume clock stability between server reads.",
+      "No midpoint, constant-offset fit or historical timestamp correction.",
+      "Added TIME calls change workload and are excluded from latency/baseline studies.",
+      "PID and server identities are local observations, not authentication."
+    ]
+  },
+  "raw_log_local_only": true,
+  "sensor_removed": true
+}

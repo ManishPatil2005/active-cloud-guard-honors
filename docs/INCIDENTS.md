@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-032 follow-up - 2026-10-05 - Collector timestamps disagree with same-trial server brackets
+
+E2-017 recorded eight zero-compatible server/harness TIME bounds and four unique PING event timestamps outside both nested harness brackets and surrounding server reads. Event-minus-server bounds approximately -1.137 to -1.028 s, no fitted correction. SHA-matched raw correlation and complete summary reproduced offline. High confidence in this later diagnostic incompatibility; it narrows investigation toward collector timestamp/clock conversion, not proof of a specific driver bug or historical cause. All six PING connects plus eight unassigned connects (auxiliary-read count), 566 records; zero collector drops do not certify delivery. Sensor removed, timesyncd active/unchanged; 368 tests each OS. No fix for INC-032 or repeatability pass claimed. Next inspect exact pinned collector implementation/backend clock behavior before choosing another trial.
+
 ### INC-032 - 2026-10-05 - Third repeat trial passes collection but fails cross-clock bounds
 
 **Symptom/evidence:** separate declared batch `output/engine2-readiness-repeats-20261005` launched three children; first two accepted, third `accept()` raised measured timestamp mismatch. Third child exit 0 with four PONGs, all six unique connects, stable target identity, no unassigned connects and successful cleanup. All four measured event-minus-command intervals exclude zero (union roughly -886.75 to -811.63 ms), although interval/call wall-monotonic checks passed. SHA-matched raw reparse reproduced correlation exactly; three metrics reductions report zero drops, not full coverage.
