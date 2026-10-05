@@ -41,3 +41,23 @@ If complete, offline review:
 ```
 
 Minimized receipts published only after review; historical evidence unchanged. Live pending at implementation checkpoint. Tests: tests/test_kernel_clock_state.py; exact full checks recorded in WORK_LOG/TEST_PLAN after execution.
+
+## Observed result: one attempt, 5 October
+
+Implementation e0312454136412b1fb768759c0f348969b451fca published/remote matched and clean before execution. Exact declared command ran once, start2026-10-05T11:15:22.679977+00:00 (16:45:22 IST), exit0/sixteen accepted packets/32 queries. No timeout/retry/service/clock/provider/power change or sensor. Existing paired_pilot --preflight-only passed before/after, timesyncd active, known acg-falco- enumeration empty. These endpoint checks do not prove no outside actor intervened.
+
+[Receipt](../output/engine2-kernel-clock-state-20261005.json) SHA834018876154de8a435048b88d063996ecaab029321bb563242ad6fa84ea13cf; [offline review](../output/engine2-kernel-clock-state-review-20261005.json) reproduced all six source hashes, backend continuity, metadata,32 states/RAW brackets,16 ordered domains/native snapshots and summary. Libc SHA3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf. Maximum state-query RAW width159167ns (0.159167ms). Windows reviewer did not recheck libc bytes or query kernel. Separate handwritten Python endpoint arithmetic also reproduced final intervals, local consistency only.
+
+| Packet indices | Tick usec (both reads) | Frequency scaled ppm (both reads) | Frequency ppm, divided by65536 |
+|---|---|---|---|
+| 0–4 | 9698 | 2151784 | +32.8336181640625 |
+| 5–12 | 9707 | 2628697 | +40.11073303222656 |
+| 13–15 | 9707 | 1165243 | +17.780197143554688 |
+
+All32 reads: modes0, return state0/TIME_OK, status8192/STA_NANO, phase offset0ns, time constant1, tolerance32768000 scaledppm. Maxerror/esterror vary and are retained in the receipt, not treated as measured physical-error bounds. TIME_OK is the kernel-reported state, not evidence that sampled clock relationships were stable. These simultaneous kernel fields differ from E2-024's earlier cached property; distinct times/interfaces, not a contradictory replacement.
+
+Final RAW elapsed [15670270569,15670282452]ns; MONO elapsed [15207033648,15207041346]ns. RAW-minus-MONO [463229223,463248804]ns (~0.46324s); all15 elapsed comparisons exclude zero positively. Wall-minus-BOOT change [867156020,867156662]ns (~+0.867156s);7/16 change intervals exclude zero, first at index9. Exact change instant/actor not captured; state endpoints before/after every snapshot do not record every intervening adjustment.
+
+**Conclusion:** direct kernel parameter changes and adjusted/unadjusted disagreement are live-observed in this run (INC-039), strengthening the discipline-state investigation. Frequency alone is not a complete rate model: tick/other kernel terms also matter in the reviewed upstream implementation. No counterfactual writer isolation, continuous syscall history, independent clock reference, actual collector calibration observation or proof of which service caused current/historical failures. No extrapolation to old Falco lag or +123s relationship change, correction or long-term stability/ML acceptance. Old four timing receipt hashes rechecked unchanged, no source modification since collection or suite rerun; latest504 each OS.
+
+**Next:** review exact guest/host synchronization writers and design an explicitly approved, bounded single-authority comparison with restoration and acceptance criteria before any intervention. Preserve both endpoint regimes and negative evidence; do not fit runtime baselines or claim reliable overhead until a separately declared stability protocol passes. No autonomous repeat or inherited permission to stop synchronization services.

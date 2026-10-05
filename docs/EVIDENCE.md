@@ -1,5 +1,9 @@
 # Evidence index
 
+## Live kernel-state observation (2026-10-05)
+
+[Receipt](../output/engine2-kernel-clock-state-20261005.json), [offline review](../output/engine2-kernel-clock-state-review-20261005.json), [protocol/result](KERNEL_CLOCK_STATE.md): one16-packet/32-query run, six sources/libc continuity/domains/bounds/summary reproduced; SHA834018876154de8a435048b88d063996ecaab029321bb563242ad6fa84ea13cf. Tick/frequency changes directly sampled with RAW/MONO gap~0.46324s and wall/BOOT change~0.867156s. INC-039, TIME_OK not stable-clock/cause/ML acceptance. No intervention/retry/source change since504 suites; old receipt hashes unchanged. Offline arithmetic is local consistency, not independent scientific evaluation.
+
 ## Live kernel-state implementation (2026-10-05)
 
 Software: [Windows504](../output/engine2-kernel-state-windows-tests-20261005.xml), [final Linux504](../output/engine2-kernel-state-linux-final-tests-20261005.xml), [earlier Linux504](../output/engine2-kernel-state-linux-tests-20261005.xml). Thirty-six additions; lint/format83files/dependency pass. Initial unused import corrected after first Linux run, original receipt not overwritten. No live state queried by tests.

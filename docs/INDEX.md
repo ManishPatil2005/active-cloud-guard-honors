@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest result: [live kernel state](KERNEL_CLOCK_STATE.md), one16-packet/32-query observation: tick/frequency change alongside RAW/MONO gap~0.46324s and wall/BOOT change~0.867156s. INC-039; no actor/cause/stability/ML acceptance or settings intervention. Next exact writer review and separately approved comparison design.
+
 Latest implementation: [live kernel-state diagnostic](KERNEL_CLOCK_STATE.md), separate Linux-only ordinary-user zero-mode queries/native clocks. One fixed sensor-free observation predeclared after publication; no clock/service change, causal fix or stability/ML acceptance.
 
 Latest result: [raw-clock/provider diagnostic](CLOCK_PROVIDER_REVIEW.md), one sixteen-packet run: RAW host-compatible15/15, adjusted elapsed comparisons disagree11/15, local RAW/MONO advance differs~0.5674s and wall/BOOT relationship changes~0.3167s. INC-037; cause/stability/ML unresolved, next read-only live discipline-state sampling.

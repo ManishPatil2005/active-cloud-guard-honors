@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-05 - Preserve live kernel-state changes and clock instability
+
+- One predeclared observation completes16 packets/32 ordinary-user zero-mode queries; full source/backend/domain/bounds/summary review passes.
+- Preserve sampled tick/frequency changes, RAW/MONO gap~0.46324s and wall/BOOT change~0.867156s (INC-039); kernel TIME_OK is not stable-clock acceptance.
+- No settings/service/provider/power change, sensor, retry, historical evidence replacement or causal/ML claim. Next exact writer review and separately authorized comparison/restoration design.
+- Refresh README's stale September/301-test snapshot to verified5October504-test evidence and distinguish replay, live instrumentation and unresolved research gates.
+
 ## 2026-10-05 - Add read-only live kernel state pairing
 
 - Separate Linux-only zero-mode timex/native-clock diagnostic, existing engines and lineage unchanged.

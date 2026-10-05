@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-039 - 2026-10-05 - Live tick/frequency changes coexist with unstable time relationships
+
+**Symptom/evidence:** one declared E2-025 sensor-free16-packet/32-query observation, all complete, six-source/backend/domain/summary review passed. Tick9698→9707usec; frequency2151784→2628697→1165243 scaledppm sampled. RAW-minus-MONO15/15 excludezero (final[463229223,463248804]ns); wall/BOOT7/16 change ranges excludezero (final[867156020,867156662]ns), firstindex9. All state returns0/status8192/phase0. SHA-bound receipt/table/commands in KERNEL_CLOCK_STATE.md; TIME_OK not a stable-clock verdict.
+
+**Cause confidence:** direct changing kernel fields and native relationship disagreement high confidence under recorded bounds. Mechanism/actor/history still unproven; frequency-only integration invalid as complete model, tick/other terms matter. Endpoints miss continuous adjustment history; no writer isolation, precise binary/physical-reference attestation or historical calibration values. Not proof of guest NTP causing old/current changes or Hyper-V exclusion.
+
+**Action/verification/limits:** preserve negative result with source/libc/domain/native/state/reducer checks and handwritten endpoint arithmetic, original four receipt hashes unchanged. Pre/post preflight/time-service-active/known-sensor absence passed; no clock/service/provider/power changes or retry. Latest504 suites each OS before collection, no code change afterward. Next read-only exact writer review and explicitly approved bounded comparison/restoration protocol, not autonomous intervention or ML/overhead/stability acceptance.
+
 ### INC-038 - 2026-10-05 - Windows ABI simulation test aliased integer sizes
 
 **Symptom/evidence:** first expanded targeted suite34 passed/two failed: mocked native version/valid branches refused before loading backend. Original36-case command was `.venv/Scripts/python.exe -m pytest -q tests/test_kernel_clock_state.py --tb=short`; no real query/live observation affected.

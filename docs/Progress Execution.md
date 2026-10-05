@@ -1,5 +1,9 @@
 # Progress Execution
 
+**Real result, 5 October:** the planned check completed all16 timer readings and32 read-only kernel-setting readings. Time-adjustment settings changed during the observation. Linux's normal elapsed clock advanced about0.463 seconds less than its unadjusted timer; its wall-time relationship to time since boot changed by about0.867 seconds. We changed no settings/services and saved the result without retrying. This is stronger diagnostic evidence, not a proven cause or fix. Engine1 remains unchanged; Engine2 still needs reliable timing, independent labels and ML evaluation. [Detailed evidence](KERNEL_CLOCK_STATE.md).
+
+**Next safe step:** inspect which synchronization components can write these settings and prepare a supervised comparison with clear restoration steps. Do not stop services yourself or reuse the earlier one-time permission. A changed kernel setting does not identify who changed it; a successful software test does not make the clocks stable.
+
 **Software check:** all504 tests pass on both operating systems. We kept the early Linux test result and saved a separate final one after correcting an unused test import. Tests confirm the tool's rules, not that the machine's clocks are reliable; the one real observation is still pending at this implementation checkpoint.
 
 **Next read-only check, 5 October:** we added a small Linux-only tool that reads the kernel's current time-adjustment settings without changing them. It will pair32 setting readings with16 timer readings, once, after tests and publication. This helps distinguish an observed clock difference from a guess about its cause. Engine1 remains unchanged; Engine2 timing and ML evaluation are not complete. [Protocol and copyable steps](KERNEL_CLOCK_STATE.md). Windows can review its saved result, but live collection requires the research Linux environment. Do not run it again to seek a nicer result.

@@ -6,9 +6,9 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
-Latest engineering check: **301 software tests passed on both Windows and Linux**. A fresh paired pilot completed, with inconsistent descriptive latency contrasts and unresolved event-clock alignment. Per-call timing guards are software-tested, not live-calibrated. No general overhead/accuracy claim. See [paired results](docs/PAIRED_PILOT_RESULTS.md), [alignment investigation](docs/EVENT_ALIGNMENT.md), and the beginner-friendly [Progress Execution guide](<docs/Progress Execution.md>).
+Latest engineering check (5 October 2026): **504 software tests passed on both Windows and Linux**. Engine 2's live diagnostic sampled changing kernel tick/frequency settings alongside a RAW/MONO elapsed gap (~0.463 s) and wall/boot relationship change (~0.867 s). Timing reliability and causal attribution remain unresolved; independent runtime ML and general accuracy/overhead are not established. See the [latest diagnostic](docs/KERNEL_CLOCK_STATE.md), [evidence index](docs/EVIDENCE.md), and beginner-friendly [Progress Execution guide](<docs/Progress Execution.md>).
 
-Windows-hosted Linux setup and Docker integration are verified. No temporary sensor remains running. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
+Windows-hosted Linux setup and Docker integration are verified. No known research sensor was present at the latest pre/post diagnostic checks; no clock or service settings were changed. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
@@ -26,7 +26,7 @@ V2.1 adds hash-bound operator policies and reviewed model-to-endpoint verificati
 
 V2.2 adds actual-Compose local deployment identity checks and credential-free Redis/PostgreSQL observations. Both were exercised against the existing loopback lab. See the [baseline report, commands and limitations](docs/ENGINE1_BASELINE.md).
 
-Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has begun with an **observation-only replay foundation**: normalized events, time-window features and a simple statistical comparator. Its demonstration is synthetic, not live telemetry or validated ML. See the [Engine 2 report](docs/ENGINE2_FOUNDATION.md).
+Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has an **observation-only replay foundation**: normalized events, time-window features and a simple statistical comparator, demonstrated synthetically rather than as validated ML. Separate live Falco/Redis capture and timing instrumentation have been exercised, but timing stability remains unresolved; those diagnostics are not independent detection benchmarks. See the [foundation](docs/ENGINE2_FOUNDATION.md), [instrumentation](docs/ENGINE2_INSTRUMENTATION.md) and [current state](docs/MEMORY.md).
 
 **Research status:** implemented, software-tested and live-smoke-observed. Independent effectiveness evaluation remains pending. This is a research prototype—not a production security control or a claim of validated vulnerability prevention.
 
@@ -34,9 +34,9 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has begun with an *
 |---|---|
 | Researcher | Manish Patil |
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
-| Current scope | Frozen Engine 1 baseline and initial observation-only Engine 2 replay |
+| Current scope | Frozen Engine 1 baseline; Engine 2 replay, live instrumentation and timing validation |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 30 September 2026; 301 tests on each OS; paired pilot and unresolved clock alignment; live Engine 1 observations remain historical |
+| Evidence snapshot | 5 October 2026; 504 tests on each OS; live kernel-state diagnostic, timing/cause/ML gates open; Engine 1 observations remain historical |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions
