@@ -1,0 +1,109 @@
+{
+  "executed_at": "2026-10-05T07:13:06.699481+00:00",
+  "status": "reviewed",
+  "image": "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "libs_release": "0.26.0",
+  "libs_source_commit": "8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3",
+  "sources": [
+    {
+      "path": "userspace/libscap/engine/modern_bpf/scap_modern_bpf.c",
+      "url": "https://raw.githubusercontent.com/falcosecurity/libs/8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3/userspace/libscap/engine/modern_bpf/scap_modern_bpf.c",
+      "sha256": "4478fc2849334e8c8842c731e6966481a3e0a05ec9505f19553113966af0d2fa",
+      "bytes": 14609,
+      "marker_lines": {
+        "scap_get_precise_boot_time": [
+          271
+        ],
+        "pman_set_boot_time": [
+          274
+        ]
+      }
+    },
+    {
+      "path": "userspace/libscap/scap_engine_util.c",
+      "url": "https://raw.githubusercontent.com/falcosecurity/libs/8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3/userspace/libscap/scap_engine_util.c",
+      "sha256": "dab24df29e25c9b1a3e103cd79a119c0af2dff200a0de31e3ad53164989a5c37",
+      "bytes": 1657,
+      "marker_lines": {
+        "scap_get_precise_boot_time": [
+          33
+        ],
+        "CLOCK_BOOTTIME": [
+          36,
+          37
+        ],
+        "CLOCK_REALTIME": [
+          40,
+          41
+        ]
+      }
+    },
+    {
+      "path": "userspace/libpman/src/maps.c",
+      "url": "https://raw.githubusercontent.com/falcosecurity/libs/8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3/userspace/libpman/src/maps.c",
+      "sha256": "750a6bb5229c3bfd351b8cf2332bc517f41136d7762ae8e60cb41fe1033c85f3",
+      "bytes": 21421,
+      "marker_lines": {
+        "pman_set_boot_time": [
+          132
+        ],
+        "settings.boot_time = boot_time": [
+          137
+        ]
+      }
+    },
+    {
+      "path": "driver/modern_bpf/helpers/base/maps_getters.h",
+      "url": "https://raw.githubusercontent.com/falcosecurity/libs/8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3/driver/modern_bpf/helpers/base/maps_getters.h",
+      "sha256": "6c13178dfc7f4049047d4b70c7f22b65bfbb2e82927a9d25c8ef756114effdff",
+      "bytes": 7045,
+      "marker_lines": {
+        "maps__get_boot_time": [
+          25
+        ],
+        "settings->boot_time": [
+          31
+        ]
+      }
+    },
+    {
+      "path": "driver/modern_bpf/helpers/store/ringbuf_store_params.h",
+      "url": "https://raw.githubusercontent.com/falcosecurity/libs/8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3/driver/modern_bpf/helpers/store/ringbuf_store_params.h",
+      "sha256": "504d2757e2816aab11e50ec5b4ced7595013808303fb9cc2f1717c7dcea999ca",
+      "bytes": 10983,
+      "marker_lines": {
+        "maps__get_boot_time() + bpf_ktime_get_boot_ns()": [
+          144
+        ]
+      }
+    },
+    {
+      "path": "driver/modern_bpf/helpers/store/auxmap_store_params.h",
+      "url": "https://raw.githubusercontent.com/falcosecurity/libs/8fc2f1fbfc90f8ce7f68e00cdfa692cc7a9983a3/driver/modern_bpf/helpers/store/auxmap_store_params.h",
+      "sha256": "3954118713073872674831ecd2b85fce611ca1b54e8f825de2536ca3591135d1",
+      "bytes": 109310,
+      "marker_lines": {
+        "maps__get_boot_time() + bpf_ktime_get_boot_ns()": [
+          171
+        ]
+      }
+    }
+  ],
+  "sensor_started": false,
+  "clock_settings_modified": false,
+  "correction_applied": false,
+  "binary_source_attested": false,
+  "independent_evaluation": false,
+  "phase": "official_source_review",
+  "image_identity": {
+    "id": "sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+    "digests": [
+      "falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6"
+    ]
+  },
+  "versions": {
+    "falco": "0.45.0",
+    "libs": "0.26.0",
+    "engine": "0.65.0"
+  }
+}

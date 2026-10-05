@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-028 - 2026-10-05 - Source-backed hypothesis before clock intervention
+
+Inspect pinned collector --version with all capabilities dropped and network/filesystem writes disabled, then hash allowlisted immutable official release files. Do not execute downloaded code or upgrade/rebuild the collector incidentally. Separate binary metadata, release-source mechanism and experimentally proven cause; matching version/digest is not reproducible-build attestation. Initialization calibration plus live boot-time formula motivates direct realtime/boot sampling, not a fitted correction or permanent NTP changes. Preserve source hashes/negative captures; default engines and architecture unchanged.
+
 ## ADR-027 - 2026-10-05 - Bracket server time around identified PING without correction
 
 After unique events failed harness bounds, sample Redis TIME before/after each precise PING while the sensor runs, rather than fit an offset to the failed study or repeat until success. Keep server/harness, event/harness and event/server comparisons separate; sequential server bounds assume clock stability and do not authenticate ownership or calibrate Falco. Extra eight TIME calls alter workload, require a distinct opt-in diagnostic label and cannot enter old repeat acceptance/latency pairing. Preserve auxiliary counts and partial failures. Share existing TIME arithmetic; same Python/Docker/Ollama/Chroma architecture and sensor permissions, no clock-service change. One live observation narrowed mismatch toward collector timestamps; root cause remains unproven.

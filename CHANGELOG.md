@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Review pinned collector timestamp generation
+
+- Add bounded metadata/source reviewer: capability-free read-only version container, immutable official source URLs/hashes, size/marker/release checks and failure preservation.
+- Trace initialization boot offset and kernel boot-time event formula; record calibration drift as a hypothesis, not cause/fix or timestamp correction.
+- 378 tests each OS; documentation/incident/decision/beginner guide updated. No new sensor trial, workload, clocks or architecture changes.
+
 ## 2026-10-05 - Add bounded server/harness/collector clock diagnostic
 
 - Add opt-in TIME/PING/TIME sampling with precise nested PING brackets, frozen source hashes and conservative separate clock-domain bounds; preserve partial rows.

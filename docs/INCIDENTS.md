@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-032 follow-up - 2026-10-05 - Initialization offset mechanism found in release source
+
+Metadata-only review confirmed local Falco 0.45.0/libs 0.26.0. Six immutable official files show initialization realtime-minus-boot calibration stored in settings and kernel boot-time addition in event headers. This is a concrete mechanism to test; realtime/boot relationship drift after calibration could produce early events. No direct offset samples at initialization exist for earlier failing trials, no binary/source attestation or exhaustive refresh-path audit. High confidence in reviewed source path, unproven causal attribution to our lag/time services. Reproducible review receipt and 378-test suites recorded; no new sensor/workload/clock modification, fix or historical correction. COLLECTOR_TIMESTAMP_REVIEW.md; next bounded clock-domain-aware sampling design.
+
 ### INC-032 follow-up - 2026-10-05 - Collector timestamps disagree with same-trial server brackets
 
 E2-017 recorded eight zero-compatible server/harness TIME bounds and four unique PING event timestamps outside both nested harness brackets and surrounding server reads. Event-minus-server bounds approximately -1.137 to -1.028 s, no fitted correction. SHA-matched raw correlation and complete summary reproduced offline. High confidence in this later diagnostic incompatibility; it narrows investigation toward collector timestamp/clock conversion, not proof of a specific driver bug or historical cause. All six PING connects plus eight unassigned connects (auxiliary-read count), 566 records; zero collector drops do not certify delivery. Sensor removed, timesyncd active/unchanged; 368 tests each OS. No fix for INC-032 or repeatability pass claimed. Next inspect exact pinned collector implementation/backend clock behavior before choosing another trial.

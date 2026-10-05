@@ -1,5 +1,9 @@
 # Evidence index
 
+## Pinned collector source review (2026-10-05)
+
+[Review](COLLECTOR_TIMESTAMP_REVIEW.md), [metadata/source receipt](../output/engine2-collector-source-review-20261005.json), software [Windows](../output/engine2-collector-review-windows-tests-20261005.xml) / [Linux](../output/engine2-collector-review-linux-tests-20261005.xml): 378 each. Local Falco/libs versions, immutable upstream URLs, hashes and line markers; no copied/executed upstream source. Initialization-offset mechanism reviewed, not proven experimental cause or binary-source attestation. No new sensor/clock intervention.
+
 ## Same-trial clock domains (2026-10-05)
 
 [Protocol/results](CLOCK_DOMAINS.md), [receipt](../output/engine2-clock-domains-20261005.json), [metrics](../output/engine2-clock-domains-metrics-20261005.json), software [Windows](../output/engine2-clock-domains-windows-tests-20261005.xml) / [Linux](../output/engine2-clock-domains-linux-tests-20261005.xml): 368 each. Eight server/harness brackets include zero; all four collector events outside nested PING and server brackets. Offline source/raw/correlation/summary checks passed; sensor removed. Negative alignment result, not a corrected baseline, overhead study or proven cause. Raw logs remain private/local; INC-032.

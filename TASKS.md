@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, latest diagnostic is E2-017.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, latest source review is E2-018.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -50,5 +50,6 @@ Status as of 2026-10-05. Completed means the stated acceptance criterion was met
 | E2-015 | Frozen repeated readiness study | Partial: tooling tested, batch interrupted | One accepted, two not launched after pre-launch path error; no replacement. Runner hardened, 351 tests each OS. READINESS_REPEATS.md / INC-031; completed repeatability gate pending |
 | E2-016 | Separate hardened-runner repeatability follow-up | Executed; stability gate failed | All three launched, two accepted, third rejected: four unique PID connects but zero excluded by all timing bounds. Offline hashes/correlation/identity reproduced; no retry/correction. 351 tests each OS. READINESS_REPEATS.md / INC-032; cross-clock diagnosis required before baseline/ML |
 | E2-017 | Same-trial server/harness/collector timing diagnostic | Implemented/tested/live-observed; cause unresolved | Eight TIME brackets include zero; four PING event times exclude both harness/server brackets. 368 tests each OS, offline source/raw/summary check; no offset correction or stability claim. CLOCK_DOMAINS.md / INC-032; inspect pinned collector timestamp path next |
+| E2-018 | Pinned collector metadata and timestamp-source review | Reviewer implemented/tested; source-reviewed | Exact local versions and six official release-file hashes recorded. Initialization boot-offset plus kernel boot time mechanism identified; drift is hypothesis, not measured cause. 378 tests each OS. COLLECTOR_TIMESTAMP_REVIEW.md; next realtime/boot sampling design, no sensor/clock change |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Replay foundation plus bounded live sensor smoke; normalized live integration and ML gates remain open |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |
