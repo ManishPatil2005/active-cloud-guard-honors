@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-033 follow-up - 2026-10-05 - Separate sensor-free run does not reproduce rejection
+
+E2-021 ran once with shared sanitized recording, six reads/five fixed gaps, all accepted. Round trips 53.7–85.6 ms, max disagreement 343 ns; full brackets/source/response hashes/order/identity reproduced offline. Success recording path live-observed, failure paths remain unit-tested only. Different later sensor-free conditions cannot identify the earlier combined gate's trigger or restore lost inputs; cause confidence for original failure unchanged. Known sensors absent, timesyncd active/unchanged, no retry/service change. Original failed receipt hash unchanged. INC-032/Falco timing and repeatability remain unresolved; no causal fix, corrected baseline or full stability claim. Next separately reviewed collector-on protocol with retained failed inputs.
+
 ### INC-033 follow-up - 2026-10-05 - Rejected TIME inputs retained in future diagnostics
 
 E2-020 saves fixed phase/status, available first/last clocks, computed comparison and clock rejection flags before redis_bracket, plus response SHA256 and failure stage/class only. Exceptions/validators/timeouts/thresholds unchanged; no raw reply/message/stderr export. Seven regressions cover disagreement/sample width/round-trip/response/command/first-last sampling failures; 414 tests each OS. Evidence-retention gap fixed in software, not live-validated; original empty row remains immutable. Does not fix the underlying clock/latency failure or INC-032. No second live attempt, clock settings change or acceptance claim; next separately declared sensor-free diagnostic.

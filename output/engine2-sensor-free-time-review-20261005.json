@@ -1,0 +1,27 @@
+{
+  "evidence_level": "offline_consistency_review",
+  "trial": "output/engine2-sensor-free-time-attempts-20261005.json",
+  "receipt_sha256": "70073292cc9322d159efc739ec353a6dbcc3d57f85046c683060ed7831e55af4",
+  "implementation_commit": "14774dd824f11b7b26074db65ba71666d7966c13",
+  "source_hashes_verified": 6,
+  "attempts_verified": 6,
+  "server_response_hashes_reconstructed": 6,
+  "round_trip_ns_range": [53716695, 85564442],
+  "max_absolute_clock_disagreement_ns": 343,
+  "max_sampling_span_ns": 1529,
+  "max_sampling_uncertainty_ns": 987,
+  "inter_read_gaps_ns": [1001295563, 1000200098, 1000430023, 1000100907, 1000150541],
+  "whole_observation_endpoint_comparison": {
+    "elapsed_monotonic_ns": 5392340834,
+    "clock_difference_ns": 13,
+    "sampling_uncertainty_ns": 449,
+    "within_tolerance": true
+  },
+  "zero_excluded_samples": 0,
+  "identity_unchanged": true,
+  "falco_alignment_verified": false,
+  "correction_applied": false,
+  "independent_evaluation": false,
+  "historical_cause_resolved": false,
+  "scope": "later sensor-free observation; no historical causal or Falco alignment conclusion"
+}

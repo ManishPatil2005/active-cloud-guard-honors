@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Record successful bounded sensor-free TIME observation
+
+- Execute one declared six-read/five-gap diagnostic after implementation push; all reads accepted, no retry or sensor/clock action.
+- Offline source/response hashes, clock comparisons/server brackets, order/count/identity verified; round trips 53.7–85.6 ms, maximum disagreement 343 ns.
+- Preserve original failed evidence; this later passing observation does not recover missing failure inputs, resolve collector timing or pass independent evaluation. Result/docs committed separately from implementation.
+
 ## 2026-10-05 - Add opt-in sensor-free TIME failure diagnostic
 
 - Extract/reuse E2-020 recorder in clock_bridge --record-attempts; maximum six TIME reads with five fixed one-second gaps, stop on first failure and preserve inputs.

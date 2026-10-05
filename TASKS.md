@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, E2-019 live diagnostic aborted, latest E2-021 sensor-free mode is software-tested/live pending.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, E2-019 live diagnostic aborted, latest E2-021 sensor-free run completed without reproducing rejection; collector cause remains open.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -55,4 +55,4 @@ Status as of 2026-10-05. Completed means the stated acceptance criterion was met
 | E2-019 | Namespace-gated boot/realtime diagnostic | Implemented/tested; live attempt incomplete | 407 tests each OS; one attempt stopped at second TIME gate, no retry. Initial domains/first PING compatible, five boot samples; failed bracket inputs missing, no post facts/full summary/metrics. INC-033; BOOT_CLOCK_DIAGNOSTIC.md. Timing/cause remain open; improve failed-bracket recording next |
 | E2-020 | Preserve rejected server-time bracket evidence | Implemented/software-tested | 414 tests each OS; saved sanitized stage/samples/comparison/rejection flags and response hash, no raw messages/replies. Gate/limits unchanged; seven failure regressions. No live rerun; old receipt immutable. Next separately declared sensor-free bracket diagnostics; INC-033 evidence fix not live-validated |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |
-| E2-021 | Sensor-free TIME failure diagnosis | Implemented/software-tested; live pending | 421 tests each OS; shared sanitized recorder, opt-in six reads/five gaps, frozen sources and first-failure stop. One new diagnostic predeclared in SENSOR_FREE_TIME_ATTEMPTS.md; no sensor/clock changes or historical cause claim |
+| E2-021 | Sensor-free TIME failure diagnosis | Implemented/tested/live-observed, bounded | 421 tests each OS; one new run six accepted reads/five gaps, no rejection reproduced. Sources/response hashes/brackets/identity verified offline; no sensor/clock changes. Historical cause/Falco timing unresolved; SENSOR_FREE_TIME_ATTEMPTS.md. Next reviewed collector-on diagnostic with richer rejection evidence, not ML acceptance |

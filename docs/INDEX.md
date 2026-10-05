@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest observation: [sensor-free TIME result](SENSOR_FREE_TIME_ATTEMPTS.md), one run six accepted reads; full offline consistency checks passed. No rejection reproduced or Falco alignment conclusion; timing gate remains open.
+
 Latest planned diagnostic: [sensor-free TIME attempts](SENSOR_FREE_TIME_ATTEMPTS.md), shared sanitized recording and six-read/five-gap protocol. Implementation live result pending at this checkpoint; timing gate unresolved.
 
 Latest software fix: [sanitized TIME failure evidence](CLOCK_DOMAINS.md), 414 tests each OS. Failed attempt remains preserved; no live rerun or timing-stability claim. Next sensor-free bracket diagnostic design.

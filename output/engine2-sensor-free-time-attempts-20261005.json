@@ -1,0 +1,308 @@
+{
+  "executed_at": "2026-10-05T08:11:16.403973+00:00",
+  "protocol": "redis_time_failure_evidence_v1",
+  "samples": [
+    {
+      "first": {
+        "wall_ns": 1791187876529884200,
+        "monotonic_mid_ns": 6474000766353,
+        "sampling_span_ns": 427
+      },
+      "last": {
+        "wall_ns": 1791187876594042359,
+        "monotonic_mid_ns": 6474064924495,
+        "sampling_span_ns": 468
+      },
+      "elapsed_monotonic_ns": 64158142,
+      "clock_difference_ns": 17,
+      "sampling_uncertainty_ns": 448,
+      "within_tolerance": true,
+      "redis_unix_ns": 1791187876587766000,
+      "offset_lower_ns": -6276824,
+      "offset_upper_ns": 57883264,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1791187877595338025,
+        "monotonic_mid_ns": 6475066220058,
+        "sampling_span_ns": 776
+      },
+      "last": {
+        "wall_ns": 1791187877658480365,
+        "monotonic_mid_ns": 6475129362517,
+        "sampling_span_ns": 416
+      },
+      "elapsed_monotonic_ns": 63142459,
+      "clock_difference_ns": -119,
+      "sampling_uncertainty_ns": 596,
+      "within_tolerance": true,
+      "redis_unix_ns": 1791187877651665000,
+      "offset_lower_ns": -6816080,
+      "offset_upper_ns": 56328689,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1791187878658680807,
+        "monotonic_mid_ns": 6476129562615,
+        "sampling_span_ns": 1529
+      },
+      "last": {
+        "wall_ns": 1791187878726897491,
+        "monotonic_mid_ns": 6476197779642,
+        "sampling_span_ns": 444
+      },
+      "elapsed_monotonic_ns": 68217027,
+      "clock_difference_ns": -343,
+      "sampling_uncertainty_ns": 987,
+      "within_tolerance": true,
+      "redis_unix_ns": 1791187878719719000,
+      "offset_lower_ns": -7179821,
+      "offset_upper_ns": 61040522,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1791187879727327638,
+        "monotonic_mid_ns": 6477198209665,
+        "sampling_span_ns": 893
+      },
+      "last": {
+        "wall_ns": 1791187879812891958,
+        "monotonic_mid_ns": 6477283774107,
+        "sampling_span_ns": 427
+      },
+      "elapsed_monotonic_ns": 85564442,
+      "clock_difference_ns": -122,
+      "sampling_uncertainty_ns": 660,
+      "within_tolerance": true,
+      "redis_unix_ns": 1791187879806053000,
+      "offset_lower_ns": -6839740,
+      "offset_upper_ns": 78727143,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1791187880812993000,
+        "monotonic_mid_ns": 6478283875014,
+        "sampling_span_ns": 989
+      },
+      "last": {
+        "wall_ns": 1791187880868357823,
+        "monotonic_mid_ns": 6478339239951,
+        "sampling_span_ns": 463
+      },
+      "elapsed_monotonic_ns": 55364937,
+      "clock_difference_ns": -114,
+      "sampling_uncertainty_ns": 726,
+      "within_tolerance": true,
+      "redis_unix_ns": 1791187880862161000,
+      "offset_lower_ns": -6197663,
+      "offset_upper_ns": 49169839,
+      "zero_within_bounds": true
+    },
+    {
+      "first": {
+        "wall_ns": 1791187881868508548,
+        "monotonic_mid_ns": 6479339390492,
+        "sampling_span_ns": 1046
+      },
+      "last": {
+        "wall_ns": 1791187881922225047,
+        "monotonic_mid_ns": 6479393107187,
+        "sampling_span_ns": 470
+      },
+      "elapsed_monotonic_ns": 53716695,
+      "clock_difference_ns": -196,
+      "sampling_uncertainty_ns": 758,
+      "within_tolerance": true,
+      "redis_unix_ns": 1791187881916771000,
+      "offset_lower_ns": -5455001,
+      "offset_upper_ns": 48264405,
+      "zero_within_bounds": true
+    }
+  ],
+  "status": "observed",
+  "clock_settings_modified": false,
+  "sensor_started": false,
+  "falco_alignment_verified": false,
+  "correction_applied": false,
+  "time_read_attempts": [
+    {
+      "phase": "time_1",
+      "status": "accepted",
+      "first": {
+        "wall_ns": 1791187876529884200,
+        "monotonic_mid_ns": 6474000766353,
+        "sampling_span_ns": 427
+      },
+      "response_sha256": "dd4a00994452d4aa25108df1652f0c106e59c113e0e785c6ea430f0ac4d2f4f2",
+      "last": {
+        "wall_ns": 1791187876594042359,
+        "monotonic_mid_ns": 6474064924495,
+        "sampling_span_ns": 468
+      },
+      "clock_comparison": {
+        "elapsed_monotonic_ns": 64158142,
+        "clock_difference_ns": 17,
+        "sampling_uncertainty_ns": 448,
+        "within_tolerance": true
+      },
+      "clock_rejection_reasons": []
+    },
+    {
+      "phase": "time_2",
+      "status": "accepted",
+      "first": {
+        "wall_ns": 1791187877595338025,
+        "monotonic_mid_ns": 6475066220058,
+        "sampling_span_ns": 776
+      },
+      "response_sha256": "f4341eb612c3b5e0ffee6094bc22dcaf38171f0056d4344dc39e8c7849ec0bf7",
+      "last": {
+        "wall_ns": 1791187877658480365,
+        "monotonic_mid_ns": 6475129362517,
+        "sampling_span_ns": 416
+      },
+      "clock_comparison": {
+        "elapsed_monotonic_ns": 63142459,
+        "clock_difference_ns": -119,
+        "sampling_uncertainty_ns": 596,
+        "within_tolerance": true
+      },
+      "clock_rejection_reasons": []
+    },
+    {
+      "phase": "time_3",
+      "status": "accepted",
+      "first": {
+        "wall_ns": 1791187878658680807,
+        "monotonic_mid_ns": 6476129562615,
+        "sampling_span_ns": 1529
+      },
+      "response_sha256": "34b7f112bc601efaa768ba9577c0341bc921105fbf57f173ce3dbb1ceb3d30b1",
+      "last": {
+        "wall_ns": 1791187878726897491,
+        "monotonic_mid_ns": 6476197779642,
+        "sampling_span_ns": 444
+      },
+      "clock_comparison": {
+        "elapsed_monotonic_ns": 68217027,
+        "clock_difference_ns": -343,
+        "sampling_uncertainty_ns": 987,
+        "within_tolerance": true
+      },
+      "clock_rejection_reasons": []
+    },
+    {
+      "phase": "time_4",
+      "status": "accepted",
+      "first": {
+        "wall_ns": 1791187879727327638,
+        "monotonic_mid_ns": 6477198209665,
+        "sampling_span_ns": 893
+      },
+      "response_sha256": "c42b43db093d11479e068d835f07e9ca776da892ac2ec41ffab5af2eecaaf4a1",
+      "last": {
+        "wall_ns": 1791187879812891958,
+        "monotonic_mid_ns": 6477283774107,
+        "sampling_span_ns": 427
+      },
+      "clock_comparison": {
+        "elapsed_monotonic_ns": 85564442,
+        "clock_difference_ns": -122,
+        "sampling_uncertainty_ns": 660,
+        "within_tolerance": true
+      },
+      "clock_rejection_reasons": []
+    },
+    {
+      "phase": "time_5",
+      "status": "accepted",
+      "first": {
+        "wall_ns": 1791187880812993000,
+        "monotonic_mid_ns": 6478283875014,
+        "sampling_span_ns": 989
+      },
+      "response_sha256": "267ed43ad6e9e442b1cf761917e2c28f3ec7a446461dfec2f9b356a74e267985",
+      "last": {
+        "wall_ns": 1791187880868357823,
+        "monotonic_mid_ns": 6478339239951,
+        "sampling_span_ns": 463
+      },
+      "clock_comparison": {
+        "elapsed_monotonic_ns": 55364937,
+        "clock_difference_ns": -114,
+        "sampling_uncertainty_ns": 726,
+        "within_tolerance": true
+      },
+      "clock_rejection_reasons": []
+    },
+    {
+      "phase": "time_6",
+      "status": "accepted",
+      "first": {
+        "wall_ns": 1791187881868508548,
+        "monotonic_mid_ns": 6479339390492,
+        "sampling_span_ns": 1046
+      },
+      "response_sha256": "a763362d1a1f0db58f1f00f601dc6142d0e9cd3e4d4d92984c5d4841c49461c4",
+      "last": {
+        "wall_ns": 1791187881922225047,
+        "monotonic_mid_ns": 6479393107187,
+        "sampling_span_ns": 470
+      },
+      "clock_comparison": {
+        "elapsed_monotonic_ns": 53716695,
+        "clock_difference_ns": -196,
+        "sampling_uncertainty_ns": 758,
+        "within_tolerance": true
+      },
+      "clock_rejection_reasons": []
+    }
+  ],
+  "source_sha256": {
+    "scripts/clock_bridge.py": "9a2bd162cba414354c058fce397d50f8052af381a96dac09d681f7b81172ea19",
+    "scripts/sensor_trial.py": "63d16d29da9ac6a1476e99f262fb80dac10dcf222353bfbdbd6668ab08cf0a3e",
+    "scripts/workload_control.py": "80c1d7c1cbc5fb8b43582f9ddcc81862b756be9d1308072b721906f614530765",
+    "cloudguard/clock_domains.py": "744ebb65e356abc8c97bf75b58c55ae9fcbc959ef3287d166d70bd35689c0e94",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc",
+    "cloudguard/deployment.py": "393816c53eb3c6072115fb36317bd106887bfa28efc7da25184a207b64d2ba21"
+  },
+  "absence_scope": "known trial name/image at endpoints only",
+  "planned_reads": 6,
+  "spacing_seconds": 1,
+  "independent_evaluation": false,
+  "phase": "postflight",
+  "known_sensor_absent_before": true,
+  "identity_before": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-10-05T06:19:20.530908254Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "identity_after": {
+    "id": "2ac27fc25de6e18cb453cc3ced26b0405f97477af7c3584c5950b69272e91f9b",
+    "image": "sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952",
+    "started_at": "2026-10-05T06:19:20.530908254Z",
+    "running": true,
+    "restarts": 0,
+    "project": "honors-cloud-guard",
+    "service": "redis"
+  },
+  "known_sensor_absent_after": true,
+  "source_sha256_after": {
+    "scripts/clock_bridge.py": "9a2bd162cba414354c058fce397d50f8052af381a96dac09d681f7b81172ea19",
+    "scripts/sensor_trial.py": "63d16d29da9ac6a1476e99f262fb80dac10dcf222353bfbdbd6668ab08cf0a3e",
+    "scripts/workload_control.py": "80c1d7c1cbc5fb8b43582f9ddcc81862b756be9d1308072b721906f614530765",
+    "cloudguard/clock_domains.py": "744ebb65e356abc8c97bf75b58c55ae9fcbc959ef3287d166d70bd35689c0e94",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc",
+    "cloudguard/deployment.py": "393816c53eb3c6072115fb36317bd106887bfa28efc7da25184a207b64d2ba21"
+  },
+  "sources_unchanged": true,
+  "zero_excluded_samples": 0
+}
