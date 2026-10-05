@@ -8,6 +8,8 @@ Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
 Latest engineering check (5 October 2026): **504 software tests passed on both Windows and Linux**. Engine 2's live diagnostic sampled changing kernel tick/frequency settings alongside a RAW/MONO elapsed gap (~0.463 s) and wall/boot relationship change (~0.867 s). Timing reliability and causal attribution remain unresolved; independent runtime ML and general accuracy/overhead are not established. See the [latest diagnostic](docs/KERNEL_CLOCK_STATE.md), [evidence index](docs/EVIDENCE.md), and beginner-friendly [Progress Execution guide](<docs/Progress Execution.md>).
 
+Latest read-only review: [synchronization writers](docs/SYNC_WRITER_REVIEW.md). Guest-service removal alone cannot establish a single clock authority or clear accumulated rate settings. A temporary before/stopped/restored comparison is proposed, not authorized or executed; current engine architecture and settings remain unchanged.
+
 Windows-hosted Linux setup and Docker integration are verified. No known research sensor was present at the latest pre/post diagnostic checks; no clock or service settings were changed. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)

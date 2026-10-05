@@ -1,0 +1,71 @@
+{
+  "review_date": "2026-10-05",
+  "collection_kind": "manual_transcription_of_sequential_read_only_facts",
+  "simultaneous_with_e2_025": false,
+  "clock_or_service_settings_modified": false,
+  "sensor_or_workload_started": false,
+  "guest": {
+    "distribution": "ACG-Research",
+    "kernel_release": "6.6.114.1-microsoft-standard-WSL2",
+    "systemd_version": "255.4-1ubuntu8.17",
+    "timesyncd_version": "255.4-1ubuntu8.17",
+    "timesyncd_state": "active/running/enabled",
+    "timesyncd_main_pid": 176,
+    "timesyncd_start_reported_utc": "2026-10-05 06:18:43 UTC",
+    "timesyncd_capability_bounding_set": "cap_sys_time",
+    "timesyncd_exec_path": "/usr/lib/systemd/systemd-timesyncd",
+    "timesyncd_condition_result": true,
+    "timesyncd_unit": "/usr/lib/systemd/system/systemd-timesyncd.service",
+    "timesyncd_dropins": ["/usr/lib/systemd/system/systemd-timesyncd.service.d/wsl.conf"],
+    "wsl_dropin_semantics": "clears_base_virtualization_condition_and_allows_noncontainer_or_wsl",
+    "file_sha256": {
+      "/usr/lib/systemd/systemd-timesyncd": "cbf92a41ffb29efd75daebf8a1a1dd4d0c078d2f3c50f0fc7e9e35715eefb7cd",
+      "/usr/lib/systemd/system/systemd-timesyncd.service": "f7e5b08e61f52c3fd8fc9d3f96668cc12109499a3e4eb74f0e91cf068e7e063a",
+      "/usr/lib/systemd/system/systemd-timesyncd.service.d/wsl.conf": "39adb1108fa7eb579fde48980ec5af63e20d9a41290b5909cf70d370007e75a6"
+    },
+    "hyperv_timesync_implicit": "Y",
+    "getconf_clk_tck": 100,
+    "selected_alternative_units_not_found": ["chrony.service", "chronyd.service", "ntp.service", "ntpsec.service"]
+  },
+  "host_services": {
+    "W32Time": {"status": "Running", "start_type": "Manual"},
+    "vmictimesync": {"status": "Stopped", "start_type": "Manual"}
+  },
+  "wsl_running_distributions": ["docker-desktop", "ACG-Research"],
+  "process_name_snapshot_scope": {
+    "distributions": ["ACG-Research", "docker-desktop"],
+    "additional_named_ntp_daemon_seen": false,
+    "negative_result_limit": "truncated_names_and_separate_pid_namespaces_noncontinuous_nonexhaustive_no_syscall_attribution"
+  },
+  "reviewed_sources": [
+    {
+      "url": "https://raw.githubusercontent.com/systemd/systemd-stable/v255.4/src/timesync/timesyncd-manager.c",
+      "bytes": 45806,
+      "sha256": "a02eeedf45a2285c72b75c9f6c9f98f54bf611fdc20d73ef9045f61fc827758f",
+      "adj_tick_token_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/linux-msft-wsl-6.6.114.1/drivers/hv/hv_util.c",
+      "bytes": 21082,
+      "sha256": "7ac990109e40d1abc5ff5d899d25ee1fe9c27dfc848cc6d986fb21960a932ddb",
+      "adj_tick_token_count": 0
+    },
+    {
+      "url": "https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/linux-msft-wsl-6.6.114.1/kernel/time/ntp.c",
+      "bytes": 28976,
+      "sha256": "ca1221824be89ee4e171f1694b54c2b77b3c1146589bcdb75e93dbd6c3ab2a7a",
+      "adj_tick_token_count": 2
+    },
+    {
+      "url": "https://raw.githubusercontent.com/microsoft/WSL2-Linux-Kernel/linux-msft-wsl-6.6.114.1/kernel/time/timekeeping.c",
+      "bytes": 72851,
+      "sha256": "d56f6561a288a4e8d87162e81038f82008f0168adbd3d6714b02e154f5074e08",
+      "adj_tick_token_count": 2
+    }
+  ],
+  "source_is_exact_running_binary_attestation": false,
+  "ubuntu_patchset_reviewed": false,
+  "writer_attribution": "unproven",
+  "independent_clock_reference": false,
+  "comparison_experiment_executed": false
+}

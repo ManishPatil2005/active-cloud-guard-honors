@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Review synchronization writers before intervention
+
+- Preserve selected guest/host service, WSL drop-in/executable and process-name facts; hash four versioned official source files as data only.
+- Distinguish upstream guest clock-adjustment requests, conditional Hyper-V steps and retained kernel tick/frequency state; no caller/cause or single-authority claim.
+- Document proposed one-batch before/stopped/restored comparison requiring fresh approval and tested cleanup/protocol. No code, service/settings changes or new clock trial; latest504-test evidence remains historical.
+
 ## 2026-10-05 - Preserve live kernel-state changes and clock instability
 
 - One predeclared observation completes16 packets/32 ordinary-user zero-mode queries; full source/backend/domain/bounds/summary review passes.

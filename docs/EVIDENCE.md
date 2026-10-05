@@ -1,5 +1,9 @@
 # Evidence index
 
+## Synchronization writer review (2026-10-05)
+
+[Minimized sequential facts/source hashes](../output/engine2-sync-writer-review-20261005.json), [review/proposed comparison](SYNC_WRITER_REVIEW.md). Actual selected service/drop-in/backend/process-name context and four reviewed official file hashes, not simultaneous trial/syscall trace/binary attestation or exhaustive absence. Residual tick/frequency and incomplete caller visibility limit “single authority” interpretation. No new clock observation/intervention; current504-test evidence historical, no causal/stability/ML acceptance.
+
 ## Live kernel-state observation (2026-10-05)
 
 [Receipt](../output/engine2-kernel-clock-state-20261005.json), [offline review](../output/engine2-kernel-clock-state-review-20261005.json), [protocol/result](KERNEL_CLOCK_STATE.md): one16-packet/32-query run, six sources/libc continuity/domains/bounds/summary reproduced; SHA834018876154de8a435048b88d063996ecaab029321bb563242ad6fa84ea13cf. Tick/frequency changes directly sampled with RAW/MONO gap~0.46324s and wall/BOOT change~0.867156s. INC-039, TIME_OK not stable-clock/cause/ML acceptance. No intervention/retry/source change since504 suites; old receipt hashes unchanged. Offline arithmetic is local consistency, not independent scientific evaluation.

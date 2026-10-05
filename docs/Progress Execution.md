@@ -1,5 +1,9 @@
 # Progress Execution
 
+**Writer review, 5 October:** we checked the running time service, its WSL-specific setup and official source code. The guest service can adjust time, but the reviewed file does not directly request tick changes. Kernel rate settings can remain after a clock reset; stopping one service does not necessarily remove all adjustment effects. No additional named NTP daemon appeared in the inspected process lists, but that does not prove there are no other writers. We changed nothing and preserved the findings. Engine2 timing/ML remain unfinished. [Detailed review](SYNC_WRITER_REVIEW.md).
+
+**Proposed next experiment:** one reading block with the service running, one briefly stopped, then restoration and a final block. It needs your specific approval and tested automatic restoration before execution. No Windows setting, permanent disable, clock reset, WSL restart or sensor workload is proposed. It may narrow the cause; it cannot guarantee a fix or long-term reliability.
+
 **Real result, 5 October:** the planned check completed all16 timer readings and32 read-only kernel-setting readings. Time-adjustment settings changed during the observation. Linux's normal elapsed clock advanced about0.463 seconds less than its unadjusted timer; its wall-time relationship to time since boot changed by about0.867 seconds. We changed no settings/services and saved the result without retrying. This is stronger diagnostic evidence, not a proven cause or fix. Engine1 remains unchanged; Engine2 still needs reliable timing, independent labels and ML evaluation. [Detailed evidence](KERNEL_CLOCK_STATE.md).
 
 **Next safe step:** inspect which synchronization components can write these settings and prepare a supervised comparison with clear restoration steps. Do not stop services yourself or reuse the earlier one-time permission. A changed kernel setting does not identify who changed it; a successful software test does not make the clocks stable.

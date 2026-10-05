@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-036 - 2026-10-05 - Remove-one-client is not single-authority isolation
+
+Writer review shows retained tick/frequency state and incomplete privileged-writer visibility. Do not call temporary timesyncd removal a single-authority fix or manually reset accumulated state. Propose at most one before/stopped/restored diagnostic batch with unchanged gates, fresh specific approval, tested restoration/watchdog and finalized protocol before action. No host/provider/Docker/WSL changes or stable-clock/ML acceptance implied. Source/tag/hash evidence does not identify historical/current callers; SYNC_WRITER_REVIEW.md.
+
 ## ADR-035 - 2026-10-05 - Direct zero-mode state before intervention
 
 Use a separate ordinary-user reviewed Linux LP64/glibc2.39 timex observer, not cached systemd drift frequency or a setter. Pair32 zero-filled modes=0 reads with16 native snapshots, preserve negative states/first failures, source/backend continuity and offline full reduction. Existing lineage sources/receipts unchanged. Endpoint state is not continuous adjustment history/attribution; one bounded predeclared sensor-free run after publication, no service/provider/clock changes or stable-runtime/ML acceptance. Unsupported ABI/root refused rather than fallback. KERNEL_CLOCK_STATE.md.
