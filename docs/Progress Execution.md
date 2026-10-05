@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+**Collector-specific follow-up preparation, 5 October:** we are adding time-since-boot/wall-time readings around each server-time check, saving them before a check can reject the result. This will provide more information if a future sensor-on run fails. It does not change clocks, loosen safety limits or recover earlier lost data. One new bounded follow-up is planned after tests and commit. [Protocol](RECORDED_BOOT_CLOCK_FOLLOWUP.md).
+
 **Sensor-free result, 5 October:** all six time reads passed in the one planned run. Commands took about 54–86 milliseconds; clock readings agreed within the tested bounds, and the service stayed unchanged. We checked the saved numbers and hashes independently of the live command (offline consistency, not independent scientific evaluation). No sensor, retry or clock adjustment. This is useful evidence that the later sensor-free check worked, not proof the earlier problem is fixed. Next is a carefully planned collector-specific check using the improved failure recording. Engine 1 unchanged; Engine 2 timing/ML evaluation still unfinished. [Results](SENSOR_FREE_TIME_ATTEMPTS.md).
 
 **Next diagnostic, 5 October:** we are preparing a check that asks the existing Redis service for time up to six times, with a one-second pause between successful reads. It runs without a sensor and stops at the first failed check, saving the available timing details. This can tell us whether a new failure is due to a slow command or incompatible clock readings; it cannot recover the earlier lost details or prove Engine 2 is finished. One new attempt is planned after testing/commit. [Method](SENSOR_FREE_TIME_ATTEMPTS.md).

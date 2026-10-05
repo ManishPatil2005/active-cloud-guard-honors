@@ -96,12 +96,20 @@ def test_saved_inconsistency_rejected(mode):
         summarize(records, correlation)
 
 
-def test_diagnostic_cannot_enter_repeat_acceptance():
+@pytest.mark.parametrize(
+    "protocol",
+    [
+        "container_pid_connect_clock_v1",
+        "container_pid_connect_boot_v1",
+        "container_pid_connect_boot_v2",
+    ],
+)
+def test_diagnostic_cannot_enter_repeat_acceptance(protocol):
     root = Path(__file__).resolve().parents[1]
     receipt = json.loads(
         (root / "output/engine2-identified-readiness-20260930.json").read_text()
     )
-    receipt["diagnostic_protocol"] = "container_pid_connect_clock_v1"
+    receipt["diagnostic_protocol"] = protocol
     with pytest.raises(ValueError, match="trial acceptance failed"):
         accept(receipt)
 

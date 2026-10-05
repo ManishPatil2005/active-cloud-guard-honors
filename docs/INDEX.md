@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest implementation/protocol: [collector-on boot/TIME recording](RECORDED_BOOT_CLOCK_FOLLOWUP.md), native endpoints retained before rejection; one new bounded follow-up predeclared, live pending at this checkpoint.
+
 Latest observation: [sensor-free TIME result](SENSOR_FREE_TIME_ATTEMPTS.md), one run six accepted reads; full offline consistency checks passed. No rejection reproduced or Falco alignment conclusion; timing gate remains open.
 
 Latest planned diagnostic: [sensor-free TIME attempts](SENSOR_FREE_TIME_ATTEMPTS.md), shared sanitized recording and six-read/five-gap protocol. Implementation live result pending at this checkpoint; timing gate unresolved.
@@ -44,6 +46,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Clock domains](CLOCK_DOMAINS.md) | Opt-in server TIME/PING/TIME diagnostic, precise event bounds and preserved negative result |
 | [Sensor-free TIME attempts](SENSOR_FREE_TIME_ATTEMPTS.md) | Opt-in rejected-bracket evidence, bounded six-read protocol and outcome limits |
 | [Boot-clock diagnostic](BOOT_CLOCK_DIAGNOSTIC.md) | Native boot/realtime sandwiches, namespace comparability gates and separate single-trial protocol |
+| [Recorded boot-clock follow-up](RECORDED_BOOT_CLOCK_FOLLOWUP.md) | Boot_v2 TIME endpoints including rejected reads and separate collector-on protocol |
 | [Collector timestamp review](COLLECTOR_TIMESTAMP_REVIEW.md) | Pinned local versions, official source hashes, timestamp mechanism and unproven cause |
 | [Time-sync diagnosis](TIME_SYNC_DIAGNOSIS.md) | Read-only evidence of competing synchronization paths and proposed reversible test |
 | [Paired pilot](PAIRED_PILOT.md) | Fixed warm-up, comparison guards, aborted batch and prerequisite recovery |

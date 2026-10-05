@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+Boot_v2 adds only local native clock reads around existing fixed TIME calls, no new proc paths, privilege, mounts or endpoints. Numerical endpoints saved before validation; raw reply/error messages remain excluded. Early boot sampler failures preserve safe stage/class and available fields; no fabricated calibration value. Same namespace gate/sensor limits; source hashes distinguish changed instrumentation and old evidence is not rewritten. RECORDED_BOOT_CLOCK_FOLLOWUP.md.
+
 Sensor-free record-attempts mode uses only existing local-daemon/single lab Redis identity gates and fixed loopback TIME commands. Checks known sensor name/image absence at endpoints (not all possible collectors). No container creation, service/clock action, credentials or data writes. Shared recorder preserves numeric fields/hash/stage/class only; six reads maximum/five gaps, existing timeouts/gates. Source hashes are local integrity checks, not authenticated provenance. No correction or permission for ML/baseline acceptance; SENSOR_FREE_TIME_ATTEMPTS.md.
 
 TIME failure evidence exports numeric clock samples, fixed phase/stage/rejection labels, response SHA256 and exception class only. Never publish raw TIME reply, exception message, command stderr or command text; tests assert sentinel details absent in malformed-reply/command/sampling failures. Same fixed local commands/limits, no new access. Hash is integrity metadata, not authentication. Failure at an early stage legitimately leaves later fields absent; do not infer missing values.

@@ -149,11 +149,15 @@ def rules(container_id, *, correlation=False):
     )
 
 
-def read_time(container_id, attempts, phase):
+def read_time(container_id, attempts, phase, *, boot=False):
     """Shared fixed TIME read with sanitized pre-validation failure evidence."""
     attempt = dict(phase=phase, status="sampling_first")
     attempts.append(attempt)
     try:
+        if boot:
+            attempt["status"] = "sampling_boot_first"
+            attempt["boot_before"] = boot_clock.sample()
+            attempt["status"] = "sampling_first"
         attempt["first"] = sample()
         attempt["status"] = "command_running"
         reply = command(
@@ -169,6 +173,9 @@ def read_time(container_id, attempts, phase):
         attempt["response_sha256"] = hashlib.sha256(reply.encode()).hexdigest()
         attempt["status"] = "sampling_last"
         attempt["last"] = sample()
+        if boot:
+            attempt["status"] = "sampling_boot_last"
+            attempt["boot_after"] = boot_clock.sample()
         timing = compare(attempt["first"], attempt["last"])
         attempt["clock_comparison"] = timing
         attempt["clock_rejection_reasons"] = [
@@ -199,7 +206,7 @@ def clocked_ping(container_id, pids, observations, *, boot=False):
     observations.append(observation)
 
     observation["before"] = read_time(
-        container_id, observation["time_read_attempts"], "before"
+        container_id, observation["time_read_attempts"], "before", boot=boot
     )
     if boot:
         observation["boot_before"] = boot_clock.sample()
@@ -211,7 +218,7 @@ def clocked_ping(container_id, pids, observations, *, boot=False):
     if boot:
         observation["boot_after"] = boot_clock.sample()
     observation["after"] = read_time(
-        container_id, observation["time_read_attempts"], "after"
+        container_id, observation["time_read_attempts"], "after", boot=boot
     )
     return "PONG"
 
@@ -428,7 +435,7 @@ def main():
                     else "container_pid_connect_v2"
                 )
                 if args.boot_clock:
-                    report["diagnostic_protocol"] = "container_pid_connect_boot_v1"
+                    report["diagnostic_protocol"] = "container_pid_connect_boot_v2"
                 report["warmup_process_ids"] = warmup_pids
                 report["readiness_protocol"] = "identified_second_canary_v1"
                 report["readiness_attempts"] = []

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Record native boot endpoints around sensor-on TIME validation
+
+- Boot mode saves TIME boot/realtime endpoints before validation, including rejected clock brackets; safe stages retain early sampling failures.
+- Distinguish boot_v2 receipts; default/nonboot behavior, clock gates, sensor limits and permissions unchanged.
+- Predeclare one separate collector-on follow-up after implementation push; no live observation at this checkpoint. 428 tests each OS; cases cover accepted/rejected endpoints, early boot sampling errors and protocol exclusion.
+
 ## 2026-10-05 - Record successful bounded sensor-free TIME observation
 
 - Execute one declared six-read/five-gap diagnostic after implementation push; all reads accepted, no retry or sensor/clock action.

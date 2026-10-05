@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-032 - 2026-10-05 - Retain native relationship evidence before TIME rejection
+
+After the original sensor-on failure lost inputs and later sensor-free reads all passed, save boot/realtime endpoints around each TIME bracket before validation, only in boot mode. Distinct v2 protocol/exclusion, same gates/permissions/resources and no calibration-value or clock-fix claim. Original launch/PING summary unchanged; extra endpoints checked separately offline. One new collector-on attempt predeclared after implementation commit, no replacement/retry or adaptive extension. Negative outcomes remain valid evidence.
+
 ## ADR-031 - 2026-10-05 - Sensor-free failure diagnosis before another collector trial
 
 Reuse tested sanitized TIME recording through a small extraction, not duplicate timing logic or rerun failed sensor slots. Opt-in bridge mode attempts six reads with fixed gaps and stops at first failure; source/identity/known-sensor gates, unchanged thresholds. Preserve default mode/architecture. A new sensor-free observation can classify its own failure but cannot recover missing historical inputs or prove collector calibration. Separate implementation/result commits; one attempt predeclared. No service/clock intervention or automatic baseline/ML advancement.

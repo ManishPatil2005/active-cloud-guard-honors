@@ -1,5 +1,9 @@
 # Evidence index
 
+## Recorded boot/TIME implementation checks (2026-10-05)
+
+[Protocol](RECORDED_BOOT_CLOCK_FOLLOWUP.md), [Windows](../output/engine2-recorded-boot-windows-tests-20261005.xml) / [Linux](../output/engine2-recorded-boot-linux-tests-20261005.xml): 428 each. Native TIME endpoint recording/rejected-clock preservation and diagnostic exclusion software-tested; no v2 collector-on observation at this checkpoint. Historical receipts unchanged.
+
 ## Sensor-free TIME observation (2026-10-05)
 
 [Receipt](../output/engine2-sensor-free-time-attempts-20261005.json), [offline review](../output/engine2-sensor-free-time-review-20261005.json), [protocol/result/reproduction](SENSOR_FREE_TIME_ATTEMPTS.md). One run six accepted reads/five gaps, all offset bounds include zero; six source/response hashes and available math reproduced offline. No sensors/retries/clock changes, identity unchanged. Later bounded observation cannot identify historical rejected-read cause or verify Falco alignment; no accuracy/overhead/independent evaluation claim. Software unchanged from 421 tests each OS.
