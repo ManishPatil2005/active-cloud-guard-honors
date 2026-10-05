@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Preserve rejected TIME-read evidence without relaxing checks
+
+- Save sanitized phase/stage, available clock samples/comparison and rejection flags before TIME validation; response hash and error class only, no raw reply/message/stderr.
+- Add seven failure regressions and successful/after-failure assertions; 414 tests each OS. Validators, thresholds, command timeouts and sensor limits unchanged.
+- No live retry or historical evidence edit. Document software-tested INC-033 recording fix; original timing cause/stability still unresolved.
+
 ## 2026-10-05 - Preserve incomplete boot-clock diagnostic and partial review
 
 - Execute one declared attempt after implementation push; abort at second before-TIME bracket, no retry or gate relaxation.

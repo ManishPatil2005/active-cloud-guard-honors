@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest software fix: [sanitized TIME failure evidence](CLOCK_DOMAINS.md), 414 tests each OS. Failed attempt remains preserved; no live rerun or timing-stability claim. Next sensor-free bracket diagnostic design.
+
 Latest observation: [boot-clock attempt and partial review](BOOT_CLOCK_DIAGNOSTIC.md) stopped at its second TIME bracket; one measured PING/five boot samples retained, no full stability result. Next failed-bracket evidence retention; INC-033.
 
 Latest implementation: [namespace-gated boot-clock diagnostic](BOOT_CLOCK_DIAGNOSTIC.md), 407 tests each OS; one live trial predeclared, not yet executed at this checkpoint. Timing gate remains open.

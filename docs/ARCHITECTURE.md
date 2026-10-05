@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-020 extends only clocked_ping diagnostic observations with ordered time_read_attempts: phase/status, available clock endpoints/comparison, clock rejection flags, response SHA256 and failure stage/class. Evidence appended before validation; exceptions still propagate and redis_bracket remains authoritative. Accepted before/after schemas unchanged; bookkeeping perturbs instrumentation slightly and source hashes distinguish future runs. No new service/model, correction or gate relaxation; historical receipts not enriched retroactively.
+
 sensor_trial --boot-clock requires the separate clock-domain diagnostic. cloudguard/boot_clock.py brackets native CLOCK_REALTIME with CLOCK_BOOTTIME, recomputes saved bounds and reports offset-change/event-implied ranges, never correction or scoring. Fixed proc reads gate active/children namespaces, zero offsets and shared boot-ID hash; facts must remain unchanged. Eleven sandwiches, seven frozen source hashes and distinct container_pid_connect_boot_v1 label; default engines unchanged. Extra proc execs perturb workload, so no latency/baseline reuse. Existing sensor duration/permissions retained; BOOT_CLOCK_DIAGNOSTIC.md.
 
 scripts/collector_source_check.py is a separate metadata/source reviewer: existing pinned image --version with no capabilities/network/mounts and read-only filesystem, followed by bounded HTTPS reads of six official immutable release files. Records hashes/versions/marker lines, never runs downloaded source or loads a sensor. No engine or clock-correction path; matching releases are not build attestation. See COLLECTOR_TIMESTAMP_REVIEW.md.

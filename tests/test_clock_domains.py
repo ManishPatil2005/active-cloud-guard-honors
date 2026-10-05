@@ -155,3 +155,66 @@ def test_clocked_ping_keeps_identity_and_partial_evidence(monkeypatch, fail_afte
         assert "after" in records[0]
     assert pids == [42] and records[0]["process_id"] == 42
     assert len(commands) == 3 and "before" in records[0] and "ping_clock" in records[0]
+    attempts = records[0]["time_read_attempts"]
+    assert attempts[0]["status"] == "accepted"
+    assert attempts[1]["status"] == ("failed" if fail_after else "accepted")
+    assert attempts[1]["phase"] == "after"
+
+
+@pytest.mark.parametrize(
+    "mode", ["drift", "width", "wide", "reply", "command", "first", "last"]
+)
+def test_failed_time_read_keeps_sanitized_evidence(monkeypatch, mode):
+    first = point(10**9, 0)
+    last = point(1_010_000_000, 10_000_000)
+    if mode == "drift":
+        last["wall_ns"] += 60_000_000
+    elif mode == "width":
+        first["sampling_span_ns"] = 6_000_000
+    elif mode == "wide":
+        last = point(1_600_000_000, 600_000_000)
+    ticks = iter([first, last])
+    sample_calls = []
+
+    def sample():
+        sample_calls.append(True)
+        if mode == "first" or (mode == "last" and len(sample_calls) == 2):
+            raise ValueError("private diagnostic detail")
+        return next(ticks)
+
+    def command(*args, **kwargs):
+        assert args[-1] == "TIME"
+        if mode == "command":
+            raise RuntimeError("private diagnostic detail")
+        return "private diagnostic detail" if mode == "reply" else "1\n5000"
+
+    monkeypatch.setattr(sensor_trial, "sample", sample)
+    monkeypatch.setattr(sensor_trial, "command", command)
+    pids, records = [], []
+    with pytest.raises((ValueError, RuntimeError)):
+        sensor_trial.clocked_ping("a" * 64, pids, records)
+    assert pids == [] and "before" not in records[0]
+    attempt = records[0]["time_read_attempts"][0]
+    assert attempt["status"] == "failed" and attempt["phase"] == "before"
+    assert "private diagnostic detail" not in json.dumps(records)
+    if mode not in {"first", "last", "command"}:
+        assert attempt["first"] == first and attempt["last"] == last
+        assert attempt["clock_comparison"] == compare(first, last)
+        assert attempt["failed_stage"] == "validating_bracket"
+        assert attempt["clock_rejection_reasons"] == (
+            ["round_trip_exceeds_500ms"]
+            if mode == "wide"
+            else []
+            if mode == "reply"
+            else ["clock_outside_tolerance"]
+        )
+        assert len(attempt["response_sha256"]) == 64
+    else:
+        assert (
+            attempt["failed_stage"]
+            == {
+                "first": "sampling_first",
+                "last": "sampling_last",
+                "command": "command_running",
+            }[mode]
+        )

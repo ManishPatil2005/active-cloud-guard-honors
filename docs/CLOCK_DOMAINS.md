@@ -1,5 +1,11 @@
 # Concurrent-trial clock-domain diagnostic
 
+## E2-020 recording refinement, 5 October
+
+After E2-019 aborted with an empty failed TIME row (INC-033), future observations record time_read_attempts before validation. Each attempt has fixed before/after phase, status/failed stage and available first/last clock samples. Completed reads retain compare output and separate clock_outside_tolerance / round_trip_exceeds_500ms flags. redis_bracket still validates the same <=500 ms/clock/response contract and exceptions propagate; valid before/after payloads stay unchanged. Raw response/error messages/stderr are not exported; only response SHA256 and exception class. Malformed response can fail despite no clock-rejection flag; early command/sampling failures have missing later fields. These statuses are evidence, not acceptance or correction.
+
+414 tests each OS, seven failure cases plus existing success/after-failure assertions. No live rerun: original failed row and all old receipts remain unchanged. Logging adds small instrumentation work; future source freeze changes, do not assume byte-identical measurement conditions or retrofit new fields. Next separately declared sensor-free bracket diagnosis before further collection/ML; timing gate unresolved.
+
 E2-017, declared 5 October 2026 before live execution. INC-032 showed unique PID matches with event timestamps outside harness brackets despite stable harness clocks. Design a different diagnostic, not a replacement repeatability run or corrected baseline.
 
 ## Fixed method and acceptance

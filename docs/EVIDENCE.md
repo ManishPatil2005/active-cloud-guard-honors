@@ -1,5 +1,9 @@
 # Evidence index
 
+## TIME failure-recording software checks (2026-10-05)
+
+[Windows](../output/engine2-time-failure-windows-tests-20261005.xml) / [Linux](../output/engine2-time-failure-linux-tests-20261005.xml): 414 each. Seven failure regressions retain sanitized samples/stages/rejection flags without raw replies/error details. This is software verification, not a new live result or retrospective repair of E2-019. INC-033 / [diagnostic recording contract](CLOCK_DOMAINS.md).
+
 ## Incomplete boot-clock attempt (2026-10-05)
 
 [Failed receipt](../output/engine2-boot-clock-20261005.json), [offline partial review](../output/engine2-boot-clock-partial-review-20261005.json), [protocol/result](BOOT_CLOCK_DIAGNOSTIC.md). One attempt, second TIME gate rejected; only first measured PING and five boot samples available. Seven source hashes/raw partial PID accounting checked. Missing failed bracket/post facts/metrics/full summaries prevent complete acceptance; compatible initial samples do not resolve INC-032. No retries/corrections. Software unchanged since 407-test implementation.

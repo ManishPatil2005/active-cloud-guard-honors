@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, latest E2-019 live diagnostic aborted at second TIME bracket.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; repeatability gate failed at E2-016, E2-019 live diagnostic aborted, latest E2-020 improves failure evidence (software-tested only).
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -53,4 +53,5 @@ Status as of 2026-10-05. Completed means the stated acceptance criterion was met
 | E2-018 | Pinned collector metadata and timestamp-source review | Reviewer implemented/tested; source-reviewed | Exact local versions and six official release-file hashes recorded. Initialization boot-offset plus kernel boot time mechanism identified; drift is hypothesis, not measured cause. 378 tests each OS. COLLECTOR_TIMESTAMP_REVIEW.md; next realtime/boot sampling design, no sensor/clock change |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Replay foundation plus bounded live sensor smoke; normalized live integration and ML gates remain open |
 | E2-019 | Namespace-gated boot/realtime diagnostic | Implemented/tested; live attempt incomplete | 407 tests each OS; one attempt stopped at second TIME gate, no retry. Initial domains/first PING compatible, five boot samples; failed bracket inputs missing, no post facts/full summary/metrics. INC-033; BOOT_CLOCK_DIAGNOSTIC.md. Timing/cause remain open; improve failed-bracket recording next |
+| E2-020 | Preserve rejected server-time bracket evidence | Implemented/software-tested | 414 tests each OS; saved sanitized stage/samples/comparison/rejection flags and response hash, no raw messages/replies. Gate/limits unchanged; seven failure regressions. No live rerun; old receipt immutable. Next separately declared sensor-free bracket diagnostics; INC-033 evidence fix not live-validated |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |

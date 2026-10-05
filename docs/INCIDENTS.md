@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-033 follow-up - 2026-10-05 - Rejected TIME inputs retained in future diagnostics
+
+E2-020 saves fixed phase/status, available first/last clocks, computed comparison and clock rejection flags before redis_bracket, plus response SHA256 and failure stage/class only. Exceptions/validators/timeouts/thresholds unchanged; no raw reply/message/stderr export. Seven regressions cover disagreement/sample width/round-trip/response/command/first-last sampling failures; 414 tests each OS. Evidence-retention gap fixed in software, not live-validated; original empty row remains immutable. Does not fix the underlying clock/latency failure or INC-032. No second live attempt, clock settings change or acceptance claim; next separately declared sensor-free diagnostic.
+
 ### INC-033 - 2026-10-05 - Boot-clock attempt aborts with missing failed TIME inputs
 
 **Symptom/evidence:** declared E2-019 command ran once at 07:43:31 UTC, exit 1. Second before-TIME redis_bracket raises `unstable or excessively wide clock bracket`; failed receipt has first complete observation, second empty row, one measured PID and five boot sandwiches. Failure raw hash retained; initial domains/readiness passed. The exception combines time disagreement, sampling width and >500 ms elapsed checks; rejected input samples/derived comparison are not saved, so exact trigger and underlying cause cannot be identified retrospectively. High confidence in failing call/evidence gap, no causal clock diagnosis.

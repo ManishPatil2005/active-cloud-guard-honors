@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-030 - 2026-10-05 - Preserve sanitized failure inputs before acceptance validation
+
+Record TIME phase/stage and available clock samples/comparison before redis_bracket; keep distinct threshold flags, response hash and exception class, never raw replies/error details. Preserve rejection/propagation, rather than weaken limits or infer missing inputs in old receipts. Logging slightly changes future instrumentation/source hashes; old evidence remains bound to its implementation. Seven regressions/414 tests each OS, no live rerun. Next independently declared sensor-free diagnostic; no automatic clock intervention or stability claim.
+
 ## ADR-029 - 2026-10-05 - Measure native boot relationship with explicit comparability gates
 
 Use opt-in native CLOCK_BOOTTIME/REALTIME sandwiches instead of monotonic substitution or a fitted timestamp shift. Require same local boot hash, zero namespace offsets, active/children equality and endpoint continuity; Linux source shows proc offsets use children namespace. Namespace IDs may differ across unshifted domains. Prelaunch/readiness only bracket initialization, not actual stored calibration value. Keep one declared bounded diagnostic separate from implementation and legacy repeat/latency protocols; preserve failure without replacement. Existing stack/permissions unchanged; 407 tests each OS, live execution pending at this decision checkpoint. No new authority to change clocks or make independent accuracy claims.

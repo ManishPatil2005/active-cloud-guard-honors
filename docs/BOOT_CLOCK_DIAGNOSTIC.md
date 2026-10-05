@@ -68,3 +68,5 @@ server = (event - o["after"]["redis_unix_ns"] - 999,
 ```
 
 Next: preserve sanitized failed TIME sample/comparison fields before validation, with regression tests. Do not weaken the gate or rerun the failed slot; a further live experiment needs a separately declared protocol after this evidence gap is fixed.
+
+**Later software checkpoint (E2-020):** that retention improvement is now implemented with 414 tests each OS; see [recording contract](CLOCK_DOMAINS.md). No additional live attempt. The source hash review above was performed before this later code change; rechecking historical execution hashes requires implementation commit ac6767a, not assuming latest source matches. Original receipt/hash/empty row unchanged. Next is separately predeclared sensor-free bracket diagnosis, not replacement of this failed slot.
