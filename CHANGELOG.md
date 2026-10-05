@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Preserve incomplete boot-clock diagnostic and partial review
+
+- Execute one declared attempt after implementation push; abort at second before-TIME bracket, no retry or gate relaxation.
+- Preserve receipt/source/raw hash checks and one-PING/five-sample review; explicitly record missing failed inputs, post facts, full measurement and metrics.
+- Document INC-033 and next evidence-retention improvement; sensor removed/time service unchanged, historical alignment issue unresolved. No software change in this result increment.
+
 ## 2026-10-05 - Implement namespace-gated boot-clock diagnostic
 
 - Add opt-in native boot/realtime brackets at launch/readiness and around four identified PINGs, with saved-bound recomputation and no timestamp correction.

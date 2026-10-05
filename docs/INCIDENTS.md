@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-033 - 2026-10-05 - Boot-clock attempt aborts with missing failed TIME inputs
+
+**Symptom/evidence:** declared E2-019 command ran once at 07:43:31 UTC, exit 1. Second before-TIME redis_bracket raises `unstable or excessively wide clock bracket`; failed receipt has first complete observation, second empty row, one measured PID and five boot sandwiches. Failure raw hash retained; initial domains/readiness passed. The exception combines time disagreement, sampling width and >500 ms elapsed checks; rejected input samples/derived comparison are not saved, so exact trigger and underlying cause cannot be identified retrospectively. High confidence in failing call/evidence gap, no causal clock diagnosis.
+
+**Response/verification:** preserve immutable failed receipt/raw evidence and offline partial review; no retry, correction, extension or invented measurement fields. Seven execution hashes match implementation commit ac6767a, strict raw parser finds two warmup plus one measured unique connects, three unassigned. First PING bounds compatible, five boot changes include zero; insufficient to fix INC-032. Sensor removed, final enumeration empty, timesyncd active/unchanged, preflight passed. Post facts/full measurement/metrics unavailable. Next software fix: save sanitized TIME first/last comparison/status before validation and test failure paths. Fix not implemented at this result checkpoint; later live validation must be separate.
+
 ### INC-032 follow-up - 2026-10-05 - Initialization offset mechanism found in release source
 
 Metadata-only review confirmed local Falco 0.45.0/libs 0.26.0. Six immutable official files show initialization realtime-minus-boot calibration stored in settings and kernel boot-time addition in event headers. This is a concrete mechanism to test; realtime/boot relationship drift after calibration could produce early events. No direct offset samples at initialization exist for earlier failing trials, no binary/source attestation or exhaustive refresh-path audit. High confidence in reviewed source path, unproven causal attribution to our lag/time services. Reproducible review receipt and 378-test suites recorded; no new sensor/workload/clock modification, fix or historical correction. COLLECTOR_TIMESTAMP_REVIEW.md; next bounded clock-domain-aware sampling design.

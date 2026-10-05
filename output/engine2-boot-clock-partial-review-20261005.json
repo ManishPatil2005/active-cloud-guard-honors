@@ -1,0 +1,32 @@
+{
+  "evidence_level": "offline_partial_consistency_review",
+  "trial": "output/engine2-boot-clock-20261005.json",
+  "receipt_sha256": "754c29d9e63b9a13ab455b0bcb829a5ed340b0c1c8f70d1bdfe024c25fbecddb",
+  "implementation_commit": "ac6767adece8b231830d98fc0b42019a32899b82",
+  "source_hashes_verified": 7,
+  "raw_hash_verified": true,
+  "event_type_counts": {"execve": 15, "openat": 150, "openat2": 48, "open": 24, "connect": 6},
+  "matched_connect_counts": {"249": 1, "255": 1, "267": 1},
+  "unassigned_connect_count": 3,
+  "valid_boot_samples": 5,
+  "offset_changes_from_prelaunch": [
+    {"lower_ns": -797, "upper_ns": 797},
+    {"lower_ns": -801, "upper_ns": 971},
+    {"lower_ns": -758, "upper_ns": 636},
+    {"lower_ns": -733, "upper_ns": 383},
+    {"lower_ns": -758, "upper_ns": 517}
+  ],
+  "single_ping_event_harness_bounds_ns": [-6593326, 46985563],
+  "single_ping_event_server_bounds_ns": [-52603562, 55614437],
+  "event_implied_offset": {"lower_ns": 1791181323640188936, "upper_ns": 1791181323693781571},
+  "implied_intersects_prelaunch": true,
+  "complete_four_ping_summary_available": false,
+  "post_domain_facts_available": false,
+  "metrics_available": false,
+  "failed_bracket_inputs_available": false,
+  "collector_calibration_value_observed": false,
+  "correction_applied": false,
+  "causal_attribution": "not_proven",
+  "independent_evaluation": false,
+  "coverage": "unknown"
+}

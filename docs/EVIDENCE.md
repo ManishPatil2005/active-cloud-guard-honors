@@ -1,5 +1,9 @@
 # Evidence index
 
+## Incomplete boot-clock attempt (2026-10-05)
+
+[Failed receipt](../output/engine2-boot-clock-20261005.json), [offline partial review](../output/engine2-boot-clock-partial-review-20261005.json), [protocol/result](BOOT_CLOCK_DIAGNOSTIC.md). One attempt, second TIME gate rejected; only first measured PING and five boot samples available. Seven source hashes/raw partial PID accounting checked. Missing failed bracket/post facts/metrics/full summaries prevent complete acceptance; compatible initial samples do not resolve INC-032. No retries/corrections. Software unchanged since 407-test implementation.
+
 ## Boot-clock implementation (2026-10-05)
 
 [Protocol](BOOT_CLOCK_DIAGNOSTIC.md), software [Windows](../output/engine2-boot-clock-implementation-windows-tests-20261005.xml) / [Linux](../output/engine2-boot-clock-implementation-linux-tests-20261005.xml): 407 each. Native clock/namespace validation is software-tested; a live boot-clock trial has not run at this checkpoint. No corrected timestamp, causal or independent evaluation claim.

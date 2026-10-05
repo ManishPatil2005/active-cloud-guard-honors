@@ -27,3 +27,44 @@ Acceptance means collection and validated diagnostic accounting, **not stable cl
 ## Implementation validation, before live execution
 
 407 tests passed on Windows (2.13 s) and Linux (3.50 s); [Windows receipt](../output/engine2-boot-clock-implementation-windows-tests-20261005.xml), [Linux receipt](../output/engine2-boot-clock-implementation-linux-tests-20261005.xml). Twenty-nine additions exercise namespace/boot identity parsing and gates, children-namespace ambiguity, bracket widths/order/types, synthetic offset change, saved-summary corruption, option prerequisites, fixed backend commands and absence of monotonic fallback. Ruff lint/format (74 files) and Windows pip check pass. Actual boot-clock collection has **not run at this implementation checkpoint**; lifecycle/resource timing and transient-change coverage are not exhaustively tested. No independent detection evaluation or Engine 1 live rerun.
+
+## Observed single attempt, 5 October 2026
+
+Implementation commit `ac6767adece8b231830d98fc0b42019a32899b82` pushed and remote hash matched before collection. Declared command above ran once at 07:43:31 UTC, exit 1: second iteration's before-TIME bracket raised `unstable or excessively wide clock bracket`. [Failed receipt](../output/engine2-boot-clock-20261005.json), [offline partial review](../output/engine2-boot-clock-partial-review-20261005.json). No retry, clock change or extension. Pre/post lab preflight passed, sensor enumeration empty afterward, timesyncd active/unchanged.
+
+All three initial domain facts passed: shared boot hash, zero offsets, active/children equality despite distinct namespace IDs. Both identified warmups and first measured PING succeeded/uniquely observed. Only one of four measured PINGs completed; `workload_executed=true` means dispatch began, **not completed protocol**. Second row is empty: command/bounds inputs are not retained when redis_bracket raises. Existing gate combines clock disagreement, sample width and command duration (>500 ms); missing inputs prevent deciding which condition triggered. Post-domain facts, full measurement, metrics and four-PING summaries are absent. Do not reconstruct them or claim full stability.
+
+SHA-matched failure raw log: 243 records, six connects; tracked warmup PIDs 249/255 and measured 267 each exactly one, three unassigned auxiliary connects. Five valid boot sandwiches (3 launch/readiness, 2 first PING), widths 319–975 ns; change intervals relative to prelaunch all include zero, union -801 to +971 ns. The single event includes zero in harness (-6,593,326 to +46,985,563 ns) and server (-52,603,562 to +55,614,437 ns) bounds; implied offset intersects prelaunch. This bounded partial observation does **not** resolve earlier failed runs, measure actual collector calibration or pass repeatability. Raw bytes remain ignored/local; source hashes (seven), available bracket recomputation and strict raw PID accounting verified offline. Receipt hash bound in partial review; consistency checking is not independent/authenticated evaluation. INC-033 records aborted attempt/evidence gap; INC-032 remains open.
+
+Offline review used Windows Python and existing functions, not sensor execution. Reproduction core (after checking saved receipt/source/raw SHA256 hashes and selecting its sole SHA-matched ignored sensor.log):
+
+```python
+from cloudguard import boot_clock
+from cloudguard.clock_domains import redis_bracket
+from cloudguard.clock_check import compare
+from cloudguard.correlation import connection_counts
+boot_clock.checked_domains(receipt["time_domains_before"])
+matches, extra = connection_counts(raw, receipt["container_id"],
+    receipt["warmup_process_ids"] + receipt["correlation_process_ids"])
+o = receipt["clock_domain_samples"][0]
+for remote in (o["before"], o["after"]):
+    seconds, nanos = divmod(remote["redis_unix_ns"], 10**9)
+    assert redis_bracket(remote["first"], remote["last"],
+        f"{seconds}\n{nanos // 1000}") == remote
+samples = [boot_clock.checked(s["sample"])
+    for s in receipt["boot_clock_snapshots"]]
+samples += [boot_clock.checked(o["boot_before"]), boot_clock.checked(o["boot_after"])]
+initial = samples[0]
+changes = [(s["offset_lower_ns"] - initial["offset_upper_ns"],
+    s["offset_upper_ns"] - initial["offset_lower_ns"]) for s in samples]
+clock = o["ping_clock"]
+timing = compare(clock["first"], clock["last"])
+event = matches[o["process_id"]][0]
+allowance = abs(timing["clock_difference_ns"]) + timing["sampling_uncertainty_ns"]
+harness = (event - clock["last"]["wall_ns"] - allowance,
+    event - clock["first"]["wall_ns"] + allowance)
+server = (event - o["after"]["redis_unix_ns"] - 999,
+    event - o["before"]["redis_unix_ns"])
+```
+
+Next: preserve sanitized failed TIME sample/comparison fields before validation, with regression tests. Do not weaken the gate or rerun the failed slot; a further live experiment needs a separately declared protocol after this evidence gap is fixed.
