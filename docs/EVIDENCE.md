@@ -1,5 +1,11 @@
 # Evidence index
 
+## Live kernel-state implementation (2026-10-05)
+
+Software: [Windows504](../output/engine2-kernel-state-windows-tests-20261005.xml), [final Linux504](../output/engine2-kernel-state-linux-final-tests-20261005.xml), [earlier Linux504](../output/engine2-kernel-state-linux-tests-20261005.xml). Thirty-six additions; lint/format83files/dependency pass. Initial unused import corrected after first Linux run, original receipt not overwritten. No live state queried by tests.
+
+[Protocol](KERNEL_CLOCK_STATE.md): separate zero-mode ordinary-user query/native-pair observer with complete offline reduction;36 targeted tests pass using injected state/backends only. INC-038 preserves initial two test-double failures. One sensor-free live observation pending after publication; no clock changes, causal/stability/ML evidence.
+
 ## Raw-versus-adjusted observation (2026-10-05)
 
 [Receipt](../output/engine2-raw-clock-lineage-20261005.json), [offline review](../output/engine2-raw-clock-lineage-review-20261005.json), [protocol/result/provider context](CLOCK_PROVIDER_REVIEW.md). One sixteen-packet run: RAW-host15/15 compatible, adjusted11/15 discrepant, local RAW/MONO final gap~0.5674s and wall/BOOT change~0.3167s. Four sources/all sample/domain/gap/gate/summary checks reproduced; SHA70fff0419aa8bb6d42e9ab460bf0ae32162bcea3eb78102d85869c46f89dfe0a. INC-037, not attributed cause/absolute accuracy/stability/ML evidence. No changes/intervention/retry or source change since468 suites; old receipts unchanged.

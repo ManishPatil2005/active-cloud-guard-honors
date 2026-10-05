@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-05 - Add read-only live kernel state pairing
+
+- Separate Linux-only zero-mode timex/native-clock diagnostic, existing engines and lineage unchanged.
+- Strict ordinary-user ABI/version/layout guards, first-failure/interruption retention, exclusive output/full offline reduction.
+- One sensor-free observation predeclared after publication, no clock/service action or causal/stability/ML acceptance.
+- 36 targeted tests pass; INC-038 preserves corrected Windows test-double issue. Full checks recorded after execution.
+- Final suites504 tests each OS (36 additions), lint/format83files/pipcheck pass; initial unused test import corrected, first Linux passing receipt preserved separately.
+
 ## 2026-10-05 - Preserve raw-versus-adjusted timing discrepancy
 
 - Execute one declared sixteen-packet raw-clock observation after implementation publication; complete offline source/domain/interval/gate checks pass.

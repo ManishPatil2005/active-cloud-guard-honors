@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-035 - 2026-10-05 - Direct zero-mode state before intervention
+
+Use a separate ordinary-user reviewed Linux LP64/glibc2.39 timex observer, not cached systemd drift frequency or a setter. Pair32 zero-filled modes=0 reads with16 native snapshots, preserve negative states/first failures, source/backend continuity and offline full reduction. Existing lineage sources/receipts unchanged. Endpoint state is not continuous adjustment history/attribution; one bounded predeclared sensor-free run after publication, no service/provider/clock changes or stable-runtime/ML acceptance. Unsupported ABI/root refused rather than fallback. KERNEL_CLOCK_STATE.md.
+
 ## ADR-034 - 2026-10-05 - Compare RAW before synchronization intervention
 
 Static provider/service facts and a cached drift-frequency property cannot attribute the recorded cross-reference advance discrepancy. Add opt-in native RAW bracketing alongside adjusted guest clocks and Windows counter, preserving full intervals and distinguishing protocol/source revisions. No assumed physical clock authority, symmetric delays, direct adjustment syscall or NTP/service/provider changes. One predeclared observation after implementation publication; negative results retained. This narrows hypotheses while leaving absolute accuracy, historical cause and long-term/ML gates unresolved.

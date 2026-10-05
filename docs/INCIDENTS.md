@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-038 - 2026-10-05 - Windows ABI simulation test aliased integer sizes
+
+**Symptom/evidence:** first expanded targeted suite34 passed/two failed: mocked native version/valid branches refused before loading backend. Original36-case command was `.venv/Scripts/python.exe -m pytest -q tests/test_kernel_clock_state.py --tb=short`; no real query/live observation affected.
+
+**Cause/fix:** Windows ctypes c_long aliases c_int, so mocking sizeof(c_long)=8 also changed c_int's required size4. High confidence in test-double cause; replace only c_long binding with c_int64 to simulate Linux LP64, leave production guards unchanged. Follow-up same targeted command36 passed/0.06s. Full both-OS suites required; test success is not native ABI attestation or timing fix.
+
 ### INC-037 - 2026-10-05 - Adjusted/raw advance difference and wall/boot relationship change
 
 **Symptom/evidence:** one declared sensor-free raw trial, sixteen packets. RAW/Windows elapsed ranges15/15 includezero; adjusted BOOT/MONO11/15 excludezero. Local RAW-minus-MONO final [567397862,567416386] ns (15/15 positive). Wall/BOOT relationship changed~+0.3167s, first seen at index2 (14/16 changes excludezero). CLOCK_PROVIDER_REVIEW.md links SHA-bound receipt/full offline reduction; no original evidence replaced.

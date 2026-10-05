@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest implementation: [live kernel-state diagnostic](KERNEL_CLOCK_STATE.md), separate Linux-only ordinary-user zero-mode queries/native clocks. One fixed sensor-free observation predeclared after publication; no clock/service change, causal fix or stability/ML acceptance.
+
 Latest result: [raw-clock/provider diagnostic](CLOCK_PROVIDER_REVIEW.md), one sixteen-packet run: RAW host-compatible15/15, adjusted elapsed comparisons disagree11/15, local RAW/MONO advance differs~0.5674s and wall/BOOT relationship changes~0.3167s. INC-037; cause/stability/ML unresolved, next read-only live discipline-state sampling.
 
 Latest review/implementation: [provider facts and raw-clock protocol](CLOCK_PROVIDER_REVIEW.md): two sync paths enabled, current tsc provider, cached NTP frequency distinguished from live kernel state. Opt-in RAW/adjusted/host comparison implemented, one separate observation pending after publication; cause/stability remain open.
