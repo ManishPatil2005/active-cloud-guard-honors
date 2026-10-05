@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-031 - 2026-10-05 - Sensor-free failure diagnosis before another collector trial
+
+Reuse tested sanitized TIME recording through a small extraction, not duplicate timing logic or rerun failed sensor slots. Opt-in bridge mode attempts six reads with fixed gaps and stops at first failure; source/identity/known-sensor gates, unchanged thresholds. Preserve default mode/architecture. A new sensor-free observation can classify its own failure but cannot recover missing historical inputs or prove collector calibration. Separate implementation/result commits; one attempt predeclared. No service/clock intervention or automatic baseline/ML advancement.
+
 ## ADR-030 - 2026-10-05 - Preserve sanitized failure inputs before acceptance validation
 
 Record TIME phase/stage and available clock samples/comparison before redis_bracket; keep distinct threshold flags, response hash and exception class, never raw replies/error details. Preserve rejection/propagation, rather than weaken limits or infer missing inputs in old receipts. Logging slightly changes future instrumentation/source hashes; old evidence remains bound to its implementation. Seven regressions/414 tests each OS, no live rerun. Next independently declared sensor-free diagnostic; no automatic clock intervention or stability claim.

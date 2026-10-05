@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Add opt-in sensor-free TIME failure diagnostic
+
+- Extract/reuse E2-020 recorder in clock_bridge --record-attempts; maximum six TIME reads with five fixed one-second gaps, stop on first failure and preserve inputs.
+- Add execution-source freeze and explicit known-sensor absence fields; same clock gates/command limits, legacy mode unchanged.
+- Predeclare one new diagnostic after implementation push; no sensor/clock intervention or live observation at this checkpoint. Seven integration/refusal regressions added; 421 tests each OS pass.
+
 ## 2026-10-05 - Preserve rejected TIME-read evidence without relaxing checks
 
 - Save sanitized phase/stage, available clock samples/comparison and rejection flags before TIME validation; response hash and error class only, no raw reply/message/stderr.

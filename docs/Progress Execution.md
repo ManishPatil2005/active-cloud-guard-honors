@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+**Next diagnostic, 5 October:** we are preparing a check that asks the existing Redis service for time up to six times, with a one-second pause between successful reads. It runs without a sensor and stops at the first failed check, saving the available timing details. This can tell us whether a new failure is due to a slow command or incompatible clock readings; it cannot recover the earlier lost details or prove Engine 2 is finished. One new attempt is planned after testing/commit. [Method](SENSOR_FREE_TIME_ATTEMPTS.md).
+
 **Failure-recording improvement, 5 October:** future failed time reads now save the available timing details and failure stage without exposing raw error messages. Tests cover seven different failure paths; 414 pass on both operating systems. This improves our ability to diagnose a future failure, but cannot recover details lost in the earlier attempt. We did not run another sensor trial or change clocks. The research timing problem is still open; next is a separately planned check without a sensor. [Recording details](CLOCK_DOMAINS.md).
 
 **Single live attempt, 5 October:** the new tool verified initial clock comparability and recorded the first test connection correctly. It stopped during the second time read because a safety check failed; we did not repeat it to get a better result. Unfortunately the failed read's timing details were not saved, so we cannot yet say why it failed. The sensor was removed and clock settings stayed unchanged. Next we will improve failure recording, with tests, before another separately planned experiment. Engine 2 is not complete; Engine 1 stays unchanged. [Partial result](BOOT_CLOCK_DIAGNOSTIC.md).

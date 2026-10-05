@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest planned diagnostic: [sensor-free TIME attempts](SENSOR_FREE_TIME_ATTEMPTS.md), shared sanitized recording and six-read/five-gap protocol. Implementation live result pending at this checkpoint; timing gate unresolved.
+
 Latest software fix: [sanitized TIME failure evidence](CLOCK_DOMAINS.md), 414 tests each OS. Failed attempt remains preserved; no live rerun or timing-stability claim. Next sensor-free bracket diagnostic design.
 
 Latest observation: [boot-clock attempt and partial review](BOOT_CLOCK_DIAGNOSTIC.md) stopped at its second TIME bracket; one measured PING/five boot samples retained, no full stability result. Next failed-bracket evidence retention; INC-033.
@@ -38,6 +40,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Runtime workload protocol](RUNTIME_WORKLOAD_PROTOCOL.md) | Fixed measured profiles, timing gates, preserved pilot failure and next control experiments |
 | [Clock and controls](CLOCK_AND_CONTROLS.md) | Bracketed diagnostics, reproduced timing failure and deferred sensor-off controls |
 | [Clock domains](CLOCK_DOMAINS.md) | Opt-in server TIME/PING/TIME diagnostic, precise event bounds and preserved negative result |
+| [Sensor-free TIME attempts](SENSOR_FREE_TIME_ATTEMPTS.md) | Opt-in rejected-bracket evidence, bounded six-read protocol and outcome limits |
 | [Boot-clock diagnostic](BOOT_CLOCK_DIAGNOSTIC.md) | Native boot/realtime sandwiches, namespace comparability gates and separate single-trial protocol |
 | [Collector timestamp review](COLLECTOR_TIMESTAMP_REVIEW.md) | Pinned local versions, official source hashes, timestamp mechanism and unproven cause |
 | [Time-sync diagnosis](TIME_SYNC_DIAGNOSIS.md) | Read-only evidence of competing synchronization paths and proposed reversible test |

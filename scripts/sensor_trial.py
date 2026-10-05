@@ -149,54 +149,58 @@ def rules(container_id, *, correlation=False):
     )
 
 
+def read_time(container_id, attempts, phase):
+    """Shared fixed TIME read with sanitized pre-validation failure evidence."""
+    attempt = dict(phase=phase, status="sampling_first")
+    attempts.append(attempt)
+    try:
+        attempt["first"] = sample()
+        attempt["status"] = "command_running"
+        reply = command(
+            "exec",
+            container_id,
+            "redis-cli",
+            "--raw",
+            "-h",
+            "127.0.0.1",
+            "TIME",
+            timeout=5,
+        )
+        attempt["response_sha256"] = hashlib.sha256(reply.encode()).hexdigest()
+        attempt["status"] = "sampling_last"
+        attempt["last"] = sample()
+        timing = compare(attempt["first"], attempt["last"])
+        attempt["clock_comparison"] = timing
+        attempt["clock_rejection_reasons"] = [
+            reason
+            for reason, rejected in (
+                ("clock_outside_tolerance", not timing["within_tolerance"]),
+                (
+                    "round_trip_exceeds_500ms",
+                    timing["elapsed_monotonic_ns"] > 500_000_000,
+                ),
+            )
+            if rejected
+        ]
+        attempt["status"] = "validating_bracket"
+        result = redis_bracket(attempt["first"], attempt["last"], reply)
+        attempt["status"] = "accepted"
+        return result
+    except Exception as error:
+        attempt["failed_stage"] = attempt["status"]
+        attempt["status"] = "failed"
+        attempt["error_type"] = type(error).__name__
+        raise
+
+
 def clocked_ping(container_id, pids, observations, *, boot=False):
     """Opt-in TIME/PING/TIME diagnostic; preserve partial observations on failure."""
-    observation = {}
+    observation = dict(time_read_attempts=[])
     observations.append(observation)
 
-    def server_time(phase):
-        attempt = dict(phase=phase, status="sampling_first")
-        observation.setdefault("time_read_attempts", []).append(attempt)
-        try:
-            attempt["first"] = sample()
-            attempt["status"] = "command_running"
-            reply = command(
-                "exec",
-                container_id,
-                "redis-cli",
-                "--raw",
-                "-h",
-                "127.0.0.1",
-                "TIME",
-                timeout=5,
-            )
-            attempt["response_sha256"] = hashlib.sha256(reply.encode()).hexdigest()
-            attempt["status"] = "sampling_last"
-            attempt["last"] = sample()
-            timing = compare(attempt["first"], attempt["last"])
-            attempt["clock_comparison"] = timing
-            attempt["clock_rejection_reasons"] = [
-                reason
-                for reason, rejected in (
-                    ("clock_outside_tolerance", not timing["within_tolerance"]),
-                    (
-                        "round_trip_exceeds_500ms",
-                        timing["elapsed_monotonic_ns"] > 500_000_000,
-                    ),
-                )
-                if rejected
-            ]
-            attempt["status"] = "validating_bracket"
-            result = redis_bracket(attempt["first"], attempt["last"], reply)
-            attempt["status"] = "accepted"
-            return result
-        except Exception as error:
-            attempt["failed_stage"] = attempt["status"]
-            attempt["status"] = "failed"
-            attempt["error_type"] = type(error).__name__
-            raise
-
-    observation["before"] = server_time("before")
+    observation["before"] = read_time(
+        container_id, observation["time_read_attempts"], "before"
+    )
     if boot:
         observation["boot_before"] = boot_clock.sample()
     first = sample()
@@ -206,7 +210,9 @@ def clocked_ping(container_id, pids, observations, *, boot=False):
     observation["ping_clock"] = dict(first=first, last=last, **compare(first, last))
     if boot:
         observation["boot_after"] = boot_clock.sample()
-    observation["after"] = server_time("after")
+    observation["after"] = read_time(
+        container_id, observation["time_read_attempts"], "after"
+    )
     return "PONG"
 
 

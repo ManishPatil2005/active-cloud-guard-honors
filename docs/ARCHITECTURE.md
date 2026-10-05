@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-021 extracts sanitized TIME recording into scripts/sensor_trial.read_time, shared by existing clocked_ping and opt-in clock_bridge --record-attempts. New sensor-free protocol has six reads maximum/five one-second gaps, source freeze/identity/known-sensor absence gates, stops on rejection. No PING, boot sample, collector startup, model or runtime baseline path. Legacy bridge mode unchanged; SENSOR_FREE_TIME_ATTEMPTS.md. Source hashes change through the refactor, historical receipts remain bound to old code.
+
 E2-020 extends only clocked_ping diagnostic observations with ordered time_read_attempts: phase/status, available clock endpoints/comparison, clock rejection flags, response SHA256 and failure stage/class. Evidence appended before validation; exceptions still propagate and redis_bracket remains authoritative. Accepted before/after schemas unchanged; bookkeeping perturbs instrumentation slightly and source hashes distinguish future runs. No new service/model, correction or gate relaxation; historical receipts not enriched retroactively.
 
 sensor_trial --boot-clock requires the separate clock-domain diagnostic. cloudguard/boot_clock.py brackets native CLOCK_REALTIME with CLOCK_BOOTTIME, recomputes saved bounds and reports offset-change/event-implied ranges, never correction or scoring. Fixed proc reads gate active/children namespaces, zero offsets and shared boot-ID hash; facts must remain unchanged. Eleven sandwiches, seven frozen source hashes and distinct container_pid_connect_boot_v1 label; default engines unchanged. Extra proc execs perturb workload, so no latency/baseline reuse. Existing sensor duration/permissions retained; BOOT_CLOCK_DIAGNOSTIC.md.

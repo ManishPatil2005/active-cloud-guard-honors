@@ -1,5 +1,9 @@
 # Evidence index
 
+## Sensor-free attempt-mode implementation (2026-10-05)
+
+[Protocol](SENSOR_FREE_TIME_ATTEMPTS.md), software [Windows](../output/engine2-sensor-free-attempts-windows-tests-20261005.xml) / [Linux](../output/engine2-sensor-free-attempts-linux-tests-20261005.xml): 421 each. Shared sanitized recorder/fixed-count and refusal behavior tested; one live diagnostic planned but not executed at this checkpoint. Existing negative results remain unchanged.
+
 ## TIME failure-recording software checks (2026-10-05)
 
 [Windows](../output/engine2-time-failure-windows-tests-20261005.xml) / [Linux](../output/engine2-time-failure-linux-tests-20261005.xml): 414 each. Seven failure regressions retain sanitized samples/stages/rejection flags without raw replies/error details. This is software verification, not a new live result or retrospective repair of E2-019. INC-033 / [diagnostic recording contract](CLOCK_DOMAINS.md).
