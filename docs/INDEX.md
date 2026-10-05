@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest evaluation: [three-trial repeatability study](READINESS_REPEATS.md), interrupted before the second launch; negative result and runner mitigation preserved.
+Latest evaluation: [three-trial repeatability studies](READINESS_REPEATS.md): 5 October follow-up launched all three, two accepted and third timing-rejected. September interruption remains preserved; stability gate still unmet.
 
 Latest sensor diagnostic: [process-ID correlation](PID_CORRELATION.md), including successful measured matches and remaining warmup coverage uncertainty.
 

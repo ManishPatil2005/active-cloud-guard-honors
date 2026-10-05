@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Execute separate repeatability follow-up and preserve timing rejection
+
+- Launched all three declared diagnostic slots using the hardened runner; two accepted, third rejected by cross-clock timestamp bounds despite successful collection.
+- Reviewed frozen sources, receipt/raw hashes, PID correlation and identity offline; saved three minimized metrics reports and new 351-test Windows/Linux reports.
+- Documented INC-032 and beginner/status updates; no code, protocol, clock-service, threshold or architecture change; no favorable retry or stability/accuracy claim.
+
 ## 2026-09-30 - Fixed repeatability study and retained interruption
 
 - Added fixed three-trial orchestration, source hashes and conservative acceptance/abort rules.

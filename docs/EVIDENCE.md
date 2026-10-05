@@ -1,5 +1,9 @@
 # Evidence index
 
+## Separate repeatability follow-up (2026-10-05)
+
+[Protocol and review](READINESS_REPEATS.md), [manifest](../output/engine2-readiness-repeats-20261005/manifest.json), trial [1](../output/engine2-readiness-repeats-20261005/trial-1.json) / [2](../output/engine2-readiness-repeats-20261005/trial-2.json) / [3](../output/engine2-readiness-repeats-20261005/trial-3.json), metrics [1](../output/engine2-readiness-repeats-20261005/trial-1-metrics.json) / [2](../output/engine2-readiness-repeats-20261005/trial-2-metrics.json) / [3](../output/engine2-readiness-repeats-20261005/trial-3-metrics.json). Three launched, two accepted, third timing-rejected despite unique PID matches. Frozen source/receipt/raw-correlation and cross-trial identity checked offline. No repeated-stability, full coverage, ML accuracy or general overhead claim. Fresh [Windows](../output/engine2-repeat-followup-windows-tests-20261005.xml) / [Linux](../output/engine2-repeat-followup-linux-tests-20261005.xml) software reports: 351 each. Raw logs stay local/ignored; INC-032.
+
 ## Aborted paired pilot (2026-09-29)
 
 [Manifest](../output/engine2-paired-pilot-20260929/manifest.json), [clock](../output/engine2-paired-pilot-20260929/clock.json), [OFF-1 failure](../output/engine2-paired-pilot-20260929/off-1.json): later jobs not executed; no empirical paired result. [Report](PAIRED_PILOT.md) records restored guest NTP and Docker/Redis recovery. [Windows](../output/engine2-paired-final-windows-tests-20260929.xml) / [Linux](../output/engine2-paired-final-linux-tests-20260929.xml): 298 tests each.

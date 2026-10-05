@@ -1,6 +1,6 @@
 # Research and engineering task ledger
 
-Status as of 2026-09-30. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven.
+Status as of 2026-10-05. Completed means the stated acceptance criterion was met, not that the entire research hypothesis is proven. Older row evidence describes its own recorded increment; latest repeatability position is E2-016.
 
 | ID | Task | Status | Acceptance/evidence |
 |---|---|---|---|
@@ -48,5 +48,6 @@ Status as of 2026-09-30. Completed means the stated acceptance criterion was met
 | E2-013 | Warmup identity and capture accounting | Implemented/tested/live-observed | V2 identifies absent connect for first warmup; second and four measured PIDs matched. 338 tests each OS. Cause/completeness unproven; explicit identified-canary readiness is next |
 | E2-014 | Identified-canary readiness before measurement | Implemented/tested/live-observed | Second own-PID unique connect required; one trial six selected connects observed. 343 tests each OS. Repeated stability and full coverage unproven; PID_CORRELATION.md |
 | E2-015 | Frozen repeated readiness study | Partial: tooling tested, batch interrupted | One accepted, two not launched after pre-launch path error; no replacement. Runner hardened, 351 tests each OS. READINESS_REPEATS.md / INC-031; completed repeatability gate pending |
+| E2-016 | Separate hardened-runner repeatability follow-up | Executed; stability gate failed | All three launched, two accepted, third rejected: four unique PID connects but zero excluded by all timing bounds. Offline hashes/correlation/identity reproduced; no retry/correction. 351 tests each OS. READINESS_REPEATS.md / INC-032; cross-clock diagnosis required before baseline/ML |
 | LATER-001 | Full runtime telemetry and anomaly models | Started, incomplete | Replay foundation plus bounded live sensor smoke; normalized live integration and ML gates remain open |
 | LATER-002 | Full-system evaluation, thesis and defense | Deferred to M7-9 | Original roadmap; measured results required |

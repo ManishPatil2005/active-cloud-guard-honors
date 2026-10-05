@@ -1,0 +1,43 @@
+{
+  "executed_at": "2026-10-05T06:19:33.337344+00:00",
+  "protocol": "three_readiness_trials_v1",
+  "planned_trials": 3,
+  "trials": [
+    {
+      "trial": 1,
+      "status": "accepted",
+      "child_started": true,
+      "exit_code": 0,
+      "receipt_sha256": "616d663209ef76d1344f8c7ec7969ea4f61f804c08cccbce75ff8844964e0e7e",
+      "all_six_commands_uniquely_observed": false
+    },
+    {
+      "trial": 2,
+      "status": "accepted",
+      "child_started": true,
+      "exit_code": 0,
+      "receipt_sha256": "e892ac0613e99e9a934b34afa5315d2d66b0297b681a71bc34c8d997d011e821",
+      "all_six_commands_uniquely_observed": true
+    },
+    {
+      "trial": 3,
+      "status": "failed",
+      "child_started": true,
+      "exit_code": 0,
+      "receipt_sha256": "f5d55687535f85eb47e7b4a497e057203fdd0012d09344069824de124cf8f1c0"
+    }
+  ],
+  "status": "failed",
+  "source_sha256": {
+    "scripts/sensor_trial.py": "c6ff677cb293c67bb7d6fa74b8c247285747ac7b0c058a08d57b3f2b88273236",
+    "cloudguard/correlation.py": "e132d999ba4c7c5352595fe56b9b73205567d4489c681473d4a689371a71ede0",
+    "cloudguard/workload.py": "92f091f7ac030f67c797ec7474b413a0fd563cf7e8bcf2a29afcb87bfd3775dd",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc",
+    "testbed/falco-trial.yaml": "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de",
+    "scripts/repeat_readiness.py": "fa00a198bd0a241fd5a7a545113495eaee545a0905cd56fb9837621db02ee8ab"
+  },
+  "independent_evaluation": false,
+  "phase": "trial_3",
+  "error_type": "ValueError",
+  "not_run_trials": 0
+}

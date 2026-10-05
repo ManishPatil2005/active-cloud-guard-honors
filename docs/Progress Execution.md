@@ -2,6 +2,8 @@
 
 ## A beginner's guide to Active Cloud Guard
 
+**5 October update:** we ran a separately declared three-trial check using the improved runner. All three started; the first two passed, but the third failed because its recorded event times were about 0.8 seconds earlier than the measuring program's command times. The commands themselves succeeded and their connections were recorded. This shows why collecting events is not the same as measuring them reliably. We preserved the failure, removed every trial sensor and changed no clocks; we did not repeat runs to obtain a favorable result. Fresh software suites still pass 351 tests on each OS. Next is careful clock-domain diagnosis, not a claim that Engine 2 is finished. [Detailed study](READINESS_REPEATS.md). Older updates below are historical snapshots.
+
 Latest repeatability check: **351 software tests pass on each OS**. We planned three identical trials, but a path-handling error stopped the batch after the first passed. The other two never started. We preserved the incomplete study and improved the runner; we did not rerun until obtaining a favorable result. One successful run is not proof of repeatability. See [study record](READINESS_REPEATS.md).
 
 Latest readiness improvement: **343 tests pass on both operating systems**. Measurement now waits for evidence belonging specifically to the second preparation PING, rather than accepting any earlier activity. One new trial observed both preparation PINGs and all four measured PINGs. This is a successful six-command check, not proof of complete monitoring. Earlier misses remain documented; next is a fixed repeated evaluation rather than declaring the problem permanently solved.

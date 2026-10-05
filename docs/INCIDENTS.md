@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-032 - 2026-10-05 - Third repeat trial passes collection but fails cross-clock bounds
+
+**Symptom/evidence:** separate declared batch `output/engine2-readiness-repeats-20261005` launched three children; first two accepted, third `accept()` raised measured timestamp mismatch. Third child exit 0 with four PONGs, all six unique connects, stable target identity, no unassigned connects and successful cleanup. All four measured event-minus-command intervals exclude zero (union roughly -886.75 to -811.63 ms), although interval/call wall-monotonic checks passed. SHA-matched raw reparse reproduced correlation exactly; three metrics reductions report zero drops, not full coverage.
+
+**Cause confidence:** high confidence in reproduced cross-clock incompatibility and acceptance rejection. Backend/WSL/collector clock-domain drift is a hypothesis, not established root cause; do not infer causality from a stable harness alone. Earlier timing incidents remain unresolved. Before study, both WSL distributions/Docker were stopped; restored existing Docker and Redis only. Why stopped is unknown and changed Redis start is retained.
+
+**Response/verification:** retained all three receipts and failed manifest; no favorable retry, boundary adjustment, tolerance change, event invention or fitted correction. Explicit final sensor enumeration empty, timesyncd active/unchanged, preflight passed. 351 software tests each OS; no code fix or claim that the clock problem is solved. Next: reviewed cross-domain diagnostic with simultaneously bracketed samples, keeping service/permission changes separately authorized. This study does not pass the measurement-stability gate.
+
 ### INC-031 - 2026-09-30 - Repeat runner path resolution fails before second child
 
 After trial 1 accepted, Path.resolve of trial-2 output raised FileNotFoundError in POSIX abspath, before subprocess.run. Manifest saved; no trial-2 receipt or child launched, third skipped. Follow-up WSL pwd/ls succeeded, no sensors remain, timesyncd active. High confidence in immediate failing operation; underlying transient cwd cause unproven. Mitigation: resolve destination once before collection, then use absolute paths; not experimentally revalidated. Also fixed future not_run accounting using child_started; original manifest not_run=1 counted untouched slots, while correct unlaunched total is two. Historical evidence untouched. Mock launch/timeout tests pass; complete repeated study still pending. No favorable retry or clock/environment reset.

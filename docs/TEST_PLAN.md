@@ -1,5 +1,7 @@
 # Test and verification plan
 
+5 October follow-up: unchanged software passed 351 Windows tests (2.05 s) and 351 Linux tests (3.38 s); fresh `output/engine2-repeat-followup-{windows,linux}-tests-20261005.xml`. Ruff check/format (68 files), Windows pip check pass. Live batch launched three, accepted two, third rejected by cross-clock bounds; sensor cleanup verified before software tests. Offline source/receipt hashes, raw correlation, identity and acceptance reproduced; metrics reductions passed. No new regression cases/source change; software passes do not resolve timing incompatibility. See READINESS_REPEATS.md / INC-032.
+
 Repeat runner: 351 tests each OS; output/engine2-repeat-{windows,linux}-tests-20260930.xml. Eight additions cover acceptance regressions and mocked launch/timeout abort accounting. One live trial accepted before orchestration path failure; remaining two not launched. This is not a completed repeatability evaluation. See READINESS_REPEATS.md.
 
 Identified readiness: 343 tests each OS; output/engine2-readiness-{windows,linux}-tests-20260930.xml. Five new cases reject stale-only/ambiguous/missing IDs and retain first-canary absence. Live readiness plus all six selected command connections observed once; no general completeness or repeated stability established.
