@@ -1,5 +1,9 @@
 # Evidence index
 
+## Comparison controller software milestone (2026-10-05)
+
+[Implementation/limits](CLOCK_COMPARISON_CONTROLLER.md), [Windows551](../output/engine2-comparison-controller-windows-tests-20261005.xml), [Linux551](../output/engine2-comparison-controller-linux-tests-20261005.xml):47 additions use simulated service/watchdog operations and synthetic complete native receipts only. No native/service transport/real watchdog launcher or comparison experiment executed. Current observer sources and old evidence unchanged; actual approval/concrete safety integration pending, not cause/stability/ML evidence.
+
 ## Synchronization writer review (2026-10-05)
 
 [Minimized sequential facts/source hashes](../output/engine2-sync-writer-review-20261005.json), [review/proposed comparison](SYNC_WRITER_REVIEW.md). Actual selected service/drop-in/backend/process-name context and four reviewed official file hashes, not simultaneous trial/syscall trace/binary attestation or exhaustive absence. Residual tick/frequency and incomplete caller visibility limit “single authority” interpretation. No new clock observation/intervention; current504-test evidence historical, no causal/stability/ML acceptance.

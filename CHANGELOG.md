@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-05 - Test comparison controller contract and offline reviewer
+
+- Add injected fail-stop before/stopped/restored logic with explicit approval guard, strict source freeze, deadline budgets and restoration/active-before-disarm requirements.
+- Add offline-only complete three-receipt review, identity/order/reuse checks and descriptive intervals; service history not authenticated, no stability/causal acceptance.
+- 551 software tests pass each OS/47 additions, lint/format86files/dependency checks pass. Existing observer/engine sources and receipts unchanged.
+- No concrete service transport or real watchdog launcher yet; tests simulate all service/watchdog operations, no live intervention/clock/sensor experiment. Explicit approval and safety integration required before any live action.
+
 ## 2026-10-05 - Review synchronization writers before intervention
 
 - Preserve selected guest/host service, WSL drop-in/executable and process-name facts; hash four versioned official source files as data only.

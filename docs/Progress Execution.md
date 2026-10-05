@@ -1,5 +1,9 @@
 # Progress Execution
 
+**Safer comparison logic, 5 October:** we built and tested the logic that would stop a comparison after an error, still attempt service restoration, verify the service is running and only then continue. All551 software tests pass on both operating systems. Service and watchdog behavior in the new tests is simulated: no real time service was stopped and no real recovery helper exists yet. We also added an offline reader that checks three saved receipts and refuses copied or incompatible results. [Details](CLOCK_COMPARISON_CONTROLLER.md).
+
+**What still needs doing:** your explicit temporary-stop approval, a tested real service transport/independent recovery helper and a final one-attempt protocol. We are not claiming timing is fixed or Engine2 ML is ready. Existing Engine1 and old research evidence remain unchanged. Do not run a service-changing command from these planning documents yourself.
+
 **Writer review, 5 October:** we checked the running time service, its WSL-specific setup and official source code. The guest service can adjust time, but the reviewed file does not directly request tick changes. Kernel rate settings can remain after a clock reset; stopping one service does not necessarily remove all adjustment effects. No additional named NTP daemon appeared in the inspected process lists, but that does not prove there are no other writers. We changed nothing and preserved the findings. Engine2 timing/ML remain unfinished. [Detailed review](SYNC_WRITER_REVIEW.md).
 
 **Proposed next experiment:** one reading block with the service running, one briefly stopped, then restoration and a final block. It needs your specific approval and tested automatic restoration before execution. No Windows setting, permanent disable, clock reset, WSL restart or sensor workload is proposed. It may narrow the cause; it cannot guarantee a fix or long-term reliability.

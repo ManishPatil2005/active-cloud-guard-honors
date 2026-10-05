@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-037 - 2026-10-05 - Test controller contract without unapproved service transport
+
+Generic status/continue does not explicitly approve the pending time-service intervention. Implement/test injected fail-stop/restoration logic and offline full-receipt comparison now; provide no concrete live service backend/launcher. Approval boolean and watchdog acknowledgement are programming contracts, not authenticated human permission or proof of real recovery. Eight-source freeze detaches mappings; future transport/helper sources must be added. Concrete command/watchdog/process-kill integration and fresh explicit approval/final protocol remain prerequisites. No native observer/default-engine/source or history change; CLOCK_COMPARISON_CONTROLLER.md.
+
 ## ADR-036 - 2026-10-05 - Remove-one-client is not single-authority isolation
 
 Writer review shows retained tick/frequency state and incomplete privileged-writer visibility. Do not call temporary timesyncd removal a single-authority fix or manually reset accumulated state. Propose at most one before/stopped/restored diagnostic batch with unchanged gates, fresh specific approval, tested restoration/watchdog and finalized protocol before action. No host/provider/Docker/WSL changes or stable-clock/ML acceptance implied. Source/tag/hash evidence does not identify historical/current callers; SYNC_WRITER_REVIEW.md.

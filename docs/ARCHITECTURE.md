@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-027 adds cloudguard/clock_comparison.py as a pure injected operations state machine and scripts/clock_comparison_review.py as an offline-only three-receipt reducer using the unchanged native full reviewer. No concrete WSL service transport/watchdog/launcher or new dependencies. Tests simulate service operations; no default-engine or observer source changes. Future live adapter requires explicit approval and tested independent restoration/process deadlines; CLOCK_COMPARISON_CONTROLLER.md.
+
 E2-025 adds separate cloudguard/kernel_clock_state.py (reviewed native Linux ABI/query/state/interval validation) and scripts/kernel_clock_diagnostic.py (fixed paired observation/offline review), reusing unchanged guest sampling. No new services/dependencies/default-engine path; Windows reviews but cannot collect native state. Zero-mode ordinary-user libc calls/file-source continuity are diagnostic, not correction or attestation. KERNEL_CLOCK_STATE.md.
 
 E2-024 adds opt-in --raw-clock to existing lineage tool, native RAW enclosing the old sequence, strict raw-only field validation, separate protocol and extra host/raw/raw-minus-mono interval reductions. Same command/source/domain/privacy/fixed limits; ordinary engine/sensor/legacy sampling unchanged. Historical hashes remain revision-bound. Sequential provider facts are a manually transcribed evidence artifact, not an authenticated live timex snapshot. CLOCK_PROVIDER_REVIEW.md; no new dependencies or synchronization changes.

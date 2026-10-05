@@ -6,7 +6,7 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
-Latest engineering check (5 October 2026): **504 software tests passed on both Windows and Linux**. Engine 2's live diagnostic sampled changing kernel tick/frequency settings alongside a RAW/MONO elapsed gap (~0.463 s) and wall/boot relationship change (~0.867 s). Timing reliability and causal attribution remain unresolved; independent runtime ML and general accuracy/overhead are not established. See the [latest diagnostic](docs/KERNEL_CLOCK_STATE.md), [evidence index](docs/EVIDENCE.md), and beginner-friendly [Progress Execution guide](<docs/Progress Execution.md>).
+Latest engineering check (5 October 2026): **551 software tests passed on both Windows and Linux**. The new [comparison controller contract](docs/CLOCK_COMPARISON_CONTROLLER.md) is tested with simulated service/watchdog operations; no live transport or restoration helper is implemented yet. Engine 2's earlier live diagnostic sampled changing kernel tick/frequency settings alongside a RAW/MONO elapsed gap (~0.463 s) and wall/boot relationship change (~0.867 s). Timing reliability and causal attribution remain unresolved; independent runtime ML and general accuracy/overhead are not established. See the [latest live diagnostic](docs/KERNEL_CLOCK_STATE.md), [evidence index](docs/EVIDENCE.md), and beginner-friendly [Progress Execution guide](<docs/Progress Execution.md>).
 
 Latest read-only review: [synchronization writers](docs/SYNC_WRITER_REVIEW.md). Guest-service removal alone cannot establish a single clock authority or clear accumulated rate settings. A temporary before/stopped/restored comparison is proposed, not authorized or executed; current engine architecture and settings remain unchanged.
 
@@ -38,7 +38,7 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has an **observatio
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | Frozen Engine 1 baseline; Engine 2 replay, live instrumentation and timing validation |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 5 October 2026; 504 tests on each OS; live kernel-state diagnostic, timing/cause/ML gates open; Engine 1 observations remain historical |
+| Evidence snapshot | 5 October 2026; 551 tests on each OS; simulated comparison controller and earlier live kernel-state diagnostic, timing/cause/ML gates open; Engine 1 observations remain historical |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions

@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest software milestone: [comparison controller and offline reviewer](CLOCK_COMPARISON_CONTROLLER.md),551 tests each OS/47 additions. Fail-stop/restoration logic tested with simulated operations; no live transport/watchdog launcher or service action. Intervention approval and concrete safety integration still required.
+
 Latest review: [synchronization writers and proposed comparison](SYNC_WRITER_REVIEW.md), selected real service/drop-in facts plus versioned source paths. Guest stop alone does not establish single authority or erase residual tick/frequency state. No intervention; new approval and tested restoration protocol required.
 
 Latest result: [live kernel state](KERNEL_CLOCK_STATE.md), one16-packet/32-query observation: tick/frequency change alongside RAW/MONO gap~0.46324s and wall/BOOT change~0.867156s. INC-039; no actor/cause/stability/ML acceptance or settings intervention. Next exact writer review and separately approved comparison design.
