@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-05 - Preserve raw-versus-adjusted timing discrepancy
+
+- Execute one declared sixteen-packet raw-clock observation after implementation publication; complete offline source/domain/interval/gate checks pass.
+- RAW-host comparisons15/15 compatible but adjusted11/15 disagree; retain local RAW/MONO advance gap~0.5674s and wall/BOOT relationship change~0.3167s (INC-037).
+- No settings/service/provider changes, retry, clock correction or causal/stability/ML acceptance. Old negative receipts remain unchanged; next read-only live kernel discipline-state diagnosis.
+
 ## 2026-10-05 - Review clock providers and add opt-in raw comparison
 
 - Preserve sequential read-only provider/sync facts, including changed Windows service snapshot and cached-versus-live frequency distinction; no settings changes.

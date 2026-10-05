@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-037 - 2026-10-05 - Adjusted/raw advance difference and wall/boot relationship change
+
+**Symptom/evidence:** one declared sensor-free raw trial, sixteen packets. RAW/Windows elapsed ranges15/15 includezero; adjusted BOOT/MONO11/15 excludezero. Local RAW-minus-MONO final [567397862,567416386] ns (15/15 positive). Wall/BOOT relationship changed~+0.3167s, first seen at index2 (14/16 changes excludezero). CLOCK_PROVIDER_REVIEW.md links SHA-bound receipt/full offline reduction; no original evidence replaced.
+
+**Cause confidence:** sampled local adjusted/unadjusted advance difference established under native bounds; supports investigating adjusted-time discipline/state. NTP involvement, kernel tick/frequency values during the trial, clock-provider transitions, accurate physical reference and linkage to historical Falco lag/+123s change unproven. RAW host-compatibility is bounded, not exact equality. Later cached Frequency property cannot reconstruct prior live kernel state; static provider facts not continuous attestation.
+
+**Action/verification/limits:** preserve result/offline sources/domains/math/gates, no fitted correction/settings/provider/service changes or retry. Known-sensor absence/time-service-active/lab checks passed before/after; original failures unchanged. Next reviewed read-only live kernel frequency/tick/status and RAW/MONO pairing; clock interventions require separate approval. Stability, independent labels/ML remain open; no production-ready claim.
+
 ### INC-036 - 2026-10-05 - Host/WSL clocks advance differently in sensor-free observation
 
 **Symptom/evidence:** single predeclared E2-023 run completed16 packets; 13/15 QPC-minus-WSL boot/mono elapsed intervals exclude zero positively. Final boot difference [701218210,1023840119] ns after delay bounds; wall offset14/16 excludezero, moves toward overlap. WSL wall/boot and wall/mono relationships sampled stable. Receipt/review linked in CLOCK_LINEAGE.md, four execution hashes and exact intervals reproduced; no sensors running under known-trial endpoint checks.

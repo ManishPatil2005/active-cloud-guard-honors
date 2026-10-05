@@ -39,3 +39,24 @@ Reuse full host dispatch/receive bounds for host-minus-RAW elapsed, never equate
 If RAW and adjusted guest clocks both disagree with host, the sampled adjusted-vs-raw difference alone is insufficient to account for the discrepancy; provider/virtualization/reference assumptions remain candidates. If only adjusted clocks disagree, read-only live discipline/tick-state sampling is motivated, not a proven attribution. Neither outcome establishes which clock is absolutely accurate, explains old collector calibration or passes long-term stability/ML gates. Preserve every outcome and choose a separately reviewed next step.
 
 Implementation checkpoint: live pending; checks recorded in WORK_LOG/TEST_PLAN after execution.
+
+## Declared raw-clock observation: 5 October
+
+Exactly one run after implementation `d86234cf82862b7f9363879d8beec6fc4b19ed16` was pushed/remote verified; start 10:43:05 UTC/16:13:05 IST, exit 0, sixteen packets/fifteen gaps. [Receipt](../output/engine2-raw-clock-lineage-20261005.json) SHA256 `70fff0419aa8bb6d42e9ab460bf0ae32162bcea3eb78102d85869c46f89dfe0a`; [offline review](../output/engine2-raw-clock-lineage-review-20261005.json). Full protocol/source/domain/sample/order/gap/gate/summary recomputation passed. Separately handwritten endpoint formulas reproduced the final intervals locally; not independent scientific evaluation. No retry or source changes during/after collection.
+
+| Comparison | Result | Limit |
+|---|---|---|
+| Host counter minus RAW elapsed | 15/15 ranges include zero; final [-237223931,177704238] ns | Compatibility at dispatch/receive resolution, not exact equality or physical accuracy |
+| Host counter minus BOOT elapsed | 11/15 exclude zero positively; final [330188272,745105771] ns | Adjusted guest advance differs from host reference in these samples |
+| Host counter minus MONO elapsed | 11/15 exclude zero positively; final [330185300,745109255] ns | Similar to BOOT; no causal attribution |
+| RAW minus MONO elapsed | 15/15 exclude zero positively; final [567397862,567416386] ns | Direct local unadjusted/adjusted advance difference, approximately 0.5674 s |
+| Wall-minus-BOOT change | 14/16 exclude zero; final [316705263,316705962] ns | Approximately+0.3167s relationship change first seen at index2, not an identified adjustment actor/time |
+| Guest-minus-host wall | 12/16 exclude zero; first [-286381877,-108656377] ns, last [-537431586,-299534286] ns | No cross-clock stable-offset certificate |
+
+Final bounded host elapsed [17273873000,17688789800] ns; RAW [17511085562,17511096931], MONO [16943680545,16943687700], BOOT [16943684029,16943684728] ns. Native wall/MONO change likewise14/16 exclude zero; final [316702291,316709446] ns. Wall/RAW change15/16 exclude zero, final [-250706940,-250695571] ns. These are diagnostic intervals, not a corrected baseline.
+
+Packet durations 119.5797–251.11255 ms; host endpoint wall/counter disagreement -1167650..192100 ns. Maximum native BOOT/MONO/RAW spans 468/3890/6196 ns, host sampling span 2000 ns. Whole-window host wall-minus-QPC 54,050 ns is descriptive, not an added gate. Same recorded guest namespace/children 4026531834, zero offsets/kernel boot hash as E2-023. Host reports QueryPerformanceCounter(), monotonic true/adjustable false/resolution 100 ns; metadata is not accuracy attestation.
+
+Pre/post external lab/known-sensor checks passed and time service active; no synchronization/service/provider/power change or sensor workload initiated. Prior lineage SHA179ebdfa0f8b26a27ba0ed83b2a921b865f4438077567fe3f2e503cb38722710 and original rejection SHA754c29d9e63b9a13ab455b0bcb829a5ed340b0c1c8f70d1bdfe024c25fbecddb unchanged. Last suites 468 each OS; no code change/suite rerun since collection.
+
+INC-037 records a new diagnostic outcome: RAW is host-compatible at this resolution while adjusted clocks differ, and wall/BOOT relationship also changed. This motivates live, read-only kernel frequency/tick/status observations paired with RAW/MONO sampling. It does **not** prove NTP caused the change, rule out other clock mechanisms, identify an absolute standard, explain old Falco calibration or pass stability/ML gates. Cached manager frequency/static provider snapshots are insufficient to make that attribution. Any service/clock/provider intervention requires separate explicit approval.

@@ -1,5 +1,7 @@
 # Test and verification plan
 
+E2-024 observed result: one declared sixteen-packet raw trial and complete offline protocol/source/domain/interval/gate reduction; handwritten endpoint arithmetic reproduces final raw/mono/host ranges. RAW-host15/15 compatible but adjusted11/15 disagree and native wall/BOOT relationship changes; not a passing stability gate. Original receipts unchanged; pre/post known-sensor/lab/time-service checks passed. No source change/suite rerun after collection (last468 each OS), no sensor/baseline/ML/independent accuracy study. CLOCK_PROVIDER_REVIEW.md / INC-037.
+
 E2-024 raw checks: native seven-read order/no fallback, strict raw scalar/width/order/shape and mixed-protocol refusal; synthetic RAW/MONO advance differences/full interval arithmetic; fixed raw-only child flag/first-host-rejection retention; sixteen reads/fifteen gaps/offline binding and ambiguous-review CLI refusal, existing legacy regressions. Targeted40 pass; full both-OS suites/lint/format/dependency/publication checks required before one new observation. Provider facts are sequential read-only outputs, not independent/continuous attestation; no source/clockaccuracy claim.
 
 E2-024 observed software results:468 Windows/2.31s and Linux/3.31s, output/engine2-raw-lineage-{windows,linux}-tests-20261005.xml, thirteen additions. Ruff lint/format80files/Windows pip check pass; no raw live execution yet, fault/lifecycle injection not exhaustive. Ordinary lineage regressions still pass; old receipt review requires matching source revision, no retrospective enrichment.

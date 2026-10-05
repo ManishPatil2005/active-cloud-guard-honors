@@ -1,5 +1,9 @@
 # Evidence index
 
+## Raw-versus-adjusted observation (2026-10-05)
+
+[Receipt](../output/engine2-raw-clock-lineage-20261005.json), [offline review](../output/engine2-raw-clock-lineage-review-20261005.json), [protocol/result/provider context](CLOCK_PROVIDER_REVIEW.md). One sixteen-packet run: RAW-host15/15 compatible, adjusted11/15 discrepant, local RAW/MONO final gap~0.5674s and wall/BOOT change~0.3167s. Four sources/all sample/domain/gap/gate/summary checks reproduced; SHA70fff0419aa8bb6d42e9ab460bf0ae32162bcea3eb78102d85869c46f89dfe0a. INC-037, not attributed cause/absolute accuracy/stability/ML evidence. No changes/intervention/retry or source change since468 suites; old receipts unchanged.
+
 ## Clock-provider facts and raw protocol (2026-10-05)
 
 [Minimized manually transcribed facts/commands](../output/engine2-clock-provider-facts-20261005.json), [review and raw protocol](CLOCK_PROVIDER_REVIEW.md). Sequential point-in-time tsc/alternatives, implicit/guest sync states, versions/minimized host hypervisor/services; no simultaneous attribution or authenticated clock accuracy. Frequency is cached in reviewed upstream source, not live timex. Raw trial pending at implementation checkpoint; old negative receipts unchanged.
