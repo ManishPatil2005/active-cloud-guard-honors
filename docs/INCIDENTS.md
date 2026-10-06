@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-044 - 2026-10-06 - Windows native-backend fixture retained LLP64 long width
+
+**Symptom/evidence:** expanded systemd receiver targeted suite at tmp/systemd-receive-target-win-20261006-02 returned53pass/1failure/0.38s. Fixture simulated Linux/x86_64/glibc/ordinary UID and expected changed-library refusal, but got earlier unreviewed-backend refusal. No native connection or real library failure.
+
+**Cause/confidence/fix:** high confidence from the guard and actual platform ABI: Windows ctypes.c_long is4bytes (LLP64), while reviewed Linux requires8(LP64). Mocking platform labels did not mock this width. Change only the test's sizeof(c_long) simulation to8 while preserving real sizes for other types; remove unused tmp_path. Production LP64/root/library hash guards unchanged. Do not weaken backend checks to pass a Windows simulation.
+
+**Verification/limits:** corrected targeted54pass/0.07s; full Windows723pass/3existing Linux-only skips/6.46s and Linux726pass/24.34s. Lint/format96files/pipcheck pass. Actual Linux metadata/export check succeeded separately without bus connection. Native receive/control/recovery correctness remains unverified; this was a test-fixture failure, not a research timing cause or observed service fault.
+
 ### INC-043 - 2026-10-06 - Stop failure could disarm recovery after an active snapshot
 
 **Symptom/evidence:** new delayed-stop controller tests injected TimeoutError/ValueError/KeyboardInterrupt while retaining a simulated pending request. Before implementation all3failed at the assertion that disarm must not be called (62deselected,0.38s). Controller had attempted start/observed active then canceled helper; delayed request can invalidate that snapshot. No real service action, WSL/systemd race or past restoration failure observed here.

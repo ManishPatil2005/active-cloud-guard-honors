@@ -1,5 +1,7 @@
 # Systemd job evidence review and offline contract (E2-032)
 
+Later implementation checkpoint: [E2-033 read-only receiver](SYSTEMD_RECEIVER.md) selects the installed library and adds an isolated native adapter/software tests. Actual ABI/exports checked without connection; native reception/durable binding still pending. The E2-032 statements below describe their original checkpoint; they are not retroactively native evidence.
+
 ## Status — 6 October 2026
 
 Source/interface review completed; an **isolated offline completion-evidence contract** is implemented/software-tested. Native D-Bus client, guest fence integration and recovery safety remain unfinished. No job was submitted, canceled, started or stopped; `Subscribe` was not invoked. No native clock comparison, service setting, sensor or model workload. Existing comparison/guest-fence/native-observer/default-engine sources and historical receipts are unchanged.

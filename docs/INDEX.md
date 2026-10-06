@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest adapter: [read-only persistent systemd receiver](SYSTEMD_RECEIVER.md),54new synthetic/C-level cases; Windows723pass/3Linux-only skips, Linux726pass. Installed library identity/ABI/exports checked without a connection. Native reception and durable job/fence binding remain unverified; no subscription or job/service control executed.
+
 Latest contract/review: [systemd job evidence](SYSTEMD_JOB_CONTRACT.md), actual read-only selected interface signatures plus29synthetic regressions; Windows669pass/3Linux-only skips, Linux672pass. Path-bound done evidence, fast-signal buffering/sticky unknown on identity/stream faults; never service-quiescence/recovery authority. Native D-Bus/fence integration unfinished, no job/service intervention.
 
 Latest isolated prototype: [inert guest session fence](GUEST_FENCE_PROTOTYPE.md),33new cases; Windows640passed/3Linux-only skips, Linux643passed. Terminal seal rejects queued participating workers after recovery, actual inert Linux lock/death cases pass. Not integrated with systemd/native transport; submitted-job identity/fencing still open, no live intervention.

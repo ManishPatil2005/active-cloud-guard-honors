@@ -1,5 +1,9 @@
 # Evidence index
 
+## Read-only persistent receiver software checks (2026-10-06)
+
+[Report](SYSTEMD_RECEIVER.md), [Windows723pass/3skips](../output/engine2-systemd-receiver-windows-tests-20261006.xml), [Linux726pass](../output/engine2-systemd-receiver-linux-tests-20261006.xml).54new synthetic/C-level tests, current actual selected ABI/library hash/export availability without connection. No native subscription/event/job evidence, service action or recovery authority; native reception and durable binding unfinished. INC-044 retains intermediate fixture failure; old672reports/native receipts unchanged.
+
 ## Systemd job schema review and offline contract (2026-10-06)
 
 [Report](SYSTEMD_JOB_CONTRACT.md), [manual interface summary](../output/engine2-systemd-interface-review-20261006.json), [Windows669pass/3skips](../output/engine2-systemd-job-windows-tests-20261006.xml), [Linux672pass](../output/engine2-systemd-job-linux-tests-20261006.xml). Actual selected Manager Introspect signatures only; job examples synthetic, no Subscribe/control/native job completion.29additions/no disarm or service-quiescence authority; older643reports/native receipts unchanged.

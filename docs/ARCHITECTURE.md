@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-033 adds isolated cloudguard/systemd_receiver.py only, not imported by engines/controller/fence. Stdlib ctypes binds selected nonvariadic functions in the pinned installed libsystemd; no package installation/stack change. A persistent fixed-address ordinary-user connection may read broker/manager epoch and request transient notifications, but service-control methods are refused. Five-second/512-step/32-selected-event receive checks never establish submitted-job binding or recovery authority. Native reception/exclusive launcher/durable gate integration remain open; comparison freeze23unchanged. SYSTEMD_RECEIVER.md.
+
 E2-032 adds only isolated systemd_job.py offline event contract/tests, plus read-only schema-review artifact; no bus client/connection/native library/dependency/service binding. Supplied decoded events model returned-path matching under declared boot/bus/manager epoch and receive continuity, never recovery authority. Existing comparison/fence/native-observer sources/23-file freeze unchanged; SYSTEMD_JOB_CONTRACT.md. Native persistent adapter/durable guest integration still open.
 
 E2-031 adds isolated cloudguard/guest_fence.py and its tests only: inert session storage/terminal seal, Linux advisory lock with simulation callbacks and unknown interrupted jobs. No CLI/subprocess/service implementation or import by comparison/engines;23-file live comparison source list unchanged because this prototype is not integrated. Guest-local job identity/privilege/storage/boot/source hardening still needed; GUEST_FENCE_PROTOTYPE.md. No stack migration.

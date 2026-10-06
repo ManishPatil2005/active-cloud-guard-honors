@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Implement isolated persistent read-only systemd receiver
+
+- Add fixed ordinary-user sd-bus adapter using typed nonvariadic ctypes APIs and pinned reviewed installed library; no new package or engine/controller integration.
+- Validate selected replies/signals, identity and receive faults; bounded pump/buffer, cleanup, source continuity and no service/job-control or recovery authority. Native reception still untested; actual ABI/exports checked without opening a connection.
+-54new tests; Windows723pass/3existing Linux-only skips, Linux726pass; lint/format96files/pipcheck pass. Preserve INC-044 Windows LLP64 test-fixture failure/fix and previous negative research evidence. E2-033 and intervention/timing/ML gates remain partial/open.
+
 ## 2026-10-06 - Review systemd jobs and add offline completion-evidence contract
 
 - Verify selected installed interface signatures via read-only introspection; review tagged subscription/job/cancellation semantics, no job submitted/canceled or Subscribe invoked.

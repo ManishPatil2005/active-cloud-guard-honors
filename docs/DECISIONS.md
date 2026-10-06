@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-043 - 2026-10-06 - Isolated typed sd-bus receiver before job-control integration
+
+Installed Python D-Bus modules absent; libsystemd already present. Choose stdlib ctypes with reviewed nonvariadic v255.4 declarations, fixed ordinary-user socket, pinned installed library hash/ABI and four notification/identity methods rather than adding a dependency or hand-building wire protocol. Accept native FFI/lifetime/ABI maintenance risk explicitly; exports/source hashes are not binary attestation. Validate replies/selected borrowed callbacks, bounded pump/copies, sticky unknown/epoch checks and close, never use these observations for recovery disarm or submitted-job proof. Keep separate from comparison/fence/engines; native receive validation needs exclusive failure receipts and an outer timeout before one predeclared read-only observation. No service intervention authority implied; durable job-gate design still required. SYSTEMD_RECEIVER.md / INC-044.
+
 ## ADR-042 - 2026-10-06 - Job reply/cancel is not completion or recovery authority
 
 Model returned-path JobRemoved evidence only after acknowledged subscription/match declarations, accepting fast completion before reply while poisoning identity/disconnect/continuity/malformed/replayed/overflow faults permanently. Require exact tracked done for consistent success; skipped/canceled/other results not elevated even though upstream command may treat skipped as success. No native bus adapter chosen/installed; contract never grants service-quiescence/disarm authority or authenticates supplied records. Read installed schema only, no Subscribe/job controls. Durable job/guest fencing and lost-reply recovery remain unresolved; SYSTEMD_JOB_CONTRACT.md / E2-032 partial.
