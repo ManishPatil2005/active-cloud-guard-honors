@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Validate offline grouped runtime research intake
+
+- Add isolated bounded intake library/CLI: dedicated role paths/exact hashes, group/split/duplicate/window/review/adjudication consistency; preserve unknowns/original disagreement, never authorize independence/fitting/actions.
+- Add 83 synthetic cases/example; full Linux 937 passed/Windows 899 passed with38skips, lint-format105files/pipcheck pass. Fresh example/two full XMLs retained.
+- Preserve initial failing host XML/manual sandbox context, INC-048; test corrected with actual oversized file, no weaker production guards. Maintain current/formal/nontechnical docs/ADR-048; E2-035 partial, typed receipt semantics and human/data gates next. No engine/stack/native/sensor/model change.
+
 ## 2026-10-06 - Clarify implemented Engine2 baseline and refocus research priorities
 
 - Add canonical CURRENT_STATUS plus planned runtime data/independent-label intake acceptance, current README/index/state links and explicit baseline/refinement/open-research distinctions.

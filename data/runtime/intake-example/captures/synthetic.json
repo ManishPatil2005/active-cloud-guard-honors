@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "capture_id": "intake-synthetic-demo",
+  "scenario_group": "intake-synthetic-family",
+  "source": "synthetic",
+  "bindings": [{"container_id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","asset_id":"compose/redis"}],
+  "events": [
+    {"event_id":"fixture-0","timestamp":"2026-01-02T00:00:00Z","container_id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","kind":"process_start"},
+    {"event_id":"fixture-1","timestamp":"2026-01-02T00:01:00Z","container_id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","kind":"network_connect"},
+    {"event_id":"fixture-2","timestamp":"2026-01-02T00:02:00Z","container_id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","kind":"file_open"}
+  ]
+}

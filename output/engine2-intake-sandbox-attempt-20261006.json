@@ -1,0 +1,12 @@
+{
+  "record_kind":"manually_transcribed_diagnostic_context",
+  "not_raw_pytest_receipt":true,
+  "date":"2026-10-06",
+  "command":".venv/Scripts/python.exe -m pytest -q tests/test_runtime_intake.py --basetemp=tmp/intake-target-win-20261006-01 -o cache_dir=tmp/pytest-cache-20261006",
+  "reported_counts":{"failed":60,"passed":13,"skipped":1,"console_seconds":3.25},
+  "observed_common_error":"PermissionError WinError 5 at Path.resolve(strict=True) for generated bundle directories",
+  "cause_confidence":"high for restricted-host resolution boundary; approved host rerun removed these errors",
+  "followup":"Original host XML retains test-default-binding failure; corrected test exercises actual oversized file. Production path/byte guards unchanged.",
+  "model_fitting_authorized":false,
+  "actions_executed":[]
+}

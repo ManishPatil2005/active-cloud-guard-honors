@@ -1,6 +1,6 @@
 # Experimental protocol v0.1
 
-6October runtime follow-up: [current capability boundaries](CURRENT_STATUS.md) and [next planned grouped run/window data-label intake](RUNTIME_EVALUATION_PLAN.md). The latter specifies offline evidence consistency/blinded reviewer handoff, not an implemented validator, new data/model fitting or independent evaluation. It reuses the grouping/labeling/uncertainty principles below; historical failed timing remains ineligible for performance claims unless separately resolved, never retroactively repaired.
+6October runtime follow-up: [current boundaries](CURRENT_STATUS.md), [staged grouped data-label plan](RUNTIME_EVALUATION_PLAN.md) and [implemented consistency subset](RUNTIME_INTAKE.md). Checks hashes/schema/group/split/observed windows/reviews/adjudication; receipts opaque and all eligibility/fitting flags false. No new real data/actual independent reviewers/models/evaluation. Next typed receipt-to-run/capture/protocol checks and genuine human/data gates; historical failed timing remains ineligible for performance claims unless separately resolved, never retroactively repaired.
 
 ## Questions and endpoints
 

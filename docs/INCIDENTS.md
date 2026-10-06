@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-048 - 2026-10-06 - Intake test environment and default-limit assertion mismatch
+
+**Symptom/evidence:** restricted Windows run60failed/13passed/1skip3.25s: common Path.resolve(strict=True) PermissionError WinError5 for generated bundle roots. Sanitized manual context explicitly not raw output retained. Approved host rerun removed permission errors:72passed/1failed/1skip2.53s/XML2.321; original output/engine2-intake-initial-host-tests-20261006.xml SHA c457628fb1078177626e2e17324828602bdd3918cc3af3091317eaaf1272f959. Remaining test_resource_limits[FILE_LIMIT] monkeypatched constant after _raw's default already captured1000000.
+
+**Cause confidence:** high for restricted-host resolution boundary (same guards pass with normal host permissions) and Python function-default/test mismatch; not actual1MB production failure or detector defect. **Fix:** approved host test execution, test actual oversized JSON artifact instead of monkeypatching already-bound default. Never weaken path/regular-file/byte checks or rewrite failed XML. Added9further cases after initial74case host run, final83cases. **Verification:** targetedWindows82pass/1symlink-privilege skip2.40s; fullWindows899pass38skips/Linux937pass/zero failures/errors; lint-format105files/pipcheck pass, actual oversized-file/CLI rejection checked. **Limits:** Windows symlink case skipped without privilege, Linux full passes it; trusted-host/race/opaque-receipt/human/clock/coverage/ML/accuracy boundaries remain. RUNTIME_INTAKE.md/WL-058.
+
 ### INC-047 - 2026-10-06 - Baseline completion confused with full research status
 
 **Symptom/evidence:** user reasonably believed Engine2 was built and current work refinement; broad “Engine2 incomplete” status did not distinguish milestones. Source inspection found runtime.analyze limitation “No eBPF collector…” even though separate sensor_trial/sensor_adapter and saved bounded trials exist. README's old “latest” software count and long historical snapshots could obscure current state. Actual runtime model remains saved-capture statistical count deviation/no live integration/ML/response; no full independent effectiveness claim established.

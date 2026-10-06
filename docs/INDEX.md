@@ -1,6 +1,6 @@
 # Documentation index
 
-**Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 replay baseline is implemented; refinements are not a rebuild or full research completion. Separate bounded telemetry exists; ML/independent effectiveness/timing gates remain open. Next default priority: [planned grouped runtime data/label intake](RUNTIME_EVALUATION_PLAN.md), not expanding safety helpers by default. Each development update must maintain the current summary.
+**Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 replay baseline implemented; refinements are not rebuilding/full research completion. Separate bounded telemetry exists; ML/effectiveness/timing gates remain open. [Offline research intake](RUNTIME_INTAKE.md) implements E2-035 artifact consistency, not real eligibility/independent labels. Next within [evaluation plan](RUNTIME_EVALUATION_PLAN.md): typed receipt semantic bindings and genuine human/data gates, not expanding safety helpers by default. Maintain the current summary each change.
 
 ## Historical checkpoints (newest first)
 
@@ -77,7 +77,8 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | Document | Purpose |
 |---|---|
 | [Current capability status](CURRENT_STATUS.md) | Implemented baselines, supporting refinements, missing capabilities and scientific gates; current priority, not a historical checkpoint |
-| [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Planned next offline grouped run/window evidence and independent-label handoff; not implemented tooling/data |
+| [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Staged research acceptance; artifact-consistency subset implemented, semantic receipt and actual independent-human/data gates open |
+| [Offline runtime intake](RUNTIME_INTAKE.md) | Exact bundle/schema/hash/group/split/review/adjudication contract, synthetic example, commands and no-eligibility limits |
 | [PRD](PRD.md) | What the research prototype must do and why |
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |
 | [Engine 1 v2](ENGINE1_V2.md) | Repeat-work efficiency, budgets, cache contracts and reproduction |

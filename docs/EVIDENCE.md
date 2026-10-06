@@ -1,5 +1,9 @@
 # Evidence index
 
+## Offline research intake consistency (2026-10-06)
+
+[Contract](RUNTIME_INTAKE.md), [synthetic example](../data/runtime/intake-example/README.md), [executed report](../output/engine2-intake-synthetic-20261006.json), [Windows XML](../output/engine2-intake-windows-tests-20261006.xml), [Linux XML](../output/engine2-intake-linux-tests-20261006.xml).83new synthetic cases; fullWindows899pass38skips/Linux937pass, zero failures/errors. Three fixture windows:1known agreement/1disagreement/1unknown pair, adjudication1benign2unknown. All independence/eligibility/receipt-semantics/fitting/action gates false, no actual human labels/new independent data. [Original failing host XML](../output/engine2-intake-initial-host-tests-20261006.xml) and [manual sandbox context](../output/engine2-intake-sandbox-attempt-20261006.json) retained, INC-048/WL-058. Software/intake evidence, not detector evaluation/complete coverage/stable timing. Old artifacts unchanged; next semantic receipt and genuine human/data gates open.
+
 ## Implemented baseline versus research-scope reporting (2026-10-06)
 
 [Current summary](CURRENT_STATUS.md), [Windows XML](../output/engine2-status-windows-tests-20261006.xml), [Linux XML](../output/engine2-status-linux-tests-20261006.xml), [new synthetic replay](../output/engine2-status-clarification-replay-20261006.json).3scope regressions/current CLI checks; Windows817pass37Linux-only skips/Linux854pass,0failures/errors. All old replay result fields identical apart from new implementation_scope/clarified limits. Actual four smoke checks true, explicitly synthetic/no live input/actions/threat/ML/independence. No historical data replaced, runtime detector effectiveness or independent dataset claimed. Planned next intake specification not execution/data evidence; INC-047 wording/confusion correction, not a new detector/model result.

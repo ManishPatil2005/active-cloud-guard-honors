@@ -1,0 +1,11 @@
+{
+  "schema_version":"runtime_adjudication_v1",
+  "adjudicator_id":"synthetic-fixture-adjudicator",
+  "guidelines_sha256":"d95630b170a48f240ef4a7ca5c93971e45e6d1a802ddcec698c9eec0e3d1cd9d",
+  "review_sha256":["9ed271a31bf92287ebe2f1a04419db05430199e45c956e65065ba3c264640384","38e6245ffc2172b0450de75ed7ccaa7ada65ec74eb8f8e3918edfe2daa64b58e"],
+  "labels":[
+    {"run_id":"demo-run","asset_id":"compose/redis","start_epoch":1767312000,"label":"benign","reason":"Synthetic known agreement retained unchanged."},
+    {"run_id":"demo-run","asset_id":"compose/redis","start_epoch":1767312060,"label":"unknown","reason":"Synthetic disagreement unresolved; preserve unknown."},
+    {"run_id":"demo-run","asset_id":"compose/redis","start_epoch":1767312120,"label":"unknown","reason":"Synthetic uncertainty retained; no new independent ground truth."}
+  ]
+}

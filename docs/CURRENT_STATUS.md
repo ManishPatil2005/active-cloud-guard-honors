@@ -13,12 +13,17 @@ Updated 6 October 2026. This is the current status summary; dated implementation
 | Engine 2 telemetry tooling | Separate bounded Falco capture, saved-data normalization, selected readiness/identity/drop metrics and correlation diagnostics | [Instrumentation](ENGINE2_INSTRUMENTATION.md), [adapter](ENGINE2_ADAPTER.md). Not a continuously integrated sensor or independent threat benchmark; coverage/clock stability unresolved |
 | Supporting refinements | Timing diagnosis, receiver, private native callback tests and inert durable job/fence records | [Receiver](SYSTEMD_RECEIVER_CAPTURE.md), [native fixtures](NATIVE_CALLBACK_VALIDATION.md), [inert gate](DURABLE_JOB_GATE.md). Experimental-safety mechanisms, not additional engines or anomaly-detection models |
 | Full runtime research objectives | Not yet independently established | Runtime labels/grouped held-out data, planned ML comparisons, calibrated detection/false alarms/misses/delay/overhead and Engine1/runtime evidence integration remain open |
+| Runtime research intake | Offline bounded schema/hash/group/split/window/review/adjudication consistency | [Intake v1](RUNTIME_INTAKE.md), E2-035 partial. Synthetic fixtures; receipts opaque/humans unauthenticated, all eligibility/fitting flags false |
 
 The current replay output now includes implementation_scope for **runtime_replay_baseline** only: status implemented; saved sensor exports supported; live input/trained ML/independent detection evaluation/automatic response false. It no longer claims the entire repository has no eBPF collector. Acquisition/normalization are separate experimental paths. Added metadata/text do not change scores, thresholds, windows or leakage guards.
 
 No Isolation Forest/autoencoder, validated runtime threat classifier, automated cloud isolation, integrated runtime TCI contribution or production deployment is claimed. The original first-three-month engineering milestone principally concerned Engine1; later runtime objectives are not retrospectively required/declared completed. See [deck audit](DECK_AUDIT.md), [requirements](PRD.md), [tasks](../TASKS.md).
 
 ## Current verification, not effectiveness
+
+E2-035 intake83new synthetic software cases; targetedWindows82pass/1symlink-privilege skip2.40s. Full [Windows XML](../output/engine2-intake-windows-tests-20261006.xml)899pass/38skips (37existing Linux-only/1symlink privilege),12.13s console/XML12.126; [Linux XML](../output/engine2-intake-linux-tests-20261006.xml)937pass/no skips57.78s console/XML54.962. Both937collected/zero failures/errors, lint/format105files/pipcheck pass. Whole-repository tests, not threat accuracy/clock/performance evidence. [Synthetic intake result](../output/engine2-intake-synthetic-20261006.json)3windows/1known agreement/1disagreement/1unknown pair/no eligibility/predictions/fitting/actions. INC-048/WL-058 preserve initial sandbox and test-default-binding failures; no production path/byte guard weakened. [Contract/commands](RUNTIME_INTAKE.md).
+
+### Historical status-clarification verification (same date, earlier change)
 
 Status-clarification change: three new scope regressions; targeted runtime tests: 31 passed in 0.69 s. Full [Windows XML](../output/engine2-status-windows-tests-20261006.xml): 854 collected, 817 passed / 37 Linux-only skips, zero failures/errors, console 8.34 s / XML 8.343 s. Full [Linux XML](../output/engine2-status-linux-tests-20261006.xml): 854 passed, zero failures/errors/skips, console 39.56 s / XML 37.570 s. These are **whole-repository software tests**, not 854 attack scenarios or independent accuracy observations. Console/XML timing difference undiagnosed, no clock-accuracy/engine-performance claim. Ruff lint/format (102 files) and pip check pass.
 
@@ -43,7 +48,7 @@ Use fresh temporary/report filenames when reproducing; do not replace these save
 
 ## Work direction and acceptance gates
 
-Next default priority is **E2-035: grouped runtime dataset and independent-label intake**, mapped to E2-004/RQ3—not another safety helper by default. [Runtime evaluation plan](RUNTIME_EVALUATION_PLAN.md) specifies the next deliverable and boundaries; intake tooling/new independent data are **planned, not implemented or obtained by this change**.
+Current default priority remains **E2-035: grouped runtime dataset and independent-label intake**, mapped to E2-004/RQ3—not another safety helper by default. [Offline intake](RUNTIME_INTAKE.md) implements artifact consistency only; typed receipt semantic bindings and genuine independent data/labels remain open. Next define/test receipt-to-run/capture/protocol semantic checks offline, without promoting rejected history, collection, training or eligibility. [Evaluation plan](RUNTIME_EVALUATION_PLAN.md) retains wider scientific gates.
 
 1. Audit existing captures/receipts, retain development and timing-rejected data as such; do not promote them into untouched/independently labeled test data.
 2. Prepare a bounded offline run/window manifest and separate blinded reviewer submissions; guard template/deployment/run grouping, duplicate captures and event leakage before assigning splits. No prediction-visible/generated “independent” labels.

@@ -1,6 +1,6 @@
 # Engine 2 initial foundation: observation-only replay
 
-**Current interpretation6October:** [CURRENT_STATUS](CURRENT_STATUS.md) separates this implemented observation-only baseline from refinements and full research gates. A separate bounded Falco harness/offline adapter exists; no continuously connected replay sensor or independently evaluated ML detector. Current replay output exposes implementation_scope and says live acquisition/normalization are separate paths, replacing stale broad no-eBPF-collector wording. Scores/guards unchanged; historical result files below remain byte-preserved. Next default research task [grouped data/label intake](RUNTIME_EVALUATION_PLAN.md), planned only.
+**Current interpretation, 6 October:** [CURRENT_STATUS](CURRENT_STATUS.md) separates this implemented baseline from refinements and scientific gates. Bounded Falco harness/offline adapter exists; no continuously connected replay sensor or independently evaluated ML detector. Replay implementation_scope clarifies separate acquisition/normalization; calculations/guards and historical bytes unchanged. [Offline grouped data/label intake](RUNTIME_INTAKE.md) now validates artifact consistency with synthetic fixtures, not independence/eligibility/model fitting. E2-035 remains partial: typed receipt semantic binding and genuine human/data gates next within the [evaluation plan](RUNTIME_EVALUATION_PLAN.md).
 
 ## Historical foundation checkpoint
 

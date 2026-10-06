@@ -1,6 +1,6 @@
 # Research prototype requirements
 
-Current6October interpretation: [CURRENT_STATUS](CURRENT_STATUS.md). The first-three-month scope below is historical milestone scope, not a claim that later Engine2 work is unbuilt or forbidden. Engine1 engineering baseline is frozen; Engine2 observation-only replay baseline is implemented with separate bounded telemetry tools, while planned runtime ML/independent research validation remain open. Supporting clock/receiver/recovery tools refine experiments, not the cloud-security detector itself. The next [runtime data/label intake plan](RUNTIME_EVALUATION_PLAN.md) maps to original RQ3/E2-004; no stack migration/response permission.
+Current6October interpretation: [CURRENT_STATUS](CURRENT_STATUS.md). First-three-month scope below is historical milestone scope, not a claim that later Engine2 is unbuilt or forbidden. Engine1 baseline frozen; Engine2 replay/statistical baseline implemented with bounded telemetry tools; ML/independent validation open. Supporting clock/receiver/recovery tools refine experiments, not detection effectiveness. [Offline intake](RUNTIME_INTAKE.md) implements artifact consistency under the [staged plan](RUNTIME_EVALUATION_PLAN.md)/RQ3/E2-004; typed receipt semantics and actual independent humans/eligible data remain open. No requirements/stack/response permission change.
 
 ## Problem and users
 

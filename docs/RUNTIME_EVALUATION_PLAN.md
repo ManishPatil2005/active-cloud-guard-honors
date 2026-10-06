@@ -1,12 +1,12 @@
-# Engine2 research-data intake — next planned task (E2-035)
+# Engine2 research-data intake — staged task (E2-035)
 
-Status 6 October 2026: **planned protocol/deliverable**, not implemented intake tooling, new collection, reviewer recruitment, model fitting or independent results. This extends the runtime run/window and two-reviewer requirements in [EXPERIMENT_PROTOCOL](EXPERIMENT_PROTOCOL.md), while preserving the existing baseline and unresolved timing/coverage/identity gates. [Current status](CURRENT_STATUS.md).
+Status 6 October 2026: **partial implementation**. [Offline intake v1](RUNTIME_INTAKE.md) validates bounded artifact/schema/hash/group/split/review/adjudication consistency with synthetic tests. Receipts are opaque hash-bound objects, not verified protocols/timing/coverage/identity. All independence/eligibility/fitting flags false; no new real data/actual reviewer study/models. Next within E2-035: typed receipt semantic bindings and genuine human/data gates. This extends [EXPERIMENT_PROTOCOL](EXPERIMENT_PROTOCOL.md), preserving unresolved timing/coverage/identity gates. [Current status](CURRENT_STATUS.md).
 
 ## Research connection
 
 RQ3 asks what value and overhead runtime evidence adds to cloud OSS security review. A syscall-count deviation is not an independently labeled attack; a successful dummy recovery test is not a detector benchmark. Next work should make eligible data/labels/splits traceable before comparing the existing statistical baseline with the planned Isolation Forest/autoencoder. No new engine/stack or automatic cloud action.
 
-## Next implementation acceptance
+## Original staged acceptance (consistency subset now implemented)
 
 Build an offline intake validator and report, reusing existing normalized-capture/inventory parsing where suitable. It must perform no collection, network access, service control, model fitting or predictions. Start with synthetic fixtures solely to test the validator; real eligibility remains separate.
 
@@ -20,7 +20,7 @@ Build an offline intake validator and report, reusing existing normalized-captur
 | Two separate blinded reviewer submissions | Preserve each original vote/reason/hash; distinct supplied IDs and “blinded” flags are declarations, not identity/independence attestation |
 | Adjudication and exclusions | Preserve disagreement/pre-adjudication agreement, resolution/reason/unknowns; report all exclusions rather than dropping difficult cases from denominators |
 
-The future validator may establish **artifact/schema consistency**, not authenticate humans/hosts, certify benignity, prove timing stability, guarantee all template leakage absent or grant independent evaluation status. No true “independent_evaluation_verified” flag merely from metadata. Final naming/schema/CLI must be documented and tested when implemented; this table is not an existing API.
+The implemented validator establishes **artifact/schema consistency**, not authentication/benignity/timing stability/complete semantic deduplication/independent evaluation. No true independent_evaluation_verified from metadata. Exact API/limits are in [RUNTIME_INTAKE](RUNTIME_INTAKE.md); this broader acceptance table is not an API or completed study. Receipt semantic eligibility remains unfinished, not inferred from hashes.
 
 ## Human and experiment gates
 

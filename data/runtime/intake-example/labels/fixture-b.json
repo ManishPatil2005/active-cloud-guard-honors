@@ -1,0 +1,12 @@
+{
+  "schema_version":"runtime_review_v1",
+  "reviewer_id":"synthetic-fixture-b",
+  "origin":"synthetic_fixture",
+  "guidelines_sha256":"d95630b170a48f240ef4a7ca5c93971e45e6d1a802ddcec698c9eec0e3d1cd9d",
+  "blinded":true,
+  "labels":[
+    {"run_id":"demo-run","asset_id":"compose/redis","start_epoch":1767312000,"label":"benign","reason":"Synthetic agreed vote; no actual human submission."},
+    {"run_id":"demo-run","asset_id":"compose/redis","start_epoch":1767312060,"label":"benign","reason":"Synthetic opposing vote for adjudication testing."},
+    {"run_id":"demo-run","asset_id":"compose/redis","start_epoch":1767312120,"label":"suspicious","reason":"Synthetic vote paired with an unknown, not counted as known agreement."}
+  ]
+}
