@@ -1,5 +1,9 @@
 # Current project state
 
+## Current update — data readiness audit / review proposal, 6 October 2026
+
+E2-038/E2-035/RQ3: [audit](RUNTIME_DATA_READINESS_AUDIT.md) of7tracked standalone normalized captures (5synthetic/2sensor-development),380storedrows/45per-file60snonemptywindows, not unique/independent samples. Parser and HEAD-byte checks pass. Two synthetic fixture projections reused/existing guard rejects; both sensor files same development group. Failed3trial batch/hash bindings/4collector exclusions retained. No benchmark/eligibility/code/algorithm/data change. User says no supervisor approval; [ready-to-review proposal](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md) prepared DRAFT NOT APPROVED, no actual decisions/contacts/labels/collection/fitting. Fresh offline209-case subset Windows208pass1skip6.69s/XML6.549/Linux209pass43.77s/XML42.210, zero failures/errors; original1148-case full suite not rerun or augmented. WL-064/ADR-054/INC-055. Next genuine review/context/sampling and separately authorized qualification; earlier entries historical.
+
 ## Current update — synthetic-only autoencoder, 6 October 2026
 
 Final Linux1,148pass245.99s/XML241.721; Windows1,110pass38skips66.63s/XML66.602, both1,148collected/0failures/errors. Lint/format115files/bothpipchecks pass; no backend-dependency skips in these environments. Whole-suite software checks, not detector accuracy/overhead/clock evidence.

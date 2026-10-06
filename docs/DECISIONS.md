@@ -1,5 +1,11 @@
 # Decision register
 
+## ADR-054 - 2026-10-06 - Audit existing evidence before claiming a benchmark; prepare unapproved review proposal
+
+E2-038/E2-035/RQ3/DOC-005. With both synthetic ML prototypes implemented, advance the actual existing-data dependency instead of adding arbitrary engines/model versions or expanding native safety tooling. Bound offline audit to tracked standalone capture-shaped JSON in data/runtime/output engine2prefixes, reuse existing load_capture/windows/event_keys/analyze, compare current/source hashes, preserve developmental roles/failed receipts. Counts are per-file stored rows/windows, not independent samples. Exact overlap/shared family expose reuse risk; no current executed research split exists to declare contaminated. No parser/source/algorithm/data/model/dependency or stack change.
+
+User explicitly confirmed supervisor approval absent and requested a proper file. Prepare ENGINE2_SUPERVISOR_REVIEW_PROPOSAL as DRAFT NOT APPROVED with proposed target/context/groups/qualification/humans/calibration/metrics/overhead/privacy/pending decisions, not a signature or changed approved research question. Actual review and operational consent remain distinct human gates; never relabel real data into current synthetic-only wrappers. Verification/preservation/publication in WL-064; INC-055 records fixture reuse finding, not a production defect. Consequence: owner has a concrete review handoff, but eligibility/independent labels/fitting/production/publication readiness remain open.
+
 ## ADR-053 - 2026-10-06 - Reuse optional backend for isolated synthetic reconstruction
 
 E2-037/E2-004/RQ3. Continue the user-authorized synthetic software branch, not real-data/supervisor authority. Use existing pinned StandardScaler/MLPRegressor rather than install another deep-learning framework or hand-build numerical backpropagation. The network reconstructs its own standardized input through a narrower hidden layer (4→2→4 by default); per-asset scaling/training baseline-only. Preserve exact same four features and statistical comparator. Share preparation/baseline/hash/version helpers with IF, regression-check its saved calculated output, allow legitimate implementation-hash changes. No default engine/CLI/intake/native23-source closure/dependency/stack change.

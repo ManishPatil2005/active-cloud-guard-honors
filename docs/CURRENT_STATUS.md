@@ -1,5 +1,13 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest step — existing-data audit and supervisor proposal
+
+E2-038/E2-035/RQ3: [offline readiness audit](RUNTIME_DATA_READINESS_AUDIT.md) completed for seven tracked standalone normalized captures in selected data/runtime/output prefixes:5synthetic/2sensor-development,380stored rows/45per-file60second nonempty window records, not independent replications. All seven parse/current hashes match HEAD; two synthetic fixtures share two exact projections and existing baseline/observation guard refuses them. Both sensor captures share redis-ping-development. Historical failed repeat/three receipt hashes retained, including4collector exclusions despite local clock compatibility. No independent benchmark/new eligible data established; no code/model/data/service/clock changes.
+
+User explicitly confirmed supervisor approval is **not obtained** and requested a proper file: [ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md), prepared **DRAFT — NOT APPROVED**, proposed target/context/safety/units/groups/annotation/calibration/evaluation/overhead/publication and pending decisions. Not a changed research question or approved/executed study. No supervisor messages sent, humans/labels fabricated, new collection/fitting or operational consent inferred.
+
+Fresh existing offline subsets: Windows208pass1symlink-privilege skip6.69s/XML6.549; Linux209pass43.77s/XML42.210, zero failures/errors,209collected each. This documentation/source audit adds no tests/algorithms; prior1,148-case full suite below remains latest full suite, not rerun. WL-064/ADR-054/INC-055. Next actual review/approved context and claim-appropriate collection qualification, not Engine3 or more arbitrary model versions.
+
 ## Latest milestone — synthetic-only reconstruction autoencoder
 
 Final whole-suite verification: [Linux XML](../output/engine2-autoencoder-linux-tests-20261006.xml) **1,148 passed**, 245.99 s console / 241.721 s XML; [Windows XML](../output/engine2-autoencoder-windows-tests-20261006.xml) **1,110 passed / 38 skips**, 66.63 s console / 66.602 s XML. Both 1,148 collected, zero failures/errors; 37 Linux-only and one host symlink-privilege skip on Windows. Lint/format 115 files and both dependency checks pass. Suite duration is not detector latency/overhead or clock-accuracy evidence.

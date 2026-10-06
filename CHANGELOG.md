@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Audit saved runtime data and prepare supervisor evaluation proposal
+
+- Audit seven tracked standalone normalized captures with existing parser/hash/window/event checks; preserve developmental roles, shared projections/sensor family and failed repeat/receipt hashes. No benchmark eligibility, source/algorithm/data/model/service/clock change.
+- Prepare ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md after owner confirms approval absent: DRAFT NOT APPROVED, proposed target/context/qualification/groups/humans/calibration/metrics/overhead/privacy and pending actual decisions.
+- Fresh existing209-case offline subset: Windows208pass1symlink skip/Linux209pass, zero failures/errors; no new tests or rerun of prior1148-case full suite. Record INC-055/ADR-054/WL-064 and maintain current/formal/nontechnical documentation.
+
 ## 2026-10-06 - Add synthetic-only reconstruction autoencoder to Engine 2
 
 - Reuse existing optional scikit-learn backend for baseline-only scaling and per-asset undercomplete MLP; no new packages, default engine/stack migration, binary threat classification, real-data authority or model serialization.

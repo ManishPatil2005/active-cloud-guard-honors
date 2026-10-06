@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-055 - 2026-10-06 - Different synthetic capture IDs conceal shared event projections
+
+**Symptom/evidence:** E2-038 offline audit finds replay observation and intake-example capture share two exact (asset/container/epoch/kind) projections despite distinct capture IDs/hash/group strings. SHA c1e188afed2ee56a5467d6984114f3fb8a480614c86093d9c86589134f791c83 / b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837. Both sensor capture files also share redis-ping-development. [Audit](RUNTIME_DATA_READINESS_AUDIT.md) preserves exact reproduction/source hashes. No newly launched experiment or actual held-out research split was found/created here; this is not a claimed contamination of an executed independent evaluation.
+
+**Cause confidence:** high for exact intersection/shared metadata, inferred independence invalid even with different filenames. Files are practice/development fixtures, not independent data. **Containment:** retain originals/roles, prohibit promotion/splitting on names alone, document need for family/prior-use/semantic audit. No source fix required: direct existing runtime.analyze call actually rejects the pair with baseline/observation event overlap. **Verification:** stdin audit assertions and existing209-case cross-platform subsets pass; Windows1symlink skip, no failed tests. **Remaining limits:** exact intersection not comprehensive semantic independence proof; no real approvals/labels/eligible captures exist. Unknowns and historical failed timing receipts unchanged, no timestamp correction or benchmark acceptance. WL-064/ADR-054.
+
 ### INC-054 - 2026-10-06 - Reconstruction report rounded positive errors to zero
 
 **Raw-evidence publication note:** unrestricted staged whitespace check reports original pytest traceback whitespace only in this negative XML, lines8/48/52/53/54/66/71/74/77/81. Exact-one-artifact exclusion passes every other staged file; publication scanner still includes this artifact. Preserve its original SHA/staged blob, no source/test waiver or rewriting evidence.

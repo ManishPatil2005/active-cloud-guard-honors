@@ -1,5 +1,13 @@
 # Evidence index
 
+## Existing runtime data audit / supervisor proposal (2026-10-06)
+
+Final post-document [publication/research-pack contracts](../output/engine2-data-readiness-docs-tests-20261006.xml):18pass0.26s/XML0.119, zero failures/errors/skips. Separate rerun, not additional full-suite cases or actual proposal approval.
+
+[Readiness audit](RUNTIME_DATA_READINESS_AUDIT.md), E2-038/E2-035/RQ3: read-only seven-capture parser/count/hash/HEAD checks (5synthetic/2sensor-development;380stored event rows/45per-file60swindow records, not independent samples), exact two-projection reuse rejected by existing analyze guard, same sensor development group, failed3trial manifest/all3receipt hashes retained and trial3localclocktrue/4collector exclusions. Audit contains actual source hashes and exact executed stdin command; console assertions were not separately saved as a generated artifact. No raw export re-normalization/eligibility/approval/authentication/independent labels/new experiment/model operation. INC-055 preserves reuse risk without claiming executed split contamination.
+
+[Windows existing-test subset](../output/engine2-data-readiness-target-windows-20261006.xml)208pass1symlink-privilege skip6.69s/XML6.549; [Linux subset](../output/engine2-data-readiness-target-linux-20261006.xml)209pass43.77s/XML42.210,209collected each/0failures/errors. No new executable/tests; whole-suite1148case checkpoint below unchanged/not rerun. [Supervisor-ready proposal](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md) DOC-005 is prepared DRAFT — NOT APPROVED, following user's explicit lack of approval; no independent reviewer decision or research result is represented. WL-064/ADR-054 cover scope/verification/publication.
+
 ## Synthetic reconstruction autoencoder software (2026-10-06)
 
 After Markdown updates, [publication/research-pack contract tests](../output/engine2-autoencoder-docs-tests-20261006.xml)18passed0.14s, zero failure/error/skip; full-suite totals below are not increased by this separate rerun. Repository publication checker run again against final staging; WL-063 records actual review.

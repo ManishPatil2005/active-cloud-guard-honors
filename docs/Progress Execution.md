@@ -1,5 +1,19 @@
 # Progress Execution
 
+## Current next step — data audit and a file for your supervisor
+
+The models' software is built, but the research needs defensible data and real human decisions. We inspected seven saved normalized files: five invented practice files and two earlier sensor-development files. Their380stored events/45per-fileone-minute windows are not380independent observations or45independent experiments. Two practice files reuse two events; both sensor files come from the same development family. The existing leakage guard rejects the reused pair. Earlier failed collector alignment remains failed; files/times were not edited into success. [Full audit](RUNTIME_DATA_READINESS_AUDIT.md).
+
+You said supervisor approval has not yet been obtained. The requested file is **docs/ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md**: [open proposal](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md). It is DRAFT — NOT APPROVED, not a signed permission or results report.
+
+1. Open the proposal and read sections2/3/9: what the positive label means, allowed lab scope and pending decisions.
+2. Share the file yourself with your supervisor. No message was sent automatically. Ask them to approve/revise the target, required independent context, units/families/sample design, collection-quality gates, reviewers and analysis/privacy/safety conditions.
+3. Record their actual response privately using the [review sheet](templates/runtime-supervisor-review.md). Do not invent a signature or commit personal names/consent records. Keep revisions and why decisions changed.
+4. Only after genuine decisions, revise/freeze the qualification/collection plan and obtain any separate operational permission. The draft does not permit stopping time services or collecting production data.
+5. Then establish comparable data, obtain two real independent reviews, freeze grouped training/calibration/test data and run a reviewed evaluation. Synthetic votes or repeatedly viewed practice observations cannot be independent test evidence.
+
+Fresh existing offline checks: Windows208passed/1skip and Linux209passed, zero failures/errors. No new model code, collection or real-data training in this step. The latest full suite remains1148collected from the earlier model milestone; it was not rerun for this documentation-only audit. Commands/outcomes: WL-064 [WORK_LOG](WORK_LOG.md). Earlier entries below are historical progress.
+
 ## Current addition — Engine 2 reconstruction model, 6 October 2026
 
 Engine 2 now has three **comparison methods**, not three engines: the original statistical baseline, an optional Isolation Forest, and an optional reconstruction autoencoder. Engine 1 still checks configurations; Engine 2 studies runtime evidence. Both optional models are implemented software using invented examples. They are not independently proven attack detectors, and no real-study approval or labels have been invented. The existing architecture remains unchanged.
