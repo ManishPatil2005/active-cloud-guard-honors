@@ -1,5 +1,7 @@
 # Experimental protocol v0.1
 
+E2-037 software-only checkpoint: [synthetic autoencoder](SYNTHETIC_RUNTIME_AUTOENCODER.md) joins Isolation Forest alongside unchanged statistical replay. Fixed invented baseline32/observation3 windows, baseline-only scaling/training, warning abstention, preserved negative/precision evidence. These are adapter/software tests, not independent model comparison, researcher approval or real-data fitting. Future actual held-out study must freeze protocol/features/hyperparameters and calibration on approved training data only; do not tune against held-out outcomes or promote development fixtures into independent samples. Scope/real-data gates below unchanged.
+
 6October runtime follow-up: [current boundaries](CURRENT_STATUS.md), [staged data-label plan](RUNTIME_EVALUATION_PLAN.md), [intake](RUNTIME_INTAKE.md) and [selected typed receipts](RUNTIME_RECEIPTS.md). Selected consistency is not full protocol/coverage/collector alignment/authenticity/eligibility. [Labeling pack](RUNTIME_LABELING_PROTOCOL.md)/[capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) prepared as unapproved drafts; next actual supervisor decisions, genuine humans and comparable data. Proposed review-necessity target does not silently replace original attack claims. No new real data/reviewers/models/evaluation. Local compatibility does not undo recorded collector exclusions; historical negatives never retroactively repaired.
 
 ## Questions and endpoints

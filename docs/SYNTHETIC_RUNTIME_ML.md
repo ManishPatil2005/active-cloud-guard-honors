@@ -1,5 +1,7 @@
 # Synthetic runtime ML comparator — software prototype
 
+Current E2-037 follow-up: a separate [synthetic reconstruction autoencoder](SYNTHETIC_RUNTIME_AUTOENCODER.md) is now implemented/software-tested, using the same optional backend and four features. Shared synthetic preparation/guards/postflight/version helpers were extracted here; Isolation Forest calculated fields still match its saved final result, excluding legitimately changed selected source hashes/Python version. Default runtime/intake unchanged. The original E2-036 checkpoint below remains historical; its “no autoencoder”/“unimplemented” wording describes that earlier milestone, not current software status. Real-data evaluation of both models remains open.
+
 E2-036/E2-004/RQ3: isolated optional Isolation Forest implementation for **synthetic software development only**, 6 October 2026. User proceeded with the offered offline/synthetic branch; this is not supervisor approval, real-data fitting authority or an independent security evaluation. Engine2's existing statistical replay remains the default. No third engine, stack migration, autoencoder, calibrated threat detector, TCI integration or automatic response.
 
 ## Implementation and source basis

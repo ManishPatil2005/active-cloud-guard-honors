@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="97" time="15.040" timestamp="2026-10-06T22:55:05.352036+05:30" hostname="Welcome"><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[seed--1]" time="0.005" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[seed-4294967296]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[seed-True]" time="0.002" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[seed-2.5]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[latent_dim-0]" time="0.002" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[latent_dim-4]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[latent_dim-True]" time="0.004" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[latent_dim-1.5]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[max_iter-0]" time="0.004" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[max_iter-2001]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[max_iter-True]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[max_iter-1.5]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[window_seconds-0]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[window_seconds-3601]" time="0.003" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[window_seconds-True]" time="0.002" /><testcase classname="tests.test_runtime_autoencoder" name="test_parameters_exact_and_bounded[window_seconds-1.5]" time="0.002" /><testcase classname="tests.test_runtime_autoencoder" name="test_scaler_targets_and_network_fit_only_baseline" time="0.056" /><testcase classname="tests.test_runtime_autoencoder" name="test_observation_changes_do_not_fit_scaler_or_model" time="0.107" /><testcase classname="tests.test_runtime_autoencoder" name="test_training_warnings_abstain_but_record_actual_attempt[convergence]" time="0.057" /><testcase classname="tests.test_runtime_autoencoder" name="test_training_warnings_abstain_but_record_actual_attempt[other]" time="0.060" /><testcase classname="tests.test_runtime_autoencoder" name="test_training_warnings_abstain_but_record_actual_attempt[scaler]" time="0.063" /><testcase classname="tests.test_runtime_autoencoder" name="test_baseline_and_empty_abstention_without_training[empty]" time="0.053" /><testcase classname="tests.test_runtime_autoencoder" name="test_baseline_and_empty_abstention_without_training[few]" time="0.051" /><testcase classname="tests.test_runtime_autoencoder" name="test_baseline_and_empty_abstention_without_training[constant]" time="0.045" /><testcase classname="tests.test_runtime_autoencoder" name="test_real_source_refused_before_backend[train.json]" time="0.021" /><testcase classname="tests.test_runtime_autoencoder" name="test_real_source_refused_before_backend[observation.json]" time="0.021" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_reconstruction_shape_refused[short]" time="0.043" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_reconstruction_shape_refused[narrow]" time="0.046" /><testcase classname="tests.test_runtime_autoencoder" name="test_nonfinite_reconstruction_refused[nan]" time="0.053" /><testcase classname="tests.test_runtime_autoencoder" name="test_nonfinite_reconstruction_refused[inf]" time="0.045" /><testcase classname="tests.test_runtime_autoencoder" name="test_nonfinite_reconstruction_refused[-inf]" time="0.046" /><testcase classname="tests.test_runtime_autoencoder" name="test_nonfinite_reconstruction_refused[1e+308]" time="0.047" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_optimizer_diagnostics_refused[0-0.1]" time="0.048" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_optimizer_diagnostics_refused[501-0.1]" time="0.049" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_optimizer_diagnostics_refused[True-0.1]" time="0.050" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_optimizer_diagnostics_refused[2.5-0.1]" time="0.049" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_optimizer_diagnostics_refused[3-nan]" time="0.047" /><testcase classname="tests.test_runtime_autoencoder" name="test_bad_optimizer_diagnostics_refused[3--0.1]" time="0.048" /><testcase classname="tests.test_runtime_autoencoder" name="test_training_mutation_refused_postflight[train.json]" time="0.061" /><testcase classname="tests.test_runtime_autoencoder" name="test_training_mutation_refused_postflight[observation.json]" time="0.061" /><testcase classname="tests.test_runtime_autoencoder" name="test_training_mutation_refused_postflight[inventory.json]" time="0.057" /><testcase classname="tests.test_runtime_autoencoder" name="test_actual_reconstruction_matches_backend_and_is_deterministic" time="1.266"><failure message="assert [0.0, 76.41925, 0.0] == approx([4.339...09 ± 1.0e-12])&#10;  &#10;  comparison failed. Mismatched elements: 3 / 3:&#10;  Max absolute difference: 1.2830665241381212e-07&#10;  Max relative difference: inf&#10;  Index | Obtained | Expected                        &#10;  0     | 0.0      | 4.339528655349761e-10 ± 1.0e-12 &#10;  1     | 76.41925 | 76.41925012830666 ± 7.6e-11     &#10;  2     | 0.0      | 1.0777813399022286e-09 ± 1.0e-12">bundle = WindowsPath('D:/research f1/tmp/autoencoder-precision-target-win-20261006-01/test_actual_reconstruction_mat0/ml')
+dependency = None
+
+    def test_actual_reconstruction_matches_backend_and_is_deterministic(bundle, dependency):
+        from sklearn.neural_network import MLPRegressor
+        from sklearn.preprocessing import StandardScaler
+        from threadpoolctl import threadpool_limits
+    
+        context = shared._prepare_synthetic(
+            [bundle / "train.json"],
+            bundle / "observation.json",
+            bundle / "inventory.json",
+            60,
+        )
+        scaler = StandardScaler()
+        model = MLPRegressor(
+            hidden_layer_sizes=(2,),
+            activation="tanh",
+            solver="lbfgs",
+            alpha=0.0001,
+            tol=0.0001,
+            max_iter=500,
+            max_fun=10000,
+            random_state=42,
+            shuffle=False,
+            early_stopping=False,
+            warm_start=False,
+        )
+        matrix = [
+            [row["counts"][name] for name in shared.runtime.FEATURES]
+            for row in context["grouped"]["compose/redis"]
+        ]
+        with warnings.catch_warnings(record=True) as recorded, threadpool_limits(limits=1):
+            scaled = scaler.fit_transform(context["training"]["compose/redis"])
+            model.fit(scaled, scaled)
+            obs = scaler.transform(matrix)
+            rebuilt = model.predict(obs)
+        assert not recorded
+        expected = [
+            sum((float(a) - float(b)) ** 2 for a, b in zip(x, y, strict=True)) / 4
+            for x, y in zip(obs, rebuilt, strict=True)
+        ]
+        result = execute(bundle)
+&gt;       assert [row["reconstruction_error"] for row in result["windows"]] == pytest.approx(
+            expected, rel=1e-12, abs=1e-12
+        )
+E       assert [0.0, 76.41925, 0.0] == approx([4.339...09 ± 1.0e-12])
+E         
+E         comparison failed. Mismatched elements: 3 / 3:
+E         Max absolute difference: 1.2830665241381212e-07
+E         Max relative difference: inf
+E         Index | Obtained | Expected                        
+E         0     | 0.0      | 4.339528655349761e-10 ± 1.0e-12 
+E         1     | 76.41925 | 76.41925012830666 ± 7.6e-11     
+E         2     | 0.0      | 1.0777813399022286e-09 ± 1.0e-12
+
+tests\test_runtime_autoencoder.py:320: AssertionError</failure></testcase><testcase classname="tests.test_runtime_autoencoder" name="test_iforest_calculated_report_unchanged_after_shared_refactor" time="0.733" /><testcase classname="tests.test_runtime_autoencoder" name="test_cli_no_overwrite_or_model_files" time="1.452" /><testcase classname="tests.test_runtime_autoencoder" name="test_missing_optional_dependency" time="0.005" /><testcase classname="tests.test_runtime_autoencoder" name="test_reconstruction_warnings_abstain_and_record_attempt[transform]" time="0.254" /><testcase classname="tests.test_runtime_autoencoder" name="test_reconstruction_warnings_abstain_and_record_attempt[predict]" time="0.258" /><testcase classname="tests.test_runtime_autoencoder" name="test_partial_asset_denominator" time="0.247" /><testcase classname="tests.test_runtime_autoencoder" name="test_actual_one_iteration_nonconvergence_is_not_a_score" time="0.278" /><testcase classname="tests.test_runtime_autoencoder" name="test_sub_micro_error_precision_retained" time="0.236"><failure message="assert False&#10; +  where False = all(&lt;generator object test_sub_micro_error_precision_retained.&lt;locals&gt;.&lt;genexpr&gt; at 0x000001B09C602DC0&gt;)">bundle = WindowsPath('D:/research f1/tmp/autoencoder-precision-target-win-20261006-01/test_sub_micro_error_precision0/ml')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001B0A0953A10&gt;
+
+    def test_sub_micro_error_precision_retained(bundle, monkeypatch):
+        fake_backend(monkeypatch, value=1.00000001)
+        # Direct tiny-error calculation and the report both retain small positive values.
+        tiny = ae._errors([[1, 1, 1, 1]], [[1.00000001] * 4], 1)[0]
+        assert 0 &lt; tiny &lt; 1e-12
+        models, scalers = fake_backend(monkeypatch)
+    
+        # Scale all values to one, so the rebuilt output differs by only 1e-8.
+        class Ones:
+            def fit_transform(self, rows):
+                return [[1.0] * 4 for _ in rows]
+    
+            def transform(self, rows):
+                return [[1.0] * 4 for _ in rows]
+    
+        original = ae._backend
+        Model, _, Convergence, limits = original()
+    
+        class TinyModel(Model):
+            def predict(self, rows):
+                return [[1.00000001] * 4 for _ in rows]
+    
+        monkeypatch.setattr(ae, "_backend", lambda: (TinyModel, Ones, Convergence, limits))
+        result = execute(bundle)
+&gt;       assert all(0 &lt; row["reconstruction_error"] &lt; 1e-12 for row in result["windows"])
+E       assert False
+E        +  where False = all(&lt;generator object test_sub_micro_error_precision_retained.&lt;locals&gt;.&lt;genexpr&gt; at 0x000001B09C602DC0&gt;)
+
+tests\test_runtime_autoencoder.py:451: AssertionError</failure></testcase><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[seed--1]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[seed-4294967296]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[seed-True]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[seed-3.1]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[n_estimators-0]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[n_estimators-129]" time="0.011" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[n_estimators-True]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[n_estimators-2.5]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[max_samples-1]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[max_samples-257]" time="0.013" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[max_samples-True]" time="0.013" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[max_samples-None]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[window_seconds-0]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[window_seconds-3601]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[window_seconds-True]" time="0.011" /><testcase classname="tests.test_runtime_ml" name="test_bounded_exact_parameters[window_seconds-1.1]" time="0.013" /><testcase classname="tests.test_runtime_ml" name="test_baseline_path_bound_before_loading[paths0]" time="0.014" /><testcase classname="tests.test_runtime_ml" name="test_baseline_path_bound_before_loading[paths1]" time="0.012" /><testcase classname="tests.test_runtime_ml" name="test_baseline_path_bound_before_loading[None]" time="0.013" /><testcase classname="tests.test_runtime_ml" name="test_declared_sensor_export_refused_before_backend[train.json]" time="0.087" /><testcase classname="tests.test_runtime_ml" name="test_declared_sensor_export_refused_before_backend[observation.json]" time="0.088" /><testcase classname="tests.test_runtime_ml" name="test_existing_leakage_checks_remain_active[identity]" time="0.173" /><testcase classname="tests.test_runtime_ml" name="test_existing_leakage_checks_remain_active[group]" time="0.164" /><testcase classname="tests.test_runtime_ml" name="test_existing_leakage_checks_remain_active[events]" time="0.207" /><testcase classname="tests.test_runtime_ml" name="test_only_baseline_rows_fit_and_no_binary_prediction" time="0.231" /><testcase classname="tests.test_runtime_ml" name="test_observation_change_cannot_change_training_rows" time="0.466" /><testcase classname="tests.test_runtime_ml" name="test_missing_or_uninformative_windows_abstain_without_backend[empty_observation]" time="0.236" /><testcase classname="tests.test_runtime_ml" name="test_missing_or_uninformative_windows_abstain_without_backend[few_training_windows]" time="0.169" /><testcase classname="tests.test_runtime_ml" name="test_missing_or_uninformative_windows_abstain_without_backend[constant_training]" time="0.166" /><testcase classname="tests.test_runtime_ml" name="test_bad_backend_scores_fail_not_fabricate[nan]" time="0.159" /><testcase classname="tests.test_runtime_ml" name="test_bad_backend_scores_fail_not_fabricate[inf]" time="0.163" /><testcase classname="tests.test_runtime_ml" name="test_bad_backend_scores_fail_not_fabricate[-inf]" time="0.165" /><testcase classname="tests.test_runtime_ml" name="test_bad_backend_scores_fail_not_fabricate[0.1]" time="0.166" /><testcase classname="tests.test_runtime_ml" name="test_bad_backend_scores_fail_not_fabricate[-1.1]" time="0.162" /><testcase classname="tests.test_runtime_ml" name="test_training_window_resource_bound" time="0.156" /><testcase classname="tests.test_runtime_ml" name="test_mutation_during_scoring_refused[train.json]" time="0.208" /><testcase classname="tests.test_runtime_ml" name="test_mutation_during_scoring_refused[observation.json]" time="0.230" /><testcase classname="tests.test_runtime_ml" name="test_mutation_during_scoring_refused[inventory.json]" time="0.237" /><testcase classname="tests.test_runtime_ml" name="test_dependency_version_mismatch" time="0.170" /><testcase classname="tests.test_runtime_ml" name="test_missing_optional_dependency_has_no_fallback" time="0.002" /><testcase classname="tests.test_runtime_ml" name="test_actual_backend_deterministic_and_statistical_result_unchanged" time="0.975" /><testcase classname="tests.test_runtime_ml" name="test_actual_scores_match_established_backend" time="0.704" /><testcase classname="tests.test_runtime_ml" name="test_default_engine_report_still_matches_saved_evidence" time="0.056" /><testcase classname="tests.test_runtime_ml" name="test_assets_fit_separately" time="0.301" /><testcase classname="tests.test_runtime_ml" name="test_valid_parameter_extremes_and_no_saved_model" time="0.274" /><testcase classname="tests.test_runtime_ml" name="test_partial_asset_scoring_keeps_abstention_denominator" time="0.252" /><testcase classname="tests.test_runtime_ml" name="test_fixed_cli_no_overwrite" time="1.625" /></testsuite></testsuites>

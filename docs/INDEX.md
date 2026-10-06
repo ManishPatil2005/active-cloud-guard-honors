@@ -1,8 +1,12 @@
 # Documentation index
 
+Latest E2-037/E2-004/RQ3: [synthetic reconstruction autoencoder](SYNTHETIC_RUNTIME_AUTOENCODER.md), optional baseline-only scaler/undercomplete MLP, shared synthetic guards and unchanged Isolation Forest calculations. Both ML prototypes now implemented software, not independently evaluated detectors or additional engines. Fifty new cases/final combined97pass; source-bound cross-platform demos and deliberate nonconvergence/precision negatives preserved. Current full verification: [EVIDENCE](EVIDENCE.md)/WL-063; beginner instructions: [Progress Execution](<Progress Execution.md>). Real human/data/timing/coverage/labels/calibration/overhead/integration gates remain open; earlier checkpoints historical.
+
 **Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 baseline implemented; [offline intake](RUNTIME_INTAKE.md)/[typed receipts](RUNTIME_RECEIPTS.md) implement selected consistency. [Coordinator pack](RUNTIME_LABELING_PROTOCOL.md), [reviewer guidelines](RUNTIME_LABELING_GUIDELINES.md), [16-gate checklist](RUNTIME_CAPTURE_ELIGIBILITY.md), [supervisor sheet](templates/runtime-supervisor-review.md), [case ledger](templates/runtime-case-ledger.md) and [review](templates/runtime-review.json.example)/[adjudication](templates/runtime-adjudication.json.example) templates are drafted **NOT APPROVED**. Next actual human scope/protocol approval and comparable evidence-bearing data within the [evaluation plan](RUNTIME_EVALUATION_PLAN.md). Full timing/coverage/identity/independence/ML/effectiveness gates open; not a rebuild, research completion or default safety expansion. Maintain the current summary each change.
 
 ## Current software aid
+
+Current full-suite receipts: [Linux](../output/engine2-autoencoder-linux-tests-20261006.xml)1,148pass / [Windows](../output/engine2-autoencoder-windows-tests-20261006.xml)1,110pass38skips, zero failures/errors, lint/format115files/bothpipchecks pass. The E2-036 paragraph below is the previous checkpoint.
 
 Latest E2-036/E2-004/RQ3: [synthetic-only Isolation Forest comparator](SYNTHETIC_RUNTIME_ML.md), optional pinned backend/per-asset baseline-only ephemeral fit/no binary threat decision/real-data authority. Actual synthetic fitting is recorded, not independent detection evaluation.47new tests/finalLinux1,098pass/Windows1,060pass38skips; INC-051/052 negatives/preliminary receipts preserved, WL-062/ADR-052. Default baseline/intake/stack unchanged; actual human/data/timing/coverage/realML/autoencoder/overhead gates remain open.
 

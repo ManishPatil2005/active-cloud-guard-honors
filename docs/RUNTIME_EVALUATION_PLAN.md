@@ -1,5 +1,7 @@
 # Engine2 research-data intake — staged task (E2-035)
 
+E2-037 update: both optional [Isolation Forest](SYNTHETIC_RUNTIME_ML.md) and [autoencoder](SYNTHETIC_RUNTIME_AUTOENCODER.md) software prototypes now exist on synthetic fixtures. No eligible real data, independent evaluation or human approval resulted. Later references to “planned” models describe actual real-data research comparison, not a missing software implementation. Their different uncalibrated score scales cannot establish comparative performance.
+
 Status 6 October 2026: **partial implementation**. [Offline intake](RUNTIME_INTAKE.md)/[typed receipts](RUNTIME_RECEIPTS.md) validate bounded artifact and selected count/source/identity/local-endpoint consistency, not full protocols/coverage/alignment/authentication. v1 preserved; independence/eligibility/fitting false. [Coordinator pack](RUNTIME_LABELING_PROTOCOL.md), [guidelines](RUNTIME_LABELING_GUIDELINES.md) and [16-gate checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) now prepared, NOT APPROVED. Next actual supervisor decisions and genuine human/comparable-data gates; proposed review-necessity label is not confirmed attack or an approved research-question change. No new real data/reviewers/models. [Protocol](EXPERIMENT_PROTOCOL.md)/[current status](CURRENT_STATUS.md); unresolved timing/coverage/identity preserved.
 
 ## Research connection

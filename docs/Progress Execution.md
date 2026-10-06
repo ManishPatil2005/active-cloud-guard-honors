@@ -1,5 +1,44 @@
 # Progress Execution
 
+## Current addition — Engine 2 reconstruction model, 6 October 2026
+
+Engine 2 now has three **comparison methods**, not three engines: the original statistical baseline, an optional Isolation Forest, and an optional reconstruction autoencoder. Engine 1 still checks configurations; Engine 2 studies runtime evidence. Both optional models are implemented software using invented examples. They are not independently proven attack detectors, and no real-study approval or labels have been invented. The existing architecture remains unchanged.
+
+The autoencoder learns to rebuild four baseline activity counts through a smaller hidden layer. A separate observation is scaled using **only the baseline's** learned scale, then rebuilt. We record how different that reconstruction is. A small difference does not prove safety; a large difference does not prove an attack. Its numbers are on a different scale from Isolation Forest, so comparing their raw magnitudes cannot tell which is better. [Technical contract](SYNTHETIC_RUNTIME_AUTOENCODER.md).
+
+### Baby steps: run the safe example
+
+1. Open a terminal in your project folder (`D:\research f1` on this machine). Use the existing virtual environment; do not change Docker, services, system time or cloud settings.
+2. If setting up a new machine, follow the environment setup sections below first, then the optional package steps in [synthetic ML setup](SYNTHETIC_RUNTIME_ML.md). This milestone installed no new package here. Use your Linux environment's `python` instead of the Windows interpreter path below.
+3. Pick a filename that does not exist and run:
+
+   ```powershell
+   .venv/Scripts/python.exe scripts/runtime_autoencoder_check.py --output output/my-autoencoder-first-check.json
+   ```
+
+4. Open that JSON file in a text editor. Expected normal example: status synthetic_check_passed; all six checks true; result.scored_window_count=3 and abstained_window_count=0. Each binary_prediction is null, actions_executed is empty and real_data_fitting_authorized is false. Training attempts show baseline window count, actual iterations, loss and warnings. These are software checks, not accuracy percentages.
+5. Very small positive errors are written in scientific notation, for example `4.34e-10` means roughly 0.000000000434, **not zero**. We fixed earlier rounding that hid these values and kept the original failing test report. Do not manually round/edit the saved evidence into a different result.
+6. Check implementation regressions:
+
+   ```powershell
+   .venv/Scripts/python.exe -m pytest -q tests/test_runtime_autoencoder.py tests/test_runtime_ml.py
+   ```
+
+   In these configured environments the final combined run passed97tests. Without optional packages, dependent tests skip; skips are not verified model execution.
+7. To see explicit failure handling, choose another new filename:
+
+   ```powershell
+   .venv/Scripts/python.exe scripts/runtime_autoencoder_check.py --max-iter 1 --output output/my-autoencoder-expected-negative.json
+   ```
+
+   Our actual diagnostic stopped after one iteration with a convergence warning: exit1/synthetic_check_failed,0scored/3abstained, training attempted but reconstruction not attempted. This is the expected negative example, not “three safe observations.” Preserve it; never overwrite or force it into a pass.
+
+### What is finished, and what comes next?
+
+Fifty new autoencoder test cases; final full Linux1,148passed, Windows1,110passed/38platform-related skips, zero failures/errors. Lint,115-file formatting and dependency checks passed. Both final synthetic demonstrations passed; failed lint/precision/nonconvergence evidence is retained in [EVIDENCE](EVIDENCE.md), with problems/fixes in [INCIDENTS](INCIDENTS.md) and commands in WL-063 [WORK_LOG](WORK_LOG.md). These counts are software tests, not tested attacks or publication-ready accuracy.
+
+Next real-research prerequisites: actual supervisor-approved scope/guidelines, comparable captures with known timing/coverage/identity/context, independent human labels, grouped held-out evaluation, calibration, false alarms/misses/delay, measured overhead/energy and integration with Engine1 evidence. Software prototypes reduce implementation work but do not close those scientific gates. Earlier additions below are historical progress checkpoints, not a claim that today's autoencoder is missing.
+
 ## Current addition — synthetic-only machine-learning prototype, 6 October
 
 Engine2 now has an optional Isolation Forest software prototype alongside its unchanged default statistical baseline. We **did fit temporary models**, but only on invented development counts. No real telemetry, attacks, independent reviewers or approved study results were used. This is not Engine3, a production detector or confirmed threat detection.

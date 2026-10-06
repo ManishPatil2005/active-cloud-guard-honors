@@ -50,6 +50,73 @@ def compare_synthetic(
     ):
         if type(value) is not int or not low <= value <= high:
             raise ValueError("invalid bounded synthetic model parameter")
+    context = _prepare_synthetic(
+        baseline_paths, observation_path, inventory, window_seconds
+    )
+    training, grouped = context["training"], context["grouped"]
+    statistical = context["statistical"]
+    results, fitted = [], []
+    versions = {"python": sys.version.split()[0]}
+    for asset in sorted(grouped):
+        rows = training[asset]
+        status = _baseline_status(rows)
+        scores = [None] * len(grouped[asset])
+        if status == "uncalibrated_synthetic_score":
+            Forest, limits = _backend()
+            forest = Forest(
+                n_estimators=n_estimators,
+                max_samples=min(max_samples, len(rows)),
+                max_features=1.0,
+                contamination="auto",
+                bootstrap=False,
+                random_state=seed,
+                n_jobs=1,
+                warm_start=False,
+            )
+            with limits(limits=1):
+                forest.fit(rows)
+                matrix = [
+                    [row["counts"][name] for name in runtime.FEATURES]
+                    for row in grouped[asset]
+                ]
+                scores = [-float(score) for score in forest.score_samples(matrix)]
+            if any(not math.isfinite(score) or not 0 <= score <= 1 for score in scores):
+                raise RuntimeError("invalid synthetic isolation score")
+            fitted.append(
+                dict(
+                    asset_id=asset,
+                    training_window_count=len(rows),
+                    subsample_size=min(max_samples, len(rows)),
+                )
+            )
+        for row, score in zip(grouped[asset], scores, strict=True):
+            results.append(
+                dict(
+                    asset_id=asset,
+                    start_epoch=row["start_epoch"],
+                    status=status,
+                    isolation_score=None if score is None else round(score, 6),
+                    binary_prediction=None,
+                    observation_coverage="partial_or_unknown",
+                )
+            )
+    _unchanged_synthetic(context)
+    if fitted:
+        versions.update(_dependency_versions())
+    return _iforest_report(
+        statistical,
+        results,
+        fitted,
+        versions,
+        seed,
+        n_estimators,
+        max_samples,
+        window_seconds,
+    )
+
+
+def _prepare_synthetic(baseline_paths, observation_path, inventory, window_seconds):
+    """Shared bounded parsing/separation/window preparation, without model fitting."""
     if (
         not isinstance(baseline_paths, (list, tuple))
         or not 1 <= len(baseline_paths) <= 20
@@ -91,80 +158,65 @@ def compare_synthetic(
     grouped = defaultdict(list)
     for row in observations:
         grouped[row["asset_id"]].append(row)
-    results, fitted = [], []
-    versions = {"python": sys.version.split()[0]}
-    for asset in sorted(grouped):
-        rows = training[asset]
-        status = (
-            "insufficient_synthetic_baseline"
-            if len(rows) < MIN_WINDOWS
-            else "uninformative_synthetic_baseline"
-            if len({tuple(row) for row in rows}) < 2
-            else "uncalibrated_synthetic_score"
-        )
-        scores = [None] * len(grouped[asset])
-        if status == "uncalibrated_synthetic_score":
-            Forest, limits = _backend()
-            forest = Forest(
-                n_estimators=n_estimators,
-                max_samples=min(max_samples, len(rows)),
-                max_features=1.0,
-                contamination="auto",
-                bootstrap=False,
-                random_state=seed,
-                n_jobs=1,
-                warm_start=False,
-            )
-            with limits(limits=1):
-                forest.fit(rows)
-                matrix = [
-                    [row["counts"][name] for name in runtime.FEATURES]
-                    for row in grouped[asset]
-                ]
-                scores = [-float(score) for score in forest.score_samples(matrix)]
-            if any(not math.isfinite(score) or not 0 <= score <= 1 for score in scores):
-                raise RuntimeError("invalid synthetic isolation score")
-            fitted.append(
-                dict(
-                    asset_id=asset,
-                    training_window_count=len(rows),
-                    subsample_size=min(max_samples, len(rows)),
-                )
-            )
-        for row, score in zip(grouped[asset], scores, strict=True):
-            results.append(
-                dict(
-                    asset_id=asset,
-                    start_epoch=row["start_epoch"],
-                    status=status,
-                    isolation_score=None if score is None else round(score, 6),
-                    binary_prediction=None,
-                    observation_coverage="partial_or_unknown",
-                )
-            )
+    return dict(
+        training=training,
+        grouped=grouped,
+        statistical=statistical,
+        paths=[*baseline_paths, observation_path],
+        captures=[*captures, observation],
+        inventory=inventory,
+        inventory_hash=inventory_hash,
+        assets=assets,
+    )
+
+
+def _baseline_status(rows):
+    return (
+        "insufficient_synthetic_baseline"
+        if len(rows) < MIN_WINDOWS
+        else "uninformative_synthetic_baseline"
+        if len({tuple(row) for row in rows}) < 2
+        else "uncalibrated_synthetic_score"
+    )
+
+
+def _unchanged_synthetic(context):
     # Re-read all input identities after fit/score; not hostile filesystem attestation.
-    for path, expected in zip(
-        [*baseline_paths, observation_path], [*captures, observation], strict=True
-    ):
-        if runtime.load_capture(path, assets)["sha256"] != expected["sha256"]:
+    for path, expected in zip(context["paths"], context["captures"], strict=True):
+        if (
+            runtime.load_capture(path, context["assets"])["sha256"]
+            != expected["sha256"]
+        ):
             raise ValueError("capture changed during synthetic model comparison")
-    if load_inventory(inventory)[1] != inventory_hash:
+    if load_inventory(context["inventory"])[1] != context["inventory_hash"]:
         raise ValueError("inventory changed during synthetic model comparison")
-    if fitted:
-        versions.update(
-            {
-                name: metadata.version(name)
-                for name in (
-                    "scikit-learn",
-                    "numpy",
-                    "scipy",
-                    "joblib",
-                    "threadpoolctl",
-                    "narwhals",
-                    "cloudpickle",
-                )
-            }
+
+
+def _dependency_versions():
+    return {
+        name: metadata.version(name)
+        for name in (
+            "scikit-learn",
+            "numpy",
+            "scipy",
+            "joblib",
+            "threadpoolctl",
+            "narwhals",
+            "cloudpickle",
         )
+    }
+
+
+def _iforest_report(
+    statistical,
+    results,
+    fitted,
+    versions,
+    seed,
+    n_estimators,
+    max_samples,
+    window_seconds,
+):
     scored = sum(row["isolation_score"] is not None for row in results)
     return dict(
         protocol="runtime_synthetic_iforest_v1",

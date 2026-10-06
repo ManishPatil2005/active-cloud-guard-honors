@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Add synthetic-only reconstruction autoencoder to Engine 2
+
+- Reuse existing optional scikit-learn backend for baseline-only scaling and per-asset undercomplete MLP; no new packages, default engine/stack migration, binary threat classification, real-data authority or model serialization.
+- Extract shared synthetic input/baseline/postflight/version helpers; regression-check unchanged IF calculated results. Record actual fitting attempts, warning/nonconvergence abstention and scored/abstained denominators.
+- Add50cases; final combined97pass; Linux1,148pass/Windows1,110pass38skips, zero failures/errors; lint/format115files/bothpipchecks pass. Final cross-platform synthetic demonstrations pass six checks; deliberate one-iteration negative retained.
+- Preserve INC-053 fixture lint errors and INC-054 two-failure precision regression; fix misleading six-decimal zeros by retaining computed MSE. Keep historical rounded receipts unchanged. Update current/formal/nontechnical documentation; both model prototypes implemented software, independent real-data evaluation still open.
+
 ## 2026-10-06 - Add optional synthetic-only Isolation Forest comparator
 
 - Add isolated lazy pinned scikit-learn comparator, fixed synthetic runner, two development captures and separate dependency snapshot/optional extra; no existing package upgrades or default engine/stack change.

@@ -1,5 +1,19 @@
 # Incident and resolution ledger
 
+### INC-054 - 2026-10-06 - Reconstruction report rounded positive errors to zero
+
+**Raw-evidence publication note:** unrestricted staged whitespace check reports original pytest traceback whitespace only in this negative XML, lines8/48/52/53/54/66/71/74/77/81. Exact-one-artifact exclusion passes every other staged file; publication scanner still includes this artifact. Preserve its original SHA/staged blob, no source/test waiver or rewriting evidence.
+
+**Symptom/evidence:** source/report review found six-decimal rounding hid tiny positive reconstruction errors. New backend-equivalence/submicro-precision tests actually reproduced two failures:2failed95passed15.05s console/XML15.040, [raw negative](../output/engine2-autoencoder-target-precision-tests-20261006.xml), SHA e408f0ad53458ef7ef924d73a0c1d91349125b2d3a7b817dc3c7b69ba84d34fb. Earlier90/96passing targets and smoke receipts did not check this precision gap. A multi-file patch failed its context check and made no changes; tests were then added while the source fix had not yet applied, yielding this real reproduction. The smoke file named windows-precision was also still rounded, not final verification.
+
+**Cause confidence:** high from source/backend numerical comparison: positive errors4.339528655349761e-10/1.0777813399022286e-9 displayed0.0, and76.41925012830666 was shortened. **Fix:** retain computed float MSE, add exact backend-tolerance and tiny-positive regression tests; no feature/training/threshold/authority change. **Verification:** separate final97pass14.34s/XML14.331; final source-bound Windows/Linux demos, full suites in WL-063/EVIDENCE. Original negative and rounded receipts unedited; selected old digests do not supply full unarchived development source bytes. **Status/limits:** reporting defect fixed/software-tested; finite machine precision is not mathematical exactness, zero is not a security verdict, no independent detection evaluation follows.
+
+### INC-053 - 2026-10-06 - Shared test fixture imports failed lint
+
+**Symptom/evidence:** initial combined90tests passed8.59s/XML8.588, but Ruff emitted17diagnostics:3unused fixture/helper imports and14fixture name redefinitions. The shell sequence continued to pytest after lint failure; a passing XML did not mean lint passed. Original [90-case XML](../output/engine2-autoencoder-target-tests-20261006.xml) retained; no invented failed-test XML for a lint-only failure.
+
+**Cause confidence:** high from reported F401/F811/source: importing pytest fixtures into another module and using the same names in test parameters caused lint conflicts. **Fix:** extract plain make_bundle helper in test_runtime_ml.py, define own local bundle/dependency fixtures in autoencoder tests, remove unused imports. No blanket lint waiver or production validation change. **Verification:** expanded96case/final97case targets and final full-suite/lint/115file-format pass, commands in WL-063. **Status/limits:** test organization fixed, not an observed security/detector defect. Initial raw lint console output was not separately saved; exact diagnostic counts and types recorded here.
+
 ### INC-052 - 2026-10-06 - Synthetic ML summary claimed scores when every asset abstained
 
 **Raw-evidence formatting:** regression XML preserves pytest whitespace at lines26/32/51/80/86/105; initial INC-051 assertion XML line16 likewise. Unrestricted staged whitespace fails only these two raw negatives. Exact-two-artifact exclusion passes for every other staged file; publication scanner includes both. No source/test formatting waiver or editing of original negative bytes.

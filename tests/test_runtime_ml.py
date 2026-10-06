@@ -16,6 +16,10 @@ from test_runtime_intake import ROOT, save
 
 @pytest.fixture
 def bundle(tmp_path):
+    return make_bundle(tmp_path)
+
+
+def make_bundle(tmp_path):
     root = tmp_path / "ml"
     root.mkdir()
     for target, source in (

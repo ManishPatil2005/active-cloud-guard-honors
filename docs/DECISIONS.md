@@ -1,5 +1,13 @@
 # Decision register
 
+## ADR-053 - 2026-10-06 - Reuse optional backend for isolated synthetic reconstruction
+
+E2-037/E2-004/RQ3. Continue the user-authorized synthetic software branch, not real-data/supervisor authority. Use existing pinned StandardScaler/MLPRegressor rather than install another deep-learning framework or hand-build numerical backpropagation. The network reconstructs its own standardized input through a narrower hidden layer (4→2→4 by default); per-asset scaling/training baseline-only. Preserve exact same four features and statistical comparator. Share preparation/baseline/hash/version helpers with IF, regression-check its saved calculated output, allow legitimate implementation-hash changes. No default engine/CLI/intake/native23-source closure/dependency/stack change.
+
+Record actual fitting attempts even on optimizer warnings; warning-based abstention is separate from false real-data authority/independent evaluation. Validate finite loss/iteration/shape/MSE, bound dimensions/iteration/evaluation budgets and numerical threads without claiming resource sandboxing. Null binary predictions, complete partial/all-abstention denominators and unknown coverage. Keep computed MSE precision after INC-054, not six-decimal rounding that creates apparent perfect reconstruction. Raw MSE is not comparable to IF score magnitude, attack probability or a calibrated threshold. Model/scaler ephemeral, no serialized artifacts.
+
+Consequences: both optional synthetic models now have tested software implementations, but tiny correlated feature examples are not a validated detector, optimal architecture or sample-size design. Genuine approval/context/comparable timing/coverage/data/independent labels/grouped held-out evaluation/calibration/overhead/energy/integration remain open. Preserve INC-053 lint mistakes, INC-054 precision regression and deliberate nonconvergence receipt. Verification and publication in WL-063; [contract](SYNTHETIC_RUNTIME_AUTOENCODER.md). No supersession of real-study approval gates or earlier recorded negatives.
+
 ## ADR-052 - 2026-10-06 - Isolate optional synthetic Isolation Forest from real research fitting
 
 User proceeded with the offered offline/synthetic software branch, not supervisor approval. Add lazy pinned scikit-learn1.9.1 optional runtime-ml extra and a separate comparator/fixed-fixture runner, reuse existing feature/window/ID/group/event checks and original statistical report. No hand-built forest algorithm, default CLI/engine migration, autoencoder or third engine. Existing lockfiles remain historical; separate installed ML snapshot/actual output versions, no existing package upgrades.
