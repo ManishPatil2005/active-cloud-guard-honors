@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Review systemd jobs and add offline completion-evidence contract
+
+- Verify selected installed interface signatures via read-only introspection; review tagged subscription/job/cancellation semantics, no job submitted/canceled or Subscribe invoked.
+- Add isolated path/epoch/continuity-bound decoded-event contract with fast-signal buffering, sticky unknown and no service-quiescence/disarm authority;29synthetic regressions.
+- Windows669pass/3Linux-only skips; Linux672pass, lint/format94files/pipcheck pass. Native bus/fence integration still absent; E2-030/032 safety gates remain partial, historical evidence preserved.
+
 ## 2026-10-06 - Add isolated inert guest-side session fencing prototype
 
 - Add terminal session seal before bounded Linux file-lock acquisition, exclusive intent/completion records, strict inert request and duplicate-effect refusal.

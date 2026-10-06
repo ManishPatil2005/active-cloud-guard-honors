@@ -1,5 +1,9 @@
 # Evidence index
 
+## Systemd job schema review and offline contract (2026-10-06)
+
+[Report](SYSTEMD_JOB_CONTRACT.md), [manual interface summary](../output/engine2-systemd-interface-review-20261006.json), [Windows669pass/3skips](../output/engine2-systemd-job-windows-tests-20261006.xml), [Linux672pass](../output/engine2-systemd-job-linux-tests-20261006.xml). Actual selected Manager Introspect signatures only; job examples synthetic, no Subscribe/control/native job completion.29additions/no disarm or service-quiescence authority; older643reports/native receipts unchanged.
+
 ## Isolated guest fence software/inert process checks (2026-10-06)
 
 [Report](GUEST_FENCE_PROTOTYPE.md), [Windows640pass/3skips](../output/engine2-guest-fence-windows-tests-20261006.xml), [Linux643pass](../output/engine2-guest-fence-linux-tests-20261006.xml):33new cases, three Linux-only actual inert file/process integrations. Terminal seal blocks a queued cooperating worker; killed holder leaves submitted operation unknown. Detached job may still execute outside gate. No service/job/native integration or causal/stability/ML evidence; prior610reports/live receipts unchanged.

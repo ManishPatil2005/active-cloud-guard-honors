@@ -1,0 +1,21 @@
+{
+  "artifact_kind": "manual_summary_of_read_only_introspection",
+  "review_date": "2026-10-06",
+  "distribution": "ACG-Research",
+  "reader": "acgresearch",
+  "interface": "org.freedesktop.systemd1.Manager",
+  "object_path": "/org/freedesktop/systemd1",
+  "signatures": {
+    "StopUnit": {"input": "ss", "output": "o"},
+    "StartUnit": {"input": "ss", "output": "o"},
+    "Subscribe": {"input": "", "output": ""},
+    "CancelJob": {"input": "u", "output": ""},
+    "JobRemoved": {"signal_arguments": "uoss"}
+  },
+  "services_changed": false,
+  "jobs_submitted_or_canceled": false,
+  "subscribe_invoked": false,
+  "native_job_completion_observed": false,
+  "interface_schema_only": true,
+  "authenticated_provenance": false
+}

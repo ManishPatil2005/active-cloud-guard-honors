@@ -1,5 +1,7 @@
 # Inert guest-side session fence (E2-031)
 
+Later6October: [E2-032 systemd evidence contract](SYSTEMD_JOB_CONTRACT.md) adds source/actual read-only schema review and isolated decoded-event matching tests. Not connected to this fence or native service calls; guest job-binding safety still open. Historical643-test statements below remain checkpoint-specific.
+
 ## Status — 6 October 2026
 
 Implemented and software-tested as an **isolated inert prototype**, not connected to the native comparison transport/helper. No real time service, clock setting, Docker or sensor command was selected. Engine 1, the existing comparison sources/native observer and historical receipts are unchanged. E2-030's native safety gate is still partial: this establishes admission/serialization mechanics for cooperating prototype workers, not elimination of already-submitted systemd jobs.

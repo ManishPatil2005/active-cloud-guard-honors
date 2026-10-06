@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-042 - 2026-10-06 - Job reply/cancel is not completion or recovery authority
+
+Model returned-path JobRemoved evidence only after acknowledged subscription/match declarations, accepting fast completion before reply while poisoning identity/disconnect/continuity/malformed/replayed/overflow faults permanently. Require exact tracked done for consistent success; skipped/canceled/other results not elevated even though upstream command may treat skipped as success. No native bus adapter chosen/installed; contract never grants service-quiescence/disarm authority or authenticates supplied records. Read installed schema only, no Subscribe/job controls. Durable job/guest fencing and lost-reply recovery remain unresolved; SYSTEMD_JOB_CONTRACT.md / E2-032 partial.
+
 ## ADR-041 - 2026-10-06 - Prove guest fence mechanics inertly before binding real jobs
 
 Build isolated InertGuestFence with a terminal seal published before lock acquisition, guest Linux advisory serialization and exclusive effect metadata. Reject duplicate/late/expired participating dispatch; persist unknown for interrupted/detached jobs instead of declaring job drain from holder death. Use real Linux temporary-file processes but no systemctl/subprocess in the library, no native integration or source-list change. Windows exercises simulated locking and explicitly skips Linux-only integration. Trusted local storage/callback assumptions and lost-submission/systemd-job binding remain prerequisites; E2-030 not complete. GUEST_FENCE_PROTOTYPE.md.
