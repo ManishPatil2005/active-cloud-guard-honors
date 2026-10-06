@@ -2,6 +2,10 @@
 
 Task E2-003. Preserve Windows as the development host and the existing Python/Docker Compose/Ollama/Chroma architecture. Installing a Linux distribution is environment provisioning, not completion of Engine 2.
 
+## Runtime availability recovery, 6 October 2026
+
+INC-045 recorded unavailable expected Docker Desktop guest mount/CLI target and local Windows engine pipe. Following the explicit startup question and user's approval, started the verified installed Docker Desktop Hidden; local Windows/ACG-Research engine29.8.0 answered again. No integration/PATH/configuration change, WSL restart or manual container start/recreation. Later running-container count0 and required named-sensor queries returned no IDs; scoped snapshots, not continuous/transient absence. The earlier failed precheck is preserved unchanged. [One read-only native receiver observation](SYSTEMD_RECEIVER_CAPTURE.md) then completed setup/release/close with0selected events, not Falco/job-fencing/timing/ML validation. Current engine API availability does not mean the stopped testbed/model services have been started or benchmark-ready. Historical setup checkpoints below retain their original observations.
+
 ## Observed host, 25 September 2026
 
 - WSL 2.7.3.0; reported kernel 6.6.114.1-1; default version 2.

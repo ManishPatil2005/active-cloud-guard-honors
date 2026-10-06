@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Recover local Docker availability and observe receiver setup read-only
+
+- Start installed Docker Desktop with explicit user approval; verify local Windows/guest engine29.8.0 and required sensor inventory, preserve earlier unavailable-engine precheck.
+- Run published native receiver exactly once:50process calls/0selected events, epoch/notification acknowledgements/release/close/child reap pass. Save actual minimized start/result and manual context plus offline source/schema/digest review.
+- No time-service jobs/settings, clocks, WSL restart, sensor/model workload, stack/source or old evidence changes. Native event callback/fault/durable gate/timing/ML validation remains open; previous755Windows/5skips/760Linux suites unchanged.
+
 ## 2026-10-06 - Preserve receiver precheck refusal without native launch
 
 - Verify published launcher/protocol SHA against GitHub, then record failed guest known-sensor query: Docker Desktop mount/CLI symlink target missing, local Windows engine pipe unavailable.

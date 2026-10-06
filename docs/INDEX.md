@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest live receiver result: [one read-only observation](SYSTEMD_RECEIVER_CAPTURE.md), after authorized Docker Desktop recovery and fresh required prechecks. Native match/Subscribe/epoch/Unsubscribe/close and child reaping passed;50process calls,0selected events. Actual minimized start/result receipts retained, no job/service/clock/sensor action. Zero events does not validate native callback delivery/fencing or timing/ML; INC-045 availability recovered, earlier failure preserved.
+
 Latest precheck result: [receiver capture gate](SYSTEMD_RECEIVER_CAPTURE.md), expected Docker Desktop guest mount/CLI target and local Windows engine pipe unavailable. Named-sensor inventory unknown; per published protocol native observation **not launched**. Read-only diagnosis/manual minimized summary, INC-045; no Docker/settings/service intervention. Restore local engine availability with operator direction before the pending observation.
 
 Latest launcher/protocol: [exclusive read-only receiver capture](SYSTEMD_RECEIVER_CAPTURE.md),34new cases; Windows755pass/5Linux-only skips, Linux760pass. Durable exclusive start/result records, supervised child/deadlines and selected receipt/source checks; one native observation declared for after publication, not yet run. No service/control/sensor/clock action.

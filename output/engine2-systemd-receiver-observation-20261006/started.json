@@ -1,0 +1,12 @@
+{
+  "protocol": "systemd_receive_capture_v1",
+  "status": "started",
+  "planned_attempts": 1,
+  "recorded_at": "2026-10-06T03:54:34.617981+00:00",
+  "window_seconds": 5,
+  "child_timeout_seconds": 20,
+  "native_alarm_seconds": 18,
+  "cleanup_timeout_seconds": 2,
+  "services_modified": false,
+  "jobs_submitted_or_canceled": false
+}

@@ -6,9 +6,11 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
-Current execution gate (6 October 2026): the published receiver launcher passed software checks, but the [required Docker availability/sensor-inventory precheck failed](docs/SYSTEMD_RECEIVER_CAPTURE.md). The native receiver was **not launched**; expected Docker Desktop guest mount/CLI target and local engine pipe are unavailable. No services/settings/Docker startup/restart changed. Restore local lab availability with operator direction before the pending read-only observation; this does not alter the architecture or establish a clock cause.
+Latest live engineering observation (6 October 2026): after explicitly authorized Docker Desktop recovery, the [read-only receiver check](docs/SYSTEMD_RECEIVER_CAPTURE.md) completed once with notification registration, identity continuity, release/close and child reaping checks passing. 50 process calls, **0 selected completion events**: this validates bounded setup/cleanup, not native event delivery, job fencing or timing/ML. No time-service/clock setting or default-engine/source change. Actual minimized receipts and the earlier failed precheck are preserved.
 
-Latest engineering check (6 October 2026): **Windows755tests passed/5Linux-only skips; Linux760tests passed**. The [exclusive read-only receiver launcher](docs/SYSTEMD_RECEIVER_CAPTURE.md) preserves start/outcome records and adds bounded supervision/source/schema guards.34new cases include two actual inert Linux child tests, not service operations. One native notification observation is declared for after publication/prechecks; not yet executed at this checkpoint. Engine1 and existing stack are unchanged; job fencing, timing reliability and independent ML evaluation remain open.
+Earlier execution gate (6 October 2026): the [Docker availability/sensor-inventory precheck failed](docs/SYSTEMD_RECEIVER_CAPTURE.md), so no native receiver was launched at that checkpoint. The expected local engine/integration was subsequently recovered with explicit user-authorized Desktop startup; the failed evidence remains unchanged. This does not establish why Desktop was previously unavailable or a research clock cause.
+
+Latest software check (implementation checkpoint, 6 October 2026): **Windows 755 tests passed/5 Linux-only skips; Linux 760 tests passed**. The [exclusive read-only receiver launcher](docs/SYSTEMD_RECEIVER_CAPTURE.md) preserves start/outcome records and adds bounded supervision/source/schema guards. 34 new cases include two actual inert Linux child tests, not service operations. Native observation was pending at that checkpoint and subsequently completed as reported above. Engine 1 and existing stack are unchanged; job fencing, timing reliability and independent ML evaluation remain open.
 
 Previous receiver checkpoint (6 October 2026): Windows723tests passed/3Linux-only skips; Linux726tests passed. The [isolated read-only systemd receiver](docs/SYSTEMD_RECEIVER.md) adds54synthetic/C-level regressions and verified installed-library ABI/exports. Real notification reception and durable job/fence integration remain unverified; no subscription or service-control operation executed in that milestone. This is research safety instrumentation, not a clock fix, validated anomaly model or production readiness.
 
@@ -44,7 +46,7 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has an **observatio
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | Frozen Engine 1 baseline; Engine 2 replay, live instrumentation and timing validation |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 6 October 2026;755Windows passes/5Linux-only skips,760Linux passes; receiver precheck failed/no native launch because local Docker API/integration unavailable; job-fence/timing/cause/ML gates open, Engine1 observations historical |
+| Evidence snapshot | 6 October 2026; earlier755Windows passes/5Linux-only skips,760Linux passes; one native read-only setup/cleanup observation after authorized Docker recovery,0selected events; native callback/job-fence/timing/cause/ML gates open, Engine1 observations historical |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions

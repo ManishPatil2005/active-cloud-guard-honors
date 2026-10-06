@@ -1,0 +1,75 @@
+{
+  "protocol": "systemd_receive_capture_v1",
+  "status": "observed",
+  "stage": "complete",
+  "receiver": {
+    "protocol": "systemd_receive_readonly_v1",
+    "status": "observed",
+    "stage": "complete",
+    "backend": {
+      "library_path": "/usr/lib/x86_64-linux-gnu/libsystemd.so.0.38.0",
+      "library_sha256": "bdf59c828b547bcdbe7b3576c0810d9d9d2e982d8b61b365812542da6a4c4a99",
+      "abi": "linux-x86_64-lp64-little-glibc2.39",
+      "uid": 1000
+    },
+    "window_seconds": 5,
+    "process_limit": 512,
+    "process_calls": 50,
+    "events": [],
+    "matches_acknowledged": true,
+    "subscription_acknowledged": true,
+    "continuity_checks_passed": true,
+    "subscription_released": true,
+    "connection_closed": true,
+    "jobs_submitted_or_canceled": false,
+    "services_modified": false,
+    "native_binding_verified": false,
+    "service_quiesced_verified": false,
+    "may_disarm_recovery": false,
+    "epoch_before": {
+      "boot_sha256": "b17e2e22ab8432bb350fb8d4b50e2747ad490fd0b073c17efbd587abb40c627b",
+      "bus_id": "fd05cd33dee53a35349b7b8e6ac470a4",
+      "manager_owner": ":1.2"
+    },
+    "epoch_after": {
+      "boot_sha256": "b17e2e22ab8432bb350fb8d4b50e2747ad490fd0b073c17efbd587abb40c627b",
+      "bus_id": "fd05cd33dee53a35349b7b8e6ac470a4",
+      "manager_owner": ":1.2"
+    },
+    "source_sha256": {
+      "cloudguard/systemd_receiver.py": "148d8975ddbd3411313f47d954cf479cda85312cbd193cd01fd7463758f25c55",
+      "cloudguard/systemd_job.py": "ea0492e62a87ab7571bacb242bb6192c410277bf565f82115cd5494bc7e47917",
+      "cloudguard/__init__.py": "d79637703344258cb0d403a6d78e2b10a60f0a81eb01562c4f7a09ee5b306104"
+    },
+    "source_sha256_after": {
+      "cloudguard/systemd_receiver.py": "148d8975ddbd3411313f47d954cf479cda85312cbd193cd01fd7463758f25c55",
+      "cloudguard/systemd_job.py": "ea0492e62a87ab7571bacb242bb6192c410277bf565f82115cd5494bc7e47917",
+      "cloudguard/__init__.py": "d79637703344258cb0d403a6d78e2b10a60f0a81eb01562c4f7a09ee5b306104"
+    },
+    "library_sha256_after": "bdf59c828b547bcdbe7b3576c0810d9d9d2e982d8b61b365812542da6a4c4a99"
+  },
+  "services_modified": false,
+  "jobs_submitted_or_canceled": false,
+  "may_disarm_recovery": false,
+  "source_sha256": {
+    "scripts/systemd_receiver_capture.py": "849b445afde3b1e98f47b0cc85b72df99e31d354de8931f35bc5576f98594490",
+    "cloudguard/systemd_receiver.py": "148d8975ddbd3411313f47d954cf479cda85312cbd193cd01fd7463758f25c55",
+    "cloudguard/systemd_job.py": "ea0492e62a87ab7571bacb242bb6192c410277bf565f82115cd5494bc7e47917",
+    "cloudguard/__init__.py": "d79637703344258cb0d403a6d78e2b10a60f0a81eb01562c4f7a09ee5b306104"
+  },
+  "process": {
+    "child_started": true,
+    "child_reaped": true,
+    "timed_out": false,
+    "cleanup_signal": null,
+    "exit_code": 0
+  },
+  "child_stdout_sha256": "6b9a6233d0f13fe530bcf6ce44f0fc43119238ad91bf6685a17c40b6af7a6a5e",
+  "child_stdout_bytes": 2697,
+  "source_sha256_after": {
+    "scripts/systemd_receiver_capture.py": "849b445afde3b1e98f47b0cc85b72df99e31d354de8931f35bc5576f98594490",
+    "cloudguard/systemd_receiver.py": "148d8975ddbd3411313f47d954cf479cda85312cbd193cd01fd7463758f25c55",
+    "cloudguard/systemd_job.py": "ea0492e62a87ab7571bacb242bb6192c410277bf565f82115cd5494bc7e47917",
+    "cloudguard/__init__.py": "d79637703344258cb0d403a6d78e2b10a60f0a81eb01562c4f7a09ee5b306104"
+  }
+}

@@ -1,5 +1,9 @@
 # Evidence index
 
+## One read-only native receiver setup observation (2026-10-06)
+
+[Report](SYSTEMD_RECEIVER_CAPTURE.md), [actual start](../output/engine2-systemd-receiver-observation-20261006/started.json), [actual native result](../output/engine2-systemd-receiver-observation-20261006/result.json), [manual live context](../output/engine2-systemd-receiver-live-context-20261006.json). After authorized Desktop recovery/fresh successful gate, one native run50process calls/0selected events, epoch/Subscribe/Unsubscribe/close/source and child reaping checks pass. Offline selected schema/hash/serialization reproduced, no raw stdout retained/authentication claim. No native JobRemoved callback/fault/job-binding/time-service control/timing/ML proof; prior unavailable-engine summary and760case XML unchanged.
+
 ## Receiver precheck refusal, no native observation (2026-10-06)
 
 [Result/protocol](SYSTEMD_RECEIVER_CAPTURE.md), [minimized manual summary](../output/engine2-systemd-receiver-precheck-20261006.json). Verified implementation commit/source hashes; service snapshot/timeout available but guest Docker mount/CLI target and verified local Windows engine pipe unavailable. Required named-sensor inventory unknown, native capture not launched; no subscription/job/service/Docker/settings/restart action. INC-045 preserves actual precheck failure; this is not a native receive receipt, sensor absence proof or timing/ML acceptance. Implementation760case XML unchanged.

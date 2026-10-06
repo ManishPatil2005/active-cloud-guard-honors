@@ -1,6 +1,43 @@
 # Exclusive receiver capture and one-observation protocol (E2-033 follow-up)
 
-## Latest outcome — precheck failed, native observation not launched
+## Latest native outcome — one read-only observation completed
+
+On6October, following the explicit startup question and the user's "proceed and continue," started the already-installed Docker Desktop with `Start-Process -WindowStyle Hidden`. No integration/PATH settings, WSL restart or manual container startup/recreation. Both verified local Windows and ordinary-user ACG-Research Docker queries subsequently reported server29.8.0; required known-sensor query succeeded with no IDs. Later local running-container count was0; this snapshot does not exclude automatic transient startup effects. INC-045 availability blocker **recovered at these checks**, earlier failed summary preserved unchanged; why Desktop was previously unavailable remains unproven.
+
+Clean execution checkout `15e751c0bdbc56a74996da998e8c91bb7906e49a` matched GitHub main before launch. Four source hashes remained identical to implementation `a9cc57d6e815ead96ec4e77acca32cf685a599a8`. The unused exclusive observation directory was absent; selected timesyncd state active/running/enabled and GNUtimeout9.4 available. Recovery was separately authorized before the fresh precheck, not an unrequested startup or relaxation of a failed gate.
+
+Executed the exact predeclared ordinary-user command below **once**, exit0/status observed/stage complete. [Started receipt](../output/engine2-systemd-receiver-observation-20261006/started.json) and [native result](../output/engine2-systemd-receiver-observation-20261006/result.json) are actual minimized launcher outputs; [context summary](../output/engine2-systemd-receiver-live-context-20261006.json) manually transcribes setup/pre/post tool observations, not an authenticated trace. No retries or replacements, no manufactured completion job.
+
+Native result:50process calls in the fixed five-nominal-second window, **zero selected JobRemoved events**. All selected match/subscription acknowledgements, epoch/readiness checks, unsubscribe acknowledgement and connection close reported successful. Boot hash/bus ID/manager unique owner stayed equal before/after, manager owner `:1.2`; reviewed library/source hashes equal before/after. Parent reaped child exit0, no timeout or terminate/kill cleanup signal. This establishes bounded live connection/setup/release/cleanup observation only. It does **not** exercise the native JobRemoved callback path, disconnection, manager replacement, tracked job binding, durable gate/recovery or loss-free delivery.
+
+Zero events is not proof of no jobs or a clean/safe service verdict. Native-binding/service-quiescence/recovery-disarm flags remain false. No StopUnit/StartUnit/CancelJob, time-service/kernel/Windows clock setting, WSL restart, sensor/model/Redis workload. Explicit Docker Desktop startup is the separate environmental action; the receiver's `services_modified=false` describes its own no-service-control behavior, not a claim Docker was never started.
+
+Postchecks: selected timesyncd active/running/enabled again; required named sensor inventory returned no IDs. Ordinary-user `/proc/*/cmdline` snapshot found0matching `scripts/systemd_receiver_capture.py` observe/native-child processes and0unreadable/disappeared entries. Scoped snapshot, not exhaustive process/host attestation. No process was killed based on enumeration.
+
+Offline Windows review: strict JSON/limits and selected native schema/backend/epochs/events/flags; exact parent/process status; current source mapping equals saved pre/post mapping. Reconstructed the child envelope with the published serialization order/newline:2697bytes and SHA256 matched retained stdout digest. This is deterministic selected-receipt consistency, **not** authentication of the missing raw stream or independent evaluation. No native rerun. Native receipt hashes/lengths:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| started.json |333|6bb3c1fe25f272b3ec2dba91d5e0238ebe344af284b29b8f3e65ac34b0702ee4|
+| result.json |3362|f19dc13c3a9a9b601a45cf7d68061f50817b8fabb584e99f67c773ec7e8f3a3c|
+
+Safe offline selected-native/source check from the repository root (does not open a bus, change files or rerun capture):
+
+```powershell
+.venv/Scripts/python.exe -c "from scripts import systemd_receiver_capture as c; r=c.strict_json((c.RUN_DIR/'result.json').read_bytes()); expected=c.source_hashes(); assert r['source_sha256']==r['source_sha256_after']==expected; c.checked_receiver(r['receiver'],expected); assert r['process']['child_reaped'] and r['process']['exit_code']==0; print('Selected receipt/source checks passed')"
+```
+
+This is a revision-specific consistency check, not a comprehensive offline authenticity reviewer. Older receipts must be checked against their execution revision if sources later change.
+
+Actual startup command: `Start-Process -FilePath 'C:\Program Files\Docker\Docker\Docker Desktop.exe' -WindowStyle Hidden -PassThru` after resolving that exact installed file. Native command unchanged:
+
+```powershell
+wsl -d ACG-Research -u acgresearch --cd '/mnt/d/research f1' --exec /usr/bin/timeout --signal=TERM --kill-after=2s 30s /home/acgresearch/acg-venv/bin/python scripts/systemd_receiver_capture.py --observe
+```
+
+Post `/proc` check used only selected argv suffix/observe/native-child markers and printed counts, not arbitrary raw process arguments. No source change/full suite rerun in this observation milestone; latest755Windows/5skips/760Linux tests remain earlier software evidence. WL-054 documents actual commands/publication. Next: validate native selected callback/FFI decode/lifetime and fault behavior with inert/private fixtures, then durable guest gate/job binding; no time-service intervention consent or safety completion implied. Engine1, default engines/stack/controller/fence/native-clock sources and old receipts unchanged. Historical precheck/protocol checkpoints below are retained, not current pending-state assertions.
+
+## Earlier outcome — precheck failed, native observation not launched
 
 Implementation published as `a9cc57d6e815ead96ec4e77acca32cf685a599a8`, GitHub main/local SHA matched and working tree was clean. The planned native observation was **not launched**: required known-sensor enumeration failed before capture. [Minimized precheck summary](../output/engine2-systemd-receiver-precheck-20261006.json) manually transcribes the actual tool outputs; it is not a native observation receipt or authenticated trace. INC-045 / WL-053.
 
