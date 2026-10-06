@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Add optional synthetic-only Isolation Forest comparator
+
+- Add isolated lazy pinned scikit-learn comparator, fixed synthetic runner, two development captures and separate dependency snapshot/optional extra; no existing package upgrades or default engine/stack change.
+- Fit per asset on synthetic baseline windows only; no calibrated threat threshold, binary ML predictions, labels, serialized models or real-data authority. Preserve missing/constant baseline abstention and all scored/abstained denominators.
+- Add47tests; finalLinux1,098pass/Windows1,060pass38skips,0failures/errors; targeted47pass/lint-format112files/bothpipchecks pass. Final cross-platform demos agree on3scores/all6checks.
+- Preserve INC-051 test mistakes/negative XMLs, INC-052 reporting defect/reproduced2failures/fix and preliminary passing suites/examples. Update all research/current/nontechnical ledgers; real approval/data/evaluation/autoencoder/overhead/integration remain open.
+
 ## 2026-10-06 - Export validated observed annotation-unit keys
 
 - Add coordinator-only annotation_index/opt-in --annotation-index, sorted observed run/asset/epoch keys after existing intake checks. No votes/reasons/features/splits or invented labels; not a blinded packet/approval/eligibility.

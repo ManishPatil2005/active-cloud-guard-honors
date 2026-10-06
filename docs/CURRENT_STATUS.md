@@ -1,6 +1,14 @@
 # Active Cloud Guard — current capability and research status
 
-## Latest refinement — coordinator annotation-unit index
+## Latest milestone — isolated synthetic Isolation Forest software
+
+[Optional comparator](SYNTHETIC_RUNTIME_ML.md) implemented/software-tested for **declared synthetic development data only**. This is an additional Engine2 experiment path, not a third engine or default replacement. It fits temporary per-asset Isolation Forests on baseline windows, emits continuous uncalibrated scores/null binary predictions, and explicitly counts scored/abstained units. Actual synthetic fitting occurred; real-data approval/fitting/independent evaluation remain false. Default statistical replay/intake/Engine1 unchanged. Autoencoder, calibrated real-data comparison, timing/coverage, independent labels, overhead/energy and integration remain open.
+
+Final [Linux XML](../output/engine2-synthetic-iforest-linux-final-tests-20261006.xml): **1,098 passed**,93.06s console/XML89.757; [Windows XML](../output/engine2-synthetic-iforest-windows-final-tests-20261006.xml): **1,060 passed / 38 skips**,20.80s/XML20.792. Both1,098collected/zero failures/errors. [Final targeted XML](../output/engine2-synthetic-iforest-target-final-fixed-tests-20261006.xml):47passed3.27s/XML3.270; lint/format112files, both pipchecks pass. [Final Windows](../output/engine2-synthetic-iforest-windows-final-20261006.json)/[Linux](../output/engine2-synthetic-iforest-linux-final-20261006.json) fixed demos: all6checks pass, same3scores,3scored/0abstained, no labels/binary threat predictions/actions. Software receipts, not independent threat/clock/performance evidence.
+
+Optional scikit-learn1.9.1/packages installed in existing environments with no existing package upgrades; Python/Compose/Ollama/Chroma/core deps preserved. INC-051 retains two test failures; INC-052 reproduces/fixes misleading all-abstention summary, with raw negative/preliminary positive artifacts kept. WL-062/ADR-052. User authorized offered synthetic-development branch, **not supervisor approval**; actual human/context/comparable-data gates still next for real research. No real telemetry/native/service/clock/model deployment or response action. Earlier checkpoints below historical.
+
+## Earlier refinement — coordinator annotation-unit index (historical checkpoint)
 
 [Offline unit index](RUNTIME_ANNOTATION_INDEX.md) implemented: opt-in --annotation-index/annotation_index projects sorted observed run/asset/epoch keys using existing intake checks. No votes/reasons/features/splits, labels, approval, blinding or model/action authority created. Default v1/typed reports exactly match saved results. This is a coordinator allocation aid, not a blinded packet: identifiers/epochs/hashes may reveal scenarios. E2-035 remains partial; actual supervisor decisions/comparable data/humans still next.
 
@@ -26,6 +34,7 @@ Updated 6 October 2026. This is the current status summary; dated implementation
 |---|---|---|
 | Engine 1 engineering baseline | Configuration checks, retrieval/local-model transport, scoped probes, bounded reuse and reviewed service observations | Frozen engine1-v2.2 at commit 6736a577f1ba08b4700daf8a86370ec3bbd1c019; [baseline](ENGINE1_BASELINE.md). Independent effectiveness/latency/hallucination/TCI calibration remain open |
 | Engine 2 runtime baseline | Saved normalized captures, identity/schema validation, nonempty time windows, statistical count-deviation comparator | cloudguard/runtime.py; [foundation](ENGINE2_FOUNDATION.md). Model is statistical, uncalibrated, observation-only; low score is not safety |
+| Optional runtime ML software | Synthetic-only per-asset Isolation Forest, continuous scores/abstentions, unchanged statistical comparator side by side | [Prototype](SYNTHETIC_RUNTIME_ML.md), E2-036; implemented/software-tested, actual synthetic fitting. Not approved real-data model, binary threat classifier or independent evaluation |
 | Engine 2 telemetry tooling | Separate bounded Falco capture, saved-data normalization, selected readiness/identity/drop metrics and correlation diagnostics | [Instrumentation](ENGINE2_INSTRUMENTATION.md), [adapter](ENGINE2_ADAPTER.md). Not a continuously integrated sensor or independent threat benchmark; coverage/clock stability unresolved |
 | Supporting refinements | Timing diagnosis, receiver, private native callback tests and inert durable job/fence records | [Receiver](SYSTEMD_RECEIVER_CAPTURE.md), [native fixtures](NATIVE_CALLBACK_VALIDATION.md), [inert gate](DURABLE_JOB_GATE.md). Experimental-safety mechanisms, not additional engines or anomaly-detection models |
 | Full runtime research objectives | Not yet independently established | Runtime labels/grouped held-out data, planned ML comparisons, calibrated detection/false alarms/misses/delay/overhead and Engine1/runtime evidence integration remain open |
@@ -33,7 +42,7 @@ Updated 6 October 2026. This is the current status summary; dated implementation
 
 The current replay output now includes implementation_scope for **runtime_replay_baseline** only: status implemented; saved sensor exports supported; live input/trained ML/independent detection evaluation/automatic response false. It no longer claims the entire repository has no eBPF collector. Acquisition/normalization are separate experimental paths. Added metadata/text do not change scores, thresholds, windows or leakage guards.
 
-No Isolation Forest/autoencoder, validated runtime threat classifier, automated cloud isolation, integrated runtime TCI contribution or production deployment is claimed. The original first-three-month engineering milestone principally concerned Engine1; later runtime objectives are not retrospectively required/declared completed. See [deck audit](DECK_AUDIT.md), [requirements](PRD.md), [tasks](../TASKS.md).
+The isolated synthetic Isolation Forest software path is now implemented above; no real-data validated Isolation Forest/autoencoder, runtime threat classifier, automated cloud isolation, integrated runtime TCI contribution or production deployment is claimed. Original first-three-month engineering scope principally concerned Engine1; later runtime objectives are not retrospectively declared completed. See [deck audit](DECK_AUDIT.md), [requirements](PRD.md), [tasks](../TASKS.md).
 
 ## Current verification, not effectiveness
 

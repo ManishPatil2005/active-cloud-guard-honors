@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="0.220" timestamp="2026-10-06T19:55:41.921543+05:30" hostname="Welcome"><testcase classname="tests.test_runtime_ml" name="test_missing_or_uninformative_windows_abstain_without_backend[empty_observation]" time="0.043" /><testcase classname="tests.test_runtime_ml" name="test_missing_or_uninformative_windows_abstain_without_backend[few_training_windows]" time="0.032"><failure message="AssertionError: assert 'synthetic_scores_computed' == 'synthetic_scoring_abstained'&#10;  &#10;  - synthetic_scoring_abstained&#10;  + synthetic_scores_computed">bundle = WindowsPath('D:/research f1/tmp/synthetic-iforest-abstention-regression-win-20261006-01/test_missing_or_uninformative_1/ml')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A92E8B2ED0&gt;
+kind = 'few_training_windows'
+
+    @pytest.mark.parametrize(
+        "kind", ["empty_observation", "few_training_windows", "constant_training"]
+    )
+    def test_missing_or_uninformative_windows_abstain_without_backend(
+        bundle, monkeypatch, kind
+    ):
+        if kind == "empty_observation":
+            edit(bundle, "observation.json", lambda value: value.update(events=[]))
+        elif kind == "few_training_windows":
+            edit(
+                bundle,
+                "train.json",
+                lambda value: value.update(
+                    events=[
+                        event
+                        for event in value["events"]
+                        if int(event["timestamp"][14:16]) &lt; 7
+                    ]
+                ),
+            )
+        else:
+    
+            def constant(value):
+                selected = {}
+                for event in value["events"]:
+                    selected.setdefault(event["timestamp"][:16], event)
+                value["events"] = list(selected.values())
+    
+            edit(bundle, "train.json", constant)
+        monkeypatch.setattr(ml, "_backend", lambda: pytest.fail("no model should fit"))
+        result = execute(bundle)
+        assert result["fitted_assets"] == []
+        assert result["synthetic_fitting_performed"] is False
+        assert result["synthetic_scoring_performed"] is False
+        assert all(row["isolation_score"] is None for row in result["windows"])
+        if kind == "empty_observation":
+            assert result["windows"] == [] and result["status"] == "no_observations"
+        else:
+            expected = (
+                "insufficient_synthetic_baseline"
+                if kind == "few_training_windows"
+                else "uninformative_synthetic_baseline"
+            )
+            assert {row["status"] for row in result["windows"]} == {expected}
+&gt;           assert result["status"] == "synthetic_scoring_abstained"
+E           AssertionError: assert 'synthetic_scores_computed' == 'synthetic_scoring_abstained'
+E             
+E             - synthetic_scoring_abstained
+E             + synthetic_scores_computed
+
+tests\test_runtime_ml.py:235: AssertionError</failure></testcase><testcase classname="tests.test_runtime_ml" name="test_missing_or_uninformative_windows_abstain_without_backend[constant_training]" time="0.031"><failure message="AssertionError: assert 'synthetic_scores_computed' == 'synthetic_scoring_abstained'&#10;  &#10;  - synthetic_scoring_abstained&#10;  + synthetic_scores_computed">bundle = WindowsPath('D:/research f1/tmp/synthetic-iforest-abstention-regression-win-20261006-01/test_missing_or_uninformative_2/ml')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A92E8C9580&gt;
+kind = 'constant_training'
+
+    @pytest.mark.parametrize(
+        "kind", ["empty_observation", "few_training_windows", "constant_training"]
+    )
+    def test_missing_or_uninformative_windows_abstain_without_backend(
+        bundle, monkeypatch, kind
+    ):
+        if kind == "empty_observation":
+            edit(bundle, "observation.json", lambda value: value.update(events=[]))
+        elif kind == "few_training_windows":
+            edit(
+                bundle,
+                "train.json",
+                lambda value: value.update(
+                    events=[
+                        event
+                        for event in value["events"]
+                        if int(event["timestamp"][14:16]) &lt; 7
+                    ]
+                ),
+            )
+        else:
+    
+            def constant(value):
+                selected = {}
+                for event in value["events"]:
+                    selected.setdefault(event["timestamp"][:16], event)
+                value["events"] = list(selected.values())
+    
+            edit(bundle, "train.json", constant)
+        monkeypatch.setattr(ml, "_backend", lambda: pytest.fail("no model should fit"))
+        result = execute(bundle)
+        assert result["fitted_assets"] == []
+        assert result["synthetic_fitting_performed"] is False
+        assert result["synthetic_scoring_performed"] is False
+        assert all(row["isolation_score"] is None for row in result["windows"])
+        if kind == "empty_observation":
+            assert result["windows"] == [] and result["status"] == "no_observations"
+        else:
+            expected = (
+                "insufficient_synthetic_baseline"
+                if kind == "few_training_windows"
+                else "uninformative_synthetic_baseline"
+            )
+            assert {row["status"] for row in result["windows"]} == {expected}
+&gt;           assert result["status"] == "synthetic_scoring_abstained"
+E           AssertionError: assert 'synthetic_scores_computed' == 'synthetic_scoring_abstained'
+E             
+E             - synthetic_scoring_abstained
+E             + synthetic_scores_computed
+
+tests\test_runtime_ml.py:235: AssertionError</failure></testcase></testsuite></testsuites>

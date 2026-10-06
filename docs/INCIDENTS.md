@@ -1,5 +1,19 @@
 # Incident and resolution ledger
 
+### INC-052 - 2026-10-06 - Synthetic ML summary claimed scores when every asset abstained
+
+**Raw-evidence formatting:** regression XML preserves pytest whitespace at lines26/32/51/80/86/105; initial INC-051 assertion XML line16 likewise. Unrestricted staged whitespace fails only these two raw negatives. Exact-two-artifact exclusion passes for every other staged file; publication scanner includes both. No source/test formatting waiver or editing of original negative bytes.
+
+**Symptom/evidence:** source review after preliminary passing suites found global status based on presence of observed rows, not presence of computed scores. Both insufficient and constant baselines retained null per-window scores/false fit flags but reported synthetic_scores_computed. Three-case reproduction:2failed1passed43deselected0.35s console/XML0.220; [raw negative XML](../output/engine2-synthetic-iforest-abstention-regression-20261006.xml), SHAc1a5b6a81855db3dd458bf3044bead7dd98081cca98891e06c3a865d754c5282 preserved. No real-data fitting/action/independence enabled; unpublished prototype only.
+
+**Cause confidence:** high from code and actual assertions; row existence does not imply a fitted model. **Fix:** global status follows nonnull score count, explicit synthetic_scoring_abstained/no_observations; report scored/abstained counts, preserve partial-asset denominator. No thresholds/source guards/labels relaxed. **Verification:** separate47-case final target pass3.27s/XML3.270, including two status regressions and new mixed-asset case; final whole-suite/smoke receipts in WL-062. Preliminary46-case target,1,097-case full suites and pre-fix positive demos retained unchanged, not final regression coverage. **Limits:** synthetic scores only, not threat/accuracy/coverage or approval evidence.
+
+### INC-051 - 2026-10-06 - Synthetic ML test provenance assertion and patch bracket error
+
+**Symptom/evidence:** initial44-case run43passed1failed3.33s/XML3.333; after reordering fixture events, test compared old exact-byte provenance against newly serialized input. [Raw assertion failure](../output/engine2-synthetic-iforest-target-tests-20261006.xml), SHAfd430b85a8dab3e2c37a68db4fe9bee70345cdc2a9eed7fba7daabffd608731a retained. A patch adding tests then misplaced a closing assertion parenthesis: Ruff22syntax diagnostics and pytest collection1error0.27s/XML0.128. [Raw collection-error XML](../output/engine2-synthetic-iforest-target-final-tests-20261006.xml), SHAf31d254596821edd1f0f8e7735b8280e409c2a5b5bd0979d908b4c15a20bff01 retained; filename includes final but result is an error, not success.
+
+**Cause confidence:** high from trace/source: provenance correctly changed with bytes; patch inserted tests before the assertion's closing delimiter. **Fix:** compare the second report against current bytes, compare calculated windows separately and assert hashes changed; simplify/close the test assertion. No production provenance guard altered. Separate verified target46pass3.41s/XML3.415, then47-case final after INC-052; lint/format pass. **Limits:** development mistakes/tests only, not evidence of model effectiveness or live threat failure. No negative XML edited or backdated; WL-062 preserves commands/versions/outcomes.
+
 ### INC-050 - 2026-10-06 - Annotation-index ordering test updated the wrong capture reference
 
 **Publication preservation note:** original failed XML line10 contains pytest traceback trailing whitespace. Unrestricted staged whitespace check reports that line; retain original SHA/blob rather than clean up evidence. All other staged files pass `git diff --cached --check -- . ':(exclude)output/engine2-annotation-index-target-tests-20261006.xml'`. This exact one-artifact exception is not a source/test formatting waiver. Publication checker still includes the artifact.

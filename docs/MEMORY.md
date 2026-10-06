@@ -1,6 +1,10 @@
 # Current project state
 
-## Current update — coordinator annotation-unit index, 6 October 2026
+## Current update — synthetic-only Isolation Forest, 6 October 2026
+
+E2-036/E2-004/RQ3: isolated optional [synthetic ML comparator](SYNTHETIC_RUNTIME_ML.md), lazy pinned scikit-learn1.9.1, fixed runner/two invented fixtures/dependency snapshot. Actual ephemeral synthetic fitting/scoring, not real research training; per-asset baseline-only fit/same4features/no binary predictions, explicit all/partial abstention counts. Default runtime/intake/Engine1/stack/source-freeze23 unchanged, optional packages added with no upgrades.47new tests; finalLinux1,098pass93.06s/XML89.757/Windows1,060pass38skips20.80s/XML20.792; targeted47pass3.27s/XML3.270/lint-format112files/bothpipchecks pass. Final Windows/Linux demos6checks/same3scores/3scored0abstained. INC-051 test provenance/bracket failures kept; INC-052 actual summary defect2failure reproduction/fix kept, preliminary suites/examples not renamed final. WL-062/ADR-052. Supervisor/data/timing/coverage/identity/labels/calibration/realML/autoencoder/overhead/integration/publication gates remain open; no live collection/native/service/clock/response/future monitoring. Earlier updates historical.
+
+## Earlier coordinator annotation-unit index checkpoint (historical), 6 October 2026
 
 E2-035 partial: [offline annotation-unit index](RUNTIME_ANNOTATION_INDEX.md) implemented/tested, using existing validated nonempty window keys and postflight. Opt-in CLI --annotation-index; separate protocol, not Engine2 version/model. Default v1/typed reports unchanged. No votes/reasons/features/splits exported or labels generated; IDs may leak scenarios, explicitly not blinded/approved. Synthetic example3units/no enabled research/action gates.22new cases; final target181pass1skip8.15s/XML8.107; wholeLinux1,051pass100.10s/XML96.595/Windows1,013pass38skips19.00s/XML18.994;0failures/errors,lint/format109files/pipcheck pass. INC-050 initial fixture-order/reference error1failed180pass1skip retained, test setup corrected, hash guard untouched. WL-061/ADR-051. Actual supervisor decisions, comparable timing/coverage/identity/context, independent humans/held-out data/ML/effectiveness remain open. No live collection/model/service/clock/native/response or future monitoring. Earlier updates below are historical.
 

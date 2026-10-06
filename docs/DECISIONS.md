@@ -1,5 +1,13 @@
 # Decision register
 
+## ADR-052 - 2026-10-06 - Isolate optional synthetic Isolation Forest from real research fitting
+
+User proceeded with the offered offline/synthetic software branch, not supervisor approval. Add lazy pinned scikit-learn1.9.1 optional runtime-ml extra and a separate comparator/fixed-fixture runner, reuse existing feature/window/ID/group/event checks and original statistical report. No hand-built forest algorithm, default CLI/engine migration, autoencoder or third engine. Existing lockfiles remain historical; separate installed ML snapshot/actual output versions, no existing package upgrades.
+
+Train per asset only on declared synthetic baseline windows, canonically ordered; bound parameters/window count/jobs and temporarily limit numerical threads. Source declarations can be forged: no physical provenance proof or real-data fitting authority. Scoring observations never enters fitting/calibration. Output positive inverse-library scores, not probabilities, binary threat decisions, labels or model objects. Minimum8windows/2distinct rows are engineering guards, not sample adequacy. Unknown/empty/constant baselines abstain; report all scored/abstained denominators and distinguish actual synthetic fitting from false real-data approval/evaluation/actions. Selected code hashes/dependency metadata not full environment attestation.
+
+Maintain research safeguards while enabling implementation before genuine human/context/comparable-data gates. Actual collection, labels, threshold calibration, real-model evaluation, overhead/energy/TCI/integration still open. Validate against backend, default historical report, leakage/mutation/resource/dependency/refusal/per-asset cases and both environments; preserve INC-051 test negatives and INC-052 actual summary defect/preliminary receipts. WL-062/SYNTHETIC_RUNTIME_ML. This is a software milestone, not independently evaluated detection or production readiness.
+
 ## ADR-051 - 2026-10-06 - Export observed annotation units without creating research labels
 
 Decision: add an opt-in coordinator index through existing runtime intake, not another collector/model/packet generator. Reuse validated exact observed keys and postflight checks; project sorted run/asset/epoch units into runtime_annotation_index_v1. Default v1/typed reports unchanged. No duplicate window algorithm or fabricated zero/benign units for missing intervals; empty runs remain counted separately.

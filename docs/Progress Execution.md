@@ -1,5 +1,24 @@
 # Progress Execution
 
+## Current addition — synthetic-only machine-learning prototype, 6 October
+
+Engine2 now has an optional Isolation Forest software prototype alongside its unchanged default statistical baseline. We **did fit temporary models**, but only on invented development counts. No real telemetry, attacks, independent reviewers or approved study results were used. This is not Engine3, a production detector or confirmed threat detection.
+
+The prototype learns from synthetic baseline windows, then scores separate synthetic observation windows. It does not feed those observations back into fitting or choose a threat threshold from them. High score is not an attack probability; no binary ML “safe/attack” verdict is produced. Too little/constant baseline data produces an abstention, not a clean verdict.
+
+### Baby steps — reproduce the software demonstration
+
+1. Read [the ML prototype guide](SYNTHETIC_RUNTIME_ML.md). It requires an optional Python library; Docker/Ollama/Linux sensors are not needed for this example.
+2. In your existing Python environment, install the optional pinned packages if absent: Windows `.venv/Scripts/python.exe -m pip install --only-binary=:all: --index-url https://pypi.org/simple -r requirements-runtime-ml-20261006.txt`; Linux uses its environment's `python`. This is package setup, not research-data collection. Core/vector lockfiles are not replaced.
+3. Find data/runtime/ml-baseline-synthetic.json (32invented one-minute windows) and ml-observation-synthetic.json (3invented windows). January timestamps and placeholder container IDs are test coordinates, not old measured captures or labels.
+4. Run `.venv/Scripts/python.exe scripts/runtime_ml_check.py --output output/my-fresh-synthetic-ml.json` (Linux: environment's `python`). Choose a new filename; existing output is refused. No model file is saved.
+5. Open the report: all6checks should be true. result shows synthetic_fitting_performed=true,3scored/0abstained windows, null binary_prediction. Real-data fitting, supervisor approval, independent evaluation and threat confirmation remain false; actions empty. The nested statistical_comparator is the unchanged older baseline, not a second new model.
+6. Run `.venv/Scripts/python.exe -m pytest -q tests/test_runtime_ml.py`. Current47cases pass in both installed environments; without optional libraries the relevant tests explicitly skip. Software checks are not47attack scenarios.
+7. Testing found two test-only mistakes, then review found a real reporting mistake: all abstentions still said scores computed. We reproduced it, fixed summary/status/counts, and preserved every negative/preliminary report. Final whole-project Linux1,098pass/Windows1,060pass38skips; no independent accuracy claim.
+8. Next still requires actual supervisor protocol decisions, eligible comparable real data/timing/coverage/identity, approved independent context and real blinded labels. Autoencoder, calibration, real evaluation and measured overhead remain unfinished. Do not rename the invented fixtures into an independent benchmark.
+
+Work and failure history: WL-062, INC-051/052; [current status](CURRENT_STATUS.md). Earlier additions below are historical.
+
 ## Current addition — list the windows without inventing labels, 6 October
 
 Engine2's baseline remains built. We added an optional list of the exact observed time windows a coordinator would later allocate to reviewers. It creates **no labels**, chooses no “good/bad” answer and trains nothing. Empty or missing data does not become a fake benign window. Review approval and genuinely independent people are still required.

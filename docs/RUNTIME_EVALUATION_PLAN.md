@@ -4,6 +4,8 @@ Status 6 October 2026: **partial implementation**. [Offline intake](RUNTIME_INTA
 
 ## Research connection
 
+E2-036 now implements optional [synthetic Isolation Forest software](SYNTHETIC_RUNTIME_ML.md), outside real-data intake fitting authority and default replay. User authorized the offered synthetic development branch; no actual supervisor approval/labels/evaluation. This allows testing adapter/feature/fitting/score boundaries while real protocol/data gates remain open. Autoencoder, calibrated/real-data ML comparisons and overhead are not implemented/evaluated by this step. Original staged acceptance/fit-after-eligible-real-data requirements still apply to actual research.
+
 Offline allocation aid now implemented: [annotation-unit index](RUNTIME_ANNOTATION_INDEX.md) reuses validated nonempty unit keys, excludes votes/reasons/features/splits, retains false approval/blinding/label/fitting gates. Default intake unchanged. This addresses exact unit allocation, not eligible captures or human work; actual supervisor review remains next research prerequisite.
 
 RQ3 asks what value and overhead runtime evidence adds to cloud OSS security review. A syscall-count deviation is not an independently labeled attack; a successful dummy recovery test is not a detector benchmark. Next work should make eligible data/labels/splits traceable before comparing the existing statistical baseline with the planned Isolation Forest/autoencoder. No new engine/stack or automatic cloud action.

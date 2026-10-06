@@ -1,5 +1,7 @@
 # Engine 2 initial foundation: observation-only replay
 
+Additional non-default software path: [synthetic Isolation Forest prototype](SYNTHETIC_RUNTIME_ML.md), implemented for developer fixtures only. Default baseline below remains the unchanged statistical comparator; no independently evaluated IF/autoencoder or integrated real/live ML detector. Synthetic training is actual ephemeral software activity, not approved real-data fitting/attack evidence. CURRENT_STATUS distinguishes these layers; source/version/history/stack below preserved.
+
 **Current interpretation, 6 October:** [CURRENT_STATUS](CURRENT_STATUS.md) separates implemented baseline from refinements/scientific gates. Bounded Falco/offline adapter exists, no continuously connected replay sensor or independent ML detector. Algorithms/guards/version/history unchanged. [Intake](RUNTIME_INTAKE.md)/[typed receipts](RUNTIME_RECEIPTS.md) check selected consistency; full coverage/alignment/authenticity/eligibility open. E2-035 partial; [labeling pack](RUNTIME_LABELING_PROTOCOL.md)/[capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) now drafted, NOT APPROVED. Next actual supervisor decisions and genuine human/comparable-data gates within the [plan](RUNTIME_EVALUATION_PLAN.md).
 
 ## Historical foundation checkpoint

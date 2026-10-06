@@ -4,6 +4,10 @@
 
 ## Current software aid
 
+Latest E2-036/E2-004/RQ3: [synthetic-only Isolation Forest comparator](SYNTHETIC_RUNTIME_ML.md), optional pinned backend/per-asset baseline-only ephemeral fit/no binary threat decision/real-data authority. Actual synthetic fitting is recorded, not independent detection evaluation.47new tests/finalLinux1,098pass/Windows1,060pass38skips; INC-051/052 negatives/preliminary receipts preserved, WL-062/ADR-052. Default baseline/intake/stack unchanged; actual human/data/timing/coverage/realML/autoencoder/overhead gates remain open.
+
+## Earlier indexing checkpoint (historical)
+
 Latest current E2-035 software aid: [coordinator annotation-unit index](RUNTIME_ANNOTATION_INDEX.md), exact observed keys using unchanged intake checks, no votes/reasons/features/splits or generated labels. Default v1/typed reports preserved; index is not blinded/approved, research prerequisites unchanged. Latest whole-suite Linux1,051pass/Windows1,013pass38skips; WL-061/INC-050 initial fixture failure retained. Other dated checkpoints below are historical.
 
 ## Historical checkpoints (newest first)
@@ -84,6 +88,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Staged acceptance; artifact/selected typed-source checks implemented, full protocol/coverage/alignment and actual independent-human/data gates open |
 | [Offline runtime intake](RUNTIME_INTAKE.md) | Exact bundle/schema/hash/group/split/review/adjudication contract, synthetic example, commands and no-eligibility limits |
 | [Coordinator annotation-unit index](RUNTIME_ANNOTATION_INDEX.md) | Opt-in exact observed keys without votes/features/splits; default reports unchanged, no approval/blinding/labels or eligibility |
+| [Synthetic runtime ML prototype](SYNTHETIC_RUNTIME_ML.md) | Isolated optional Isolation Forest implementation/software tests on invented data, actual synthetic fitting/no binary ML predictions or real evaluation authority |
 | [Selected typed receipt checks](RUNTIME_RECEIPTS.md) | Opt-in format/source/count/snapshot/local-endpoint checks, count-binding regression/fix, preserved preliminary/final examples and full scientific limits |
 | [PRD](PRD.md) | What the research prototype must do and why |
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |

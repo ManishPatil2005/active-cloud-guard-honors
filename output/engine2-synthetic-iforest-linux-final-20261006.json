@@ -1,0 +1,237 @@
+{
+  "executed_at": "2026-10-06T14:27:33.822309+00:00",
+  "evidence_level": "synthetic_software_only",
+  "result": {
+    "protocol": "runtime_synthetic_iforest_v1",
+    "evidence_level": "synthetic_software_only",
+    "status": "synthetic_scores_computed",
+    "model": "scikit_learn_isolation_forest",
+    "library_pin": "1.9.1",
+    "dependency_versions": {
+      "python": "3.12.3",
+      "scikit-learn": "1.9.1",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "joblib": "1.6.0",
+      "threadpoolctl": "3.7.0",
+      "narwhals": "2.26.0",
+      "cloudpickle": "3.1.2"
+    },
+    "feature_order": [
+      "event_count",
+      "process_start",
+      "network_connect",
+      "file_open"
+    ],
+    "parameters": {
+      "seed": 42,
+      "n_estimators": 64,
+      "max_samples": 256,
+      "window_seconds": 60,
+      "n_jobs": 1,
+      "thread_limit": 1
+    },
+    "fitted_assets": [
+      {
+        "asset_id": "compose/redis",
+        "training_window_count": 32,
+        "subsample_size": 32
+      }
+    ],
+    "windows": [
+      {
+        "asset_id": "compose/redis",
+        "start_epoch": 1767484800,
+        "status": "uncalibrated_synthetic_score",
+        "isolation_score": 0.560536,
+        "binary_prediction": null,
+        "observation_coverage": "partial_or_unknown"
+      },
+      {
+        "asset_id": "compose/redis",
+        "start_epoch": 1767484860,
+        "status": "uncalibrated_synthetic_score",
+        "isolation_score": 0.579013,
+        "binary_prediction": null,
+        "observation_coverage": "partial_or_unknown"
+      },
+      {
+        "asset_id": "compose/redis",
+        "start_epoch": 1767484920,
+        "status": "uncalibrated_synthetic_score",
+        "isolation_score": 0.51739,
+        "binary_prediction": null,
+        "observation_coverage": "partial_or_unknown"
+      }
+    ],
+    "scored_window_count": 3,
+    "abstained_window_count": 0,
+    "statistical_comparator": {
+      "engine": "engine2",
+      "engine_version": "0.1",
+      "mode": "observation_only_replay",
+      "model": "per_asset_standardized_count_deviation",
+      "implementation_scope": {
+        "component": "runtime_replay_baseline",
+        "status": "implemented",
+        "live_input": false,
+        "saved_sensor_export_supported": true,
+        "trained_ml_model": false,
+        "independent_detection_evaluation": false,
+        "automatic_response": false
+      },
+      "calibrated": false,
+      "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+      "window_seconds": 60,
+      "threshold": 3.0,
+      "baseline": [
+        {
+          "capture_id": "ml-baseline-fixture",
+          "scenario_group": "ml-baseline-family",
+          "source": "synthetic",
+          "sha256": "2bc41637da6621a43f31eb761ea2f927593c8b99d805565800b5cd5031d5b18b",
+          "binding_verified": false
+        }
+      ],
+      "observation": {
+        "capture_id": "ml-observation-fixture",
+        "scenario_group": "ml-observation-family",
+        "source": "synthetic",
+        "sha256": "a752468776d6b60f0feacf81bb9c6e3a215d65b93615eeea525ede536dfc5509",
+        "binding_verified": false
+      },
+      "baseline_parameters": {
+        "compose/redis": {
+          "window_count": 32,
+          "features": {
+            "event_count": {
+              "mean": 6.4375,
+              "scale": 1.71277370075559
+            },
+            "process_start": {
+              "mean": 1.5,
+              "scale": 1.0
+            },
+            "network_connect": {
+              "mean": 1.96875,
+              "scale": 1.0
+            },
+            "file_open": {
+              "mean": 2.96875,
+              "scale": 1.0
+            }
+          }
+        }
+      },
+      "windows": [
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767484800,
+          "capture_id": "ml-observation-fixture",
+          "counts": {
+            "event_count": 4,
+            "process_start": 1,
+            "network_connect": 1,
+            "file_open": 2
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "no_threshold_exceedance",
+          "deviation_score": 1.42313,
+          "feature_deviations": {
+            "event_count": 1.4231302120792122,
+            "process_start": 0.5,
+            "network_connect": 0.96875,
+            "file_open": 0.96875
+          },
+          "review_required": false
+        },
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767484860,
+          "capture_id": "ml-observation-fixture",
+          "counts": {
+            "event_count": 19,
+            "process_start": 1,
+            "network_connect": 16,
+            "file_open": 2
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "deviation_for_review",
+          "deviation_score": 14.03125,
+          "feature_deviations": {
+            "event_count": 7.334594169946709,
+            "process_start": 0.5,
+            "network_connect": 14.03125,
+            "file_open": 0.96875
+          },
+          "review_required": true
+        },
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767484920,
+          "capture_id": "ml-observation-fixture",
+          "counts": {
+            "event_count": 7,
+            "process_start": 2,
+            "network_connect": 2,
+            "file_open": 3
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "no_threshold_exceedance",
+          "deviation_score": 0.5,
+          "feature_deviations": {
+            "event_count": 0.32841466432597205,
+            "process_start": 0.5,
+            "network_connect": 0.03125,
+            "file_open": 0.03125
+          },
+          "review_required": false
+        }
+      ],
+      "status": "observations_processed",
+      "actions_executed": [],
+      "runtime_sensor_connected": false,
+      "threat_confirmed": false,
+      "limitations": [
+        "Synthetic inputs demonstrate software behavior, not threat detection accuracy.",
+        "Imported sensor provenance/container mappings are declarations, not authenticated live identity.",
+        "Only nonempty windows are evaluated; silence, collection gaps and partial windows are not treated as normal.",
+        "Baseline designation is operator supplied; no independent benign labels or calibration are established.",
+        "Metadata/event overlap checks reduce accidental leakage, not renamed-template or adversarial leakage.",
+        "This replay command accepts saved captures only; live collection and normalization are separate experimental paths.",
+        "This baseline has no Kubernetes audit adapter, Isolation Forest, autoencoder, isolation or TCI integration."
+      ]
+    },
+    "synthetic_fitting_performed": true,
+    "synthetic_scoring_performed": true,
+    "real_data_fitting_authorized": false,
+    "independent_evaluation_verified": false,
+    "supervisor_approval_verified": false,
+    "labels_created": false,
+    "calibrated": false,
+    "threat_confirmed": false,
+    "runtime_sensor_connected": false,
+    "actions_executed": [],
+    "implementation_sha256": {
+      "runtime_ml.py": "92a4035bdc1f7e2f586d7ab96b27336e4d9305365555dbae454f563b7541b286",
+      "runtime.py": "59c52be4ee869d370fb908d0b94021dacdbf2164bab960e7d2c8fea82a05fad5"
+    },
+    "limitations": [
+      "Declared synthetic software data only; source metadata is not authenticated provenance.",
+      "Higher isolation score means shorter isolation paths, not attack probability or confirmed threats.",
+      "No binary predictions, calibrated threshold, independent labels or real-data evaluation.",
+      "Minimum windows and forest budgets are engineering choices, not adequate research sample size.",
+      "Only nonempty windows; partial coverage and missing intervals are not benign observations.",
+      "Grouping/overlap guards are limited; no complete semantic leakage or physical identity proof.",
+      "Correlated total/kind count features match the baseline; feature design needs future protocol review."
+    ]
+  },
+  "checks": {
+    "three_observed_units": true,
+    "synthetic_fit": true,
+    "finite_scores": true,
+    "no_binary_predictions": true,
+    "no_real_authority": true,
+    "no_actions": true
+  }
+}
