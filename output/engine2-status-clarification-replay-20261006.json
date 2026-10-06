@@ -1,0 +1,126 @@
+{
+  "executed_at": "2026-10-06T11:05:16.527834+00:00",
+  "evidence_level": "synthetic_replay",
+  "live_sensor": false,
+  "result": {
+    "engine": "engine2",
+    "engine_version": "0.1",
+    "mode": "observation_only_replay",
+    "model": "per_asset_standardized_count_deviation",
+    "implementation_scope": {
+      "component": "runtime_replay_baseline",
+      "status": "implemented",
+      "live_input": false,
+      "saved_sensor_export_supported": true,
+      "trained_ml_model": false,
+      "independent_detection_evaluation": false,
+      "automatic_response": false
+    },
+    "calibrated": false,
+    "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+    "window_seconds": 60,
+    "threshold": 3.0,
+    "baseline": [
+      {
+        "capture_id": "synthetic-baseline",
+        "scenario_group": "synthetic-baseline-family",
+        "source": "synthetic",
+        "sha256": "80c027feb962da021071cb04c4779f22af63606e040df2a50d0e04c25d832389",
+        "binding_verified": false
+      }
+    ],
+    "observation": {
+      "capture_id": "synthetic-observation",
+      "scenario_group": "synthetic-observation-family",
+      "source": "synthetic",
+      "sha256": "c1e188afed2ee56a5467d6984114f3fb8a480614c86093d9c86589134f791c83",
+      "binding_verified": false
+    },
+    "baseline_parameters": {
+      "compose/redis": {
+        "window_count": 3,
+        "features": {
+          "event_count": {
+            "mean": 3,
+            "scale": 1.0
+          },
+          "process_start": {
+            "mean": 1,
+            "scale": 1.0
+          },
+          "network_connect": {
+            "mean": 1,
+            "scale": 1.0
+          },
+          "file_open": {
+            "mean": 1,
+            "scale": 1.0
+          }
+        }
+      }
+    },
+    "windows": [
+      {
+        "asset_id": "compose/redis",
+        "start_epoch": 1767312000,
+        "capture_id": "synthetic-observation",
+        "counts": {
+          "event_count": 3,
+          "process_start": 1,
+          "network_connect": 1,
+          "file_open": 1
+        },
+        "observation_coverage": "partial_or_unknown",
+        "status": "no_threshold_exceedance",
+        "deviation_score": 0.0,
+        "feature_deviations": {
+          "event_count": 0.0,
+          "process_start": 0.0,
+          "network_connect": 0.0,
+          "file_open": 0.0
+        },
+        "review_required": false
+      },
+      {
+        "asset_id": "compose/redis",
+        "start_epoch": 1767312060,
+        "capture_id": "synthetic-observation",
+        "counts": {
+          "event_count": 9,
+          "process_start": 0,
+          "network_connect": 9,
+          "file_open": 0
+        },
+        "observation_coverage": "partial_or_unknown",
+        "status": "deviation_for_review",
+        "deviation_score": 8.0,
+        "feature_deviations": {
+          "event_count": 6.0,
+          "process_start": 1.0,
+          "network_connect": 8.0,
+          "file_open": 1.0
+        },
+        "review_required": true
+      }
+    ],
+    "status": "observations_processed",
+    "actions_executed": [],
+    "runtime_sensor_connected": false,
+    "threat_confirmed": false,
+    "limitations": [
+      "Synthetic inputs demonstrate software behavior, not threat detection accuracy.",
+      "Imported sensor provenance/container mappings are declarations, not authenticated live identity.",
+      "Only nonempty windows are evaluated; silence, collection gaps and partial windows are not treated as normal.",
+      "Baseline designation is operator supplied; no independent benign labels or calibration are established.",
+      "Metadata/event overlap checks reduce accidental leakage, not renamed-template or adversarial leakage.",
+      "This replay command accepts saved captures only; live collection and normalization are separate experimental paths.",
+      "This baseline has no Kubernetes audit adapter, Isolation Forest, autoencoder, isolation or TCI integration."
+    ]
+  },
+  "checks": {
+    "expected_states": true,
+    "no_actions": true,
+    "no_sensor_claim": true,
+    "declared_synthetic": true
+  }
+}

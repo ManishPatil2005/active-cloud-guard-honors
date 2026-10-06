@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-047 - 2026-10-06 - Baseline completion confused with full research status
+
+**Symptom/evidence:** user reasonably believed Engine2 was built and current work refinement; broad “Engine2 incomplete” status did not distinguish milestones. Source inspection found runtime.analyze limitation “No eBPF collector…” even though separate sensor_trial/sensor_adapter and saved bounded trials exist. README's old “latest” software count and long historical snapshots could obscure current state. Actual runtime model remains saved-capture statistical count deviation/no live integration/ML/response; no full independent effectiveness claim established.
+
+**Cause confidence:** high for stale scope wording/source and checkpoint presentation, not a new runtime detection defect. **Fix:** explicit replay implementation_scope/precise separate acquisition wording, canonical CURRENT_STATUS linked first/current README and labeled historical snapshots; current/missing/refinement/scientific distinctions and research-directed planned E2-035 intake. Preserve algorithms/version/negative/history/source boundaries; no new safety helper or fabricated prior completion. **Verification:**3new scope cases/runtime target31pass0.69s, fullWindows817pass37Linux-only skips8.34s/Linux854pass39.56s, lint/format102files/pipcheck pass. Fresh four-check synthetic replay accepted; every old result field equal except metadata/limits. **Limits:** prose/tests don't establish effectiveness; timing/coverage/human independent labels/ML/overhead/integration/native intervention still open. No live data/service/clock/model action. WL-057/CURRENT_STATUS.
+
 ### INC-046 - 2026-10-06 - New inert journal accepted numeric1as boolean window completion
 
 **Publication follow-up:** staged whitespace check flagged line12of the preserved negative XML's generated pytest traceback. Raw bytes retained (SHA256 b6434bb5ca1e8831020d84ff003d25430c558a831cab5899066f51bcf3b77f76); working no-filter blob equals staged3c7c6ff8b361f6b63419d3e9d91198c93a096fb0. Exact one-file exclusion passes whitespace for every other staged file; no broad Git rule change, receipt trimming or claim unrestricted check passed. DURABLE_JOB_GATE.md exact command/WL-056 staged review.

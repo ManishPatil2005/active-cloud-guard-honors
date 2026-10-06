@@ -1,5 +1,7 @@
 # Research prototype requirements
 
+Current6October interpretation: [CURRENT_STATUS](CURRENT_STATUS.md). The first-three-month scope below is historical milestone scope, not a claim that later Engine2 work is unbuilt or forbidden. Engine1 engineering baseline is frozen; Engine2 observation-only replay baseline is implemented with separate bounded telemetry tools, while planned runtime ML/independent research validation remain open. Supporting clock/receiver/recovery tools refine experiments, not the cloud-security detector itself. The next [runtime data/label intake plan](RUNTIME_EVALUATION_PLAN.md) maps to original RQ3/E2-004; no stack migration/response permission.
+
 ## Problem and users
 
 Cloud-hosted open-source software can have configuration mistakes, exposed services and excessive permissions. A candidate configuration issue, observed network reachability and an actionable vulnerability are different facts. The research asks whether linking semantic auditing and controlled verification, and later runtime evidence, improves prioritization without losing coverage.

@@ -1,5 +1,7 @@
 # Experimental protocol v0.1
 
+6October runtime follow-up: [current capability boundaries](CURRENT_STATUS.md) and [next planned grouped run/window data-label intake](RUNTIME_EVALUATION_PLAN.md). The latter specifies offline evidence consistency/blinded reviewer handoff, not an implemented validator, new data/model fitting or independent evaluation. It reuses the grouping/labeling/uncertainty principles below; historical failed timing remains ineligible for performance claims unless separately resolved, never retroactively repaired.
+
 ## Questions and endpoints
 
 RQ1: Does adding retrieved security context to a local LLM improve finding-level precision/recall relative to the same model without retrieval? RQ2: Does adding scoped verification improve prioritization while preserving recall? RQ3 (later): What additional value and overhead does runtime evidence provide?

@@ -15,6 +15,8 @@ This project investigates cloud OSS configuration audit, retrieval-assisted reas
 
 ## Documentation and evidence
 
+Read docs/CURRENT_STATUS.md through the index before assigning current engine status. Every substantive change must maintain its capability/priority/evidence distinctions when affected. Do not say an engine is simply complete/incomplete without named acceptance scope: implemented baseline, completed refinements, missing planned capabilities and scientific gates are separate. Historical checkpoint text and whole-repository test counts are not current effectiveness proof. Every new helper/refinement must name its original research requirement/task and reason for priority; do not expand supporting safety work by default.
+
 Follow `docs/DOCUMENTATION_WORKFLOW.md`. Do not describe a proposed capability as implemented, or a test as run without execution evidence. Keep failed model outputs alongside subsequent observations. Record limitations and negative findings as first-class research evidence.
 
 ## Validation and Git

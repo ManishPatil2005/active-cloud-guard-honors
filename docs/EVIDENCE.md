@@ -1,5 +1,9 @@
 # Evidence index
 
+## Implemented baseline versus research-scope reporting (2026-10-06)
+
+[Current summary](CURRENT_STATUS.md), [Windows XML](../output/engine2-status-windows-tests-20261006.xml), [Linux XML](../output/engine2-status-linux-tests-20261006.xml), [new synthetic replay](../output/engine2-status-clarification-replay-20261006.json).3scope regressions/current CLI checks; Windows817pass37Linux-only skips/Linux854pass,0failures/errors. All old replay result fields identical apart from new implementation_scope/clarified limits. Actual four smoke checks true, explicitly synthetic/no live input/actions/threat/ML/independence. No historical data replaced, runtime detector effectiveness or independent dataset claimed. Planned next intake specification not execution/data evidence; INC-047 wording/confusion correction, not a new detector/model result.
+
 ## Inert durable job/gate validation (2026-10-06)
 
 [Report](DURABLE_JOB_GATE.md), [Windows XML](../output/engine2-durable-job-windows-tests-20261006.xml), [Linux XML](../output/engine2-durable-job-linux-tests-20261006.xml), [before-fix negative XML](../output/engine2-durable-job-window-regression-20261006.xml).60new cases/four actual Linux inert process/lock checks. Windows814pass/37Linux-only skips; Linux851pass,0failures/errors. Negative one-case numeric1window failure preserved/fixed exactTrue (INC-046); other evidence synthetic supplied events/storage doubles, no real jobs/bus/clock/restoration/threat benchmark. Exclusive journal/reopen/sticky faults and cooperating-worker seal mechanics tested; native/quiescence/disarm authority false always, native integration incomplete. Historical reports/live receipts unchanged.

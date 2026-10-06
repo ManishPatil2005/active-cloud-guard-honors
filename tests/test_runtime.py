@@ -33,6 +33,36 @@ def test_synthetic_replay_and_provenance():
     assert len(result["observation"]["sha256"]) == 64
 
 
+@pytest.mark.parametrize("mode", ["normal", "empty", "insufficient_baseline"])
+def test_implemented_baseline_is_not_full_research_completion(tmp_path, mode):
+    baseline, observation = BASELINE, OBSERVATION
+    if mode == "empty":
+        observation = altered(
+            tmp_path, OBSERVATION, lambda value: value.update(events=[])
+        )
+    elif mode == "insufficient_baseline":
+        baseline = altered(
+            tmp_path, BASELINE, lambda value: value.update(events=value["events"][:3])
+        )
+    result = analyze([baseline], observation, INVENTORY)
+    assert result["implementation_scope"] == dict(
+        component="runtime_replay_baseline",
+        status="implemented",
+        live_input=False,
+        saved_sensor_export_supported=True,
+        trained_ml_model=False,
+        independent_detection_evaluation=False,
+        automatic_response=False,
+    )
+    assert result["engine_version"] == "0.1"
+    assert result["runtime_sensor_connected"] is False
+    assert result["threat_confirmed"] is False
+    assert result["calibrated"] is False
+    assert result["actions_executed"] == []
+    assert not any("No eBPF collector" in text for text in result["limitations"])
+    assert any("saved captures only" in text for text in result["limitations"])
+
+
 @pytest.mark.parametrize(
     "change",
     [
@@ -189,3 +219,7 @@ def test_cli_replay():
     )
     assert result.returncode == 0
     assert json.loads(result.stdout)["actions_executed"] == []
+    assert (
+        json.loads(result.stdout)["implementation_scope"]["component"]
+        == "runtime_replay_baseline"
+    )

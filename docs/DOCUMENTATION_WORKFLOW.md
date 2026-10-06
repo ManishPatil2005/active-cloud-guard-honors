@@ -2,6 +2,8 @@
 
 The user explicitly requested strict ongoing documentation. This contract applies whenever project work occurs; it is not a promise of unattended background monitoring.
 
+Current status source: CURRENT_STATUS.md, linked first from INDEX/MEMORY/README. Maintain it whenever capability, priority or evidence changes; keep implementation snapshots visibly historical. Each status update must distinguish implemented baseline/refinement/open capabilities/scientific gates. Any supporting helper must map to an original task/research requirement and a specific dependency; no generic continued safety work or whole-engine completion claim from test counts. The task ledger controls planned versus implemented; code/artifacts still determine facts.
+
 ## Per-change loop
 
 1. Read the index, current state, rules, task ledger and relevant architecture/protocol sections.

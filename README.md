@@ -6,6 +6,15 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+**Current status — 6 October 2026:** [capabilities and research gates](docs/CURRENT_STATUS.md). Engine 1's engineering baseline is frozen. **Engine 2's observation-only replay/statistical baseline is implemented**; separate bounded Falco acquisition and normalization exist. We are refining experimental infrastructure, not rebuilding the baseline or claiming independently validated threat detection. Python/CLI, Docker Compose, Ollama and Chroma remain the stack.
+
+Latest whole-repository software verification: **Linux 854 passed; Windows 817 passed/37 Linux-only skips**, with no failures/errors. The [fresh synthetic replay](output/engine2-status-clarification-replay-20261006.json) preserves original calculations/provenance and adds explicit capability scope; test counts are not attack accuracy. Runtime labels/ML, reliable timing/coverage, held-out effectiveness, general overhead and calibrated integration remain open. Next default priority is [planned grouped runtime data/independent-label intake](docs/RUNTIME_EVALUATION_PLAN.md), not further safety helpers by default. The intake specification is not implemented software or new independent data.
+
+<details>
+<summary>Historical checkpoint summaries — not the current task list</summary>
+
+The dated statements below retain their checkpoint meaning; use CURRENT_STATUS above for present capability/priority. Later native synthetic callback and inert durable gate refinements are documented in the [evidence index](docs/EVIDENCE.md).
+
 Latest live engineering observation (6 October 2026): after explicitly authorized Docker Desktop recovery, the [read-only receiver check](docs/SYSTEMD_RECEIVER_CAPTURE.md) completed once with notification registration, identity continuity, release/close and child reaping checks passing. 50 process calls, **0 selected completion events**: this validates bounded setup/cleanup, not native event delivery, job fencing or timing/ML. No time-service/clock setting or default-engine/source change. Actual minimized receipts and the earlier failed precheck are preserved.
 
 Earlier execution gate (6 October 2026): the [Docker availability/sensor-inventory precheck failed](docs/SYSTEMD_RECEIVER_CAPTURE.md), so no native receiver was launched at that checkpoint. The expected local engine/integration was subsequently recovered with explicit user-authorized Desktop startup; the failed evidence remains unchanged. This does not establish why Desktop was previously unavailable or a research clock cause.
@@ -19,6 +28,8 @@ Previous checkpoint (E2-032, 6 October 2026): Windows669tests passed/3Linux-only
 Latest read-only review: [synchronization writers](docs/SYNC_WRITER_REVIEW.md). Guest-service removal alone cannot establish a single clock authority or clear accumulated rate settings. A temporary before/stopped/restored comparison is proposed, not authorized or executed; current engine architecture and settings remain unchanged.
 
 Windows-hosted Linux setup and Docker integration are verified. No known research sensor was present at the latest pre/post diagnostic checks; no clock or service settings were changed. See the [WSL setup record](docs/WINDOWS_LINUX_SETUP.md).
+
+</details>
 
 [Research protocol](docs/EXPERIMENT_PROTOCOL.md) · [Architecture](docs/ARCHITECTURE.md) · [Evidence](docs/EVIDENCE.md) · [Documentation](docs/INDEX.md)
 
@@ -44,9 +55,9 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has an **observatio
 |---|---|
 | Researcher | Manish Patil |
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
-| Current scope | Frozen Engine 1 baseline; Engine 2 replay, live instrumentation and timing validation |
+| Current scope | Frozen Engine 1 baseline; implemented Engine 2 replay, separate telemetry/refinements and open runtime research gates |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 6 October 2026; earlier755Windows passes/5Linux-only skips,760Linux passes; one native read-only setup/cleanup observation after authorized Docker recovery,0selected events; native callback/job-fence/timing/cause/ML gates open, Engine1 observations historical |
+| Evidence snapshot | 6 October 2026: Linux 854 passes; Windows 817 passes / 37 Linux-only skips. Fresh synthetic scope-reporting replay, unchanged calculations. Historical native setup/cleanup (0 events) and later native synthetic/inert gate checks are not independent detection research; [current summary](docs/CURRENT_STATUS.md) |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions

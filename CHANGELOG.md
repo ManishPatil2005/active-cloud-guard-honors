@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Clarify implemented Engine2 baseline and refocus research priorities
+
+- Add canonical CURRENT_STATUS plus planned runtime data/independent-label intake acceptance, current README/index/state links and explicit baseline/refinement/open-research distinctions.
+- Scope replay reporting to implemented saved-capture/statistical baseline; correct stale repository-wide no-eBPF-collector wording. No scores/guards/threshold/version change; all other fields match original synthetic replay.
+- Add3scope regressions: targeted31pass; full Linux854pass/Windows817pass37Linux-only skips, lint/format102files/dependencies pass. Save fresh synthetic replay/two test XMLs, preserve old receipts.
+- Record ADR-047/INC-047 and required maintenance; no new safety helper/ML/independent dataset/live collection/service or clock action. E2-035 intake is planned next, not implemented.
+
 ## 2026-10-06 - Bind durable supplied-job evidence to an inert guest gate
 
 - Add isolated InertJobGate with exclusive nonce/epoch-bound intent/reply/copied events/window/fault/recovery records, existing lock/deadline/terminal seal; no native controls or old bare-True completion rule.

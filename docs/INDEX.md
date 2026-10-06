@@ -1,5 +1,9 @@
 # Documentation index
 
+**Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 replay baseline is implemented; refinements are not a rebuild or full research completion. Separate bounded telemetry exists; ML/independent effectiveness/timing gates remain open. Next default priority: [planned grouped runtime data/label intake](RUNTIME_EVALUATION_PLAN.md), not expanding safety helpers by default. Each development update must maintain the current summary.
+
+## Historical checkpoints (newest first)
+
 Latest E2-034 follow-up: [inert durable job gate](DURABLE_JOB_GATE.md), exclusive nonce/epoch-bound intent/reply/event/window/fault records under existing guest lock/terminal seal.60new cases/four actual inert Linux process cases; Linux851pass, Windows814pass/37Linux-only skips. INC-046 strict-boolean defect reproduced/fixed with negative XML retained. No native jobs/controls; native gate/receiver/recovery integration and timing/ML remain open.
 
 Latest software checkpoint: [private native callback validation](NATIVE_CALLBACK_VALIDATION.md),28actual Linux libsystemd/synthetic-message cases plus3portable safety checks. Linux791pass; Windows758pass/33Linux-only skips. Copied values, strict envelope/body/cursor and sticky faults tested without broker delivery/job control; no receiver bug observed or production source change. E2-034 partial: durable guest job/gate binding, real routing/restoration/timing/ML remain open.
@@ -72,6 +76,8 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 
 | Document | Purpose |
 |---|---|
+| [Current capability status](CURRENT_STATUS.md) | Implemented baselines, supporting refinements, missing capabilities and scientific gates; current priority, not a historical checkpoint |
+| [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Planned next offline grouped run/window evidence and independent-label handoff; not implemented tooling/data |
 | [PRD](PRD.md) | What the research prototype must do and why |
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |
 | [Engine 1 v2](ENGINE1_V2.md) | Repeat-work efficiency, budgets, cache contracts and reproduction |
