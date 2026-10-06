@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Add isolated inert guest-side session fencing prototype
+
+- Add terminal session seal before bounded Linux file-lock acquisition, exclusive intent/completion records, strict inert request and duplicate-effect refusal.
+-33new tests include three real inert Linux process/lock cases and an explicit detached-job limitation. Windows640passed/3Linux-only skips; Linux643passed. Lint/format92files/dependency checks pass.
+- No native transport integration/service command/clock fix; submitted systemd-job binding/hardening and E2-030 safety acceptance remain open. Preserve prior610reports and engine/observer sources.
+
 ## 2026-10-06 - Keep recovery armed when stop delivery is uncertain
 
 - Reproduce premature disarm in three simulated delayed-stop errors; report uncertain delivery/operator recovery instead of verified restoration and refuse subsequent measurements/disarm.

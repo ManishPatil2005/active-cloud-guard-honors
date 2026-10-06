@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-041 - 2026-10-06 - Prove guest fence mechanics inertly before binding real jobs
+
+Build isolated InertGuestFence with a terminal seal published before lock acquisition, guest Linux advisory serialization and exclusive effect metadata. Reject duplicate/late/expired participating dispatch; persist unknown for interrupted/detached jobs instead of declaring job drain from holder death. Use real Linux temporary-file processes but no systemctl/subprocess in the library, no native integration or source-list change. Windows exercises simulated locking and explicitly skips Linux-only integration. Trusted local storage/callback assumptions and lost-submission/systemd-job binding remain prerequisites; E2-030 not complete. GUEST_FENCE_PROTOTYPE.md.
+
 ## ADR-040 - 2026-10-06 - Uncertain dispatch is not restored merely because active is observed
 
 Preserve the recovery helper after any stop-call error/interruption, attempt start/state checks but report active-observed/uncertain/operator recovery rather than verified restoration. Use exclusive dispatch/ack nonce files so independent helper and transport reject pending/invalid cancellation; acknowledgment follows blocking command return, not authenticated guest-job termination. At deadline retain uncertainty and return failure even if active is observed. No retries/new privileges/persistent monitoring. This fixes false cleanup acceptance but cannot eliminate a stop delayed beyond a finite helper; E2-030 remains partial pending guest-side fencing and final authorized protocol. CLOCK_STOP_DELIVERY.md / INC-043.

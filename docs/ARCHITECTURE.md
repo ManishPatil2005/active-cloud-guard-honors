@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-031 adds isolated cloudguard/guest_fence.py and its tests only: inert session storage/terminal seal, Linux advisory lock with simulation callbacks and unknown interrupted jobs. No CLI/subprocess/service implementation or import by comparison/engines;23-file live comparison source list unchanged because this prototype is not integrated. Guest-local job identity/privilege/storage/boot/source hardening still needed; GUEST_FENCE_PROTOTYPE.md. No stack migration.
+
 E2-030 adds controller stop-delivery state/operator recovery flag and transport exclusive stop-dispatch/stop-ack nonce metadata; normal helper consults same metadata before cancellation. No new service/command/dependency/default-engine/observer path. Pending/error delivery prevents disarm, active-but-uncertain deadline outcome fails safely in reporting; not guest-side fencing/termination proof. CLOCK_STOP_DELIVERY.md, partial native safety gate remains open.
 
 E2-029 changes only comparison source coverage/order:23files cover static local preflight imports and package initializer, frozen before preflight with detached failure-retained mapping. AST audit parses without executing imports; external/runtime/binary/data attestation not provided. No new command/dependency/default-engine/observer path. CLOCK_COMPARISON_PREFLIGHT.md documents remaining late queued-request safety prerequisite before native use.

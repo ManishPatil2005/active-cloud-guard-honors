@@ -1,5 +1,7 @@
 # Uncertain stop delivery and recovery cancellation (E2-030)
 
+Later6October: [E2-031 inert guest fence](GUEST_FENCE_PROTOTYPE.md) implements isolated terminal admission/lock mechanics, with three actual inert Linux process cases. No systemd/native integration or complete job-drain proof; this page's610-test statements remain historical to E2-030.
+
 ## Status — 6 October 2026
 
 **Partial safety milestone, software-tested only. Native comparison remains prohibited pending final safety design and specific approval.** We fixed premature recovery cancellation after an uncertain stop. We have not proved that a delayed guest request cannot arrive after the helper expires; this is not a complete guest-side fencing solution, clock fix or service-restoration validation.

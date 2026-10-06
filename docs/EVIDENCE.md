@@ -1,5 +1,9 @@
 # Evidence index
 
+## Isolated guest fence software/inert process checks (2026-10-06)
+
+[Report](GUEST_FENCE_PROTOTYPE.md), [Windows640pass/3skips](../output/engine2-guest-fence-windows-tests-20261006.xml), [Linux643pass](../output/engine2-guest-fence-linux-tests-20261006.xml):33new cases, three Linux-only actual inert file/process integrations. Terminal seal blocks a queued cooperating worker; killed holder leaves submitted operation unknown. Detached job may still execute outside gate. No service/job/native integration or causal/stability/ML evidence; prior610reports/live receipts unchanged.
+
 ## Uncertain stop software regression (2026-10-06)
 
 [Report](CLOCK_STOP_DELIVERY.md), [Windows610](../output/engine2-stop-delivery-windows-tests-20261006.xml), [Linux610](../output/engine2-stop-delivery-linux-tests-20261006.xml):14 additions, simulated delayed-stop and marker/cancel/IO cases plus existing explicitly inert lifecycle tests. Three before-fix assertion failures preserved in INC-043/report, not a live WSL race claimed. No real time-service action, native comparison, clock fix or guest-job fencing proof; historical596/live receipts unchanged.

@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest isolated prototype: [inert guest session fence](GUEST_FENCE_PROTOTYPE.md),33new cases; Windows640passed/3Linux-only skips, Linux643passed. Terminal seal rejects queued participating workers after recovery, actual inert Linux lock/death cases pass. Not integrated with systemd/native transport; submitted-job identity/fencing still open, no live intervention.
+
 Latest safety fix: [uncertain stop delivery](CLOCK_STOP_DELIVERY.md),610tests each OS/14 additions. Reproduced simulated premature helper cancellation, now refuses disarm and flags operator recovery on uncertain stop delivery. Exclusive dispatch/ack markers shared with helper; finite deadline is not guest-job fencing. E2-030 remains partial, native comparison still unapproved/unexecuted.
 
 Latest hardening: [preflight source coverage and safety gates](CLOCK_COMPARISON_PREFLIGHT.md),23-file static local import coverage frozen before preflight;596 passing tests each OS/15 additions. No live intervention; late queued service requests, final protocol and explicit approval remain unresolved.
