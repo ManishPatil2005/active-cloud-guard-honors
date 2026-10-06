@@ -411,6 +411,12 @@ def _observe(bus, now=time.monotonic):
         report.update(status="observed", stage="complete")
     except (Exception, KeyboardInterrupt) as error:
         report["error_type"] = type(error).__name__
+        if (
+            isinstance(error, OSError)
+            and type(error.errno) is int
+            and 0 < error.errno < 4096
+        ):
+            report["error_errno"] = error.errno
     finally:
         if state:
             report["events"] = [dict(value) for value in state.events.values()]

@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest launcher/protocol: [exclusive read-only receiver capture](SYSTEMD_RECEIVER_CAPTURE.md),34new cases; Windows755pass/5Linux-only skips, Linux760pass. Durable exclusive start/result records, supervised child/deadlines and selected receipt/source checks; one native observation declared for after publication, not yet run. No service/control/sensor/clock action.
+
 Latest adapter: [read-only persistent systemd receiver](SYSTEMD_RECEIVER.md),54new synthetic/C-level cases; Windows723pass/3Linux-only skips, Linux726pass. Installed library identity/ABI/exports checked without a connection. Native reception and durable job/fence binding remain unverified; no subscription or job/service control executed.
 
 Latest contract/review: [systemd job evidence](SYSTEMD_JOB_CONTRACT.md), actual read-only selected interface signatures plus29synthetic regressions; Windows669pass/3Linux-only skips, Linux672pass. Path-bound done evidence, fast-signal buffering/sticky unknown on identity/stream faults; never service-quiescence/recovery authority. Native D-Bus/fence integration unfinished, no job/service intervention.

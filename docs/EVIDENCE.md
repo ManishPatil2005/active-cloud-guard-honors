@@ -1,5 +1,9 @@
 # Evidence index
 
+## Exclusive receiver launcher software checks (2026-10-06)
+
+[Protocol/report](SYSTEMD_RECEIVER_CAPTURE.md), [Windows755pass/5skips](../output/engine2-systemd-capture-windows-tests-20261006.xml), [Linux760pass](../output/engine2-systemd-capture-linux-tests-20261006.xml).34new cases, two actual inert Linux children and synthetic receipt/source/timeout/errno/alarm wiring checks; no native bus or service action. One read-only receive observation predeclared but pending at implementation checkpoint. Older726reports/native clock failures unchanged; no independent detection or job-fencing evidence.
+
 ## Read-only persistent receiver software checks (2026-10-06)
 
 [Report](SYSTEMD_RECEIVER.md), [Windows723pass/3skips](../output/engine2-systemd-receiver-windows-tests-20261006.xml), [Linux726pass](../output/engine2-systemd-receiver-linux-tests-20261006.xml).54new synthetic/C-level tests, current actual selected ABI/library hash/export availability without connection. No native subscription/event/job evidence, service action or recovery authority; native reception and durable binding unfinished. INC-044 retains intermediate fixture failure; old672reports/native receipts unchanged.

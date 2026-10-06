@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-044 - 2026-10-06 - Separate durable start/outcome and supervised receive child
+
+Before opening native bus, exclusively reserve fixed observation directory and flush/fsync a start record; save a separate exclusive outcome on success/unknown/error. Refuse old directories/results rather than overwrite or retry. Freeze four sources in parent/child; validate selected schema/epoch/backend/flags, preserve exception class/bounded errno/output digest but not raw private errors. Isolate ordinary-user receiver child with18second default OS alarm plus20second parent timeout/2+2bounded termination/reaping. Accept kernel clock/IO/native/host failure limits and post-capture stdout bound explicitly; don't claim graceful cleanup from killing a process. Publish protocol/tests before one read-only attempt, no job triggered to manufacture completion. Default engines/controller/fence remain separate. SYSTEMD_RECEIVER_CAPTURE.md.
+
 ## ADR-043 - 2026-10-06 - Isolated typed sd-bus receiver before job-control integration
 
 Installed Python D-Bus modules absent; libsystemd already present. Choose stdlib ctypes with reviewed nonvariadic v255.4 declarations, fixed ordinary-user socket, pinned installed library hash/ABI and four notification/identity methods rather than adding a dependency or hand-building wire protocol. Accept native FFI/lifetime/ABI maintenance risk explicitly; exports/source hashes are not binary attestation. Validate replies/selected borrowed callbacks, bounded pump/copies, sticky unknown/epoch checks and close, never use these observations for recovery disarm or submitted-job proof. Keep separate from comparison/fence/engines; native receive validation needs exclusive failure receipts and an outer timeout before one predeclared read-only observation. No service intervention authority implied; durable job-gate design still required. SYSTEMD_RECEIVER.md / INC-044.

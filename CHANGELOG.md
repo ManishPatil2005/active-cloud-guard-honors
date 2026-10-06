@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Add exclusive read-only receiver capture and declared protocol
+
+- Fixed Linux ordinary-user launcher writes separate exclusive start/result receipts, freezes four parent/child sources and validates minimized evidence without overwrite/retry.
+- Add18second native child alarm,20second parent deadline/2+2cleanup, unknown on failure/unreaped output; preserve bounded native errno without raw messages. No service-control/engine/fence integration.
+-34new tests; Windows755pass/5Linux-only skips, Linux760pass, lint/format98files/pipcheck pass. Native observation pending until implementation publication and stated prechecks; older evidence preserved.
+
 ## 2026-10-06 - Implement isolated persistent read-only systemd receiver
 
 - Add fixed ordinary-user sd-bus adapter using typed nonvariadic ctypes APIs and pinned reviewed installed library; no new package or engine/controller integration.

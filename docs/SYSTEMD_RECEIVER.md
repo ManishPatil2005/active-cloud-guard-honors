@@ -1,5 +1,7 @@
 # Persistent read-only systemd receiver (E2-033)
 
+Later implementation checkpoint: [exclusive launcher and one-attempt protocol](SYSTEMD_RECEIVER_CAPTURE.md) adds durable start/outcome storage, parent/native child deadlines and selected validation. Native observation pending at that publication checkpoint; statements below remain the original receiver milestone, not retroactively executed evidence. The isolated receiver now retains bounded numeric errno on native OSError observation failures, with no raw error message.
+
 ## Status — 6 October 2026
 
 The isolated native adapter is **implemented and software-tested**, not yet live receive-validated or connected to the service controller. Actual installed library identity/ABI/export availability was checked without opening a connection. No native `Subscribe`, `Unsubscribe`, job submission/cancellation or service control was executed in this milestone. Engine1, the comparison runner, inert guest fence, native clock observers and historical receipts remain unchanged.

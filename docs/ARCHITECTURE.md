@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-033 capture follow-up adds separate scripts/systemd_receiver_capture.py ordinary-user Linux parent/child CLI, fixed exclusive observation directory/start/result storage, four-source freeze and minimized receipt validation. Native child18second alarm/parent20second deadline with2+2cleanup; receiver failure errno numeric only. No change to stack/default engines/controller/fence/23-source comparison freeze/clock observer; one read-only native observation separately declared after publication. SYSTEMD_RECEIVER_CAPTURE.md.
+
 E2-033 adds isolated cloudguard/systemd_receiver.py only, not imported by engines/controller/fence. Stdlib ctypes binds selected nonvariadic functions in the pinned installed libsystemd; no package installation/stack change. A persistent fixed-address ordinary-user connection may read broker/manager epoch and request transient notifications, but service-control methods are refused. Five-second/512-step/32-selected-event receive checks never establish submitted-job binding or recovery authority. Native reception/exclusive launcher/durable gate integration remain open; comparison freeze23unchanged. SYSTEMD_RECEIVER.md.
 
 E2-032 adds only isolated systemd_job.py offline event contract/tests, plus read-only schema-review artifact; no bus client/connection/native library/dependency/service binding. Supplied decoded events model returned-path matching under declared boot/bus/manager epoch and receive continuity, never recovery authority. Existing comparison/fence/native-observer sources/23-file freeze unchanged; SYSTEMD_JOB_CONTRACT.md. Native persistent adapter/durable guest integration still open.
