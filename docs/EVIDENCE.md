@@ -1,5 +1,9 @@
 # Evidence index
 
+## Private native callback software validation (2026-10-06)
+
+[Report](NATIVE_CALLBACK_VALIDATION.md), [Windows XML](../output/engine2-native-callback-windows-tests-20261006.xml), [Linux XML](../output/engine2-native-callback-linux-tests-20261006.xml).31new tests;28actual pinned Linux native message/C trampoline/read/copy/fault cases with synthetic data/private socketpair,3portable fixture guards. Linux791pass/Windows758pass33Linux-only skips, no failures/errors. Not a live broker-delivered event receipt, independent benchmark, real disconnect/job binding/quiescence/restoration or timing/ML evidence. No production-source change/retry/history replacement/real job or service action.
+
 ## One read-only native receiver setup observation (2026-10-06)
 
 [Report](SYSTEMD_RECEIVER_CAPTURE.md), [actual start](../output/engine2-systemd-receiver-observation-20261006/started.json), [actual native result](../output/engine2-systemd-receiver-observation-20261006/result.json), [manual live context](../output/engine2-systemd-receiver-live-context-20261006.json). After authorized Desktop recovery/fresh successful gate, one native run50process calls/0selected events, epoch/Subscribe/Unsubscribe/close/source and child reaping checks pass. Offline selected schema/hash/serialization reproduced, no raw stdout retained/authentication claim. No native JobRemoved callback/fault/job-binding/time-service control/timing/ML proof; prior unavailable-engine summary and760case XML unchanged.

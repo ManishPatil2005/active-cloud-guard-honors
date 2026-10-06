@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest software checkpoint: [private native callback validation](NATIVE_CALLBACK_VALIDATION.md),28actual Linux libsystemd/synthetic-message cases plus3portable safety checks. Linux791pass; Windows758pass/33Linux-only skips. Copied values, strict envelope/body/cursor and sticky faults tested without broker delivery/job control; no receiver bug observed or production source change. E2-034 partial: durable guest job/gate binding, real routing/restoration/timing/ML remain open.
+
 Latest live receiver result: [one read-only observation](SYSTEMD_RECEIVER_CAPTURE.md), after authorized Docker Desktop recovery and fresh required prechecks. Native match/Subscribe/epoch/Unsubscribe/close and child reaping passed;50process calls,0selected events. Actual minimized start/result receipts retained, no job/service/clock/sensor action. Zero events does not validate native callback delivery/fencing or timing/ML; INC-045 availability recovered, earlier failure preserved.
 
 Latest precheck result: [receiver capture gate](SYSTEMD_RECEIVER_CAPTURE.md), expected Docker Desktop guest mount/CLI target and local Windows engine pipe unavailable. Named-sensor inventory unknown; per published protocol native observation **not launched**. Read-only diagnosis/manual minimized summary, INC-045; no Docker/settings/service intervention. Restore local engine availability with operator direction before the pending observation.

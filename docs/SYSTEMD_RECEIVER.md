@@ -1,5 +1,7 @@
 # Persistent read-only systemd receiver (E2-033)
 
+Later E2-034 checkpoint: [private native callback validation](NATIVE_CALLBACK_VALIDATION.md) executes28actual pinned-library message/reader/C-trampoline cases with synthetic data plus3portable guards. No broker routing/real jobs; no production-source change or receiver bug observed. This extends callback software evidence, not real delivery/job binding; original milestone statements below remain historical. Prior real setup/cleanup observation remains separately documented in SYSTEMD_RECEIVER_CAPTURE.md.
+
 Later implementation checkpoint: [exclusive launcher and one-attempt protocol](SYSTEMD_RECEIVER_CAPTURE.md) adds durable start/outcome storage, parent/native child deadlines and selected validation. Native observation pending at that publication checkpoint; statements below remain the original receiver milestone, not retroactively executed evidence. The isolated receiver now retains bounded numeric errno on native OSError observation failures, with no raw error message.
 
 ## Status — 6 October 2026

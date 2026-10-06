@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-034 adds test-only scripts/systemd_native_fixture.py/tests/test_systemd_native_fixture.py, not a new production adapter/engine. A private unnamed socketpair supplies native message objects; proxy intercepts AddMatch and permits selected readers/close only, callback invoked directly through ctypes. No broker routing/authentication, real Subscribe/service jobs or controller/fence integration.28native cases/3portable checks,791collected; production sources/23-file comparison freeze/stack unchanged. NATIVE_CALLBACK_VALIDATION.md; durable guest binding remains open.
+
 E2-033 bounded follow-up live-observed the existing isolated receiver's connection/match/Subscribe/epoch/Unsubscribe/close and child-reap path once,0selected events; no native callback delivery/fault/job-gate authority. Explicitly authorized Docker Desktop startup restored local engine/integration without configuration changes; no default engine/controller/fence/clock source or stack changes. Actual minimized receipts versus manual environment context remain separate. SYSTEMD_RECEIVER_CAPTURE.md; native event validation/durable guest binding still open.
 
 E2-033 capture follow-up adds separate scripts/systemd_receiver_capture.py ordinary-user Linux parent/child CLI, fixed exclusive observation directory/start/result storage, four-source freeze and minimized receipt validation. Native child18second alarm/parent20second deadline with2+2cleanup; receiver failure errno numeric only. No change to stack/default engines/controller/fence/23-source comparison freeze/clock observer; one read-only native observation separately declared after publication. SYSTEMD_RECEIVER_CAPTURE.md.

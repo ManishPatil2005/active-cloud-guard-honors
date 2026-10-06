@@ -1,5 +1,7 @@
 # Exclusive receiver capture and one-observation protocol (E2-033 follow-up)
 
+Later E2-034 software checkpoint: [native callback fixtures](NATIVE_CALLBACK_VALIDATION.md) tested28actual native synthetic/private-message cases plus3portable guards; Linux791pass/Windows758pass33Linux-only skips. No rerun of this reserved one-observation command/folder, no source/service/job change. Real routing/faults/durable guest binding remain open; zero-event live result below is preserved unchanged.
+
 ## Latest native outcome — one read-only observation completed
 
 On6October, following the explicit startup question and the user's "proceed and continue," started the already-installed Docker Desktop with `Start-Process -WindowStyle Hidden`. No integration/PATH settings, WSL restart or manual container startup/recreation. Both verified local Windows and ordinary-user ACG-Research Docker queries subsequently reported server29.8.0; required known-sensor query succeeded with no IDs. Later local running-container count was0; this snapshot does not exclude automatic transient startup effects. INC-045 availability blocker **recovered at these checks**, earlier failed summary preserved unchanged; why Desktop was previously unavailable remains unproven.

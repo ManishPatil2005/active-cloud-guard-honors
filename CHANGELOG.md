@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Validate receiver callbacks with private native synthetic messages
+
+- Add test-only private socketpair/libsystemd message helper and31regressions: native copied lifetime/uint32/body/envelope/cursor/replay/overflow/continuity/contained exceptions, no real broker jobs.
+- Full Linux791pass; Windows758pass/33Linux-only skips; lint/format100files/dependencies pass. Save separate XMLs and formal/nontechnical documentation, ADR-045.
+- No observed receiver bug, production-source/stack/Engine1/history changes or service/clock/sensor/model action. Durable guest binding, real routing/restoration and timing/ML remain unfinished.
+
 ## 2026-10-06 - Recover local Docker availability and observe receiver setup read-only
 
 - Start installed Docker Desktop with explicit user approval; verify local Windows/guest engine29.8.0 and required sensor inventory, preserve earlier unavailable-engine precheck.
