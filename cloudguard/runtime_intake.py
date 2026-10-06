@@ -18,6 +18,7 @@ from cloudguard.verification import HASH, object_schema, validate, load_inventor
 
 PROTOCOL = "runtime_intake_v1"
 TYPED_PROTOCOL = "runtime_intake_v2"
+ANNOTATION_PROTOCOL = "runtime_annotation_index_v1"
 FILE_LIMIT = 1_000_000
 TOTAL_LIMIT = 8_000_000
 WINDOW_LIMIT = 2000
@@ -201,12 +202,15 @@ def _labels(document, keys):
     return result
 
 
-def inspect(manifest_path):
+def inspect(manifest_path, *, include_window_index=False):
     """Read a dedicated local bundle; return minimized declarations/consistency.
 
     v1 receipts are opaque; v2 checks selected source facts, never eligibility.
     Reviewer reasons/receipt contents are never included in the returned report.
+    Optional unit keys are not a blinded packet; the default report is unchanged.
     """
+    if type(include_window_index) is not bool:
+        raise ValueError("exact boolean window-index option required")
     manifest_path = Path(manifest_path)
     original = _raw(manifest_path, 100_000)
     manifest = _json(original)
@@ -380,7 +384,7 @@ def inspect(manifest_path):
     bundle.unchanged()
     if _raw(manifest_path, 100_000) != original:
         raise ValueError("manifest changed during intake")
-    return dict(
+    report = dict(
         protocol=manifest["schema_version"],
         dataset_id=manifest["dataset_id"],
         status="artifact_consistency_checked",
@@ -410,5 +414,45 @@ def inspect(manifest_path):
             ),
             "Event overlap uses the existing lossy runtime projection; renamed/structurally similar cases are not fully detected.",
             "No threat accuracy, model fitting, independent labels or eligibility is established by this report.",
+        ],
+    )
+    if include_window_index:
+        report["observed_window_index"] = [
+            dict(run_id=run_id, asset_id=asset_id, start_epoch=start)
+            for run_id, asset_id, start in sorted(keys)
+        ]
+    return report
+
+
+def annotation_index(manifest_path):
+    """Index validated observed units without votes, answers or predictions.
+
+    Coordinator-only: identifiers may reveal scenarios. Integrity/consistency
+    never establish approval, independent annotation or eligibility.
+    """
+    report = inspect(manifest_path, include_window_index=True)
+    return dict(
+        protocol=ANNOTATION_PROTOCOL,
+        status="observed_units_indexed",
+        manifest_sha256=report["manifest_sha256"],
+        inventory_sha256=report["inventory_sha256"],
+        guidelines_sha256=report["guidelines_sha256"],
+        window_seconds=report["window_seconds"],
+        observed_window_count=report["observed_window_count"],
+        empty_capture_count=report["empty_capture_count"],
+        missing_windows_not_materialized=True,
+        units=report["observed_window_index"],
+        labels_created=False,
+        supervisor_approval_verified=False,
+        blinding_verified=False,
+        independent_evaluation_verified=False,
+        model_fitting_authorized=False,
+        predictions_computed=False,
+        actions_executed=[],
+        limitations=[
+            "Coordinator index only; run/asset identifiers may reveal scenarios. Not a blinded reviewer packet.",
+            "No labels, independent context, human approval or annotation are created; document hashes are not signatures.",
+            "Only observed nonempty units are indexed; expected missing intervals and full coverage are not established.",
+            "Intake consistency checks are inherited, not research eligibility, collector alignment or threat effectiveness.",
         ],
     )

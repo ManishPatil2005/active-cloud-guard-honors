@@ -1,5 +1,23 @@
 # Progress Execution
 
+## Current addition — list the windows without inventing labels, 6 October
+
+Engine2's baseline remains built. We added an optional list of the exact observed time windows a coordinator would later allocate to reviewers. It creates **no labels**, chooses no “good/bad” answer and trains nothing. Empty or missing data does not become a fake benign window. Review approval and genuinely independent people are still required.
+
+This is **not a blinded handout**: run names and times may reveal scenarios. Keep actual private indices with the coordinator, audit neutral names/context separately, and do not distribute model answers or other reviewers' votes.
+
+### Baby steps — harmless synthetic example
+
+1. Open [the index guide](RUNTIME_ANNOTATION_INDEX.md). This is an optional output of existing intake, not another engine or Engine2 model version.
+2. At your configured repository root, Windows: `.venv/Scripts/python.exe scripts/runtime_intake.py --manifest data/runtime/intake-example/manifest-typed-counted.json --annotation-index --output output/my-fresh-annotation-index.json`. Linux: use `python` in the existing environment. No Docker, Ollama or services needed. Choose a new filename outside the example folder; its parent must exist.
+3. Open your report. Expect status observed_units_indexed and three units with run_id, asset_id and start_epoch. Labels, approval, blinding, independent evaluation, fitting and predictions stay false; actions empty. These are existing invented demonstration windows, not new data.
+4. Without --annotation-index, the old intake report is unchanged. Do not hand its agreement/reviewer metadata to blinded reviewers. Real indices should be private/runtime-labeling/ or approved secure storage; Git protection is not encryption.
+5. Run `.venv/Scripts/python.exe -m pytest -q tests/test_runtime_annotation_index.py tests/test_runtime_intake.py tests/test_runtime_receipts.py` (Linux: existing environment's `python`). Current182cases; here Windows181pass1symlink-privilege skip. Practice files/software contracts, not research subjects or cloud scans.
+6. Initial testing revealed a helper editing the wrong capture reference after changing run order. The hash checker correctly rejected it. We fixed only test setup and kept the failed XML. Final whole-project Linux1,051passed/Windows1,013passed38skips; software checks, not security accuracy.
+7. Next obtain actual supervisor decisions using the [draft sheet](templates/runtime-supervisor-review.md), then adequate approved context, comparable capture/timing/coverage evidence and real independent reviews. Do not fill approvals or generate votes to move forward.
+
+Detailed commands/results/problem/fix: WL-061 and INC-050. Earlier additions below are historical.
+
 ## Current addition — preparing honest human review, 6 October
 
 Engine2's basic engine is built; this step prepares how people could evaluate it responsibly. We wrote a draft reviewer guide, supervisor decision sheet, capture checklist and blank label templates. **Nobody has approved the draft or submitted real independent labels.** Three event counts do not tell us whether activity was authorized or malicious. When context is insufficient, the draft says “unknown,” not “safe.”

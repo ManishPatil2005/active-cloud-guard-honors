@@ -6,13 +6,18 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from cloudguard.runtime_intake import inspect
+from cloudguard.runtime_intake import ANNOTATION_PROTOCOL, annotation_index, inspect
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument(
+        "--annotation-index",
+        action="store_true",
+        help="Index observed units for a coordinator, not a blinded packet or labels",
+    )
     args = parser.parse_args()
     destination = Path(args.output)
     manifest = Path(args.manifest)
@@ -21,7 +26,11 @@ def main():
             raise ValueError("output must be outside input bundle")
         with destination.open("x", encoding="utf-8") as stream:
             try:
-                report = inspect(manifest)
+                report = (
+                    annotation_index(manifest)
+                    if args.annotation_index
+                    else inspect(manifest)
+                )
                 code = 0
             except (Exception, KeyboardInterrupt) as error:
                 report = dict(
@@ -33,6 +42,13 @@ def main():
                     predictions_computed=False,
                     actions_executed=[],
                 )
+                if args.annotation_index:
+                    report.update(
+                        protocol=ANNOTATION_PROTOCOL,
+                        labels_created=False,
+                        supervisor_approval_verified=False,
+                        blinding_verified=False,
+                    )
                 code = 1
             json.dump(report, stream, indent=2)
             stream.write("\n")

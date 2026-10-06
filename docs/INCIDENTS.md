@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-050 - 2026-10-06 - Annotation-index ordering test updated the wrong capture reference
+
+**Publication preservation note:** original failed XML line10 contains pytest traceback trailing whitespace. Unrestricted staged whitespace check reports that line; retain original SHA/blob rather than clean up evidence. All other staged files pass `git diff --cached --check -- . ':(exclude)output/engine2-annotation-index-target-tests-20261006.xml'`. This exact one-artifact exception is not a source/test formatting waiver. Publication checker still includes the artifact.
+
+**Symptom/evidence:** initial targeted run180passed/1failed/1symlink-privilege skip8.33s console/XML8.167. test_unit_order_independent_of_manifest_and_event_order failed with artifact hash mismatch. Original [failed XML](../output/engine2-annotation-index-target-tests-20261006.xml) SHA6a4c8a284ea316567998020c25f681a2bfe1b789c2887d3071304e89523eae43 retained unchanged, not replaced by final success.
+
+**Cause confidence:** high from fixture helper/source and trace: edit_capture edits captures/a.json but updates the first declared run. Reversing runs first made that the other run, leaving inconsistent capture references. Existing production hash guard correctly refused the fixture; no detector/hash-guard defect established. **Fix:** edit event order while the original run is first, then reverse manifest runs. Only test setup changed, no production validation weakened. **Verification:** separate final targeted XML181pass/1skip8.15s console/XML8.107, including the corrected sorting test and unchanged default v1/typed report comparisons. Whole-suite receipts in WL-061. **Limits:** synthetic ordering/consistency checks only; no human approval/labels/timing/coverage/efficacy established.
+
 ### INC-049 - 2026-10-06 - Typed accounting omitted referenced trial count checks
 
 **Symptom/evidence:** final review found accounting/capture counts and trial/raw hashes checked, but referenced trial matched_event_count/event_type_counts not compared. Three synthetic cases (wrong total, boolean-kind count, redistributed kinds) reproduced failure:3failed73deselected0.44s/XML0.263, DID NOT RAISE. Original output/engine2-typed-intake-count-regression-20261006.xml SHA c771cebc2353d935fa1e7edcf04e401a085be0f152950d1d3cd98f6f1da5f53c. Preliminary1,010-case suites/example passed but did not cover this gap. No full eligibility/independence/fitting/action flag enabled, no real trial/model action or published unsafe release.

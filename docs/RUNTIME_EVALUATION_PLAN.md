@@ -4,6 +4,8 @@ Status 6 October 2026: **partial implementation**. [Offline intake](RUNTIME_INTA
 
 ## Research connection
 
+Offline allocation aid now implemented: [annotation-unit index](RUNTIME_ANNOTATION_INDEX.md) reuses validated nonempty unit keys, excludes votes/reasons/features/splits, retains false approval/blinding/label/fitting gates. Default intake unchanged. This addresses exact unit allocation, not eligible captures or human work; actual supervisor review remains next research prerequisite.
+
 RQ3 asks what value and overhead runtime evidence adds to cloud OSS security review. A syscall-count deviation is not an independently labeled attack; a successful dummy recovery test is not a detector benchmark. Next work should make eligible data/labels/splits traceable before comparing the existing statistical baseline with the planned Isolation Forest/autoencoder. No new engine/stack or automatic cloud action.
 
 ## Original staged acceptance (consistency subset now implemented)

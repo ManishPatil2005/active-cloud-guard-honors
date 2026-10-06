@@ -1,6 +1,14 @@
 # Active Cloud Guard — current capability and research status
 
-## Latest refinement — draft annotation and capture review pack
+## Latest refinement — coordinator annotation-unit index
+
+[Offline unit index](RUNTIME_ANNOTATION_INDEX.md) implemented: opt-in --annotation-index/annotation_index projects sorted observed run/asset/epoch keys using existing intake checks. No votes/reasons/features/splits, labels, approval, blinding or model/action authority created. Default v1/typed reports exactly match saved results. This is a coordinator allocation aid, not a blinded packet: identifiers/epochs/hashes may reveal scenarios. E2-035 remains partial; actual supervisor decisions/comparable data/humans still next.
+
+Latest whole-repository software verification: [Linux XML](../output/engine2-annotation-index-linux-tests-20261006.xml) **1,051 passed**,100.10s console/XML96.595; [Windows XML](../output/engine2-annotation-index-windows-tests-20261006.xml) **1,013 passed / 38 skips**,19.00s console/XML18.994. Both1,051collected,zero failures/errors. [Final target XML](../output/engine2-annotation-index-target-final-tests-20261006.xml):181pass/1symlink skip,8.15s/XML8.107;22new cases; lint/format109files/pipcheck pass. Whole-suite checks not detector effectiveness/clock/performance measurements. [Synthetic index](../output/engine2-annotation-index-synthetic-20261006.json)3units/no labels/false gates. INC-050 preserved [initial test-setup failure](../output/engine2-annotation-index-target-tests-20261006.xml); production hash guard unchanged. WL-061 commands and limits.
+
+No newly eligible captures/independent labels, live collector/native/service/clock/model action or research approval. Python/Compose/Ollama/Chroma, Engine1 freeze, Engine2 algorithms, historical evidence and native comparison gates unchanged. Prior refinement/test sections below are historical.
+
+## Earlier refinement — draft annotation and capture review pack (historical checkpoint)
 
 The [coordinator pack](RUNTIME_LABELING_PROTOCOL.md), [reviewer guidelines](RUNTIME_LABELING_GUIDELINES.md), [16-gate capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) and four blank [templates](templates/runtime-supervisor-review.md) are prepared: **DRAFT — NOT APPROVED**. E2-035 remains partial. No supervisor decision, actual reviewers, independent labels, newly eligible captures or model fitting resulted. Proposed security-review necessity is not confirmed-attack detection and needs human approval without silently replacing the research question. Current normalized counts alone lack authorization/intent context.
 

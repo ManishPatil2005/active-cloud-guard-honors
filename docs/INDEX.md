@@ -2,6 +2,10 @@
 
 **Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 baseline implemented; [offline intake](RUNTIME_INTAKE.md)/[typed receipts](RUNTIME_RECEIPTS.md) implement selected consistency. [Coordinator pack](RUNTIME_LABELING_PROTOCOL.md), [reviewer guidelines](RUNTIME_LABELING_GUIDELINES.md), [16-gate checklist](RUNTIME_CAPTURE_ELIGIBILITY.md), [supervisor sheet](templates/runtime-supervisor-review.md), [case ledger](templates/runtime-case-ledger.md) and [review](templates/runtime-review.json.example)/[adjudication](templates/runtime-adjudication.json.example) templates are drafted **NOT APPROVED**. Next actual human scope/protocol approval and comparable evidence-bearing data within the [evaluation plan](RUNTIME_EVALUATION_PLAN.md). Full timing/coverage/identity/independence/ML/effectiveness gates open; not a rebuild, research completion or default safety expansion. Maintain the current summary each change.
 
+## Current software aid
+
+Latest current E2-035 software aid: [coordinator annotation-unit index](RUNTIME_ANNOTATION_INDEX.md), exact observed keys using unchanged intake checks, no votes/reasons/features/splits or generated labels. Default v1/typed reports preserved; index is not blinded/approved, research prerequisites unchanged. Latest whole-suite Linux1,051pass/Windows1,013pass38skips; WL-061/INC-050 initial fixture failure retained. Other dated checkpoints below are historical.
+
 ## Historical checkpoints (newest first)
 
 Latest E2-034 follow-up: [inert durable job gate](DURABLE_JOB_GATE.md), exclusive nonce/epoch-bound intent/reply/event/window/fault records under existing guest lock/terminal seal.60new cases/four actual inert Linux process cases; Linux851pass, Windows814pass/37Linux-only skips. INC-046 strict-boolean defect reproduced/fixed with negative XML retained. No native jobs/controls; native gate/receiver/recovery integration and timing/ML remain open.
@@ -79,6 +83,7 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | [Current capability status](CURRENT_STATUS.md) | Implemented baselines, supporting refinements, missing capabilities and scientific gates; current priority, not a historical checkpoint |
 | [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Staged acceptance; artifact/selected typed-source checks implemented, full protocol/coverage/alignment and actual independent-human/data gates open |
 | [Offline runtime intake](RUNTIME_INTAKE.md) | Exact bundle/schema/hash/group/split/review/adjudication contract, synthetic example, commands and no-eligibility limits |
+| [Coordinator annotation-unit index](RUNTIME_ANNOTATION_INDEX.md) | Opt-in exact observed keys without votes/features/splits; default reports unchanged, no approval/blinding/labels or eligibility |
 | [Selected typed receipt checks](RUNTIME_RECEIPTS.md) | Opt-in format/source/count/snapshot/local-endpoint checks, count-binding regression/fix, preserved preliminary/final examples and full scientific limits |
 | [PRD](PRD.md) | What the research prototype must do and why |
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |

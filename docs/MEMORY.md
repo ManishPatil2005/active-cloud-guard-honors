@@ -1,6 +1,10 @@
 # Current project state
 
-## Current update — draft labeling/capture review pack, 6 October 2026
+## Current update — coordinator annotation-unit index, 6 October 2026
+
+E2-035 partial: [offline annotation-unit index](RUNTIME_ANNOTATION_INDEX.md) implemented/tested, using existing validated nonempty window keys and postflight. Opt-in CLI --annotation-index; separate protocol, not Engine2 version/model. Default v1/typed reports unchanged. No votes/reasons/features/splits exported or labels generated; IDs may leak scenarios, explicitly not blinded/approved. Synthetic example3units/no enabled research/action gates.22new cases; final target181pass1skip8.15s/XML8.107; wholeLinux1,051pass100.10s/XML96.595/Windows1,013pass38skips19.00s/XML18.994;0failures/errors,lint/format109files/pipcheck pass. INC-050 initial fixture-order/reference error1failed180pass1skip retained, test setup corrected, hash guard untouched. WL-061/ADR-051. Actual supervisor decisions, comparable timing/coverage/identity/context, independent humans/held-out data/ML/effectiveness remain open. No live collection/model/service/clock/native/response or future monitoring. Earlier updates below are historical.
+
+## Earlier draft labeling/capture review pack checkpoint (historical), 6 October 2026
 
 E2-035 partial: [draft coordinator pack](RUNTIME_LABELING_PROTOCOL.md), reviewer guidelines, 16-gate eligibility checklist and four deliberately blank templates prepared, NOT APPROVED. Narrow security-review target is proposed, not an approved replacement for attack claims. Actual humans, sufficient independent context, comparable captures/timing/coverage, held-out data/ML/effectiveness gates remain open. Existing intake schemas/algorithms/no-eligibility defaults unchanged. Private annotation folder ignored/publication-excluded, no actual records created, not DLP. Fifteen new contract cases; targeted18pass; fullLinux1,029pass/Windows991pass38skips, zero failures/errors; lint/format108files/pipcheck pass. WL-060/ADR-050. Next actual human protocol approval; no service/clock/sensor/model/native/response operation or future monitoring. Previous update sections below are historical.
 

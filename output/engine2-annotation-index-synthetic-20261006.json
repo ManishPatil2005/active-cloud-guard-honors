@@ -1,0 +1,41 @@
+{
+  "protocol": "runtime_annotation_index_v1",
+  "status": "observed_units_indexed",
+  "manifest_sha256": "1a78dab227b2e01f0c0fd1380f1437fd38a7d8e9050c17425cfebc79e00ca3c4",
+  "inventory_sha256": "400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a",
+  "guidelines_sha256": "d95630b170a48f240ef4a7ca5c93971e45e6d1a802ddcec698c9eec0e3d1cd9d",
+  "window_seconds": 60,
+  "observed_window_count": 3,
+  "empty_capture_count": 0,
+  "missing_windows_not_materialized": true,
+  "units": [
+    {
+      "run_id": "demo-run",
+      "asset_id": "compose/redis",
+      "start_epoch": 1767312000
+    },
+    {
+      "run_id": "demo-run",
+      "asset_id": "compose/redis",
+      "start_epoch": 1767312060
+    },
+    {
+      "run_id": "demo-run",
+      "asset_id": "compose/redis",
+      "start_epoch": 1767312120
+    }
+  ],
+  "labels_created": false,
+  "supervisor_approval_verified": false,
+  "blinding_verified": false,
+  "independent_evaluation_verified": false,
+  "model_fitting_authorized": false,
+  "predictions_computed": false,
+  "actions_executed": [],
+  "limitations": [
+    "Coordinator index only; run/asset identifiers may reveal scenarios. Not a blinded reviewer packet.",
+    "No labels, independent context, human approval or annotation are created; document hashes are not signatures.",
+    "Only observed nonempty units are indexed; expected missing intervals and full coverage are not established.",
+    "Intake consistency checks are inherited, not research eligibility, collector alignment or threat effectiveness."
+  ]
+}

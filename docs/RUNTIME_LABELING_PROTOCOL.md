@@ -39,6 +39,8 @@ Keep seed labels, answer keys, detector scores/flags/thresholds, model output, o
 
 ## Templates and compatibility
 
+The implemented [coordinator unit index](RUNTIME_ANNOTATION_INDEX.md) can list exact observed run/asset/epoch keys from a consistent offline bundle without generating votes. It validates supplied reviews if present, but exports neither votes nor review metadata. IDs/epochs/hashes may reveal/link scenarios: **not a blinded packet**. Do not distribute it as one or treat indexing a draft as approval; actual neutralization/context/exposure audit and human decisions remain required. This safe offline aid does not perform the execution sequence or satisfy its gates.
+
 The review and adjudication files use .json.example and intentionally invalid placeholders/null fields, so they cannot be mistaken for completed submissions. The runtime path contract expects .json inside labels, not .json.example. Only actual authorized humans may fill independent votes/blinding declarations into separate private files after approval. No template is an existing reviewer result or an executable automated workflow. Eligibility/approval/ledger Markdown is manual governance and is **not parsed by runtime_intake**.
 
 For exact implemented schemas use [intake](RUNTIME_INTAKE.md) and [selected receipts](RUNTIME_RECEIPTS.md). Guidelines and checklist propose research acceptance; they do not relax the implementation's no-eligibility defaults. All historical source/results and algorithms stay unchanged.

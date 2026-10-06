@@ -1,5 +1,11 @@
 # Decision register
 
+## ADR-051 - 2026-10-06 - Export observed annotation units without creating research labels
+
+Decision: add an opt-in coordinator index through existing runtime intake, not another collector/model/packet generator. Reuse validated exact observed keys and postflight checks; project sorted run/asset/epoch units into runtime_annotation_index_v1. Default v1/typed reports unchanged. No duplicate window algorithm or fabricated zero/benign units for missing intervals; empty runs remain counted separately.
+
+Do not export votes/reasons/reviewer identities/adjudication/receipt bodies/events/features/groups/splits/answers. Supplied reviews still validated, never bypassed by index mode. IDs/epochs/hashes can leak/link scenarios, so explicitly blinding_verified=false and no automatic aliases/blinded-packet claim. Manual neutralization, actual approved context and genuine humans remain prerequisites. Hashes are integrity not signatures. Labels/approval/independence/fitting/predictions/actions remain false/empty; no approval or operational authority granted. Existing architecture/schema/default algorithms/limits/stack/23-source freeze and negative artifacts preserved. Priority maps directly to E2-035's exact-unit allocation/complete-review dependency (RQ3/E2-004), not safety-helper expansion. WL-061/RUNTIME_ANNOTATION_INDEX/INC-050.
+
 ## ADR-050 - 2026-10-06 - Keep annotation preparation separate from approval and evidence
 
 Decision: prepare an explicitly unapproved human-review protocol rather than invent independent labels. Proposed labels concern security-review necessity within an agreed lab scope; counts of process/file/network kinds cannot establish authorization, malicious intent or confirmed attacks. The supervisor must approve/revise target, evidence/context, units/groups/sample design, unknown/mixed-window rules and claims before annotation; original research aims are not silently redefined.

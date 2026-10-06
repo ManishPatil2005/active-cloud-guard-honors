@@ -6,6 +6,8 @@ Latest refinement: opt-in runtime_intake_v2 adds [selected typed-source checks](
 
 ## Capability and research boundaries
 
+Current optional extension: [coordinator annotation-unit index](RUNTIME_ANNOTATION_INDEX.md), annotation_index(manifest_path)/CLI --annotation-index, projects sorted observed keys without votes/reasons/features/splits. It reuses all intake checks and never creates labels, approval or blinding. Default inspect/CLI reports unchanged; the keyword-only include_window_index=false can add keys to the full consistency report, which is not a reviewer packet. New protocol is an index output, not Engine2 version/ML. Current verification WL-061; earlier typed “Latest” paragraph is historical.
+
 cloudguard/runtime_intake.py checks a dedicated bundle; scripts/runtime_intake.py exclusively creates a minimized report outside it. No network, subprocess, model, service, clock or sensor operations in the library/CLI. Tests launch the CLI and the existing whole suite has separately documented inert process cases.
 
 Bind exact hashes, reuse normalized-capture/inventory validation, reject duplicate IDs/captures/event projections and declared cross-partition groups, require complete labels for observed windows, retain disagreement before optional adjudication. Empty/missing windows are not manufactured or called benign. Original votes/reasons stay in supplied files, postflight rechecks artifact hashes. Reports omit reasons, receipt/event bodies and input paths.

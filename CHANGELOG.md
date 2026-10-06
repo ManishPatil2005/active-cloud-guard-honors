@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Export validated observed annotation-unit keys
+
+- Add coordinator-only annotation_index/opt-in --annotation-index, sorted observed run/asset/epoch keys after existing intake checks. No votes/reasons/features/splits or invented labels; not a blinded packet/approval/eligibility.
+- Default v1/typed report equality preserved; existing schemas/window algorithms/limits/stack/engines unchanged.
+- Add22cases; final target181passed1skip; fullLinux1,051passed/Windows1,013passed38skips, zero failures/errors; lint-format109files/pipcheck pass. Save synthetic3unit example and full/final targeted XMLs.
+- Retain initial1failure XML and INC-050 fixture-setup fix; production hash guard not weakened. Maintain current/formal/nontechnical documentation, WL-061/ADR-051. Actual human/data/research gates still open; no live experiment/model/clock/service action.
+
 ## 2026-10-06 - Prepare draft runtime labeling and capture eligibility pack
 
 - Add unapproved coordinator/reviewer protocol, 16-gate eligibility checklist and four blank approval/ledger/JSON templates. Unknowns, original disagreements, missing intervals and private exposure/consent records preserved by the proposed workflow; no actual human approval or research data created.
