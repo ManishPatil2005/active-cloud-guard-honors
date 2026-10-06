@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-040 - 2026-10-06 - Uncertain dispatch is not restored merely because active is observed
+
+Preserve the recovery helper after any stop-call error/interruption, attempt start/state checks but report active-observed/uncertain/operator recovery rather than verified restoration. Use exclusive dispatch/ack nonce files so independent helper and transport reject pending/invalid cancellation; acknowledgment follows blocking command return, not authenticated guest-job termination. At deadline retain uncertainty and return failure even if active is observed. No retries/new privileges/persistent monitoring. This fixes false cleanup acceptance but cannot eliminate a stop delayed beyond a finite helper; E2-030 remains partial pending guest-side fencing and final authorized protocol. CLOCK_STOP_DELIVERY.md / INC-043.
+
 ## ADR-039 - 2026-10-06 - Freeze local preflight imports before running it
 
 Expand the comparison list to23local Python files, including static transitive preflight imports/package initializer, instead of pretending the original11cover preflight. Freeze before first lab operation and retain a detached mapping on failures. A test parses static imports without executing sensor code and detects unlisted local modules. Do not claim dynamic/external/binary/data/loaded-memory attestation or alter historical source maps. Consent alone is insufficient while late queued stop/restoration ordering remains unresolved; test/design that next before native execution. No stack/engine/observer migration; CLOCK_COMPARISON_PREFLIGHT.md / INC-042.

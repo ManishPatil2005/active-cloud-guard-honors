@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-043 - 2026-10-06 - Stop failure could disarm recovery after an active snapshot
+
+**Symptom/evidence:** new delayed-stop controller tests injected TimeoutError/ValueError/KeyboardInterrupt while retaining a simulated pending request. Before implementation all3failed at the assertion that disarm must not be called (62deselected,0.38s). Controller had attempted start/observed active then canceled helper; delayed request can invalidate that snapshot. No real service action, WSL/systemd race or past restoration failure observed here.
+
+**Cause/confidence/fix:** high-confidence controller classification/order flaw reproduced in deterministic model. Record uncertain before stop, completed only on normal return; uncertain cleanup retains helper, flags operator recovery and refuses further measurement. Transport writes exclusive dispatch before command/ack after return, refuses disarm on local/shared uncertainty; helper ignores pending/invalid cancel and reports active-at-deadline uncertainty with failure exit/operator flag. IO failure remains conservative, no overwrite/retry.
+
+**Verification/remaining limits:**610 Windows/6.17s and Linux/20.22s,14 additions; targeted104/0.63s/2inert deselections later full-tested. Lint/format90files/pipcheck pass. Service operations simulated, existing actual helper integration inert. Finite helper not guest-side stale-request/job fencing or guaranteed restoration; native execution/final protocol/explicit approval still gated. CLOCK_STOP_DELIVERY.md; prior receipts/negative research results untouched.
+
 ### INC-042 - 2026-10-06 - Comparison freeze omitted preflight imports and followed preflight
 
 **Symptom/evidence:** source review found controller's11-file freeze after `ops.preflight`; transport preflight calls paired_pilot.py, which imports additional local modules absent from that list. No observed tampering, actual native comparison or restoration failure is attributed to this gap.

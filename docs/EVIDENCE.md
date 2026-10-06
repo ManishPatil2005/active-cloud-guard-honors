@@ -1,5 +1,9 @@
 # Evidence index
 
+## Uncertain stop software regression (2026-10-06)
+
+[Report](CLOCK_STOP_DELIVERY.md), [Windows610](../output/engine2-stop-delivery-windows-tests-20261006.xml), [Linux610](../output/engine2-stop-delivery-linux-tests-20261006.xml):14 additions, simulated delayed-stop and marker/cancel/IO cases plus existing explicitly inert lifecycle tests. Three before-fix assertion failures preserved in INC-043/report, not a live WSL race claimed. No real time-service action, native comparison, clock fix or guest-job fencing proof; historical596/live receipts unchanged.
+
 ## Preflight source freeze software checks (2026-10-06)
 
 [Report](CLOCK_COMPARISON_PREFLIGHT.md), [Windows596](../output/engine2-preflight-freeze-windows-tests-20261006.xml), [Linux596](../output/engine2-preflight-freeze-linux-tests-20261006.xml):15 new static-closure/dependency-change/order/missing-source regressions. Simulated service operations and existing real inert helper tests only; no native comparison. INC-042 records coverage gap, sandbox WSL refusal retained in report/work log. Prior581 reports/negative observations unchanged; late-request safety/protocol/consent gates open.

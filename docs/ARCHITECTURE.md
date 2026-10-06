@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-030 adds controller stop-delivery state/operator recovery flag and transport exclusive stop-dispatch/stop-ack nonce metadata; normal helper consults same metadata before cancellation. No new service/command/dependency/default-engine/observer path. Pending/error delivery prevents disarm, active-but-uncertain deadline outcome fails safely in reporting; not guest-side fencing/termination proof. CLOCK_STOP_DELIVERY.md, partial native safety gate remains open.
+
 E2-029 changes only comparison source coverage/order:23files cover static local preflight imports and package initializer, frozen before preflight with detached failure-retained mapping. AST audit parses without executing imports; external/runtime/binary/data attestation not provided. No new command/dependency/default-engine/observer path. CLOCK_COMPARISON_PREFLIGHT.md documents remaining late queued-request safety prerequisite before native use.
 
 E2-028 adds scripts/clock_comparison_transport.py (fixed Windows/WSL operations), clock_restore_watchdog.py (independent one-shot restore/inert helper) and clock_comparison_batch.py (approval-gated exclusive launcher/manifest). Controller selected-source list expands to11; underlying six-file native observer and default engines untouched. No new dependency/service or clock-policy migration; real service use pending approval/protocol/native validation. Stdlib-only helper uses direct base Python and hidden breakaway flags/PID handshake; inert integration not service-restoration proof. CLOCK_COMPARISON_TRANSPORT.md.

@@ -1,5 +1,7 @@
 # Windows/WSL transport and restoration helper (E2-028)
 
+Later6October follow-up: [uncertain stop delivery](CLOCK_STOP_DELIVERY.md) adds exclusive dispatch/ack guards and refuses helper cancellation on unclear delivery;610tests each OS. Still no native intervention or complete guest-side fencing; historical E2-028 statements below are not current live safety certification.
+
 Follow-up on6October: [E2-029 source/preflight hardening](CLOCK_COMPARISON_PREFLIGHT.md) expands coverage to23files and freezes before preflight,596 tests each OS. Historical11-file/581-test statements below describe E2-028. No native intervention; late queued-request ordering is an explicit remaining safety prerequisite.
 
 ## Status on 6 October 2026

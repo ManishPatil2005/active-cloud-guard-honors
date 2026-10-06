@@ -55,6 +55,8 @@ def watch(directory, *, inert=False, clock=None, sleep=None):
                     cancel = transport.read_json(directory / "watchdog-cancel.json")
                     if cancel == dict(nonce=nonce):
                         if not inert:
+                            if transport.stop_delivery_uncertain(directory, nonce):
+                                raise ValueError("uncertain stop forbids cancellation")
                             control.checked_service(transport.service_state(5))
                         outcome["status"] = "inert_disarmed" if inert else "disarmed"
                         break
@@ -69,10 +71,24 @@ def watch(directory, *, inert=False, clock=None, sleep=None):
                 transport.start_service(5)
                 control.checked_service(transport.service_state(5))
             outcome["status"] = "inert_elapsed" if inert else "restored_at_deadline"
+            if not inert:
+                try:
+                    uncertain = transport.stop_delivery_uncertain(directory, nonce)
+                except (Exception, KeyboardInterrupt):
+                    uncertain = True
+                if uncertain:
+                    outcome.update(
+                        status="active_observed_delivery_uncertain",
+                        operator_recovery_required=True,
+                    )
         except (Exception, KeyboardInterrupt) as error:
             outcome.update(status="failed", error_type=type(error).__name__)
     transport.save_exclusive(directory / "watchdog-outcome.json", outcome)
-    return 1 if outcome["status"] == "failed" else 0
+    return (
+        1
+        if outcome["status"] in {"failed", "active_observed_delivery_uncertain"}
+        else 0
+    )
 
 
 def main():

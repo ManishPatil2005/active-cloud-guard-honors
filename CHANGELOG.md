@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Keep recovery armed when stop delivery is uncertain
+
+- Reproduce premature disarm in three simulated delayed-stop errors; report uncertain delivery/operator recovery instead of verified restoration and refuse subsequent measurements/disarm.
+- Add exclusive dispatch/ack markers and independent helper cancellation checks; active-at-deadline with unclear delivery exits1/requires operator recovery.
+- 14 additions,610tests pass each OS; lint/format/dependency checks pass. INC-043/ADR-040 retain negative tests and limits: no real intervention, guest-side late-request fencing still incomplete.
+
 ## 2026-10-06 - Cover preflight dependencies before comparison execution
 
 - Expand source freeze11→23 with static local preflight import closure; freeze before preflight and retain detached hashes on later failure.

@@ -1,5 +1,7 @@
 # Preflight source coverage and execution gate (E2-029)
 
+6October follow-up: [E2-030 uncertain-delivery guards](CLOCK_STOP_DELIVERY.md) fix premature cancellation after stop errors,610tests each OS. Guest-side fencing remains unresolved; this page's596-test/23-source statements preserve the preceding checkpoint.
+
 ## Status — 6 October 2026
 
 Implemented and software-tested; **no real service intervention or native comparison was run**. Engine 1, the default Engine 2 path, native observer sources and historical evidence are unchanged. This follows the [transport milestone](CLOCK_COMPARISON_TRANSPORT.md), not a clock fix or a completed live-experiment protocol.

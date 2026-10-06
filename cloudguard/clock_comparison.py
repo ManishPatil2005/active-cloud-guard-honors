@@ -115,6 +115,8 @@ def run_comparison(ops, verify_receipt, *, approved=False, clock=None):
         actions=[],
         blocks=[],
         environment_service_stop_attempted=False,
+        stop_delivery_status="not_attempted",
+        operator_recovery_required=False,
         restoration_status="not_required",
         watchdog_requested=False,
         kernel_rate_state_reset=False,
@@ -229,7 +231,9 @@ def run_comparison(ops, verify_receipt, *, approved=False, clock=None):
         deadline = clock() + 45
         report["phase"] = "stop_service"
         report["environment_service_stop_attempted"] = True
+        report["stop_delivery_status"] = "uncertain"
         call("stop_service", ops.stop_service, timeout=remaining(deadline, 5))
+        report["stop_delivery_status"] = "command_completed"
         block("stopped", deadline)
     except (Exception, KeyboardInterrupt) as error:
         fail(error)
@@ -240,15 +244,25 @@ def run_comparison(ops, verify_receipt, *, approved=False, clock=None):
                     report["restoration_status"] = "attempted"
                     call("start_service", ops.start_service, timeout=5)
                 checked_service(call("restoration_state", ops.service_state, timeout=5))
-                report["restoration_status"] = "active_verified"
-                disarmed = call(
-                    "watchdog_disarm", ops.disarm_restore_watchdog, timeout=5
-                )
-                if disarmed is not True:
-                    raise ValueError("watchdog disarm/reap acknowledgement required")
-                report["watchdog_status"] = "disarmed"
+                if report["stop_delivery_status"] == "uncertain":
+                    report.update(
+                        restoration_status="active_observed_stop_delivery_uncertain",
+                        watchdog_status="not_disarmed",
+                        operator_recovery_required=True,
+                    )
+                else:
+                    report["restoration_status"] = "active_verified"
+                    disarmed = call(
+                        "watchdog_disarm", ops.disarm_restore_watchdog, timeout=5
+                    )
+                    if disarmed is not True:
+                        raise ValueError(
+                            "watchdog disarm/reap acknowledgement required"
+                        )
+                    report["watchdog_status"] = "disarmed"
             except (Exception, KeyboardInterrupt) as error:
                 report.update(status="failed", cleanup_error_type=type(error).__name__)
+                report["operator_recovery_required"] = True
                 report["restoration_status"] = (
                     "cleanup_failed_after_active_verification"
                     if report["restoration_status"] == "active_verified"

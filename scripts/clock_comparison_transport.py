@@ -106,6 +106,24 @@ def helper_flags():
     return HIDDEN | BREAKAWAY | NEW_GROUP if sys.platform == "win32" else 0
 
 
+def stop_delivery_uncertain(directory, nonce):
+    """Local dispatch/ack continuity, not guest-job termination or attestation."""
+    directory = Path(directory)
+    dispatched = directory / "stop-dispatch.json"
+    acknowledged = directory / "stop-ack.json"
+    if not dispatched.exists():
+        if acknowledged.exists():
+            raise ValueError("stop acknowledgement without dispatch")
+        return False
+    if read_json(dispatched) != dict(nonce=nonce):
+        raise ValueError("stop dispatch differs")
+    if not acknowledged.exists():
+        return True
+    if read_json(acknowledged) != dict(nonce=nonce):
+        raise ValueError("stop acknowledgement differs")
+    return False
+
+
 def helper_python():
     # Windows venv python.exe may be a redirector: its Popen PID isn't the worker.
     candidate = (
@@ -132,6 +150,7 @@ class NativeOps:
         self.armed = False
         self.nonce = secrets.token_hex(32)
         self.deadline_ns = None
+        self.stop_uncertain = False
 
     def source_hashes(self, timeout):
         started = time.monotonic()
@@ -256,6 +275,7 @@ class NativeOps:
         raise TimeoutError("restore helper not ready")
 
     def stop_service(self, timeout):
+        timeout = timeout_value(timeout)
         if (
             not self.armed
             or self.process is None
@@ -265,10 +285,16 @@ class NativeOps:
             raise ValueError("live watchdog required before stop")
         if self.deadline_ns - time.monotonic_ns() < 50_000_000_000:
             raise TimeoutError("watchdog margin too short")
+        self.stop_uncertain = True
+        save_exclusive(self.directory / "stop-dispatch.json", dict(nonce=self.nonce))
         command(["/usr/bin/systemctl", "stop", "systemd-timesyncd"], timeout, root=True)
+        save_exclusive(self.directory / "stop-ack.json", dict(nonce=self.nonce))
+        self.stop_uncertain = False
 
     def disarm_restore_watchdog(self, timeout):
         deadline = time.monotonic() + timeout_value(timeout)
+        if self.stop_uncertain or stop_delivery_uncertain(self.directory, self.nonce):
+            raise ValueError("uncertain stop delivery forbids disarm")
         control.checked_service(service_state(deadline - time.monotonic()))
         if self.process is None:
             return True  # Failed launch never armed a child or stopped the service.

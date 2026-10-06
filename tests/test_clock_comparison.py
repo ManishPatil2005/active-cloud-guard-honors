@@ -148,8 +148,11 @@ def test_failure_interrupt_first_stop_restore_and_redact(stage, error):
         assert "stop" not in ops.calls
     if stage != "restored":
         assert "restored" not in ops.calls
-    if stage in {"stop", "stopped"}:
+    if stage == "stopped":
         assert result["restoration_status"] == "active_verified" and not ops.watchdog
+    if stage == "stop":
+        assert result["restoration_status"] == "active_observed_stop_delivery_uncertain"
+        assert ops.watchdog and "disarm" not in ops.calls
     if stage == "stopped":
         assert result["blocks"][-1]["status"] == "failed"
 
@@ -414,3 +417,28 @@ def test_frozen_sources_cover_static_local_import_closure():
                         pending.append(candidate)
     assert found == set(control.EXECUTION_SOURCES)
     assert len(found) == len(control.EXECUTION_SOURCES) == 23
+
+
+@pytest.mark.parametrize("error", [TimeoutError, ValueError, KeyboardInterrupt])
+def test_delayed_stop_after_active_snapshot_never_disarms_recovery(error):
+    ops = FakeOps()
+    pending = []
+
+    def delayed(timeout):
+        ops.invoke("stop", timeout)
+        pending.append("late_stop")
+        raise error("private details")
+
+    ops.stop_service = delayed
+    result = run(ops)
+    assert result["status"] == "failed"
+    assert "start" in ops.calls and ops.service["active"] == "active"
+    assert "disarm" not in ops.calls and ops.watchdog
+    assert result["stop_delivery_status"] == "uncertain"
+    assert result["operator_recovery_required"] is True
+    assert result["restoration_status"] == "active_observed_stop_delivery_uncertain"
+    assert "stopped" not in ops.calls and "restored" not in ops.calls
+    # Deliver the simulated request after the active snapshot: it wasn't quiesced.
+    assert pending.pop() == "late_stop"
+    ops.service.update(active="inactive", sub="dead")
+    assert ops.watchdog  # Not a guarantee of eventual native restoration.

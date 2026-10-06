@@ -425,3 +425,119 @@ def test_real_inert_cancel_never_has_restoration_mode(tmp_path):
         if process.poll() is None:
             process.kill()
             process.wait(timeout=3)
+
+
+@pytest.mark.parametrize("delivery", ["pending", "wrong", "malformed", "orphan", "ack"])
+def test_worker_cancel_requires_unambiguous_stop_ack(tmp_path, monkeypatch, delivery):
+    monkeypatch.setattr(worker.sys, "platform", "win32")
+    monkeypatch.setattr(transport, "RUN_DIR", tmp_path)
+    now = [time.monotonic_ns()]
+    value = request(tmp_path, mode="restore", seconds=0.1)
+    if delivery != "orphan":
+        transport.save_exclusive(
+            tmp_path / "stop-dispatch.json", dict(nonce=value["nonce"])
+        )
+    if delivery != "pending":
+        if delivery == "malformed":
+            (tmp_path / "stop-ack.json").write_bytes(b"{broken")
+        else:
+            transport.save_exclusive(
+                tmp_path / "stop-ack.json",
+                dict(nonce=value["nonce"] if delivery == "ack" else "b" * 64),
+            )
+    transport.save_exclusive(
+        tmp_path / "watchdog-cancel.json", dict(nonce=value["nonce"])
+    )
+    (tmp_path / "watchdog-cancel.signal").touch()
+    calls = []
+    monkeypatch.setattr(
+        transport, "start_service", lambda timeout: calls.append("start")
+    )
+    monkeypatch.setattr(
+        transport,
+        "service_state",
+        lambda timeout: dict(active="active", sub="running", unit="enabled"),
+    )
+    result = worker.watch(
+        tmp_path,
+        clock=lambda: now[0],
+        sleep=lambda seconds: now.__setitem__(0, now[0] + 200_000_000),
+    )
+    outcome = transport.read_json(tmp_path / "watchdog-outcome.json")
+    if delivery == "ack":
+        assert result == 0 and outcome["status"] == "disarmed" and calls == []
+    else:
+        assert result == 1 and calls == ["start"]
+        assert outcome["status"] == "active_observed_delivery_uncertain"
+        assert outcome["operator_recovery_required"] is True
+
+
+def armed_ops(tmp_path, monkeypatch):
+    ops = make_ops(tmp_path, monkeypatch)
+    ops.process = SimpleNamespace(poll=lambda: None)
+    ops.armed = True
+    ops.deadline_ns = time.monotonic_ns() + 60_000_000_000
+    return ops
+
+
+@pytest.mark.parametrize("error", [TimeoutError, ValueError, KeyboardInterrupt])
+def test_failed_stop_retains_dispatch_and_refuses_cancel_before_state_read(
+    tmp_path, monkeypatch, error
+):
+    ops = armed_ops(tmp_path, monkeypatch)
+
+    def delayed(args, timeout, **kwargs):
+        assert transport.read_json(ops.directory / "stop-dispatch.json") == dict(
+            nonce=ops.nonce
+        )
+        raise error("private sentinel")
+
+    monkeypatch.setattr(transport, "command", delayed)
+    with pytest.raises(error):
+        ops.stop_service(5)
+    assert ops.stop_uncertain and not (ops.directory / "stop-ack.json").exists()
+    with pytest.raises(ValueError, match="uncertain"):
+        ops.disarm_restore_watchdog(5)
+    assert not (ops.directory / "watchdog-cancel.signal").exists()
+
+
+def test_stop_ack_write_failure_preserves_uncertainty(tmp_path, monkeypatch):
+    ops = armed_ops(tmp_path, monkeypatch)
+    calls = []
+    monkeypatch.setattr(transport, "command", lambda *a, **k: calls.append("stop"))
+    original = transport.save_exclusive
+
+    def write(path, value):
+        if path.name == "stop-ack.json":
+            raise OSError("private filesystem error")
+        original(path, value)
+
+    monkeypatch.setattr(transport, "save_exclusive", write)
+    with pytest.raises(OSError):
+        ops.stop_service(5)
+    assert calls == ["stop"] and ops.stop_uncertain
+    with pytest.raises(ValueError, match="uncertain"):
+        ops.disarm_restore_watchdog(5)
+
+
+def test_dispatch_file_failure_never_sends_stop(tmp_path, monkeypatch):
+    ops = armed_ops(tmp_path, monkeypatch)
+    transport.save_exclusive(
+        ops.directory / "stop-dispatch.json", dict(nonce=ops.nonce)
+    )
+    with pytest.raises(FileExistsError):
+        ops.stop_service(5)
+    assert ops.stop_uncertain and not (ops.directory / "stop-ack.json").exists()
+
+
+def test_shared_pending_marker_refuses_cancel_even_if_local_flag_lost(
+    tmp_path, monkeypatch
+):
+    ops = armed_ops(tmp_path, monkeypatch)
+    transport.save_exclusive(
+        ops.directory / "stop-dispatch.json", dict(nonce=ops.nonce)
+    )
+    assert ops.stop_uncertain is False
+    with pytest.raises(ValueError, match="uncertain"):
+        ops.disarm_restore_watchdog(5)
+    assert not (ops.directory / "watchdog-cancel.json").exists()
