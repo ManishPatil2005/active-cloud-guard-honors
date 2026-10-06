@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Preserve receiver precheck refusal without native launch
+
+- Verify published launcher/protocol SHA against GitHub, then record failed guest known-sensor query: Docker Desktop mount/CLI symlink target missing, local Windows engine pipe unavailable.
+- Honor predeclared gate; native receiver/subscription/capture never launched, no Docker/services/clock/settings/restart action. Save minimized manual evidence and INC-045, keep unknown inventory distinct from sensor absence.
+- Latest755Windows/5skips and760Linux software tests unchanged; next operator-directed local engine availability/integration recovery before the pending read-only observation.
+
 ## 2026-10-06 - Add exclusive read-only receiver capture and declared protocol
 
 - Fixed Linux ordinary-user launcher writes separate exclusive start/result receipts, freezes four parent/child sources and validates minimized evidence without overwrite/retry.

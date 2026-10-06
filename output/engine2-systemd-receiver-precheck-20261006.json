@@ -1,0 +1,61 @@
+{
+  "schema": "systemd_receive_precheck_summary_v1",
+  "record_kind": "minimized_manual_transcription_of_tool_outputs",
+  "record_date": "2026-10-06",
+  "implementation_commit": "a9cc57d6e815ead96ec4e77acca32cf685a599a8",
+  "local_remote_commit_match_verified": true,
+  "selected_source_sha256": {
+    "cloudguard/__init__.py": "d79637703344258cb0d403a6d78e2b10a60f0a81eb01562c4f7a09ee5b306104",
+    "cloudguard/systemd_job.py": "ea0492e62a87ab7571bacb242bb6192c410277bf565f82115cd5494bc7e47917",
+    "cloudguard/systemd_receiver.py": "148d8975ddbd3411313f47d954cf479cda85312cbd193cd01fd7463758f25c55",
+    "scripts/systemd_receiver_capture.py": "849b445afde3b1e98f47b0cc85b72df99e31d354de8931f35bc5576f98594490"
+  },
+  "status": "precheck_failed_no_native_launch",
+  "stage": "known_sensor_inventory_unavailable",
+  "selected_guest_unit_state": {
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "guest_docker": {
+    "cli_exec_failed": true,
+    "failure_classification": "executable_target_unavailable",
+    "usr_bin_docker_is_symlink": true,
+    "symlink_target": "/mnt/wsl/docker-desktop/cli-tools/usr/bin/docker",
+    "integration_mount_exists": false,
+    "target_exists": false,
+    "path_inspection_exit_code": 1
+  },
+  "windows_docker": {
+    "cli_present": true,
+    "selected_context": "desktop-linux",
+    "context_endpoint": "npipe:////./pipe/dockerDesktopLinuxEngine",
+    "endpoint_scope": "local_windows_named_pipe",
+    "selected_process_names_query_returned_entries": false,
+    "local_named_pipe_api_query_exit_code": 1,
+    "api_error_classification": "named_pipe_not_found",
+    "named_research_sensor_inventory_verified": false
+  },
+  "outer_supervisor": {
+    "path": "/usr/bin/timeout",
+    "reported_version": "GNU coreutils 9.4",
+    "version_query_succeeded": true
+  },
+  "native_capture_directory_created": false,
+  "native_receiver_child_started": false,
+  "native_subscription_invoked": false,
+  "jobs_submitted_or_canceled": false,
+  "services_or_clock_settings_modified": false,
+  "docker_started_or_settings_changed": false,
+  "wsl_restart_requested": false,
+  "sensor_or_model_workload_started": false,
+  "native_binding_verified": false,
+  "service_quiesced_verified": false,
+  "may_disarm_recovery": false,
+  "limitations": [
+    "Manual summary is not an authenticated command trace or continuous current-state assertion.",
+    "Named process and path checks are scoped observations, not exhaustive daemon/process exclusion.",
+    "Failed inventory is unknown, not proof no research sensors or containers exist.",
+    "No native receive attempt/result exists; earlier timing and ML gates remain open."
+  ]
+}

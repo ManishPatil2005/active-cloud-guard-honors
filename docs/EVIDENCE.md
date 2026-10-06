@@ -1,5 +1,9 @@
 # Evidence index
 
+## Receiver precheck refusal, no native observation (2026-10-06)
+
+[Result/protocol](SYSTEMD_RECEIVER_CAPTURE.md), [minimized manual summary](../output/engine2-systemd-receiver-precheck-20261006.json). Verified implementation commit/source hashes; service snapshot/timeout available but guest Docker mount/CLI target and verified local Windows engine pipe unavailable. Required named-sensor inventory unknown, native capture not launched; no subscription/job/service/Docker/settings/restart action. INC-045 preserves actual precheck failure; this is not a native receive receipt, sensor absence proof or timing/ML acceptance. Implementation760case XML unchanged.
+
 ## Exclusive receiver launcher software checks (2026-10-06)
 
 [Protocol/report](SYSTEMD_RECEIVER_CAPTURE.md), [Windows755pass/5skips](../output/engine2-systemd-capture-windows-tests-20261006.xml), [Linux760pass](../output/engine2-systemd-capture-linux-tests-20261006.xml).34new cases, two actual inert Linux children and synthetic receipt/source/timeout/errno/alarm wiring checks; no native bus or service action. One read-only receive observation predeclared but pending at implementation checkpoint. Older726reports/native clock failures unchanged; no independent detection or job-fencing evidence.

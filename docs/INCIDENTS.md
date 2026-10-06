@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-045 - 2026-10-06 - Docker Desktop integration/API unavailable at receiver precheck
+
+**Symptom/evidence:** after verified publication a9cc57d, required ordinary-user guest `docker ps -a --filter name=acg-falco- --format '{{.ID}}'` could not execute docker. Actual ls exit1 shows /usr/bin/docker symlink to /mnt/wsl/docker-desktop/cli-tools/usr/bin/docker but mount/target absent. Windows CLI exists, current desktop-linux context resolves to local npipe DockerDesktopLinuxEngine; read-only known-sensor query exits1/pipe not found. Scoped Docker Desktop/com.docker.backend process enumeration no entries. Timesyncd active/running/enabled and GNUtimeout9.4 version query succeeded. Manual minimized summary in output/engine2-systemd-receiver-precheck-20261006.json, not native/attested data.
+
+**Cause confidence/response:** high confidence in unavailable expected integration mount/CLI target/local engine API at inspection time; process-name evidence consistent with Desktop not running, not exhaustive diagnosis or proof why it stopped. Combined precheck shell exit0 reflected the later successful timeout query, so earlier Docker error was checked explicitly and refused, not falsely accepted. No installation/PATH/settings/service/clock change, no Docker startup or WSL restart; no code workaround/gate relaxation. This is a runtime availability blocker, not proven research clock cause.
+
+**Verification/remaining:** native capture directory still absent, no native child/Subscribe/start/result/job action; four selected hashes unchanged from published implementation. Required sensor inventory stays unknown, not zero/absent. Existing755Windows/5Linux-only skips and760Linux software suites remain valid historical code checks but cannot prove current lab/native receive readiness; no suite rerun claimed. Need operator-directed Docker Desktop availability/integration recovery and fresh read-only gate before the pending single observation. Incident unresolved operationally; keep failed precheck/history intact.
+
 ### INC-044 - 2026-10-06 - Windows native-backend fixture retained LLP64 long width
 
 **Symptom/evidence:** expanded systemd receiver targeted suite at tmp/systemd-receive-target-win-20261006-02 returned53pass/1failure/0.38s. Fixture simulated Linux/x86_64/glibc/ordinary UID and expected changed-library refusal, but got earlier unreviewed-backend refusal. No native connection or real library failure.

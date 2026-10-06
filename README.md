@@ -6,6 +6,8 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+Current execution gate (6 October 2026): the published receiver launcher passed software checks, but the [required Docker availability/sensor-inventory precheck failed](docs/SYSTEMD_RECEIVER_CAPTURE.md). The native receiver was **not launched**; expected Docker Desktop guest mount/CLI target and local engine pipe are unavailable. No services/settings/Docker startup/restart changed. Restore local lab availability with operator direction before the pending read-only observation; this does not alter the architecture or establish a clock cause.
+
 Latest engineering check (6 October 2026): **Windows755tests passed/5Linux-only skips; Linux760tests passed**. The [exclusive read-only receiver launcher](docs/SYSTEMD_RECEIVER_CAPTURE.md) preserves start/outcome records and adds bounded supervision/source/schema guards.34new cases include two actual inert Linux child tests, not service operations. One native notification observation is declared for after publication/prechecks; not yet executed at this checkpoint. Engine1 and existing stack are unchanged; job fencing, timing reliability and independent ML evaluation remain open.
 
 Previous receiver checkpoint (6 October 2026): Windows723tests passed/3Linux-only skips; Linux726tests passed. The [isolated read-only systemd receiver](docs/SYSTEMD_RECEIVER.md) adds54synthetic/C-level regressions and verified installed-library ABI/exports. Real notification reception and durable job/fence integration remain unverified; no subscription or service-control operation executed in that milestone. This is research safety instrumentation, not a clock fix, validated anomaly model or production readiness.
@@ -42,7 +44,7 @@ Engine 1 is preserved under Git tag `engine1-v2.2`. Engine 2 has an **observatio
 | Proposal | *An Active AI Security Layer for Misconfiguration & Exposure Prevention in Cloud-Hosted Open-Source Software* |
 | Current scope | Frozen Engine 1 baseline; Engine 2 replay, live instrumentation and timing validation |
 | Execution | Local Python CLI/library; Docker Compose, Ollama and Chroma |
-| Evidence snapshot | 6 October 2026;755Windows passes/5Linux-only skips,760Linux passes; exclusive receiver capture software checks, native observation/job-fence binding pending; timing/cause/ML gates open, Engine1 observations historical |
+| Evidence snapshot | 6 October 2026;755Windows passes/5Linux-only skips,760Linux passes; receiver precheck failed/no native launch because local Docker API/integration unavailable; job-fence/timing/cause/ML gates open, Engine1 observations historical |
 | Evaluation data | 45 synthetic development cases; **not an independent test set** |
 
 ## Research questions

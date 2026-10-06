@@ -1,5 +1,30 @@
 # Exclusive receiver capture and one-observation protocol (E2-033 follow-up)
 
+## Latest outcome — precheck failed, native observation not launched
+
+Implementation published as `a9cc57d6e815ead96ec4e77acca32cf685a599a8`, GitHub main/local SHA matched and working tree was clean. The planned native observation was **not launched**: required known-sensor enumeration failed before capture. [Minimized precheck summary](../output/engine2-systemd-receiver-precheck-20261006.json) manually transcribes the actual tool outputs; it is not a native observation receipt or authenticated trace. INC-045 / WL-053.
+
+Actual selected service query returned active/running/enabled; `/usr/bin/timeout --version` returned GNU coreutils9.4. Guest `docker ps -a --filter name=acg-falco- --format '{{.ID}}'` could not execute docker. Read-only diagnosis: `/usr/bin/docker` is a symlink to `/mnt/wsl/docker-desktop/cli-tools/usr/bin/docker`, but both Docker Desktop mount and target are absent (`ls` exit1). No installation/PATH/configuration was changed.
+
+Windows `Get-Command docker` found `C:\Program Files\Docker\Docker\resources\bin\docker.exe`. Scoped Docker Desktop/backend process-name enumeration returned no entries. Current context is desktop-linux; context metadata identifies the **local** `npipe:////./pipe/dockerDesktopLinuxEngine` endpoint. A read-only known-sensor query against that verified local context exited1: named pipe not found. This establishes missing/unavailable expected local integration/API at inspection time, not an exhaustive process diagnosis or proof all containers/sensors are absent. No remote Docker context/API contacted.
+
+The combined precheck shell's final exit0 belonged to successful timeout-version query; earlier Docker execution error was explicitly recognized, not treated as an all-passed preflight. Separate local API/path checks exited1. Per the predeclared protocol, failed inventory means **unknown** and prevents native launch. No capture directory, started/result record, native child, subscription, service/job/clock change, Docker startup, settings change, WSL restart or sensor/model workload. The one native observation remains pending; no retry/replacement observation occurred.
+
+Restore local Docker Desktop availability/integration with operator direction, then recheck required read-only preflight before considering the still-pending single receiver observation. Do not silently relax the gate, manufacture sensor absence or describe this as an Engine2/clock fix. Production/ML/timing/durable job-fence gates remain open. The implementation/protocol checkpoint below is preserved as historical context.
+
+Read-only diagnosis commands executed after the failed guest query:
+
+```powershell
+wsl -d ACG-Research -u acgresearch --exec /usr/bin/ls -ld /usr/bin/docker /mnt/wsl/docker-desktop /mnt/wsl/docker-desktop/cli-tools/usr/bin/docker
+Get-Command docker -ErrorAction SilentlyContinue | Select-Object Name,Source
+Get-Process -Name 'Docker Desktop','com.docker.backend' -ErrorAction SilentlyContinue | Select-Object ProcessName,Id
+& 'C:\Program Files\Docker\Docker\resources\bin\docker.exe' context show
+& 'C:\Program Files\Docker\Docker\resources\bin\docker.exe' context inspect desktop-linux --format '{{ .Endpoints.docker.Host }}'
+& 'C:\Program Files\Docker\Docker\resources\bin\docker.exe' --context desktop-linux ps -a --filter name=acg-falco- --format '{{.ID}}'
+```
+
+Final source hashes still match the published four selected sources; native observation directory absent. Full suites not rerun after read-only checks/document-only result recording: latest755Windows/5skips and760Linux remain implementation software evidence, not native receive validation.
+
 ## Implementation checkpoint — 6 October 2026
 
 Launcher **implemented/software-tested**; native observation not yet executed at this checkpoint. Continue from f03a0f6a5befee194615c3e3d25cfde7ae374efc without changing the engine stack/controller/fence/native clocks or historical evidence. This follow-up adds failure-preserving storage and supervision for the [isolated receiver](SYSTEMD_RECEIVER.md); it is not service-control integration or timing/ML acceptance.
