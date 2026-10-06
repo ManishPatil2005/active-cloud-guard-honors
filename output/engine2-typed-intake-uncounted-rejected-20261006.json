@@ -1,0 +1,9 @@
+{
+  "protocol": "runtime_intake_v1",
+  "status": "rejected",
+  "error_type": "ValueError",
+  "independent_evaluation_verified": false,
+  "model_fitting_authorized": false,
+  "predictions_computed": false,
+  "actions_executed": []
+}

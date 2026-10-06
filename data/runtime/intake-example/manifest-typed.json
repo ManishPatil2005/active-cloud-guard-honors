@@ -1,0 +1,21 @@
+{
+  "schema_version":"runtime_intake_v2",
+  "dataset_id":"synthetic-typed-receipt-demonstration",
+  "inventory":{"path":"inventory/assets.json","sha256":"400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a"},
+  "guidelines":{"path":"guidelines/synthetic.md","sha256":"d95630b170a48f240ef4a7ca5c93971e45e6d1a802ddcec698c9eec0e3d1cd9d"},
+  "window_seconds":60,
+  "runs":[{
+    "run_id":"demo-run",
+    "capture":{"path":"captures/synthetic.json","sha256":"b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837"},
+    "data_role":"development",
+    "split":"development",
+    "groups":{"template_family":"synthetic-template","deployment_id":"synthetic-deployment","run_family":"synthetic-run-family"},
+    "receipts":{
+      "accounting":{"path":"receipts/accounting-wrapper.json","sha256":"2887429b8d5c77c1dedd5c508a45c01bdd27cb6986716af0d0013e5cca16bb2e"},
+      "identity":{"path":"receipts/identity-wrapper.json","sha256":"ab98c087e6d28706650c101f0a42b2a44cf2d777638a3259ed33c333b18d5f8e"},
+      "timing":{"path":"receipts/timing-wrapper.json","sha256":"6ae099872dd2658ddb65ef7e8b1b14e2d6fbebd4108d588db9862331edc0ecea"}
+    }
+  }],
+  "reviews":[],
+  "adjudication":null
+}

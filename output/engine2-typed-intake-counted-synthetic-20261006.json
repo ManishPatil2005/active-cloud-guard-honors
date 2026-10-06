@@ -1,0 +1,88 @@
+{
+  "protocol": "runtime_intake_v2",
+  "dataset_id": "synthetic-typed-counted-demonstration",
+  "status": "artifact_consistency_checked",
+  "manifest_sha256": "1a78dab227b2e01f0c0fd1380f1437fd38a7d8e9050c17425cfebc79e00ca3c4",
+  "inventory_sha256": "400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a",
+  "guidelines_sha256": "d95630b170a48f240ef4a7ca5c93971e45e6d1a802ddcec698c9eec0e3d1cd9d",
+  "window_seconds": 60,
+  "observed_window_count": 3,
+  "empty_capture_count": 0,
+  "missing_windows_not_materialized": true,
+  "runs": [
+    {
+      "run_id": "demo-run",
+      "capture_id": "intake-synthetic-demo",
+      "capture_sha256": "b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837",
+      "source": "synthetic",
+      "data_role_declared": "development",
+      "split_declared": "development",
+      "observed_window_count": 3,
+      "event_count": 3,
+      "collection_coverage": "partial_or_unknown",
+      "binding_verified": false,
+      "receipt_hashes_checked": [
+        "accounting",
+        "identity",
+        "timing"
+      ],
+      "missing_receipts": [],
+      "receipt_semantics_verified": false,
+      "evaluation_eligible": false,
+      "selected_receipt_checks": {
+        "accounting": {
+          "wrapper_sha256": "aadbc665e76cf49c48433aa34f788da90e63f1cd83a3cad5855b3d02053827a4",
+          "source_sha256": "1ce03ca07eb28708bf937f34a68cca4feed6135c76b0f60fba4a5412e0be45e7",
+          "origin_declared": "synthetic_fixture",
+          "selected_consistency_checked": true,
+          "scope": "adapter_counts_only",
+          "recorded_outcome": "normalized",
+          "rejected_record_count": 0,
+          "coverage_verified": false
+        },
+        "identity": {
+          "wrapper_sha256": "e39b9f91620dca1810dd92cccc10c992d9877a8993a7aacca13c6b1e05c66d72",
+          "source_sha256": "0377143fee753e46a13969b67d74e007aabd4c2c5c8fbd0b3509d4c4b7843230",
+          "origin_declared": "synthetic_fixture",
+          "selected_consistency_checked": true,
+          "scope": "selected_recorded_snapshots_only",
+          "recorded_outcome": "stable",
+          "deployment_binding_authenticated": false
+        },
+        "timing": {
+          "wrapper_sha256": "a48c5784bcb15cdadf5844188b90e3ba162036690907a953d3cba373c5c9f0a3",
+          "source_sha256": "0377143fee753e46a13969b67d74e007aabd4c2c5c8fbd0b3509d4c4b7843230",
+          "origin_declared": "synthetic_fixture",
+          "selected_consistency_checked": true,
+          "scope": "harness_endpoints_only",
+          "local_clock_within_tolerance": true,
+          "recorded_outcome": "within_local_tolerance",
+          "recorded_collector_zero_excluded_samples": null,
+          "collector_alignment_verified": false,
+          "long_term_stability_verified": false
+        }
+      }
+    }
+  ],
+  "review_submissions": [],
+  "pre_adjudication_agreement": {
+    "known_pairs": 0,
+    "known_agreements": 0,
+    "known_disagreements": 0,
+    "unknown_pairs": 0,
+    "known_agreement_fraction": null
+  },
+  "adjudication": null,
+  "unique_artifact_bytes": 5187,
+  "unique_artifact_count": 8,
+  "independent_evaluation_verified": false,
+  "model_fitting_authorized": false,
+  "predictions_computed": false,
+  "actions_executed": [],
+  "limitations": [
+    "Grouping/roles/reviewer identity/blinding are supplied declarations, not authenticated independence.",
+    "Typed receipts check selected source/count/identity/endpoint consistency only; complete protocol, collector alignment, coverage, authentication and eligibility are not verified.",
+    "Event overlap uses the existing lossy runtime projection; renamed/structurally similar cases are not fully detected.",
+    "No threat accuracy, model fitting, independent labels or eligibility is established by this report."
+  ]
+}

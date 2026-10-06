@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Bind selected typed receipts to offline runtime intake
+
+- Add opt-in runtime_intake_v2 and isolated runtime_receipts.py: source/context hashes, capture/accounting/trial counts, selected saved identity snapshots and local clock arithmetic. v1 report exact-equality regression passes; no new engine/model/dependency.
+- Add77cases (two read saved artifacts); finalLinux1,014pass/Windows976pass38skips, lint-format107files/pipcheck pass. All full coverage/alignment/authenticity/eligibility/fitting/action gates false.
+- Reproduce/fix missing trial count cross-check (INC-049), retain raw three-failure XML, preliminary suites/example/source bytes and corrected counted/uncounted-rejected results. No historical negative replacement.
+- Maintain formal/current/nontechnical documentation and ADR-049; next approved labeling pack/eligible-capture checklist and genuine human/comparable-data prerequisites. No collection/native/clock/model/response operation.
+
 ## 2026-10-06 - Validate offline grouped runtime research intake
 
 - Add isolated bounded intake library/CLI: dedicated role paths/exact hashes, group/split/duplicate/window/review/adjudication consistency; preserve unknowns/original disagreement, never authorize independence/fitting/actions.

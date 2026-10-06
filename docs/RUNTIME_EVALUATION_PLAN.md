@@ -1,6 +1,6 @@
 # Engine2 research-data intake — staged task (E2-035)
 
-Status 6 October 2026: **partial implementation**. [Offline intake v1](RUNTIME_INTAKE.md) validates bounded artifact/schema/hash/group/split/review/adjudication consistency with synthetic tests. Receipts are opaque hash-bound objects, not verified protocols/timing/coverage/identity. All independence/eligibility/fitting flags false; no new real data/actual reviewer study/models. Next within E2-035: typed receipt semantic bindings and genuine human/data gates. This extends [EXPERIMENT_PROTOCOL](EXPERIMENT_PROTOCOL.md), preserving unresolved timing/coverage/identity gates. [Current status](CURRENT_STATUS.md).
+Status 6 October 2026: **partial implementation**. [Offline intake](RUNTIME_INTAKE.md) validates bounded artifact/schema/hash/group/split/review/adjudication consistency. Opt-in [typed receipts](RUNTIME_RECEIPTS.md) add selected count/source/identity/local-endpoint consistency, not full protocols/coverage/alignment/authentication. v1 opaque behavior preserved; all independence/eligibility/fitting flags false. No real new data/reviewers/models. Next supervisor-reviewed threat/labeling pack and eligible-capture checklist, then genuine human/comparable-data gates. [Protocol](EXPERIMENT_PROTOCOL.md)/[current status](CURRENT_STATUS.md); unresolved timing/coverage/identity preserved.
 
 ## Research connection
 

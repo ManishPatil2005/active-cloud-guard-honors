@@ -5,6 +5,7 @@ roles, groups, reviewer identities/blinding and receipts are not attestation.
 """
 
 import hashlib
+import copy
 import json
 import math
 from pathlib import Path
@@ -12,9 +13,11 @@ import re
 import stat
 
 from cloudguard import runtime
+from cloudguard.runtime_receipts import inspect_receipts
 from cloudguard.verification import HASH, object_schema, validate, load_inventory
 
 PROTOCOL = "runtime_intake_v1"
+TYPED_PROTOCOL = "runtime_intake_v2"
 FILE_LIMIT = 1_000_000
 TOTAL_LIMIT = 8_000_000
 WINDOW_LIMIT = 2000
@@ -101,6 +104,8 @@ MANIFEST = object_schema(
         adjudication=OPTIONAL_REF,
     )
 )
+MANIFEST_V2 = copy.deepcopy(MANIFEST)
+MANIFEST_V2["properties"]["schema_version"] = {"const": TYPED_PROTOCOL}
 
 
 def _json(raw):
@@ -199,13 +204,16 @@ def _labels(document, keys):
 def inspect(manifest_path):
     """Read a dedicated local bundle; return minimized declarations/consistency.
 
-    Receipt JSON is opaque hash-bound evidence, not protocol/eligibility proof.
+    v1 receipts are opaque; v2 checks selected source facts, never eligibility.
     Reviewer reasons/receipt contents are never included in the returned report.
     """
     manifest_path = Path(manifest_path)
     original = _raw(manifest_path, 100_000)
     manifest = _json(original)
-    validate(manifest, MANIFEST)
+    typed = (
+        isinstance(manifest, dict) and manifest.get("schema_version") == TYPED_PROTOCOL
+    )
+    validate(manifest, MANIFEST_V2 if typed else MANIFEST)
     if type(manifest["window_seconds"]) is not int:
         raise ValueError("exact integer window size required")
     bundle = _Bundle(manifest_path.parent)
@@ -228,7 +236,7 @@ def inspect(manifest_path):
     )
     for run in manifest["runs"]:
         path, raw = bundle.read(run["capture"], "captures")
-        _json(raw)  # Reject nonfinite/duplicate fields before reused parsing.
+        capture_document = _json(raw)  # Strict parsing before reused loading.
         capture = runtime.load_capture(path, assets)
         validate(capture["capture_id"], ID)
         validate(capture["scenario_group"], ID)
@@ -277,6 +285,14 @@ def inspect(manifest_path):
                 if not isinstance(_json(receipt), dict):
                     raise ValueError("receipt must be a JSON object")
                 checked.append(kind)
+        if typed:
+
+            def receipt_json(ref):
+                return _json(bundle.read(ref, "receipts")[1])
+
+            receipt_checks = inspect_receipts(
+                run, capture, capture_document, inventory_hash, receipt_json
+            )
         runs.append(
             dict(
                 run_id=run["run_id"],
@@ -295,6 +311,8 @@ def inspect(manifest_path):
                 evaluation_eligible=False,
             )
         )
+        if typed:
+            runs[-1]["selected_receipt_checks"] = receipt_checks
     submissions, reviewers, votes = [], set(), []
     for ref in manifest["reviews"]:
         _, raw = bundle.read(ref, "labels")
@@ -363,7 +381,7 @@ def inspect(manifest_path):
     if _raw(manifest_path, 100_000) != original:
         raise ValueError("manifest changed during intake")
     return dict(
-        protocol=PROTOCOL,
+        protocol=manifest["schema_version"],
         dataset_id=manifest["dataset_id"],
         status="artifact_consistency_checked",
         manifest_sha256=hashlib.sha256(original).hexdigest(),
@@ -385,7 +403,11 @@ def inspect(manifest_path):
         actions_executed=[],
         limitations=[
             "Grouping/roles/reviewer identity/blinding are supplied declarations, not authenticated independence.",
-            "Receipt hashes are checked; receipt protocols/timing/coverage/identity and real-data eligibility are not verified.",
+            (
+                "Typed receipts check selected source/count/identity/endpoint consistency only; complete protocol, collector alignment, coverage, authentication and eligibility are not verified."
+                if typed
+                else "Receipt hashes are checked; receipt protocols/timing/coverage/identity and real-data eligibility are not verified."
+            ),
             "Event overlap uses the existing lossy runtime projection; renamed/structurally similar cases are not fully detected.",
             "No threat accuracy, model fitting, independent labels or eligibility is established by this report.",
         ],

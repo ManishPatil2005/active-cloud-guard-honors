@@ -1,5 +1,24 @@
 # Progress Execution
 
+## Current addition — checking what receipts actually say, 6 October
+
+Engine2's replay baseline is still the same engine. We added an optional second **input format**, not a second detector version. It checks recorded counts against the capture and trial, compares saved before/after identity, and recomputes local clock calculations. This helps catch inconsistent research records. It does not prove that all events were captured, that the collector clock aligns, or that two reviewer names represent independent people. No model was trained and no live collector/service/clock operation was run.
+
+We added 77 checks, including two reads of already saved historical evidence. Final whole-project results: Linux 1,014 passed; Windows 976 passed with 38 skips. These are software checks, not threat accuracy. Review found a missing comparison of trial counts; three tests reproduced it, then we fixed it and kept the failed report. Both the earlier uncounted input and corrected counted input remain available, so the problem is not hidden. [Current status](CURRENT_STATUS.md), [detailed report](RUNTIME_RECEIPTS.md).
+
+### Baby steps — typed receipt example
+
+1. Open a terminal at your configured repository root. No need to start Docker, Ollama or any services.
+2. Find data/runtime/intake-example/manifest-typed-counted.json. It connects the existing invented capture to three *wrappers*. Each wrapper names the run, capture hash, inventory hash and source file. receipts/accounting-fixture-counted.json contains invented counts; receipts/trial-fixture-counted.json contains invented identity/clock/count facts. These are not actual human or collector observations.
+3. Windows: `.venv/Scripts/python.exe scripts/runtime_intake.py --manifest data/runtime/intake-example/manifest-typed-counted.json --output output/my-fresh-typed-report.json`. Linux: replace the Windows executable with `python` from the existing environment. Pick a new output filename outside the example folder; the output parent must exist.
+4. Open the report and expand runs -> selected_receipt_checks. Accounting checks that numbers add up; identity checks saved snapshots; timing checks local endpoints. Each selected_consistency_checked=true is limited to the named scope. **Do not mistake it for full receipt_semantics_verified or evaluation_eligible**, which stay false. Collector alignment, complete coverage, authenticated identity, independent evaluation and model fitting remain unverified; actions_executed empty.
+5. The example has three windows and no reviewer submissions. Its invented event times are not matched to the practice measurement interval. That is deliberately not collector-alignment proof. A stable snapshot or acceptable local calculation cannot authorize training.
+6. Run `.venv/Scripts/python.exe -m pytest -q tests/test_runtime_receipts.py tests/test_runtime_intake.py` (Linux: existing environment's `python`). Current combined cases total 160; here Windows has one symlink-privilege skip. Tests use practice files, plus two read-only checks of old evidence; no new collection or cloud scanning.
+7. Earlier manifest-typed.json is now a **negative example**: it lacks trial counts and is rejected. Its earlier passing report is kept as a pre-fix checkpoint, not current success. Original v1 manifest.json still works unchanged. Never overwrite reports or casually reformat hash-bound files.
+8. Next: prepare a supervisor-approved threat/labeling pack and checklist for eligible captures. Obtain real independently completed blinded reviews and comparable data under reviewed protocols. Software cannot invent those prerequisites. We are preparing evaluation, not claiming a publication-ready security detector.
+
+Sections below describe earlier checkpoints; this section and CURRENT_STATUS take precedence.
+
 ## Current addition — checking research data before models, 6 October
 
 Engine2's basic replay engine is already built. We added an offline checker to help prepare its evaluation. It checks file hashes, related declared groups across partitions, and reviewer labels for each observed time window. It keeps disagreements and unknowns. It does not collect data, contact models or train anything. Independence is **not** proven by two names or a file saying “passed.” Receipt meanings and human identities still need verification; all evaluation/training flags remain false. We added 83 practice tests. Full suite: Linux 937 passed; Windows 899 passed with 38 skips. These are software tests, not attack accuracy. [Current summary](CURRENT_STATUS.md), [detailed contract](RUNTIME_INTAKE.md).

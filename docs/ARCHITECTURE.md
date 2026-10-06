@@ -1,6 +1,8 @@
 # Existing architecture
 
-E2-035 adds isolated cloudguard/runtime_intake.py and scripts/runtime_intake.py, importing existing runtime/verification only. Dedicated offline bundle -> bounded schema/hash/group/split/window/review/adjudication checks -> fresh minimized report. No collection/network/model/control operations, new dependencies or default-engine integration. Original votes/reasons remain supplied artifacts; opaque receipt hashes do not grant semantic validity, human authentication or eligibility. All fitting/evaluation/action gates false. [Intake contract](RUNTIME_INTAKE.md); typed receipt bindings next, not a new engine. Engine1/runtime algorithms/source-freeze23 unchanged.
+E2-035 typed refinement: runtime_intake_v2 opt-in selects new runtime_receipts.py through existing offline intake; original v1 reports preserved. Wrapper/source hashes bound under bundle byte/path/postflight guards; existing sensor_adapter KINDS/IMAGE and clock_check.compare reused, no thresholds changed. Selected accounting/capture/trial counts, saved identity snapshots and harness endpoints only; full protocol/coverage/alignment/authenticity/eligibility/fitting false. Identity/timing restricted to single compose/redis binding in selected pinned receipt family. No new dependency/collector/default-engine/comparison source-freeze23 integration. RUNTIME_RECEIPTS.md/INC-049.
+
+Initial E2-035 checkpoint added isolated intake/CLI using runtime/verification, bounded bundle/group/label checks and fresh reports. Typed-source bindings were planned then, implemented above now; not a new engine or default integration. Original v1 schema/report/calculations and historical bytes unchanged. Full eligibility/fitting/action gates false; [intake contract](RUNTIME_INTAKE.md).
 
 ## Stack and execution
 

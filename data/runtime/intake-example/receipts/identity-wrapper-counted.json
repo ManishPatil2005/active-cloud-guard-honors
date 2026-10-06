@@ -1,0 +1,10 @@
+{
+  "schema_version":"runtime_receipt_v1",
+  "kind":"identity",
+  "run_id":"demo-run",
+  "capture_sha256":"b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837",
+  "inventory_sha256":"400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a",
+  "collection_protocol":"acg_falco_selected_v1",
+  "origin":"synthetic_fixture",
+  "source":{"path":"receipts/trial-fixture-counted.json","sha256":"0377143fee753e46a13969b67d74e007aabd4c2c5c8fbd0b3509d4c4b7843230"}
+}

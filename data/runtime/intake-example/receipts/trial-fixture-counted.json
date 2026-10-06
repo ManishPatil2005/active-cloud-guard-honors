@@ -1,0 +1,27 @@
+{
+  "fixture_only":true,
+  "image":"falcosecurity/falco@sha256:788f1129c542171813083d4afc61b16730a47dde8c23d9c39370acef996349b6",
+  "container_id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "deployment_binding_authenticated":false,
+  "raw_log_sha256":"1111111111111111111111111111111111111111111111111111111111111111",
+  "matched_event_count":3,
+  "event_type_counts":{"execve":1,"open":1,"connect":1},
+  "target_identity_before":{"id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image":"sha256:0000000000000000000000000000000000000000000000000000000000000000","started_at":"2026-01-01T00:00:00Z","running":true,"restarts":0,"project":"synthetic-fixture","service":"redis"},
+  "target_identity_after":{"id":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image":"sha256:0000000000000000000000000000000000000000000000000000000000000000","started_at":"2026-01-01T00:00:00Z","running":true,"restarts":0,"project":"synthetic-fixture","service":"redis"},
+  "target_identity_stable":true,
+  "measurement":{
+    "timing_protocol":"per_call_brackets_v1",
+    "start_unix_ns":1767312000000000000,
+    "end_unix_ns":1767312004000000000,
+    "elapsed_monotonic_ns":4000000000,
+    "clock_difference_ns":0,
+    "clock_sampling":{
+      "first":{"wall_ns":1767312000000000000,"monotonic_mid_ns":1000000000,"sampling_span_ns":2},
+      "last":{"wall_ns":1767312004000000000,"monotonic_mid_ns":5000000000,"sampling_span_ns":2},
+      "elapsed_monotonic_ns":4000000000,
+      "clock_difference_ns":0,
+      "sampling_uncertainty_ns":2,
+      "within_tolerance":true
+    }
+  }
+}

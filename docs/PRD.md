@@ -1,6 +1,6 @@
 # Research prototype requirements
 
-Current6October interpretation: [CURRENT_STATUS](CURRENT_STATUS.md). First-three-month scope below is historical milestone scope, not a claim that later Engine2 is unbuilt or forbidden. Engine1 baseline frozen; Engine2 replay/statistical baseline implemented with bounded telemetry tools; ML/independent validation open. Supporting clock/receiver/recovery tools refine experiments, not detection effectiveness. [Offline intake](RUNTIME_INTAKE.md) implements artifact consistency under the [staged plan](RUNTIME_EVALUATION_PLAN.md)/RQ3/E2-004; typed receipt semantics and actual independent humans/eligible data remain open. No requirements/stack/response permission change.
+Current6October interpretation: [CURRENT_STATUS](CURRENT_STATUS.md). First-three-month scope below historical, not a claim later Engine2 is unbuilt. Engine1 frozen; Engine2 baseline/bounded telemetry implemented, ML/independent validation open. [Intake](RUNTIME_INTAKE.md)/[selected typed receipts](RUNTIME_RECEIPTS.md) refine RQ3/E2-004 evaluation preparation; full coverage/alignment/protocol/authenticity/independent-human/eligible-data gates remain. Next approved labeling pack/eligible-capture checklist, no scope/stack/response permission change.
 
 ## Problem and users
 

@@ -1,6 +1,6 @@
 # Documentation index
 
-**Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 replay baseline implemented; refinements are not rebuilding/full research completion. Separate bounded telemetry exists; ML/effectiveness/timing gates remain open. [Offline research intake](RUNTIME_INTAKE.md) implements E2-035 artifact consistency, not real eligibility/independent labels. Next within [evaluation plan](RUNTIME_EVALUATION_PLAN.md): typed receipt semantic bindings and genuine human/data gates, not expanding safety helpers by default. Maintain the current summary each change.
+**Current status:** [capabilities and research gates](CURRENT_STATUS.md). Engine2 baseline implemented, refinements not a rebuild/full research completion. [Offline intake](RUNTIME_INTAKE.md)/[typed receipts](RUNTIME_RECEIPTS.md) implement E2-035 artifact and selected count/source/identity/local-endpoint consistency; full protocol/coverage/alignment/human authenticity and ML remain open. Next supervisor-reviewed labeling pack/eligible-capture checklist within the [evaluation plan](RUNTIME_EVALUATION_PLAN.md), not safety expansion by default. Maintain the current summary each change.
 
 ## Historical checkpoints (newest first)
 
@@ -77,8 +77,9 @@ Start here when reviewing or continuing the project. The owner is Manish Patil; 
 | Document | Purpose |
 |---|---|
 | [Current capability status](CURRENT_STATUS.md) | Implemented baselines, supporting refinements, missing capabilities and scientific gates; current priority, not a historical checkpoint |
-| [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Staged research acceptance; artifact-consistency subset implemented, semantic receipt and actual independent-human/data gates open |
+| [Runtime evaluation intake plan](RUNTIME_EVALUATION_PLAN.md) | Staged acceptance; artifact/selected typed-source checks implemented, full protocol/coverage/alignment and actual independent-human/data gates open |
 | [Offline runtime intake](RUNTIME_INTAKE.md) | Exact bundle/schema/hash/group/split/review/adjudication contract, synthetic example, commands and no-eligibility limits |
+| [Selected typed receipt checks](RUNTIME_RECEIPTS.md) | Opt-in format/source/count/snapshot/local-endpoint checks, count-binding regression/fix, preserved preliminary/final examples and full scientific limits |
 | [PRD](PRD.md) | What the research prototype must do and why |
 | [Architecture](ARCHITECTURE.md) | Existing stack, modules, flow and boundaries |
 | [Engine 1 v2](ENGINE1_V2.md) | Repeat-work efficiency, budgets, cache contracts and reproduction |

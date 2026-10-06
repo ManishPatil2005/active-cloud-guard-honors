@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.263" timestamp="2026-10-06T18:18:10.892671+05:30" hostname="Welcome"><testcase classname="tests.test_runtime_receipts" name="test_trial_count_claims_must_match_accounting_source[total]" time="0.047"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tests\test_runtime_receipts.py:567: in test_trial_count_claims_must_match_accounting_source
+    with pytest.raises(ValueError, match="trial counts"):
+E   Failed: DID NOT RAISE &lt;class 'ValueError'&gt;</failure></testcase><testcase classname="tests.test_runtime_receipts" name="test_trial_count_claims_must_match_accounting_source[boolean_kind]" time="0.046"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tests\test_runtime_receipts.py:567: in test_trial_count_claims_must_match_accounting_source
+    with pytest.raises(ValueError, match="trial counts"):
+E   Failed: DID NOT RAISE &lt;class 'ValueError'&gt;</failure></testcase><testcase classname="tests.test_runtime_receipts" name="test_trial_count_claims_must_match_accounting_source[different_kinds]" time="0.045"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tests\test_runtime_receipts.py:567: in test_trial_count_claims_must_match_accounting_source
+    with pytest.raises(ValueError, match="trial counts"):
+E   Failed: DID NOT RAISE &lt;class 'ValueError'&gt;</failure></testcase></testsuite></testsuites>

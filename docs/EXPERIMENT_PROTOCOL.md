@@ -1,6 +1,6 @@
 # Experimental protocol v0.1
 
-6October runtime follow-up: [current boundaries](CURRENT_STATUS.md), [staged grouped data-label plan](RUNTIME_EVALUATION_PLAN.md) and [implemented consistency subset](RUNTIME_INTAKE.md). Checks hashes/schema/group/split/observed windows/reviews/adjudication; receipts opaque and all eligibility/fitting flags false. No new real data/actual independent reviewers/models/evaluation. Next typed receipt-to-run/capture/protocol checks and genuine human/data gates; historical failed timing remains ineligible for performance claims unless separately resolved, never retroactively repaired.
+6October runtime follow-up: [current boundaries](CURRENT_STATUS.md), [staged data-label plan](RUNTIME_EVALUATION_PLAN.md), [intake](RUNTIME_INTAKE.md) and [selected typed receipts](RUNTIME_RECEIPTS.md). Hash/group/window/review consistency plus v2 source/count/snapshot/local-endpoint checks, not full protocol/coverage/collector alignment/authenticity/eligibility. No new real data/independent reviewers/models/evaluation. Next supervisor-reviewed labeling pack/eligible-capture checklist and genuine human/comparable-data gates. Local endpoint compatibility does not undo recorded collector exclusions; historical negatives never retroactively repaired.
 
 ## Questions and endpoints
 

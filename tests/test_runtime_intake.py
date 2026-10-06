@@ -22,8 +22,7 @@ def save(root, name, value):
     return dict(path=name, sha256=hashlib.sha256(path.read_bytes()).hexdigest())
 
 
-@pytest.fixture
-def bundle(tmp_path):
+def make_bundle(tmp_path):
     root = tmp_path / "bundle"
     root.mkdir()
     inventory = save(
@@ -64,6 +63,11 @@ def bundle(tmp_path):
     )
     save(root, "manifest.json", manifest)
     return root, manifest
+
+
+@pytest.fixture
+def bundle(tmp_path):
+    return make_bundle(tmp_path)
 
 
 def execute(bundle):

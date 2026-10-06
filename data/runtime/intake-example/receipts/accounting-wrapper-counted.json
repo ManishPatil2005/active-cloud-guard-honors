@@ -1,0 +1,10 @@
+{
+  "schema_version":"runtime_receipt_v1",
+  "kind":"accounting",
+  "run_id":"demo-run",
+  "capture_sha256":"b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837",
+  "inventory_sha256":"400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a",
+  "collection_protocol":"acg_falco_selected_v1",
+  "origin":"synthetic_fixture",
+  "source":{"path":"receipts/accounting-fixture-counted.json","sha256":"1ce03ca07eb28708bf937f34a68cca4feed6135c76b0f60fba4a5412e0be45e7"}
+}

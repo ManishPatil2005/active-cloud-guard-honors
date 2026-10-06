@@ -1,0 +1,20 @@
+{
+  "adapter_version":"0.1",
+  "status":"normalized",
+  "raw_sha256":"1111111111111111111111111111111111111111111111111111111111111111",
+  "trial_sha256":"0377143fee753e46a13969b67d74e007aabd4c2c5c8fbd0b3509d4c4b7843230",
+  "inventory_sha256":"400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a",
+  "line_count":3,
+  "diagnostic_line_count":0,
+  "validated_event_count":3,
+  "rejected_record_count":0,
+  "rejection_reasons":{},
+  "event_type_counts":{"execve":1,"open":1,"connect":1},
+  "receipt_counts_match":true,
+  "sensor_dropped_events":null,
+  "collection_coverage":"partial_or_unknown",
+  "binding_verified":false,
+  "threat_confirmed":false,
+  "actions_executed":[],
+  "timestamp_precision":"nanoseconds retained; runtime parser truncates to microseconds before floating-point windowing"
+}
