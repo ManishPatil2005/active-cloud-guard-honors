@@ -1,5 +1,7 @@
 # Windows/WSL transport and restoration helper (E2-028)
 
+Follow-up on6October: [E2-029 source/preflight hardening](CLOCK_COMPARISON_PREFLIGHT.md) expands coverage to23files and freezes before preflight,596 tests each OS. Historical11-file/581-test statements below describe E2-028. No native intervention; late queued-request ordering is an explicit remaining safety prerequisite.
+
 ## Status on 6 October 2026
 
 Concrete transport/helper code is now implemented and software-tested. **No real time service was stopped or started, no live comparison batch was run, and approval is still pending.** Service commands in tests are mocked. Two real child-process tests use explicitly inert helpers that write temporary markers only; those tests establish limited process mechanics, not service-restoration success or clock stability.

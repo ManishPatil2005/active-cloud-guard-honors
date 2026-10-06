@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-042 - 2026-10-06 - Comparison freeze omitted preflight imports and followed preflight
+
+**Symptom/evidence:** source review found controller's11-file freeze after `ops.preflight`; transport preflight calls paired_pilot.py, which imports additional local modules absent from that list. No observed tampering, actual native comparison or restoration failure is attributed to this gap.
+
+**Cause/confidence/fix:** high-confidence source-coverage/order defect established by actual imports/controller order. Expand to23files covering ordinary local static imports/package initializer; freeze before preflight and retain detached source mapping on later failure. AST closure regression parses source only;12 added-path mutation cases reject first collection/stop, plus missing-source/order tests.
+
+**Verification/limits:** targeted62/0.50s,596 Windows/6.13s and Linux/20.69s; all pass. No dynamic/external/runtime/binary/data attestation, native validation or guaranteed recovery. Historical observer/receipts unchanged. CLOCK_COMPARISON_PREFLIGHT.md records sandbox WSL access-denial and successful approved host test; separate late-service-request ordering hazard remains an open safety gate, not a live failure claimed here.
+
 ### INC-041 - 2026-10-06 - Helper PID mismatch and sandbox job-breakaway refusal
 
 **Symptom/evidence:** initial new targeted tests71passed/one real inert-helper PID failure, Popen29564 vs worker27944. Readiness tied to launcher PID would fail closed in native adapter; parent-kill test also could target the redirector instead of actual interpreter. First direct-base sandbox follow-up71passed/one empty-parent-output failure; bounded direct probe returned PermissionError/WinError5 for required job-breakaway child creation. No time service/clock action; helpers inert.

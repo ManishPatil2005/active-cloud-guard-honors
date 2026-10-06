@@ -1,5 +1,7 @@
 # Progress Execution
 
+**Safer source checking, 6 October:** we now check23project files, including the files loaded by the lab readiness check, before starting that check. If those files change, the diagnostic refuses to collect or stop the service. All596 software tests pass on Windows and Linux. No real time service was changed. A delayed stop command could still arrive after recovery, so that safety issue must be resolved before the live experiment; the clock problem and ML evaluation remain open. [Explanation and results](CLOCK_COMPARISON_PREFLIGHT.md).
+
 **Transport/helper progress, 6 October:** we implemented the Windows-to-research-Linux command adapter and a separate recovery helper. All581 software tests pass on both OS. We tested a real helper after killing its parent and tested cancellation, but those helpers were explicitly inert: they wrote temporary markers and could not touch time services. Actual service commands were simulated. The earlier PID mismatch and sandbox access issues are documented with the fixes. [Report](CLOCK_COMPARISON_TRANSPORT.md).
 
 **Still not done:** we have not stopped the real time service or run the proposed comparison. Your explicit approval and a finalized protocol are required; recovery cannot be guaranteed during host/WSL failure. Engine1 is unchanged, and Engine2 still needs timing reliability, independent labels and ML/effectiveness evaluation. Do not run the live launcher yet; a code flag is not approval.

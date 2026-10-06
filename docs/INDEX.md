@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest hardening: [preflight source coverage and safety gates](CLOCK_COMPARISON_PREFLIGHT.md),23-file static local import coverage frozen before preflight;596 passing tests each OS/15 additions. No live intervention; late queued service requests, final protocol and explicit approval remain unresolved.
+
 Latest implementation: [Windows/WSL transport and restoration helper](CLOCK_COMPARISON_TRANSPORT.md),581 tests each OS/30 additions plus real inert parent-kill/cancel checks. Concrete approval-gated backend now exists, but no native service trial or clock fix; final protocol and explicit intervention approval remain pending. INC-040/041 preserve environment/launcher failures.
 
 Latest software milestone: [comparison controller and offline reviewer](CLOCK_COMPARISON_CONTROLLER.md),551 tests each OS/47 additions. Fail-stop/restoration logic tested with simulated operations; no live transport/watchdog launcher or service action. Intervention approval and concrete safety integration still required.

@@ -1,5 +1,9 @@
 # Evidence index
 
+## Preflight source freeze software checks (2026-10-06)
+
+[Report](CLOCK_COMPARISON_PREFLIGHT.md), [Windows596](../output/engine2-preflight-freeze-windows-tests-20261006.xml), [Linux596](../output/engine2-preflight-freeze-linux-tests-20261006.xml):15 new static-closure/dependency-change/order/missing-source regressions. Simulated service operations and existing real inert helper tests only; no native comparison. INC-042 records coverage gap, sandbox WSL refusal retained in report/work log. Prior581 reports/negative observations unchanged; late-request safety/protocol/consent gates open.
+
 ## Transport/helper software and inert lifecycle checks (2026-10-06)
 
 [Report](CLOCK_COMPARISON_TRANSPORT.md), [Windows581](../output/engine2-comparison-transport-windows-tests-20261006.xml), [Linux581](../output/engine2-comparison-transport-linux-tests-20261006.xml):30 additions, mocked native service/WSL operations and real explicitly inert process parent-kill/cancel tests. INC-040/041 retain setup/launcher/job failures and host retry context. Concrete backend exists but no native service trial/clock comparison/causal fix; approval/protocol/native safety gates pending. Old551 suite/live receipts preserved, no independent effectiveness claim.

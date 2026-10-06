@@ -1,4 +1,6 @@
+import ast
 import json
+from pathlib import Path
 
 import pytest
 
@@ -332,3 +334,83 @@ def test_oversized_receipt_stops_before_parser_and_redacts():
     assert result["blocks"][-1]["status"] == "failed"
     assert result["restoration_status"] == "active_verified"
     assert "restored" not in ops.calls
+
+
+PREFLIGHT_SOURCES = control.EXECUTION_SOURCES[11:]
+
+
+@pytest.mark.parametrize("path", PREFLIGHT_SOURCES)
+def test_preflight_dependency_change_refuses_collection_and_stop(path):
+    ops = FakeOps()
+    original = ops.preflight
+    frozen = dict(ops.sources)
+
+    def changed(timeout):
+        value = original(timeout)
+        ops.sources[path] = "b" * 64
+        return value
+
+    ops.preflight = changed
+    result = run(ops)
+    assert result["status"] == "failed"
+    assert result["source_sha256"] == frozen
+    assert "before" not in ops.calls and "stop" not in ops.calls
+    assert result["blocks"][0]["stage"] == "source_precheck"
+
+
+def test_source_freeze_precedes_preflight_and_failure_keeps_frozen_hashes():
+    ops = FakeOps("preflight")
+    result = run(ops)
+    assert ops.calls == ["sources", "preflight"]
+    assert result["source_sha256"] == ops.sources
+    assert result["failure_phase"] == "preflight"
+
+
+def test_missing_source_refuses_preflight_before_any_lab_operation(monkeypatch):
+    ops = FakeOps()
+
+    def missing(timeout):
+        ops.invoke("sources", timeout)
+        raise FileNotFoundError("private path")
+
+    ops.source_hashes = missing
+    result = run(ops)
+    assert result["status"] == "failed" and ops.calls == ["sources"]
+    assert result["failure_phase"] == "source_freeze"
+    assert "private path" not in json.dumps(result)
+
+
+def test_frozen_sources_cover_static_local_import_closure():
+    # Parse source, never import preflight/sensor modules or execute their code.
+    # This checks ordinary Python imports, not dynamic imports/binary attestation.
+    root = Path(review.ROOT)
+    pending = list(control.EXECUTION_SOURCES)
+    found = set()
+    while pending:
+        relative = pending.pop()
+        if relative in found:
+            continue
+        found.add(relative)
+        tree = ast.parse((root / relative).read_text(encoding="utf-8"))
+        package = relative.split("/")[0]
+        for node in ast.walk(tree):
+            names = []
+            if isinstance(node, ast.Import):
+                names = [alias.name for alias in node.names]
+            elif isinstance(node, ast.ImportFrom):
+                assert node.level <= 1, "extend audit for nested relative imports"
+                module = node.module or ""
+                if node.level:
+                    module = package + ("." + module if module else "")
+                names = [module, *(module + "." + a.name for a in node.names)]
+            for name in names:
+                if name.split(".")[0] not in {"scripts", "cloudguard"}:
+                    continue
+                for candidate in (
+                    name.replace(".", "/") + ".py",
+                    name.replace(".", "/") + "/__init__.py",
+                ):
+                    if (root / candidate).is_file():
+                        pending.append(candidate)
+    assert found == set(control.EXECUTION_SOURCES)
+    assert len(found) == len(control.EXECUTION_SOURCES) == 23

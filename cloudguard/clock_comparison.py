@@ -20,6 +20,19 @@ EXECUTION_SOURCES = (
     "cloudguard/clock_lineage.py",
     "cloudguard/boot_clock.py",
     "cloudguard/clock_check.py",
+    # Preflight imports these modules even though it does not run their workloads.
+    "scripts/paired_pilot.py",
+    "scripts/sensor_trial.py",
+    "scripts/workload_control.py",
+    "cloudguard/__init__.py",
+    "cloudguard/deployment.py",
+    "cloudguard/verification.py",
+    "cloudguard/workload.py",
+    "cloudguard/correlation.py",
+    "cloudguard/clock_domains.py",
+    "cloudguard/cache.py",
+    "cloudguard/sensor_adapter.py",
+    "cloudguard/runtime.py",
 )
 
 
@@ -98,7 +111,7 @@ def run_comparison(ops, verify_receipt, *, approved=False, clock=None):
     report = dict(
         protocol=PROTOCOL,
         status="started",
-        phase="preflight",
+        phase="source_freeze",
         actions=[],
         blocks=[],
         environment_service_stop_attempted=False,
@@ -194,8 +207,10 @@ def run_comparison(ops, verify_receipt, *, approved=False, clock=None):
         row.update(status="verified", stage="complete")
 
     try:
-        preflight()
         frozen = checked_sources(call("source_freeze", ops.source_hashes, timeout=5))
+        report["source_sha256"] = dict(frozen)
+        report["phase"] = "preflight"
+        preflight()
         block("before")
         report["phase"] = "watchdog_arm"
         report["watchdog_requested"] = True

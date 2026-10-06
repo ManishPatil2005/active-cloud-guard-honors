@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-06 - Cover preflight dependencies before comparison execution
+
+- Expand source freeze11→23 with static local preflight import closure; freeze before preflight and retain detached hashes on later failure.
+- Add15 regressions for closure, each added dependency, order/failure retention and missing-source refusal;596 tests pass each OS, lint/format/dependency checks pass.
+- Record INC-042 coverage gap and explicit remaining late-service-request safety gate. No real service/native comparison/default-engine changes; prior evidence preserved.
+
 ## 2026-10-06 - Implement approval-gated transport and independent restore helper
 
 - Add fixed Windows/WSL backend, exclusive batch receipts/manifest and one-shot hidden breakaway helper with mode/nonce/source/deadline readiness and verified cancellation; selected source freeze expands to11 files.

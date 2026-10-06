@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-039 - 2026-10-06 - Freeze local preflight imports before running it
+
+Expand the comparison list to23local Python files, including static transitive preflight imports/package initializer, instead of pretending the original11cover preflight. Freeze before first lab operation and retain a detached mapping on failures. A test parses static imports without executing sensor code and detects unlisted local modules. Do not claim dynamic/external/binary/data/loaded-memory attestation or alter historical source maps. Consent alone is insufficient while late queued stop/restoration ordering remains unresolved; test/design that next before native execution. No stack/engine/observer migration; CLOCK_COMPARISON_PREFLIGHT.md / INC-042.
+
 ## ADR-038 - 2026-10-06 - Direct, acknowledged breakaway helper; no unsafe fallback
 
 Implement concrete Windows/WSL operations without executing pending intervention. Use fixed target/user/unit paths, explicit approval guard, exclusive artifacts, mode/nonce/source/deadline handshake and direct base Python to avoid venv launcher/worker PID mismatch. Require hidden/group/job-breakaway and live acknowledged helper before stop; denied launch fails closed, never fall back to job-bound recovery. Test real lifecycle only with inert mode, mock native service operations.11-file selected freeze is not exhaustive preflight/binary attestation; final approved protocol must resolve scope. No guaranteed recovery under host/WSL failure or clock-stability/ML claim. CLOCK_COMPARISON_TRANSPORT.md.

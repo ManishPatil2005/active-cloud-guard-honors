@@ -2,6 +2,8 @@
 
 ## Stack and execution
 
+E2-029 changes only comparison source coverage/order:23files cover static local preflight imports and package initializer, frozen before preflight with detached failure-retained mapping. AST audit parses without executing imports; external/runtime/binary/data attestation not provided. No new command/dependency/default-engine/observer path. CLOCK_COMPARISON_PREFLIGHT.md documents remaining late queued-request safety prerequisite before native use.
+
 E2-028 adds scripts/clock_comparison_transport.py (fixed Windows/WSL operations), clock_restore_watchdog.py (independent one-shot restore/inert helper) and clock_comparison_batch.py (approval-gated exclusive launcher/manifest). Controller selected-source list expands to11; underlying six-file native observer and default engines untouched. No new dependency/service or clock-policy migration; real service use pending approval/protocol/native validation. Stdlib-only helper uses direct base Python and hidden breakaway flags/PID handshake; inert integration not service-restoration proof. CLOCK_COMPARISON_TRANSPORT.md.
 
 E2-027 adds cloudguard/clock_comparison.py as a pure injected operations state machine and scripts/clock_comparison_review.py as an offline-only three-receipt reducer using the unchanged native full reviewer. No concrete WSL service transport/watchdog/launcher or new dependencies. Tests simulate service operations; no default-engine or observer source changes. Future live adapter requires explicit approval and tested independent restoration/process deadlines; CLOCK_COMPARISON_CONTROLLER.md.
