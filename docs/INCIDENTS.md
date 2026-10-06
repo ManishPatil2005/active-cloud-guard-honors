@@ -1,5 +1,21 @@
 # Incident and resolution ledger
 
+### INC-041 - 2026-10-06 - Helper PID mismatch and sandbox job-breakaway refusal
+
+**Symptom/evidence:** initial new targeted tests71passed/one real inert-helper PID failure, Popen29564 vs worker27944. Readiness tied to launcher PID would fail closed in native adapter; parent-kill test also could target the redirector instead of actual interpreter. First direct-base sandbox follow-up71passed/one empty-parent-output failure; bounded direct probe returned PermissionError/WinError5 for required job-breakaway child creation. No time service/clock action; helpers inert.
+
+**Cause/fix/confidence:** high confidence launcher indirection contributed, supported by direct base interpreter and matching-PID passing follow-up; no claim of past timing cause. Use sys.base_prefix/python.exe for stdlib-only helper/test parent, require PID/mode/nonce/deadline acknowledgement and actual armed flag, no fallback without breakaway. Sandbox job restriction established by probe; not a transport bug or proof user host forbids it. First unsandboxed permission review timed out (not unsafe verdict), one allowed retry approved and72targeted/3.37s passed.
+
+**Verification/limits:** five further cases included in final581 Windows/5.87s and Linux/14.09s; real explicitly inert direct-parent-kill and cancellation pass. No native service restoration, exhaustive host/job/WSL/power/queued-request validation or guaranteed recovery. Wrong/unacknowledged/expired/dead helper refuses stop; original failures preserved here, no empirical result replaced. CLOCK_COMPARISON_TRANSPORT.md.
+
+### INC-040 - 2026-10-06 - Sandbox pytest temp/cache paths unavailable
+
+**Symptom/evidence:** first old-controller targeted run46passed/one tmp_path setup error (could not create numbered directory after10tries in sandbox temp), three cache access-denied warnings under repository .pytest_cache. No new live service command or research observation affected.
+
+**Cause/action:** environment directory access established by error, exact underlying ACL/history not diagnosed. Use fresh, explicitly scoped ignored tmp basetemp and cache path; require absent base before each run, no broad deletion or mutation of existing user/cache data. No application change to mask failure.
+
+**Verification/limits:** subsequent test setup succeeded; separate real-helper failures tracked INC-041. Full final suites581 each OS pass using documented test paths/host execution. New test paths solve this execution's setup, not global filesystem permissions, source correctness by themselves or a clock defect.
+
 ### INC-039 - 2026-10-05 - Live tick/frequency changes coexist with unstable time relationships
 
 **Symptom/evidence:** one declared E2-025 sensor-free16-packet/32-query observation, all complete, six-source/backend/domain/summary review passed. Tick9698→9707usec; frequency2151784→2628697→1165243 scaledppm sampled. RAW-minus-MONO15/15 excludezero (final[463229223,463248804]ns); wall/BOOT7/16 change ranges excludezero (final[867156020,867156662]ns), firstindex9. All state returns0/status8192/phase0. SHA-bound receipt/table/commands in KERNEL_CLOCK_STATE.md; TIME_OK not a stable-clock verdict.

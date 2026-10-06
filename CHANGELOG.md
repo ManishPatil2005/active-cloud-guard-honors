@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Implement approval-gated transport and independent restore helper
+
+- Add fixed Windows/WSL backend, exclusive batch receipts/manifest and one-shot hidden breakaway helper with mode/nonce/source/deadline readiness and verified cancellation; selected source freeze expands to11 files.
+- Require direct base interpreter/PID match and acknowledged live helper before stop; no weaker job-bound fallback or persistent/manual clock setting.
+- Preserve sandbox temp/cache and launcher/job failures (INC-040/041); final581 tests each OS/30 additions pass, including explicitly inert parent-kill/cancel integration. Lint/format90files/dependency checks pass.
+- All new service/WSL test commands mocked; no native time-service intervention/comparison/sensor run. Explicit approval/final protocol/native validation remain pending; observer/engine sources and negative evidence preserved.
+
 ## 2026-10-05 - Test comparison controller contract and offline reviewer
 
 - Add injected fail-stop before/stopped/restored logic with explicit approval guard, strict source freeze, deadline budgets and restoration/active-before-disarm requirements.

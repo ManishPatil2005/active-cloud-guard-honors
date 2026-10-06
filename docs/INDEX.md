@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest implementation: [Windows/WSL transport and restoration helper](CLOCK_COMPARISON_TRANSPORT.md),581 tests each OS/30 additions plus real inert parent-kill/cancel checks. Concrete approval-gated backend now exists, but no native service trial or clock fix; final protocol and explicit intervention approval remain pending. INC-040/041 preserve environment/launcher failures.
+
 Latest software milestone: [comparison controller and offline reviewer](CLOCK_COMPARISON_CONTROLLER.md),551 tests each OS/47 additions. Fail-stop/restoration logic tested with simulated operations; no live transport/watchdog launcher or service action. Intervention approval and concrete safety integration still required.
 
 Latest review: [synchronization writers and proposed comparison](SYNC_WRITER_REVIEW.md), selected real service/drop-in facts plus versioned source paths. Guest stop alone does not establish single authority or erase residual tick/frequency state. No intervention; new approval and tested restoration protocol required.

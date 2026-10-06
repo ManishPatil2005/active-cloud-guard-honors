@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-038 - 2026-10-06 - Direct, acknowledged breakaway helper; no unsafe fallback
+
+Implement concrete Windows/WSL operations without executing pending intervention. Use fixed target/user/unit paths, explicit approval guard, exclusive artifacts, mode/nonce/source/deadline handshake and direct base Python to avoid venv launcher/worker PID mismatch. Require hidden/group/job-breakaway and live acknowledged helper before stop; denied launch fails closed, never fall back to job-bound recovery. Test real lifecycle only with inert mode, mock native service operations.11-file selected freeze is not exhaustive preflight/binary attestation; final approved protocol must resolve scope. No guaranteed recovery under host/WSL failure or clock-stability/ML claim. CLOCK_COMPARISON_TRANSPORT.md.
+
 ## ADR-037 - 2026-10-05 - Test controller contract without unapproved service transport
 
 Generic status/continue does not explicitly approve the pending time-service intervention. Implement/test injected fail-stop/restoration logic and offline full-receipt comparison now; provide no concrete live service backend/launcher. Approval boolean and watchdog acknowledgement are programming contracts, not authenticated human permission or proof of real recovery. Eight-source freeze detaches mappings; future transport/helper sources must be added. Concrete command/watchdog/process-kill integration and fresh explicit approval/final protocol remain prerequisites. No native observer/default-engine/source or history change; CLOCK_COMPARISON_CONTROLLER.md.

@@ -1,4 +1,4 @@
-"""Fail-stop comparison controller contract; no native service backend or launcher."""
+"""Fail-stop comparison controller; service transport is separately approval-gated."""
 
 import hashlib
 import re
@@ -9,6 +9,9 @@ from cloudguard import kernel_clock_state as kernel
 LABELS = ("before", "stopped", "restored")
 PROTOCOL = "guest_client_removal_controller_v1"
 EXECUTION_SOURCES = (
+    "scripts/clock_comparison_batch.py",
+    "scripts/clock_restore_watchdog.py",
+    "scripts/clock_comparison_transport.py",
     "cloudguard/clock_comparison.py",
     "scripts/clock_comparison_review.py",
     "scripts/kernel_clock_diagnostic.py",
@@ -86,8 +89,8 @@ def run_comparison(ops, verify_receipt, *, approved=False, clock=None):
 
     Backend contract: enforce each timeout, retain exclusive partial child files,
     freeze execution sources, arm an independent restore watchdog before stop,
-    and acknowledge disarm/reap only after verifying active state. No backend
-    is provided in this milestone. A boolean is not authenticated approval.
+    and acknowledge disarm/reap only after verifying active state. A boolean
+    is not authenticated approval; live use needs explicit operator authority.
     """
     if approved is not True:
         raise ValueError("specific intervention approval required")

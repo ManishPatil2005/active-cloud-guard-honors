@@ -1,5 +1,7 @@
 # Comparison controller contract and offline reviewer (E2-027)
 
+This page records the5October controller milestone. [6October transport/helper follow-up](CLOCK_COMPARISON_TRANSPORT.md) implements the previously absent backend and limited inert process integration; native service intervention remains unapproved/unexecuted. Historical test/results statements below remain checkpoint-specific.
+
 ## Current milestone — not a live launcher
 
 Implements the fail-stop decision logic from [writer review](SYNC_WRITER_REVIEW.md), plus offline comparison of three complete E2-025-format receipts. Engine 1, existing native observer and all historical experiment sources/receipts remain unchanged. No live service command, clock reading, native backend, real watchdog process, sensor or workload was run or added by this milestone.

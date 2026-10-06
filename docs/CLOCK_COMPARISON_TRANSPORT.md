@@ -1,0 +1,42 @@
+# Windows/WSL transport and restoration helper (E2-028)
+
+## Status on 6 October 2026
+
+Concrete transport/helper code is now implemented and software-tested. **No real time service was stopped or started, no live comparison batch was run, and approval is still pending.** Service commands in tests are mocked. Two real child-process tests use explicitly inert helpers that write temporary markers only; those tests establish limited process mechanics, not service-restoration success or clock stability.
+
+Engine 1/default engines and the six native-observer source files remain unchanged. Latest full suites581 Windows/5.87s and Linux/14.09s;30 new cases, Ruff lint/format90files and dependency checks pass. [Windows report](../output/engine2-comparison-transport-windows-tests-20261006.xml), [Linux report](../output/engine2-comparison-transport-linux-tests-20261006.xml). Historical551-test reports and live negative receipts are preserved.
+
+## Implementation and safeguards
+
+- `scripts/clock_comparison_transport.py`: Windows-only adapter, strict approval before constructing an exclusive fixed output directory; fixed WSL distribution ACG-Research, ordinary user acgresearch for reads/collection and root only for the specified systemd-timesyncd start/stop. No shell interpolation, arbitrary target, permanent disable, clock setting, provider/power change or lifecycle command.
+- `scripts/clock_restore_watchdog.py`: independent one-shot helper. Normal mode requires the fixed batch directory, explicit request mode/approval, nonce/deadline and matching local source hashes before readiness. Inert mode refuses a restore request and never calls WSL/services. Ready/cancel JSON files are finalized before separate exclusive signal markers to avoid partial-read acknowledgements.
+- `scripts/clock_comparison_batch.py`: explicit `--run-approved` flag, fixed one-batch directory, initial UTC execution timestamp, exclusive manifest and sanitized failure status. Flag/request metadata are operator programming guards, not authenticated human permission. Do not invoke it until approval/final protocol gates below are met.
+- Controller freeze expands from8 to11 files to include transport, helper and batch launcher; native child still binds its unchanged six. This is a selected controller/native-source freeze, not exhaustive attestation of preflight dependency imports, interpreter/stdlib/systemd/WSL/Docker or loaded memory. Final experiment protocol must review this scope and any additional dependencies before action.
+
+The adapter uses selected systemctl properties, existing `paired_pilot.py --preflight-only` (read-only local-daemon/known-sensor/Redis identity check), and an extra name-filtered sensor absence check. Actual preflight was **not** run by this milestone's new adapter; outcomes simulated in tests. Selected preflight source paths/functions were inspected, not changed. No workload or sensor command is selected by this adapter.
+
+Native collection uses the unchanged kernel diagnostic and new per-block filenames. Linux timeout (INT then0.5s kill fallback) is secondary to Windows client timeout; a killed WSL client does not prove the guest child or a queued systemd job stopped. Partial child files remain untouched and cannot be retried/overwritten. Output-size checks apply after capture/read; fixed commands are expected small, not a hard bound on subprocess pipe memory before capture. Local file reads/process creation/host suspend may exceed intended operational deadlines; not physical-time certification.
+
+## Independent helper lifecycle
+
+Helper is launched with hidden/new-process-group/job-breakaway flags, closed inherited handles and discarded standard streams. There is no fallback to a job-bound helper if Windows denies breakaway. The parent waits for exact nonce/PID/mode/deadline readiness and requires a live acknowledged helper with >=50s margin before stop. The helper deadline is60s from request creation; controller's off-stage budget remains45s, normal commands <=5s. Restoration attempts/verification are bounded; they cannot guarantee success under OS/WSL failure.
+
+Direct Windows base Python executable (`sys.base_prefix/python.exe`) is used for the stdlib-only helper instead of the virtual-environment redirector, whose launcher PID may differ from the worker PID. A missing direct interpreter fails closed. [Python subprocess documentation](https://docs.python.org/3/library/subprocess.html) explains timeout and process-creation limits; [Windows process flags](https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags) describe hidden/group/breakaway semantics. These references do not attest this host's production recovery behavior.
+
+On a valid cancel, normal helper independently checks active/running/enabled before reporting disarmed. Invalid/malformed cancels or failed state checks do not defeat deadline restoration. At deadline or loop interruption, normal helper makes one start request and checks state; failed restoration records safe error class. Parent accepts cancellation only after its own active verification, worker exit and exact disarmed outcome. A deadline-fired helper outcome aborts the batch rather than masquerading as normal cancellation. Never reset tick/frequency state or interpret guest removal as single-authority proof.
+
+## Problems preserved and software verification
+
+INC-040: first old-controller targeted run46passed/one temp-fixture setup error with cache access-denied warnings in sandbox. Switched to fresh explicitly scoped ignored tmp basetemp/cache, no deletion of broad/user directories or inference of a code defect.
+
+INC-041: first transport/controller run71passed/one inert PID assertion failure (Popen PID29564 vs worker27944). Windows venv redirector explanation supported by direct-base launch and subsequent matching-PID test, not attribution of any clock incident. First direct-base sandbox attempt71passed/one parent-read failure; bounded separate probe established PermissionError/WinError5 for job breakaway. No weaker flags fallback. First unsandboxed test permission review timed out, one allowed retry succeeded:72targeted cases/3.37s. Five additional transport cases then included in final581 suites. No initial failure overwritten or called a successful live trial.
+
+New cases cover timeout scalars, fixed hidden/redacted command vectors/timeout conversion, exact service properties, approval/platform/path/overwrite refusals, preserved partial collection, valid/invalid/malformed cancellation, interruption restoration attempt/failure retention, bad request/source/approval/deadline rejection, no-flag refusal, handshake/margin/acknowledgement-before-stop and known-sensor rejection. Real inert parent-kill and inert-cancel tests passed on Windows and Linux; all actual service/WSL calls in new tests blocked/mocked. No native restoration integration, exhaustive queued-job/race/host-power testing or independent clock/effectiveness evaluation.
+
+## Pending one-batch protocol — do not execute yet
+
+Candidate fixed directory: `output/engine2-guest-client-comparison-20261006`, at most before/stopped/restored blocks (48packets/96zero-mode queries), no replacement/retry/settling-until-pass. Date in candidate name is protocol label, not an invented execution date; manifest records actual time. No directory or real receipts created by this milestone. Default flag refusal occurs before directory/helper/service creation.
+
+Before action: obtain explicit human permission for one temporary guest-timesyncd stop with bounded observation/restoration; finalize and publish source/preflight scope/limits/receipts/cleanup interpretation; verify actual unchanged service and lab state read-only; publish implementation/remote match first. If state/privilege/helper readiness or restoration fails, abort measurements, keep evidence and report required recovery immediately. Approval is not inferred from generic “continue,” the September one-time test, a code flag or a commit.
+
+No Windows service setting, persistent disable, manual clock/tick reset, WSL/Docker restart or sensor workload is proposed. Shared WSL clock environment may be affected by temporarily removing the guest client. Independent helper covers a limited controller-death case, not power loss/WSL outage/app-job policy/late queued service requests or guaranteed restoration. A successful batch would still be diagnostic—not stable repeatability, independent accuracy, general overhead, ML acceptance or production readiness.

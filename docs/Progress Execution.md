@@ -1,5 +1,9 @@
 # Progress Execution
 
+**Transport/helper progress, 6 October:** we implemented the Windows-to-research-Linux command adapter and a separate recovery helper. All581 software tests pass on both OS. We tested a real helper after killing its parent and tested cancellation, but those helpers were explicitly inert: they wrote temporary markers and could not touch time services. Actual service commands were simulated. The earlier PID mismatch and sandbox access issues are documented with the fixes. [Report](CLOCK_COMPARISON_TRANSPORT.md).
+
+**Still not done:** we have not stopped the real time service or run the proposed comparison. Your explicit approval and a finalized protocol are required; recovery cannot be guaranteed during host/WSL failure. Engine1 is unchanged, and Engine2 still needs timing reliability, independent labels and ML/effectiveness evaluation. Do not run the live launcher yet; a code flag is not approval.
+
 **Safer comparison logic, 5 October:** we built and tested the logic that would stop a comparison after an error, still attempt service restoration, verify the service is running and only then continue. All551 software tests pass on both operating systems. Service and watchdog behavior in the new tests is simulated: no real time service was stopped and no real recovery helper exists yet. We also added an offline reader that checks three saved receipts and refuses copied or incompatible results. [Details](CLOCK_COMPARISON_CONTROLLER.md).
 
 **What still needs doing:** your explicit temporary-stop approval, a tested real service transport/independent recovery helper and a final one-attempt protocol. We are not claiming timing is fixed or Engine2 ML is ready. Existing Engine1 and old research evidence remain unchanged. Do not run a service-changing command from these planning documents yourself.
