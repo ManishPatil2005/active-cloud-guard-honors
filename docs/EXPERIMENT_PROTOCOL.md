@@ -1,6 +1,6 @@
 # Experimental protocol v0.1
 
-6October runtime follow-up: [current boundaries](CURRENT_STATUS.md), [staged data-label plan](RUNTIME_EVALUATION_PLAN.md), [intake](RUNTIME_INTAKE.md) and [selected typed receipts](RUNTIME_RECEIPTS.md). Hash/group/window/review consistency plus v2 source/count/snapshot/local-endpoint checks, not full protocol/coverage/collector alignment/authenticity/eligibility. No new real data/independent reviewers/models/evaluation. Next supervisor-reviewed labeling pack/eligible-capture checklist and genuine human/comparable-data gates. Local endpoint compatibility does not undo recorded collector exclusions; historical negatives never retroactively repaired.
+6October runtime follow-up: [current boundaries](CURRENT_STATUS.md), [staged data-label plan](RUNTIME_EVALUATION_PLAN.md), [intake](RUNTIME_INTAKE.md) and [selected typed receipts](RUNTIME_RECEIPTS.md). Selected consistency is not full protocol/coverage/collector alignment/authenticity/eligibility. [Labeling pack](RUNTIME_LABELING_PROTOCOL.md)/[capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) prepared as unapproved drafts; next actual supervisor decisions, genuine humans and comparable data. Proposed review-necessity target does not silently replace original attack claims. No new real data/reviewers/models/evaluation. Local compatibility does not undo recorded collector exclusions; historical negatives never retroactively repaired.
 
 ## Questions and endpoints
 

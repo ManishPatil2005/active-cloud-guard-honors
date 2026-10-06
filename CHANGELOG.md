@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Prepare draft runtime labeling and capture eligibility pack
+
+- Add unapproved coordinator/reviewer protocol, 16-gate eligibility checklist and four blank approval/ledger/JSON templates. Unknowns, original disagreements, missing intervals and private exposure/consent records preserved by the proposed workflow; no actual human approval or research data created.
+- Exclude reserved private/runtime-labeling/ in Git and case-insensitive publication policy; not encryption or content DLP.
+- Add15contract cases: target18passed; fullLinux1,029passed/Windows991passed38skips, zero failures/errors. Save three XML receipts; lint/format108files/pipcheck pass.
+- Update current/formal/nontechnical documentation, WL-060/ADR-050. Engine1, Engine2 algorithms, stack, schemas, historical negatives and no-fitting/action gates unchanged; genuine approval/data prerequisites remain open.
+
 ## 2026-10-06 - Bind selected typed receipts to offline runtime intake
 
 - Add opt-in runtime_intake_v2 and isolated runtime_receipts.py: source/context hashes, capture/accounting/trial counts, selected saved identity snapshots and local clock arithmetic. v1 report exact-equality regression passes; no new engine/model/dependency.

@@ -1,5 +1,25 @@
 # Progress Execution
 
+## Current addition — preparing honest human review, 6 October
+
+Engine2's basic engine is built; this step prepares how people could evaluate it responsibly. We wrote a draft reviewer guide, supervisor decision sheet, capture checklist and blank label templates. **Nobody has approved the draft or submitted real independent labels.** Three event counts do not tell us whether activity was authorized or malicious. When context is insufficient, the draft says “unknown,” not “safe.”
+
+Whole-project software checks passed: Linux1,029; Windows991with38platform/privilege skips. Eighteen targeted checks passed, including15new checks. These numbers measure software regression checks, not security accuracy. No collector, cloud scan, model training or time-service operation was started.
+
+### Baby steps — inspect the draft without running an experiment
+
+1. Open [current status](CURRENT_STATUS.md); see the distinction between implemented software and research proof.
+2. Read [coordinator pack](RUNTIME_LABELING_PROTOCOL.md), then [reviewer guidelines](RUNTIME_LABELING_GUIDELINES.md). The proposed narrow “needs security review” target requires supervisor decisions; it is not proof of confirmed attacks or a replacement for the original aim.
+3. Open [supervisor sheet](templates/runtime-supervisor-review.md). It is intentionally pending. Ask your supervisor: “Can we approve or revise the target, independent evidence/context, windows/groups/sample design, blinding/unknown rules, timing/coverage requirements and permitted claims?” Record actual answers privately; do not fill names/signatures merely to move forward.
+4. Read [capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md). Each of16gates requires evidence or remains unknown/not satisfied. Old development captures and rejected timing trials cannot become new independent evaluation data by renaming them.
+5. Inspect [case ledger](templates/runtime-case-ledger.md) and [review](templates/runtime-review.json.example)/[adjudication](templates/runtime-adjudication.json.example) templates. Null/UNFILLED fields deliberately fail validation. Do not submit these as actual votes or generate votes for reviewers.
+6. At your configured repository root, Windows: `.venv/Scripts/python.exe -m pytest -q tests/test_runtime_research_pack.py tests/test_repository_check.py`; Linux: use `python` from the existing environment. Expected18checks; these use synthetic/static material and Git-ignore checks, not real reviewers. No Docker/Ollama needed.
+7. Run `.venv/Scripts/python.exe scripts/repository_check.py` (Linux: environment's `python`) for documentation/publication checks. Future actual private records belong in private/runtime-labeling/ or approved secure storage. Git ignore/publication refusal is not encryption; do not force-stage/copy those records elsewhere.
+8. After actual approval and eligible authorized comparable data, two real people independently review neutral packets without model scores/answer keys/other votes. Preserve originals/unknowns before adjudication. Existing intake checks file consistency only; it does not authorize fitting.
+9. Next research milestone is actual protocol approval and evidence-bearing comparable captures, then independent labels/frozen grouped evaluation. Stable timing/coverage, ML comparisons and effectiveness remain open. We cannot honestly mark those complete from templates or test counts.
+
+Earlier additions below are historical steps, not current approval/status.
+
 ## Current addition — checking what receipts actually say, 6 October
 
 Engine2's replay baseline is still the same engine. We added an optional second **input format**, not a second detector version. It checks recorded counts against the capture and trial, compares saved before/after identity, and recomputes local clock calculations. This helps catch inconsistent research records. It does not prove that all events were captured, that the collector clock aligns, or that two reviewer names represent independent people. No model was trained and no live collector/service/clock operation was run.
@@ -15,7 +35,7 @@ We added 77 checks, including two reads of already saved historical evidence. Fi
 5. The example has three windows and no reviewer submissions. Its invented event times are not matched to the practice measurement interval. That is deliberately not collector-alignment proof. A stable snapshot or acceptable local calculation cannot authorize training.
 6. Run `.venv/Scripts/python.exe -m pytest -q tests/test_runtime_receipts.py tests/test_runtime_intake.py` (Linux: existing environment's `python`). Current combined cases total 160; here Windows has one symlink-privilege skip. Tests use practice files, plus two read-only checks of old evidence; no new collection or cloud scanning.
 7. Earlier manifest-typed.json is now a **negative example**: it lacks trial counts and is rejected. Its earlier passing report is kept as a pre-fix checkpoint, not current success. Original v1 manifest.json still works unchanged. Never overwrite reports or casually reformat hash-bound files.
-8. Next: prepare a supervisor-approved threat/labeling pack and checklist for eligible captures. Obtain real independently completed blinded reviews and comparable data under reviewed protocols. Software cannot invent those prerequisites. We are preparing evaluation, not claiming a publication-ready security detector.
+8. The current addition above now provides a draft labeling pack/checklist; these are NOT APPROVED. Next obtain actual supervisor decisions, real independently completed blinded reviews and comparable data under reviewed protocols. Software cannot invent these prerequisites. We are preparing evaluation, not claiming a publication-ready security detector.
 
 Sections below describe earlier checkpoints; this section and CURRENT_STATUS take precedence.
 

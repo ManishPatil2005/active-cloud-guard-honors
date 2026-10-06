@@ -1,0 +1,16 @@
+{
+  "schema_version": "runtime_review_v1",
+  "reviewer_id": "UNFILLED_REVIEWER_ID",
+  "origin": "human_submission",
+  "guidelines_sha256": "UNFILLED_APPROVED_GUIDELINES_SHA256",
+  "blinded": null,
+  "labels": [
+    {
+      "run_id": "UNFILLED_ASSIGNED_RUN_ID",
+      "asset_id": "UNFILLED_ASSIGNED_ASSET_ID",
+      "start_epoch": null,
+      "label": "unknown",
+      "reason": "UNFILLED: actual reviewer must record evidence and scope or uncertainty."
+    }
+  ]
+}

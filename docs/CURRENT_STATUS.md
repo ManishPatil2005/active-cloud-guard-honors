@@ -1,5 +1,13 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest refinement — draft annotation and capture review pack
+
+The [coordinator pack](RUNTIME_LABELING_PROTOCOL.md), [reviewer guidelines](RUNTIME_LABELING_GUIDELINES.md), [16-gate capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) and four blank [templates](templates/runtime-supervisor-review.md) are prepared: **DRAFT — NOT APPROVED**. E2-035 remains partial. No supervisor decision, actual reviewers, independent labels, newly eligible captures or model fitting resulted. Proposed security-review necessity is not confirmed-attack detection and needs human approval without silently replacing the research question. Current normalized counts alone lack authorization/intent context.
+
+Latest whole-repository verification: [Linux XML](../output/engine2-research-pack-linux-tests-20261006.xml) **1,029 passed**, 77.81 s console / 75.533 s XML; [Windows XML](../output/engine2-research-pack-windows-tests-20261006.xml) **991 passed / 38 skips**, 15.30 s console / 15.290 s XML. Both 1,029 collected, zero failures/errors. [Target XML](../output/engine2-research-pack-target-tests-20261006.xml):18 passed, 0.43 s console / 0.178 s XML. Fifteen new contract tests; lint/format108files/pipcheck pass. These are software checks, not attack scenarios or clock/efficiency/effectiveness measurements.
+
+Reserved private/runtime-labeling/ is ignored and publication-excluded even if force-staged, including case variants. No private reviewer records created; this is not encryption/access control/content DLP. Next obtain actual scope/guideline/context/group/sample/blinding decisions and establish comparable evidence-bearing captures; unknown gates do not become passed. Details/commands: WL-060. Subsequent dated verification paragraphs are historical checkpoints.
+
 Updated 6 October 2026. This is the current status summary; dated implementation checkpoints in other documents are historical evidence, not additional engines or today's task list. Actual code, saved artifacts and their limitations take precedence over prose. Preserve Python/CLI, Docker Compose, Ollama and Chroma; no web/SaaS or cloud-account mutation is implied.
 
 ## What “complete” means here
@@ -20,6 +28,10 @@ The current replay output now includes implementation_scope for **runtime_replay
 No Isolation Forest/autoencoder, validated runtime threat classifier, automated cloud isolation, integrated runtime TCI contribution or production deployment is claimed. The original first-three-month engineering milestone principally concerned Engine1; later runtime objectives are not retrospectively required/declared completed. See [deck audit](DECK_AUDIT.md), [requirements](PRD.md), [tasks](../TASKS.md).
 
 ## Current verification, not effectiveness
+
+The latest draft-pack verification is above. The following implementation checkpoints are historical, with their original test counts and receipts preserved.
+
+### Historical typed receipt verification (same date, earlier change)
 
 Typed receipt refinement:77new software cases, including two checks of saved historical artifacts (not new observations). Full [Windows final XML](../output/engine2-typed-intake-windows-final-tests-20261006.xml):976passed/38skips (37Linux-only/one symlink privilege),15.31s console/XML15.304; [Linux final XML](../output/engine2-typed-intake-linux-final-tests-20261006.xml):1,014passed/no skips,90.48s console/XML87.088. Both1,014collected/zero failures/errors, lint/format107files/pipcheck pass. Not detector accuracy/clock/performance evidence. INC-049 reproduced three missing trial-count-check failures and fixed them; original negative XML and preliminary passing receipts/example/source bytes preserved, not presented as current validation. [Final synthetic typed example](../output/engine2-typed-intake-counted-synthetic-20261006.json) checks selected roles; [uncounted input rejected](../output/engine2-typed-intake-uncounted-rejected-20261006.json). No fitting/independence/coverage/alignment/actions; original v1 report exactly unchanged. [Contract](RUNTIME_RECEIPTS.md)/WL-059.
 
@@ -52,7 +64,7 @@ Use fresh temporary/report filenames when reproducing; do not replace these save
 
 ## Work direction and acceptance gates
 
-Current priority remains **E2-035: grouped runtime dataset and independent-label intake**, mapped to E2-004/RQ3. [Typed receipts](RUNTIME_RECEIPTS.md) now implement selected count/source/identity/local-endpoint consistency, not complete protocol/coverage/alignment/eligibility. Next prepare the supervisor-reviewed threat/labeling pack and explicit eligible-capture checklist; genuine blinded human labels and comparable captures are prerequisites, not generated evidence. Existing failures and no-action/fitting boundaries preserved. [Evaluation plan](RUNTIME_EVALUATION_PLAN.md) retains wider gates; no new collection/intervention implied by proceeding.
+Current priority remains **E2-035: grouped runtime dataset and independent-label intake**, mapped to E2-004/RQ3. [Typed receipts](RUNTIME_RECEIPTS.md) implement selected consistency, not complete protocol/coverage/alignment/eligibility. The [draft labeling pack](RUNTIME_LABELING_PROTOCOL.md) and [capture checklist](RUNTIME_CAPTURE_ELIGIBILITY.md) are prepared, not approved; next obtain actual supervisor decisions. Genuine blinded human labels and comparable captures remain prerequisites, not generated evidence. Existing failures and no-action/fitting boundaries preserved. [Evaluation plan](RUNTIME_EVALUATION_PLAN.md) retains wider gates; no new collection/intervention implied by proceeding.
 
 1. Audit existing captures/receipts, retain development and timing-rejected data as such; do not promote them into untouched/independently labeled test data.
 2. Prepare a bounded offline run/window manifest and separate blinded reviewer submissions; guard template/deployment/run grouping, duplicate captures and event leakage before assigning splits. No prediction-visible/generated “independent” labels.

@@ -11,3 +11,5 @@ testbed/secrets/
 output/chroma/
 output/audit-cache/
 output/runtime-raw/
+# Private human annotation/consent/answer-key material; never publish by default.
+/private/runtime-labeling/

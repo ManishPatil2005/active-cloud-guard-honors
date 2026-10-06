@@ -1,0 +1,15 @@
+{
+  "schema_version": "runtime_adjudication_v1",
+  "adjudicator_id": "UNFILLED_ADJUDICATOR_ID",
+  "guidelines_sha256": "UNFILLED_APPROVED_GUIDELINES_SHA256",
+  "review_sha256": ["UNFILLED_ORIGINAL_REVIEW_A_SHA256", "UNFILLED_ORIGINAL_REVIEW_B_SHA256"],
+  "labels": [
+    {
+      "run_id": "UNFILLED_ASSIGNED_RUN_ID",
+      "asset_id": "UNFILLED_ASSIGNED_ASSET_ID",
+      "start_epoch": null,
+      "label": "unknown",
+      "reason": "UNFILLED: actual adjudicator must document resolution or retained uncertainty."
+    }
+  ]
+}

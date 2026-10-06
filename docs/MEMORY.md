@@ -1,6 +1,10 @@
 # Current project state
 
-## Current update — selected typed receipt checks, 6 October 2026
+## Current update — draft labeling/capture review pack, 6 October 2026
+
+E2-035 partial: [draft coordinator pack](RUNTIME_LABELING_PROTOCOL.md), reviewer guidelines, 16-gate eligibility checklist and four deliberately blank templates prepared, NOT APPROVED. Narrow security-review target is proposed, not an approved replacement for attack claims. Actual humans, sufficient independent context, comparable captures/timing/coverage, held-out data/ML/effectiveness gates remain open. Existing intake schemas/algorithms/no-eligibility defaults unchanged. Private annotation folder ignored/publication-excluded, no actual records created, not DLP. Fifteen new contract cases; targeted18pass; fullLinux1,029pass/Windows991pass38skips, zero failures/errors; lint/format108files/pipcheck pass. WL-060/ADR-050. Next actual human protocol approval; no service/clock/sensor/model/native/response operation or future monitoring. Previous update sections below are historical.
+
+## Earlier selected typed receipt checkpoint (historical), 6 October 2026
 
 E2-035 partial: runtime_intake_v2 opts into typed wrappers/hash-bound sources, adapter/capture/trial count arithmetic, selected saved identity snapshots and harness endpoint clock checks. New runtime_receipts.py isolated; original v1 report exact-equality regression passes. Full final Windows976passed38skips15.31s/XML15.304/Linux1,014passed90.48s/XML87.088;1,014collected both/zero failures/errors, lint/format107files/pipcheck pass.77new cases (two historical-artifact checks, no new observations). INC-049 three count-gap regressions reproduced/fixed; raw failed XML/preliminary passing suites and uncounted example/source bytes preserved, now negative fixture. Final counted fixture eight artifacts5,187bytes/no reviewers/no fitting/independence/actions; local pass not collector alignment. Full receipt_semantics_verified/coverage/native identity/eligibility false. [Contract](RUNTIME_RECEIPTS.md)/WL-059/ADR-049. Next supervisor-reviewed threats/labeling pack/eligible-capture checklist; actual independent humans/comparable captures before models. No default algorithms/stack/Engine1/native/clock/collection/source-freeze23 changes or future monitoring.
 

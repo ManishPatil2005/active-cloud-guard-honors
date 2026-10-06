@@ -36,6 +36,8 @@ PATTERNS = [
 
 def forbidden(path):
     parts = PurePosixPath(path).parts
+    if tuple(part.casefold() for part in parts[:2]) == ("private", "runtime-labeling"):
+        return True
     if any(
         p in {".venv", "__pycache__", ".pytest_cache", ".ruff_cache", ".git"}
         for p in parts
