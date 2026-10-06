@@ -1,5 +1,7 @@
 # Private native callback validation (E2-034)
 
+Later follow-up: [inert durable job gate](DURABLE_JOB_GATE.md) combines existing decoded-event evidence with exclusive journal/guest lock/terminal seal,60additional tests/four actual inert Linux process cases; Linux851pass/Windows814pass37Linux-only skips. This native fixture/helper is unchanged, no real broker jobs or native control integration. INC-046 applies to the new inert journal schema, not a receiver-native bug; original results below remain historical.
+
 ## Status — 6 October 2026
 
 The callback decoding/lifetime/fault prerequisite is **implemented and software-tested with the actual pinned Linux library and synthetic messages**. It is not broker-delivered JobRemoved evidence, an independent benchmark or durable job/fence integration. E2-034 remains partial. Engine1, production sources, the receiver capture launcher, comparison source list, native clock observers and historical evidence are unchanged.

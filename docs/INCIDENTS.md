@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-046 - 2026-10-06 - New inert journal accepted numeric1as boolean window completion
+
+**Publication follow-up:** staged whitespace check flagged line12of the preserved negative XML's generated pytest traceback. Raw bytes retained (SHA256 b6434bb5ca1e8831020d84ff003d25430c558a831cab5899066f51bcf3b77f76); working no-filter blob equals staged3c7c6ff8b361f6b63419d3e9d91198c93a096fb0. Exact one-file exclusion passes whitespace for every other staged file; no broad Git rule change, receipt trimming or claim unrestricted check passed. DURABLE_JOB_GATE.md exact command/WL-056 staged review.
+
+**Symptom/evidence:** schema review added test_integer_window_acknowledgment_is_not_exact_true to change a successful synthetic session's continuousTrue marker to integer1. Actual before-fix targeted run1failed/59deselected/0.58s; status incorrectly simulated_tracked_job_done instead of unknown. output/engine2-durable-job-window-regression-20261006.xml retained unchanged,1failure/0errors/XML0.323s. This occurred only in the new uncommitted inert component; no real jobs/services/bus/clocks or production recovery authority, all native flags false.
+
+**Cause confidence:** high, reviewed dict equality accepts1equal toTrue, confirmed by the focused regression. **Fix:** exact dictionary field set and value `is True`, not equality with a template boolean. No production/backend/privilege safety guard weakened. **Verification:** updated targetedWindows56pass4Linux-only skips2.12s/Linux60pass9.45s; fullWindows814pass37skips8.39s/Linux851pass31.81s, lint/format102files/pipcheck pass. Test retained in source, failure receipt not overwritten or described as passing. **Limits:** inert supplied declarations/file fsync only; native job/quiescence/disarm/storage/boot/protocol/timing/ML unresolved. DURABLE_JOB_GATE.md / WL-056.
+
 ### INC-045 - 2026-10-06 - Docker Desktop integration/API unavailable at receiver precheck
 
 **Later authorized recovery,6October (WL-054):** after explicit startup question/user proceed, started verified installed Docker Desktop Hidden; no settings change/WSL restart/manual container recreation/start. Local Windows and ACG-Research engine29.8.0 now answered; required known-sensor query no IDs. Availability blocker recovered **at these checks**, not explained historically or guaranteed permanently; earlier failed summary preserved. Fresh native receiver observation completed once with0selected events and no time-service/job/clock action; event delivery/faults/fencing unverified. Later running container count0, not exclusion of transient startup effects. SYSTEMD_RECEIVER_CAPTURE.md and new actual receipts/manual context retain scope.

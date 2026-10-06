@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest E2-034 follow-up: [inert durable job gate](DURABLE_JOB_GATE.md), exclusive nonce/epoch-bound intent/reply/event/window/fault records under existing guest lock/terminal seal.60new cases/four actual inert Linux process cases; Linux851pass, Windows814pass/37Linux-only skips. INC-046 strict-boolean defect reproduced/fixed with negative XML retained. No native jobs/controls; native gate/receiver/recovery integration and timing/ML remain open.
+
 Latest software checkpoint: [private native callback validation](NATIVE_CALLBACK_VALIDATION.md),28actual Linux libsystemd/synthetic-message cases plus3portable safety checks. Linux791pass; Windows758pass/33Linux-only skips. Copied values, strict envelope/body/cursor and sticky faults tested without broker delivery/job control; no receiver bug observed or production source change. E2-034 partial: durable guest job/gate binding, real routing/restoration/timing/ML remain open.
 
 Latest live receiver result: [one read-only observation](SYSTEMD_RECEIVER_CAPTURE.md), after authorized Docker Desktop recovery and fresh required prechecks. Native match/Subscribe/epoch/Unsubscribe/close and child reaping passed;50process calls,0selected events. Actual minimized start/result receipts retained, no job/service/clock/sensor action. Zero events does not validate native callback delivery/fencing or timing/ML; INC-045 availability recovered, earlier failure preserved.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.323" timestamp="2026-10-06T16:17:34.305631+05:30" hostname="Welcome"><testcase classname="tests.test_inert_job_gate" name="test_integer_window_acknowledgment_is_not_exact_true" time="0.033"><failure message="AssertionError: assert 'simulated_tracked_job_done' == 'unknown'&#10;  &#10;  - unknown&#10;  + simulated_tracked_job_done">tmp_path = WindowsPath('D:/research f1/tmp/durable-job-bool-regression-win-20261006-01/test_integer_window_acknowledg0')
+
+    def test_integer_window_acknowledgment_is_not_exact_true(tmp_path):
+        s = session(tmp_path)
+        s.stop(completed, IDENTITY)
+        path = s.directory / "window-complete.json"
+        value = fence.read(path)
+        value["value"]["continuous"] = 1
+        path.write_text(json.dumps(value), encoding="utf-8")
+&gt;       assert s.inspect(IDENTITY)["status"] == "unknown"
+E       AssertionError: assert 'simulated_tracked_job_done' == 'unknown'
+E         
+E         - unknown
+E         + simulated_tracked_job_done
+
+tests\test_inert_job_gate.py:232: AssertionError</failure></testcase></testsuite></testsuites>

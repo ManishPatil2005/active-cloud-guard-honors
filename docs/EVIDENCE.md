@@ -1,5 +1,9 @@
 # Evidence index
 
+## Inert durable job/gate validation (2026-10-06)
+
+[Report](DURABLE_JOB_GATE.md), [Windows XML](../output/engine2-durable-job-windows-tests-20261006.xml), [Linux XML](../output/engine2-durable-job-linux-tests-20261006.xml), [before-fix negative XML](../output/engine2-durable-job-window-regression-20261006.xml).60new cases/four actual Linux inert process/lock checks. Windows814pass/37Linux-only skips; Linux851pass,0failures/errors. Negative one-case numeric1window failure preserved/fixed exactTrue (INC-046); other evidence synthetic supplied events/storage doubles, no real jobs/bus/clock/restoration/threat benchmark. Exclusive journal/reopen/sticky faults and cooperating-worker seal mechanics tested; native/quiescence/disarm authority false always, native integration incomplete. Historical reports/live receipts unchanged.
+
 ## Private native callback software validation (2026-10-06)
 
 [Report](NATIVE_CALLBACK_VALIDATION.md), [Windows XML](../output/engine2-native-callback-windows-tests-20261006.xml), [Linux XML](../output/engine2-native-callback-linux-tests-20261006.xml).31new tests;28actual pinned Linux native message/C trampoline/read/copy/fault cases with synthetic data/private socketpair,3portable fixture guards. Linux791pass/Windows758pass33Linux-only skips, no failures/errors. Not a live broker-delivered event receipt, independent benchmark, real disconnect/job binding/quiescence/restoration or timing/ML evidence. No production-source change/retry/history replacement/real job or service action.

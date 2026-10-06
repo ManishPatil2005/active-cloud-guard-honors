@@ -1,5 +1,7 @@
 # Systemd job evidence review and offline contract (E2-032)
 
+Later E2-034 follow-up: [inert durable job gate](DURABLE_JOB_GATE.md) persists/reconstructs this supplied decoded-event contract under the existing inert guest lock/terminal seal.60new tests/four real inert Linux process cases; Linux851pass/Windows814pass37Linux-only skips, all native/quiescence/disarm authority false. JobEvidence itself unchanged, no real native submission/recovery integration; original checkpoint statements below remain historical.
+
 Later implementation checkpoint: [E2-033 read-only receiver](SYSTEMD_RECEIVER.md) selects the installed library and adds an isolated native adapter/software tests. Actual ABI/exports checked without connection; native reception/durable binding still pending. The E2-032 statements below describe their original checkpoint; they are not retroactively native evidence.
 
 ## Status — 6 October 2026

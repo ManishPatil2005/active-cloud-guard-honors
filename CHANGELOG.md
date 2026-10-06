@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-06 - Bind durable supplied-job evidence to an inert guest gate
+
+- Add isolated InertJobGate with exclusive nonce/epoch-bound intent/reply/copied events/window/fault/recovery records, existing lock/deadline/terminal seal; no native controls or old bare-True completion rule.
+- Add60tests, including four actual inert Linux process cases; full Linux851pass/Windows814pass37Linux-only skips, lint/format102files/dependencies pass.
+- Preserve/fix INC-046 numeric1versus exactTrue window-validation defect and before-fix negative XML; keep unknown on lost replies/interruption/replay/corruption, all recovery-disarm authority false.
+- Update formal/nontechnical documentation and ADR-046. Engine1/old sources/history/stack unchanged; native service integration/timing/ML remain unfinished.
+
 ## 2026-10-06 - Validate receiver callbacks with private native synthetic messages
 
 - Add test-only private socketpair/libsystemd message helper and31regressions: native copied lifetime/uint32/body/envelope/cursor/replay/overflow/continuity/contained exceptions, no real broker jobs.

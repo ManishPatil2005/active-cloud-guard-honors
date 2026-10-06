@@ -1,5 +1,7 @@
 # Inert guest-side session fence (E2-031)
 
+Later E2-034 follow-up: [inert durable job gate](DURABLE_JOB_GATE.md) reuses this module's initialization/lock/deadline/seal, not its bare-True completion methods. New nonce/epoch-bound intent/reply/event/window/fault/recovery records and60tests/four actual inert Linux process cases; Linux851pass/Windows814pass37Linux-only skips. Existing prototype/source/history unchanged; no native integration/job control/quiescence/disarm acceptance. Original statements below remain historical.
+
 Later6October: [E2-032 systemd evidence contract](SYSTEMD_JOB_CONTRACT.md) adds source/actual read-only schema review and isolated decoded-event matching tests. Not connected to this fence or native service calls; guest job-binding safety still open. Historical643-test statements below remain checkpoint-specific.
 
 ## Status — 6 October 2026
