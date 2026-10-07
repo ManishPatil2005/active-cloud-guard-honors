@@ -1,5 +1,9 @@
 # Evidence index
 
+## Integrated configuration/runtime replay (2026-10-07)
+
+E2-041/R6/RQ3: [contract/commands](INTEGRATED_REPLAY.md),34newcases/target149pass1deselected2.04s/XML1.897; [Windows full](../output/integration-full-windows-tests-20261007.xml)1240pass38skip29.03s/XML29.021, [Linux full](../output/integration-full-linux-tests-20261007.xml)1278pass104.13s/XML100.897,1278collected both/zero failures/errors. Lint122fileformat/bothpipchecks pass. Actual [Windows](../output/integration-synthetic-windows-20261007.json)/[Linux](../output/integration-synthetic-linux-20261007.json) fixed demos all6checks; full result equality excluding only platform-specific engine1.file, all hashes/launcher/checks agree. Components/context software evidence, no independent threat/calibrated fusion or research approval. Pending scanner commit/push a555b32 verified; WL-070.
+
 ## Compose parser refinement (2026-10-07)
 
 QA-002/M3-004: [contract and commands](COMPOSE_ENVIRONMENT_VALIDATION.md),15new cases. Beforefix12fail/1pass; first-fix location regression1failure on each platform preserved. Final Windows1206pass38skip22.28s/XML22.280; Linux1244pass109.00s;1244collected each,zero failures/errors. Lint119fileformat/bothpipchecks passed. This validates selected parser/CLI behavior and regression compatibility; independent research gates remain open. WL-069/INC-061/062/ADR-059.

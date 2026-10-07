@@ -1,5 +1,7 @@
 # Existing architecture
 
+E2-041 adds integration.py: existing scan + runtime.analyze -> preserved component reports + exact declared asset references, input/selected-source pre/post checks. Opt-in integrated-replay CLI/fixed integration_check.py, same stack/dependencies/default commands. No RAG/probe/model/collector/score/action stage is executed by the wrapper. Combined priority null, binding/evaluation/calibration false; full fusion remains open. [Contract](INTEGRATED_REPLAY.md).
+
 QA-002 changes only scanner.py environment-list normalization: first-equals split, nonempty string name, duplicate rejection before report emission. Existing mapping path/rule predicates/report format and Engine2 unchanged; CLI/pipeline reuse existing exception handling. [Contract and regression evidence](COMPOSE_ENVIRONMENT_VALIDATION.md).
 
 QA-001/V2-002 cache maintenance: destination validation precedes filesystem mutation, existing target excluded from eviction and atomic publication precedes capacity eviction. No new service/dependency/engine/scoring/model path; historical baseline unchanged. Current source differs by this narrow fix; [audit](REFINEMENT_AUDIT_20261007.md) records evidence and sequential/crash/concurrency limits.

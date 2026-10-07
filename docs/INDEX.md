@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest capability: [offline integrated replay](INTEGRATED_REPLAY.md), E2-041/R6/RQ3/WL-070. Rule configuration findings + saved statistical observations associated by declared IDs with missing/abstention/unmapped states retained. FullLinux1278pass/Windows1240pass38skip,34newcases and fixed synthetic examples; no calibrated fusion/live/independent-evaluation authority. Scanner publication resumed/verified at a555b32. Earlier checkpoint counts below historical.
+
 Latest parser maintenance: [Compose environment-list validation](COMPOSE_ENVIRONMENT_VALIDATION.md), QA-002/M3-004/WL-069. Duplicate/malformed entries rejected, valid finding locations/CLI refusal checked;15new cases and preserved failures. Latest results in contract/current MEMORY; earlier checkpoint counts below historical.
 
 Current maintenance: [selected software audit/cache refinement](REFINEMENT_AUDIT_20261007.md), QA-001/V2-002/WL-068. Three new reproduced cache write/eviction regressions fixed; fresh whole-suite receipts plus restricted-context failures preserved. This changes current cache maintenance code, not the frozen historical Engine1 baseline or Engine2 detection algorithms; no independent research acceptance. Earlier checkpoint counts below historical.

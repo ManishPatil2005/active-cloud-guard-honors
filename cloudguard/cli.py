@@ -67,6 +67,15 @@ def main():
     rt.add_argument("--inventory", required=True)
     rt.add_argument("--window-seconds", type=int, default=60)
     rt.add_argument("--threshold", type=float, default=3.0)
+    ir = sub.add_parser(
+        "integrated-replay", help="Offline configuration and saved-runtime context"
+    )
+    ir.add_argument("configuration")
+    ir.add_argument("observation")
+    ir.add_argument("--baseline", action="append", required=True)
+    ir.add_argument("--inventory", required=True)
+    ir.add_argument("--window-seconds", type=int, default=60)
+    ir.add_argument("--threshold", type=float, default=3.0)
     args = parser.parse_args()
     try:
         if args.command == "scan":
@@ -110,6 +119,17 @@ def main():
             result = analyze(
                 args.baseline,
                 args.path,
+                args.inventory,
+                window_seconds=args.window_seconds,
+                threshold=args.threshold,
+            )
+        elif args.command == "integrated-replay":
+            from .integration import replay
+
+            result = replay(
+                args.configuration,
+                args.baseline,
+                args.observation,
                 args.inventory,
                 window_seconds=args.window_seconds,
                 threshold=args.threshold,

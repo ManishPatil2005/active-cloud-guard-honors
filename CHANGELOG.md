@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 - Integrate configuration and saved runtime review context
+
+- Add integrated-replay library/CLI: preserve complete rule-baseline and statistical-runtime outputs, associate exact declared asset IDs, retain missing/insufficient/unmapped cases and null combined priority.
+- Freeze bounded input/selected implementation hashes, reject observed mutation/mismatch and reuse original runtime guards; no action/model/network/TCI path.
+- Add34regressions/fixed exclusive synthetic runner with matching cross-platform examples; fullLinux1278pass/Windows1240pass38skip, lint122fileformat/bothpipchecks pass.
+- Finish pending scanner publication (a555b32 verified on GitHub); maintain current research/documentation boundaries, WL-070/ADR-060.
+
 ## 2026-10-07 - Reject ambiguous Compose environment lists
 
 - Reject repeated environment names, nonstring list entries and empty names with content-free ValueError messages.

@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-060 - 2026-10-07 - Integrate offline evidence context before calibrated scoring
+
+E2-041/R6/RQ3. Compose the existing rule scanner and statistical saved-runtime comparator, retain their complete outputs and join only exact declared inventory asset IDs. Do not feed unbounded uncalibrated deviation into bounded TCI anomaly or infer deployment/time identity from matching names. Alternative immediate priority fusion lacks calibration/qualified inputs; full RAG/probe/ML/live fusion remains a later acceptance scope. Unknown/missing runtime, insufficient baseline and unmapped static assets stay visible; combined_priority=null and no action/evaluation authority. Opt-in command/fixed example keep existing default paths unchanged;34cases/cross-platform receipts in INTEGRATED_REPLAY.md. Five selected source hashes are a scoped consistency check, not authenticated closure. Stack unchanged.
+
 ## ADR-059 - 2026-10-07 - Reject duplicate environment-list names
 
 Adopt the existing scanner ambiguity policy for Compose environment lists: repeated names, including identical repeated values, raise a generic ValueError before report emission. Silent last-value replacement hides ambiguous source intent. Keep case-sensitive names, first-equals splitting, bare-name None and mapping path unchanged; do not attempt host environment resolution or a full Compose schema implementation. Compatibility consequence: callers must consolidate repeated names or supply a reviewed resolved configuration. Fifteen regression cases and preserved negative evidence in COMPOSE_ENVIRONMENT_VALIDATION.md; Engine1 historical baseline and Engine2 architecture unchanged.

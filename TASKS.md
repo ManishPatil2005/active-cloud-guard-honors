@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+E2-041/R6/RQ3: [offline integration](docs/INTEGRATED_REPLAY.md) implemented/software-tested. Configuration rule findings and saved statistical replay share a declared-ID context report; every finding/window and missing/insufficient/unmapped state retained. Opt-in CLI/fixed exclusive demo,34newcases/fullLinux1278pass/Windows1240pass38skip. Combined priority null/deployment equivalence false; full RAG/probe/ML/TCI/live integration and independent evaluation remain open. Pending scanner publication completed as a555b32; WL-070/ADR-060/INC-063.
+
 QA-002/M3-004: [Compose environment-list validation](docs/COMPOSE_ENVIRONMENT_VALIDATION.md). Reject duplicate names/nonstring entries/empty names; preserve valid mapping/list findings and CLI refusal before downstream work. Fifteen new cases, original and first-fix failures preserved; final verification in WL-069/contract. Scientific approval/data/evaluation gates unchanged.
 
 QA-001 / V2-002: [selected audit and cache refinement](docs/REFINEMENT_AUDIT_20261007.md). Three reproduced regressions fixed: invalid writes, replacement at capacity and failed replacement preserve valid cache entries. Historical Engine1 baseline untouched; current maintenance code changed, not a new engine. Whole-suite/dependency/style/publication evidence and execution-context negatives in WL-068/INC-059/060; actual supervisor/data/independent evaluation gates remain pending.

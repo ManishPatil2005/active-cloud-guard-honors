@@ -1,5 +1,9 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest integration step — 7 October 2026
+
+E2-041/R6/RQ3: [offline configuration/runtime context](INTEGRATED_REPLAY.md) implemented. Rule-baseline findings and unchanged statistical replay are retained together with exact declared asset references, missing/insufficient/unmapped context and null combined priority. Optional CLI/fixed exclusive example,34newcases/wholeLinux1278pass/Windows1240pass38skip/0failures/errors; source/input consistency and six demo checks on both OS. This completes a bounded offline context step; full RAG/probe/ML/calibrated TCI/live integration, actual deployment binding and independent research remain open. Pending scanner change published as a555b32; WL-070. Genuine supervisor/context/qualified data/humans/timing/coverage/calibration/overhead gates unchanged.
+
 ## Latest parser refinement — 7 October 2026
 
 QA-002/M3-004: [Compose environment validation](COMPOSE_ENVIRONMENT_VALIDATION.md) rejects repeated names and malformed list entries before returning findings. Valid list/mapping behavior and scan/run refusal are covered by15new cases; original/preliminary failures preserved. Final observed checks in linked contract/WL-069. Historical Engine1 baseline/tag remains preserved; current maintenance parser is stricter. Engine2/scientific gates unchanged; actual supervisor approval and qualified independent evaluation remain next research dependencies.

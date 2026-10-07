@@ -1,5 +1,21 @@
 # Work log
 
+## WL-070 - 2026-10-07 - Offline Engine 1/Engine 2 context integration
+
+**Request/task/acceptance:** user asks to perform pending tasks. First finish pending QA-002 publication, then implement E2-041/R6/RQ3 bounded configuration-rule/statistical-runtime context integration: preserve original component outputs, exact declared IDs, missing/abstention/unmapped context, no priority conversion/action/eligibility. Read current records/rules/workflow/PRD/runtime foundation/evaluation/architecture/security/tests and actual scanner/runtime/CLI contracts. [Implementation, commands and limits](INTEGRATED_REPLAY.md).
+
+**Pending publication resolved:** a555b32d7d58d43b158e5793feb8f0dda92a961b scanner fix committed/pushed, local HEAD==GitHub main/clean observed before integration edits. Previous usage-limit approval review had rejected command before execution; retry under existing user authorization completed with normal automatic review, no bypass. INC-063 records boundary/resolution.
+
+**Implemented:** new integration.py bounded hash freeze/component checks, unchanged scan/analyze, complete original reports and exact asset references including unmapped/missing; opt-in integrated-replay CLI and fixed exclusive integration_check.py. No dependency installation/new service/model fit/probe/collector/TCI or stack migration. Five selected source hashes plus launcher in fixed demo, not full dependency attestation. Full RAG/probe/ML/calibrated/live fusion remains open. ADR-060.
+
+**Observed checks:**34newcases, target149pass1deselected2.04s/XML1.897; Windows full1240pass38skip29.03s/XML29.021, Linux1278pass104.13s/XML100.897,1278collected each/0failures/errors. Ruff lint/122fileformat/bothpipchecks pass. Actual fixed examples on both OS all6checks; entire result/input/source/launcher equality after excluding only platform-specific engine1.file, no value/score/path rewrite in stored reports. Collect-only34case count emitted one default-cache permission warning; actual runs use configured cache and no test failure observed. No new live sensor/model smoke/service/clock/cloud experiment or independent evaluation. Old archive and INC-056XML hashes verified unchanged.
+
+**Publication/next:** maintain required/current/formal/nontechnical docs, check final links/index/secrets/exclusions/staged diff, commit with feature name and verify GitHub. Genuine supervisor decisions/qualified capture/context/independent labels/calibration study remain external prerequisites; new context view does not close them.
+
+**Final docs verification:**18contract tests0.26s/XML0.119, fresh output/integration-docs-tests-20261007.xml; exact command in contract. Preliminary publication551files passes requireddocs/links/exclusions/boundedcredential checks; git diff --check passes. No failing executable tests/new negative artifact this milestone. Review final-index source/demo bindings, explicit files and source/test diffs before commit; Git outcomes not preclaimed.
+
+**Staged review observed:**26explicit files (4Python,16Markdown,6XML/JSON receipts). Indexed publication checker551files passed; unrestricted git diff --cached --check passed, no negative-whitespace exemption in this commit. Reviewed staged stat/source/test logic, complete demo counts/limits/noauthority and maintained docs. Read-only Python asserts both demo input/selected-source/launcher hashes equal current files; four staged Python byte sequences equal working verified source/tests. git diff --name-only empty and intendedremote URL confirmed. Historical archive/INC-056raw SHA unchanged. Re-stage this note, commit hook/push/local-versus-remote comparison subsequent; no preclaimed remote outcome.
+
 ## WL-069 - 2026-10-07 - Reject ambiguous Compose environment lists
 
 **Task and acceptance:** QA-002/M3-004; user continues refinement. Read INDEX/MEMORY/TASKS/RULES/current status/workflow, scanner/pipeline/CLI and relevant parser/security/test contracts. Require duplicate and malformed environment-list rejection, preserve valid list/mapping locations and stop rejected CLI input before retrieval/model/probes. [Contract and exact commands](COMPOSE_ENVIRONMENT_VALIDATION.md).

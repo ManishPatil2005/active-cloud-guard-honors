@@ -1,0 +1,242 @@
+{
+  "executed_at": "2026-10-07T16:47:15.020687+00:00",
+  "status": "synthetic_check_passed",
+  "launcher_sha256": "be24181a3b09405304930816ff19715538e0f48c5289d03e29cab9388e5cab20",
+  "checks": {
+    "static_preserved": true,
+    "expected_runtime_states": true,
+    "exact_context": true,
+    "missing_preserved": true,
+    "no_priority_or_authority": true,
+    "synthetic_source": true
+  },
+  "result": {
+    "protocol": "integrated_configuration_runtime_replay_v1",
+    "mode": "offline_context_join",
+    "evidence_level": "software_context_only",
+    "configuration_bytes_sha256": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d",
+    "input_sha256": {
+      "configuration": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d",
+      "inventory": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+      "observation": "c1e188afed2ee56a5467d6984114f3fb8a480614c86093d9c86589134f791c83",
+      "baseline_0": "80c027feb962da021071cb04c4779f22af63606e040df2a50d0e04c25d832389"
+    },
+    "selected_implementation_sha256": {
+      "integration.py": "73c7aae195d08d54da130e8958c638468b99dd395423dbcf12ae66b596319b71",
+      "scanner.py": "2a547b17556b56ff396638fa7826aac8209edaedecd87a77471a4e0e0b528e29",
+      "runtime.py": "59c52be4ee869d370fb908d0b94021dacdbf2164bab960e7d2c8fea82a05fad5",
+      "verification.py": "5b200fcd4668741c040437825252895c86a19269556f2ad4c0be58cba256d15b",
+      "cache.py": "f0af361c67e3a6e7fb6d7c9cb2d416d482a7431185fb61f147164184112c6d3b"
+    },
+    "engine1": {
+      "schema_version": "1.0",
+      "file": "D:\\research f1\\data\\development\\redis-all.yaml",
+      "sha256": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d",
+      "findings": [
+        {
+          "id": "11ef54a87dd6175a41b3",
+          "asset_id": "compose/redis",
+          "rule_id": "NET001",
+          "title": "Service published beyond loopback",
+          "static_score": 0.65,
+          "location": "services.redis.ports[0]",
+          "source_ids": [
+            "docker-ports"
+          ],
+          "origin": "rule_baseline",
+          "evidence": "Configuration predicate matched; no exploitation claim."
+        }
+      ],
+      "warnings": [],
+      "coverage": "selected predicates only; absence of findings is not proof of safety"
+    },
+    "engine2": {
+      "engine": "engine2",
+      "engine_version": "0.1",
+      "mode": "observation_only_replay",
+      "model": "per_asset_standardized_count_deviation",
+      "implementation_scope": {
+        "component": "runtime_replay_baseline",
+        "status": "implemented",
+        "live_input": false,
+        "saved_sensor_export_supported": true,
+        "trained_ml_model": false,
+        "independent_detection_evaluation": false,
+        "automatic_response": false
+      },
+      "calibrated": false,
+      "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+      "window_seconds": 60,
+      "threshold": 3.0,
+      "baseline": [
+        {
+          "capture_id": "synthetic-baseline",
+          "scenario_group": "synthetic-baseline-family",
+          "source": "synthetic",
+          "sha256": "80c027feb962da021071cb04c4779f22af63606e040df2a50d0e04c25d832389",
+          "binding_verified": false
+        }
+      ],
+      "observation": {
+        "capture_id": "synthetic-observation",
+        "scenario_group": "synthetic-observation-family",
+        "source": "synthetic",
+        "sha256": "c1e188afed2ee56a5467d6984114f3fb8a480614c86093d9c86589134f791c83",
+        "binding_verified": false
+      },
+      "baseline_parameters": {
+        "compose/redis": {
+          "window_count": 3,
+          "features": {
+            "event_count": {
+              "mean": 3,
+              "scale": 1.0
+            },
+            "process_start": {
+              "mean": 1,
+              "scale": 1.0
+            },
+            "network_connect": {
+              "mean": 1,
+              "scale": 1.0
+            },
+            "file_open": {
+              "mean": 1,
+              "scale": 1.0
+            }
+          }
+        }
+      },
+      "windows": [
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767312000,
+          "capture_id": "synthetic-observation",
+          "counts": {
+            "event_count": 3,
+            "process_start": 1,
+            "network_connect": 1,
+            "file_open": 1
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "no_threshold_exceedance",
+          "deviation_score": 0.0,
+          "feature_deviations": {
+            "event_count": 0.0,
+            "process_start": 0.0,
+            "network_connect": 0.0,
+            "file_open": 0.0
+          },
+          "review_required": false
+        },
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767312060,
+          "capture_id": "synthetic-observation",
+          "counts": {
+            "event_count": 9,
+            "process_start": 0,
+            "network_connect": 9,
+            "file_open": 0
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "deviation_for_review",
+          "deviation_score": 8.0,
+          "feature_deviations": {
+            "event_count": 6.0,
+            "process_start": 1.0,
+            "network_connect": 8.0,
+            "file_open": 1.0
+          },
+          "review_required": true
+        }
+      ],
+      "status": "observations_processed",
+      "actions_executed": [],
+      "runtime_sensor_connected": false,
+      "threat_confirmed": false,
+      "limitations": [
+        "Synthetic inputs demonstrate software behavior, not threat detection accuracy.",
+        "Imported sensor provenance/container mappings are declarations, not authenticated live identity.",
+        "Only nonempty windows are evaluated; silence, collection gaps and partial windows are not treated as normal.",
+        "Baseline designation is operator supplied; no independent benign labels or calibration are established.",
+        "Metadata/event overlap checks reduce accidental leakage, not renamed-template or adversarial leakage.",
+        "This replay command accepts saved captures only; live collection and normalization are separate experimental paths.",
+        "This baseline has no Kubernetes audit adapter, Isolation Forest, autoencoder, isolation or TCI integration."
+      ]
+    },
+    "asset_contexts": [
+      {
+        "asset_id": "compose/minio",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [],
+        "runtime_window_indices": [],
+        "runtime_evidence_state": "no_observed_window",
+        "runtime_review_required": null,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null
+      },
+      {
+        "asset_id": "compose/nginx",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [],
+        "runtime_window_indices": [],
+        "runtime_evidence_state": "no_observed_window",
+        "runtime_review_required": null,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null
+      },
+      {
+        "asset_id": "compose/postgres",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [],
+        "runtime_window_indices": [],
+        "runtime_evidence_state": "no_observed_window",
+        "runtime_review_required": null,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null
+      },
+      {
+        "asset_id": "compose/redis",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [
+          "11ef54a87dd6175a41b3"
+        ],
+        "runtime_window_indices": [
+          0,
+          1
+        ],
+        "runtime_evidence_state": "observations_available",
+        "runtime_review_required": true,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null
+      }
+    ],
+    "configuration_finding_count": 1,
+    "runtime_window_count": 2,
+    "joint_priority_calculated": false,
+    "deployment_binding_verified": false,
+    "independent_evaluation_verified": false,
+    "real_data_evaluation_authorized": false,
+    "runtime_sensor_connected": false,
+    "calibrated": false,
+    "threat_confirmed": false,
+    "actions_executed": [],
+    "limitations": [
+      "Engine1 component is the configuration rule baseline; no model audit or active verification runs here.",
+      "Matching declared asset IDs supplies context, not authenticated deployment or temporal equivalence.",
+      "Missing windows remain unknown; insufficient baseline and all original findings/windows are retained.",
+      "Saved runtime deviations are uncalibrated; no score conversion, TCI fusion, threat verdict or action.",
+      "Pre/post input and selected source hashes check observed consistency, not hostile filesystem races or complete import attestation.",
+      "Supplied sensor exports retain their development/provenance limits; this command cannot authorize real evaluation."
+    ]
+  }
+}

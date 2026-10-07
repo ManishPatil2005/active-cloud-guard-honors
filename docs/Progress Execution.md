@@ -1,5 +1,11 @@
 # Progress Execution
 
+## Latest development — see both engines in one offline report
+
+The new integrated-replay command scans a configuration and reads separate baseline/observation captures, then presents their findings and runtime windows by asset. You can now see a configuration issue beside runtime context in one report. Missing windows stay unknown; findings are preserved even when a runtime score is low. [Baby steps, example and exact commands](INTEGRATED_REPLAY.md).
+
+The fixed synthetic example passes on Windows/Linux: Redis has one configuration finding and two runtime windows; the other three inventory assets show no observed windows. Whole-suiteLinux1278pass/Windows1240pass38skip. The report has no combined threat score or action; actual deployment/timing/coverage and research evaluation still need evidence. The earlier pending scanner change is now committed/pushed asa555b32. This milestone includes new Python implementation/CLI/tests, alongside the documentation you requested.
+
 ## Latest maintenance — clearer rejection of ambiguous configuration
 
 Engine1 now rejects an environment list that declares the same variable twice, instead of silently keeping its last value. It also rejects malformed entries. Valid configurations keep their existing findings and locations. The new tests caught a mistake in the first fix; its failed evidence is saved and the correction is verified before commit. [Explanation, commands and checking steps](COMPOSE_ENVIRONMENT_VALIDATION.md). Engine2's research status is unchanged; supervisor/data/evaluation work remains open.

@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-063 - 2026-10-07 - Pending commit/push refused when automatic review reached usage limit
+
+**Symptom/evidence:** prior QA-002 commit/push exec was rejected before process creation: automatic approval review could not complete because account usage limit was reached. Git inspection subsequently showed23staged parser/evidence/docs files and a later unstaged WORK_LOG note, HEAD stillf611ff5; no new commit/push had occurred. **Cause confidence:** direct tool result for review failure, no determination action unsafe. **Resolution:** current user asks to finish pending tasks; rechecked staged whitespace scope, added final note, ran commit hook/review under normal escalation, committeda555b32d7d58d43b158e5793feb8f0dda92a961b and pushed intended remote. **Verification:** local HEAD==git ls-remote origin refs/heads/main and cleanworktree before new integration work. **Limits:** no bypass/permission configuration change; future availability not guaranteed. Prior tests/evidence preserved, no extra model/experiment rerun needed.
+
 ### INC-061 - 2026-10-07 - Compose environment lists silently overwrite duplicate names
 
 **Symptom/evidence:** beforefix selected tests12fail/1pass; duplicates accepted, empty names accepted, other malformed entries produce incidental TypeError. **Cause confidence:** high from dict-constructor semantics/direct regression. **Fix:** validate string/nonempty name and duplicate membership before assignment; generic errors omit supplied contents. **Verification:**15cases include positive equivalence/CLI early refusal; final receipts in [contract](COMPOSE_ENVIRONMENT_VALIDATION.md). **Limits:** stricter scanner contract, not full Docker semantic/schema validation or demonstrated deployed exploit. Original negative preserved.
