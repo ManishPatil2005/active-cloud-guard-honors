@@ -1,5 +1,11 @@
 # Current project state
 
+## Current update — synthetic decision accounting, 7 October 2026
+
+Final fullLinux1,194pass140.05s/XML137.061 and freshWindows1,156pass38skips27.83s/XML27.819, both1194collected/0failure/error; lint118fileformat/bothpipchecks pass. Preserve original firstWindowsnegative/causeunresolved; no dependency/source fix claimed.
+
+E2-039/RQ3: [isolated arithmetic path](SYNTHETIC_RUNTIME_ACCOUNTING.md)/fixed11unit fixture, no real/model-generated decisions/labels/fitting in new runner. Explicit availability/unknown/abstentions/conditional-vs-inclusive denominators/null ratios, canonical-vs-file/source hashes.46newtargetpass0.40s/XML0.352; initial34pass0.56s/XML0.502; both fixed result/check objects identical. FirstWindowsfull1failed1,155pass38skips54.54s/XML54.528, existing IF optional import (INC-056); later direct import/pipcheck and47case isolatedcheckpass1.42s/XML1.416, cause unresolved/no code/dependency fix. Full/final results in WL-065/EVIDENCE, preserve negative. Engine1/default runtime/intake/capture/ML/stack/native23-source/deps unchanged; actual supervisor/context/data/labels/calibration/evaluation/overhead/integration still pending. Earlier entries historical.
+
 ## Current update — data readiness audit / review proposal, 6 October 2026
 
 E2-038/E2-035/RQ3: [audit](RUNTIME_DATA_READINESS_AUDIT.md) of7tracked standalone normalized captures (5synthetic/2sensor-development),380storedrows/45per-file60snonemptywindows, not unique/independent samples. Parser and HEAD-byte checks pass. Two synthetic fixture projections reused/existing guard rejects; both sensor files same development group. Failed3trial batch/hash bindings/4collector exclusions retained. No benchmark/eligibility/code/algorithm/data change. User says no supervisor approval; [ready-to-review proposal](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md) prepared DRAFT NOT APPROVED, no actual decisions/contacts/labels/collection/fitting. Fresh offline209-case subset Windows208pass1skip6.69s/XML6.549/Linux209pass43.77s/XML42.210, zero failures/errors; original1148-case full suite not rerun or augmented. WL-064/ADR-054/INC-055. Next genuine review/context/sampling and separately authorized qualification; earlier entries historical.

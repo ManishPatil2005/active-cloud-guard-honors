@@ -1,5 +1,7 @@
 # Synthetic runtime replay fixtures
 
+7October: accounting-synthetic.json is an [arithmetic-only decision fixture](../../docs/SYNTHETIC_RUNTIME_ACCOUNTING.md), not a normalized event capture. Its11invented unit/label/decision/availability records illustrate abstention/unknown denominators; not actual humans, attacks, model predictions, experimental runs or independently labeled research data. It does not add an eighth normalized capture to the earlier seven-file audit. Keep original capture/receipt bytes unchanged.
+
 ## Additional ML software fixtures — 6 October 2026
 
 ml-baseline-synthetic.json and ml-observation-synthetic.json were authored for the optional [synthetic ML comparator](../../docs/SYNTHETIC_RUNTIME_ML.md). January3/4timestamps are invented coordinates, not backdated observations. Container ID64a is a placeholder. Baseline32one-minute windows use process1or2/file2..4/connect1..3; three observation windows use (process,file,connect)=(1,2,1),(1,2,16),(2,3,2). All events and scenario groups are developer-authored, not independent labels, attacks or benign recordings. These fixtures must remain development software data. Existing fixtures described below are unchanged and historical.

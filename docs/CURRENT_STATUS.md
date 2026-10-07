@@ -1,5 +1,13 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest software step — synthetic abstention-aware accounting, 7 October 2026
+
+Final actual verification: Linux1,194passed140.05s/XML137.061; separate fresh Windows1,156passed38skips27.83s/XML27.819, both1,194collected/0failures/errors. Lint/118fileformat/bothpipchecks pass. Initial Windows failure below remains preserved and causally unresolved; later passes are not a claimed fix. Whole-suite timing is not detector performance/clock evidence.
+
+E2-039/E2-004/RQ3: [synthetic-only accounting](SYNTHETIC_RUNTIME_ACCOUNTING.md) implemented with a fixed11unit arithmetic fixture, not actual runtime windows/model predictions/human labels. Explicit observed3×3cells, missing/unusable unknown+abstained, conditional confusion and inclusive positive denominator/coverage, null undefined ratios. New46target tests pass; cross-platform fixed result/check objects and selected input/source bindings match. Default engines/stack/dependencies/intake/capture algorithms unchanged; no real-data calibration/evaluation authority. Full-suite outcomes/negative in EVIDENCE/WL-065/INC-056, not silently replaced by prior green checkpoints.
+
+First Windows whole-suite run:1failed1,155passed38skips; an existing IF backend import failed. Direct import/pipcheck and isolated failedcase+accounting47cases later passed, cause not established/no dependency fix or install claimed. Preserve raw failure. Current real approval/context/qualified data/independent humans/grouped calibration/evaluation/overhead/integration gates remain open; accounting is not a new engine, approved estimand or detector benchmark. Earlier full-suite/implementation sections below historical.
+
 ## Latest step — existing-data audit and supervisor proposal
 
 E2-038/E2-035/RQ3: [offline readiness audit](RUNTIME_DATA_READINESS_AUDIT.md) completed for seven tracked standalone normalized captures in selected data/runtime/output prefixes:5synthetic/2sensor-development,380stored rows/45per-file60second nonempty window records, not independent replications. All seven parse/current hashes match HEAD; two synthetic fixtures share two exact projections and existing baseline/observation guard refuses them. Both sensor captures share redis-ping-development. Historical failed repeat/three receipt hashes retained, including4collector exclusions despite local clock compatibility. No independent benchmark/new eligible data established; no code/model/data/service/clock changes.

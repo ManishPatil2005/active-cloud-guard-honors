@@ -1,5 +1,15 @@
 # Incident and resolution ledger
 
+### INC-056 - 2026-10-07 - Existing IF import failed once in Windows whole-suite execution
+
+**Raw publication preservation:** original failed XML traceback line10 retains pytest trailing whitespace. Unrestricted staged check fails only that line; exact-one-file exclusion passes other staged files, publication scanner includes raw XML. Original SHA unchanged/working and staged Gitblob c66d93aa2e7dfd9df46da0a1844bc766e8028d5e match; no rewriting negative evidence or source/test formatting waiver.
+
+**Subsequent bounded verification:** Linuxfull1194pass140.05s/XML137.061 and one separate freshWindowsfull1,156pass38skips27.83s/XML27.819, no failures/errors in those runs; lint118fileformat/bothpipchecks pass. No code/package change resolved the original import cause, still unknown. Do not call this a verified fix or discard original failure.
+
+**Evidence:** first1194case whole suite1failed1,155passed38skips54.54s/XML54.528; test_iforest_calculated_report_unchanged_after_shared_refactor reached runtime_ml._backend and caught ImportError, surfaced as install optional runtime-ml. [Original XML](../output/engine2-accounting-windows-tests-20261007.xml) SHA cdbbb46f11703516e63b180b26115ac5d66cd30184b600bee5eff89bbfec5571 kept, not overwritten. Actual underlying ImportError text was suppressed by existing redaction; no claim it proves a missing installation. New46accounting cases passed. Linux full running concurrently, not proven causal.
+
+**Cause confidence:** unknown; later direct sklearn.ensemble/threadpoolctl import succeeds with installed sklearn1.9.1, pipcheckpass, failedcase plus46accounting cases47pass1.42s/XML1.416. No package install/upgrade, old comparator/test fix or changed rejection policy. **Containment:** preserve failure, verify dependency directly, separate diagnostic/current full-suite verification with fresh paths; do not rerun/replace a model experiment to hide negatives. **Remaining limits:** subsequent passes do not establish cause or resolved intermittent failure. Exact commands/final verification in WL-065/EVIDENCE; no real-data/model-effectiveness inference.
+
 ### INC-055 - 2026-10-06 - Different synthetic capture IDs conceal shared event projections
 
 **Symptom/evidence:** E2-038 offline audit finds replay observation and intake-example capture share two exact (asset/container/epoch/kind) projections despite distinct capture IDs/hash/group strings. SHA c1e188afed2ee56a5467d6984114f3fb8a480614c86093d9c86589134f791c83 / b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837. Both sensor capture files also share redis-ping-development. [Audit](RUNTIME_DATA_READINESS_AUDIT.md) preserves exact reproduction/source hashes. No newly launched experiment or actual held-out research split was found/created here; this is not a claimed contamination of an executed independent evaluation.

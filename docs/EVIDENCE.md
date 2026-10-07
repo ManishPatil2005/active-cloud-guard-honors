@@ -1,5 +1,15 @@
 # Evidence index
 
+## Synthetic decision-accounting software (2026-10-07)
+
+[Post-document contracts](../output/engine2-accounting-docs-tests-20261007.xml)18passed0.15s/XML0.106/no failures/errors/skips, separate rerun not added cases or approval of the draft research plan.
+
+[Linux full](../output/engine2-accounting-linux-tests-20261007.xml)1,194passed140.05s/XML137.061/no skips; [separate final Windows](../output/engine2-accounting-windows-final-tests-20261007.xml)1,156passed38skips27.83s/XML27.819,1194collected each/zero failures/errors in those runs. Lint/118fileformat/bothpipchecks pass. FirstWindowsnegative/diagnostic below retained, not root-cause resolution; suite durations not detector efficiency/overhead or clock validation.
+
+[Contract](SYNTHETIC_RUNTIME_ACCOUNTING.md), E2-039/WL-065/ADR-055: [fixed Windows](../output/engine2-accounting-windows-20261007.json)/[Linux](../output/engine2-accounting-linux-20261007.json), all6checks/equal complete result/check objects,11invented slots/9observed1missing1unusable; conditionalconfusion each1, positive/negative abstention each1, conditionalrecall1/2/inclusivepositive1/3. Not actual model predictions or research accuracy. RawinputSHAe234d8d78a696aca6c2156396e046142581cbc713e0ab9132e9be6acb2286a53; canonicalJSON095c3a6b56a941e0b6745cd814a7d75283ff595e452a077095470a405f0ba7b6; selectedlibrary8f89a63e9101bbe3dd917459994f1d22431ec01fa7a15589d61141002ec7bc39. Exact file/source bindings verified, not full environment attestation or original-file canonical equality.
+
+[Initial target](../output/engine2-accounting-target-windows-20261007.xml)34pass0.56s/XML0.502/[final target](../output/engine2-accounting-target-final-windows-20261007.xml)46pass0.40s/XML0.352. [First Windows full](../output/engine2-accounting-windows-tests-20261007.xml)1failed1,155pass38skips54.54s/XML54.528,1194collected; existing IFoptional-backend import failure, rawSHAcdbbb46f11703516e63b180b26115ac5d66cd30184b600bee5eff89bbfec5571 (INC-056). [Diagnostic failedcase+accounting](../output/engine2-accounting-import-check-windows-20261007.xml)47pass1.42s/XML1.416; direct optionalimport and pipcheckpass, cause not established/no dependency or old production fix. Raw failure retained; passing later checks cannot erase it.
+
 ## Existing runtime data audit / supervisor proposal (2026-10-06)
 
 Final post-document [publication/research-pack contracts](../output/engine2-data-readiness-docs-tests-20261006.xml):18pass0.26s/XML0.119, zero failures/errors/skips. Separate rerun, not additional full-suite cases or actual proposal approval.

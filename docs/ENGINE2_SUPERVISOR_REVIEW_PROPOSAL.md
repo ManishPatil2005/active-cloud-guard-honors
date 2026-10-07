@@ -54,6 +54,8 @@ Current optional outputs have binary_prediction=null. A future reviewed calibrat
 
 ## 7. Proposed reporting and statistical analysis
 
+7October software follow-up: [synthetic-only decision accounting](SYNTHETIC_RUNTIME_ACCOUNTING.md) now implements arithmetic/denominator tests on invented supplied decisions, not real model thresholds, human labels or approval of the estimands below. Optional models still have null binary_prediction. This does not make the proposal approved or permit real fitting/evaluation.
+
 Primary runtime outcome and operating point require actual approval. Suggested reporting, not an executed analysis:
 
 - Provide TP/FP/TN/FN on explicitly known, eligible, scored units; precision=TP/(TP+FP), recall=TP/(TP+FN), with undefined denominators reported as undefined. State these are conditional-on-scoring quantities, not performance over every planned unit.

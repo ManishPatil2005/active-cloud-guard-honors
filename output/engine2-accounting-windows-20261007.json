@@ -1,0 +1,90 @@
+{
+  "executed_at": "2026-10-07T02:18:53.264137+00:00",
+  "status": "synthetic_check_passed",
+  "input_file_sha256": "e234d8d78a696aca6c2156396e046142581cbc713e0ab9132e9be6acb2286a53",
+  "implementation_sha256": "8f89a63e9101bbe3dd917459994f1d22431ec01fa7a15589d61141002ec7bc39",
+  "checks": {
+    "declared_units": true,
+    "availability": true,
+    "conditional_confusion": true,
+    "retained_abstentions": true,
+    "inclusive_positive_denominator": true,
+    "no_evaluation_authority": true
+  },
+  "result": {
+    "protocol": "synthetic_runtime_accounting_report_v1",
+    "evidence_level": "synthetic_software_only",
+    "status": "accounting_computed",
+    "input_canonical_sha256": "095c3a6b56a941e0b6745cd814a7d75283ff595e452a077095470a405f0ba7b6",
+    "declared_unit_count": 11,
+    "represented_run_count": 4,
+    "availability_counts": {
+      "observed": 9,
+      "missing": 1,
+      "unusable": 1
+    },
+    "observed_label_counts": {
+      "benign": 3,
+      "suspicious": 3,
+      "unknown": 3
+    },
+    "observed_decision_counts": {
+      "flagged": 3,
+      "not_flagged": 3,
+      "abstained": 3
+    },
+    "observed_cells": {
+      "benign": {
+        "flagged": 1,
+        "not_flagged": 1,
+        "abstained": 1
+      },
+      "suspicious": {
+        "flagged": 1,
+        "not_flagged": 1,
+        "abstained": 1
+      },
+      "unknown": {
+        "flagged": 1,
+        "not_flagged": 1,
+        "abstained": 1
+      }
+    },
+    "known_observed_unit_count": 6,
+    "known_decided_unit_count": 4,
+    "conditional_confusion": {
+      "tp": 1,
+      "fp": 1,
+      "tn": 1,
+      "fn": 1
+    },
+    "positive_abstentions": 1,
+    "negative_abstentions": 1,
+    "conditional_metrics": {
+      "precision": 0.5,
+      "recall": 0.5,
+      "false_positive_rate": 0.5,
+      "f1": 0.5
+    },
+    "all_known_positive_detection_fraction": 0.3333333333333333,
+    "all_known_negative_flag_fraction": 0.3333333333333333,
+    "known_decision_coverage": 0.6666666666666666,
+    "observed_decision_coverage": 0.6666666666666666,
+    "supervisor_approval_verified": false,
+    "independent_evaluation_verified": false,
+    "real_data_evaluation_authorized": false,
+    "labels_created": false,
+    "model_fitting_performed": false,
+    "model_predictions_generated": false,
+    "calibrated": false,
+    "threat_confirmed": false,
+    "actions_executed": [],
+    "limitations": [
+      "Synthetic supplied labels/decisions only; metadata is not authenticated provenance.",
+      "Conditional confusion excludes unknown labels, unavailable units and abstentions; all remain counted separately.",
+      "Declared units/run IDs are not authenticated coverage, independent groups or a complete planned-run ledger.",
+      "No thresholds, model-score conversion, real-data eligibility, human labeling, fitting or detector evaluation.",
+      "No confidence intervals, grouped uncertainty, delay, overhead, energy or production-readiness claim."
+    ]
+  }
+}

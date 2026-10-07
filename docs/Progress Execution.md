@@ -1,5 +1,20 @@
 # Progress Execution
 
+## New software step — honest decision accounting, 7 October
+
+There is now an optional arithmetic example that keeps missed, unknown, missing/unusable and abstained cases visible. It does not run a detector or create human labels. In the invented example, one positive is flagged, one is not flagged and one has no decision: recall among decided positives is1/2, but only1/3of all known positives is flagged. Neither is actual Engine2 accuracy; hiding the abstention would hide a limitation.
+
+From project root, choose a new output filename:
+
+```powershell
+.venv/Scripts/python.exe scripts/runtime_accounting_check.py --output output/my-first-accounting-check.json
+.venv/Scripts/python.exe -m pytest -q tests/test_runtime_accounting.py
+```
+
+Linux uses its environment's Python. Open the JSON: declared11/observed9/missing1/unusable1, positive/negative abstention counts, unknown cells and separate conditional/inclusive ratios. Null means the denominator is undefined, not perfect performance. Empty or missing evidence never becomes a safe/benign conclusion. Existing filenames cannot be overwritten. [Contract](SYNTHETIC_RUNTIME_ACCOUNTING.md) explains every input/output field.
+
+46newtarget cases passed; both fixed examples agree. An initial fullWindowscheck had one existing optional-model import failure; preserved in INC-056/WL-065, subsequent direct/isolated checks passed without a known cause/fix. Final complete verification in EVIDENCE, not inferred from older test totals. Default two-engine architecture and the unapproved supervisor proposal remain unchanged; this is an offline arithmetic aid, not an accepted benchmark or real-data calibration.
+
 ## Current next step — data audit and a file for your supervisor
 
 The models' software is built, but the research needs defensible data and real human decisions. We inspected seven saved normalized files: five invented practice files and two earlier sensor-development files. Their380stored events/45per-fileone-minute windows are not380independent observations or45independent experiments. Two practice files reuse two events; both sensor files come from the same development family. The existing leakage guard rejects the reused pair. Earlier failed collector alignment remains failed; files/times were not edited into success. [Full audit](RUNTIME_DATA_READINESS_AUDIT.md).

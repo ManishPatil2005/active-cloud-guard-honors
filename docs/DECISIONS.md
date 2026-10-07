@@ -1,5 +1,11 @@
 # Decision register
 
+## ADR-055 - 2026-10-07 - Keep synthetic accounting separate from real model decisions
+
+E2-039/E2-004/RQ3: proceed on safe offline software dependency while actual supervisor approval absent. Separate pure arithmetic library/fixed invented fixture from current real-data intake and uncalibrated model outputs; no conversion of IF/MSE scores into binary threat decisions, no real research gate bypass. Existing metrics.py is boolean-only and its independent-case Wilson intervals do not transfer automatically to correlated runtime windows. Cross-check decided-known counts/ratios against it, retain all unknown/availability/abstention cells and inclusive positive denominator without intervals or invented sample design.
+
+Require strict synthetic-origin/document/unit/ID/budget contract; no absent data labeled benign, null undefined ratios, explicit conditional metric names and separate inclusive/coverage ratios. Canonical validated JSON hash is different from raw fixture file hash; array order remains provenance even if counts match. Actual supplied practice decisions are not model-generated predictions or human labels. Cooperative metadata can be forged, fixed runner narrows its inputs; no authenticity claim. New modules opt-in only/no stack/dependency/default/native changes. Actual calibrated decisions, human/context/qualification/grouped uncertainty/delay/overhead/energy remain separate reviewed work. Verification/publication WL-065, contract SYNTHETIC_RUNTIME_ACCOUNTING; no supersession of draft supervisor status.
+
 ## ADR-054 - 2026-10-06 - Audit existing evidence before claiming a benchmark; prepare unapproved review proposal
 
 E2-038/E2-035/RQ3/DOC-005. With both synthetic ML prototypes implemented, advance the actual existing-data dependency instead of adding arbitrary engines/model versions or expanding native safety tooling. Bound offline audit to tracked standalone capture-shaped JSON in data/runtime/output engine2prefixes, reuse existing load_capture/windows/event_keys/analyze, compare current/source hashes, preserve developmental roles/failed receipts. Counts are per-file stored rows/windows, not independent samples. Exact overlap/shared family expose reuse risk; no current executed research split exists to declare contaminated. No parser/source/algorithm/data/model/dependency or stack change.

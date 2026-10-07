@@ -1,0 +1,17 @@
+{
+  "schema_version": "synthetic_runtime_accounting_v1",
+  "origin": "synthetic_fixture",
+  "units": [
+    {"unit_id": "fixture-tp", "run_id": "practice-a", "label": "suspicious", "decision": "flagged", "availability": "observed"},
+    {"unit_id": "fixture-fn", "run_id": "practice-a", "label": "suspicious", "decision": "not_flagged", "availability": "observed"},
+    {"unit_id": "fixture-positive-abstention", "run_id": "practice-a", "label": "suspicious", "decision": "abstained", "availability": "observed"},
+    {"unit_id": "fixture-fp", "run_id": "practice-b", "label": "benign", "decision": "flagged", "availability": "observed"},
+    {"unit_id": "fixture-tn", "run_id": "practice-b", "label": "benign", "decision": "not_flagged", "availability": "observed"},
+    {"unit_id": "fixture-negative-abstention", "run_id": "practice-b", "label": "benign", "decision": "abstained", "availability": "observed"},
+    {"unit_id": "fixture-unknown-flagged", "run_id": "practice-c", "label": "unknown", "decision": "flagged", "availability": "observed"},
+    {"unit_id": "fixture-unknown-not-flagged", "run_id": "practice-c", "label": "unknown", "decision": "not_flagged", "availability": "observed"},
+    {"unit_id": "fixture-unknown-abstention", "run_id": "practice-c", "label": "unknown", "decision": "abstained", "availability": "observed"},
+    {"unit_id": "fixture-missing", "run_id": "practice-d", "label": "unknown", "decision": "abstained", "availability": "missing"},
+    {"unit_id": "fixture-unusable", "run_id": "practice-d", "label": "unknown", "decision": "abstained", "availability": "unusable"}
+  ]
+}

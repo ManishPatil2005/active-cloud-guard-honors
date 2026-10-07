@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Add synthetic-only abstention-aware runtime accounting
+
+- Isolated pure summary/fixed11unit arithmetic fixture/runner: explicit availability/unknown cells/positive-negative abstentions, conditional confusion vs inclusive denominators, null undefined ratios; no threshold/model-score conversion/real-data authority or default-stack change.
+- Add46tests; initial34/final46targets and matching cross-platform fixed examples preserved. Retain firstWindowswhole-suite existing optional-import failure (INC-056) and diagnostic47pass; no invented root cause/dependency fix. Final full verification in WL-065/EVIDENCE.
+- Maintain current/formal/nontechnical docs/ADR-055; actual supervisor/context/qualified data/independent humans/calibrated grouped evaluation/overhead remain open.
+
 ## 2026-10-06 - Audit saved runtime data and prepare supervisor evaluation proposal
 
 - Audit seven tracked standalone normalized captures with existing parser/hash/window/event checks; preserve developmental roles, shared projections/sensor family and failed repeat/receipt hashes. No benchmark eligibility, source/algorithm/data/model/service/clock change.
