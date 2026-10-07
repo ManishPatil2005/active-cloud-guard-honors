@@ -119,9 +119,17 @@ def scan(path):
                         add("PRIV001", asset, f"services.{name}.privileged")
                     env = service.get("environment", {}) or {}
                     if isinstance(env, list):
-                        env = dict(
-                            v.split("=", 1) if "=" in v else (v, None) for v in env
-                        )
+                        normalized = {}
+                        for entry in env:
+                            if not isinstance(entry, str):
+                                raise ValueError("invalid environment list entry")
+                            environment_name, separator, value = entry.partition("=")
+                            if not environment_name:
+                                raise ValueError("invalid environment list entry")
+                            if environment_name in normalized:
+                                raise ValueError("duplicate environment name")
+                            normalized[environment_name] = value if separator else None
+                        env = normalized
                     if not isinstance(env, dict):
                         raise ValueError("environment must be list or mapping")
                     for key, value in env.items():

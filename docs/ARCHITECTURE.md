@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-002 changes only scanner.py environment-list normalization: first-equals split, nonempty string name, duplicate rejection before report emission. Existing mapping path/rule predicates/report format and Engine2 unchanged; CLI/pipeline reuse existing exception handling. [Contract and regression evidence](COMPOSE_ENVIRONMENT_VALIDATION.md).
+
 QA-001/V2-002 cache maintenance: destination validation precedes filesystem mutation, existing target excluded from eviction and atomic publication precedes capacity eviction. No new service/dependency/engine/scoring/model path; historical baseline unchanged. Current source differs by this narrow fix; [audit](REFINEMENT_AUDIT_20261007.md) records evidence and sequential/crash/concurrency limits.
 
 E2-040 diagnostic-only refinement: existing runtime_ml.py owns RuntimeMLBackendError/import-category/metadata pin checks/redacted CLI projection; autoencoder reuses them, both fixed runners attach backend_diagnostic on recognized failure. Success calculations/algorithm/parameters/synthetic-only/default/native23-source/stack/dependency boundaries unchanged. No retry/fallback/install/cache cleanup. [Contract](RUNTIME_ML_BACKEND_DIAGNOSTICS.md), INC-057 distinguishes reproduced reporting gap from unresolved INC-056 actual fault.

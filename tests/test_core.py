@@ -40,6 +40,77 @@ def test_unsafe_yaml_rejected(tmp_path):
         scan(write(tmp_path, "!!python/object/apply:os.system [echo forbidden]"))
 
 
+@pytest.mark.parametrize(
+    "entries",
+    [
+        ["POSTGRES_HOST_AUTH_METHOD=trust", "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"],
+        ["POSTGRES_HOST_AUTH_METHOD=scram-sha-256", "POSTGRES_HOST_AUTH_METHOD=trust"],
+        ["PASSWORD=synthetic-marker", "PASSWORD"],
+        ["PASSWORD", "PASSWORD=synthetic-marker"],
+        ["MODE=same", "MODE=same"],
+    ],
+)
+def test_duplicate_compose_environment_list_rejected(tmp_path, entries):
+    document = {"services": {"app": {"environment": entries}}}
+    with pytest.raises(ValueError, match="duplicate environment name") as error:
+        scan(write(tmp_path, json.dumps(document)))
+    assert "synthetic-marker" not in str(error.value)
+
+
+@pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+    document = {"services": {"app": {"environment": [entry]}}}
+    with pytest.raises(ValueError, match="environment list entry") as error:
+        scan(write(tmp_path, json.dumps(document)))
+    assert "synthetic-marker" not in str(error.value)
+
+
+def test_valid_compose_environment_list_matches_mapping(tmp_path):
+    values = {
+        "POSTGRES_HOST_AUTH_METHOD": "trust",
+        "PASSWORD": "synthetic=value=with=equals",
+        "INHERITED": None,
+        "EMPTY": "",
+    }
+    entries = [f"{k}={v}" if v is not None else k for k, v in values.items()]
+    reports = []
+    for environment in (values, entries):
+        document = {"services": {"app": {"environment": environment}}}
+        reports.append(scan(write(tmp_path, json.dumps(document))))
+    for report in reports:
+        assert {f["rule_id"] for f in report["findings"]} == {"AUTH001", "SEC001"}
+        assert "synthetic=value=with=equals" not in json.dumps(report)
+    assert [f["location"] for f in reports[0]["findings"]] == [
+        f["location"] for f in reports[1]["findings"]
+    ]
+
+
+@pytest.mark.parametrize("command", ["scan", "run"])
+def test_ambiguous_environment_cli_fails_before_audit(tmp_path, capsys, command):
+    from cloudguard.cli import main
+
+    document = {
+        "services": {"app": {"environment": ["PASSWORD=synthetic-marker", "PASSWORD"]}}
+    }
+    path = write(tmp_path, json.dumps(document))
+    with (
+        patch("sys.argv", ["cloudguard", command, str(path)]),
+        patch("cloudguard.pipeline.retrieve") as retrieval,
+        patch("cloudguard.pipeline.audit") as model,
+        patch("cloudguard.pipeline.probe") as network,
+        pytest.raises(SystemExit) as error,
+    ):
+        main()
+    assert error.value.code == 2
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert "no clean verdict" in captured.err
+    assert "synthetic-marker" not in captured.err
+    retrieval.assert_not_called()
+    model.assert_not_called()
+    network.assert_not_called()
+
+
 def test_multidocument_and_init_container(tmp_path):
     p = write(
         tmp_path,

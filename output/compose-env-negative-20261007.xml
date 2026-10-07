@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="13" time="0.572" timestamp="2026-10-07T12:34:01.746576+05:30" hostname="Welcome"><testcase classname="tests.test_core" name="test_duplicate_compose_environment_list_rejected[entries0]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_duplicate_compose_environ0')
+entries = ['POSTGRES_HOST_AUTH_METHOD=trust', 'POSTGRES_HOST_AUTH_METHOD=scram-sha-256']
+
+    @pytest.mark.parametrize(
+        "entries",
+        [
+            ["POSTGRES_HOST_AUTH_METHOD=trust", "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"],
+            ["POSTGRES_HOST_AUTH_METHOD=scram-sha-256", "POSTGRES_HOST_AUTH_METHOD=trust"],
+            ["PASSWORD=synthetic-marker", "PASSWORD"],
+            ["PASSWORD", "PASSWORD=synthetic-marker"],
+            ["MODE=same", "MODE=same"],
+        ],
+    )
+    def test_duplicate_compose_environment_list_rejected(tmp_path, entries):
+        document = {"services": {"app": {"environment": entries}}}
+&gt;       with pytest.raises(ValueError, match="duplicate environment name") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:55: Failed</failure></testcase><testcase classname="tests.test_core" name="test_duplicate_compose_environment_list_rejected[entries1]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_duplicate_compose_environ1')
+entries = ['POSTGRES_HOST_AUTH_METHOD=scram-sha-256', 'POSTGRES_HOST_AUTH_METHOD=trust']
+
+    @pytest.mark.parametrize(
+        "entries",
+        [
+            ["POSTGRES_HOST_AUTH_METHOD=trust", "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"],
+            ["POSTGRES_HOST_AUTH_METHOD=scram-sha-256", "POSTGRES_HOST_AUTH_METHOD=trust"],
+            ["PASSWORD=synthetic-marker", "PASSWORD"],
+            ["PASSWORD", "PASSWORD=synthetic-marker"],
+            ["MODE=same", "MODE=same"],
+        ],
+    )
+    def test_duplicate_compose_environment_list_rejected(tmp_path, entries):
+        document = {"services": {"app": {"environment": entries}}}
+&gt;       with pytest.raises(ValueError, match="duplicate environment name") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:55: Failed</failure></testcase><testcase classname="tests.test_core" name="test_duplicate_compose_environment_list_rejected[entries2]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_duplicate_compose_environ2')
+entries = ['PASSWORD=synthetic-marker', 'PASSWORD']
+
+    @pytest.mark.parametrize(
+        "entries",
+        [
+            ["POSTGRES_HOST_AUTH_METHOD=trust", "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"],
+            ["POSTGRES_HOST_AUTH_METHOD=scram-sha-256", "POSTGRES_HOST_AUTH_METHOD=trust"],
+            ["PASSWORD=synthetic-marker", "PASSWORD"],
+            ["PASSWORD", "PASSWORD=synthetic-marker"],
+            ["MODE=same", "MODE=same"],
+        ],
+    )
+    def test_duplicate_compose_environment_list_rejected(tmp_path, entries):
+        document = {"services": {"app": {"environment": entries}}}
+&gt;       with pytest.raises(ValueError, match="duplicate environment name") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:55: Failed</failure></testcase><testcase classname="tests.test_core" name="test_duplicate_compose_environment_list_rejected[entries3]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_duplicate_compose_environ3')
+entries = ['PASSWORD', 'PASSWORD=synthetic-marker']
+
+    @pytest.mark.parametrize(
+        "entries",
+        [
+            ["POSTGRES_HOST_AUTH_METHOD=trust", "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"],
+            ["POSTGRES_HOST_AUTH_METHOD=scram-sha-256", "POSTGRES_HOST_AUTH_METHOD=trust"],
+            ["PASSWORD=synthetic-marker", "PASSWORD"],
+            ["PASSWORD", "PASSWORD=synthetic-marker"],
+            ["MODE=same", "MODE=same"],
+        ],
+    )
+    def test_duplicate_compose_environment_list_rejected(tmp_path, entries):
+        document = {"services": {"app": {"environment": entries}}}
+&gt;       with pytest.raises(ValueError, match="duplicate environment name") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:55: Failed</failure></testcase><testcase classname="tests.test_core" name="test_duplicate_compose_environment_list_rejected[entries4]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_duplicate_compose_environ4')
+entries = ['MODE=same', 'MODE=same']
+
+    @pytest.mark.parametrize(
+        "entries",
+        [
+            ["POSTGRES_HOST_AUTH_METHOD=trust", "POSTGRES_HOST_AUTH_METHOD=scram-sha-256"],
+            ["POSTGRES_HOST_AUTH_METHOD=scram-sha-256", "POSTGRES_HOST_AUTH_METHOD=trust"],
+            ["PASSWORD=synthetic-marker", "PASSWORD"],
+            ["PASSWORD", "PASSWORD=synthetic-marker"],
+            ["MODE=same", "MODE=same"],
+        ],
+    )
+    def test_duplicate_compose_environment_list_rejected(tmp_path, entries):
+        document = {"services": {"app": {"environment": entries}}}
+&gt;       with pytest.raises(ValueError, match="duplicate environment name") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:55: Failed</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[None]" time="0.002"><failure message="TypeError: argument of type 'NoneType' is not iterable">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme0')
+entry = None
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+        with pytest.raises(ValueError, match="environment list entry") as error:
+&gt;           scan(write(tmp_path, json.dumps(document)))
+
+tests\test_core.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\scanner.py:122: in scan
+    env = dict(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = &lt;list_iterator object at 0x000001BD11B68D60&gt;
+
+    env = dict(
+&gt;       v.split("=", 1) if "=" in v else (v, None) for v in env
+    )
+E   TypeError: argument of type 'NoneType' is not iterable
+
+cloudguard\scanner.py:123: TypeError</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[7]" time="0.002"><failure message="TypeError: argument of type 'int' is not iterable">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme1')
+entry = 7
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+        with pytest.raises(ValueError, match="environment list entry") as error:
+&gt;           scan(write(tmp_path, json.dumps(document)))
+
+tests\test_core.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\scanner.py:122: in scan
+    env = dict(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = &lt;list_iterator object at 0x000001BD11B695D0&gt;
+
+    env = dict(
+&gt;       v.split("=", 1) if "=" in v else (v, None) for v in env
+    )
+E   TypeError: argument of type 'int' is not iterable
+
+cloudguard\scanner.py:123: TypeError</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[True]" time="0.002"><failure message="TypeError: argument of type 'bool' is not iterable">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme2')
+entry = True
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+        with pytest.raises(ValueError, match="environment list entry") as error:
+&gt;           scan(write(tmp_path, json.dumps(document)))
+
+tests\test_core.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\scanner.py:122: in scan
+    env = dict(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = &lt;list_iterator object at 0x000001BD0F1DED70&gt;
+
+    env = dict(
+&gt;       v.split("=", 1) if "=" in v else (v, None) for v in env
+    )
+E   TypeError: argument of type 'bool' is not iterable
+
+cloudguard\scanner.py:123: TypeError</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[entry3]" time="0.002"><failure message="TypeError: unhashable type: 'dict'">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme3')
+entry = {}
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+        with pytest.raises(ValueError, match="environment list entry") as error:
+&gt;           scan(write(tmp_path, json.dumps(document)))
+
+tests\test_core.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme3/compose.yaml')
+
+    def scan(path):
+        path = Path(path)
+        text = path.read_text(encoding="utf-8")
+        if len(text) &gt; 1_000_000:
+            raise ValueError("input exceeds 1 MB research limit")
+        findings, warnings = [], []
+        digest = hashlib.sha256(text.encode()).hexdigest()
+    
+        def add(rule, asset, location):
+            score, title, source = RULES[rule]
+            identity = f"{digest}:{asset}:{rule}:{location}"
+            findings.append(
+                dict(
+                    id=hashlib.sha256(identity.encode()).hexdigest()[:20],
+                    asset_id=asset,
+                    rule_id=rule,
+                    title=title,
+                    static_score=score,
+                    location=location,
+                    source_ids=[source],
+                    origin="rule_baseline",
+                    evidence="Configuration predicate matched; no exploitation claim.",
+                )
+            )
+    
+        suffix = path.suffix.lower()
+        if suffix in (".yaml", ".yml", ".json"):
+            docs = list(yaml.load_all(text, Loader=UniqueLoader))
+            for index, doc in enumerate(docs):
+                if not isinstance(doc, dict):
+                    raise ValueError("each YAML document must be a mapping")
+                if "services" in doc:
+                    if not isinstance(doc["services"], dict):
+                        raise ValueError("services must be a mapping")
+                    for name, service in doc["services"].items():
+                        if not isinstance(service, dict):
+                            raise ValueError("service must be a mapping")
+                        asset = f"compose/{name}"
+                        for i, port in enumerate(service.get("ports", []) or []):
+                            if _public_binding(port):
+                                add("NET001", asset, f"services.{name}.ports[{i}]")
+                        if service.get("network_mode") == "host":
+                            warnings.append(
+                                f"{asset}: host networking requires manual exposure review"
+                            )
+                        if service.get("privileged") is True:
+                            add("PRIV001", asset, f"services.{name}.privileged")
+                        env = service.get("environment", {}) or {}
+                        if isinstance(env, list):
+&gt;                           env = dict(
+                                v.split("=", 1) if "=" in v else (v, None) for v in env
+                            )
+E                           TypeError: unhashable type: 'dict'
+
+cloudguard\scanner.py:122: TypeError</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[entry4]" time="0.002"><failure message="TypeError: unhashable type: 'list'">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme4')
+entry = []
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+        with pytest.raises(ValueError, match="environment list entry") as error:
+&gt;           scan(write(tmp_path, json.dumps(document)))
+
+tests\test_core.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme4/compose.yaml')
+
+    def scan(path):
+        path = Path(path)
+        text = path.read_text(encoding="utf-8")
+        if len(text) &gt; 1_000_000:
+            raise ValueError("input exceeds 1 MB research limit")
+        findings, warnings = [], []
+        digest = hashlib.sha256(text.encode()).hexdigest()
+    
+        def add(rule, asset, location):
+            score, title, source = RULES[rule]
+            identity = f"{digest}:{asset}:{rule}:{location}"
+            findings.append(
+                dict(
+                    id=hashlib.sha256(identity.encode()).hexdigest()[:20],
+                    asset_id=asset,
+                    rule_id=rule,
+                    title=title,
+                    static_score=score,
+                    location=location,
+                    source_ids=[source],
+                    origin="rule_baseline",
+                    evidence="Configuration predicate matched; no exploitation claim.",
+                )
+            )
+    
+        suffix = path.suffix.lower()
+        if suffix in (".yaml", ".yml", ".json"):
+            docs = list(yaml.load_all(text, Loader=UniqueLoader))
+            for index, doc in enumerate(docs):
+                if not isinstance(doc, dict):
+                    raise ValueError("each YAML document must be a mapping")
+                if "services" in doc:
+                    if not isinstance(doc["services"], dict):
+                        raise ValueError("services must be a mapping")
+                    for name, service in doc["services"].items():
+                        if not isinstance(service, dict):
+                            raise ValueError("service must be a mapping")
+                        asset = f"compose/{name}"
+                        for i, port in enumerate(service.get("ports", []) or []):
+                            if _public_binding(port):
+                                add("NET001", asset, f"services.{name}.ports[{i}]")
+                        if service.get("network_mode") == "host":
+                            warnings.append(
+                                f"{asset}: host networking requires manual exposure review"
+                            )
+                        if service.get("privileged") is True:
+                            add("PRIV001", asset, f"services.{name}.privileged")
+                        env = service.get("environment", {}) or {}
+                        if isinstance(env, list):
+&gt;                           env = dict(
+                                v.split("=", 1) if "=" in v else (v, None) for v in env
+                            )
+E                           TypeError: unhashable type: 'list'
+
+cloudguard\scanner.py:122: TypeError</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme5')
+entry = ''
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+&gt;       with pytest.raises(ValueError, match="environment list entry") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:63: Failed</failure></testcase><testcase classname="tests.test_core" name="test_invalid_compose_environment_list_entry_rejected[=synthetic-marker]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/compose-env-negative-20261007/test_invalid_compose_environme6')
+entry = '=synthetic-marker'
+
+    @pytest.mark.parametrize("entry", [None, 7, True, {}, [], "", "=synthetic-marker"])
+    def test_invalid_compose_environment_list_entry_rejected(tmp_path, entry):
+        document = {"services": {"app": {"environment": [entry]}}}
+&gt;       with pytest.raises(ValueError, match="environment list entry") as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_core.py:63: Failed</failure></testcase><testcase classname="tests.test_core" name="test_valid_compose_environment_list_matches_mapping" time="0.002" /></testsuite></testsuites>

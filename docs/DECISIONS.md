@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-059 - 2026-10-07 - Reject duplicate environment-list names
+
+Adopt the existing scanner ambiguity policy for Compose environment lists: repeated names, including identical repeated values, raise a generic ValueError before report emission. Silent last-value replacement hides ambiguous source intent. Keep case-sensitive names, first-equals splitting, bare-name None and mapping path unchanged; do not attempt host environment resolution or a full Compose schema implementation. Compatibility consequence: callers must consolidate repeated names or supply a reviewed resolved configuration. Fifteen regression cases and preserved negative evidence in COMPOSE_ENVIRONMENT_VALIDATION.md; Engine1 historical baseline and Engine2 architecture unchanged.
+
 ## ADR-057 - 2026-10-07 - Preserve historical memory while keeping a single current summary
 
 DOC-006. Actual MEMORY.md had56,968bytes and multiple dated “Current update” plus later “Current work/Next scientific gate” headings; chronological content could be misread as simultaneous present state. Preserve exact committed/file bytes in same-directory MEMORY_HISTORY_20261007.md, verify SHA/length/Git equality, restore live MEMORY.md with one concise current capability/gate/verification/next-action summary. Do not rewrite snapshot or normalize historical negatives; chronology belongs in WORK_LOG/CHANGELOG/Git, future current state updated in place. No stack/engine/code/data/authority changes or claim memory alone proves execution.

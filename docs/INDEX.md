@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest parser maintenance: [Compose environment-list validation](COMPOSE_ENVIRONMENT_VALIDATION.md), QA-002/M3-004/WL-069. Duplicate/malformed entries rejected, valid finding locations/CLI refusal checked;15new cases and preserved failures. Latest results in contract/current MEMORY; earlier checkpoint counts below historical.
+
 Current maintenance: [selected software audit/cache refinement](REFINEMENT_AUDIT_20261007.md), QA-001/V2-002/WL-068. Three new reproduced cache write/eviction regressions fixed; fresh whole-suite receipts plus restricted-context failures preserved. This changes current cache maintenance code, not the frozen historical Engine1 baseline or Engine2 detection algorithms; no independent research acceptance. Earlier checkpoint counts below historical.
 
 Start with [current MEMORY](MEMORY.md): one concise present-state summary. [Historical MEMORY snapshot](MEMORY_HISTORY_20261007.md) preserves the exact earlier56,968bytes; its old “Current” headings describe past checkpoints, not today's status. DOC-006/WL-067 separates current state/history without deleting evidence. [Four bounded fresh-process Windows imports](BACKEND_IMPORT_OBSERVATION_20261007.md) succeeded; original INC-056 cause still unknown, no fitting/repair/monitoring. No code/algorithm or new research acceptance in this update.

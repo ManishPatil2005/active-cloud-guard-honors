@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Reject ambiguous Compose environment lists
+
+- Reject repeated environment names, nonstring list entries and empty names with content-free ValueError messages.
+- Preserve bare variables, empty values, embedded equals signs and valid finding locations; verify scan/run CLI refusal before downstream work.
+- Add15regressions and retain original/preliminary failures; maintain research documentation and recorded verification. WL-069/INC-061/062/ADR-059.
+
 ## 2026-10-07 - Preserve Engine 1 cache entries during rejected or replacement writes
 
 - Validate cache key before filesystem changes, exclude replacement target from eviction and evict only after successful atomic publication; no detector/scoring/stack change.

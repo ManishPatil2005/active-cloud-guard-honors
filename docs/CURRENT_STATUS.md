@@ -1,5 +1,9 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest parser refinement — 7 October 2026
+
+QA-002/M3-004: [Compose environment validation](COMPOSE_ENVIRONMENT_VALIDATION.md) rejects repeated names and malformed list entries before returning findings. Valid list/mapping behavior and scan/run refusal are covered by15new cases; original/preliminary failures preserved. Final observed checks in linked contract/WL-069. Historical Engine1 baseline/tag remains preserved; current maintenance parser is stricter. Engine2/scientific gates unchanged; actual supervisor approval and qualified independent evaluation remain next research dependencies.
+
 ## Latest selected refinement audit — 7 October 2026
 
 QA-001/V2-002: [cache write-preservation refinement and cross-platform audit](REFINEMENT_AUDIT_20261007.md). Three before-fix regressions reproduced and fixed: key validation before changes, no replacement-target eviction, publication before capacity eviction. Historical engine1-v2.2 baseline/tag unchanged; current working code has a narrow maintenance fix, not a new detector version. Whole-suite receipts and restricted-context failures preserved in the audit/WL-068. No Engine2 algorithm/stack/default permission change, exhaustive security-review claim or independent effectiveness result. Actual supervisor approval/qualified data/context/humans/timing/calibration/overhead/integration remain pending; previous dated counts below are historical.

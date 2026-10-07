@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Latest maintenance — clearer rejection of ambiguous configuration
+
+Engine1 now rejects an environment list that declares the same variable twice, instead of silently keeping its last value. It also rejects malformed entries. Valid configurations keep their existing findings and locations. The new tests caught a mistake in the first fix; its failed evidence is saved and the correction is verified before commit. [Explanation, commands and checking steps](COMPOSE_ENVIRONMENT_VALIDATION.md). Engine2's research status is unchanged; supervisor/data/evaluation work remains open.
+
 ## Latest maintenance — cache safety and full regression checks
 
 We found and reproduced three problems in Engine 1's optional saved-response cache: rejected writes or replacement could delete good saved entries. These are now fixed and tested; they are not newly discovered cloud vulnerabilities. Windows: 1,191 tests passed/38 skipped; Linux: 1,229 passed. Style/dependency checks passed. The restricted Windows run failed because host-dependent assumptions were not available; its evidence is preserved rather than deleted. [Readable report, exact commands and beginner check steps](REFINEMENT_AUDIT_20261007.md).

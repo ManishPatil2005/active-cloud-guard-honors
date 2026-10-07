@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-061 - 2026-10-07 - Compose environment lists silently overwrite duplicate names
+
+**Symptom/evidence:** beforefix selected tests12fail/1pass; duplicates accepted, empty names accepted, other malformed entries produce incidental TypeError. **Cause confidence:** high from dict-constructor semantics/direct regression. **Fix:** validate string/nonempty name and duplicate membership before assignment; generic errors omit supplied contents. **Verification:**15cases include positive equivalence/CLI early refusal; final receipts in [contract](COMPOSE_ENVIRONMENT_VALIDATION.md). **Limits:** stricter scanner contract, not full Docker semantic/schema validation or demonstrated deployed exploit. Original negative preserved.
+
+### INC-062 - 2026-10-07 - First parser fix shadowed service name
+
+**Symptom/evidence:** new valid-input equivalence check reported services.EMPTY instead of services.app; first Windows full1fail/1205pass/38skip. **Cause confidence:** high; parsing loop reused outer name variable. **Fix:** distinct environment_name variable; keep exact location assertion. **Verification:** final cross-platform receipts in [contract](COMPOSE_ENVIRONMENT_VALIDATION.md); preliminary failures retained. No prior committed baseline was changed by the temporary implementation and no deployed runtime effect observed.
+
 ### INC-059 - 2026-10-07 - Cache eviction preceded validation and atomic replacement
 
 **Evidence/symptom:** three added regression cases fail before fix, raw cache-refinement-negative-20261007.xml retained/SHA in [audit](REFINEMENT_AUDIT_20261007.md). Invalid key removes valid entry; replacement at capacity removes unrelated entry; injected os.replace error removes old bytes. **Cause confidence:** high, direct deterministic reproduction/control flow. **Fix:** validate destination first, exclude target from victims, evict after publication. **Verification:** all three pass in the fresh post-fix Windows full suite; Linux receipt recorded in audit. **Limits:** trusted sequential cache; no concurrency/hostile-filesystem/crash durability and possible overcapacity after eviction error. Does not change model/detection or solve original INC-056.

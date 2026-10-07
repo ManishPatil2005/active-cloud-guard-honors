@@ -1,5 +1,9 @@
 # Evidence index
 
+## Compose parser refinement (2026-10-07)
+
+QA-002/M3-004: [contract and commands](COMPOSE_ENVIRONMENT_VALIDATION.md),15new cases. Beforefix12fail/1pass; first-fix location regression1failure on each platform preserved. Final Windows1206pass38skip22.28s/XML22.280; Linux1244pass109.00s;1244collected each,zero failures/errors. Lint119fileformat/bothpipchecks passed. This validates selected parser/CLI behavior and regression compatibility; independent research gates remain open. WL-069/INC-061/062/ADR-059.
+
 ## Bounded import observation / current-memory maintenance (2026-10-07)
 
 [Post-edit document contracts](../output/engine2-current-memory-docs-tests-20261007.xml):18pass0.22s/XML0.134/no failures/errors/skips, separate subset. No new executable/tests/full-suite measurement; current full-suite remains1226cases at prior software milestone.

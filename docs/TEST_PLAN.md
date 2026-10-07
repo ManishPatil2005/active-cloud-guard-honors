@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-002/M3-004:15new cases cover repeated values/conflicts/bare names, malformed entries, valid list/mapping rules and locations, equals-containing values and both scan/run CLI early refusal. Original12fail/1pass plus first-implementation location regression retained; final source verified without weakening assertions. Exact commands/results in [Compose environment validation](COMPOSE_ENVIRONMENT_VALIDATION.md).
+
 QA-001/V2-002: three new cache regressions reproduce invalid-key deletion, unnecessary replacement eviction and destructive failed replacement before fix (3failed/19deselected). Post-fix whole-suite receipts/failure preservation/environment distinctions in [refinement audit](REFINEMENT_AUDIT_20261007.md); no new live detection/clock/model-performance evidence. Prior dated counts below historical.
 
 E2-040:32new diagnostic cases, beforefix8injected failures0.22s/XML0.092; afterfix105case5.50s/XML5.498, expanded129case5.43s/XML5.427 and verified129case5.51s/XML5.504. Both model backend regressions/IFhistoricalcalculatedequality preserved. Tests cover generic/root/nested/private/nonstringmodule/customexception names, metadata absent/mismatch, invalidcategories/copy/exceptiontext codes and both injected CLI rejection/noactions/nooverwrite. FullLinux1226pass86.58s/Windows1188pass38skips22.74s/XML22.736,0failures/errors in these runs, lint119fileformat/bothpipchecks pass. Not a reproduction/fix of original intermittent import cause; negative history retained in EVIDENCE/WL-066, INC-057 separate fromINC-056.

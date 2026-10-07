@@ -1,5 +1,21 @@
 # Work log
 
+## WL-069 - 2026-10-07 - Reject ambiguous Compose environment lists
+
+**Task and acceptance:** QA-002/M3-004; user continues refinement. Read INDEX/MEMORY/TASKS/RULES/current status/workflow, scanner/pipeline/CLI and relevant parser/security/test contracts. Require duplicate and malformed environment-list rejection, preserve valid list/mapping locations and stop rejected CLI input before retrieval/model/probes. [Contract and exact commands](COMPOSE_ENVIRONMENT_VALIDATION.md).
+
+**Implementation and evidence:** direct dict construction silently discarded repeated names. Added15cases; beforefix13selected cases yielded12fail/1pass, preserved raw XML. First implementation reused service-name variable; new equivalence check exposed changed locations, first Windows full1fail/1205pass/38skip. Preserve all preliminary receipts and fix the variable name, keeping assertion intact. INC-061/062, ADR-059. Current code changes only parser list normalization; historical baseline/evidence and Engine2 remain unchanged.
+
+**Verification/publication:** final results recorded in contract after actual execution. Lint/119fileformat/bothpipchecks initially passed. Code/tests/maintained docs and reviewed evidence require staged publication check, explicit diff review, named commit/push/remote equality. No independent security research result or live collection/service/clock action claimed.
+
+**Correction evidence:** first Linux full1243pass/1fail89.11s/XML86.203 reproduced the same service-name shadowing. Waited for both preliminary suites to finish before changing source, then renamed the parsing local to environment_name. Corrected target15pass70deselected0.44s/XML0.189, Windows full1206pass38skip22.28s, zero failures/errors. Final lint/119fileformat pass; bothpipchecks pass/no dependency changes. Raw negative hashes and every command recorded in contract; old MEMORY archive and original INC-056XML SHA verified unchanged. Preliminary publication checker539files passed; final indexed check remains required.
+
+**Final Linux:**1244passed109.00s console, no skips/failures/errors; both final platforms collect1244cases. No further source changes after verified runs. Final doc tests and staged publication review precede commit/push.
+
+**Final documentation:**18contract tests passed0.20s, output/compose-env-docs-tests-20261007.xml; exact command in contract. Linux XML105.113s. Reviewed source/test diff, tracked whitespace and intended remote; historical archive/INC-056 bytes unchanged. Stage explicit23files, inspect negatives without rewriting traceback whitespace, run indexed publication check and commit with descriptive parser-fix name; remote confirmation follows actual push.
+
+**Staged review observed:**23explicit files, final indexed publication checker541files passed docs/links/exclusions/bounded credential checks; no unstaged tracked changes before this note. Raw traceback whitespace appears only in three retained negativeXML files; scoped check excluding exactly compose-env-negative-20261007.xml, compose-env-windows-tests-20261007.xml and compose-env-linux-tests-20261007.xml passes all other files. Git hash-object equals indexed git rev-parse :path for those files respectively41c45384ce531fd14fbfaf6d567d33f4492b8993,ca85fb0beeff495d95915dcdc15661dee8790be7,a02e94eeb31657bdd1a64ccfc2338d57f0dfc1b3. No credential/environment/model/vector artifact staged. Re-stage this note, commit/hook then push and compare local HEAD to origin/main; actual Git outcome reported in chat, not preclaimed here.
+
 ## WL-068 - 2026-10-07 - Cross-platform regression audit and cache write preservation
 
 **Task/acceptance:** QA-001/V2-002, user requests continuation/refinement/checks; read current records and selected source. Reproduce and fix only concrete defects, preserve architecture/negative history and distinguish software from independently evaluated research. Detailed scope, commands, results and limitations: [refinement audit](REFINEMENT_AUDIT_20261007.md).
