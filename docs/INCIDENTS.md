@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-058 - 2026-10-07 - Live memory mixed historical snapshots under competing Current headings
+
+**Symptom/evidence:** old MEMORY.md56,968bytes included five initial dated “Current update” headings plus older Current work/Next scientific gate sections. Historical status/test totals were preserved but could be selected as current, aggravating the user's explicit concern about hallucinated engine status. Direct size/heading search and priorSHA4e51af83e38e11bb9347eb3e1f27d59440d67397417a18e12096fcea2ba89c9a establish structure; not proof an agent's earlier wrong statement was caused by this file.
+
+**Cause confidence:** high for document ambiguity, no causal attribution of prior chat mistakes. **Fix:** exact full old file moved to nonexisting same-directory MEMORY_HISTORY_20261007.md, new concise MEMORY.md states one current summary/history/source/evidence/gates; INDEX/status/workflow explicitly differentiate archive. **Verification:** archive bytes equal git show HEAD:docs/MEMORY.md, identical size/SHA, relative-directory context retained; no runtime/test/data/negative receipt changes. Final doc/link/publication checks WL-067. **Limits:** clearer prose does not prove state correctness or resolve old backend fault/scientific gates; future edits still require actual source/evidence verification. No historical data removed, snapshot remains recoverable through file/Git history.
+
 ### INC-057 - 2026-10-07 - Generic import handling lost backend category and implied installation
 
 **Raw publication note:** preserve pytest traceback whitespace in negativeXML lines22/27/61/66/100/105/139/144/179/184/219/224/259/264/299/304. Unrestricted staged check flags only this rawfile; exact-file exclusion passes every other staged path and publication scanner includes the negative. SHA unchanged/working and staged Gitblob46abcf44bd295987745882eeb845a74311489252 equal; no source/test formatting waiver or altered evidence.

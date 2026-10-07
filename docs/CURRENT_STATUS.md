@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest maintenance and observation — 7 October 2026
+
+DOC-006: [MEMORY](MEMORY.md) is now a single concise current summary; exact older snapshot preserved as [MEMORY_HISTORY_20261007](MEMORY_HISTORY_20261007.md),56,968bytes/SHA4e51af83e38e11bb9347eb3e1f27d59440d67397417a18e12096fcea2ba89c9a. Old “Current update/work” headings are historical, not competing present-state sources. No source/model/data/architecture change or historical evidence deletion.
+
+E2-040/INC-056 bounded follow-up: [four fresh Windows import probes](BACKEND_IMPORT_OBSERVATION_20261007.md) completed in both orders (twice each), all backends imported/pin checked; no fitting/install/service/clock/telemetry. Fault not reproduced/cause unknown, no success-seeking follow-up scheduled. Latest full-suite1226case checkpoint below is unchanged/not rerun here. Genuine supervisor/context/qualified data/humans/calibration/evaluation/overhead/integration gates remain pending; stop short of claiming independent detection or production readiness.
+
 ## Latest refinement — safe optional-backend diagnostics, 7 October 2026
 
 E2-040/E2-004/RQ3: [backend diagnostics](RUNTIME_ML_BACKEND_DIAGNOSTICS.md) implemented. Current imports/pin/pipcheck pass; no basis to reinstall or attribute the historical Windows failure to concurrency. Separate diagnostic gap reproduced with8injected failures: both adapters previously called every ImportError an installation problem and lost category. RuntimeError-compatible safe codes/cause/allowlisted dependency plus metadata/version distinctions now appear in exception text/rejected CLI receipts. No raw private details/retry/fallback/package change/model-calculation/default-stack/permission change.

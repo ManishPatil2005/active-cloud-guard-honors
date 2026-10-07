@@ -1,5 +1,11 @@
 # Decision register
 
+## ADR-057 - 2026-10-07 - Preserve historical memory while keeping a single current summary
+
+DOC-006. Actual MEMORY.md had56,968bytes and multiple dated “Current update” plus later “Current work/Next scientific gate” headings; chronological content could be misread as simultaneous present state. Preserve exact committed/file bytes in same-directory MEMORY_HISTORY_20261007.md, verify SHA/length/Git equality, restore live MEMORY.md with one concise current capability/gate/verification/next-action summary. Do not rewrite snapshot or normalize historical negatives; chronology belongs in WORK_LOG/CHANGELOG/Git, future current state updated in place. No stack/engine/code/data/authority changes or claim memory alone proves execution.
+
+User continues fixing/proceeding: first perform one predeclared bounded4freshWindowsimport observation (two orders/two each), stoponfirstfault/no fitting/repair/success-seeking repeats. All pass; originalINC-056cause remains unknown, not fixed by more successful imports. No persistent health helper or future monitoring created. Actual approval/context/qualified data/human/calibrated evaluation remain pending. WL-067/INC-058/source-provenance archive/current-state links preserve traceability without multiplying generic supporting tools.
+
 ## ADR-056 - 2026-10-07 - Preserve safe backend failure categories without guessing a repair
 
 E2-040/E2-004/RQ3. Investigation confirms current imports/pinned distribution/pipcheck pass and historical original ImportError details were suppressed; no basis to reinstall or blame Linux concurrency. Fix separately reproducible classification/observability gap: both adapters previously mislabeled every ImportError as optional dependency installation need. Shared RuntimeError subclass with safe code/cause/allowlisted dependency fields, version/metadata distinctions, owned exception text and recognized CLI projection. No raw messages/paths/private names/subclass/observed version string; fromNone redacts traceback chain, not Python in-process context erasure.

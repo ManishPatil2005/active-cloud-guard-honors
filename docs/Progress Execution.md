@@ -1,5 +1,13 @@
 # Progress Execution
 
+## Current maintenance step — clearer status and bounded import check
+
+Four fresh Windows Python processes imported both optional model backends successfully, in both orders twice. No model was fitted and no package/service/clock/sensor setting changed. This did **not** reproduce or explain the earlier intermittent failure. [Observed facts and exact command](BACKEND_IMPORT_OBSERVATION_20261007.md).
+
+For an accurate quick handoff, open [MEMORY.md](MEMORY.md) first: it now contains one current summary. The earlier long document is preserved unchanged in [MEMORY_HISTORY_20261007.md](MEMORY_HISTORY_20261007.md); old “Current” headings there are historical. Nothing was deleted or rewritten into success, and the latest full test totals are unchanged—not a newly executed suite.
+
+The next real research action remains sharing [ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md) for actual target/context/sample/qualification/human/analysis decisions. It stays DRAFT NOT APPROVED. A working prototype and healthy imports cannot replace qualified data or independent labels; do not start a production deployment or infer permission to change services.
+
 ## Current refinement — better optional-model failure reports, 7 October
 
 The previous Windows import failure's cause is still unknown. Imports work now, so we did not reinstall packages or blame another process. We fixed a different, demonstrated problem: every import error used to say “install the dependency,” which could be misleading.

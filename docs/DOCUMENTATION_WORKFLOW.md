@@ -6,6 +6,8 @@ Current status source: CURRENT_STATUS.md, linked first from INDEX/MEMORY/README.
 
 ## Per-change loop
 
+Maintain MEMORY.md as one current summary **in place**, not a stack of dated “Current” snapshots. Keep chronology in WORK_LOG/CHANGELOG/Git. The exact historical snapshot MEMORY_HISTORY_20261007.md is preserved, not live state; do not rewrite it or move old evidence into a claimed new observation. INDEX/CURRENT_STATUS and current MEMORY label the distinction. Any later archival step must use a nonexisting destination, preserve/verify original bytes and relative links, and document provenance; archiving is not permission to delete history.
+
 1. Read the index, current state, rules, task ledger and relevant architecture/protocol sections.
 2. Identify task ID, scope, expected behavior and acceptance criteria before modifying code.
 3. Implement the smallest coherent change without changing the stack as a side effect.

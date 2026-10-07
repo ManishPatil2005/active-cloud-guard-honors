@@ -1,5 +1,13 @@
 # Evidence index
 
+## Bounded import observation / current-memory maintenance (2026-10-07)
+
+[Post-edit document contracts](../output/engine2-current-memory-docs-tests-20261007.xml):18pass0.22s/XML0.134/no failures/errors/skips, separate subset. No new executable/tests/full-suite measurement; current full-suite remains1226cases at prior software milestone.
+
+[One-off Windows import observation](BACKEND_IMPORT_OBSERVATION_20261007.md):4planned/launched/0unlaunched fresh processes, IF→AE/AE→IF twice each, all imported with Python3.12.14/pinnedsklearn1.9.1 and existing seven-package versions.30sper-childtimeout/stoponfirstfailure; no fitting/install/cache purge/service/clock/telemetry/action. Manually transcribed Markdown with exact executed stdin command; consoleJSON not saved as a generated report, no timing/pressure/native-fault reproduction/causal-fix claim or future monitoring. INC-056 originalfailedXML SHA cdbbb46f11703516e63b180b26115ac5d66cd30184b600bee5eff89bbfec5571 unchanged.
+
+DOC-006 [historical MEMORY snapshot](MEMORY_HISTORY_20261007.md) equals previous committed docs/MEMORY.md byte-for-byte,56,968bytes/SHA4e51af83e38e11bb9347eb3e1f27d59440d67397417a18e12096fcea2ba89c9a. Same directory preserves relative links; new MEMORY.md is current summary, not deletion/reinterpretation of old evidence. No new source/test/capture or full-suite run; WL-067 documents verification/publication, ADR-057/INC-058.
+
 ## Optional backend diagnostic refinement (2026-10-07)
 
 [Post-document contracts](../output/engine2-backend-diagnostic-docs-tests-20261007.xml)18pass0.24s/XML0.104/no failures/errors/skips, separate rerun not new full-suite cases or human approval. LinuxfullXMLtime83.577s versus86.58s console, not clock/engine-performance interpretation.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Clarify live project memory and preserve exact historical snapshot
+
+- Preserve prior56,968byte MEMORY.md as same-directory immutable historical snapshot with verified SHA/Git equality; make live MEMORY.md one concise current state and record chronology in WORK_LOG/CHANGELOG/Git.
+- Complete one predeclared four-fresh-process Windows backend import observation, both orders twice/all pass/no fitting/repair. Original intermittent fault not reproduced/cause unknown, no future monitoring/new health tool.
+- Maintain current/index/workflow/tasks/evidence/decision/incident/nontechnical docs. No executable/test/capture/model/dependency/architecture change; actual research approval/context/data/human/evaluation gates remain pending.
+
 ## 2026-10-07 - Preserve safe optional-backend import/metadata/version diagnostics
 
 - Add shared RuntimeError-compatible categories/allowlisted dependency roots/owned trace messages and both model CLI rejected backend_diagnostic fields; no raw private details, retry/fallback/install/dependency or successful-calculation/defaultstack change.

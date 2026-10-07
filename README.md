@@ -12,6 +12,8 @@ Latest whole-repository software verification: **Linux 1,226 passed; Windows 1,1
 
 Next research step: the [existing runtime-data audit](docs/RUNTIME_DATA_READINESS_AUDIT.md) verifies seven saved normalized captures but establishes no independent benchmark. The [supervisor-ready evaluation proposal](docs/ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md) is **DRAFT — NOT APPROVED**; the owner confirmed approval has not been obtained. Review the proposed target/context, collection qualification, independent humans, grouped evaluation and analysis before real-data study work. No source/algorithm/data or service/clock change in this audit.
 
+For a concise current handoff read [MEMORY](docs/MEMORY.md); its exact earlier content is retained separately as a [historical snapshot](docs/MEMORY_HISTORY_20261007.md), not competing current state. A [bounded four-process import observation](docs/BACKEND_IMPORT_OBSERVATION_20261007.md) passed on Windows without fitting or repair; the earlier intermittent cause remains unknown. This documentation-only maintenance did not rerun/change the full-suite milestone above.
+
 <details>
 <summary>Historical checkpoint summaries — not the current task list</summary>
 
