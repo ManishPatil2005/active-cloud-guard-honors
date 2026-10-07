@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Publication completed7October: integration source9320511 and incident-history6754fcc on GitHub; local/remote6754fcc equality/clean verified after one per-command HTTP/1.1 retry. Prior three default pushes server-rejected, cause unknown/failures retained in INC-064/WL-072. No engine/source/test/data or persistent Git configuration changes in publication recovery; capability/test acceptance below unchanged. Closure-documentation commit verified separately in Git/chat.
+
 ## Latest integration step — 7 October 2026
 
 E2-041/R6/RQ3: [offline configuration/runtime context](INTEGRATED_REPLAY.md) implemented. Rule-baseline findings and unchanged statistical replay are retained together with exact declared asset references, missing/insufficient/unmapped context and null combined priority. Optional CLI/fixed exclusive example,34newcases/wholeLinux1278pass/Windows1240pass38skip/0failures/errors; source/input consistency and six demo checks on both OS. This completes a bounded offline context step; full RAG/probe/ML/calibrated TCI/live integration, actual deployment binding and independent research remain open. Pending scanner change published as a555b32; WL-070. Genuine supervisor/context/qualified data/humans/timing/coverage/calibration/overhead gates unchanged.

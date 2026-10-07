@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Publish integration and verify GitHub recovery
+
+- Publish integration source9320511 and incident history6754fcc; verify local/GitHub main equality at6754fcc70076e93a531d292c8c44761ccd90fee7.
+- Record third default-transport rejection and successful per-command HTTP/1.1 retry; keep cause unknown and preserve all negative history. No persistent Git setting/source/test/data changes.
+- Close pending publication status in current documentation, WL-072/INC-064. Actual research evaluation gates remain open.
+
 ## 2026-10-07 - Preserve rejected integration publication evidence
 
 - Record first GitHub push Internal Server Error and observed local/remote mismatch for integration commit9320511; upstream cause unknown.

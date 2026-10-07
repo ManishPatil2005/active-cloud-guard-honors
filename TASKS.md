@@ -1,8 +1,6 @@
 # Research and engineering task ledger
 
-E2-041 publication follow-up: local feature commit9320511 exists; first GitHub push server-rejected, remotea555b32 confirmed afterward. Preserve INC-064/WL-071 and retry normal push after documentation review; source acceptance1278cases remains verified. Do not call local commit GitHub publication before remote equality is observed.
-
-Publication retry observed: second normal push server-rejected too, subsequent remote stilla555b32. Source/task software acceptance remains complete; GitHub integration publication pending external recovery. No automatic monitoring/history rewrite implied.
+E2-041 publication **completed**: source9320511 and incident history6754fcc now on GitHub. One per-command HTTP/1.1 push after three default-transport server rejections advanced main; local/remote6754fcc70076e93a531d292c8c44761ccd90fee7 equality/clean observed. INC-064/WL-072 preserve all negatives/unknown cause; no persistent setting/history change. Source acceptance1278cases unchanged. Closure-documentation commit publication verified separately; full live/calibrated integration and research gates remain open.
 
 E2-041/R6/RQ3: [offline integration](docs/INTEGRATED_REPLAY.md) implemented/software-tested. Configuration rule findings and saved statistical replay share a declared-ID context report; every finding/window and missing/insufficient/unmapped state retained. Opt-in CLI/fixed exclusive demo,34newcases/fullLinux1278pass/Windows1240pass38skip. Combined priority null/deployment equivalence false; full RAG/probe/ML/TCI/live integration and independent evaluation remain open. Pending scanner publication completed as a555b32; WL-070/ADR-060/INC-063.
 

@@ -17,7 +17,7 @@ Stack stays Python/CLI, Docker Compose, Ollama and Chroma. Current Engine1 maint
 
 QA-002 pending publication completed: a555b32d7d58d43b158e5793feb8f0dda92a961b verified equal to GitHub main/clean before integration edits. E2-041/R6/RQ3 now adds [offline integrated replay](INTEGRATED_REPLAY.md), optional CLI/library/fixed exclusive synthetic example with bounded source/input checks. Complete component reports and declared asset references retained, combined priority null/evaluation/binding flags false. WL-070/ADR-060; full calibrated/live integration remains open.
 
-Integration source committed locally as9320511a97d225a76cec236e4581fb99d72d6992. Two normal GitHub pushes returned Internal Server Error; subsequent remote remainsa555b32. Source implementation/tests complete; GitHub integration publication pending external recovery, preserved by INC-064/WL-071. Local git fsck passes; read-only GitHub metadata says repository not archived/viewerADMIN. Official status operational does not explain the error. No source/history rewrite or automated future retries. Read actual Git/chat verification for later publication outcomes.
+Integration source9320511 and incident history6754fcc are **published on GitHub**. After three observed default-transport server rejections, one per-command HTTP/1.1 push succeeded; local HEAD==GitHub main6754fcc70076e93a531d292c8c44761ccd90fee7/clean observed before closure docs. INC-064/WL-072 retain failures and successful verification. No persistent transport setting/history change; upstream cause remains unknown, success does not prove HTTP/2 causation. No automatic future retries. Later closure-documentation publication is verified separately in Git/chat.
 
 ## Verified software and latest observation
 

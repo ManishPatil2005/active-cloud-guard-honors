@@ -1,5 +1,7 @@
 # Documentation index
 
+Integration publication recovered/verified: GitHub main6754fcc contains source9320511 and preserved incident history. Current MEMORY/TASKS mark E2-041 publication complete; INC-064/WL-072 record three server rejections and successful per-command HTTP/1.1 push without causal certainty or persistent setting change. Source/test/research acceptance unchanged.
+
 Latest capability: [offline integrated replay](INTEGRATED_REPLAY.md), E2-041/R6/RQ3/WL-070. Rule configuration findings + saved statistical observations associated by declared IDs with missing/abstention/unmapped states retained. FullLinux1278pass/Windows1240pass38skip,34newcases and fixed synthetic examples; no calibrated fusion/live/independent-evaluation authority. Scanner publication resumed/verified at a555b32. Earlier checkpoint counts below historical.
 
 Latest parser maintenance: [Compose environment-list validation](COMPOSE_ENVIRONMENT_VALIDATION.md), QA-002/M3-004/WL-069. Duplicate/malformed entries rejected, valid finding locations/CLI refusal checked;15new cases and preserved failures. Latest results in contract/current MEMORY; earlier checkpoint counts below historical.
