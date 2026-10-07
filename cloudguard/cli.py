@@ -78,6 +78,11 @@ def main():
     ir.add_argument("--threshold", type=float, default=3.0)
     ir.add_argument("--runtime-ml", choices=["isolation-forest", "autoencoder", "both"])
     ir.add_argument(
+        "--measure-stages",
+        action="store_true",
+        help="Record local wall/process CPU cost, not sensor overhead or energy",
+    )
+    ir.add_argument(
         "--engine1-pipeline",
         action="store_true",
         help="Run the existing Engine1 pipeline; explicit model/probe stages may access local services",
@@ -149,6 +154,7 @@ def main():
                 threshold=args.threshold,
                 engine1_pipeline=args.engine1_pipeline,
                 runtime_ml=args.runtime_ml,
+                measure_stages=args.measure_stages,
                 kb=args.kb,
                 model=args.model,
                 vector_index=args.vector_index,

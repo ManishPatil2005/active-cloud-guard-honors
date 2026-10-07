@@ -1,5 +1,7 @@
 # CLI and evidence interface design
 
+Integrated replay/fixed runner expose --measure-stages: optional execution_cost protocol integrated_process_cost_v1, clocks, stages and total with integer wall_ns/process_cpu_ns. Only executed stage names appear; default no field/measurement-clock reads. Report explicitly denies sensor-overhead/energy/independent performance evaluation. [Reproduction/interpretation](INTEGRATION_EXECUTION_COST.md).
+
 Integrated-replay now supports opt-in --engine1-pipeline with required --kb and existing --model/--vector-index/--cache-dir/--timeout/--max-tokens/--policy/--reviews. Options require explicit mode; output labels actual pipeline execution/requested model/distinct probed assets, preserves full reports and adds reviewed model-verification references to contexts. Existing rule mode remains offline; pipeline mode may use requested local services. Stable distinct pipeline protocol, null combined priority/false joint authority. [Contract/examples](PIPELINE_RUNTIME_INTEGRATION.md).
 
 Engine 2 adds `runtime-replay CAPTURE --baseline BASELINE --inventory INVENTORY` with optional window size and threshold. Output explicitly identifies observation_only_replay, source provenance, unknown coverage, insufficient baseline/deviation states and an empty actions_executed list. It is not a live monitor. Full contract: ENGINE2_FOUNDATION.md.

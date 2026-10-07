@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest efficiency measurement prerequisite — 7 October 2026
+
+Final E2-044 whole suites: Linux1346pass; Windows1308pass38existing skips, both1346collected/zero failures/errors/all final code included. Documentation18pass/lint125fileformat/bothpipchecks pass. Source/input/launcher bindings and historical evidence hashes checked. Full timings/commands/interpretation in linked contract below, not speedup/clock-stability or detection-effectiveness proof.
+
+E2-044 adds [opt-in local execution cost](INTEGRATION_EXECUTION_COST.md): per executed component/total wall/processCPU nanoseconds and clock metadata, no default timing field/clock reads, unchanged detector evidence.23newcases/102targetpass and two actual fixed10check synthetic examples. Not sensor overhead, energy, matched OS/model comparison or independent performance qualification. Existing supervisor/data/timing/coverage/calibration gates stay open; WL-075/ADR-063.
+
 ## Latest synthetic ML integration — 7 October 2026
 
 E2-043: [existing synthetic IF/autoencoder connected](SYNTHETIC_ML_INTEGRATION.md) to both integrated modes, preserving original reports/scores/abstentions and exact windows. Synthetic declarations required before fitting/active pipeline; no priority fusion/real fitting authority. FullWindows1284pass38skip/Linux1322pass before final launcher test; final corrected target79pass. Both nine-check examples actually fit synthetic models and retrieve/score locally, no inference/TCP. Older ML-integration-open notes below now concern calibrated/real-data integration. Scientific gates unchanged; WL-074/ADR-062/INC-065.

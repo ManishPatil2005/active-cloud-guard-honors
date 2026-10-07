@@ -1,8 +1,10 @@
 """Join configuration and saved runtime context without granting verdict authority."""
 
 from collections import defaultdict
+from contextlib import contextmanager
 import hashlib
 from pathlib import Path
+import time
 
 from .runtime import analyze as analyze_runtime
 from .scanner import scan
@@ -25,6 +27,63 @@ PIPELINE_SOURCES = (
     "scoring.py",
     "vector.py",
 )
+
+
+class _Measurements:
+    """Opt-in local elapsed/process CPU observations, never detector metrics."""
+
+    def __init__(self, enabled):
+        self.enabled = enabled
+        self.stages = {}
+        self.start = self._read() if enabled else None
+
+    @staticmethod
+    def _read():
+        return time.perf_counter_ns(), time.process_time_ns()
+
+    def _elapsed(self, start):
+        end = self._read()
+        values = dict(wall_ns=end[0] - start[0], process_cpu_ns=end[1] - start[1])
+        if any(type(value) is not int or value < 0 for value in values.values()):
+            raise ValueError("invalid local execution clock interval")
+        return values
+
+    @contextmanager
+    def stage(self, name):
+        start = self._read() if self.enabled else None
+        yield
+        if self.enabled:
+            self.stages[name] = self._elapsed(start)
+
+    def report(self):
+        total = self._elapsed(self.start)
+        clocks = {}
+        for role, name in (("wall", "perf_counter"), ("process_cpu", "process_time")):
+            info = time.get_clock_info(name)
+            clocks[role] = dict(
+                name=name,
+                implementation=info.implementation,
+                resolution_seconds=info.resolution,
+                monotonic=info.monotonic,
+                adjustable=info.adjustable,
+            )
+        return dict(
+            protocol="integrated_process_cost_v1",
+            scope="single_process_development_observation",
+            clocks=clocks,
+            stages=self.stages,
+            total=total,
+            sensor_overhead_evaluated=False,
+            energy_measured=False,
+            independent_performance_evaluation=False,
+            limitations=[
+                "Total covers replay after option validation through report assembly, not CLI startup or JSON output.",
+                "Stages are non-overlapping component calls; total also includes input/source hashing, imports, checks and context assembly.",
+                "ML stage includes its existing parsing, validation, lazy backend import, fitting and scoring, not fit-only cost.",
+                "Process CPU includes this process's threads, not child processes, Ollama server, sensor or system-wide CPU.",
+                "Local clocks are not cross-system event alignment; single development execution is not matched overhead, latency distribution or energy evidence.",
+            ],
+        )
 
 
 def _digest(path):
@@ -53,7 +112,10 @@ def replay(
     policy=None,
     reviews=None,
     runtime_ml=None,
+    measure_stages=False,
 ):
+    if type(measure_stages) is not bool:
+        raise ValueError("measure_stages must be a boolean")
     if runtime_ml is not None and (
         type(runtime_ml) is not str
         or runtime_ml not in ("isolation-forest", "autoencoder", "both")
@@ -77,6 +139,7 @@ def replay(
     if type(baseline_paths) not in (list, tuple) or not 1 <= len(baseline_paths) <= 20:
         raise ValueError("provide 1..20 baseline captures")
     baseline_paths = tuple(baseline_paths)
+    measurements = _Measurements(measure_stages)
     paths = {
         "configuration": Path(configuration),
         "inventory": Path(inventory),
@@ -104,16 +167,18 @@ def replay(
     }
     source_hashes = {name: _digest(path) for name, path in sources.items()}
     assets, inventory_hash = load_inventory(inventory)
-    static = scan(configuration)
+    with measurements.stage("configuration_rule_baseline"):
+        static = scan(configuration)
     if len(static["findings"]) > FINDING_LIMIT:
         raise ValueError("integrated replay exceeds 1000 configuration findings")
-    runtime = analyze_runtime(
-        baseline_paths,
-        observation,
-        inventory,
-        window_seconds=window_seconds,
-        threshold=threshold,
-    )
+    with measurements.stage("runtime_statistical"):
+        runtime = analyze_runtime(
+            baseline_paths,
+            observation,
+            inventory,
+            window_seconds=window_seconds,
+            threshold=threshold,
+        )
     component_hashes = {
         "inventory": inventory_hash,
         "observation": runtime["observation"]["sha256"],
@@ -149,9 +214,13 @@ def replay(
             selected.append(("autoencoder", autoencoder))
         keys = [(w["asset_id"], w["start_epoch"]) for w in runtime["windows"]]
         for name, compare in selected:
-            result = compare(
-                baseline_paths, observation, inventory, window_seconds=window_seconds
-            )
+            with measurements.stage(name):
+                result = compare(
+                    baseline_paths,
+                    observation,
+                    inventory,
+                    window_seconds=window_seconds,
+                )
             nested = result["statistical_comparator"]
             if any(
                 nested[field] != runtime[field]
@@ -182,18 +251,19 @@ def replay(
             )
         from .pipeline import run
 
-        static = run(
-            configuration,
-            kb,
-            inventory,
-            model,
-            vector_index,
-            cache_dir=cache_dir,
-            timeout=timeout,
-            max_tokens=max_tokens,
-            policy=policy,
-            reviews=reviews,
-        )
+        with measurements.stage("engine1_pipeline"):
+            static = run(
+                configuration,
+                kb,
+                inventory,
+                model,
+                vector_index,
+                cache_dir=cache_dir,
+                timeout=timeout,
+                max_tokens=max_tokens,
+                policy=policy,
+                reviews=reviews,
+            )
         if (
             static["configuration_bytes_sha256"] != hashes["configuration"]
             or static["inventory_sha256"] != hashes["inventory"]
@@ -319,4 +389,6 @@ def replay(
             "Optional models fit declared synthetic baselines only. Scores and abstentions remain separate; "
             "nested statistical comparators retain threshold 3 independently of the parent threshold."
         )
+    if measure_stages:
+        report["execution_cost"] = measurements.report()
     return report

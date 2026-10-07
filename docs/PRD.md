@@ -1,5 +1,7 @@
 # Research prototype requirements
 
+E2-044/E2-004/V2-004/R7 supplies [opt-in process-cost measurements](INTEGRATION_EXECUTION_COST.md) for existing integrated components as an efficiency-evaluation prerequisite. No success target, research question, model algorithm or architecture change; matched sensor overhead, independent efficiency and energy measurement remain open.
+
 E2-042 connects R4/R5/R6/RQ3 through [existing Engine1 pipeline + saved runtime context](PIPELINE_RUNTIME_INTEGRATION.md): optional pipeline reports retain retrieval/model/probe/priority/review evidence, original rule mode retained. Software wiring is implemented; joint real observations, calibrated fusion/ML/live integration and independent effectiveness remain separate gates. No scope/claim/stack change.
 
 E2-041/R6/RQ3 implementation: [offline configuration/runtime context](INTEGRATED_REPLAY.md) associates preserved rule-baseline findings and saved statistical observations by exact declared IDs. Missing/abstention/unmapped states stay visible, priority remains null; prepares later evidence-linked interpretation without changing requirements/claim targets. Full calibrated/live/RAG/probe/ML integration and independent evaluation remain open.

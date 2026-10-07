@@ -6,6 +6,10 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+Efficiency instrumentation: [opt-in integration execution cost](docs/INTEGRATION_EXECUTION_COST.md) records local elapsed/process CPU per executed stage and total while preserving detector evidence. Synthetic software observations only; matched sensor overhead, energy and independent performance validation remain pending.
+
+Latest whole-repository software verification: **1,346 passed on Linux; 1,308 passed / 38 existing skips on Windows**, with all final instrumentation/CLI/launcher code included. These counts are regression evidence, not independent attack scenarios or performance qualification.
+
 Latest engineering milestone: [synthetic runtime ML integration](docs/SYNTHETIC_ML_INTEGRATION.md) connects the existing Isolation Forest and autoencoder to both integration modes, preserving separate scores and abstentions. Full Windows1284pass38skip/Linux1322pass before final launcher test; corrected final integration target79pass. Actual synthetic demonstrations passed on both systems. This is software evidence, not independently evaluated detection effectiveness.
 
 **Current status — 7 October 2026:** [capabilities and research gates](docs/CURRENT_STATUS.md). Engine 1's preserved v2.2 baseline has subsequent cache/parser maintenance. Engine 2 implements saved statistical replay and separate bounded Falco acquisition/normalization; optional ML comparators have synthetic validation. [Integrated replay](docs/INTEGRATED_REPLAY.md) now supports an explicit [existing Engine1 pipeline mode](docs/PIPELINE_RUNTIME_INTEGRATION.md), retaining retrieval/model/probe/policy/priority evidence beside runtime context. Missing evidence and abstentions remain visible. Python/CLI, Docker Compose, Ollama and Chroma remain the stack.

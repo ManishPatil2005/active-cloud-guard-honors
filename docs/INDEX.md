@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest E2-044/WL-075: [opt-in execution cost](INTEGRATION_EXECUTION_COST.md), local elapsed/process CPU by executed component and total, unchanged default output/detection. Two fixed synthetic examples10checks;23newcases/target102pass. Measurement prerequisite, not matched overhead/energy/independent benchmark; actual research gates unchanged.
+
 Latest E2-043/WL-074: [synthetic comparator integration](SYNTHETIC_ML_INTEGRATION.md). Existing models connected to both modes, separate scores/abstentions and synthetic-only pre-fit refusal. FullWindows1284pass38skip/Linux1322pass before final launcher case; final target79pass; two nine-check demos. Calibrated/real-data/live/independent research remains open. Earlier checkpoints below historical.
 
 Latest development: [existing Engine1 pipeline + saved runtime integration](PIPELINE_RUNTIME_INTEGRATION.md), E2-042/WL-073. Optional full pipeline wiring/reviewed context preserved, actual no-model/no-network eight-check demos;28newcases/fullLinux1306pass/Windows1268pass38skip. Original rule mode retained; calibrated/live/ML/independent research gates remain open. Earlier counts below historical.

@@ -15,6 +15,7 @@ from cloudguard.verification import file_hash
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--measure-stages", action="store_true")
     parser.add_argument(
         "--runtime-ml", choices=["isolation-forest", "autoencoder", "both"]
     )
@@ -52,6 +53,7 @@ def main():
                     ROOT / "testbed/inventory.json",
                     engine1_pipeline=args.engine1_pipeline,
                     runtime_ml=args.runtime_ml,
+                    measure_stages=args.measure_stages,
                     kb=ROOT / "knowledge/sources.json"
                     if args.engine1_pipeline
                     else None,
@@ -122,6 +124,23 @@ def main():
                         == [0, 1, 2]
                         and report["real_data_fitting_authorized"] is False
                         for name, report in result["runtime_comparators"].items()
+                    )
+                if args.measure_stages:
+                    cost = result["execution_cost"]
+                    expected = {"configuration_rule_baseline", "runtime_statistical"}
+                    if args.engine1_pipeline:
+                        expected.add("engine1_pipeline")
+                    expected.update(result.get("runtime_comparators", {}))
+                    checks["execution_cost_scope"] = (
+                        set(cost["stages"]) == expected
+                        and all(
+                            type(v) is int and v >= 0
+                            for row in [cost["total"], *cost["stages"].values()]
+                            for v in row.values()
+                        )
+                        and cost["sensor_overhead_evaluated"] is False
+                        and cost["energy_measured"] is False
+                        and cost["independent_performance_evaluation"] is False
                     )
                 code = 0 if all(checks.values()) else 1
                 report = dict(

@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-063 - 2026-10-07 - Measure local integration cost without calling it matched overhead
+
+E2-044/E2-004/V2-004/R7. Prefer explicit opt-in standard-library elapsed/process CPU clocks over a new profiler, unconditional report change or unapproved live sensor benchmark. Record exact ns per existing component and total/clock metadata; preserve calculations. Total includes setup/checks but excludes option validation/startup/serialization; nested Engine1 timings are not independent addends. Shared cold imports and process threads make single model/OS comparisons invalid; no power/memory/system overhead measured. Consequence: optimization prerequisites now observable, real matched study and energy claims remain pending. Contract/tests: INTEGRATION_EXECUTION_COST.md.
+
 ## ADR-062 - 2026-10-07 - Connect existing synthetic models without score fusion
 
 E2-043/RQ3. Explicit selection reuses current bounded baseline-only models and preserves complete reports. Reject non-synthetic declarations before fits/active pipeline, validate component input/source/window/count consistency. Exact window references, not score conversion. Parent threshold stays separate from nested default3. Consequence: optional existing pinned backend required, failures propagate/abstentions retained, synthetic provenance remains declared. No architecture/algorithm/new engine or real research authority. Contract/test evidence: SYNTHETIC_ML_INTEGRATION.md.

@@ -1,5 +1,9 @@
 # Research and engineering task ledger
 
+E2-044 final verification: all final code/launcher in wholeLinux1346pass/Windows1308pass38existing skips, both1346collected/zero failures/errors; docs18pass/lint125fileformat/bothpipchecks pass. Existing original research-gate statuses below unchanged; command/receipt details WL-075.
+
+E2-044/E2-004/V2-004/R7: [opt-in integration cost instrumentation](docs/INTEGRATION_EXECUTION_COST.md) implemented/software-tested. Local elapsed/process CPU per executed stage/total, clock metadata and invalid-interval rejection; no default field or clock reads, component calculations preserved.23newcases/target102pass, both fixed10check examples passed. Matched sensor overhead/energy/independent efficiency evaluation remains open; WL-075/ADR-063.
+
 E2-043/RQ3/E2-004: [synthetic ML integration](docs/SYNTHETIC_ML_INTEGRATION.md) implemented/software-tested. Explicit selected comparators, synthetic pre-fit gate, preserved reports/window references/counts, no fused priority. Seventeen new cases; full suites before final launcher test Windows1284pass38skip/Linux1322pass, corrected final target79pass. Two nine-check demos pass. Real-data/calibrated/continuous integration remains open; WL-074/ADR-062/INC-065.
 
 E2-042/R4/R5/R6/RQ3: [existing Engine1 pipeline + saved runtime context](docs/PIPELINE_RUNTIME_INTEGRATION.md) implemented/software-tested. Opt-in retrieval/model/probe/policy/priorities preserved; reviewed-only model context links, original rule mode retained.28newcases/fullLinux1306pass/Windows1268pass38skip; actual eight-check no-model/no-network demos, other local-stage paths mocked. Full calibrated/live/ML/joint effectiveness remains open; WL-073/ADR-061.

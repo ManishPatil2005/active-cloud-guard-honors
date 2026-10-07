@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Measure integration stage execution cost explicitly
+
+- Add opt-in local elapsed/process CPU clocks, exact nanoseconds and clock metadata per executed component/total to integration API/CLI/fixed runner.
+- Preserve default reports/calculations and exception behavior; reject invalid intervals, distinguish component/setup costs and nested pipeline timing.
+- 23 new cases / 102 target passes; both fresh fixed synthetic examples passed ten checks. No sensor-overhead/energy/independent-efficiency claim, new package or engine/architecture change; WL-075/ADR-063.
+
 ## 2026-10-07 - Connect synthetic runtime ML comparators to integrated replay
 
 - Add explicit optional Isolation Forest/autoencoder selection to both existing integration modes and CLI; preserve component scores/abstentions and exact window references.

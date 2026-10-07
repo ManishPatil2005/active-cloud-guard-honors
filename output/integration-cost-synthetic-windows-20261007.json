@@ -1,0 +1,901 @@
+{
+  "executed_at": "2026-10-07T18:21:02.589246+00:00",
+  "status": "synthetic_check_passed",
+  "launcher_sha256": "152ef46f13ad198f07c71155bcbf85637afd21d2e28079a0540b739e52649515",
+  "checks": {
+    "static_preserved": true,
+    "expected_runtime_states": true,
+    "exact_context": true,
+    "missing_preserved": true,
+    "no_priority_or_authority": true,
+    "synthetic_source": true,
+    "existing_pipeline_executed": true,
+    "no_model_or_network": true,
+    "separate_comparators": true,
+    "execution_cost_scope": true
+  },
+  "result": {
+    "protocol": "integrated_synthetic_runtime_comparators_v1",
+    "mode": "engine1_pipeline_with_saved_runtime_context",
+    "evidence_level": "software_context_only",
+    "configuration_bytes_sha256": "6cd4aff5ecc087a51efec5e9017e0637963b6a98c590c73652adac5b9b6a9c8f",
+    "input_sha256": {
+      "configuration": "6cd4aff5ecc087a51efec5e9017e0637963b6a98c590c73652adac5b9b6a9c8f",
+      "inventory": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+      "observation": "a752468776d6b60f0feacf81bb9c6e3a215d65b93615eeea525ede536dfc5509",
+      "baseline_0": "2bc41637da6621a43f31eb761ea2f927593c8b99d805565800b5cd5031d5b18b",
+      "knowledge": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+    },
+    "selected_implementation_sha256": {
+      "integration.py": "6985410b54e23ee20fe0352760d54210a33155d05a2aed92f2e77c16c56d7db0",
+      "scanner.py": "2a547b17556b56ff396638fa7826aac8209edaedecd87a77471a4e0e0b528e29",
+      "runtime.py": "59c52be4ee869d370fb908d0b94021dacdbf2164bab960e7d2c8fea82a05fad5",
+      "verification.py": "5b200fcd4668741c040437825252895c86a19269556f2ad4c0be58cba256d15b",
+      "cache.py": "f0af361c67e3a6e7fb6d7c9cb2d416d482a7431185fb61f147164184112c6d3b",
+      "pipeline.py": "96cba6f8fc6584bf251d8837cf225c58a27b9ab8d5c116749347c491c460140e",
+      "retrieval.py": "4d8af4a279c33a15f60d96e293209e331a321437ceb979bf12a1ad84fc1dd189",
+      "llm.py": "c85e9ea4ac85a648096fc3d7dc2e21a5886fd098350d7508a6e6564dd6f63705",
+      "grounding.py": "59fe17c338e8411ec00ee2cc51150c8f0d5f920b0775029b4f5daba69fdf9f22",
+      "scoring.py": "4770fb9414c10f0b4fafd78d567ea51252b11e6e27359f24eabf23f6a4951aa9",
+      "vector.py": "8d296b52d64e68f6a0a93f57b1e03580ae5638565fee458df393fc9d2e374e08",
+      "runtime_ml.py": "b64d12e6f187837badeec167b8bdca9e78b033a4ccad873bc8518b969e9f458e",
+      "runtime_autoencoder.py": "be20a1363554dfc2bb26e60a2d852e34abcdd0cf053924cf1431a2bcce97f2b4"
+    },
+    "engine1": {
+      "schema_version": "1.0",
+      "file": "D:\\research f1\\data\\integration\\redis-auth-only.yaml",
+      "sha256": "6cd4aff5ecc087a51efec5e9017e0637963b6a98c590c73652adac5b9b6a9c8f",
+      "findings": [
+        {
+          "id": "202acd670edd1791eb85",
+          "asset_id": "compose/redis",
+          "rule_id": "AUTH002",
+          "title": "Redis protected mode disabled",
+          "static_score": 0.8,
+          "location": "services.redis.command",
+          "source_ids": [
+            "redis-security"
+          ],
+          "origin": "rule_baseline",
+          "evidence": "Configuration predicate matched; no exploitation claim.",
+          "probe": null,
+          "verification": {
+            "status": "not_applicable",
+            "policy": null,
+            "deployment_equivalence_verified": false,
+            "vulnerability_confirmed": false,
+            "finding_suppressed": false,
+            "scope": "TCP only; operator-declared mapping is not deployment attestation"
+          },
+          "priority": {
+            "value": 0.725,
+            "runtime_observed": false,
+            "exposure": "not_applicable",
+            "policy": "tci-v0.1-provisional",
+            "calibrated": false
+          }
+        }
+      ],
+      "warnings": [],
+      "coverage": "selected predicates only; absence of findings is not proof of safety",
+      "retrieved_sources": [
+        {
+          "id": "redis-security",
+          "title": "Redis protected mode and access control",
+          "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/security/",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "Redis is intended for trusted clients in trusted environments. Restrict network access and configure authentication. Disabling protected-mode removes a protective mechanism; inspect network boundaries and ACLs before concluding that unauthenticated access is possible.",
+          "relevance": 8.119979,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "docker-ports",
+          "title": "Docker published ports and host bindings",
+          "url": "https://docs.docker.com/engine/network/port-publishing/",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "Compose ports without an explicit host IP bind to all host addresses by default. Bind local research services to 127.0.0.1. A published Redis, PostgreSQL, Nginx or MinIO port is potential exposure; actual reachability depends on networking and vantage. Internal exposure is not automatically a policy violation.",
+          "relevance": 2.772589,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        },
+        {
+          "id": "nginx-autoindex",
+          "title": "Nginx directory indexing",
+          "url": "https://nginx.org/en/docs/http/ngx_http_autoindex_module.html",
+          "reviewed": "2026-09-23",
+          "kind": "author-written source summary",
+          "text": "The Nginx autoindex module generates directory listings. The autoindex directive defaults to off. Explicit autoindex on may reveal directory contents when no index file is available; whether this violates policy depends on the intended content.",
+          "relevance": 1.704748,
+          "corpus_sha256": "0ac0b17f3effd74a2078eafc35e273e067da1de031db836ce3374520f4f74d24"
+        }
+      ],
+      "retrieval_mode": "lexical",
+      "rag": null,
+      "model_verifications": [],
+      "configuration_bytes_sha256": "6cd4aff5ecc087a51efec5e9017e0637963b6a98c590c73652adac5b9b6a9c8f",
+      "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+      "verification_context": {
+        "policy": null,
+        "review": null
+      },
+      "policy_notes": [
+        "Inventory maps candidate assets to staging endpoints; it does not establish Internet reachability.",
+        "Only network rules and explicitly reviewed model candidates receive TCP evidence; no finding is refuted by TCP refusal.",
+        "Asset criticality 0.5 and weights are illustrative, not calibrated.",
+        "Model approval authorizes TCP evidence only, not correctness, vulnerability confirmation or automatic scoring.",
+        "Hash-bound operator policy is not proof of deployment equivalence; legacy inventory mappings remain unverified."
+      ],
+      "timings_ms": {
+        "scan_ms": 2.23,
+        "retrieval_ms": 0.495,
+        "audit_ms": 0.0,
+        "verification_and_score_ms": 0.1,
+        "total_ms": 2.827
+      },
+      "engine_version": "2.2"
+    },
+    "engine2": {
+      "engine": "engine2",
+      "engine_version": "0.1",
+      "mode": "observation_only_replay",
+      "model": "per_asset_standardized_count_deviation",
+      "implementation_scope": {
+        "component": "runtime_replay_baseline",
+        "status": "implemented",
+        "live_input": false,
+        "saved_sensor_export_supported": true,
+        "trained_ml_model": false,
+        "independent_detection_evaluation": false,
+        "automatic_response": false
+      },
+      "calibrated": false,
+      "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+      "window_seconds": 60,
+      "threshold": 3.0,
+      "baseline": [
+        {
+          "capture_id": "ml-baseline-fixture",
+          "scenario_group": "ml-baseline-family",
+          "source": "synthetic",
+          "sha256": "2bc41637da6621a43f31eb761ea2f927593c8b99d805565800b5cd5031d5b18b",
+          "binding_verified": false
+        }
+      ],
+      "observation": {
+        "capture_id": "ml-observation-fixture",
+        "scenario_group": "ml-observation-family",
+        "source": "synthetic",
+        "sha256": "a752468776d6b60f0feacf81bb9c6e3a215d65b93615eeea525ede536dfc5509",
+        "binding_verified": false
+      },
+      "baseline_parameters": {
+        "compose/redis": {
+          "window_count": 32,
+          "features": {
+            "event_count": {
+              "mean": 6.4375,
+              "scale": 1.71277370075559
+            },
+            "process_start": {
+              "mean": 1.5,
+              "scale": 1.0
+            },
+            "network_connect": {
+              "mean": 1.96875,
+              "scale": 1.0
+            },
+            "file_open": {
+              "mean": 2.96875,
+              "scale": 1.0
+            }
+          }
+        }
+      },
+      "windows": [
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767484800,
+          "capture_id": "ml-observation-fixture",
+          "counts": {
+            "event_count": 4,
+            "process_start": 1,
+            "network_connect": 1,
+            "file_open": 2
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "no_threshold_exceedance",
+          "deviation_score": 1.42313,
+          "feature_deviations": {
+            "event_count": 1.4231302120792122,
+            "process_start": 0.5,
+            "network_connect": 0.96875,
+            "file_open": 0.96875
+          },
+          "review_required": false
+        },
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767484860,
+          "capture_id": "ml-observation-fixture",
+          "counts": {
+            "event_count": 19,
+            "process_start": 1,
+            "network_connect": 16,
+            "file_open": 2
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "deviation_for_review",
+          "deviation_score": 14.03125,
+          "feature_deviations": {
+            "event_count": 7.334594169946709,
+            "process_start": 0.5,
+            "network_connect": 14.03125,
+            "file_open": 0.96875
+          },
+          "review_required": true
+        },
+        {
+          "asset_id": "compose/redis",
+          "start_epoch": 1767484920,
+          "capture_id": "ml-observation-fixture",
+          "counts": {
+            "event_count": 7,
+            "process_start": 2,
+            "network_connect": 2,
+            "file_open": 3
+          },
+          "observation_coverage": "partial_or_unknown",
+          "status": "no_threshold_exceedance",
+          "deviation_score": 0.5,
+          "feature_deviations": {
+            "event_count": 0.32841466432597205,
+            "process_start": 0.5,
+            "network_connect": 0.03125,
+            "file_open": 0.03125
+          },
+          "review_required": false
+        }
+      ],
+      "status": "observations_processed",
+      "actions_executed": [],
+      "runtime_sensor_connected": false,
+      "threat_confirmed": false,
+      "limitations": [
+        "Synthetic inputs demonstrate software behavior, not threat detection accuracy.",
+        "Imported sensor provenance/container mappings are declarations, not authenticated live identity.",
+        "Only nonempty windows are evaluated; silence, collection gaps and partial windows are not treated as normal.",
+        "Baseline designation is operator supplied; no independent benign labels or calibration are established.",
+        "Metadata/event overlap checks reduce accidental leakage, not renamed-template or adversarial leakage.",
+        "This replay command accepts saved captures only; live collection and normalization are separate experimental paths.",
+        "This baseline has no Kubernetes audit adapter, Isolation Forest, autoencoder, isolation or TCI integration."
+      ]
+    },
+    "asset_contexts": [
+      {
+        "asset_id": "compose/minio",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [],
+        "runtime_window_indices": [],
+        "runtime_evidence_state": "no_observed_window",
+        "runtime_review_required": null,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null,
+        "model_verification_indices": [],
+        "runtime_comparator_window_indices": {
+          "isolation_forest": [],
+          "autoencoder": []
+        }
+      },
+      {
+        "asset_id": "compose/nginx",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [],
+        "runtime_window_indices": [],
+        "runtime_evidence_state": "no_observed_window",
+        "runtime_review_required": null,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null,
+        "model_verification_indices": [],
+        "runtime_comparator_window_indices": {
+          "isolation_forest": [],
+          "autoencoder": []
+        }
+      },
+      {
+        "asset_id": "compose/postgres",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [],
+        "runtime_window_indices": [],
+        "runtime_evidence_state": "no_observed_window",
+        "runtime_review_required": null,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null,
+        "model_verification_indices": [],
+        "runtime_comparator_window_indices": {
+          "isolation_forest": [],
+          "autoencoder": []
+        }
+      },
+      {
+        "asset_id": "compose/redis",
+        "inventory_asset_present": true,
+        "association": "declared_asset_id_only",
+        "configuration_finding_ids": [
+          "202acd670edd1791eb85"
+        ],
+        "runtime_window_indices": [
+          0,
+          1,
+          2
+        ],
+        "runtime_evidence_state": "observations_available",
+        "runtime_review_required": true,
+        "review_required": true,
+        "deployment_binding_verified": false,
+        "combined_priority": null,
+        "model_verification_indices": [],
+        "runtime_comparator_window_indices": {
+          "isolation_forest": [
+            0,
+            1,
+            2
+          ],
+          "autoencoder": [
+            0,
+            1,
+            2
+          ]
+        }
+      }
+    ],
+    "configuration_finding_count": 1,
+    "runtime_window_count": 3,
+    "joint_priority_calculated": false,
+    "deployment_binding_verified": false,
+    "independent_evaluation_verified": false,
+    "real_data_evaluation_authorized": false,
+    "runtime_sensor_connected": false,
+    "calibrated": false,
+    "threat_confirmed": false,
+    "actions_executed": [],
+    "limitations": [
+      "Engine1 pipeline retains its retrieval/model/probe/priority/review evidence; requested model and TCP stages can perform existing local operations.",
+      "Matching declared asset IDs supplies context, not authenticated deployment or temporal equivalence.",
+      "Missing windows remain unknown; insufficient baseline and all original findings/windows are retained.",
+      "Saved runtime deviations are uncalibrated; no score conversion, TCI fusion, threat verdict or action.",
+      "Pre/post input and selected source hashes check observed consistency, not hostile filesystem races or complete import attestation.",
+      "Supplied sensor exports retain their development/provenance limits; this command cannot authorize real evaluation.",
+      "Optional models fit declared synthetic baselines only. Scores and abstentions remain separate; nested statistical comparators retain threshold 3 independently of the parent threshold."
+    ],
+    "engine1_pipeline_executed": true,
+    "engine1_model_requested": false,
+    "active_verification_asset_count": 0,
+    "runtime_ml_selection": "both",
+    "runtime_comparators": {
+      "isolation_forest": {
+        "protocol": "runtime_synthetic_iforest_v1",
+        "evidence_level": "synthetic_software_only",
+        "status": "synthetic_scores_computed",
+        "model": "scikit_learn_isolation_forest",
+        "library_pin": "1.9.1",
+        "dependency_versions": {
+          "python": "3.12.14",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "joblib": "1.6.0",
+          "threadpoolctl": "3.7.0",
+          "narwhals": "2.26.0",
+          "cloudpickle": "3.1.2"
+        },
+        "feature_order": [
+          "event_count",
+          "process_start",
+          "network_connect",
+          "file_open"
+        ],
+        "parameters": {
+          "seed": 42,
+          "n_estimators": 64,
+          "max_samples": 256,
+          "window_seconds": 60,
+          "n_jobs": 1,
+          "thread_limit": 1
+        },
+        "fitted_assets": [
+          {
+            "asset_id": "compose/redis",
+            "training_window_count": 32,
+            "subsample_size": 32
+          }
+        ],
+        "windows": [
+          {
+            "asset_id": "compose/redis",
+            "start_epoch": 1767484800,
+            "status": "uncalibrated_synthetic_score",
+            "isolation_score": 0.560536,
+            "binary_prediction": null,
+            "observation_coverage": "partial_or_unknown"
+          },
+          {
+            "asset_id": "compose/redis",
+            "start_epoch": 1767484860,
+            "status": "uncalibrated_synthetic_score",
+            "isolation_score": 0.579013,
+            "binary_prediction": null,
+            "observation_coverage": "partial_or_unknown"
+          },
+          {
+            "asset_id": "compose/redis",
+            "start_epoch": 1767484920,
+            "status": "uncalibrated_synthetic_score",
+            "isolation_score": 0.51739,
+            "binary_prediction": null,
+            "observation_coverage": "partial_or_unknown"
+          }
+        ],
+        "scored_window_count": 3,
+        "abstained_window_count": 0,
+        "statistical_comparator": {
+          "engine": "engine2",
+          "engine_version": "0.1",
+          "mode": "observation_only_replay",
+          "model": "per_asset_standardized_count_deviation",
+          "implementation_scope": {
+            "component": "runtime_replay_baseline",
+            "status": "implemented",
+            "live_input": false,
+            "saved_sensor_export_supported": true,
+            "trained_ml_model": false,
+            "independent_detection_evaluation": false,
+            "automatic_response": false
+          },
+          "calibrated": false,
+          "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+          "window_seconds": 60,
+          "threshold": 3.0,
+          "baseline": [
+            {
+              "capture_id": "ml-baseline-fixture",
+              "scenario_group": "ml-baseline-family",
+              "source": "synthetic",
+              "sha256": "2bc41637da6621a43f31eb761ea2f927593c8b99d805565800b5cd5031d5b18b",
+              "binding_verified": false
+            }
+          ],
+          "observation": {
+            "capture_id": "ml-observation-fixture",
+            "scenario_group": "ml-observation-family",
+            "source": "synthetic",
+            "sha256": "a752468776d6b60f0feacf81bb9c6e3a215d65b93615eeea525ede536dfc5509",
+            "binding_verified": false
+          },
+          "baseline_parameters": {
+            "compose/redis": {
+              "window_count": 32,
+              "features": {
+                "event_count": {
+                  "mean": 6.4375,
+                  "scale": 1.71277370075559
+                },
+                "process_start": {
+                  "mean": 1.5,
+                  "scale": 1.0
+                },
+                "network_connect": {
+                  "mean": 1.96875,
+                  "scale": 1.0
+                },
+                "file_open": {
+                  "mean": 2.96875,
+                  "scale": 1.0
+                }
+              }
+            }
+          },
+          "windows": [
+            {
+              "asset_id": "compose/redis",
+              "start_epoch": 1767484800,
+              "capture_id": "ml-observation-fixture",
+              "counts": {
+                "event_count": 4,
+                "process_start": 1,
+                "network_connect": 1,
+                "file_open": 2
+              },
+              "observation_coverage": "partial_or_unknown",
+              "status": "no_threshold_exceedance",
+              "deviation_score": 1.42313,
+              "feature_deviations": {
+                "event_count": 1.4231302120792122,
+                "process_start": 0.5,
+                "network_connect": 0.96875,
+                "file_open": 0.96875
+              },
+              "review_required": false
+            },
+            {
+              "asset_id": "compose/redis",
+              "start_epoch": 1767484860,
+              "capture_id": "ml-observation-fixture",
+              "counts": {
+                "event_count": 19,
+                "process_start": 1,
+                "network_connect": 16,
+                "file_open": 2
+              },
+              "observation_coverage": "partial_or_unknown",
+              "status": "deviation_for_review",
+              "deviation_score": 14.03125,
+              "feature_deviations": {
+                "event_count": 7.334594169946709,
+                "process_start": 0.5,
+                "network_connect": 14.03125,
+                "file_open": 0.96875
+              },
+              "review_required": true
+            },
+            {
+              "asset_id": "compose/redis",
+              "start_epoch": 1767484920,
+              "capture_id": "ml-observation-fixture",
+              "counts": {
+                "event_count": 7,
+                "process_start": 2,
+                "network_connect": 2,
+                "file_open": 3
+              },
+              "observation_coverage": "partial_or_unknown",
+              "status": "no_threshold_exceedance",
+              "deviation_score": 0.5,
+              "feature_deviations": {
+                "event_count": 0.32841466432597205,
+                "process_start": 0.5,
+                "network_connect": 0.03125,
+                "file_open": 0.03125
+              },
+              "review_required": false
+            }
+          ],
+          "status": "observations_processed",
+          "actions_executed": [],
+          "runtime_sensor_connected": false,
+          "threat_confirmed": false,
+          "limitations": [
+            "Synthetic inputs demonstrate software behavior, not threat detection accuracy.",
+            "Imported sensor provenance/container mappings are declarations, not authenticated live identity.",
+            "Only nonempty windows are evaluated; silence, collection gaps and partial windows are not treated as normal.",
+            "Baseline designation is operator supplied; no independent benign labels or calibration are established.",
+            "Metadata/event overlap checks reduce accidental leakage, not renamed-template or adversarial leakage.",
+            "This replay command accepts saved captures only; live collection and normalization are separate experimental paths.",
+            "This baseline has no Kubernetes audit adapter, Isolation Forest, autoencoder, isolation or TCI integration."
+          ]
+        },
+        "synthetic_fitting_performed": true,
+        "synthetic_scoring_performed": true,
+        "real_data_fitting_authorized": false,
+        "independent_evaluation_verified": false,
+        "supervisor_approval_verified": false,
+        "labels_created": false,
+        "calibrated": false,
+        "threat_confirmed": false,
+        "runtime_sensor_connected": false,
+        "actions_executed": [],
+        "implementation_sha256": {
+          "runtime_ml.py": "b64d12e6f187837badeec167b8bdca9e78b033a4ccad873bc8518b969e9f458e",
+          "runtime.py": "59c52be4ee869d370fb908d0b94021dacdbf2164bab960e7d2c8fea82a05fad5"
+        },
+        "limitations": [
+          "Declared synthetic software data only; source metadata is not authenticated provenance.",
+          "Higher isolation score means shorter isolation paths, not attack probability or confirmed threats.",
+          "No binary predictions, calibrated threshold, independent labels or real-data evaluation.",
+          "Minimum windows and forest budgets are engineering choices, not adequate research sample size.",
+          "Only nonempty windows; partial coverage and missing intervals are not benign observations.",
+          "Grouping/overlap guards are limited; no complete semantic leakage or physical identity proof.",
+          "Correlated total/kind count features match the baseline; feature design needs future protocol review."
+        ]
+      },
+      "autoencoder": {
+        "protocol": "runtime_synthetic_autoencoder_v1",
+        "evidence_level": "synthetic_software_only",
+        "status": "synthetic_scores_computed",
+        "model": "scikit_learn_undercomplete_reconstruction_mlp",
+        "dependency_versions": {
+          "python": "3.12.14",
+          "scikit-learn": "1.9.1",
+          "numpy": "2.5.3",
+          "scipy": "1.18.1",
+          "joblib": "1.6.0",
+          "threadpoolctl": "3.7.0",
+          "narwhals": "2.26.0",
+          "cloudpickle": "3.1.2"
+        },
+        "feature_order": [
+          "event_count",
+          "process_start",
+          "network_connect",
+          "file_open"
+        ],
+        "parameters": {
+          "seed": 42,
+          "latent_dim": 2,
+          "max_iter": 500,
+          "max_fun": 10000,
+          "window_seconds": 60,
+          "solver": "lbfgs",
+          "activation": "tanh",
+          "alpha": 0.0001,
+          "tol": 0.0001,
+          "thread_limit": 1
+        },
+        "training_attempts": [
+          {
+            "asset_id": "compose/redis",
+            "training_window_count": 32,
+            "iterations": 20,
+            "training_loss": 1.6552267016267566e-05,
+            "warning_count": 0,
+            "convergence_warning": false,
+            "training_status": "uncalibrated_synthetic_reconstruction",
+            "reconstruction_attempted": true,
+            "reconstruction_warning_count": 0
+          }
+        ],
+        "windows": [
+          {
+            "asset_id": "compose/redis",
+            "start_epoch": 1767484800,
+            "status": "uncalibrated_synthetic_reconstruction",
+            "reconstruction_error": 4.339528655349761e-10,
+            "binary_prediction": null,
+            "observation_coverage": "partial_or_unknown"
+          },
+          {
+            "asset_id": "compose/redis",
+            "start_epoch": 1767484860,
+            "status": "uncalibrated_synthetic_reconstruction",
+            "reconstruction_error": 76.41925012830666,
+            "binary_prediction": null,
+            "observation_coverage": "partial_or_unknown"
+          },
+          {
+            "asset_id": "compose/redis",
+            "start_epoch": 1767484920,
+            "status": "uncalibrated_synthetic_reconstruction",
+            "reconstruction_error": 1.0777813399022286e-09,
+            "binary_prediction": null,
+            "observation_coverage": "partial_or_unknown"
+          }
+        ],
+        "scored_window_count": 3,
+        "abstained_window_count": 0,
+        "statistical_comparator": {
+          "engine": "engine2",
+          "engine_version": "0.1",
+          "mode": "observation_only_replay",
+          "model": "per_asset_standardized_count_deviation",
+          "implementation_scope": {
+            "component": "runtime_replay_baseline",
+            "status": "implemented",
+            "live_input": false,
+            "saved_sensor_export_supported": true,
+            "trained_ml_model": false,
+            "independent_detection_evaluation": false,
+            "automatic_response": false
+          },
+          "calibrated": false,
+          "inventory_sha256": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+          "window_seconds": 60,
+          "threshold": 3.0,
+          "baseline": [
+            {
+              "capture_id": "ml-baseline-fixture",
+              "scenario_group": "ml-baseline-family",
+              "source": "synthetic",
+              "sha256": "2bc41637da6621a43f31eb761ea2f927593c8b99d805565800b5cd5031d5b18b",
+              "binding_verified": false
+            }
+          ],
+          "observation": {
+            "capture_id": "ml-observation-fixture",
+            "scenario_group": "ml-observation-family",
+            "source": "synthetic",
+            "sha256": "a752468776d6b60f0feacf81bb9c6e3a215d65b93615eeea525ede536dfc5509",
+            "binding_verified": false
+          },
+          "baseline_parameters": {
+            "compose/redis": {
+              "window_count": 32,
+              "features": {
+                "event_count": {
+                  "mean": 6.4375,
+                  "scale": 1.71277370075559
+                },
+                "process_start": {
+                  "mean": 1.5,
+                  "scale": 1.0
+                },
+                "network_connect": {
+                  "mean": 1.96875,
+                  "scale": 1.0
+                },
+                "file_open": {
+                  "mean": 2.96875,
+                  "scale": 1.0
+                }
+              }
+            }
+          },
+          "windows": [
+            {
+              "asset_id": "compose/redis",
+              "start_epoch": 1767484800,
+              "capture_id": "ml-observation-fixture",
+              "counts": {
+                "event_count": 4,
+                "process_start": 1,
+                "network_connect": 1,
+                "file_open": 2
+              },
+              "observation_coverage": "partial_or_unknown",
+              "status": "no_threshold_exceedance",
+              "deviation_score": 1.42313,
+              "feature_deviations": {
+                "event_count": 1.4231302120792122,
+                "process_start": 0.5,
+                "network_connect": 0.96875,
+                "file_open": 0.96875
+              },
+              "review_required": false
+            },
+            {
+              "asset_id": "compose/redis",
+              "start_epoch": 1767484860,
+              "capture_id": "ml-observation-fixture",
+              "counts": {
+                "event_count": 19,
+                "process_start": 1,
+                "network_connect": 16,
+                "file_open": 2
+              },
+              "observation_coverage": "partial_or_unknown",
+              "status": "deviation_for_review",
+              "deviation_score": 14.03125,
+              "feature_deviations": {
+                "event_count": 7.334594169946709,
+                "process_start": 0.5,
+                "network_connect": 14.03125,
+                "file_open": 0.96875
+              },
+              "review_required": true
+            },
+            {
+              "asset_id": "compose/redis",
+              "start_epoch": 1767484920,
+              "capture_id": "ml-observation-fixture",
+              "counts": {
+                "event_count": 7,
+                "process_start": 2,
+                "network_connect": 2,
+                "file_open": 3
+              },
+              "observation_coverage": "partial_or_unknown",
+              "status": "no_threshold_exceedance",
+              "deviation_score": 0.5,
+              "feature_deviations": {
+                "event_count": 0.32841466432597205,
+                "process_start": 0.5,
+                "network_connect": 0.03125,
+                "file_open": 0.03125
+              },
+              "review_required": false
+            }
+          ],
+          "status": "observations_processed",
+          "actions_executed": [],
+          "runtime_sensor_connected": false,
+          "threat_confirmed": false,
+          "limitations": [
+            "Synthetic inputs demonstrate software behavior, not threat detection accuracy.",
+            "Imported sensor provenance/container mappings are declarations, not authenticated live identity.",
+            "Only nonempty windows are evaluated; silence, collection gaps and partial windows are not treated as normal.",
+            "Baseline designation is operator supplied; no independent benign labels or calibration are established.",
+            "Metadata/event overlap checks reduce accidental leakage, not renamed-template or adversarial leakage.",
+            "This replay command accepts saved captures only; live collection and normalization are separate experimental paths.",
+            "This baseline has no Kubernetes audit adapter, Isolation Forest, autoencoder, isolation or TCI integration."
+          ]
+        },
+        "synthetic_fitting_performed": true,
+        "synthetic_scoring_performed": true,
+        "real_data_fitting_authorized": false,
+        "supervisor_approval_verified": false,
+        "independent_evaluation_verified": false,
+        "labels_created": false,
+        "calibrated": false,
+        "threat_confirmed": false,
+        "runtime_sensor_connected": false,
+        "actions_executed": [],
+        "implementation_sha256": {
+          "runtime_autoencoder.py": "be20a1363554dfc2bb26e60a2d852e34abcdd0cf053924cf1431a2bcce97f2b4",
+          "runtime_ml.py": "b64d12e6f187837badeec167b8bdca9e78b033a4ccad873bc8518b969e9f458e",
+          "runtime.py": "59c52be4ee869d370fb908d0b94021dacdbf2164bab960e7d2c8fea82a05fad5"
+        },
+        "limitations": [
+          "Declared synthetic data only; source declarations are not authenticated provenance.",
+          "Undercomplete input-to-input reconstruction, not a binary threat classifier or probability.",
+          "Scaler and network fit baseline windows only; no observation-driven calibration or labels.",
+          "Training warnings cause abstention; iteration/evaluation budgets are not hard runtime guarantees.",
+          "Standardized reconstruction MSE is not on the Isolation Forest score scale; do not rank methods by raw score magnitude.",
+          "No independent accuracy, coverage, clock alignment, overhead or real-data authority established."
+        ]
+      }
+    },
+    "synthetic_fitting_performed": true,
+    "synthetic_scoring_performed": true,
+    "execution_cost": {
+      "protocol": "integrated_process_cost_v1",
+      "scope": "single_process_development_observation",
+      "clocks": {
+        "wall": {
+          "name": "perf_counter",
+          "implementation": "QueryPerformanceCounter()",
+          "resolution_seconds": 1e-07,
+          "monotonic": true,
+          "adjustable": false
+        },
+        "process_cpu": {
+          "name": "process_time",
+          "implementation": "GetProcessTimes()",
+          "resolution_seconds": 1e-07,
+          "monotonic": true,
+          "adjustable": false
+        }
+      },
+      "stages": {
+        "configuration_rule_baseline": {
+          "wall_ns": 754900,
+          "process_cpu_ns": 0
+        },
+        "runtime_statistical": {
+          "wall_ns": 18377500,
+          "process_cpu_ns": 15625000
+        },
+        "isolation_forest": {
+          "wall_ns": 1138746000,
+          "process_cpu_ns": 1109375000
+        },
+        "autoencoder": {
+          "wall_ns": 65819800,
+          "process_cpu_ns": 62500000
+        },
+        "engine1_pipeline": {
+          "wall_ns": 2842600,
+          "process_cpu_ns": 0
+        }
+      },
+      "total": {
+        "wall_ns": 1249916400,
+        "process_cpu_ns": 1234375000
+      },
+      "sensor_overhead_evaluated": false,
+      "energy_measured": false,
+      "independent_performance_evaluation": false,
+      "limitations": [
+        "Total covers replay after option validation through report assembly, not CLI startup or JSON output.",
+        "Stages are non-overlapping component calls; total also includes input/source hashing, imports, checks and context assembly.",
+        "ML stage includes its existing parsing, validation, lazy backend import, fitting and scoring, not fit-only cost.",
+        "Process CPU includes this process's threads, not child processes, Ollama server, sensor or system-wide CPU.",
+        "Local clocks are not cross-system event alignment; single development execution is not matched overhead, latency distribution or energy evidence."
+      ]
+    }
+  }
+}

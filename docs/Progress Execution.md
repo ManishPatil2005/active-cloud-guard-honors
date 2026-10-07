@@ -1,5 +1,9 @@
 # Progress Execution
 
+## New step — see how much local execution time each part uses
+
+Activate the existing Python environment, open repository root, and run `python scripts/integration_check.py --engine1-pipeline --runtime-ml both --measure-stages --output output/my-fresh-cost.json`. Use a new filename. Open JSON, check ten true checks, then read result.execution_cost: divide wall_ns/process_cpu_ns by1,000,000 for milliseconds. Each selected component and total are measured separately; CPU can exceed wall time when threads work concurrently, and zero short CPU intervals do not mean free work. These are invented-data development observations, not attack accuracy/sensor overhead/energy savings. [Full step-by-step scope/results](INTEGRATION_EXECUTION_COST.md).
+
 ## New step — compare the two existing synthetic models together
 
 The workflow now connects Engine1 and saved Engine2 windows with optional existing Isolation Forest/autoencoder reports. It is not a third engine or proof of real attack detection. Follow [simple reproduction](SYNTHETIC_ML_INTEGRATION.md): activate the existing Python environment, open repository root, run `python scripts/integration_check.py --engine1-pipeline --runtime-ml both --output output/my-fresh-ml-integration.json`, then open the file. Use a new filename. Nine true checks confirm this software example; compare each model's separate numeric/null values and scored/abstained counts. Null means it abstained, not safe. Actual local retrieval/synthetic fits were demonstrated on both systems, no inference/network probes. Supervisor/real data/independent evaluation remain pending.
