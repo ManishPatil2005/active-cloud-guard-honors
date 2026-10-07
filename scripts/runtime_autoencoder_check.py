@@ -10,6 +10,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.runtime_autoencoder import compare_synthetic
+from cloudguard.runtime_ml import backend_failure_fields
 
 
 def main():
@@ -61,6 +62,7 @@ def main():
                     error_type=type(error).__name__,
                     evidence_level="synthetic_software_only",
                     actions_executed=[],
+                    **backend_failure_fields(error),
                 )
                 code = 1
             json.dump(report, stream, indent=2)

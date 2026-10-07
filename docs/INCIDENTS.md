@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-057 - 2026-10-07 - Generic import handling lost backend category and implied installation
+
+**Raw publication note:** preserve pytest traceback whitespace in negativeXML lines22/27/61/66/100/105/139/144/179/184/219/224/259/264/299/304. Unrestricted staged check flags only this rawfile; exact-file exclusion passes every other staged path and publication scanner includes the negative. SHA unchanged/working and staged Gitblob46abcf44bd295987745882eeb845a74311489252 equal; no source/test formatting waiver or altered evidence.
+
+**Evidence:** code in both optional adapters converted every ImportError to install optional dependency. Current direct imports/pinned version/pipcheck pass; do not infer missing installation from INC-056. Eight deliberately injected import/missing-module faults reproduced absent safe diagnostic categories:8failed0.22s/XML0.092, [raw negative](../output/engine2-backend-diagnostic-negative-windows-20261007.xml), SHA fc0568281994893e9d33cf84c158d9b74d699c3c50670cf71f8dcee053a62d6b. Not a reproduced native intermittent import failure; synthetic marker strings in tests are not actual private details.
+
+**Cause confidence:** high for diagnostic gap from existing catch-all and assertions; original INC-056 cause still unknown. **Fix:** owned RuntimeMLBackendError/code/cause/allowlisted module-root categories, shared pinned metadata failure/version check and both CLI failure receipts/ordinary trace messages preserve safe categories. No raw details, install/retry/fallback/cache cleanup or changed model calculations/permissions. **Verification:** initial105pass5.50s/XML5.498; expanded129pass5.43s/XML5.427; verified129pass5.51s/XML5.504 after adding safe codes to exception text.32new cases include constructor/redaction/private subclass/copy and six injected CLI cases. Full/current results WL-066/EVIDENCE. **Limits:** serialized diagnostic improvement not original-fault repair, environment stability, authentication, threat accuracy or supervisor approval. Original negative bytes retained.
+
 ### INC-056 - 2026-10-07 - Existing IF import failed once in Windows whole-suite execution
 
 **Raw publication preservation:** original failed XML traceback line10 retains pytest trailing whitespace. Unrestricted staged check fails only that line; exact-one-file exclusion passes other staged files, publication scanner includes raw XML. Original SHA unchanged/working and staged Gitblob c66d93aa2e7dfd9df46da0a1844bc766e8028d5e match; no rewriting negative evidence or source/test formatting waiver.

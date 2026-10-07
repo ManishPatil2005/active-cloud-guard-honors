@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Preserve safe optional-backend import/metadata/version diagnostics
+
+- Add shared RuntimeError-compatible categories/allowlisted dependency roots/owned trace messages and both model CLI rejected backend_diagnostic fields; no raw private details, retry/fallback/install/dependency or successful-calculation/defaultstack change.
+- Reproduce diagnostic loss with8injected failures, preserve rawXML;32newcases/verified129target pass/fullLinux1226pass/Windows1188pass38skips/lint119fileformat/bothpipchecks pass.
+- Document INC-057 reporting fix separately from INC-056 unresolved actual intermittent cause; retain original evidence and research approval/data/human/evaluation boundaries, ADR-056/WL-066/current/nontechnical docs.
+
 ## 2026-10-07 - Add synthetic-only abstention-aware runtime accounting
 
 - Isolated pure summary/fixed11unit arithmetic fixture/runner: explicit availability/unknown cells/positive-negative abstentions, conditional confusion vs inclusive denominators, null undefined ratios; no threshold/model-score conversion/real-data authority or default-stack change.

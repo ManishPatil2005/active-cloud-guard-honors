@@ -1,5 +1,9 @@
 # Current project state
 
+## Current update — optional backend diagnostic fix, 7 October 2026
+
+E2-040/RQ3: safe RuntimeMLBackendError/categories/import-name allowlist/metadata pin checks/shared CLI failure projection; no raw paths/messages/private names, install/retry/fallback/dependency/score/threshold/default/native23-source/authority change.8injected negativecases reproduced reportinggap (not nativefault);32newcases/verified129target5.51s/XML5.504, fullLinux1,226pass86.58s/Windows1,188pass38skips22.74s/XML22.736,1226collected/0failures/errors; lint119fileformat/bothpipchecks pass. INC-057 diagnostics fixed, INC-056 originalactualcause still unknown; negativebytespreserved. WL-066/ADR-056/[contract](RUNTIME_ML_BACKEND_DIAGNOSTICS.md). Research approval/context/data/humans/calibration/real evaluation/overhead/integration still open; prior checkpoints historical.
+
 ## Current update — synthetic decision accounting, 7 October 2026
 
 Final fullLinux1,194pass140.05s/XML137.061 and freshWindows1,156pass38skips27.83s/XML27.819, both1194collected/0failure/error; lint118fileformat/bothpipchecks pass. Preserve original firstWindowsnegative/causeunresolved; no dependency/source fix claimed.

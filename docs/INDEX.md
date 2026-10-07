@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest E2-040/RQ3: [safe optional-backend diagnostics](RUNTIME_ML_BACKEND_DIAGNOSTICS.md), reproduced reporting gap fixed/32newcases; full[Linux](../output/engine2-backend-diagnostic-linux-tests-20261007.xml)1,226pass/[Windows](../output/engine2-backend-diagnostic-windows-tests-20261007.xml)1,188pass38skips,0failures/errors; lint119fileformat/bothpipchecks pass. [8injected negativecases](../output/engine2-backend-diagnostic-negative-windows-20261007.xml) retained, not originalnativefault reproduction. INC-057fixeddiagnostics/INC-056nativecauseunknown/WL-066/ADR-056. Earlier “current” full-suite entries below historical.
+
 Current final whole-suite: [Linux](../output/engine2-accounting-linux-tests-20261007.xml)1,194pass / [Windows](../output/engine2-accounting-windows-final-tests-20261007.xml)1,156pass38skips,0failures/errors in finalruns; firstWindowsimportfailure retained/unresolved (INC-056), not a cause/fix claim. Lint/118fileformat/bothpipchecks pass. Software tests not independently evaluated security.
 
 Latest E2-039/E2-004/RQ3: [synthetic decision-accounting contract](SYNTHETIC_RUNTIME_ACCOUNTING.md), invented11unit fixture/explicit unknown+availability+abstention denominators, not real model predictions/calibration or approved study.46newcases/cross-platform fixed examples; whole-suite evidence and unresolved firstWindowsIFimportfailure in EVIDENCE/WL-065/INC-056. No core/default engine/stack change; approval/data/humans remain pending. Earlier dated checkpoints below historical.

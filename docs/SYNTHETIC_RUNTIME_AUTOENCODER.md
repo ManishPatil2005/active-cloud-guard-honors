@@ -1,5 +1,7 @@
 # Synthetic reconstruction autoencoder — software contract
 
+7October E2-040: shared [safe optional backend diagnostics](RUNTIME_ML_BACKEND_DIAGNOSTICS.md), pinned metadata/import categories in RuntimeMLBackendError (RuntimeError subclass)/rejected CLI backend_diagnostic. No changed calculations/scaling/training/warning abstention or approval; selected source hashes legitimately changed, historical receipts untouched. Diagnostic gap fixed, original intermittent Windows cause not established.
+
 E2-037 / E2-004 / RQ3, 6 October 2026. Implemented and software-tested on **declared synthetic development data only**. This is an optional comparator inside Engine 2, alongside the statistical baseline and Isolation Forest. It is not another engine, supervisor approval, independently evaluated threat detection or permission to fit real telemetry. [Current status](CURRENT_STATUS.md) and [work log](WORK_LOG.md) distinguish those gates.
 
 ## Method and architecture

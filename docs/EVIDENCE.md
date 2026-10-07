@@ -1,5 +1,13 @@
 # Evidence index
 
+## Optional backend diagnostic refinement (2026-10-07)
+
+[Post-document contracts](../output/engine2-backend-diagnostic-docs-tests-20261007.xml)18pass0.24s/XML0.104/no failures/errors/skips, separate rerun not new full-suite cases or human approval. LinuxfullXMLtime83.577s versus86.58s console, not clock/engine-performance interpretation.
+
+[Contract](RUNTIME_ML_BACKEND_DIAGNOSTICS.md), E2-040/WL-066/ADR-056: original INC-056raw failure still SHA cdbbb46f11703516e63b180b26115ac5d66cd30184b600bee5eff89bbfec5571/causeunknown. Current directbackend imports/pin/pipcheck pass. [New injected pre-fix negative](../output/engine2-backend-diagnostic-negative-windows-20261007.xml)8failed0.22s/XML0.092, SHA fc0568281994893e9d33cf84c158d9b74d699c3c50670cf71f8dcee053a62d6b: category absent under both existing adapters, **not nativefault reproduction**. INC-057reportinggap reproduced/fixed, no dependency reinstall or invented cause.
+
+[Initialtarget](../output/engine2-backend-diagnostic-target-windows-20261007.xml)105pass5.50s/XML5.498/[expanded](../output/engine2-backend-diagnostic-target-final-windows-20261007.xml)129pass5.43s/XML5.427/[verified](../output/engine2-backend-diagnostic-target-verified-windows-20261007.xml)129pass5.51s/XML5.504.32newcases, including6injected CLI cases; temporary fault receipts not published as observed native failures. [Windowsfull](../output/engine2-backend-diagnostic-windows-tests-20261007.xml)1188pass38skips22.74s/XML22.736/[Linuxfull](../output/engine2-backend-diagnostic-linux-tests-20261007.xml)1226pass86.58s,1226collected each/0failures/errors, lint119fileformat/bothpipchecks pass. Success calculations/currentmodelboundaries unchanged; no independent detector/clock/performance evidence. Historical model-source digests stay original despite selected source changes.
+
 ## Synthetic decision-accounting software (2026-10-07)
 
 [Post-document contracts](../output/engine2-accounting-docs-tests-20261007.xml)18passed0.15s/XML0.106/no failures/errors/skips, separate rerun not added cases or approval of the draft research plan.

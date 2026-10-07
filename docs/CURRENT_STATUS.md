@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest refinement — safe optional-backend diagnostics, 7 October 2026
+
+E2-040/E2-004/RQ3: [backend diagnostics](RUNTIME_ML_BACKEND_DIAGNOSTICS.md) implemented. Current imports/pin/pipcheck pass; no basis to reinstall or attribute the historical Windows failure to concurrency. Separate diagnostic gap reproduced with8injected failures: both adapters previously called every ImportError an installation problem and lost category. RuntimeError-compatible safe codes/cause/allowlisted dependency plus metadata/version distinctions now appear in exception text/rejected CLI receipts. No raw private details/retry/fallback/package change/model-calculation/default-stack/permission change.
+
+32newcases; verifiedtarget129pass5.51s/XML5.504, model calculations/regressions preserved. FullLinux1,226pass86.58s; Windows1,188pass38skips22.74s/XML22.736,1226collected each/0failures/errors; lint119fileformat/bothpipchecks pass. Current XML links EVIDENCE/WL-066. INC-057 reporting gap fixed, **INC-056 actual intermittent cause remains unknown**, original evidence not retroactively repaired. Actual human/context/qualified data/calibration/evaluation/overhead/integration gates pending, no research-complete/production claim. Earlier dated checkpoint counts below historical.
+
 ## Latest software step — synthetic abstention-aware accounting, 7 October 2026
 
 Final actual verification: Linux1,194passed140.05s/XML137.061; separate fresh Windows1,156passed38skips27.83s/XML27.819, both1,194collected/0failures/errors. Lint/118fileformat/bothpipchecks pass. Initial Windows failure below remains preserved and causally unresolved; later passes are not a claimed fix. Whole-suite timing is not detector performance/clock evidence.

@@ -1,7 +1,6 @@
 """Undercomplete reconstruction MLP on declared synthetic data only."""
 
 import hashlib
-from importlib import metadata
 import math
 from numbers import Integral
 from pathlib import Path
@@ -17,10 +16,9 @@ def _backend():
         from sklearn.preprocessing import StandardScaler
         from sklearn.exceptions import ConvergenceWarning
         from threadpoolctl import threadpool_limits
-    except ImportError:
-        raise RuntimeError("install the optional runtime-ml dependency") from None
-    if metadata.version("scikit-learn") != shared.SKLEARN_VERSION:
-        raise RuntimeError("runtime-ml dependency version mismatch")
+    except ImportError as error:
+        raise shared._import_failure(error) from None
+    shared._verify_backend_version()
     return MLPRegressor, StandardScaler, ConvergenceWarning, threadpool_limits
 
 

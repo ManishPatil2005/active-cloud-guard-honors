@@ -9,6 +9,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.runtime_ml import compare_synthetic
+from cloudguard.runtime_ml import backend_failure_fields
 
 
 def main():
@@ -55,6 +56,7 @@ def main():
                     evidence_level="synthetic_software_only",
                     real_data_fitting_authorized=False,
                     actions_executed=[],
+                    **backend_failure_fields(error),
                 )
                 code = 1
             json.dump(report, stream, indent=2)

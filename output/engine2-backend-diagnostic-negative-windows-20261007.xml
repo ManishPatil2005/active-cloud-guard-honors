@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="8" time="0.092" timestamp="2026-10-07T08:24:03.752723+05:30" hostname="Welcome"><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ImportError-None-backend_import_failed-None-cloudguard.runtime_ml-sklearn.ensemble]" time="0.001"><failure message="AssertionError: assert None == {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None} = dict(code='backend_import_failed', cause_kind='ImportError', dependency=None)&#10; +    where 'ImportError' = &lt;class 'ImportError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFCF4590&gt;
+model = &lt;module 'cloudguard.runtime_ml' from 'D:\\research f1\\cloudguard\\runtime_ml.py'&gt;
+module = 'sklearn.ensemble', kind = &lt;class 'ImportError'&gt;, name = None
+code = 'backend_import_failed', dependency = None
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None} = dict(code='backend_import_failed', cause_kind='ImportError', dependency=None)
+E        +    where 'ImportError' = &lt;class 'ImportError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ImportError-None-backend_import_failed-None-cloudguard.runtime_autoencoder-sklearn.neural_network]" time="0.001"><failure message="AssertionError: assert None == {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None} = dict(code='backend_import_failed', cause_kind='ImportError', dependency=None)&#10; +    where 'ImportError' = &lt;class 'ImportError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFCF7BC0&gt;
+model = &lt;module 'cloudguard.runtime_autoencoder' from 'D:\\research f1\\cloudguard\\runtime_autoencoder.py'&gt;
+module = 'sklearn.neural_network', kind = &lt;class 'ImportError'&gt;, name = None
+code = 'backend_import_failed', dependency = None
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ImportError', 'code': 'backend_import_failed', 'dependency': None} = dict(code='backend_import_failed', cause_kind='ImportError', dependency=None)
+E        +    where 'ImportError' = &lt;class 'ImportError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ModuleNotFoundError-sklearn-optional_module_not_found-sklearn-cloudguard.runtime_ml-sklearn.ensemble]" time="0.001"><failure message="AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'} = dict(code='optional_module_not_found', cause_kind='ModuleNotFoundError', dependency='sklearn')&#10; +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFD1C350&gt;
+model = &lt;module 'cloudguard.runtime_ml' from 'D:\\research f1\\cloudguard\\runtime_ml.py'&gt;
+module = 'sklearn.ensemble', kind = &lt;class 'ModuleNotFoundError'&gt;
+name = 'sklearn', code = 'optional_module_not_found', dependency = 'sklearn'
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'} = dict(code='optional_module_not_found', cause_kind='ModuleNotFoundError', dependency='sklearn')
+E        +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ModuleNotFoundError-sklearn-optional_module_not_found-sklearn-cloudguard.runtime_autoencoder-sklearn.neural_network]" time="0.000"><failure message="AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'} = dict(code='optional_module_not_found', cause_kind='ModuleNotFoundError', dependency='sklearn')&#10; +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFCF7BF0&gt;
+model = &lt;module 'cloudguard.runtime_autoencoder' from 'D:\\research f1\\cloudguard\\runtime_autoencoder.py'&gt;
+module = 'sklearn.neural_network', kind = &lt;class 'ModuleNotFoundError'&gt;
+name = 'sklearn', code = 'optional_module_not_found', dependency = 'sklearn'
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'optional_module_not_found', 'dependency': 'sklearn'} = dict(code='optional_module_not_found', cause_kind='ModuleNotFoundError', dependency='sklearn')
+E        +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ModuleNotFoundError-scipy.special-backend_dependency_not_found-scipy-cloudguard.runtime_ml-sklearn.ensemble]" time="0.000"><failure message="AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency='scipy')&#10; +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFD1D160&gt;
+model = &lt;module 'cloudguard.runtime_ml' from 'D:\\research f1\\cloudguard\\runtime_ml.py'&gt;
+module = 'sklearn.ensemble', kind = &lt;class 'ModuleNotFoundError'&gt;
+name = 'scipy.special', code = 'backend_dependency_not_found'
+dependency = 'scipy'
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency='scipy')
+E        +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ModuleNotFoundError-scipy.special-backend_dependency_not_found-scipy-cloudguard.runtime_autoencoder-sklearn.neural_network]" time="0.000"><failure message="AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency='scipy')&#10; +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFCF7B00&gt;
+model = &lt;module 'cloudguard.runtime_autoencoder' from 'D:\\research f1\\cloudguard\\runtime_autoencoder.py'&gt;
+module = 'sklearn.neural_network', kind = &lt;class 'ModuleNotFoundError'&gt;
+name = 'scipy.special', code = 'backend_dependency_not_found'
+dependency = 'scipy'
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': 'scipy'} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency='scipy')
+E        +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ModuleNotFoundError-private_module-backend_dependency_not_found-None-cloudguard.runtime_ml-sklearn.ensemble]" time="0.000"><failure message="AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency=None)&#10; +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFD1E060&gt;
+model = &lt;module 'cloudguard.runtime_ml' from 'D:\\research f1\\cloudguard\\runtime_ml.py'&gt;
+module = 'sklearn.ensemble', kind = &lt;class 'ModuleNotFoundError'&gt;
+name = 'private_module', code = 'backend_dependency_not_found'
+dependency = None
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency=None)
+E        +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase><testcase classname="tests.test_runtime_backend_diagnostics" name="test_import_category_is_preserved_without_private_text[ModuleNotFoundError-private_module-backend_dependency_not_found-None-cloudguard.runtime_autoencoder-sklearn.neural_network]" time="0.000"><failure message="AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None}&#10; +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)&#10; +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value&#10; +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency=None)&#10; +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E1FFD1E240&gt;
+model = &lt;module 'cloudguard.runtime_autoencoder' from 'D:\\research f1\\cloudguard\\runtime_autoencoder.py'&gt;
+module = 'sklearn.neural_network', kind = &lt;class 'ModuleNotFoundError'&gt;
+name = 'private_module', code = 'backend_dependency_not_found'
+dependency = None
+
+    @pytest.mark.parametrize(
+        "model,module", [(ml, "sklearn.ensemble"), (ae, "sklearn.neural_network")]
+    )
+    @pytest.mark.parametrize(
+        "kind,name,code,dependency",
+        [
+            (ImportError, None, "backend_import_failed", None),
+            (ModuleNotFoundError, "sklearn", "optional_module_not_found", "sklearn"),
+            (ModuleNotFoundError, "scipy.special", "backend_dependency_not_found", "scipy"),
+            (ModuleNotFoundError, "private_module", "backend_dependency_not_found", None),
+        ],
+    )
+    def test_import_category_is_preserved_without_private_text(
+        monkeypatch, model, module, kind, name, code, dependency
+    ):
+        original = builtins.__import__
+    
+        def fail(selected, *args, **kwargs):
+            if selected == module:
+                raise kind("PRIVATE_BACKEND_TEXT", name=name)
+            return original(selected, *args, **kwargs)
+    
+        monkeypatch.setattr(builtins, "__import__", fail)
+        with pytest.raises(RuntimeError) as captured:
+            model._backend()
+&gt;       assert getattr(captured.value, "diagnostic", None) == dict(
+            code=code, cause_kind=kind.__name__, dependency=dependency
+        )
+E       AssertionError: assert None == {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None}
+E        +  where None = getattr(RuntimeError('install the optional runtime-ml dependency'), 'diagnostic', None)
+E        +    where RuntimeError('install the optional runtime-ml dependency') = &lt;ExceptionInfo RuntimeError('install the optional runtime-ml dependency') tblen=2&gt;.value
+E        +  and   {'cause_kind': 'ModuleNotFoundError', 'code': 'backend_dependency_not_found', 'dependency': None} = dict(code='backend_dependency_not_found', cause_kind='ModuleNotFoundError', dependency=None)
+E        +    where 'ModuleNotFoundError' = &lt;class 'ModuleNotFoundError'&gt;.__name__
+
+tests\test_runtime_backend_diagnostics.py:35: AssertionError</failure></testcase></testsuite></testsuites>

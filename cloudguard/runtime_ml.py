@@ -14,15 +14,100 @@ SKLEARN_VERSION = "1.9.1"
 MIN_WINDOWS = 8
 TRAIN_WINDOW_LIMIT = 4096
 
+_BACKEND_MESSAGES = {
+    "optional_module_not_found": "optional runtime-ml module lookup failed",
+    "backend_dependency_not_found": "optional runtime-ml backend dependency lookup failed",
+    "backend_import_failed": "optional runtime-ml backend import failed",
+    "backend_metadata_missing": "optional runtime-ml backend metadata unavailable",
+    "backend_version_mismatch": "runtime-ml dependency version mismatch",
+}
+_CAUSE_KINDS = {
+    "ModuleNotFoundError",
+    "ImportError",
+    "PackageNotFoundError",
+    "VersionMismatch",
+}
+_DEPENDENCIES = {
+    "sklearn",
+    "scikit-learn",
+    "threadpoolctl",
+    "numpy",
+    "scipy",
+    "joblib",
+    "narwhals",
+    "cloudpickle",
+}
+
+
+class RuntimeMLBackendError(RuntimeError):
+    """Owned redacted categories only; never store raw import text or paths."""
+
+    def __init__(self, code, cause_kind, dependency=None):
+        if (
+            type(code) is not str
+            or code not in _BACKEND_MESSAGES
+            or type(cause_kind) is not str
+            or cause_kind not in _CAUSE_KINDS
+            or (
+                dependency is not None
+                and (type(dependency) is not str or dependency not in _DEPENDENCIES)
+            )
+        ):
+            raise ValueError("invalid runtime-ml diagnostic category")
+        super().__init__(f"{_BACKEND_MESSAGES[code]} [code={code}; cause={cause_kind}]")
+        self._diagnostic = dict(code=code, cause_kind=cause_kind, dependency=dependency)
+
+    @property
+    def diagnostic(self):
+        return dict(self._diagnostic)
+
+
+def _import_failure(error):
+    missing = isinstance(error, ModuleNotFoundError)
+    name = error.name if type(error.name) is str else None
+    dependency = name.split(".", 1)[0] if name else None
+    dependency = dependency if dependency in _DEPENDENCIES else None
+    code = (
+        "optional_module_not_found"
+        if missing and name in {"sklearn", "threadpoolctl"}
+        else "backend_dependency_not_found"
+        if missing
+        else "backend_import_failed"
+    )
+    return RuntimeMLBackendError(
+        code, "ModuleNotFoundError" if missing else "ImportError", dependency
+    )
+
+
+def _verify_backend_version():
+    try:
+        version = metadata.version("scikit-learn")
+    except metadata.PackageNotFoundError:
+        raise RuntimeMLBackendError(
+            "backend_metadata_missing", "PackageNotFoundError", "scikit-learn"
+        ) from None
+    if version != SKLEARN_VERSION:
+        raise RuntimeMLBackendError(
+            "backend_version_mismatch", "VersionMismatch", "scikit-learn"
+        )
+
+
+def backend_failure_fields(error):
+    """CLI projection for recognized backend errors; no generic exception text."""
+    return (
+        {"backend_diagnostic": error.diagnostic}
+        if isinstance(error, RuntimeMLBackendError)
+        else {}
+    )
+
 
 def _backend():
     try:
         from sklearn.ensemble import IsolationForest
         from threadpoolctl import threadpool_limits
-    except ImportError:
-        raise RuntimeError("install the optional runtime-ml dependency") from None
-    if metadata.version("scikit-learn") != SKLEARN_VERSION:
-        raise RuntimeError("runtime-ml dependency version mismatch")
+    except ImportError as error:
+        raise _import_failure(error) from None
+    _verify_backend_version()
     return IsolationForest, threadpool_limits
 
 

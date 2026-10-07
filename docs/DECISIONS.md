@@ -1,5 +1,11 @@
 # Decision register
 
+## ADR-056 - 2026-10-07 - Preserve safe backend failure categories without guessing a repair
+
+E2-040/E2-004/RQ3. Investigation confirms current imports/pinned distribution/pipcheck pass and historical original ImportError details were suppressed; no basis to reinstall or blame Linux concurrency. Fix separately reproducible classification/observability gap: both adapters previously mislabeled every ImportError as optional dependency installation need. Shared RuntimeError subclass with safe code/cause/allowlisted dependency fields, version/metadata distinctions, owned exception text and recognized CLI projection. No raw messages/paths/private names/subclass/observed version string; fromNone redacts traceback chain, not Python in-process context erasure.
+
+No new dependency/default/source-freeze/algorithm/parameter/threshold/authority change, no retry/cache purge/install/fallback. Test injected faults before/after, constructor/copy/redaction/exclusive CLI receipts and unchanged existing model calculations. Preserve8negative XML, original INC-056 byteexact and later positives. Diagnostic reporting fixed does not mean original intermittent fault resolved; that cause stays unknown. WL-066/RUNTIME_ML_BACKEND_DIAGNOSTICS/INC-057. Actual human/data/protocol/research gates still pending.
+
 ## ADR-055 - 2026-10-07 - Keep synthetic accounting separate from real model decisions
 
 E2-039/E2-004/RQ3: proceed on safe offline software dependency while actual supervisor approval absent. Separate pure arithmetic library/fixed invented fixture from current real-data intake and uncalibrated model outputs; no conversion of IF/MSE scores into binary threat decisions, no real research gate bypass. Existing metrics.py is boolean-only and its independent-case Wilson intervals do not transfer automatically to correlated runtime windows. Cross-check decided-known counts/ratios against it, retain all unknown/availability/abstention cells and inclusive positive denominator without intervals or invented sample design.

@@ -1,5 +1,19 @@
 # Progress Execution
 
+## Current refinement — better optional-model failure reports, 7 October
+
+The previous Windows import failure's cause is still unknown. Imports work now, so we did not reinstall packages or blame another process. We fixed a different, demonstrated problem: every import error used to say “install the dependency,” which could be misleading.
+
+Future model-backend failures now retain safe categories in the error/JSON: module lookup, other import, missing version metadata or wrong pinned version. Unknown/private names and raw paths/messages stay hidden. Both model runners still stop with exit1 and no fabricated score/action—no automatic retry. Details: [diagnostic guide](RUNTIME_ML_BACKEND_DIAGNOSTICS.md).
+
+To check the software without a sensor or service change, run from project root:
+
+```powershell
+.venv/Scripts/python.exe -m pytest -q tests/test_runtime_backend_diagnostics.py tests/test_runtime_ml.py tests/test_runtime_autoencoder.py
+```
+
+Existing environment verified129cases;32new diagnostic cases deliberately inject faults, not real Windows instability. Initial8failure report stays preserved; fullLinux1226pass/Windows1188pass38skips, nofailures/errors in current runs. This fixes future reporting, not a proven historical fault cause or security benchmark. Supervisor-ready proposal remains unapproved and real data/labels/calibration/evaluation gates pending. WL-066 records exactly what happened.
+
 ## New software step — honest decision accounting, 7 October
 
 There is now an optional arithmetic example that keeps missed, unknown, missing/unusable and abstained cases visible. It does not run a detector or create human labels. In the invented example, one positive is flagged, one is not flagged and one has no decision: recall among decided positives is1/2, but only1/3of all known positives is flagged. Neither is actual Engine2 accuracy; hiding the abstention would hide a limitation.
