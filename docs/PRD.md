@@ -1,5 +1,7 @@
 # Research prototype requirements
 
+E2-042 connects R4/R5/R6/RQ3 through [existing Engine1 pipeline + saved runtime context](PIPELINE_RUNTIME_INTEGRATION.md): optional pipeline reports retain retrieval/model/probe/priority/review evidence, original rule mode retained. Software wiring is implemented; joint real observations, calibrated fusion/ML/live integration and independent effectiveness remain separate gates. No scope/claim/stack change.
+
 E2-041/R6/RQ3 implementation: [offline configuration/runtime context](INTEGRATED_REPLAY.md) associates preserved rule-baseline findings and saved statistical observations by exact declared IDs. Missing/abstention/unmapped states stay visible, priority remains null; prepares later evidence-linked interpretation without changing requirements/claim targets. Full calibrated/live/RAG/probe/ML integration and independent evaluation remain open.
 
 E2-039/E2-004/RQ3 software follow-up: [synthetic decision accounting](SYNTHETIC_RUNTIME_ACCOUNTING.md) exposes abstention/unknown/unavailable denominators and conditional versus inclusive ratios on invented input decisions only. Not an approved runtime evaluation, independent label source or calibrated threat classifier; existing first-three-month requirements/stack/engines unchanged.

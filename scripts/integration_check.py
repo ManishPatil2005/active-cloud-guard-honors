@@ -15,16 +15,30 @@ from cloudguard.verification import file_hash
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
+    parser.add_argument(
+        "--engine1-pipeline",
+        action="store_true",
+        help="Fixed no-model/non-network configuration example using the existing pipeline",
+    )
     args = parser.parse_args()
     try:
         with Path(args.output).open("x", encoding="utf-8") as stream:
             try:
                 launcher_hash = file_hash(__file__)
                 result = replay(
-                    ROOT / "data/development/redis-all.yaml",
+                    ROOT
+                    / (
+                        "data/integration/redis-auth-only.yaml"
+                        if args.engine1_pipeline
+                        else "data/development/redis-all.yaml"
+                    ),
                     [ROOT / "data/runtime/baseline-synthetic.json"],
                     ROOT / "data/runtime/observation-synthetic.json",
                     ROOT / "testbed/inventory.json",
+                    engine1_pipeline=args.engine1_pipeline,
+                    kb=ROOT / "knowledge/sources.json"
+                    if args.engine1_pipeline
+                    else None,
                 )
                 if file_hash(__file__) != launcher_hash:
                     raise ValueError("integration launcher changed")
@@ -35,7 +49,8 @@ def main():
                 )
                 checks = dict(
                     static_preserved=result["configuration_finding_count"] == 1
-                    and result["engine1"]["findings"][0]["rule_id"] == "NET001",
+                    and result["engine1"]["findings"][0]["rule_id"]
+                    == ("AUTH002" if args.engine1_pipeline else "NET001"),
                     expected_runtime_states=[
                         w["status"] for w in result["engine2"]["windows"]
                     ]
@@ -56,6 +71,20 @@ def main():
                     synthetic_source=result["engine2"]["observation"]["source"]
                     == "synthetic",
                 )
+                if args.engine1_pipeline:
+                    checks["existing_pipeline_executed"] = (
+                        result["engine1_pipeline_executed"] is True
+                        and result["engine1"]["retrieval_mode"] == "lexical"
+                        and bool(result["engine1"]["retrieved_sources"])
+                        and result["engine1"]["findings"][0]["priority"][
+                            "runtime_observed"
+                        ]
+                        is False
+                    )
+                    checks["no_model_or_network"] = (
+                        result["engine1"]["rag"] is None
+                        and result["active_verification_asset_count"] == 0
+                    )
                 code = 0 if all(checks.values()) else 1
                 report = dict(
                     executed_at=datetime.now(timezone.utc).isoformat(),

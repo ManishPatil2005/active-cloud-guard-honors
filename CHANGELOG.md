@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 - Connect the existing Engine 1 pipeline to runtime context
+
+- Add explicit pipeline mode/required knowledge corpus and existing model/vector/cache/policy/review/budget options to integrated replay.
+- Preserve full Engine1 retrieval/model/probe/policy/priority evidence; link only reviewed inventory mappings, count unique observed assets and validate runtime before optional active stages.
+- Add auth-only development fixture/fixed no-model/no-network eight-check examples and28regression cases; fullLinux1306pass/Windows1268pass38skip/lint123fileformat/bothpipchecks pass.
+- Maintain original rule-mode behavior, null combined priority and existing research gates; WL-073/ADR-061/current/formal/nontechnical docs.
+
 ## 2026-10-07 - Publish integration and verify GitHub recovery
 
 - Publish integration source9320511 and incident history6754fcc; verify local/GitHub main equality at6754fcc70076e93a531d292c8c44761ccd90fee7.

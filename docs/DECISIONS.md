@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-061 - 2026-10-07 - Reuse the Engine1 pipeline through an explicit integration mode
+
+E2-042/R4/R5/R6/RQ3. Reuse pipeline.run rather than duplicate retrieval/model/verification/scoring logic or silently enable it in offline rule mode. Require exact mode flag/knowledge corpus, refuse ignored stage options, validate runtime/frozen inputs/sources before optional stages and preserve full component reports. Model context links only approved inventory mappings; retain null combined priority because timing/identity/calibration remain unqualified. Selected source set5default/11pipeline, not authenticated closure. Fixed auth-only fixture demonstrates actual retrieval/scoring without live model/TCP, while other paths are mocked. Consequences: explicit pipeline mode can do original local operations and late rejection cannot undo effects; trusted operator/input/private-report constraints retained. No new engine/framework/default algorithm. Evidence in PIPELINE_RUNTIME_INTEGRATION.md/WL-073.
+
 ## ADR-060 - 2026-10-07 - Integrate offline evidence context before calibrated scoring
 
 E2-041/R6/RQ3. Compose the existing rule scanner and statistical saved-runtime comparator, retain their complete outputs and join only exact declared inventory asset IDs. Do not feed unbounded uncalibrated deviation into bounded TCI anomaly or infer deployment/time identity from matching names. Alternative immediate priority fusion lacks calibration/qualified inputs; full RAG/probe/ML/live fusion remains a later acceptance scope. Unknown/missing runtime, insufficient baseline and unmapped static assets stay visible; combined_priority=null and no action/evaluation authority. Opt-in command/fixed example keep existing default paths unchanged;34cases/cross-platform receipts in INTEGRATED_REPLAY.md. Five selected source hashes are a scoped consistency check, not authenticated closure. Stack unchanged.

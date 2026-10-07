@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+E2-042/R4/R5/R6/RQ3: [existing Engine1 pipeline + saved runtime context](docs/PIPELINE_RUNTIME_INTEGRATION.md) implemented/software-tested. Opt-in retrieval/model/probe/policy/priorities preserved; reviewed-only model context links, original rule mode retained.28newcases/fullLinux1306pass/Windows1268pass38skip; actual eight-check no-model/no-network demos, other local-stage paths mocked. Full calibrated/live/ML/joint effectiveness remains open; WL-073/ADR-061.
+
 E2-041 publication **completed**: source9320511 and incident history6754fcc now on GitHub. One per-command HTTP/1.1 push after three default-transport server rejections advanced main; local/remote6754fcc70076e93a531d292c8c44761ccd90fee7 equality/clean observed. INC-064/WL-072 preserve all negatives/unknown cause; no persistent setting/history change. Source acceptance1278cases unchanged. Closure-documentation commit publication verified separately; full live/calibrated integration and research gates remain open.
 
 E2-041/R6/RQ3: [offline integration](docs/INTEGRATED_REPLAY.md) implemented/software-tested. Configuration rule findings and saved statistical replay share a declared-ID context report; every finding/window and missing/insufficient/unmapped state retained. Opt-in CLI/fixed exclusive demo,34newcases/fullLinux1278pass/Windows1240pass38skip. Combined priority null/deployment equivalence false; full RAG/probe/ML/TCI/live integration and independent evaluation remain open. Pending scanner publication completed as a555b32; WL-070/ADR-060/INC-063.

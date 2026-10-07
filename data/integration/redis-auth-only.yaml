@@ -1,0 +1,7 @@
+services:
+  redis:
+    image: redis
+    command:
+      - redis-server
+      - --protected-mode
+      - "no"

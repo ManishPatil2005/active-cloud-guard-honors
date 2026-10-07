@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest development: [existing Engine1 pipeline + saved runtime integration](PIPELINE_RUNTIME_INTEGRATION.md), E2-042/WL-073. Optional full pipeline wiring/reviewed context preserved, actual no-model/no-network eight-check demos;28newcases/fullLinux1306pass/Windows1268pass38skip. Original rule mode retained; calibrated/live/ML/independent research gates remain open. Earlier counts below historical.
+
 Integration publication recovered/verified: GitHub main6754fcc contains source9320511 and preserved incident history. Current MEMORY/TASKS mark E2-041 publication complete; INC-064/WL-072 record three server rejections and successful per-command HTTP/1.1 push without causal certainty or persistent setting change. Source/test/research acceptance unchanged.
 
 Latest capability: [offline integrated replay](INTEGRATED_REPLAY.md), E2-041/R6/RQ3/WL-070. Rule configuration findings + saved statistical observations associated by declared IDs with missing/abstention/unmapped states retained. FullLinux1278pass/Windows1240pass38skip,34newcases and fixed synthetic examples; no calibrated fusion/live/independent-evaluation authority. Scanner publication resumed/verified at a555b32. Earlier checkpoint counts below historical.

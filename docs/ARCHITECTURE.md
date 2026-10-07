@@ -1,5 +1,7 @@
 # Existing architecture
 
+E2-042 extends existing integration.py/CLI/fixed runner with explicit Engine1 pipeline mode: scanner/runtime prevalidation -> existing pipeline.run -> complete pipeline report + unchanged saved-runtime report/context. Knowledge/optional policy/reviews join bounded hash checks; selected sources expand5to11 only in this mode. Reviewed model_verification_indices use existing operator mapping; no automatic alias/priority fusion. No pipeline/runtime/model algorithm/dependency/stack migration. New fixture and tests are development-only. [Contract](PIPELINE_RUNTIME_INTEGRATION.md).
+
 E2-041 adds integration.py: existing scan + runtime.analyze -> preserved component reports + exact declared asset references, input/selected-source pre/post checks. Opt-in integrated-replay CLI/fixed integration_check.py, same stack/dependencies/default commands. No RAG/probe/model/collector/score/action stage is executed by the wrapper. Combined priority null, binding/evaluation/calibration false; full fusion remains open. [Contract](INTEGRATED_REPLAY.md).
 
 QA-002 changes only scanner.py environment-list normalization: first-equals split, nonempty string name, duplicate rejection before report emission. Existing mapping path/rule predicates/report format and Engine2 unchanged; CLI/pipeline reuse existing exception handling. [Contract and regression evidence](COMPOSE_ENVIRONMENT_VALIDATION.md).

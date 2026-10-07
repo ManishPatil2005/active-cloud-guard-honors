@@ -1,5 +1,9 @@
 # Evidence index
 
+## Existing pipeline/runtime integration (2026-10-07)
+
+E2-042: [contract/commands](PIPELINE_RUNTIME_INTEGRATION.md),28newcases/target114pass2.31s/XML2.234. [Windows](../output/pipeline-integration-full-windows-tests-20261007.xml)1268pass38skip26.85s/XML26.847; [Linux](../output/pipeline-integration-full-linux-tests-20261007.xml)1306pass111.65s/XML108.127,1306collected both/0failures/errors. Lint123fileformat/bothpipchecks pass. Actual [Windows](../output/pipeline-integration-synthetic-windows-20261007.json)/[Linux](../output/pipeline-integration-synthetic-linux-20261007.json) examples8checks each/fullresult hashes equal after platformfile/stage-timings exclusion; actual retrieval/scoring, no model/TCP calls. Model/probe/review/vector paths mocked; software integration not independently evaluated detection. Historical default report equality/old negative hashes preserved. WL-073.
+
 ## Integrated configuration/runtime replay (2026-10-07)
 
 E2-041/R6/RQ3: [contract/commands](INTEGRATED_REPLAY.md),34newcases/target149pass1deselected2.04s/XML1.897; [Windows full](../output/integration-full-windows-tests-20261007.xml)1240pass38skip29.03s/XML29.021, [Linux full](../output/integration-full-linux-tests-20261007.xml)1278pass104.13s/XML100.897,1278collected both/zero failures/errors. Lint122fileformat/bothpipchecks pass. Actual [Windows](../output/integration-synthetic-windows-20261007.json)/[Linux](../output/integration-synthetic-linux-20261007.json) fixed demos all6checks; full result equality excluding only platform-specific engine1.file, all hashes/launcher/checks agree. Components/context software evidence, no independent threat/calibrated fusion or research approval. Pending scanner commit/push a555b32 verified; WL-070.

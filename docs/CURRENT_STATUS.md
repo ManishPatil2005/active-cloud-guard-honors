@@ -1,5 +1,9 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest pipeline integration — 7 October 2026
+
+E2-042: [existing Engine1 pipeline with saved runtime context](PIPELINE_RUNTIME_INTEGRATION.md) implemented/software-tested. Explicit mode preserves retrieval/RAG/rejections/probes/policy/priorities and adds reviewed-only context references; no runtime-to-TCI conversion or automatic model alias mapping.28newcases/fullLinux1306pass/Windows1268pass38skip. Actual lexical retrieval/scoring/saved replay demonstrated with eight checks and no model/network calls; other optional local-stage paths mocked. Joint live/RAG/probe observations, ML/calibrated/continuous integration and independent effectiveness remain open. Original rule mode/baseline/stack untouched, genuine supervisor/data/labels/timing/coverage gates unchanged; WL-073/ADR-061.
+
 Publication completed7October: integration source9320511 and incident-history6754fcc on GitHub; local/remote6754fcc equality/clean verified after one per-command HTTP/1.1 retry. Prior three default pushes server-rejected, cause unknown/failures retained in INC-064/WL-072. No engine/source/test/data or persistent Git configuration changes in publication recovery; capability/test acceptance below unchanged. Closure-documentation commit verified separately in Git/chat.
 
 ## Latest integration step — 7 October 2026

@@ -1,5 +1,7 @@
 # Engine 1 and Engine 2 offline context integration
 
+Current extension E2-042: [existing Engine1 pipeline mode](PIPELINE_RUNTIME_INTEGRATION.md) is now implemented as an explicit option, preserving retrieval/model/probe/policy/priorities and reviewed model-context references. The default rule-mode contract and historical checkpoint below remain intact; pipeline mode can request existing local model/vector/TCP operations. Calibrated fusion/ML/continuous integration remain open.
+
 **Publication completed7October:** source9320511 and incident-history6754fcc published; local/GitHub main6754fcc70076e93a531d292c8c44761ccd90fee7 equality/clean verified. Three default pushes server-rejected; one per-command HTTP/1.1 push succeeded. Cause unknown, no persistent settings/history change; INC-064/WL-072 preserve earlier incident checkpoints below. Closure-documentation commit publication verified separately in Git/chat.
 
 Implemented 7 October 2026. E2-041 connects R6 evidence-linked prioritization preparation and RQ3 runtime context through a bounded saved-input workflow. This is the first integration step: configuration **rule-baseline** findings and statistical runtime replay appear in one inspectable report. Model-assisted Engine1 auditing, active verification, calibrated fusion and continuously collected runtime integration remain separate work.

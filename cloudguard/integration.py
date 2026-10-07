@@ -17,6 +17,14 @@ SELECTED_SOURCES = (
     "verification.py",
     "cache.py",
 )
+PIPELINE_SOURCES = (
+    "pipeline.py",
+    "retrieval.py",
+    "llm.py",
+    "grounding.py",
+    "scoring.py",
+    "vector.py",
+)
 
 
 def _digest(path):
@@ -35,7 +43,29 @@ def replay(
     *,
     window_seconds=60,
     threshold=3.0,
+    engine1_pipeline=False,
+    kb=None,
+    model=None,
+    vector_index=None,
+    cache_dir=None,
+    timeout=180,
+    max_tokens=512,
+    policy=None,
+    reviews=None,
 ):
+    if type(engine1_pipeline) is not bool:
+        raise ValueError("engine1_pipeline must be a boolean")
+    if engine1_pipeline and kb is None:
+        raise ValueError("Engine1 pipeline integration requires a knowledge corpus")
+    if not engine1_pipeline and (
+        any(
+            value is not None
+            for value in (kb, model, vector_index, cache_dir, policy, reviews)
+        )
+        or timeout != 180
+        or max_tokens != 512
+    ):
+        raise ValueError("Engine1 options require explicit pipeline mode")
     if inventory is None:
         raise ValueError("integrated replay requires an inventory")
     if type(baseline_paths) not in (list, tuple) or not 1 <= len(baseline_paths) <= 20:
@@ -47,8 +77,16 @@ def replay(
         "observation": Path(observation),
         **{f"baseline_{i}": Path(path) for i, path in enumerate(baseline_paths)},
     }
+    if engine1_pipeline:
+        paths["knowledge"] = Path(kb)
+        for role, path in (("policy", policy), ("reviews", reviews)):
+            if path is not None:
+                paths[role] = Path(path)
     hashes = {role: _digest(path) for role, path in paths.items()}
-    sources = {name: Path(__file__).parent / name for name in SELECTED_SOURCES}
+    sources = {
+        name: Path(__file__).parent / name
+        for name in SELECTED_SOURCES + (PIPELINE_SOURCES if engine1_pipeline else ())
+    }
     source_hashes = {name: _digest(path) for name, path in sources.items()}
     assets, inventory_hash = load_inventory(inventory)
     static = scan(configuration)
@@ -70,7 +108,42 @@ def replay(
         hashes[role] != value for role, value in component_hashes.items()
     ):
         raise ValueError("integrated replay component input mismatch")
+    if engine1_pipeline:
+        # Validate saved runtime and all frozen inputs before optional active stages.
+        if any(_digest(path) != hashes[role] for role, path in paths.items()):
+            raise ValueError("integrated replay input changed before Engine1 pipeline")
+        if any(_digest(path) != source_hashes[name] for name, path in sources.items()):
+            raise ValueError(
+                "integrated replay implementation changed before Engine1 pipeline"
+            )
+        from .pipeline import run
+
+        static = run(
+            configuration,
+            kb,
+            inventory,
+            model,
+            vector_index,
+            cache_dir=cache_dir,
+            timeout=timeout,
+            max_tokens=max_tokens,
+            policy=policy,
+            reviews=reviews,
+        )
+        if (
+            static["configuration_bytes_sha256"] != hashes["configuration"]
+            or static["inventory_sha256"] != hashes["inventory"]
+        ):
+            raise ValueError("Engine1 pipeline input mismatch")
+        if len(static["findings"]) > FINDING_LIMIT:
+            raise ValueError("integrated replay exceeds 1000 configuration findings")
     findings, windows = defaultdict(list), defaultdict(list)
+    model_verifications = defaultdict(list)
+    if engine1_pipeline:
+        for index, verification in enumerate(static["model_verifications"]):
+            model_verifications[verification["approval"]["inventory_asset_id"]].append(
+                index
+            )
     for finding in static["findings"]:
         findings[finding["asset_id"]].append(finding["id"])
     for index, window in enumerate(runtime["windows"]):
@@ -107,11 +180,13 @@ def replay(
                 combined_priority=None,
             )
         )
+        if engine1_pipeline:
+            contexts[-1]["model_verification_indices"] = model_verifications[asset]
     if any(_digest(path) != hashes[role] for role, path in paths.items()):
         raise ValueError("integrated replay input changed")
     if any(_digest(path) != source_hashes[name] for name, path in sources.items()):
         raise ValueError("integrated replay selected implementation changed")
-    return dict(
+    report = dict(
         protocol="integrated_configuration_runtime_replay_v1",
         mode="offline_context_join",
         evidence_level="software_context_only",
@@ -140,3 +215,19 @@ def replay(
             "Supplied sensor exports retain their development/provenance limits; this command cannot authorize real evaluation.",
         ],
     )
+    if engine1_pipeline:
+        observed_assets = {
+            f["asset_id"] for f in static["findings"] if f["probe"] is not None
+        } | {v["approval"]["inventory_asset_id"] for v in static["model_verifications"]}
+        report.update(
+            protocol="integrated_engine1_pipeline_runtime_replay_v1",
+            mode="engine1_pipeline_with_saved_runtime_context",
+            engine1_pipeline_executed=True,
+            engine1_model_requested=model is not None,
+            active_verification_asset_count=len(observed_assets),
+        )
+        report["limitations"][0] = (
+            "Engine1 pipeline retains its retrieval/model/probe/priority/review evidence; "
+            "requested model and TCP stages can perform existing local operations."
+        )
+    return report

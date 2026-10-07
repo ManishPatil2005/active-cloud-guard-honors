@@ -76,6 +76,19 @@ def main():
     ir.add_argument("--inventory", required=True)
     ir.add_argument("--window-seconds", type=int, default=60)
     ir.add_argument("--threshold", type=float, default=3.0)
+    ir.add_argument(
+        "--engine1-pipeline",
+        action="store_true",
+        help="Run the existing Engine1 pipeline; explicit model/probe stages may access local services",
+    )
+    ir.add_argument("--kb")
+    ir.add_argument("--model")
+    ir.add_argument("--vector-index")
+    ir.add_argument("--cache-dir")
+    ir.add_argument("--timeout", type=float, default=180)
+    ir.add_argument("--max-tokens", type=int, default=512)
+    ir.add_argument("--policy")
+    ir.add_argument("--reviews")
     args = parser.parse_args()
     try:
         if args.command == "scan":
@@ -133,6 +146,15 @@ def main():
                 args.inventory,
                 window_seconds=args.window_seconds,
                 threshold=args.threshold,
+                engine1_pipeline=args.engine1_pipeline,
+                kb=args.kb,
+                model=args.model,
+                vector_index=args.vector_index,
+                cache_dir=args.cache_dir,
+                timeout=args.timeout,
+                max_tokens=args.max_tokens,
+                policy=args.policy,
+                reviews=args.reviews,
             )
         elif args.command == "verify-service":
             from .service_probe import verify_service

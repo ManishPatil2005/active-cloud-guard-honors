@@ -1,5 +1,11 @@
 # Progress Execution
 
+## Latest development — existing Engine1 pipeline connected to runtime context
+
+The combined command can now use the existing Engine1 pipeline, so its retrieved sources, model output, probe observations, policy review and existing priority stay alongside Engine2's saved runtime windows. This is new Python/CLI integration; the default rule-only command still works.
+
+[Baby steps and commands](PIPELINE_RUNTIME_INTEGRATION.md) provide a fixed example that actually performs local retrieval/scoring without a model or network call. It passes8checks on Windows/Linux; fullsuiteLinux1306pass/Windows1268pass38skip. Model/probe/review paths are tested with synthetic mocks. Runtime does not change priority or establish an attack; real qualified data/timing/coverage/independent labels/calibration remain research work.
+
 ## Latest development — see both engines in one offline report
 
 The new integrated-replay command scans a configuration and reads separate baseline/observation captures, then presents their findings and runtime windows by asset. You can now see a configuration issue beside runtime context in one report. Missing windows stay unknown; findings are preserved even when a runtime score is low. [Baby steps, example and exact commands](INTEGRATED_REPLAY.md).

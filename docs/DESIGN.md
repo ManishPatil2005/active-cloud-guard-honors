@@ -1,5 +1,7 @@
 # CLI and evidence interface design
 
+Integrated-replay now supports opt-in --engine1-pipeline with required --kb and existing --model/--vector-index/--cache-dir/--timeout/--max-tokens/--policy/--reviews. Options require explicit mode; output labels actual pipeline execution/requested model/distinct probed assets, preserves full reports and adds reviewed model-verification references to contexts. Existing rule mode remains offline; pipeline mode may use requested local services. Stable distinct pipeline protocol, null combined priority/false joint authority. [Contract/examples](PIPELINE_RUNTIME_INTEGRATION.md).
+
 Engine 2 adds `runtime-replay CAPTURE --baseline BASELINE --inventory INVENTORY` with optional window size and threshold. Output explicitly identifies observation_only_replay, source provenance, unknown coverage, insufficient baseline/deviation states and an empty actions_executed list. It is not a live monitor. Full contract: ENGINE2_FOUNDATION.md.
 
 V2.2 adds `verify-service PATH --inventory FILE --service redis|postgres`. Its report contains the scan, deployment_before/after, service_observation and usable attribution flag. Identity mismatch does not become a clean verdict. See ENGINE1_BASELINE.md.
