@@ -1,5 +1,9 @@
 # Research and engineering task ledger
 
+E2-041 publication follow-up: local feature commit9320511 exists; first GitHub push server-rejected, remotea555b32 confirmed afterward. Preserve INC-064/WL-071 and retry normal push after documentation review; source acceptance1278cases remains verified. Do not call local commit GitHub publication before remote equality is observed.
+
+Publication retry observed: second normal push server-rejected too, subsequent remote stilla555b32. Source/task software acceptance remains complete; GitHub integration publication pending external recovery. No automatic monitoring/history rewrite implied.
+
 E2-041/R6/RQ3: [offline integration](docs/INTEGRATED_REPLAY.md) implemented/software-tested. Configuration rule findings and saved statistical replay share a declared-ID context report; every finding/window and missing/insufficient/unmapped state retained. Opt-in CLI/fixed exclusive demo,34newcases/fullLinux1278pass/Windows1240pass38skip. Combined priority null/deployment equivalence false; full RAG/probe/ML/TCI/live integration and independent evaluation remain open. Pending scanner publication completed as a555b32; WL-070/ADR-060/INC-063.
 
 QA-002/M3-004: [Compose environment-list validation](docs/COMPOSE_ENVIRONMENT_VALIDATION.md). Reject duplicate names/nonstring entries/empty names; preserve valid mapping/list findings and CLI refusal before downstream work. Fifteen new cases, original and first-fix failures preserved; final verification in WL-069/contract. Scientific approval/data/evaluation gates unchanged.

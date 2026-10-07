@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Preserve rejected integration publication evidence
+
+- Record first GitHub push Internal Server Error and observed local/remote mismatch for integration commit9320511; upstream cause unknown.
+- Preserve source/test receipts and local history; regular retry/remote equality remains a separately verified publication step. INC-064/WL-071; no detector/dependency/data changes.
+- One normal retry also server-rejected; subsequent remote unchanged. Record both request/time observations and status-page limits; integration publication remains pending, local commits retained.
+
 ## 2026-10-07 - Integrate configuration and saved runtime review context
 
 - Add integrated-replay library/CLI: preserve complete rule-baseline and statistical-runtime outputs, associate exact declared asset IDs, retain missing/insufficient/unmapped cases and null combined priority.
