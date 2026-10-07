@@ -94,6 +94,39 @@ def test_cache_expiry_integrity_and_capacity(tmp_path):
         cache.path("../escape")
 
 
+def test_cache_invalid_write_preserves_entries(tmp_path):
+    cache = AuditCache(tmp_path, max_entries=1)
+    key = fingerprint("existing")
+    cache.put(key, {"value": 1})
+    original = cache.path(key).read_bytes()
+    with pytest.raises(ValueError):
+        cache.put("../invalid", {"value": 2})
+    assert cache.path(key).read_bytes() == original
+
+
+def test_cache_replacement_preserves_other_entries(tmp_path):
+    cache = AuditCache(tmp_path, max_entries=2)
+    first, second = fingerprint("first"), fingerprint("second")
+    cache.put(first, {"value": 1})
+    cache.put(second, {"value": 2})
+    cache.put(second, {"value": 3})
+    assert cache.get(first) == {"value": 1}
+    assert cache.get(second) == {"value": 3}
+    assert len(list(tmp_path.glob("*.json"))) == 2
+
+
+def test_cache_failed_replacement_preserves_entries(tmp_path):
+    cache = AuditCache(tmp_path, max_entries=1)
+    key = fingerprint("existing")
+    cache.put(key, {"value": 1})
+    original = cache.path(key).read_bytes()
+    with patch("cloudguard.cache.os.replace", side_effect=OSError):
+        with pytest.raises(OSError):
+            cache.put(key, {"value": 2})
+    assert cache.path(key).read_bytes() == original
+    assert list(tmp_path.iterdir()) == [cache.path(key)]
+
+
 def test_cached_response_revalidated(tmp_path):
     with (
         patch("cloudguard.llm.model_identity", return_value="digest"),

@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-001 / V2-002: [selected audit and cache refinement](docs/REFINEMENT_AUDIT_20261007.md). Three reproduced regressions fixed: invalid writes, replacement at capacity and failed replacement preserve valid cache entries. Historical Engine1 baseline untouched; current maintenance code changed, not a new engine. Whole-suite/dependency/style/publication evidence and execution-context negatives in WL-068/INC-059/060; actual supervisor/data/independent evaluation gates remain pending.
+
 DOC-006 current-state clarification completed: compact MEMORY.md replaces accumulated old “Current” headings, exact prior bytes saved in MEMORY_HISTORY_20261007.md. E2-040follow-up four predeclared Windows fresh import processes all pass, originalfaultcauseunknown/no fitting or new repair. No executable/test/dataset changes; actual human/context/data gates still next, prior fullsuite not rerun. WL-067/ADR-057/INC-058.
 
 7October E2-040 closes reproduced optional-backend diagnostic gap, not original intermittentWindowscause:32newcases/verified129target/fullLinux1226pass/Windows1188pass38skips, preserved8injected negatives/oldnativefailure. No algorithm/dependency/defaultstack/authority change. Real supervisor/context/data/independent labels/calibration/evaluation still pending; WL-066/INC-057/INC-056 distinction maintained.

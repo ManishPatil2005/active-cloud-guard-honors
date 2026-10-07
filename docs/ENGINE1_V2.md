@@ -1,5 +1,9 @@
 # Engine 1 v2: bounded repeat-work efficiency
 
+## Maintenance refinement — 7 October 2026
+
+QA-001/V2-002: validate write destination before side effects, exclude replacement key from eviction and evict only after successful publication. Three reproduced failures/regression fixes and whole-suite receipts: [audit](REFINEMENT_AUDIT_20261007.md). Historical engine1-v2.2 baseline/tag and old smoke results unchanged; current maintenance source differs, not a measured new engine version. Sequential capacity can briefly exceed its bound between replacement and eviction; eviction failure may leave excess entries/new response and existing warning. No transaction/concurrency/crash guarantee added.
+
 Date: 2026-09-23. Engine report version 2.0; Python package release 0.2.0 remains a research prototype, not a production-stability claim.
 
 ## Scope and acceptance

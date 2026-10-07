@@ -1,5 +1,11 @@
 # Progress Execution
 
+## Latest maintenance — cache safety and full regression checks
+
+We found and reproduced three problems in Engine 1's optional saved-response cache: rejected writes or replacement could delete good saved entries. These are now fixed and tested; they are not newly discovered cloud vulnerabilities. Windows: 1,191 tests passed/38 skipped; Linux: 1,229 passed. Style/dependency checks passed. The restricted Windows run failed because host-dependent assumptions were not available; its evidence is preserved rather than deleted. [Readable report, exact commands and beginner check steps](REFINEMENT_AUDIT_20261007.md).
+
+Both engines keep the existing Python architecture. The old Engine1 baseline remains preserved; current code has this maintenance refinement. Engine2's statistical and synthetic ML comparators are implemented, not independently proven detectors. Supervisor approval and qualified data/independent labels/timing/coverage/calibration are still needed. No live service, sensor, cloud or clock action was taken.
+
 ## Current maintenance step — clearer status and bounded import check
 
 Four fresh Windows Python processes imported both optional model backends successfully, in both orders twice. No model was fitted and no package/service/clock/sensor setting changed. This did **not** reproduce or explain the earlier intermittent failure. [Observed facts and exact command](BACKEND_IMPORT_OBSERVATION_20261007.md).

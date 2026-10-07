@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-07 - Preserve Engine 1 cache entries during rejected or replacement writes
+
+- Validate cache key before filesystem changes, exclude replacement target from eviction and evict only after successful atomic publication; no detector/scoring/stack change.
+- Add three tests with preserved before-fix failures; execute fresh full Windows/Linux regression checks and retain restricted-execution failures separately.
+- Document selected audit scope/commands/limits and current state; genuine supervisor/data/independent evaluation gates remain open. WL-068/ADR-058/INC-059/060.
+
 ## 2026-10-07 - Clarify live project memory and preserve exact historical snapshot
 
 - Preserve prior56,968byte MEMORY.md as same-directory immutable historical snapshot with verified SHA/Git equality; make live MEMORY.md one concise current state and record chronology in WORK_LOG/CHANGELOG/Git.

@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-059 - 2026-10-07 - Cache eviction preceded validation and atomic replacement
+
+**Evidence/symptom:** three added regression cases fail before fix, raw cache-refinement-negative-20261007.xml retained/SHA in [audit](REFINEMENT_AUDIT_20261007.md). Invalid key removes valid entry; replacement at capacity removes unrelated entry; injected os.replace error removes old bytes. **Cause confidence:** high, direct deterministic reproduction/control flow. **Fix:** validate destination first, exclude target from victims, evict after publication. **Verification:** all three pass in the fresh post-fix Windows full suite; Linux receipt recorded in audit. **Limits:** trusted sequential cache; no concurrency/hostile-filesystem/crash durability and possible overcapacity after eviction error. Does not change model/detection or solve original INC-056.
+
+### INC-060 - 2026-10-07 - Restricted execution invalidated host-dependent regression assumptions
+
+**Evidence:** initial restricted Windows1229cases:161fail/1030pass/38skip, saved rawXML; inspected failures include WinError5 strict path resolution, failed inert child startup and loopback inconclusive. Restricted WSL returned Wsl/E_ACCESSDENIED before tests. **Cause confidence:** strong execution-context evidence, not per-case exhaustive diagnosis: unchanged source/tests pass normal-host Windows1191/38skip, no packages or safeguards changed. **Action:** requested normal-host access for existing inert Windows/Linux tests and dependency inspection, fresh output names. **Limits:** do not count as161 code fixes or erase original receipt; Linux/final results linked audit. No service/workload/clock/cloud action and no causal attribution to historical import failure.
+
 ### INC-058 - 2026-10-07 - Live memory mixed historical snapshots under competing Current headings
 
 **Symptom/evidence:** old MEMORY.md56,968bytes included five initial dated “Current update” headings plus older Current work/Next scientific gate sections. Historical status/test totals were preserved but could be selected as current, aggravating the user's explicit concern about hallucinated engine status. Direct size/heading search and priorSHA4e51af83e38e11bb9347eb3e1f27d59440d67397417a18e12096fcea2ba89c9a establish structure; not proof an agent's earlier wrong statement was caused by this file.

@@ -1,5 +1,9 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest selected refinement audit — 7 October 2026
+
+QA-001/V2-002: [cache write-preservation refinement and cross-platform audit](REFINEMENT_AUDIT_20261007.md). Three before-fix regressions reproduced and fixed: key validation before changes, no replacement-target eviction, publication before capacity eviction. Historical engine1-v2.2 baseline/tag unchanged; current working code has a narrow maintenance fix, not a new detector version. Whole-suite receipts and restricted-context failures preserved in the audit/WL-068. No Engine2 algorithm/stack/default permission change, exhaustive security-review claim or independent effectiveness result. Actual supervisor approval/qualified data/context/humans/timing/calibration/overhead/integration remain pending; previous dated counts below are historical.
+
 ## Latest maintenance and observation — 7 October 2026
 
 DOC-006: [MEMORY](MEMORY.md) is now a single concise current summary; exact older snapshot preserved as [MEMORY_HISTORY_20261007](MEMORY_HISTORY_20261007.md),56,968bytes/SHA4e51af83e38e11bb9347eb3e1f27d59440d67397417a18e12096fcea2ba89c9a. Old “Current update/work” headings are historical, not competing present-state sources. No source/model/data/architecture change or historical evidence deletion.

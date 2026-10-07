@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.684" timestamp="2026-10-07T09:31:42.488960+05:30" hostname="Welcome"><testcase classname="tests.test_v2" name="test_cache_invalid_write_preserves_entries" time="0.005"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'D:\\research f1\\tmp\\cache-negative-20261007\\test_cache_invalid_write_prese0\\efa9432de5c66ac7dc5926fd2c1027eec53991a46a90215b7b2963467d0dc4bd.json'">tmp_path = WindowsPath('D:/research f1/tmp/cache-negative-20261007/test_cache_invalid_write_prese0')
+
+    def test_cache_invalid_write_preserves_entries(tmp_path):
+        cache = AuditCache(tmp_path, max_entries=1)
+        key = fingerprint("existing")
+        cache.put(key, {"value": 1})
+        original = cache.path(key).read_bytes()
+        with pytest.raises(ValueError):
+            cache.put("../invalid", {"value": 2})
+&gt;       assert cache.path(key).read_bytes() == original
+
+tests\test_v2.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('D:/research f1/tmp/cache-negative-20261007/test_cache_invalid_write_prese0/efa9432de5c66ac7dc5926fd2c1027eec53991a46a90215b7b2963467d0dc4bd.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'D:\\research f1\\tmp\\cache-negative-20261007\\test_cache_invalid_write_prese0\\efa9432de5c66ac7dc5926fd2c1027eec53991a46a90215b7b2963467d0dc4bd.json'
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_v2" name="test_cache_replacement_preserves_other_entries" time="0.005"><failure message="AssertionError: assert None == {'value': 1}&#10; +  where None = get('de5f2cbf4c10a0d146f2a671aac363e8640fefc469ad42ac25364f19e4bc194f')&#10; +    where get = &lt;cloudguard.cache.AuditCache object at 0x0000013272AD38C0&gt;.get">tmp_path = WindowsPath('D:/research f1/tmp/cache-negative-20261007/test_cache_replacement_preserv0')
+
+    def test_cache_replacement_preserves_other_entries(tmp_path):
+        cache = AuditCache(tmp_path, max_entries=2)
+        first, second = fingerprint("first"), fingerprint("second")
+        cache.put(first, {"value": 1})
+        cache.put(second, {"value": 2})
+        cache.put(second, {"value": 3})
+&gt;       assert cache.get(first) == {"value": 1}
+E       AssertionError: assert None == {'value': 1}
+E        +  where None = get('de5f2cbf4c10a0d146f2a671aac363e8640fefc469ad42ac25364f19e4bc194f')
+E        +    where get = &lt;cloudguard.cache.AuditCache object at 0x0000013272AD38C0&gt;.get
+
+tests\test_v2.py:113: AssertionError</failure></testcase><testcase classname="tests.test_v2" name="test_cache_failed_replacement_preserves_entries" time="0.005"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'D:\\research f1\\tmp\\cache-negative-20261007\\test_cache_failed_replacement_0\\efa9432de5c66ac7dc5926fd2c1027eec53991a46a90215b7b2963467d0dc4bd.json'">tmp_path = WindowsPath('D:/research f1/tmp/cache-negative-20261007/test_cache_failed_replacement_0')
+
+    def test_cache_failed_replacement_preserves_entries(tmp_path):
+        cache = AuditCache(tmp_path, max_entries=1)
+        key = fingerprint("existing")
+        cache.put(key, {"value": 1})
+        original = cache.path(key).read_bytes()
+        with patch("cloudguard.cache.os.replace", side_effect=OSError):
+            with pytest.raises(OSError):
+                cache.put(key, {"value": 2})
+&gt;       assert cache.path(key).read_bytes() == original
+
+tests\test_v2.py:126: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('D:/research f1/tmp/cache-negative-20261007/test_cache_failed_replacement_0/efa9432de5c66ac7dc5926fd2c1027eec53991a46a90215b7b2963467d0dc4bd.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'D:\\research f1\\tmp\\cache-negative-20261007\\test_cache_failed_replacement_0\\efa9432de5c66ac7dc5926fd2c1027eec53991a46a90215b7b2963467d0dc4bd.json'
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase></testsuite></testsuites>

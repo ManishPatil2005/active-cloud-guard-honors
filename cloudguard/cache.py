@@ -45,6 +45,7 @@ class AuditCache:
             return None
 
     def put(self, key, response):
+        target = self.path(key)
         self.directory.mkdir(parents=True, exist_ok=True)
         entry = dict(
             key=key,
@@ -64,10 +65,10 @@ class AuditCache:
             and p.is_file()
             and not p.is_symlink()
         ]
-        for old in sorted(files, key=lambda p: p.stat().st_mtime)[
-            : max(0, len(files) - self.max_entries + 1)
-        ]:
-            old.unlink()
+        others = [p for p in files if p != target]
+        victims = sorted(others, key=lambda p: p.stat().st_mtime)[
+            : max(0, len(others) + 1 - self.max_entries)
+        ]
         name = None
         try:
             with tempfile.NamedTemporaryFile(
@@ -75,7 +76,10 @@ class AuditCache:
             ) as stream:
                 name = stream.name
                 stream.write(payload)
-            os.replace(name, self.path(key))
+            os.replace(name, target)
+            # Evict only after publication succeeds; never evict the replaced key.
+            for old in victims:
+                old.unlink()
         finally:
             if name and Path(name).exists():
                 Path(name).unlink()
