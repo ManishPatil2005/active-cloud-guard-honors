@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-065 - 2026-10-07 - New integration test used nonexistent package entry point
+
+Symptom: final target78pass/1fail, preserved output/ml-join-final-target-windows-20261007.xml. New subprocess test invoked `python -m cloudguard`; diagnostic reproduction explicitly reported no cloudguard.__main__. Existing tests/CLI use cloudguard.cli. Cause confidence high: incorrect test command, not failed model/application operation. Fix: change test to `python -m cloudguard.cli`. Verification: corrected target79pass/8.35s, output/ml-join-corrected-target-windows-20261007.xml; actual CLI/runner/nooverwrite covered. Earlier full suites and both demos passed. No application shim or negative receipt overwrite; unrelated intermittent native import cause remains unknown.
+
 ### INC-064 - 2026-10-07 - GitHub rejected integration push with Internal Server Error
 
 **Publication recovered / 7 October:** third default push server-rejected, requestFFFB:17ED92:84443D:8E7A78:6AC67AB5/time2026-10-07T17:00:38Z. One alternate `git -c http.version=HTTP/1.1 push origin main` succeeded advancinga555b32..6754fcc; subsequent local/remote6754fcc70076e93a531d292c8c44761ccd90fee7 equality/clean observed. Integration source and prior incident history published. Temporary per-command option, no persistent settings/history/credentials change. Recovery verified; precise upstream cause still unknown, cannot isolate transport vs time/server changes from this single success. Earlier observations below preserved unchanged; WL-072.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-07 - Connect synthetic runtime ML comparators to integrated replay
+
+- Add explicit optional Isolation Forest/autoencoder selection to both existing integration modes and CLI; preserve component scores/abstentions and exact window references.
+- Refuse sensor declarations before fitting/active pipeline, verify component identity/counts/source hashes and stop on model failures; no fusion/real-study authority.
+- Extend fresh-output fixed runner; both actual nine-check synthetic examples pass. Seventeen new cases; full Windows1284pass38skip/Linux1322pass before final CLI case, final target79pass. Preserve failed test-entry-point receipt/correction INC-065.
+- Same Python/Compose/Ollama/Chroma architecture and model algorithms; WL-074/ADR-062 and updated current/formal/nontechnical documentation.
+
 ## 2026-10-07 - Connect the existing Engine 1 pipeline to runtime context
 
 - Add explicit pipeline mode/required knowledge corpus and existing model/vector/cache/policy/review/budget options to integrated replay.

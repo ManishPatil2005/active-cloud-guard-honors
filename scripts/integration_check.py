@@ -16,6 +16,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
     parser.add_argument(
+        "--runtime-ml", choices=["isolation-forest", "autoencoder", "both"]
+    )
+    parser.add_argument(
         "--engine1-pipeline",
         action="store_true",
         help="Fixed no-model/non-network configuration example using the existing pipeline",
@@ -32,10 +35,23 @@ def main():
                         if args.engine1_pipeline
                         else "data/development/redis-all.yaml"
                     ),
-                    [ROOT / "data/runtime/baseline-synthetic.json"],
-                    ROOT / "data/runtime/observation-synthetic.json",
+                    [
+                        ROOT
+                        / (
+                            "data/runtime/ml-baseline-synthetic.json"
+                            if args.runtime_ml
+                            else "data/runtime/baseline-synthetic.json"
+                        )
+                    ],
+                    ROOT
+                    / (
+                        "data/runtime/ml-observation-synthetic.json"
+                        if args.runtime_ml
+                        else "data/runtime/observation-synthetic.json"
+                    ),
                     ROOT / "testbed/inventory.json",
                     engine1_pipeline=args.engine1_pipeline,
+                    runtime_ml=args.runtime_ml,
                     kb=ROOT / "knowledge/sources.json"
                     if args.engine1_pipeline
                     else None,
@@ -85,6 +101,28 @@ def main():
                         result["engine1"]["rag"] is None
                         and result["active_verification_asset_count"] == 0
                     )
+                if args.runtime_ml:
+                    checks["expected_runtime_states"] = (
+                        len(result["engine2"]["windows"]) == 3
+                    )
+                    checks["exact_context"] = redis["runtime_window_indices"] == [
+                        0,
+                        1,
+                        2,
+                    ] and redis["configuration_finding_ids"] == [
+                        result["engine1"]["findings"][0]["id"]
+                    ]
+                    checks["separate_comparators"] = all(
+                        report["scored_window_count"] + report["abstained_window_count"]
+                        == 3
+                        and all(
+                            w["binary_prediction"] is None for w in report["windows"]
+                        )
+                        and redis["runtime_comparator_window_indices"][name]
+                        == [0, 1, 2]
+                        and report["real_data_fitting_authorized"] is False
+                        for name, report in result["runtime_comparators"].items()
+                    )
                 code = 0 if all(checks.values()) else 1
                 report = dict(
                     executed_at=datetime.now(timezone.utc).isoformat(),
@@ -102,6 +140,10 @@ def main():
                     error_type=type(error).__name__,
                     actions_executed=[],
                 )
+                if args.runtime_ml:
+                    from cloudguard.runtime_ml import backend_failure_fields
+
+                    report.update(backend_failure_fields(error))
             json.dump(report, stream, indent=2)
             stream.write("\n")
         print(json.dumps(dict(status=report["status"])))

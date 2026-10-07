@@ -1,5 +1,9 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest synthetic ML integration — 7 October 2026
+
+E2-043: [existing synthetic IF/autoencoder connected](SYNTHETIC_ML_INTEGRATION.md) to both integrated modes, preserving original reports/scores/abstentions and exact windows. Synthetic declarations required before fitting/active pipeline; no priority fusion/real fitting authority. FullWindows1284pass38skip/Linux1322pass before final launcher test; final corrected target79pass. Both nine-check examples actually fit synthetic models and retrieve/score locally, no inference/TCP. Older ML-integration-open notes below now concern calibrated/real-data integration. Scientific gates unchanged; WL-074/ADR-062/INC-065.
+
 ## Latest pipeline integration — 7 October 2026
 
 E2-042: [existing Engine1 pipeline with saved runtime context](PIPELINE_RUNTIME_INTEGRATION.md) implemented/software-tested. Explicit mode preserves retrieval/RAG/rejections/probes/policy/priorities and adds reviewed-only context references; no runtime-to-TCI conversion or automatic model alias mapping.28newcases/fullLinux1306pass/Windows1268pass38skip. Actual lexical retrieval/scoring/saved replay demonstrated with eight checks and no model/network calls; other optional local-stage paths mocked. Joint live/RAG/probe observations, ML/calibrated/continuous integration and independent effectiveness remain open. Original rule mode/baseline/stack untouched, genuine supervisor/data/labels/timing/coverage gates unchanged; WL-073/ADR-061.

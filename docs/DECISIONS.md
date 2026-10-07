@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-062 - 2026-10-07 - Connect existing synthetic models without score fusion
+
+E2-043/RQ3. Explicit selection reuses current bounded baseline-only models and preserves complete reports. Reject non-synthetic declarations before fits/active pipeline, validate component input/source/window/count consistency. Exact window references, not score conversion. Parent threshold stays separate from nested default3. Consequence: optional existing pinned backend required, failures propagate/abstentions retained, synthetic provenance remains declared. No architecture/algorithm/new engine or real research authority. Contract/test evidence: SYNTHETIC_ML_INTEGRATION.md.
+
 ## ADR-061 - 2026-10-07 - Reuse the Engine1 pipeline through an explicit integration mode
 
 E2-042/R4/R5/R6/RQ3. Reuse pipeline.run rather than duplicate retrieval/model/verification/scoring logic or silently enable it in offline rule mode. Require exact mode flag/knowledge corpus, refuse ignored stage options, validate runtime/frozen inputs/sources before optional stages and preserve full component reports. Model context links only approved inventory mappings; retain null combined priority because timing/identity/calibration remain unqualified. Selected source set5default/11pipeline, not authenticated closure. Fixed auth-only fixture demonstrates actual retrieval/scoring without live model/TCP, while other paths are mocked. Consequences: explicit pipeline mode can do original local operations and late rejection cannot undo effects; trusted operator/input/private-report constraints retained. No new engine/framework/default algorithm. Evidence in PIPELINE_RUNTIME_INTEGRATION.md/WL-073.

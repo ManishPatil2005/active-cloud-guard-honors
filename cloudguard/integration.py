@@ -52,7 +52,13 @@ def replay(
     max_tokens=512,
     policy=None,
     reviews=None,
+    runtime_ml=None,
 ):
+    if runtime_ml is not None and (
+        type(runtime_ml) is not str
+        or runtime_ml not in ("isolation-forest", "autoencoder", "both")
+    ):
+        raise ValueError("invalid synthetic comparator selection")
     if type(engine1_pipeline) is not bool:
         raise ValueError("engine1_pipeline must be a boolean")
     if engine1_pipeline and kb is None:
@@ -83,9 +89,18 @@ def replay(
             if path is not None:
                 paths[role] = Path(path)
     hashes = {role: _digest(path) for role, path in paths.items()}
+    ml_sources = (
+        ("runtime_ml.py", "runtime_autoencoder.py")
+        if runtime_ml in ("autoencoder", "both")
+        else ("runtime_ml.py",)
+        if runtime_ml
+        else ()
+    )
     sources = {
         name: Path(__file__).parent / name
-        for name in SELECTED_SOURCES + (PIPELINE_SOURCES if engine1_pipeline else ())
+        for name in SELECTED_SOURCES
+        + (PIPELINE_SOURCES if engine1_pipeline else ())
+        + ml_sources
     }
     source_hashes = {name: _digest(path) for name, path in sources.items()}
     assets, inventory_hash = load_inventory(inventory)
@@ -108,6 +123,55 @@ def replay(
         hashes[role] != value for role, value in component_hashes.items()
     ):
         raise ValueError("integrated replay component input mismatch")
+    comparators = {}
+    if runtime_ml:
+        if any(
+            c["source"] != "synthetic"
+            for c in [*runtime["baseline"], runtime["observation"]]
+        ):
+            raise ValueError("integrated ML accepts declared synthetic data only")
+        if any(_digest(path) != hashes[role] for role, path in paths.items()):
+            raise ValueError("integrated replay input changed before synthetic fitting")
+        if any(_digest(path) != source_hashes[name] for name, path in sources.items()):
+            raise ValueError(
+                "integrated replay implementation changed before synthetic fitting"
+            )
+        from .runtime_ml import compare_synthetic as isolation
+
+        selected = (
+            [("isolation_forest", isolation)]
+            if runtime_ml in ("isolation-forest", "both")
+            else []
+        )
+        if runtime_ml in ("autoencoder", "both"):
+            from .runtime_autoencoder import compare_synthetic as autoencoder
+
+            selected.append(("autoencoder", autoencoder))
+        keys = [(w["asset_id"], w["start_epoch"]) for w in runtime["windows"]]
+        for name, compare in selected:
+            result = compare(
+                baseline_paths, observation, inventory, window_seconds=window_seconds
+            )
+            nested = result["statistical_comparator"]
+            if any(
+                nested[field] != runtime[field]
+                for field in ("inventory_sha256", "baseline", "observation")
+            ):
+                raise ValueError("synthetic comparator input mismatch")
+            if [
+                (w["asset_id"], w["start_epoch"]) for w in result["windows"]
+            ] != keys or len(set(keys)) != len(keys):
+                raise ValueError("synthetic comparator window mismatch")
+            if result["scored_window_count"] + result["abstained_window_count"] != len(
+                keys
+            ):
+                raise ValueError("synthetic comparator count mismatch")
+            if any(
+                source_hashes[k] != v
+                for k, v in result["implementation_sha256"].items()
+            ):
+                raise ValueError("synthetic comparator implementation mismatch")
+            comparators[name] = result
     if engine1_pipeline:
         # Validate saved runtime and all frozen inputs before optional active stages.
         if any(_digest(path) != hashes[role] for role, path in paths.items()):
@@ -182,6 +246,15 @@ def replay(
         )
         if engine1_pipeline:
             contexts[-1]["model_verification_indices"] = model_verifications[asset]
+        if runtime_ml:
+            contexts[-1]["runtime_comparator_window_indices"] = {
+                name: [
+                    i
+                    for i, row in enumerate(result["windows"])
+                    if row["asset_id"] == asset
+                ]
+                for name, result in comparators.items()
+            }
     if any(_digest(path) != hashes[role] for role, path in paths.items()):
         raise ValueError("integrated replay input changed")
     if any(_digest(path) != source_hashes[name] for name, path in sources.items()):
@@ -229,5 +302,21 @@ def replay(
         report["limitations"][0] = (
             "Engine1 pipeline retains its retrieval/model/probe/priority/review evidence; "
             "requested model and TCP stages can perform existing local operations."
+        )
+    if runtime_ml:
+        report.update(
+            protocol="integrated_synthetic_runtime_comparators_v1",
+            runtime_ml_selection=runtime_ml,
+            runtime_comparators=comparators,
+            synthetic_fitting_performed=any(
+                c["synthetic_fitting_performed"] for c in comparators.values()
+            ),
+            synthetic_scoring_performed=any(
+                c["synthetic_scoring_performed"] for c in comparators.values()
+            ),
+        )
+        report["limitations"].append(
+            "Optional models fit declared synthetic baselines only. Scores and abstentions remain separate; "
+            "nested statistical comparators retain threshold 3 independently of the parent threshold."
         )
     return report

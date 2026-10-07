@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="79" time="3.995" timestamp="2026-10-07T23:35:57.812288+05:30" hostname="Welcome"><testcase classname="tests.test_integration_ml" name="test_invalid_selection[False]" time="0.000" /><testcase classname="tests.test_integration_ml" name="test_invalid_selection[True]" time="0.000" /><testcase classname="tests.test_integration_ml" name="test_invalid_selection[1]" time="0.000" /><testcase classname="tests.test_integration_ml" name="test_invalid_selection[selection3]" time="0.000" /><testcase classname="tests.test_integration_ml" name="test_invalid_selection[unknown]" time="0.000" /><testcase classname="tests.test_integration_ml" name="test_invalid_selection[]" time="0.000" /><testcase classname="tests.test_integration_ml" name="test_actual_comparators[isolation-forest]" time="1.030" /><testcase classname="tests.test_integration_ml" name="test_actual_comparators[autoencoder]" time="0.126" /><testcase classname="tests.test_integration_ml" name="test_actual_comparators[both]" time="0.282" /><testcase classname="tests.test_integration_ml" name="test_default_does_not_import_or_fit" time="0.016" /><testcase classname="tests.test_integration_ml" name="test_model_failure_prevents_pipeline" time="0.017" /><testcase classname="tests.test_integration_ml" name="test_sensor_declaration_refused_before_fit_or_pipeline" time="0.016" /><testcase classname="tests.test_integration_ml" name="test_component_mismatch_refused[window]" time="0.101" /><testcase classname="tests.test_integration_ml" name="test_component_mismatch_refused[count]" time="0.106" /><testcase classname="tests.test_integration_ml" name="test_component_mismatch_refused[input]" time="0.103" /><testcase classname="tests.test_integration_ml" name="test_component_mismatch_refused[source]" time="0.110" /><testcase classname="tests.test_integration_ml" name="test_ml_cli_and_fixed_runner" time="0.035"><failure message="subprocess.CalledProcessError: Command '['D:\\research f1\\.venv\\Scripts\\python.exe', '-m', 'cloudguard', 'integrated-replay', 'D:\\research f1\\data\\integration\\redis-auth-only.yaml', 'D:\\research f1\\data\\runtime\\ml-observation-synthetic.json', '--baseline', 'D:\\research f1\\data\\runtime\\ml-baseline-synthetic.json', '--inventory', 'D:\\research f1\\testbed\\inventory.json', '--runtime-ml', 'both']' returned non-zero exit status 1.">tmp_path = WindowsPath('D:/research f1/tmp/ml-join-final-target-20261007/test_ml_cli_and_fixed_runner0')
+
+    def test_ml_cli_and_fixed_runner(tmp_path):
+        command = [
+            sys.executable,
+            "-m",
+            "cloudguard",
+            "integrated-replay",
+            str(ROOT / "data/integration/redis-auth-only.yaml"),
+            str(ROOT / "data/runtime/ml-observation-synthetic.json"),
+            "--baseline",
+            str(ROOT / "data/runtime/ml-baseline-synthetic.json"),
+            "--inventory",
+            str(ROOT / "testbed/inventory.json"),
+            "--runtime-ml",
+            "both",
+        ]
+&gt;       cli = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=True)
+
+tests\test_integration_ml.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['D:\\research f1\\.venv\\Scripts\\python.exe', '-m', 'cloudguard', 'integrated-replay', 'D:\\research f1\\data\\integration\\redis-auth-only.yaml', 'D:\\research f1\\data\\runtime\\ml-observation-synthetic.json', ...],)
+kwargs = {'cwd': WindowsPath('D:/research f1'), 'stderr': -1, 'stdout': -1, 'text': True}
+process = &lt;Popen: returncode: 1 args: ['D:\\research f1\\.venv\\Scripts\\python.exe', ...&gt;
+stdout = ''
+stderr = "D:\\research f1\\.venv\\Scripts\\python.exe: No module named cloudguard.__main__; 'cloudguard' is a package and cannot be directly executed\n"
+retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output &amp; stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+&gt;               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['D:\\research f1\\.venv\\Scripts\\python.exe', '-m', 'cloudguard', 'integrated-replay', 'D:\\research f1\\data\\integration\\redis-auth-only.yaml', 'D:\\research f1\\data\\runtime\\ml-observation-synthetic.json', '--baseline', 'D:\\research f1\\data\\runtime\\ml-baseline-synthetic.json', '--inventory', 'D:\\research f1\\testbed\\inventory.json', '--runtime-ml', 'both']' returned non-zero exit status 1.
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py:571: CalledProcessError</failure></testcase><testcase classname="tests.test_integration" name="test_combined_components_and_declared_context" time="0.025" /><testcase classname="tests.test_integration" name="test_inventory_assets_with_no_runtime_remain_unknown" time="0.013" /><testcase classname="tests.test_integration" name="test_runtime_states_do_not_erase_static_findings[empty]" time="0.011" /><testcase classname="tests.test_integration" name="test_runtime_states_do_not_erase_static_findings[insufficient]" time="0.012" /><testcase classname="tests.test_integration" name="test_runtime_states_do_not_erase_static_findings[below_threshold]" time="0.012" /><testcase classname="tests.test_integration" name="test_unmapped_static_asset_and_nonnetwork_findings_retained" time="0.012" /><testcase classname="tests.test_integration" name="test_no_findings_does_not_create_clean_verdict" time="0.012" /><testcase classname="tests.test_integration" name="test_library_has_no_network_process_or_model_activity" time="0.011" /><testcase classname="tests.test_integration" name="test_existing_runtime_guards_apply_to_integration[same_id]" time="0.012" /><testcase classname="tests.test_integration" name="test_existing_runtime_guards_apply_to_integration[same_group]" time="0.012" /><testcase classname="tests.test_integration" name="test_existing_runtime_guards_apply_to_integration[overlap]" time="0.012" /><testcase classname="tests.test_integration" name="test_existing_runtime_guards_apply_to_integration[mixed_source]" time="0.012" /><testcase classname="tests.test_integration" name="test_existing_runtime_guards_apply_to_integration[invalid_event]" time="0.012" /><testcase classname="tests.test_integration" name="test_invalid_comparator_parameters[options0]" time="0.003" /><testcase classname="tests.test_integration" name="test_invalid_comparator_parameters[options1]" time="0.003" /><testcase classname="tests.test_integration" name="test_invalid_comparator_parameters[options2]" time="0.011" /><testcase classname="tests.test_integration" name="test_invalid_comparator_parameters[options3]" time="0.011" /><testcase classname="tests.test_integration" name="test_baseline_bounds[baselines0]" time="0.000" /><testcase classname="tests.test_integration" name="test_baseline_bounds[baselines1]" time="0.000" /><testcase classname="tests.test_integration" name="test_baseline_bounds[capture]" time="0.000" /><testcase classname="tests.test_integration" name="test_baseline_bounds[None]" time="0.000" /><testcase classname="tests.test_integration" name="test_inventory_required_and_invalid_inventory_rejected" time="0.003" /><testcase classname="tests.test_integration" name="test_ambiguous_configuration_rejected_before_runtime" time="0.003" /><testcase classname="tests.test_integration" name="test_wrapper_bounds_before_component_work" time="0.002" /><testcase classname="tests.test_integration" name="test_finding_bound" time="0.003" /><testcase classname="tests.test_integration" name="test_postflight_input_mutation_rejected[configuration]" time="0.012" /><testcase classname="tests.test_integration" name="test_postflight_input_mutation_rejected[baseline]" time="0.013" /><testcase classname="tests.test_integration" name="test_postflight_input_mutation_rejected[observation]" time="0.012" /><testcase classname="tests.test_integration" name="test_postflight_input_mutation_rejected[inventory]" time="0.012" /><testcase classname="tests.test_integration" name="test_selected_source_change_rejected" time="0.011" /><testcase classname="tests.test_integration" name="test_component_inventory_mismatch_rejected" time="0.010" /><testcase classname="tests.test_integration" name="test_sensor_declaration_does_not_grant_eligibility" time="0.011" /><testcase classname="tests.test_integration" name="test_real_cli_and_exclusive_example" time="0.524" /><testcase classname="tests.test_integration" name="test_cli_rejection_redacts_invalid_input" time="0.159" /><testcase classname="tests.test_integration_pipeline" name="test_actual_pipeline_retrieval_and_priority_with_saved_runtime" time="0.024" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_default_preserves_historical_rule_report" time="0.019" /><testcase classname="tests.test_integration_pipeline" name="test_model_and_probe_evidence_preserved_without_automatic_alias_mapping" time="0.028" /><testcase classname="tests.test_integration_pipeline" name="test_reviewed_candidate_joins_only_operator_inventory_mapping" time="0.020" /><testcase classname="tests.test_integration_pipeline" name="test_stale_policy_stops_model_and_probes[configuration_sha256]" time="0.019" /><testcase classname="tests.test_integration_pipeline" name="test_stale_policy_stops_model_and_probes[inventory_sha256]" time="0.016" /><testcase classname="tests.test_integration_pipeline" name="test_rejected_candidate_cannot_receive_operator_probe" time="0.025" /><testcase classname="tests.test_integration_pipeline" name="test_model_failure_propagates_without_clean_result_or_probe" time="0.026" /><testcase classname="tests.test_integration_pipeline" name="test_invalid_runtime_is_rejected_before_pipeline" time="0.020" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_mode_requires_exact_boolean[None]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_mode_requires_exact_boolean[0]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_mode_requires_exact_boolean[1]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_mode_requires_exact_boolean[true]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options0]" time="0.001" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options1]" time="0.001" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options2]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options3]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options4]" time="0.002" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options5]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options6]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_options_cannot_be_silently_ignored[options7]" time="0.000" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_requires_corpus" time="0.001" /><testcase classname="tests.test_integration_pipeline" name="test_vector_path_is_delegated_to_existing_pipeline" time="0.016" /><testcase classname="tests.test_integration_pipeline" name="test_corpus_mutation_is_rejected[before]" time="0.017" /><testcase classname="tests.test_integration_pipeline" name="test_corpus_mutation_is_rejected[after]" time="0.018" /><testcase classname="tests.test_integration_pipeline" name="test_selected_source_change_stops_pipeline_before_active_stages" time="0.011" /><testcase classname="tests.test_integration_pipeline" name="test_pipeline_component_hash_mismatch_rejected" time="0.017" /><testcase classname="tests.test_integration_pipeline" name="test_real_pipeline_cli_and_fixed_exclusive_example" time="0.507" /></testsuite></testsuites>

@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest E2-043/WL-074: [synthetic comparator integration](SYNTHETIC_ML_INTEGRATION.md). Existing models connected to both modes, separate scores/abstentions and synthetic-only pre-fit refusal. FullWindows1284pass38skip/Linux1322pass before final launcher case; final target79pass; two nine-check demos. Calibrated/real-data/live/independent research remains open. Earlier checkpoints below historical.
+
 Latest development: [existing Engine1 pipeline + saved runtime integration](PIPELINE_RUNTIME_INTEGRATION.md), E2-042/WL-073. Optional full pipeline wiring/reviewed context preserved, actual no-model/no-network eight-check demos;28newcases/fullLinux1306pass/Windows1268pass38skip. Original rule mode retained; calibrated/live/ML/independent research gates remain open. Earlier counts below historical.
 
 Integration publication recovered/verified: GitHub main6754fcc contains source9320511 and preserved incident history. Current MEMORY/TASKS mark E2-041 publication complete; INC-064/WL-072 record three server rejections and successful per-command HTTP/1.1 push without causal certainty or persistent setting change. Source/test/research acceptance unchanged.

@@ -1,5 +1,9 @@
 # Progress Execution
 
+## New step — compare the two existing synthetic models together
+
+The workflow now connects Engine1 and saved Engine2 windows with optional existing Isolation Forest/autoencoder reports. It is not a third engine or proof of real attack detection. Follow [simple reproduction](SYNTHETIC_ML_INTEGRATION.md): activate the existing Python environment, open repository root, run `python scripts/integration_check.py --engine1-pipeline --runtime-ml both --output output/my-fresh-ml-integration.json`, then open the file. Use a new filename. Nine true checks confirm this software example; compare each model's separate numeric/null values and scored/abstained counts. Null means it abstained, not safe. Actual local retrieval/synthetic fits were demonstrated on both systems, no inference/network probes. Supervisor/real data/independent evaluation remain pending.
+
 ## Latest development — existing Engine1 pipeline connected to runtime context
 
 The combined command can now use the existing Engine1 pipeline, so its retrieved sources, model output, probe observations, policy review and existing priority stay alongside Engine2's saved runtime windows. This is new Python/CLI integration; the default rule-only command still works.

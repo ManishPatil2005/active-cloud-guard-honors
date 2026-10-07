@@ -76,6 +76,7 @@ def main():
     ir.add_argument("--inventory", required=True)
     ir.add_argument("--window-seconds", type=int, default=60)
     ir.add_argument("--threshold", type=float, default=3.0)
+    ir.add_argument("--runtime-ml", choices=["isolation-forest", "autoencoder", "both"])
     ir.add_argument(
         "--engine1-pipeline",
         action="store_true",
@@ -147,6 +148,7 @@ def main():
                 window_seconds=args.window_seconds,
                 threshold=args.threshold,
                 engine1_pipeline=args.engine1_pipeline,
+                runtime_ml=args.runtime_ml,
                 kb=args.kb,
                 model=args.model,
                 vector_index=args.vector_index,
