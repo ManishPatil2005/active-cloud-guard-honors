@@ -94,6 +94,17 @@ def _digest(path):
     return hashlib.sha256(raw).hexdigest()
 
 
+def _index_comparator_windows(comparators):
+    """Index validated component rows once, preserving original window positions."""
+    indexed = {}
+    for name, report in comparators.items():
+        by_asset = {}
+        for index, row in enumerate(report["windows"]):
+            by_asset.setdefault(row["asset_id"], []).append(index)
+        indexed[name] = by_asset
+    return indexed
+
+
 def replay(
     configuration,
     baseline_paths,
@@ -282,6 +293,7 @@ def replay(
         findings[finding["asset_id"]].append(finding["id"])
     for index, window in enumerate(runtime["windows"]):
         windows[window["asset_id"]].append(index)
+    comparator_windows = _index_comparator_windows(comparators)
     contexts = []
     for asset in sorted(set(assets) | set(findings) | set(windows)):
         indices = windows[asset]
@@ -318,12 +330,8 @@ def replay(
             contexts[-1]["model_verification_indices"] = model_verifications[asset]
         if runtime_ml:
             contexts[-1]["runtime_comparator_window_indices"] = {
-                name: [
-                    i
-                    for i, row in enumerate(result["windows"])
-                    if row["asset_id"] == asset
-                ]
-                for name, result in comparators.items()
+                name: by_asset.get(asset, [])
+                for name, by_asset in comparator_windows.items()
             }
     if any(_digest(path) != hashes[role] for role, path in paths.items()):
         raise ValueError("integrated replay input changed")

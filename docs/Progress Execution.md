@@ -1,5 +1,9 @@
 # Progress Execution
 
+## New refinement — avoid repeatedly searching the same windows
+
+The combined workflow now groups each comparator's window positions once, then looks up each asset. Previously it searched the entire list for every asset—even assets without data. Outputs/scores/abstentions stay the same; this is fewer processing steps, not a new engine or proven energy saving. Run the existing fresh-file example `python scripts/integration_check.py --engine1-pipeline --runtime-ml both --measure-stages --output output/my-fresh-index-check.json`, open JSON and check ten true checks. For simple proof of fewer list passes and unchanged reports, run `python -m pytest -q tests/test_integration_window_index.py`. [Explanation/evidence/limits](INTEGRATION_WINDOW_INDEX.md).
+
 ## New step — see how much local execution time each part uses
 
 Activate the existing Python environment, open repository root, and run `python scripts/integration_check.py --engine1-pipeline --runtime-ml both --measure-stages --output output/my-fresh-cost.json`. Use a new filename. Open JSON, check ten true checks, then read result.execution_cost: divide wall_ns/process_cpu_ns by1,000,000 for milliseconds. Each selected component and total are measured separately; CPU can exceed wall time when threads work concurrently, and zero short CPU intervals do not mean free work. These are invented-data development observations, not attack accuracy/sensor overhead/energy savings. [Full step-by-step scope/results](INTEGRATION_EXECUTION_COST.md).

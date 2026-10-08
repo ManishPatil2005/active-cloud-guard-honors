@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="7.555" timestamp="2026-10-08T10:38:27.729883+05:30" hostname="Welcome"><testcase classname="tests.test_integration_window_index" name="test_comparator_mapping_has_one_index_traversal_after_validation" time="6.754"><failure message="AssertionError: assert 5 == 2&#10; +  where 5 = [{'asset_id': 'compose/redis', 'start_epoch': 1767484800, 'status': 'uncalibrated_synthetic_score', 'isolation_score':...synthetic_score', 'isolation_score': 0.51739, 'binary_prediction': None, 'observation_coverage': 'partial_or_unknown'}].traversals">def test_comparator_mapping_has_one_index_traversal_after_validation():
+        original = runtime_ml.compare_synthetic
+        counted = []
+    
+        def observe(*args, **kwargs):
+            report = original(*args, **kwargs)
+            report["windows"] = CountedWindows(report["windows"])
+            counted.append(report["windows"])
+            return report
+    
+        with patch.object(runtime_ml, "compare_synthetic", side_effect=observe):
+            result = replay()
+        assert len(result["asset_contexts"]) == 4
+        # One identity-validation traversal plus one mapping-index traversal.
+&gt;       assert counted[0].traversals == 2
+E       AssertionError: assert 5 == 2
+E        +  where 5 = [{'asset_id': 'compose/redis', 'start_epoch': 1767484800, 'status': 'uncalibrated_synthetic_score', 'isolation_score':...synthetic_score', 'isolation_score': 0.51739, 'binary_prediction': None, 'observation_coverage': 'partial_or_unknown'}].traversals
+
+tests\test_integration_window_index.py:47: AssertionError</failure></testcase></testsuite></testsuites>

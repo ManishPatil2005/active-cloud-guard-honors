@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-064 - 2026-10-08 - Build transient comparator indices once per report
+
+E2-045/V2-004/E2-004. Prefer one ordered in-memory asset/window index over filtering all windows per inventory asset. Preserve current component reports/validation/position semantics and separate models; no persistent cache or fitted-model reuse. Mapping row work changes A×W to W plus asset lookups; extra temporary dictionaries are a memory tradeoff, not a memory/energy saving claim. Validate traversal counts and full legacy-report equivalence instead of flaky timing thresholds. Same stack/algorithms/scientific authority; INTEGRATION_WINDOW_INDEX.md.
+
 ## ADR-063 - 2026-10-07 - Measure local integration cost without calling it matched overhead
 
 E2-044/E2-004/V2-004/R7. Prefer explicit opt-in standard-library elapsed/process CPU clocks over a new profiler, unconditional report change or unapproved live sensor benchmark. Record exact ns per existing component and total/clock metadata; preserve calculations. Total includes setup/checks but excludes option validation/startup/serialization; nested Engine1 timings are not independent addends. Shared cold imports and process threads make single model/OS comparisons invalid; no power/memory/system overhead measured. Consequence: optimization prerequisites now observable, real matched study and energy claims remain pending. Contract/tests: INTEGRATION_EXECUTION_COST.md.

@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-066 - 2026-10-08 - Repeated full-window filtering in integrated contexts
+
+Symptom/evidence: new bounded synthetic work-count acceptance test failed before optimization, 5complete comparator-window traversals versus2expected (validation+one index), output/window-index-before-windows-20261008.xml,1failed7.56s. Four inventory assets triggered four filtering traversals over the same3windows. Cause confidence high: source loop comprehension and actual counted iteration agree; this is an efficiency issue, not changed threat scores/security failure. Fix: transient per-comparator per-asset ordered indices built once; retain existing identity validation and empty/missing contexts. Initial post-fix target106pass10.87s; final complete-report equivalence cases/full-suite results in WL-076. Negative XML retained unchanged, no claimed measured latency/energy improvement or disappearance of unrelated historical faults.
+
 ### INC-065 - 2026-10-07 - New integration test used nonexistent package entry point
 
 Symptom: final target78pass/1fail, preserved output/ml-join-final-target-windows-20261007.xml. New subprocess test invoked `python -m cloudguard`; diagnostic reproduction explicitly reported no cloudguard.__main__. Existing tests/CLI use cloudguard.cli. Cause confidence high: incorrect test command, not failed model/application operation. Fix: change test to `python -m cloudguard.cli`. Verification: corrected target79pass/8.35s, output/ml-join-corrected-target-windows-20261007.xml; actual CLI/runner/nooverwrite covered. Earlier full suites and both demos passed. No application shim or negative receipt overwrite; unrelated intermittent native import cause remains unknown.

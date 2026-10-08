@@ -1,5 +1,9 @@
 # Research and engineering task ledger
 
+E2-045 final verification: Linux1352pass/Windows1314pass38existing skips, both1352collected/zero failures/errors/final six cases included. Docs18pass/lint126fileformat/bothpipchecks pass, both fresh10checkdemos/current source-input-launcher hashes match. No scientific-gate completion inferred; WL-076.
+
+E2-045/V2-004/E2-004: [single-pass comparator indexing](docs/INTEGRATION_WINDOW_INDEX.md) implemented; repeated per-asset full-window filtering replaced with a transient ordered index. Actual before5traversals/after2includingvalidation, initial106targetpass; six new cases/final full-report legacy-equivalence tests. No score/algorithm/stack or approval change, matched efficiency/energy evaluation still open. WL-076/ADR-064/INC-066.
+
 E2-044 final verification: all final code/launcher in wholeLinux1346pass/Windows1308pass38existing skips, both1346collected/zero failures/errors; docs18pass/lint125fileformat/bothpipchecks pass. Existing original research-gate statuses below unchanged; command/receipt details WL-075.
 
 E2-044/E2-004/V2-004/R7: [opt-in integration cost instrumentation](docs/INTEGRATION_EXECUTION_COST.md) implemented/software-tested. Local elapsed/process CPU per executed stage/total, clock metadata and invalid-interval rejection; no default field or clock reads, component calculations preserved.23newcases/target102pass, both fixed10check examples passed. Matched sensor overhead/energy/independent efficiency evaluation remains open; WL-075/ADR-063.

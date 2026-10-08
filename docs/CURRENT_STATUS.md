@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest processing refinement — 8 October 2026
+
+Final full suites: Linux1352pass/Windows1314pass38existing skips, both1352collected/zero failures/errors/all final source and six new cases included. Docs18pass/lint126fileformat/bothpipchecks pass; two ten-check demos and current hashes verified, negative/historical evidence preserved. Suite duration not speedup/clock-stability proof.
+
+E2-045: [single-pass window indexing](INTEGRATION_WINDOW_INDEX.md), removes repeated asset-by-window filtering while preserving component scores/abstentions/order/context and all validation. Actual5traversals before vs2after including unchanged validation; six new cases/full legacy-report equivalence, initialtarget106pass and both fixed10check demos. Deterministic work reduction only, not measured efficiency/energy/independent effectiveness. No new engine, scope or authority; WL-076/ADR-064/INC-066. Remaining real research gates unchanged.
+
 ## Latest efficiency measurement prerequisite — 7 October 2026
 
 Final E2-044 whole suites: Linux1346pass; Windows1308pass38existing skips, both1346collected/zero failures/errors/all final code included. Documentation18pass/lint125fileformat/bothpipchecks pass. Source/input/launcher bindings and historical evidence hashes checked. Full timings/commands/interpretation in linked contract below, not speedup/clock-stability or detection-effectiveness proof.

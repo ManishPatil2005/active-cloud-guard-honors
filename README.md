@@ -6,6 +6,10 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+Latest processing refinement: [single-pass comparator indexing](docs/INTEGRATION_WINDOW_INDEX.md) avoids repeatedly filtering all runtime windows per asset while preserving report evidence. Verified by deterministic row-visit tests and legacy-report comparisons; no measured energy or independent effectiveness claim.
+
+Latest full regression verification: **1,352 passed on Linux; 1,314 passed / 38 existing skips on Windows**. Includes all six new indexing/equivalence cases. Older milestone counts below are historical software checkpoints, not additional attack scenarios.
+
 Efficiency instrumentation: [opt-in integration execution cost](docs/INTEGRATION_EXECUTION_COST.md) records local elapsed/process CPU per executed stage and total while preserving detector evidence. Synthetic software observations only; matched sensor overhead, energy and independent performance validation remain pending.
 
 Latest whole-repository software verification: **1,346 passed on Linux; 1,308 passed / 38 existing skips on Windows**, with all final instrumentation/CLI/launcher code included. These counts are regression evidence, not independent attack scenarios or performance qualification.

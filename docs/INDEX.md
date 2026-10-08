@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest E2-045/WL-076: [single-pass comparator window indexing](INTEGRATION_WINDOW_INDEX.md). Preserved failure shows repeated filtering; transient index removes it without changing reports/guards. Six new traversal/equivalence cases, initialtarget106pass/two10checkdemos. No measured latency/energy or independent research acceptance; earlier counts below historical.
+
 Latest E2-044/WL-075: [opt-in execution cost](INTEGRATION_EXECUTION_COST.md), local elapsed/process CPU by executed component and total, unchanged default output/detection. Two fixed synthetic examples10checks;23newcases/target102pass. Measurement prerequisite, not matched overhead/energy/independent benchmark; actual research gates unchanged.
 
 Latest E2-043/WL-074: [synthetic comparator integration](SYNTHETIC_ML_INTEGRATION.md). Existing models connected to both modes, separate scores/abstentions and synthetic-only pre-fit refusal. FullWindows1284pass38skip/Linux1322pass before final launcher case; final target79pass; two nine-check demos. Calibrated/real-data/live/independent research remains open. Earlier checkpoints below historical.

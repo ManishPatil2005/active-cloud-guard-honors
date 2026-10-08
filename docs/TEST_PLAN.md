@@ -1,5 +1,7 @@
 # Test and verification plan
 
+E2-045: six new deterministic traversal/index/equivalence cases; preserved1beforefailure5vs2passes, initialtarget106pass includesfirst4newcases, final2complete-report rule/pipeline comparisons included in full suites. Empty/missing/interleaved assets/models/order/copy and1000rows50assets tested. Both fresh fixed10check demos, not matched speed/energy trials; [contract](INTEGRATION_WINDOW_INDEX.md)/WL-076.
+
 E2-044:23new timing cases/102integration-target pass (XML26.565s), strict bool/default no clock reads/exact intervals/evidence equality/invalid intervals/all8mode combinations/component exceptions/CLI/exclusive runner/copy checks. Two fixed10check actual synthetic receipts, no inference/TCP. Full regressions after final code and clock/measurement limitations recorded in [contract](INTEGRATION_EXECUTION_COST.md)/WL-075; not detector performance acceptance.
 
 E2-043:17new cases and final integration target79pass; actual direct-model equality, separate scores/counts/indices, sensor pre-fit refusal, default no-fit, failure-before-pipeline, component mismatch, actual CLI/runner/nooverwrite. Earlier completeWindows1284pass38skip/Linux1322pass omit only the final added CLI/runner case; final target verifies revised launcher. Two nine-check synthetic demos, lint124fileformat/bothpipchecks pass. Original incorrect-test-entry-point failure preserved INC-065. [Evidence/commands](SYNTHETIC_ML_INTEGRATION.md).

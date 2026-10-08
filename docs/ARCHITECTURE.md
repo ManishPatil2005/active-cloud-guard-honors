@@ -1,5 +1,7 @@
 # Existing architecture
 
+E2-045 integration.py builds transient comparator→asset→ordered window-index dictionaries once after unchanged component validation; contexts use lookup instead of per-asset re-filtering. No persistent cache, public schema/algorithm/dependency or engine change. Extra local map memory traded for fewer row visits. [Equivalence/work-count evidence](INTEGRATION_WINDOW_INDEX.md).
+
 E2-044: integration.py owns opt-in local timing boundaries around existing component calls and overall replay; CLI/fixed runner forward --measure-stages. Existing reports remain intact; additional execution_cost only when requested, no imported profiler/dependency/service or algorithm change. [Scope/clock semantics](INTEGRATION_EXECUTION_COST.md).
 
 E2-043 adds optional synthetic comparators after saved runtime validation and before optional Engine1 execution: existing runtime_ml/runtime_autoencoder -> intact reports + exact asset/window indices. Source/input/count/window checks, synthetic pre-fit refusal and no score fusion. CLI/runner selection only; same stack/models/dependencies. [Contract](SYNTHETIC_ML_INTEGRATION.md).

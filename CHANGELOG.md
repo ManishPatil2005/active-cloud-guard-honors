@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-08 - Index runtime comparator windows once for asset contexts
+
+- Replace repeated full-window filtering per asset with a transient ordered per-comparator index; preserve original windows, scores, abstentions, missing states and report contract.
+- Preserve actual before-change traversal failure; initial integration target106pass, six new cases including full legacy-report equivalence. Both synthetic examples10checks, lint126fileformat/bothpipchecks pass.
+- Reduced deterministic mapping work, not measured system speedup/energy savings; same engines/stack/validation/research gates. WL-076/ADR-064/INC-066.
+
 ## 2026-10-07 - Measure integration stage execution cost explicitly
 
 - Add opt-in local elapsed/process CPU clocks, exact nanoseconds and clock metadata per executed component/total to integration API/CLI/fixed runner.
