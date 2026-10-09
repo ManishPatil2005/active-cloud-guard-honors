@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-10 - Verify package milestone publication and receipt inventory
+
+- Verify private GitHub main/local equality at485b62bdd43fb51f2acc72961da900c3cb778c4b.
+- Correct the documented XML count from8to7 (plus2JSON/27totalfiles); preserve the mistake and actual listing in WORK_LOG, without changing evidence or test outcomes.
+
 ## 2026-10-10 - Qualify local wheels and installed offline entry points
 
 - Pin the qualified setuptools83.0.0 backend and add a hash-pinned isolated build-tool profile.
