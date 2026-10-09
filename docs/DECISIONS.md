@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-071 - 2026-10-09 - Bound complete stream consumption and distinguish advisory conditions
+
+Use exact integer1..8MB budgets before I/O and64KiB/remaining+1 reads until EOF; reject invalid stream contracts. No total elapsed-time/process-isolation guarantee. Triage selected advisories against actual installed versions and inspected embedded workflow; version match is not reproduced exploitation, absent server call path is not package clearance. Preserve historical lockfiles/architecture, no unassessed upgrade when Chroma advisories list no patch. Full advisory/cache/native review remains open. QA-009/WL-083/INC-072; DEPENDENCY_STREAM_REVIEW.md.
+
 ## ADR-070 - 2026-10-09 - Bound selected client pipes without claiming daemon-job cleanup
 
 QA-008/R7/R8. Use concurrent bounded pipe readers and local direct-child supervision rather than capture_output/check_output whole-output buffering. Keep trusted fixed argv/no shell, preserve bounded prefixes/status/cleanup flags; remote jobs/descendants unknown, stop failing batch without broad container deletion or automatic retry. Add cooperative input/checkpoint/hash/XML/publication guards and portable source PDF. Trivy preserves prior/current failure/not-attempted; failed environment lock is rejection, not installable snapshot. Isolate test interrupt injection to private pause; catch reaping interrupt as unknown, not successful cleanup. No hard sandbox/blocked-syscall/parent-crash/native safety or research novelty claim. [Contract](LEGACY_RUNNER_BUDGETS.md), WL-082/INC-071.

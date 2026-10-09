@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 - Validate stream budgets and refuse truncated-prefix acceptance
+
+- Validate finite exact integer budgets before I/O; bounded chunk reads handle short responses through EOF and reject invalid binary contracts.
+- Add23cases and preserve original/initial failures; full Windows and selected Linux checks in WL-083.
+- Triage four selected dependency advisories against observed versions and workflow; Chroma server findings remain open, no automatic upgrade or all-secure claim.
+
 ## 2026-10-09 - Bound selected legacy inputs and client subprocesses
 
 - Add finite combined stdout/stderr capture, trusted argv/no shell, direct-child timeout/interruption cleanup and explicit remote-job uncertainty.

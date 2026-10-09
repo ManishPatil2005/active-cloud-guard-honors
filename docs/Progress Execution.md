@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Latest refinement: complete bounded reads and dependency review
+
+A small input-reader bug is repaired: it no longer treats a partial reply as the whole reply and rejects invalid size settings before reading.23new test cases, full Windows1589passes/38existing skips and101selected Linux passes. [Report, simple commands and limitations](DEPENDENCY_STREAM_REVIEW.md). Some Chroma dependency advisories concern server deployments; this code uses a local index, but that does not make the dependency certified safe. Do not expose a Chroma server or import someone else's index. Broader review and real research evaluation remain pending; no third engine or stack migration.
+
 ## Next readiness step: bounded legacy runners
 
 Older experiment scripts now refuse selected oversized inputs; Trivy/environment clients have finite time/output guards, and local child cleanup is tested. Failed batches preserve previous observations and list cases not attempted; incomplete environment capture cannot become a successful dependency lock. [Simple contract and limitations](LEGACY_RUNNER_BUDGETS.md). Killing the local Docker client does not prove its container stopped; do not restart experiments automatically after such a failure. This code refinement is not supervisor approval, an independent benchmark or production certification.

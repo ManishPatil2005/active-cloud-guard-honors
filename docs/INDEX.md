@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-009/WL-083: [dependency and stream review](DEPENDENCY_STREAM_REVIEW.md), invalid budgets/short reads fixed;23cases/fullWindows1589pass38skip/Linux101targets. Four selected advisories, open Chroma server-condition findings; readiness3 partial, not full vulnerability certification.
+
 Latest QA-008/WL-082: [legacy runner budgets](LEGACY_RUNNER_BUDGETS.md), bounded client pipes/deadlines and direct-child cleanup, selected input/hash/XML/publication guards, preserved partial/not-attempted states. Before2input failures and initial interrupted Linux suite retained; corrected103targets pass both OS. No remote-container cleanup/sandbox or new study acceptance. Roadmap sequence2 scoped implementation; next dependency/advisory/resource review.
 
 Latest QA-007/WL-081: [model envelope validation](MODEL_ENVELOPE_VALIDATION.md), reproduced diagnostic/admission defect fixed; shared tags/embedding validation, bad-cache fresh inference and policy4. [Sequenced production/research roadmap](PRODUCTION_RESEARCH_ROADMAP.md) separates software, human, empirical and operational gates. No novelty/production-ready claim.

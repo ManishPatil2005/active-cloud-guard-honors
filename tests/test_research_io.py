@@ -142,7 +142,7 @@ def test_json_quoted_brackets_do_not_count_as_nesting():
 def test_read_never_requests_unbounded_bytes():
     class Recorded(io.BytesIO):
         def read(self, count=-1):
-            assert count == 11
+            assert 1 <= count <= 11
             return super().read(count)
 
     with pytest.raises(ValueError):

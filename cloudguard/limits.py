@@ -11,16 +11,30 @@ MAX_DEPTH = 64
 MAX_NODES = 50_000
 
 
+def _byte_budget(limit):
+    if type(limit) is not int or not 1 <= limit <= 8_000_000:
+        raise ValueError("invalid byte budget")
+
+
 def read_bytes(path, limit=INPUT_BYTES):
+    _byte_budget(limit)
     with Path(path).open("rb") as stream:
         return read_stream(stream, limit)
 
 
 def read_stream(stream, limit=RESPONSE_BYTES):
-    raw = stream.read(limit + 1)
-    if len(raw) > limit:
-        raise ValueError("byte budget exceeded")
-    return raw
+    _byte_budget(limit)
+    raw = bytearray()
+    while True:
+        remaining = limit + 1 - len(raw)
+        chunk = stream.read(min(65_536, remaining))
+        if not isinstance(chunk, bytes) or len(chunk) > min(65_536, remaining):
+            raise ValueError("invalid binary stream response")
+        if not chunk:
+            return bytes(raw)
+        raw.extend(chunk)
+        if len(raw) > limit:
+            raise ValueError("byte budget exceeded")
 
 
 def read_text(path, limit=INPUT_BYTES):

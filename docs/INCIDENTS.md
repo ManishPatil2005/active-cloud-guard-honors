@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-072 - 2026-10-09 - Invalid byte budgets and short-read prefix acceptance
+
+Source-confirmed limits.read_stream accepted unvalidated budgets and returned first short read as complete. Synthetic short stream accepted `{}` while trailing bytes remained;17before failures/5passes preserved. Fixed pre-I/O bounded exact-integer contract and EOF loop with finite chunk/remaining allowance. Initial100targets2failed: old test assumed every request11bytes and response mocks repeated identical JSON forever; adjusted bounded assertion/EOF mocks, not byte limits. Final23newcases/fullWindows1589pass38skip/Linux101targets pass. Selected Chroma server advisories remain open, not a reproduced exploit or dependency remediation; native/import/timing causes unchanged. Exact commands/scope WL-083/contract.
+
 ### INC-071 - 2026-10-09 - Legacy read/client limits and cross-platform interruption correction
 
 Before2oversized RAG/inventory regressions failed; old clients used capture_output or no timeout. Initial live unit omitted HTTP/pipeline mocks and attempted two fixed localhost health URLs; empty inventory invoked no TCP probe, no model/Docker/sensor/service/clock work; outcomes not retained/qualified. Isolation corrected before later checks. Selected input/bounded client helpers implemented;55/94/102targets pass. Initial Windows full1565pass38skip; Linux interrupted after725pass at unittest.mock KeyboardInterrupt: shared time.sleep injection also reached Linux subprocess.wait cleanup. Isolate injected interrupt to private pause, preserve real owned-child kill/reap assertion; add simulated reaping-interrupt unverified flag case. Corrected103targets pass both OS, negatives/partial receipt retained. No claim original native import/clock cause repaired or remote Docker job terminated. Exact final suites/commands/limits WL-082.

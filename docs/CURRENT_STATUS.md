@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Latest QA-009: [stream repair and selected advisory triage](DEPENDENCY_STREAM_REVIEW.md),23newcases/fullWindows1589pass38skip/Linux101targets. Roadmap3 partial; open Chroma server-condition findings and full advisory/cache/native review, no package upgrade or production/research acceptance. Earlier full-suite counts below describe historical checkpoints.
+
 ## Scoped legacy input/client budgets — 9 October 2026
 
 Final verification: Windows1566pass38existing skips/Linux1604pass,1604collected each/zero failures/errors;50newcases/corrected103targets eachOS/docs18pass/lint140fileformat/bothpipchecks. Partial Linux run and input failures preserved; fresh historical summary executed without a new study.

@@ -144,7 +144,10 @@ def test_environment_success_uses_bounded_commands_and_portable_source(tmp_path)
         ),
         patch.object(module, "build_opener") as opener,
     ):
-        opener.return_value.open.return_value.__enter__.return_value.read.return_value = b'{"models":[]}'
+        opener.return_value.open.return_value.__enter__.return_value.read.side_effect = [
+            b'{"models":[]}',
+            b"",
+        ]
         outputs, code = module.collect(None)
     assert code == 0 and outputs["lock-output"] == "demo==1.0\n"
     assert (
@@ -201,7 +204,10 @@ def test_environment_oversized_selected_source_retains_partial_metadata(tmp_path
         patch.object(module.importlib.metadata, "distributions", return_value=[]),
         patch.object(module, "build_opener") as opener,
     ):
-        opener.return_value.open.return_value.__enter__.return_value.read.return_value = b'{"models":[]}'
+        opener.return_value.open.return_value.__enter__.return_value.read.side_effect = [
+            b'{"models":[]}',
+            b"",
+        ]
         outputs, code = module.collect(None)
     assert code == 1 and run.call_count == 6
     assert len(outputs["output"]["image_digests"]) == 6

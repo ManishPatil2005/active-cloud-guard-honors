@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="17" skipped="0" tests="22" time="0.143" timestamp="2026-10-09T20:12:44.465606+05:30" hostname="Welcome"><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[-2]" time="0.001"><failure message="TypeError: object of type 'Mock' has no len()">limit = -2
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335797958592'&gt;, limit = -2
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'Mock' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[-1]" time="0.000"><failure message="TypeError: object of type 'Mock' has no len()">limit = -1
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335797961712'&gt;, limit = -1
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'Mock' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[0]" time="0.001"><failure message="TypeError: object of type 'Mock' has no len()">limit = 0
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335797962960'&gt;, limit = 0
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'Mock' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[True]" time="0.000"><failure message="TypeError: object of type 'Mock' has no len()">limit = True
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335797965984'&gt;, limit = True
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'Mock' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[False]" time="0.000"><failure message="TypeError: object of type 'Mock' has no len()">limit = False
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335798460928'&gt;, limit = False
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'Mock' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[1.5]" time="0.000"><failure message="TypeError: object of type 'Mock' has no len()">limit = 1.5
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335798469136'&gt;, limit = 1.5
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'Mock' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[None]" time="0.000"><failure message="TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'">limit = None
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335798471824'&gt;, limit = None
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+&gt;       raw = stream.read(limit + 1)
+E       TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+cloudguard\limits.py:20: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_budget_rejected_before_read[10]" time="0.001"><failure message="TypeError: can only concatenate str (not &quot;int&quot;) to str">limit = '10'
+
+    @pytest.mark.parametrize("limit", [-2, -1, 0, True, False, 1.5, None, "10"])
+    def test_invalid_budget_rejected_before_read(limit):
+        stream = Mock()
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_stream(stream, limit)
+
+tests\test_stream_budget.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335798468176'&gt;, limit = '10'
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+&gt;       raw = stream.read(limit + 1)
+E       TypeError: can only concatenate str (not "int") to str
+
+cloudguard\limits.py:20: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_file_budget_rejected_before_open[-2]" time="0.000"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'">limit = -2
+
+    @pytest.mark.parametrize("limit", [-2, 0, True, None])
+    def test_invalid_file_budget_rejected_before_open(limit):
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_bytes("absent-file", limit)
+
+tests\test_stream_budget.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\limits.py:15: in read_bytes
+    with Path(path).open("rb") as stream:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('absent-file'), mode = 'rb', buffering = -1, encoding = None
+errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_file_budget_rejected_before_open[0]" time="0.000"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'">limit = 0
+
+    @pytest.mark.parametrize("limit", [-2, 0, True, None])
+    def test_invalid_file_budget_rejected_before_open(limit):
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_bytes("absent-file", limit)
+
+tests\test_stream_budget.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\limits.py:15: in read_bytes
+    with Path(path).open("rb") as stream:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('absent-file'), mode = 'rb', buffering = -1, encoding = None
+errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_file_budget_rejected_before_open[True]" time="0.000"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'">limit = True
+
+    @pytest.mark.parametrize("limit", [-2, 0, True, None])
+    def test_invalid_file_budget_rejected_before_open(limit):
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_bytes("absent-file", limit)
+
+tests\test_stream_budget.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\limits.py:15: in read_bytes
+    with Path(path).open("rb") as stream:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('absent-file'), mode = 'rb', buffering = -1, encoding = None
+errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_file_budget_rejected_before_open[None]" time="0.000"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'">limit = None
+
+    @pytest.mark.parametrize("limit", [-2, 0, True, None])
+    def test_invalid_file_budget_rejected_before_open(limit):
+        with pytest.raises(ValueError, match="invalid byte budget"):
+&gt;           limits.read_bytes("absent-file", limit)
+
+tests\test_stream_budget.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\limits.py:15: in read_bytes
+    with Path(path).open("rb") as stream:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('absent-file'), mode = 'rb', buffering = -1, encoding = None
+errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'absent-file'
+
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_exact_budget_and_eof[-BytesIO]" time="0.000" /><testcase classname="tests.test_stream_budget" name="test_exact_budget_and_eof[-ShortStream]" time="0.000" /><testcase classname="tests.test_stream_budget" name="test_exact_budget_and_eof[1234-BytesIO]" time="0.001" /><testcase classname="tests.test_stream_budget" name="test_exact_budget_and_eof[1234-ShortStream]" time="0.000"><failure message="AssertionError: assert b'12' == b'1234'&#10;  &#10;  Use -v to get more diff">stream_type = &lt;class 'test_stream_budget.ShortStream'&gt;, raw = b'1234'
+
+    @pytest.mark.parametrize("stream_type", [io.BytesIO, ShortStream])
+    @pytest.mark.parametrize("raw", [b"", b"1234", b"12345"])
+    def test_exact_budget_and_eof(stream_type, raw):
+        stream = stream_type(raw)
+        if len(raw) &gt; 4:
+            with pytest.raises(ValueError, match="byte budget exceeded"):
+                limits.read_stream(stream, 4)
+        else:
+&gt;           assert limits.read_stream(stream, 4) == raw
+E           AssertionError: assert b'12' == b'1234'
+E             
+E             Use -v to get more diff
+
+tests\test_stream_budget.py:36: AssertionError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_exact_budget_and_eof[12345-BytesIO]" time="0.000" /><testcase classname="tests.test_stream_budget" name="test_exact_budget_and_eof[12345-ShortStream]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">stream_type = &lt;class 'test_stream_budget.ShortStream'&gt;, raw = b'12345'
+
+    @pytest.mark.parametrize("stream_type", [io.BytesIO, ShortStream])
+    @pytest.mark.parametrize("raw", [b"", b"1234", b"12345"])
+    def test_exact_budget_and_eof(stream_type, raw):
+        stream = stream_type(raw)
+        if len(raw) &gt; 4:
+&gt;           with pytest.raises(ValueError, match="byte budget exceeded"):
+E           Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_stream_budget.py:33: Failed</failure></testcase><testcase classname="tests.test_stream_budget" name="test_short_response_does_not_accept_first_valid_json_prefix" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_short_response_does_not_accept_first_valid_json_prefix():
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_stream_budget.py:40: Failed</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_binary_stream_contract[None]" time="0.000"><failure message="TypeError: object of type 'NoneType' has no len()">reply = None
+
+    @pytest.mark.parametrize("reply", [None, "abc", b"too long"])
+    def test_invalid_binary_stream_contract(reply):
+        stream = Mock()
+        stream.read.return_value = reply
+        with pytest.raises(ValueError):
+&gt;           limits.read_stream(stream, 4)
+
+tests\test_stream_budget.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+stream = &lt;Mock id='2335798464384'&gt;, limit = 4
+
+    def read_stream(stream, limit=RESPONSE_BYTES):
+        raw = stream.read(limit + 1)
+&gt;       if len(raw) &gt; limit:
+E       TypeError: object of type 'NoneType' has no len()
+
+cloudguard\limits.py:21: TypeError</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_binary_stream_contract[abc]" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">reply = 'abc'
+
+    @pytest.mark.parametrize("reply", [None, "abc", b"too long"])
+    def test_invalid_binary_stream_contract(reply):
+        stream = Mock()
+        stream.read.return_value = reply
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_stream_budget.py:48: Failed</failure></testcase><testcase classname="tests.test_stream_budget" name="test_invalid_binary_stream_contract[too long]" time="0.000" /></testsuite></testsuites>
