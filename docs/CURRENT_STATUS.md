@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Evidence-safe outputs and selected resource hardening — 9 October 2026
+
+Final verification: Windows1464pass38existing skips/Linux1502pass,1502collected each/zero failures/errors; corrected208targets/docs18pass/lint134fileformat/bothpipchecks. Fresh historical summary executed offline; active/model paths mocked, no new experiment or research acceptance. Initial dependency-freeze/count failures preserved.
+
+QA-005/QA-006: [complete research status](RESEARCH_COMPLETION_STATUS_20261009.md). Seven legacy runners now require fresh --output; live runner also --pipeline-output, environment capture --lock-output (no lock replacement). Selected file/JSON/YAML/knowledge/cache/model/embedding budgets and streaming hashes implemented; aliases explicitly unsupported. Source freezes include new limits dependency; no service/native/clock or new sensor action. Independent protocol approval/labels/held-out data/timing/coverage/calibration/ablation/overhead/energy remain open. Original Windows import cause remains unknown. Substantive maintenance, not completion of the empirical study; WL-080.
+
 ## Latest engine/security/research review — 9 October 2026
 
 QA-004: [audit/failure explanation/open gaps](ENGINE_AUDIT_20261009.md). Broad source inventory/search and focused critical boundary review; full both-OS regressions. Fixed unchecked library model port/default redirect behavior on chat/identity/embed/vector metadata;38newcases/final66target/fullWindows1410pass38skip/Linux1448pass. Cache policy bumped to prevent old audit reuse; no baseline tag/stack/model algorithm change. Not exhaustive native/CVE/pentest security proof. Literature/legacywriters/resources/clockcoverage/provenance/actual independent study/calibration/effectiveness remain open; WL-079/ADR-067/INC-068.

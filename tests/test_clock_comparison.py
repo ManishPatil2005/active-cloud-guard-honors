@@ -416,7 +416,7 @@ def test_frozen_sources_cover_static_local_import_closure():
                     if (root / candidate).is_file():
                         pending.append(candidate)
     assert found == set(control.EXECUTION_SOURCES)
-    assert len(found) == len(control.EXECUTION_SOURCES) == 23
+    assert len(found) == len(control.EXECUTION_SOURCES) == 24
 
 
 @pytest.mark.parametrize("error", [TimeoutError, ValueError, KeyboardInterrupt])

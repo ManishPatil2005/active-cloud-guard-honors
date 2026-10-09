@@ -1,13 +1,17 @@
 """Build a compact evidence ledger from actual saved runs, not guessed results."""
 
 import json
+import sys
+from datetime import datetime, timezone
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from cloudguard.evidence import evidence_main
 
 
-def main():
+def collect(args):
     def load(name):
         return json.loads((ROOT / "output" / name).read_text())
 
@@ -26,7 +30,9 @@ def main():
     lines = [
         "# Research milestone: actual implementation and test evidence",
         "",
-        "First-three-month development package for Manish Patil. Prepared from saved runs on 23 September 2026 (India time); JSON timestamps are UTC. This is an early research prototype, not a completed effectiveness study.",
+        "Historical first-three-month evidence summary for Manish Patil. Generated "
+        + datetime.now(timezone.utc).isoformat()
+        + "; input files retain their original timestamps. This is not the current full-project status or a completed effectiveness study.",
         "",
         "## Verified engineering outcomes",
         "",
@@ -90,9 +96,12 @@ def main():
         "- [Reproduction identities](environment.json)",
         "",
     ]
-    (ROOT / "output/RESEARCH_STATUS.md").write_text("\n".join(lines), encoding="utf-8")
-    print(f"Research status generated: {n} tests, {failures} failures/errors.")
+    return {"output": "\n".join(lines)}, 0
+
+
+def main():
+    return evidence_main(collect, text_outputs=("output",))
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

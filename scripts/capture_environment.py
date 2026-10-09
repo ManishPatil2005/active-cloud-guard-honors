@@ -5,14 +5,19 @@ import importlib.metadata
 import json
 import platform
 import subprocess
+import sys
 from pathlib import Path
 from urllib.request import build_opener, ProxyHandler
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from cloudguard.evidence import evidence_main
+from cloudguard.llm import LocalOnlyRedirect
+from cloudguard.limits import json_response
 
 
-def main():
+def collect(args):
     images = [
         "redis:7.4.2-alpine",
         "postgres:17.4-alpine",
@@ -37,21 +42,19 @@ def main():
         )
         for image in images
     }
-    with build_opener(ProxyHandler({})).open(
+    with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         "http://127.0.0.1:11434/api/tags", timeout=5
     ) as response:
-        models = json.load(response)
+        models = json_response(response)
     versions = {
         d.metadata["Name"]: d.version for d in importlib.metadata.distributions()
     }
-    (ROOT / "requirements-lock.txt").write_text(
+    lock = (
         "\n".join(
             f"{name}=={v}"
             for name, v in sorted(versions.items(), key=lambda item: item[0].lower())
         )
-        + "\n",
-        encoding="utf-8",
-        newline="\n",
+        + "\n"
     )
     files = {}
     for folder in ["cloudguard", "tests", "knowledge", "data", "docs"]:
@@ -76,11 +79,14 @@ def main():
         if source.exists()
         else None,
     )
-    (ROOT / "output/environment.json").write_text(
-        json.dumps(report, indent=2), encoding="utf-8"
+    return {"output": report, "lock-output": lock}, 0
+
+
+def main():
+    return evidence_main(
+        collect, outputs=("output", "lock-output"), text_outputs=("lock-output",)
     )
-    print("Environment, image/model digests, dependency lock and source hashes saved.")
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

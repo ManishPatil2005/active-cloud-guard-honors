@@ -1,5 +1,9 @@
 # Progress Execution
 
+## What has now been improved, and what needs people/data
+
+Seven older experiment scripts can no longer replace an existing report during normal invocation. Give each a fresh --output filename; live_check also needs --pipeline-output, capture_environment needs --lock-output. Input/model file sizes and structures now have selected enforced budgets; oversized, cyclic/aliased or ambiguous supported envelopes refuse rather than return a clean verdict. These are code changes with tests, not just new documents. [Complete status and simple next-stage steps](RESEARCH_COMPLETION_STATUS_20261009.md) explains the exact interfaces and limits. The engines exist, but professor approval, genuine independent review/data, reliable runtime collection and final measured comparisons are still needed. We cannot truthfully manufacture them in a coding session.
+
 ## What the engine/security audit found
 
 The project still follows the two-engine research plan, but it is not yet independently validated or fully secure. Some failures are deliberate old-defect tests now fixed; actual clock/coverage and historical intermittent import problems remain unresolved. The newest fixed issue allowed an invalid library model port or HTTP redirect to break the intended local-only request boundary. Ports now require integers and redirects refuse; no real external request was sent to test it. Read [audit with original-plan mapping and remaining priorities](ENGINE_AUDIT_20261009.md). Do not interpret pass counts as attacks tested, security certification or professor approval.

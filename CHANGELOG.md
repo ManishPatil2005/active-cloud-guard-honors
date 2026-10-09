@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 - Preserve legacy experiment outputs and bound selected input paths
+
+- Require fresh destinations for seven legacy runners before collection; separate live pipeline output and environment lock snapshot, retain existing evidence and failed receipts.
+- Bound selected file/response reads and JSON/YAML structures; reject aliases, ambiguous/nonfinite JSON, invalid corpus/embedding envelopes; stream file hashes and advance audit cache policy.
+- Include limits dependency in evaluator/integration/clock preflight source freezes; preserve negative tests caught during development. QA-005/QA-006/WL-080/ADR-068/INC-069.
+- Document complete research status without fabricating supervisor decisions, independent labels/data, runtime qualification, calibration/overhead or security certification.
+
 ## 2026-10-09 - Audit engine boundaries and confine local-model requests
 
 - Reject noninteger/out-of-range model ports before requests; refuse redirects on existing chat/identity/embedding/vector metadata paths and invalidate old-policy audit caches.

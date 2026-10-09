@@ -1,7 +1,5 @@
 """Build and functionally check actual local embeddings plus Chroma retrieval."""
 
-import json
-import argparse
 import sys
 import time
 from datetime import datetime, timezone
@@ -11,12 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.vector import index, retrieve_vector
 from cloudguard.llm import audit
+from cloudguard.evidence import evidence_main
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="qwen2.5:3b")
-    args = parser.parse_args()
+def collect(args):
     start = time.perf_counter()
     indexed = index(ROOT / "knowledge/sources.json", ROOT / "output/chroma")
     queries = [
@@ -55,12 +51,12 @@ def main():
         elapsed_s=time.perf_counter() - start,
         limitation="Functional checks on three hand-selected queries; not retrieval generalization or RAG accuracy.",
     )
-    (ROOT / "output").mkdir(exist_ok=True)
-    (ROOT / "output/vector-smoke.json").write_text(json.dumps(report, indent=2))
-    print(json.dumps(report, indent=2))
-    if error or not all(c["passed"] for c in checks):
-        raise SystemExit(1)
+    return {"output": report}, int(bool(error) or not all(c["passed"] for c in checks))
+
+
+def main():
+    return evidence_main(collect, model=True)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

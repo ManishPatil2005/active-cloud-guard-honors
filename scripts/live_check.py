@@ -11,9 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.probe import probe
 from cloudguard.pipeline import run
+from cloudguard.evidence import evidence_main
+from cloudguard.llm import LocalOnlyRedirect
 
 
-def main():
+def collect(args):
     inventory = json.loads((ROOT / "testbed/inventory.json").read_text())
     rows = [
         probe(
@@ -25,7 +27,7 @@ def main():
         for e in inventory
     ]
     http = []
-    opener = build_opener(ProxyHandler({}))
+    opener = build_opener(ProxyHandler({}), LocalOnlyRedirect())
     for port, path in [(18080, "/"), (19000, "/minio/health/live")]:
         try:
             with opener.open(f"http://127.0.0.1:{port}{path}", timeout=2) as response:
@@ -39,20 +41,30 @@ def main():
         http=http,
         scope="localhost service availability only; not authentication or Internet exposure",
     )
-    (ROOT / "output").mkdir(exist_ok=True)
-    (ROOT / "output/live-testbed.json").write_text(json.dumps(report, indent=2))
-    pipeline = run(
-        ROOT / "data/development/redis-all.yaml",
-        ROOT / "knowledge/sources.json",
-        ROOT / "testbed/inventory.json",
-    )
-    (ROOT / "output/pipeline-demo.json").write_text(json.dumps(pipeline, indent=2))
-    print(json.dumps(report, indent=2))
-    if any(e["outcome"] != "reachable" for e in rows) or any(
+    try:
+        pipeline = run(
+            ROOT / "data/development/redis-all.yaml",
+            ROOT / "knowledge/sources.json",
+            ROOT / "testbed/inventory.json",
+        )
+    except (Exception, KeyboardInterrupt) as error:
+        # Retain already collected TCP/HTTP observations on later stage failure.
+        return {
+            "output": report,
+            "pipeline-output": {
+                "status": "rejected",
+                "error_type": type(error).__name__,
+            },
+        }, 1
+    failed = any(e["outcome"] != "reachable" for e in rows) or any(
         e.get("status") != 200 for e in http
-    ):
-        raise SystemExit(1)
+    )
+    return {"output": report, "pipeline-output": pipeline}, int(failed)
+
+
+def main():
+    return evidence_main(collect, outputs=("output", "pipeline-output"))
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

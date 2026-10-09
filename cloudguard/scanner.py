@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 import hcl2
 import yaml
+from .limits import read_text, MAX_DEPTH, MAX_NODES
 
 RULES = {
     "NET001": (0.65, "Service published beyond loopback", "docker-ports"),
@@ -22,7 +23,23 @@ RULES = {
 
 
 class UniqueLoader(yaml.SafeLoader):
-    pass
+    def __init__(self, stream):
+        super().__init__(stream)
+        self._budget_depth = 0
+        self._budget_nodes = 0
+
+    def compose_node(self, parent, index):
+        # Aliases/merges can amplify traversal or make cyclic location paths.
+        if self.check_event(yaml.events.AliasEvent):
+            raise ValueError("YAML aliases are unsupported")
+        self._budget_nodes += 1
+        self._budget_depth += 1
+        try:
+            if self._budget_nodes > MAX_NODES or self._budget_depth > MAX_DEPTH:
+                raise ValueError("YAML structure budget exceeded")
+            return super().compose_node(parent, index)
+        finally:
+            self._budget_depth -= 1
 
 
 def _mapping(loader, node, deep=False):
@@ -72,9 +89,7 @@ def _public_binding(binding):
 
 def scan(path):
     path = Path(path)
-    text = path.read_text(encoding="utf-8")
-    if len(text) > 1_000_000:
-        raise ValueError("input exceeds 1 MB research limit")
+    text = read_text(path)
     findings, warnings = [], []
     digest = hashlib.sha256(text.encode()).hexdigest()
 

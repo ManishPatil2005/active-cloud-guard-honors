@@ -1,7 +1,6 @@
 """Link configuration findings to explicitly mapped staging endpoints."""
 
 import time
-from pathlib import Path
 from .scanner import scan
 from .retrieval import retrieve
 from .llm import audit
@@ -50,7 +49,9 @@ def run(
     report = scan(path)
     timings = {"scan_ms": (time.perf_counter() - started) * 1000}
     stage = time.perf_counter()
-    text = Path(path).read_text(encoding="utf-8")
+    from .limits import read_text
+
+    text = read_text(path)
     if vector_index:
         from .vector import retrieve_vector
 

@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import tempfile
 import time
+from .limits import read_bytes, json_value
 
 MAX_BYTES = 2_000_000
 
@@ -34,7 +35,7 @@ class AuditCache:
         try:
             if path.stat().st_size > MAX_BYTES:
                 return None
-            entry = json.loads(path.read_text(encoding="utf-8"))
+            entry = json_value(read_bytes(path, MAX_BYTES))
             age = time.time() - entry["created_at"]
             if not 0 <= age < self.ttl or entry["key"] != key:
                 return None

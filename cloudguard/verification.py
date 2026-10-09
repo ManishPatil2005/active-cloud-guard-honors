@@ -2,10 +2,10 @@
 
 import hashlib
 import ipaddress
-import json
 from pathlib import Path
 from jsonschema import validate as schema_validate, ValidationError
 from .cache import fingerprint
+from .limits import read_bytes, json_value
 
 HASH = {"type": "string", "pattern": "^[0-9a-f]{64}$"}
 TEXT = {"type": "string", "minLength": 1, "maxLength": 500}
@@ -73,24 +73,16 @@ REVIEW_SCHEMA = object_schema(
 
 
 def file_hash(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    digest = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for chunk in iter(lambda: stream.read(65536), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def read_json(path):
-    with Path(path).open("rb") as stream:
-        raw = stream.read(1_000_001)
-    if len(raw) > 1_000_000:
-        raise ValueError("verification document exceeds 1 MB")
-
-    def unique(pairs):
-        result = {}
-        for key, value in pairs:
-            if key in result:
-                raise ValueError("duplicate JSON key")
-            result[key] = value
-        return result
-
-    return json.loads(raw, object_pairs_hook=unique), hashlib.sha256(raw).hexdigest()
+    raw = read_bytes(path)
+    return json_value(raw), hashlib.sha256(raw).hexdigest()
 
 
 def load_inventory(path):

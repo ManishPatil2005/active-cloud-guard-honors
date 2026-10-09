@@ -31,6 +31,7 @@ EXECUTION_SOURCES = (
     "cloudguard/correlation.py",
     "cloudguard/clock_domains.py",
     "cloudguard/cache.py",
+    "cloudguard/limits.py",
     "cloudguard/sensor_adapter.py",
     "cloudguard/runtime.py",
 )

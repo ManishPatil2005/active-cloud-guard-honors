@@ -2,12 +2,21 @@
 
 import hashlib
 import json
-from pathlib import Path
+import math
 from urllib.request import Request, build_opener, ProxyHandler
 from .llm import LocalOnlyRedirect
+from .limits import knowledge, json_response, INPUT_BYTES
 
 
 def embed(texts, model="nomic-embed-text"):
+    if (
+        not isinstance(texts, list)
+        or not 1 <= len(texts) <= 256
+        or any(not isinstance(text, str) for text in texts)
+    ):
+        raise ValueError("embedding input count/type outside bounds")
+    if sum(len(text.encode()) for text in texts) > INPUT_BYTES:
+        raise ValueError("embedding input byte budget exceeded")
     req = Request(
         "http://127.0.0.1:11434/api/embed",
         data=json.dumps({"model": model, "input": texts, "truncate": False}).encode(),
@@ -16,22 +25,36 @@ def embed(texts, model="nomic-embed-text"):
     with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         req, timeout=120
     ) as response:
-        return json.load(response)["embeddings"]
+        vectors = json_response(response)["embeddings"]
+    if not isinstance(vectors, list) or len(vectors) != len(texts):
+        raise ValueError("embedding row count mismatch")
+    dimension = None
+    for row in vectors:
+        if not isinstance(row, list) or not 1 <= len(row) <= 8192:
+            raise ValueError("embedding dimension outside bounds")
+        if dimension is not None and len(row) != dimension:
+            raise ValueError("embedding dimensions disagree")
+        dimension = len(row)
+        if any(
+            type(v) not in (int, float)
+            or (isinstance(v, float) and not math.isfinite(v))
+            or not -1e100 <= v <= 1e100
+            for v in row
+        ):
+            raise ValueError("invalid embedding numeric value")
+    return vectors
 
 
 def collection(kb_path, index_path, model):
+    raw, docs = knowledge(kb_path)
     import chromadb
     from chromadb.config import Settings
 
-    raw = Path(kb_path).read_bytes()
     digest = hashlib.sha256(raw).hexdigest()
-    docs = json.loads(raw)
-    if len({d["id"] for d in docs}) != len(docs):
-        raise ValueError("duplicate source ID")
     with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         "http://127.0.0.1:11434/api/tags", timeout=5
     ) as response:
-        models = json.load(response)["models"]
+        models = json_response(response)["models"]
     normalized = model if ":" in model else model + ":latest"
     matches = [m for m in models if m["name"] == normalized]
     if len(matches) != 1:

@@ -1,11 +1,10 @@
 """Auditable lexical retrieval baseline. Deliberately not called vector RAG."""
 
 import hashlib
-import json
 import math
 import re
 from collections import Counter
-from pathlib import Path
+from .limits import knowledge, INPUT_BYTES
 
 
 def tokens(text):
@@ -14,10 +13,11 @@ def tokens(text):
 
 
 def retrieve(query, kb_path, k=3):
-    raw = Path(kb_path).read_bytes()
-    docs = json.loads(raw)
-    if len({d["id"] for d in docs}) != len(docs):
-        raise ValueError("duplicate knowledge source IDs")
+    if not isinstance(query, str) or len(query.encode()) > INPUT_BYTES:
+        raise ValueError("query byte budget exceeded")
+    if type(k) is not int or not 1 <= k <= 256:
+        raise ValueError("retrieval count outside bounds")
+    raw, docs = knowledge(kb_path)
     counts = [Counter(tokens(d["title"] + " " + d["text"])) for d in docs]
     terms = set(tokens(query))
     results = []

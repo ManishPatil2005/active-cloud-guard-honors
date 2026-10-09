@@ -2,6 +2,8 @@
 
 # Active Cloud Guard
 
+Current maintenance: [research completion status and evidence-safe runner interfaces](docs/RESEARCH_COMPLETION_STATUS_20261009.md). Legacy experiment scripts require fresh output paths; environment capture no longer overwrites the lockfile. Selected resource boundaries are hardened, while independent approval/data/runtime qualification and measured effectiveness remain open.
+
 ### Evidence-linked configuration auditing for cloud-hosted open-source software
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0

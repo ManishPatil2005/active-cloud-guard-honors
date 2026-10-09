@@ -10,8 +10,9 @@ from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHand
 from urllib.error import HTTPError
 from jsonschema import validate
 from .cache import AuditCache, fingerprint
+from .limits import json_response, json_value, check_structure, INPUT_BYTES
 
-POLICY_VERSION = "engine1-v2-auth-guard-2-local-only"
+POLICY_VERSION = "engine1-v2-auth-guard-3-bounded-input"
 
 
 class LocalOnlyRedirect(HTTPRedirectHandler):
@@ -33,7 +34,7 @@ def model_identity(model, port):
     with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         f"http://127.0.0.1:{port}/api/tags", timeout=5
     ) as response:
-        models = json.load(response)["models"]
+        models = json_response(response)["models"]
     name = model if ":" in model else model + ":latest"
     matches = [m["digest"] for m in models if m["name"] == name]
     if len(matches) != 1 or not matches[0]:
@@ -90,7 +91,7 @@ def input_locations(text):
     """Canonical JSON pointers for YAML mappings; line addresses otherwise."""
     try:
         docs = list(yaml.load_all(text, Loader=UniqueLoader))
-    except Exception:
+    except (yaml.YAMLError, UnicodeError):
         docs = []
     result = {}
 
@@ -139,6 +140,11 @@ def audit(
         raise ValueError("LLM input limit 50,000 characters")
     if not sources:
         raise ValueError("no retrieved sources; cannot run grounded audit")
+    if not isinstance(sources, list) or len(sources) > 256:
+        raise ValueError("source count outside bounds")
+    check_structure(sources)
+    if len(json.dumps(sources, allow_nan=False).encode()) > INPUT_BYTES:
+        raise ValueError("source byte budget exceeded")
     locations = input_locations(text)
     if not locations:
         raise ValueError("configuration contains no scalar locations")
@@ -204,7 +210,7 @@ def audit(
     # Recheck cached content before use; malformed cache entries trigger fresh inference.
     if cache_hit:
         try:
-            validate_output(json.loads(raw["message"]["content"]), sources)
+            validate_output(json_value(raw["message"]["content"]), sources)
             if raw.get("done_reason") == "length" or raw.get("done") is False:
                 raise ValueError("truncated cached response")
         except Exception:
@@ -220,16 +226,13 @@ def audit(
         with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
             req, timeout=timeout
         ) as response:
-            payload = response.read(2_000_001)
-            if len(payload) > 2_000_000:
-                raise ValueError("model response too large")
-            raw = json.loads(payload)
+            raw = json_response(response)
     if raw.get("done_reason") == "length" or raw.get("done") is False:
         raise InvalidModelOutput(
             raw.get("message", {}).get("content", ""), "generation budget exhausted"
         )
     try:
-        output = validate_output(json.loads(raw["message"]["content"]), sources)
+        output = validate_output(json_value(raw["message"]["content"]), sources)
     except Exception as error:
         raise InvalidModelOutput(
             raw["message"]["content"], type(error).__name__

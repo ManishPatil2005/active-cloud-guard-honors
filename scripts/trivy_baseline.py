@@ -7,13 +7,16 @@ one module would incorrectly combine independent experimental cases.
 import json
 import subprocess
 import time
+import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+from cloudguard.evidence import evidence_main
 
 
-def main():
+def collect(args):
     labels = json.loads((ROOT / "data/labels.json").read_text())
     rows = []
     skipped = []
@@ -62,19 +65,13 @@ def main():
         excluded=skipped,
         limitation="Tool execution baseline only. Rule coverage differs; no cross-tool accuracy/FP reduction claim.",
     )
-    (ROOT / "output").mkdir(exist_ok=True)
-    (ROOT / "output/trivy-baseline.json").write_text(
-        json.dumps(report, indent=2), encoding="utf-8"
-    )
     errors = [r["case"] for r in rows if r["exit_code"] or r["result"] is None]
-    print(
-        json.dumps(
-            dict(cases=len(rows), excluded=len(skipped), errors=errors), indent=2
-        )
-    )
-    if errors:
-        raise SystemExit(1)
+    return {"output": report}, int(bool(errors))
+
+
+def main():
+    return evidence_main(collect)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

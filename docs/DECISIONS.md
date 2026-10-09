@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-068 - 2026-10-09 - Exclusive legacy publications and selected resource budgets
+
+QA-005/QA-006/R4/R7/R8. Prefer explicit fresh outputs over renamed fixed writers; reserve all before external/collection work, leave failed/partial new artifacts rather than delete history. Environment capture creates a separate lock snapshot, not dependency-lock mutation. Share bounded file/JSON helpers without new dependencies; stream hashes, bound YAML composition and refuse aliases to avoid cyclic/amplified paths. Preserve plain fixture findings/newline identities; tighten multibyte byte limits and invalidate prior audit policy cache. Integration/evaluator/clock preflight freezes include limits.py;24-clock-source count maintained, no native permission. Tradeoffs: compatibility changes to invocation/aliases, partial multi-output publication, post-decode node budgets and trusted filesystem/native dependencies. No human approval/labels/real calibration generated. [Contract](RESEARCH_COMPLETION_STATUS_20261009.md), WL-080/INC-069.
+
 ## ADR-067 - 2026-10-09 - Reject redirects on all existing local-model transport
 
 QA-004/R4/R7. Exact integer loopback port and shared explicit HTTPRedirectHandler refusal, not just disabled proxies. Even local redirects rejected to avoid authority/path ambiguity. Existing fixed URLs retained; old audit cache policy invalidated, past vector collections not rewritten. Update cache-context test constant so each non-policy mutation remains isolated. Same Ollama/Chroma/CLI architecture; no global monkeypatch or cloud service. Test default-handler behavior with synthetic no-socket responses, not a live exfiltration trial. Scope/residual host/dependency/response-bound/provenance assumptions in ENGINE_AUDIT_20261009.md.

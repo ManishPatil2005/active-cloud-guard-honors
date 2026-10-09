@@ -1,8 +1,6 @@
 """Run a real local LLM with recorded evidence and timings; failures remain visible."""
 
-import argparse
 import hashlib
-import json
 import sys
 import time
 from pathlib import Path
@@ -12,12 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.llm import audit
 from cloudguard.retrieval import retrieve
+from cloudguard.evidence import evidence_main
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model", default="qwen2.5:3b")
-    args = parser.parse_args()
+def collect(args):
     results = []
     for name in (
         "postgres-trust.yaml",
@@ -49,12 +45,12 @@ def main():
         cases=results,
         scope="three-case functional smoke test; not RAG accuracy benchmark",
     )
-    (ROOT / "output").mkdir(exist_ok=True)
-    (ROOT / "output/rag-smoke.json").write_text(json.dumps(report, indent=2))
-    print(json.dumps(report, indent=2))
-    if any(r["error"] for r in results):
-        raise SystemExit(1)
+    return {"output": report}, int(any(r["error"] for r in results))
+
+
+def main():
+    return evidence_main(collect, model=True)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

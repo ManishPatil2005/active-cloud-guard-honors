@@ -28,6 +28,7 @@ def evaluate():
             "cloudguard/scanner.py",
             "cloudguard/metrics.py",
             "cloudguard/verification.py",
+            "cloudguard/limits.py",
         )
     ]
     source_hashes = {path.name: file_hash(path) for path in sources}

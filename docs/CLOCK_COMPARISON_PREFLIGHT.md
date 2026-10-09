@@ -1,5 +1,7 @@
 # Preflight source coverage and execution gate (E2-029)
 
+9October QA-006 maintenance: selected static closure now24files, adding cloudguard/limits.py imported by verification/cache. Missing dependency and then stale23count assertion were caught/preserved/corrected without weakening exact closure equality. Historical23source checkpoints below unchanged; no native service execution/restoration acceptance or intervention authority added. [Current contract](RESEARCH_COMPLETION_STATUS_20261009.md), WL-080/INC-069.
+
 6October follow-up: [E2-030 uncertain-delivery guards](CLOCK_STOP_DELIVERY.md) fix premature cancellation after stop errors,610tests each OS. Guest-side fencing remains unresolved; this page's596-test/23-source statements preserve the preceding checkpoint.
 
 ## Status — 6 October 2026

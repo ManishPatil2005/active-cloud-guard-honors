@@ -18,6 +18,7 @@ SELECTED_SOURCES = (
     "runtime.py",
     "verification.py",
     "cache.py",
+    "limits.py",
 )
 PIPELINE_SOURCES = (
     "pipeline.py",
