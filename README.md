@@ -2,6 +2,8 @@
 
 # Active Cloud Guard
 
+Current readiness refinement: [bounded legacy inputs and client subprocesses](docs/LEGACY_RUNNER_BUDGETS.md), with partial failure evidence and explicit remote-job uncertainty. No Docker/model/sensor experiment or production readiness is inferred from passing software checks.
+
 Next-stage readiness: [sequenced production/research acceptance roadmap](docs/PRODUCTION_RESEARCH_ROADMAP.md). [Model envelope rejection](docs/MODEL_ENVELOPE_VALIDATION.md) is implemented; genuine independent evaluation, novelty and production acceptance remain separate open gates.
 
 Current maintenance: [research completion status and evidence-safe runner interfaces](docs/RESEARCH_COMPLETION_STATUS_20261009.md). Legacy experiment scripts require fresh output paths; environment capture no longer overwrites the lockfile. Selected resource boundaries are hardened, while independent approval/data/runtime qualification and measured effectiveness remain open.

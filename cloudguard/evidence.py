@@ -36,6 +36,12 @@ def evidence_main(collect, *, outputs=("output",), text_outputs=(), model=False)
                 }
                 if any(not isinstance(p, str) for p in payloads.values()):
                     raise ValueError("text output must be a string")
+                if (
+                    any(len(p) > 8_000_000 for p in payloads.values())
+                    or sum(len(p.encode("utf-8")) for p in payloads.values())
+                    > 8_000_000
+                ):
+                    raise ValueError("legacy publication byte budget exceeded")
             except (Exception, KeyboardInterrupt) as error:
                 code = 1
                 receipt = dict(status="rejected", error_type=type(error).__name__)

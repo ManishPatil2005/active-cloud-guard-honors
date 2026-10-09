@@ -4,6 +4,8 @@ Active Cloud Guard, 9 October 2026. QA-005 / QA-006 / R7 / R8; follows the [engi
 
 ## Current research position
 
+QA-008 follow-up: [selected legacy input/client budgets](LEGACY_RUNNER_BUDGETS.md) now implemented/software-tested,50newcases/finalWindows1566pass38skip/Linux1604pass. Partial input/client failures and initial interrupted Linux suite retained, corrected103targets eachOS. Remote daemon-job/descendant recovery, hard/native/hostile-filesystem limits and actual human/qualified empirical/production gates remain open.
+
 QA-007 follow-up: [model envelope diagnostics](MODEL_ENVELOPE_VALIDATION.md) now implemented/software-tested;52newcases/corrected171targets/fullWindows1516pass38skip/Linux1554pass. [Sequenced readiness roadmap](PRODUCTION_RESEARCH_ROADMAP.md) separates next engineering work from genuine human/experiment/production gates. Earlier batch counts below remain historical checkpoints, not today's latest suite or completed research.
 
 Final software verification for this batch: Windows1,464passed/38existing platform skips; Linux1,502passed, both1,502collected/zero failures/errors.54newcases; corrected208target cases,18documentation tests, lint/134fileformat/bothdependency-compatibility checks pass. Initial source-freeze and stale-count failures retained, not erased. One fresh offline historical summary executed; model/network/Docker runner behavior tested with mocks, no new live study. These are engineering checks, not independently evaluated attacks or security certification.
@@ -45,7 +47,7 @@ Use a new filename for every execution; missing parents/existing files are refus
 - Knowledge corpus: 1..256 objects with nonempty string id/title/text/url and unique IDs. Retrieval count1..256. Embedding request1..256 strings/1MB total input, response exact row count, consistent nonempty dimensions<=8192, finite numeric values/no booleans and magnitude<=1e100. These are engineering limits, not tuned detector parameters or attestations of the model.
 - Local model identity/chat/embedding/vector metadata now use bounded strict JSON; redirects remain refused. Audit cache policy advances to bounded-input version to avoid reuse under the old acceptance policy. Existing model/corpus/vector artifacts are not rewritten or certified. Selected integration/evaluator/clock preflight source lists cover the new limits dependency; this does not make native service intervention safe or authorized.
 
-Remaining resource gaps include some legacy script input/subprocess reads, aggregate/time budgets, hostile filesystem races and third-party/native allocation behavior. Named malformed-model envelope diagnostics are now repaired under QA-007, not a comprehensive model/host security audit. The entire repository is not declared sandboxed.
+Remaining resource gaps include readers/subprocesses outside QA-008's selected legacy scope, hard/blocked-IO/native time limits, descendant/remote daemon-job cleanup, hostile filesystem races and third-party/native allocation behavior. Named legacy guards and malformed-model envelope diagnostics are repaired under QA-008/QA-007, not a comprehensive model/host security audit. The entire repository is not declared sandboxed.
 
 ## Why open failures cannot be closed by another green run
 

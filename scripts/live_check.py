@@ -1,6 +1,5 @@
 """Persist live TCP and harmless HTTP observations; fail if a service is absent."""
 
-import json
 import sys
 import platform
 from pathlib import Path
@@ -13,10 +12,14 @@ from cloudguard.probe import probe
 from cloudguard.pipeline import run
 from cloudguard.evidence import evidence_main
 from cloudguard.llm import LocalOnlyRedirect
+from cloudguard.legacy_io import InputBudget
+from cloudguard.verification import load_inventory
 
 
 def collect(args):
-    inventory = json.loads((ROOT / "testbed/inventory.json").read_text())
+    budget = InputBudget()
+    inventory = budget.json(ROOT / "testbed/inventory.json")
+    load_inventory(ROOT / "testbed/inventory.json")
     rows = [
         probe(
             e["host"],

@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Next readiness step: bounded legacy runners
+
+Older experiment scripts now refuse selected oversized inputs; Trivy/environment clients have finite time/output guards, and local child cleanup is tested. Failed batches preserve previous observations and list cases not attempted; incomplete environment capture cannot become a successful dependency lock. [Simple contract and limitations](LEGACY_RUNNER_BUDGETS.md). Killing the local Docker client does not prove its container stopped; do not restart experiments automatically after such a failure. This code refinement is not supervisor approval, an independent benchmark or production certification.
+
 ## First next-stage readiness step
 
 Malformed model-server replies now reject with a clear owned category instead of accidental missing-field errors. Invalid cache data cannot silently become a clean result; fresh inference is required.52new software cases cover model replies/metadata/cache behavior; no new real model experiment was run. [What changed](MODEL_ENVELOPE_VALIDATION.md) and [one-by-one roadmap](PRODUCTION_RESEARCH_ROADMAP.md) show the next engineering task and the separate human/data/experiment/production gates. More code cannot provide independent reviewer votes or prove novelty.

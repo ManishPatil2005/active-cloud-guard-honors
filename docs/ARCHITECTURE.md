@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-008 adds stdlib-only legacy_io.InputBudget and process_runner.run_bounded shared by selected legacy scripts; two concurrent bounded pipe readers supervise/reap direct client only. Existing core engines/algorithms/model policy/stack unchanged; evidence publisher caps serialized reports8MB. Trivy/environment preserve partial failures and metadata PDF path portable. New helpers are not imported by clock comparison preflight/core pipeline; no native source-freeze expansion/control action. [Contract](LEGACY_RUNNER_BUDGETS.md).
+
 QA-007 keeps existing adapter modules: llm owns chat envelope validation/owned rejection/shared model-tags validation, vector reuses model identity validation and explicitly checks embedding envelope. Existing valid schema/grounding/score/probe semantics retained; policy4 invalidates old audit keys. No dependency/new module/stack/model algorithm change. [Contract](MODEL_ENVELOPE_VALIDATION.md)/[readiness gates](PRODUCTION_RESEARCH_ROADMAP.md).
 
 QA-005/QA-006 adds shared evidence.py exclusive publication and limits.py selected byte/JSON structure helpers without changing engines/stack. Seven legacy scripts expose explicit destinations; scanner UniqueLoader bounds YAML composition and refuses aliases. Selected verification/retrieval/cache/model/vector paths use bounded reads; file_hash streams64KB. Integration/evaluator/clock preflight selected source lists include limits.py. [Contract/research status](RESEARCH_COMPLETION_STATUS_20261009.md); no global sandbox/native intervention acceptance.

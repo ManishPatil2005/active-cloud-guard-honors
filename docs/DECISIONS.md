@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-070 - 2026-10-09 - Bound selected client pipes without claiming daemon-job cleanup
+
+QA-008/R7/R8. Use concurrent bounded pipe readers and local direct-child supervision rather than capture_output/check_output whole-output buffering. Keep trusted fixed argv/no shell, preserve bounded prefixes/status/cleanup flags; remote jobs/descendants unknown, stop failing batch without broad container deletion or automatic retry. Add cooperative input/checkpoint/hash/XML/publication guards and portable source PDF. Trivy preserves prior/current failure/not-attempted; failed environment lock is rejection, not installable snapshot. Isolate test interrupt injection to private pause; catch reaping interrupt as unknown, not successful cleanup. No hard sandbox/blocked-syscall/parent-crash/native safety or research novelty claim. [Contract](LEGACY_RUNNER_BUDGETS.md), WL-082/INC-071.
+
 ## ADR-069 - 2026-10-09 - Validate response envelopes before interpreting model content
 
 QA-007/R4/R7/R8. Use owned InvalidModelOutput subtype with static codes rather than raw KeyError/AttributeError or arbitrary server error text. Validate optional completion/inference types while allowing missing optional fields; preserve valid string content separately, never manufacture clean output. Bad-cache entries require fresh inference; policy4 invalidates previous acceptance. Share model metadata validation with vector adapter; digest is opaque, not authenticated model provenance. Production/research readiness separated into explicit software/human/empirical/operational gates; next engineering milestone legacy subprocess/input budgets. [Contract](MODEL_ENVELOPE_VALIDATION.md), WL-081/INC-070.

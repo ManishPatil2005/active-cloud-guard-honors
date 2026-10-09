@@ -5,7 +5,7 @@
 | Sequence | Work and acceptance | Current disposition / dependency |
 |---|---|---|
 | 1 / QA-007 | Malformed model envelopes/metadata explicitly reject; bad cache requires fresh inference; no invalid cache/index publication; regression evidence preserved | Implemented, verification in [contract](MODEL_ENVELOPE_VALIDATION.md)/WORK_LOG |
-| 2 | Bound remaining legacy inputs/subprocess stdout/stderr and aggregate/time budgets; interruption/timeout cleanup and negative receipts; preserve output contracts | Next engineering task; no all-process sandbox or child/container cleanup guarantee assumed |
+| 2 / QA-008 | Selected legacy inputs/client stdout/stderr and aggregate/checkpoint budgets; direct-child timeout/interruption cleanup, negative/partial receipts and publication cap | Implemented; [contract](LEGACY_RUNNER_BUDGETS.md)/WORK_LOG. Not all-process sandbox, descendant/remote-container cleanup, hard blocked-IO/native deadlines or qualified research |
 | 3 | Local dependency/advisory review, focused parser/resource fuzzing, cache/artifact access/race review and native boundary audit | Open; assess actual pinned versions/advisories, no automatic upgrades/source upload/cloud scanner provisioning |
 | 4 | Fresh-host reproducibility, automated cross-platform regression pipeline and operator runbook | Open; local tests are not GitHub Actions; no production host selected or provisioned |
 | 5 | Supervisor approves label/claim/context/unit/group/sample/privacy/analysis and acquisition qualification | Human gate; [proposal](ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md) remains DRAFT—NOT APPROVED |

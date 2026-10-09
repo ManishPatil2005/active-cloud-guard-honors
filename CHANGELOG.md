@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 - Bound selected legacy inputs and client subprocesses
+
+- Add finite combined stdout/stderr capture, trusted argv/no shell, direct-child timeout/interruption cleanup and explicit remote-job uncertainty.
+- Bound selected legacy input/hash/XML/package/traversal and publication budgets; environment source PDF uses portable repository copy.
+- Preserve partial baseline/metadata results, not-attempted slots and rejected incomplete locks; no successful research result fabricated.
+- Retain oversized-input negatives, initial accidental local HTTP test attempts and Linux shared-sleep interruption; corrected cross-platform tests and exact closure WL-082/INC-071/ADR-070.
+
 ## 2026-10-09 - Reject malformed local-model envelopes explicitly
 
 - Add owned chat envelope rejection without masking errors or accepting invalid completion/inference metadata; preserve usable content separately.

@@ -10,9 +10,13 @@ sys.path.insert(0, str(ROOT))
 from cloudguard.vector import index, retrieve_vector
 from cloudguard.llm import audit
 from cloudguard.evidence import evidence_main
+from cloudguard.legacy_io import InputBudget
 
 
 def collect(args):
+    budget = InputBudget()
+    text = budget.text(ROOT / "data/development/postgres-trust.yaml")
+    budget.bytes(ROOT / "knowledge/sources.json")
     start = time.perf_counter()
     indexed = index(ROOT / "knowledge/sources.json", ROOT / "output/chroma")
     queries = [
@@ -22,6 +26,7 @@ def collect(args):
     ]
     checks = []
     for query, expected in queries:
+        budget.check()
         docs = retrieve_vector(
             query, ROOT / "knowledge/sources.json", ROOT / "output/chroma"
         )
@@ -33,12 +38,12 @@ def collect(args):
                 passed=expected in [d["id"] for d in docs],
             )
         )
-    text = (ROOT / "data/development/postgres-trust.yaml").read_text()
+    budget.check()
     docs = retrieve_vector(
         text, ROOT / "knowledge/sources.json", ROOT / "output/chroma"
     )
     try:
-        result = audit(text, docs, args.model)
+        result = audit(text, docs, args.model, timeout=budget.timeout())
         error = None
     except Exception as exc:
         result = {"rejected_raw": getattr(exc, "raw_output", None)}

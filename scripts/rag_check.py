@@ -11,20 +11,25 @@ sys.path.insert(0, str(ROOT))
 from cloudguard.llm import audit
 from cloudguard.retrieval import retrieve
 from cloudguard.evidence import evidence_main
+from cloudguard.legacy_io import InputBudget
 
 
 def collect(args):
+    budget = InputBudget()
     results = []
-    for name in (
+    names = (
         "postgres-trust.yaml",
         "redis-unprotected.yaml",
         "postgres-reference.yaml",
-    ):
-        text = (ROOT / "data/development" / name).read_text()
+    )
+    inputs = {name: budget.text(ROOT / "data/development" / name) for name in names}
+    budget.bytes(ROOT / "knowledge/sources.json")
+    for name, text in inputs.items():
+        budget.check()
         sources = retrieve(text, ROOT / "knowledge/sources.json")
         start = time.perf_counter()
         try:
-            output = audit(text, sources, args.model)
+            output = audit(text, sources, args.model, timeout=budget.timeout())
             error = None
         except Exception as exc:
             output = {"rejected_raw": getattr(exc, "raw_output", None)}

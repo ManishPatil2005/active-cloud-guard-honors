@@ -1,26 +1,27 @@
 """Build a compact evidence ledger from actual saved runs, not guessed results."""
 
-import json
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.evidence import evidence_main
+from cloudguard.legacy_io import InputBudget
 
 
 def collect(args):
+    budget = InputBudget()
+
     def load(name):
-        return json.loads((ROOT / "output" / name).read_text())
+        return budget.json(ROOT / "output" / name, 2_000_000)
 
     baseline = load("baseline-development.json")
     live = load("live-testbed.json")
     rag = load("rag-smoke.json")
     vector = load("vector-smoke.json")
     trivy = load("trivy-baseline.json")
-    tests = ET.parse(ROOT / "output/test-results.xml").getroot()
+    tests = budget.xml(ROOT / "output/test-results.xml")
     suites = list(tests.iter("testsuite"))
     n = sum(int(s.attrib.get("tests", 0)) for s in suites)
     failures = sum(

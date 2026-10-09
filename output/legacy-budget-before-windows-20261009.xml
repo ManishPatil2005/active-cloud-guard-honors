@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="4.396" timestamp="2026-10-09T18:51:24.336025+05:30" hostname="Welcome"><testcase classname="tests.test_legacy_budget_regression" name="test_rag_oversized_input_refuses_before_model" time="0.082"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/legacy-budget-before-20261009/test_rag_oversized_input_refus0')
+
+    def test_rag_oversized_input_refuses_before_model(tmp_path):
+        module = load_runner("rag_check")
+        (tmp_path / "data/development").mkdir(parents=True)
+        for name in ("postgres-trust.yaml", "redis-unprotected.yaml", "postgres-reference.yaml"):
+            (tmp_path / "data/development" / name).write_bytes(b"#" + b"x" * 1000000)
+        with (
+            patch.object(module, "ROOT", tmp_path),
+            patch.object(module, "retrieve", return_value=[]),
+            patch.object(module, "audit") as model,
+&gt;           pytest.raises(ValueError, match="byte budget"),
+        ):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_legacy_budget_regression.py:27: Failed</failure></testcase><testcase classname="tests.test_legacy_budget_regression" name="test_live_oversized_inventory_refuses_before_probe" time="4.263"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('D:/research f1/tmp/legacy-budget-before-20261009/test_live_oversized_inventory_0')
+
+    def test_live_oversized_inventory_refuses_before_probe(tmp_path):
+        module = load_runner("live_check")
+        (tmp_path / "testbed").mkdir()
+        (tmp_path / "testbed/inventory.json").write_bytes(b"[" + b" " * 1000000 + b"]")
+        with (
+            patch.object(module, "ROOT", tmp_path),
+            patch.object(module, "probe") as probe,
+&gt;           pytest.raises(ValueError, match="byte budget"),
+        ):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_legacy_budget_regression.py:40: Failed</failure></testcase></testsuite></testsuites>

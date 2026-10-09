@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Scoped legacy input/client budgets — 9 October 2026
+
+Final verification: Windows1566pass38existing skips/Linux1604pass,1604collected each/zero failures/errors;50newcases/corrected103targets eachOS/docs18pass/lint140fileformat/bothpipchecks. Partial Linux run and input failures preserved; fresh historical summary executed without a new study.
+
+QA-008: [contract and limitations](LEGACY_RUNNER_BUDGETS.md), selected bounded legacy reads/hashes/XML/publication, Trivy/environment concurrent bounded client pipes/timeouts/direct-child cleanup and partial/not-attempted/rejected-lock states. Corrected103targets each OS; initial Linux shared-sleep mock interruption preserved/corrected, full closure WL-082. Remote jobs/descendants, hard native/blocked-IO limits and independent research/production acceptance not established. Next step dependency/advisory/focused resource review under roadmap; original import/timing/human/data/calibration gates unchanged.
+
 ## Model-response admission and sequenced readiness — 9 October 2026
 
 Final Windows1516pass38existing skips/Linux1554pass,1554collected each/zero failures/errors; corrected171targets/docs18pass/lint135fileformat/bothpipchecks. Raw negative/harness failures retained; no new live model/sensor or independent experiment.
