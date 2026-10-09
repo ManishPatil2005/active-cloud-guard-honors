@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-014 changes build qualification only: pinned setuptools83.0.0/fresh ignored builders/minimized wheels/local installed targets and opt-in packaging tests. CLI/library/engine algorithms/version0.5.0/Compose/Ollama/Chroma unchanged. Explicit external inputs remain separate from the42module wheel; default source-tree setup retained. [Contract](PACKAGE_QUALIFICATION.md).
+
 QA-013 adds an isolated operator script, not a third engine: fixed bounded profile reads + reused installed metadata inventory + existing exclusive evidence publisher. No network/installer/runtime package imports or core pipeline dependency; all-pin equality is distinct from vulnerability/runtime/vector/research acceptance. [Contract](CORE_PROFILE_VERIFICATION.md).
 
 QA-008 adds stdlib-only legacy_io.InputBudget and process_runner.run_bounded shared by selected legacy scripts; two concurrent bounded pipe readers supervise/reap direct client only. Existing core engines/algorithms/model policy/stack unchanged; evidence publisher caps serialized reports8MB. Trivy/environment preserve partial failures and metadata PDF path portable. New helpers are not imported by clock comparison preflight/core pipeline; no native source-freeze expansion/control action. [Contract](LEGACY_RUNNER_BUDGETS.md).

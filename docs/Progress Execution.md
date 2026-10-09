@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Current milestone: the installed package works for selected offline flows
+
+We built separate Windows/Linux packages using pinned tools and only the42Python modules plus manifest, then installed them into new temporary targets. Eight actual checks pass on each platform: contents/metadata and installed entry-point scanning, retrieval, saved synthetic replay, integration and missing-input rejection. Existing environments stay untouched. [Baby steps and exact limits](PACKAGE_QUALIFICATION.md). This is a same-computer package check, not independent research, CI, a fresh-machine installation or production readiness; vector/native paths still need separate work.
+
 ## Current check: verify all installed versions before trusting the setup
 
 Run `python scripts/core_profile_check.py --output output/my-core-profile-check.json` using the new environment and a fresh output name. It checks all31required versions, lists missing/wrong versions and reports extra packages without certifying them. Both tested candidates match31; the old Windows setup still has3wrong versions, deliberately unchanged. [Baby steps and receipts](CORE_PROFILE_VERIFICATION.md).21newtests/67selectedchecks pass on eachOS; this does not upgrade old environments or complete independent research.

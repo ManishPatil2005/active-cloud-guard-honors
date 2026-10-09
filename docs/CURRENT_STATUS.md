@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Latest QA-014: [local package qualification](PACKAGE_QUALIFICATION.md), actual Windows/Linux wheels built/installed into separate ignored targets;8checks eachOS cover installed entry-point function/both offline engines/integration/rejection. FullWindows1658pass39skip/Linux1697pass,1697collected each; final installed-byte amendment59targets eachOS. Reused portable dependencies/same hosts, unchanged31candidatepins; not independent fresh-host/CI/vector/production acceptance. No engine algorithms/historical environments changed; byte-identical archives not established. WL-088.
+
 Latest QA-013: [offline profile verifier](CORE_PROFILE_VERIFICATION.md), all31required pins match in each qualified candidate; originalWindows28match3mismatch proves it remains historical, not upgraded.21newcases/67targets pass bothOS; no full suite rerun or runtime/research/production approval. QA-012's portable recommendation remains current; next optional-vector/package/fresh-host/CI qualification and genuine human/data gates.
 
 Latest QA-012: [portable setup/default promotion](CORE_PROFILE_PROMOTION.md), stable qualified-profile include, pytest9.0.3 test extra and fresh-directory README guidance. Old environments/locks/Engine1 tag and vector boundary unchanged; optional Windows/vector qualification and fresh-host/CI remain next. Exact current checks WL-086; earlier QA-011 default-not-promoted statement is historical.

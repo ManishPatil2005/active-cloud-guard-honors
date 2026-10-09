@@ -181,6 +181,8 @@ An empty candidate list is not a security certification. A rejected model candid
 
 ## Reproducibility
 
+Optional installed-package validation: [local wheel qualification](docs/PACKAGE_QUALIFICATION.md) covers actual Windows/Linux minimized builds and selected offline entry-point functions without source imports. It reuses portable dependencies, not a fresh-host or optional-vector certification. Default setup below remains source-tree execution.
+
 ### 1. Prepare the environment
 
 Prerequisites: repository access, Python 3.11+, and Git. Portable core/ML source-tree checks were qualified on Windows Python 3.12.14 and WSL Linux Python 3.12.3; macOS and other versions remain unqualified. Docker with Linux-container support and several GB of image/model downloads are needed only for separately authorized live experiments.

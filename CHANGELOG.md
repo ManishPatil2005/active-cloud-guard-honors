@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Qualify local wheels and installed offline entry points
+
+- Pin the qualified setuptools83.0.0 backend and add a hash-pinned isolated build-tool profile.
+- Build minimized Windows/Linux wheels offline, preserving distinct hashes and original environments; no artifact release/upload.
+- Add eight explicit package checks for source/installed bytes, metadata and isolated entry-point execution of both engines/offline integration and invalid-input rejection.
+- Preserve missing-artifact skips as unqualified; exact observed checks and research limits in WL-088.
+
 ## 2026-10-09 - Verify every recommended installed dependency pin offline
 
 - Add bounded fixed-profile metadata checker, complete match/missing/mismatch counts and explicitly unqualified extras.

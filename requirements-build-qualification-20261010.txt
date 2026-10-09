@@ -1,0 +1,4 @@
+# Isolated wheel-build qualification only; not a core/vector environment upgrade.
+# Official PyPI wheel SHA256, inspected 10 October 2026.
+-r requirements-remediation-bootstrap-20261009.txt
+setuptools==83.0.0 --hash=sha256:29b23c360f22f414dc7336bb39178cc7bcbf6021ed2733cde173f09dba19abb3

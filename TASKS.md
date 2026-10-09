@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-014/R8: [local package qualification](docs/PACKAGE_QUALIFICATION.md), pinned/hash-checked builders/minimized offline wheels/local targets and8newchecks. Both actual8case targets pass; fullWindows1658pass39skip/Linux1697pass,1697collected each; final amended59targets eachOS. Distinct wheel hashes preserved/no byte-reproduction claim; all31candidatepins/oldlocks/tag/engines unchanged. Installed dependencies reused; fresh-host/CI/vector/native/operational and genuine research gates remain open. WL-088/ADR-076.
+
 QA-013/R8: [offline installed-profile verification](docs/CORE_PROFILE_VERIFICATION.md) implemented/tested. Fixed bounded profile chain/all31pins/complete missing-mismatch-extra receipts/exclusive output,21newcases/67targets both OS. Actual candidates31matches each; originalWindows28matches3mismatches preserved/no upgrade. WL-087/ADR-075/INC-076. Next full optional-vector qualification, packaging/fresh-host/CI; no real research gate completion.
 
 QA-012/R7/R8: [portable profile promotion](docs/CORE_PROFILE_PROMOTION.md), recommended source-tree profile and pytest9.0.3 test extra; three guard cases/fresh-directory setup. Does not switch historical environments or qualify Chroma/package builds/CI. Verification closure WL-086; next optional-vector qualification and reproducibility automation. Human/data/operational research gates unchanged.

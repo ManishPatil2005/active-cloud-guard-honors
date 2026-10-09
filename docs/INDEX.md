@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-014/WL-088: [local wheel/installed-package qualification](PACKAGE_QUALIFICATION.md). Pinned builders/minimized offline artifacts/local targets; actual entry-point functions and both-engine offline paths exercised without source imports. No artifact publication/fresh-host/CI/vector/production acceptance; final results and limits in WORK_LOG.
+
 Current QA-013/WL-087: [offline all-pin verification](CORE_PROFILE_VERIFICATION.md).31required pins checked with explicit missing/mismatch/unqualified extras; both candidates match, untouched historical Windows deliberately mismatches3.21newcases/67targets both OS, no installs/egress/full-suite rerun. QA-012 below remains setup/default promotion evidence.
 
 Current QA-012/WL-086: [recommended portable profile promotion](CORE_PROFILE_PROMOTION.md). Reuses the qualified dated core/ML pins, promotes test extra and fresh-directory README setup; old environments and optional vector findings remain unchanged. Exact checks and limits in WORK_LOG. QA-011 below records the prior qualification, not current default guidance.

@@ -1,5 +1,9 @@
 # Evidence index
 
+## Local wheel qualification (2026-10-10)
+
+QA-014/[contract](PACKAGE_QUALIFICATION.md)/WL-088. Actual8case installed-package targets [Windows](../output/package-target-windows-20261010.xml)/[Linux](../output/package-target-linux-20261010.xml); full [Windows1658pass39skip](../output/package-full-windows-20261010.xml)/[Linux1697pass](../output/package-full-linux-20261010.xml),1697collected each. Final42installed-module byte assertion/expanded59targets eachOS: [Windows](../output/package-final-windows-20261010.xml)/[Linux](../output/package-final-linux-20261010.xml). Candidate all31pins unchanged: [Windows](../output/package-core-profile-windows-20261010.json)/[Linux](../output/package-core-profile-linux-20261010.json),32/31installed distributions. Wheel SHA recorded in suite properties; distinct archive hashes preserved in contract. Same hosts/reused third-party dependencies/not fresh-host/CI/vector/production or independent evaluation; package artifacts/builders remain ignored, no wheel release.
+
 ## Isolated dependency candidates (2026-10-09)
 
 Final[Linux suite](../output/dependency-candidate-full-linux-tests-20261009.xml)1665passed230.82s, same1665collected as Windows1626pass39skips. Both actual fresh portable candidates, no complete optional-vector/install/build/independent research acceptance.

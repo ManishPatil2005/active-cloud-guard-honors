@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-076 - 2026-10-10 - Qualify installed wheels using minimized sources and isolated origins
+
+QA-014/R8/WL-088. Pin/hash-check setuptools83.0.0 rather than leave qualification at unconstrained>=75; older considered80.9.0 carries metadata advisory and is not installed. Use fresh ignored builders and42-source/manifest-only stages; offline wheel builds and no-dependency target installs preserve old environments/private data. Test exact archive/installed module bytes, declared metadata and installed entry-point function with Python-I/non-root cwd/explicit copied offline inputs. Keep artifact hashes distinct; no byte-identical build, generated OS-launcher, fresh runtime/host, optional vector/native or security/research certification inferred. No wheel/public package release authorized.
+
 ## ADR-075 - 2026-10-09 - Verify the fixed portable profile without automatic remediation
 
 QA-013/R8/WL-087. Inspect all required installed version metadata, not only four patched smoke versions. Bound the fixed three-file include chain and reject duplicate/unsupported pins; report extras as unqualified rather than hide or prohibit platform dependencies. Keep mismatch exit1/detailed exclusive evidence; no install, arbitrary requirement evaluation or network action. Source SHA binds observed bytes, not signatures/wheel integrity. No core-engine imports or algorithms change; vector/fresh-host/CI and independent research gates remain separate.
