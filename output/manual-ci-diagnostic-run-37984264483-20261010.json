@@ -1,0 +1,34 @@
+{
+  "status": "ci_run_observation",
+  "observed_at_utc": "2026-10-09T20:05:40.830915+00:00",
+  "repository": "ManishPatil2005/active-cloud-guard-honors",
+  "run_id": 37984264483,
+  "head_sha": "57c5408dc434606a7bfbe3abe78fed5267b91f83",
+  "run_url": "https://github.com/ManishPatil2005/active-cloud-guard-honors/actions/runs/37984264483",
+  "run_status": "completed",
+  "run_conclusion": "failure",
+  "jobs": [
+    {
+      "id": 114002182739,
+      "name": "regression (windows-2025, 3.12.10)",
+      "status": "completed",
+      "conclusion": "failure",
+      "regression_step_succeeded": false
+    },
+    {
+      "id": 114002183167,
+      "name": "regression (ubuntu-24.04, 3.12.14)",
+      "status": "completed",
+      "conclusion": "success",
+      "regression_step_succeeded": true
+    }
+  ],
+  "both_regression_jobs_succeeded": false,
+  "production_ready": false,
+  "independent_evaluation": false,
+  "limits": [
+    "GitHub metadata observation, not authenticated signatures or independent scientific evaluation.",
+    "Test counts, skips and package/host scope require original downloaded receipts.",
+    "No dispatch, rerun, deployment, source upload or autonomous monitoring by this reader."
+  ]
+}

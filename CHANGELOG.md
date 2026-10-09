@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Record final hosted diagnostic and open qualification boundary
+
+- Execute exact57c5408 manual run: Ubuntu1742 passes; Windows1704 passes/37 platform skips/one inert lifecycle failure. Preserve original failed receipts.
+- Capture child process creation WinError5; underlying hosted policy remains unproven. Keep safeguards and matrix failure intact.
+- Verify artifact-scope repair: exactly three current-run receipts per platform, with original byte hashes retained.
+- Update current status, beginner guide and remaining roadmap; no production readiness, independent research or supervisor approval claimed.
+
 ## 2026-10-10 - Preserve second CI failure and improve exact-run diagnostics
 
 - Preserve Ubuntu1740 passes and Windows1702 passes/37 platform skips/one inert helper failure; no green matrix claim.

@@ -1,5 +1,7 @@
 # Test and verification plan
 
+Latest actual hosted1742-case suite at57c5408: Ubuntu1742 passes/zero skips; Windows1704 passes/37 existing platform skips/one lifecycle failure, zero errors. Actual installed-wheel checks enabled both hosts. Diagnostic confirms child CreateProcess WinError5; underlying policy unproven. No skip/fallback/native flag weakening. Exact current-only six artifact receipts observed. Further supported-host acceptance remains pending, not earned by local89-case passes. WL-090/INC-081.
+
 Second hosted run1740 cases each: Ubuntu1740 passed; Windows1702 passed/37 platform skips/one inert lifecycle failure. Original XML retained. Five-file diagnostic targets89 cases pass Windows3.80s/Linux9.05s with original flags; failed alternate-parent-flags trial1failure/88passes retained. Tests enforce exact current host/run/attempt artifact paths; no skip/guard relaxation. Further hosted diagnostic results must retain their actual source SHA and failures. WL-090/INC-081.
 
 QA-016 reader refinement: two additional tests reproduce actual matrix display names and reject mixed historical/current sets. Negative Windows receipt retains 2 failures/18 passes; corrected receipt/CI/documentation targets pass all 48 cases on Windows and Linux. Actual hosted run37983312835 tests source3cfdd4e, which precedes this reader refinement; distinguish those scopes. INC-080/WL-090.

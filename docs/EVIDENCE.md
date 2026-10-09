@@ -1,5 +1,9 @@
 # Evidence index
 
+## Latest hosted diagnostic result (2026-10-10)
+
+QA-016/WL-090/INC-081: [exact source/run-bound failed observation](../output/manual-ci-diagnostic-run-37984264483-20261010.json), source57c5408/run37984264483. [Ubuntu1742 passes/zero skips](../output/ci-tests-ubuntu-24.04-37984264483-1.xml); [Windows1704 passes/37 platform skips/one failure](../output/ci-tests-windows-2025-37984264483-1.xml). Exact Windows/Ubuntu core and smoke JSONs retained; raw hashes in WORK_LOG. Windows stderr reveals child CreateProcess WinError5, not the underlying policy. Exactly three current-run artifacts per host confirms narrowed upload selection. Matrix remains failed; no security/effectiveness/production acceptance.
+
 ## Second authorized hosted run and diagnostic refinement (2026-10-10)
 
 QA-016/WL-090: [failed matrix observation](../output/manual-ci-corrected-run-37983312835-20261010.json) binds exact source3cfdd4e/run37983312835. [Ubuntu XML](../output/ci-tests-ubuntu-24.04-37983312835-1.xml):1740 passes/zero skips; [Windows XML](../output/ci-tests-windows-2025-37983312835-1.xml):1702 passes/37 platform skips/one inert-process failure. Both hosts' exact core/smoke JSONs and byte hashes retained; no aggregate success claim. [Reader name negative](../output/manual-ci-job-names-negative-windows-20261010.xml), corrected48targets [Windows](../output/manual-ci-job-names-final-windows-20261010.xml)/[Linux](../output/manual-ci-job-names-final-linux-20261010.xml), [reverted parent-flag negative](../output/manual-ci-process-final-windows-20261010.xml), [original-flags diagnostic target](../output/manual-ci-process-diagnostic-windows-20261010.xml). Hosted cause unknown; diagnostic refinement is not hosted acceptance. No independent research/security qualification.

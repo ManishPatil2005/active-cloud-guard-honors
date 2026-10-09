@@ -1,5 +1,13 @@
 # Progress Execution
 
+## Latest check: what passed and what still needs work
+
+We tested the private repository on fresh GitHub Windows and Ubuntu computers, including building and installing the package rather than only importing the source folder. Latest run37984264483 tested commit57c5408: Ubuntu passed all1,742 tests; Windows passed1,704, skipped37 platform-specific cases and failed one helper-process lifecycle check. The overall run is **failed**, not production-ready. Windows refused to create the helper (Access is denied); the exact host policy still needs investigation. Local checks pass with the original safety flags, but that does not cancel the hosted failure. No real service, clock or sensor was changed.
+
+To inspect this yourself: open GitHub → this private repository → Actions → Manual cross-platform regression → run37984264483. Open each platform job, then its regression step. Download that run's qualification artifact; each host has three files (package-pin JSON, smoke JSON and test XML). Match the runID in the filenames and the source commit in the [saved summary](../output/manual-ci-diagnostic-run-37984264483-20261010.json). A successful smoke check is not the same as a successful full test suite. Do not delete negative results or skip the failing helper test. Detailed instructions: [manual CI guide](MANUAL_CI.md).
+
+Next engineering work is read-only host/job-policy diagnosis and supported-host qualification, plus incomplete Linux vector compatibility and advisory review. Research completion also requires genuine supervisor approval, qualified independent captures/review, calibration/comparisons and a paper supported by measured results. More software tests cannot supply those human decisions or prove novelty.
+
 ## CI found a setup limitation, not an engine failure
 
 First real hosted run: Ubuntu passes1722tests; Windows stops before tests because the requested Python build is not available there. The failed run and Ubuntu receipts are preserved. We selected exact available hosted versions (Windows3.12.10/Ubuntu3.12.14), leaving your local environments unchanged, and added a reader that cannot report missing/skipped/failed test jobs as a successful matrix. The corrected real run is next; no green result claimed yet. [Details](MANUAL_CI.md).

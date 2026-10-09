@@ -2,6 +2,8 @@
 
 ### INC-081 - 2026-10-10 - Hosted inert helper failure; historical artifact inclusion
 
+Actual diagnostic run37984264483/source57c5408 repeats the failure with visible parent exit1/child CreateProcess PermissionError WinError5. Windows1704 passes/37 platform skips/one failure; Ubuntu1742 passes/zero skips. Exact process creation denial is observed, but the responsible job/security policy is unproven (no actual membership/limit query). Do not mark fixed from local passes or remove breakaway. Exact current-host/run/attempt artifact selection is separately live-observed: exactly six current receipts, no historical matches. Original failures retained; supported-host qualification remains open.
+
 Second hosted matrix setup succeeds both platforms. Ubuntu1740 passes; Windows1702 passes/37 platform skips/one lifecycle failure: empty stdout before helper PID, original test did not surface stderr. Hosted cause unknown. Changing intermediate-parent launch flags reproduced a local WinError5 and was reverted; original flags plus bounded startup diagnostics pass89 local selected cases, not a causal hosted fix. Production helper flags/guards unchanged; no skipped failure or rerun-to-hide evidence. Negative trial XML and both actual hosted XMLs retained. Download also included committed older CI receipts under broad globs; corrected upload paths select only exact current host/run/attempt filenames, with structural enforcement. Original download untouched, only exact six new receipts published. Next diagnostic run is pending execution. WL-090.
 
 ### INC-080 - 2026-10-10 - CI reader rejected corrected matrix display names
