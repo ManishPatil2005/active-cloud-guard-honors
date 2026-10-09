@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Latest work: safer cache and dependency findings
+
+The saved-response cache now rejects invalid settings and suspicious file types; operations sharing one cache object no longer collide in the tested threaded case. Disappearing files no longer cause the tested extra eviction.29new tests preserve failures; finalWindows1617passes39skips/Linux1656passes. With your permission we checked95Windows and23Linux Python packages against OSV, sending names/versions only. Matches need action for Chroma, OAuthlib, pip and pytest; no package has been upgraded yet. [Plain-language reproduction, findings and limits](CACHE_ADVISORY_REVIEW.md). Passing software tests and complete database queries do not mean fully secure or publication-ready research.
+
 ## Latest refinement: complete bounded reads and dependency review
 
 A small input-reader bug is repaired: it no longer treats a partial reply as the whole reply and rejects invalid size settings before reading.23new test cases, full Windows1589passes/38existing skips and101selected Linux passes. [Report, simple commands and limitations](DEPENDENCY_STREAM_REVIEW.md). Some Chroma dependency advisories concern server deployments; this code uses a local index, but that does not make the dependency certified safe. Do not expose a Chroma server or import someone else's index. Broader review and real research evaluation remain pending; no third engine or stack migration.

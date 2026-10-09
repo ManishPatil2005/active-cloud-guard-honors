@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-072 - 2026-10-09 - Scope cache race guarantees and require inventory egress approval
+
+QA-010/WL-084/INC-073. Reuse existing JSON response/cache semantics with strict types, regular leaf/descriptor identity and available no-follow/nonblocking read flags; same-instance reentrant lock fixes observed Windows thread collision without asserting cross-instance/process serialization. Ignore only vanished eviction victims, preserve other failures and trusted-parent limits. Request0700 for new final cache directories only, not ACL repair. Query approved installed package/version metadata through bounded fixed OSV API/exclusive publisher, preserve unqueried/partial states and negative evidence. Triage conditions/aliases; no blind upgrade/historical lock rewrite or complete security/research acceptance. CACHE_ADVISORY_REVIEW.md.
+
 ## ADR-071 - 2026-10-09 - Bound complete stream consumption and distinguish advisory conditions
 
 Use exact integer1..8MB budgets before I/O and64KiB/remaining+1 reads until EOF; reject invalid stream contracts. No total elapsed-time/process-isolation guarantee. Triage selected advisories against actual installed versions and inspected embedded workflow; version match is not reproduced exploitation, absent server call path is not package clearance. Preserve historical lockfiles/architecture, no unassessed upgrade when Chroma advisories list no patch. Full advisory/cache/native review remains open. QA-009/WL-083/INC-072; DEPENDENCY_STREAM_REVIEW.md.

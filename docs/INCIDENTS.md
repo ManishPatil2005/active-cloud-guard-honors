@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-073 - 2026-10-09 - Cache option/timestamp/disappearance gaps and Windows writer collision
+
+Final whole-suite after stale-count fix/case: Windows1617pass39skips61.81s/Linux1656pass176.56s,1656collected each/zero failures/errors. Earlier1655case runs below are preliminary; negative snapshots unchanged.
+
+Final review also reproduced1failure: disappeared sorting candidate retained in snapshot arithmetic, causing extra valid eviction. Corrected count to surviving dated entries and added29th case; fresh final full-suite receipts required, initial1655case whole-suite passes not promoted to final-source acceptance. Raw snapshot failure retained, no suppression/history rewrite. WL-084.
+
+Before10cachecases6failed3passed1Windows symlink-privilege skip; invalid settings/bool creation time accepted, vanished victim raised after successful publication. Strict validation/leaf-descriptor guards/vanished-victim handling corrected; initial85targets84pass1skip. Expanded103targets exposed actual same-instance four-thread replacement PermissionError on Windows; receipt retained, serialize get/put through per-instance RLock, corrected102pass1skip/Linux103pass. Different writers/hostile ancestors/durability remain outside guarantee; no broad Windows filesystem cause asserted. One patch failed atomically on formatting-changed quotes, corrected actual context. Initial OSV egress execution denied before command ran; approval requested and received, then actual queries95Windows/23Linux succeeded. No source upload/workaround/package changes. Exact full suite/commands/finding limits WL-084/CACHE_ADVISORY_REVIEW.md.
+
 ### INC-072 - 2026-10-09 - Invalid byte budgets and short-read prefix acceptance
 
 Source-confirmed limits.read_stream accepted unvalidated budgets and returned first short read as complete. Synthetic short stream accepted `{}` while trailing bytes remained;17before failures/5passes preserved. Fixed pre-I/O bounded exact-integer contract and EOF loop with finite chunk/remaining allowance. Initial100targets2failed: old test assumed every request11bytes and response mocks repeated identical JSON forever; adjusted bounded assertion/EOF mocks, not byte limits. Final23newcases/fullWindows1589pass38skip/Linux101targets pass. Selected Chroma server advisories remain open, not a reproduced exploit or dependency remediation; native/import/timing causes unchanged. Exact commands/scope WL-083/contract.

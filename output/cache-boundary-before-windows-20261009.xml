@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="6" skipped="1" tests="10" time="0.072" timestamp="2026-10-09T20:22:00.387958+05:30" hostname="Welcome"><testcase classname="tests.test_cache_boundaries" name="test_cache_options_exact_types[kwargs0]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">kwargs = {'ttl': True}
+tmp_path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_cache_options_exact_types0')
+
+    @pytest.mark.parametrize("kwargs", [{"ttl": True}, {"ttl": "10"}, {"ttl": float('nan')}, {"max_entries": True}, {"max_entries": 1.5}])
+    def test_cache_options_exact_types(kwargs, tmp_path):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_cache_boundaries.py:12: Failed</failure></testcase><testcase classname="tests.test_cache_boundaries" name="test_cache_options_exact_types[kwargs1]" time="0.001"><failure message="TypeError: '&lt;' not supported between instances of 'int' and 'str'">kwargs = {'ttl': '10'}
+tmp_path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_cache_options_exact_types1')
+
+    @pytest.mark.parametrize("kwargs", [{"ttl": True}, {"ttl": "10"}, {"ttl": float('nan')}, {"max_entries": True}, {"max_entries": 1.5}])
+    def test_cache_options_exact_types(kwargs, tmp_path):
+        with pytest.raises(ValueError):
+&gt;           AuditCache(tmp_path, **kwargs)
+
+tests\test_cache_boundaries.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;cloudguard.cache.AuditCache object at 0x00000228A7AC1E50&gt;
+directory = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_cache_options_exact_types1')
+ttl = '10', max_entries = 128
+
+    def __init__(self, directory, ttl=3600, max_entries=128):
+&gt;       if not 0 &lt; ttl &lt;= 86400 or not 1 &lt;= max_entries &lt;= 1024:
+E       TypeError: '&lt;' not supported between instances of 'int' and 'str'
+
+cloudguard\cache.py:22: TypeError</failure></testcase><testcase classname="tests.test_cache_boundaries" name="test_cache_options_exact_types[kwargs2]" time="0.001" /><testcase classname="tests.test_cache_boundaries" name="test_cache_options_exact_types[kwargs3]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">kwargs = {'max_entries': True}
+tmp_path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_cache_options_exact_types3')
+
+    @pytest.mark.parametrize("kwargs", [{"ttl": True}, {"ttl": "10"}, {"ttl": float('nan')}, {"max_entries": True}, {"max_entries": 1.5}])
+    def test_cache_options_exact_types(kwargs, tmp_path):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_cache_boundaries.py:12: Failed</failure></testcase><testcase classname="tests.test_cache_boundaries" name="test_cache_options_exact_types[kwargs4]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">kwargs = {'max_entries': 1.5}
+tmp_path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_cache_options_exact_types4')
+
+    @pytest.mark.parametrize("kwargs", [{"ttl": True}, {"ttl": "10"}, {"ttl": float('nan')}, {"max_entries": True}, {"max_entries": 1.5}])
+    def test_cache_options_exact_types(kwargs, tmp_path):
+&gt;       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_cache_boundaries.py:12: Failed</failure></testcase><testcase classname="tests.test_cache_boundaries" name="test_cache_timestamp_type_rejected[True]" time="0.002"><failure message="AssertionError: assert {'value': 1} is None&#10; +  where {'value': 1} = get('c0c1baf2fa65372c83bc5781a31d3ee0bceb37e7917317f33a92825fe5367189')&#10; +    where get = &lt;cloudguard.cache.AuditCache object at 0x00000228A7B2B170&gt;.get">created = True
+tmp_path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_cache_timestamp_type_reje0')
+
+    @pytest.mark.parametrize("created", [True, "100", None])
+    def test_cache_timestamp_type_rejected(created, tmp_path):
+        cache = AuditCache(tmp_path)
+        key = fingerprint("key")
+        cache.put(key, {"value": 1})
+        entry = json.loads(cache.path(key).read_text())
+        entry['created_at'] = created
+        cache.path(key).write_text(json.dumps(entry))
+        with patch('cloudguard.cache.time.time', return_value=2):
+&gt;           assert cache.get(key) is None
+E           AssertionError: assert {'value': 1} is None
+E            +  where {'value': 1} = get('c0c1baf2fa65372c83bc5781a31d3ee0bceb37e7917317f33a92825fe5367189')
+E            +    where get = &lt;cloudguard.cache.AuditCache object at 0x00000228A7B2B170&gt;.get
+
+tests\test_cache_boundaries.py:25: AssertionError</failure></testcase><testcase classname="tests.test_cache_boundaries" name="test_cache_timestamp_type_rejected[100]" time="0.002" /><testcase classname="tests.test_cache_boundaries" name="test_cache_timestamp_type_rejected[None]" time="0.002" /><testcase classname="tests.test_cache_boundaries" name="test_cache_symlink_leaf_not_read" time="0.001"><skipped type="pytest.skip" message="symlink privilege unavailable">D:\research f1\tests\test_cache_boundaries.py:32: symlink privilege unavailable</skipped></testcase><testcase classname="tests.test_cache_boundaries" name="test_disappeared_eviction_victim_not_failed_publication" time="0.002"><failure message="FileNotFoundError: another writer removed victim">tmp_path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_disappeared_eviction_vict0')
+
+    def test_disappeared_eviction_victim_not_failed_publication(tmp_path):
+        cache = AuditCache(tmp_path, max_entries=1)
+        first, second = fingerprint('first'), fingerprint('second')
+        cache.put(first, {'value': 1})
+        original = Path.unlink
+    
+        def raced(path, *args, **kwargs):
+            if path == cache.path(first):
+                original(path)
+                raise FileNotFoundError('another writer removed victim')
+            return original(path, *args, **kwargs)
+    
+        with patch.object(Path, 'unlink', raced):
+&gt;           cache.put(second, {'value': 2})
+
+tests\test_cache_boundaries.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\cache.py:83: in put
+    old.unlink()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('D:/research f1/tmp/cache-boundary-before-20261009/test_disappeared_eviction_vict0/de5f2cbf4c10a0d146f2a671aac363e8640fefc469ad42ac25364f19e4bc194f.json')
+args = (), kwargs = {}
+
+    def raced(path, *args, **kwargs):
+        if path == cache.path(first):
+            original(path)
+&gt;           raise FileNotFoundError('another writer removed victim')
+E           FileNotFoundError: another writer removed victim
+
+tests\test_cache_boundaries.py:55: FileNotFoundError</failure></testcase></testsuite></testsuites>

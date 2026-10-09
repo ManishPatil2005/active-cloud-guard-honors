@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 - Harden cache boundaries and query installed advisory coverage
+
+- Reject invalid cache options/timestamps, symlink/nonregular/reparse reads and changed opened-file identity; use available no-follow/nonblocking read flags.
+- Serialize same-instance cache operations; tolerate vanished eviction victims, preserve publication-before-eviction and visible other failures.
+- Add bounded OSV package/version runner, explicit partial/unqueried states and approved95Windows/23Linux queries; triage returned findings without blind upgrades.
+- Preserve initial cache, Windows concurrency and final stale-count failures;29newcases/finalWindows1617pass39skip/Linux1656pass, exact closure WL-084.
+
 ## 2026-10-09 - Validate stream budgets and refuse truncated-prefix acceptance
 
 - Validate finite exact integer budgets before I/O; bounded chunk reads handle short responses through EOF and reject invalid binary contracts.

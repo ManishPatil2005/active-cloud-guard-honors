@@ -1,5 +1,11 @@
 # Evidence index
 
+## Cache boundary and advisory review (2026-10-09)
+
+Final source/cases: [stale-count before failure](../output/cache-snapshot-before-windows-20261009.xml) retained; fixed final[Windows](../output/cache-advisory-final-windows-20261009.xml)1617pass39skip/[Linux](../output/cache-advisory-final-linux-20261009.xml)1656pass,1656collected each. Earlier full1655case receipts below are preliminary, not final source acceptance.
+
+QA-010/[contract](CACHE_ADVISORY_REVIEW.md)/WL-084. [Before cache failures](../output/cache-boundary-before-windows-20261009.xml), [initial target](../output/cache-boundary-target-windows-20261009.xml), [Windows concurrency failure](../output/cache-advisory-target-windows-20261009.xml), [correctedWindows](../output/cache-advisory-corrected-windows-20261009.xml), [Linux target](../output/cache-advisory-target-linux-20261009.xml). Full[Windows](../output/cache-advisory-full-windows-20261009.xml)1616pass39skips/[Linux](../output/cache-advisory-full-linux-20261009.xml)1655pass; [docs](../output/cache-advisory-docs-20261009.xml)18pass. Approved[Windows95package](../output/dependency-advisories-windows-20261009.json)/[Linux23package](../output/dependency-advisories-linux-20261009.json) OSV queries complete, conditions/remediation open; not independent exploit/security/research acceptance. Original failures unchanged.
+
 ## Existing pipeline/runtime integration (2026-10-07)
 
 E2-042: [contract/commands](PIPELINE_RUNTIME_INTEGRATION.md),28newcases/target114pass2.31s/XML2.234. [Windows](../output/pipeline-integration-full-windows-tests-20261007.xml)1268pass38skip26.85s/XML26.847; [Linux](../output/pipeline-integration-full-linux-tests-20261007.xml)1306pass111.65s/XML108.127,1306collected both/0failures/errors. Lint123fileformat/bothpipchecks pass. Actual [Windows](../output/pipeline-integration-synthetic-windows-20261007.json)/[Linux](../output/pipeline-integration-synthetic-linux-20261007.json) examples8checks each/fullresult hashes equal after platformfile/stage-timings exclusion; actual retrieval/scoring, no model/TCP calls. Model/probe/review/vector paths mocked; software integration not independently evaluated detection. Historical default report equality/old negative hashes preserved. WL-073.

@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-010/WL-084: [cache and advisory review](CACHE_ADVISORY_REVIEW.md). Selected file/type/thread/race guards and approved95Windows/23Linux installed-package OSV queries. Findings/conditions/remediation open, no environment upgrades or security certification; full source/test closure in WORK_LOG.
+
 Current QA-009/WL-083: [dependency and stream review](DEPENDENCY_STREAM_REVIEW.md), invalid budgets/short reads fixed;23cases/fullWindows1589pass38skip/Linux101targets. Four selected advisories, open Chroma server-condition findings; readiness3 partial, not full vulnerability certification.
 
 Latest QA-008/WL-082: [legacy runner budgets](LEGACY_RUNNER_BUDGETS.md), bounded client pipes/deadlines and direct-child cleanup, selected input/hash/XML/publication guards, preserved partial/not-attempted states. Before2input failures and initial interrupted Linux suite retained; corrected103targets pass both OS. No remote-container cleanup/sandbox or new study acceptance. Roadmap sequence2 scoped implementation; next dependency/advisory/resource review.

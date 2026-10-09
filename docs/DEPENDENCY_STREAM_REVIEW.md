@@ -1,5 +1,7 @@
 # Dependency and stream-boundary review
 
+Follow-up QA-010: [cache and installed-package advisory coverage](CACHE_ADVISORY_REVIEW.md). Approved95Windows/23Linux OSV queries and additional matched records triaged; this document retains the earlier four-record review scope. No original receipt/lock replacement or automatic upgrade.
+
 9 October 2026; QA-009, roadmap sequence3 **partial**, WL-083. The two engines, model policy4, Python/Compose/Ollama/Chroma stack and frozen Engine1 tag remain unchanged. No source upload, cloud provisioning, package installation/upgrade, live sensor/model workload or penetration test.
 
 ## Implemented acceptance

@@ -1,0 +1,172 @@
+{
+  "checked_at_utc": "2026-10-09T14:56:59.174933+00:00",
+  "status": "complete_database_query",
+  "database": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.23.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "lark",
+      "version": "1.3.1",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.3",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pip",
+      "version": "24.0",
+      "status": "queried",
+      "advisory_ids": [
+        "GHSA-4xh5-x5gv-qwph",
+        "GHSA-58qw-9mgm-455v",
+        "GHSA-6vgw-5pg2-w6jp",
+        "GHSA-jp4c-xjxw-mgf9",
+        "GHSA-qwm4-qh6w-59xr",
+        "GHSA-wf93-45jw-7689",
+        "PYSEC-2026-1795",
+        "PYSEC-2026-1796",
+        "PYSEC-2026-196",
+        "PYSEC-2026-2875",
+        "PYSEC-2026-2876",
+        "PYSEC-2026-3721"
+      ]
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pytest",
+      "version": "8.3.5",
+      "status": "queried",
+      "advisory_ids": [
+        "GHSA-6w46-j5rx-g56g",
+        "PYSEC-2026-1845"
+      ]
+    },
+    {
+      "name": "python-hcl2",
+      "version": "7.3.1",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "regex",
+      "version": "2026.9.10",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.6.3",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "ruff",
+      "version": "0.11.2",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "status": "queried",
+      "advisory_ids": []
+    }
+  ],
+  "queried_count": 23,
+  "installed_count": 23,
+  "error_type": null,
+  "exploitability_verified": false,
+  "vulnerability_free": false,
+  "limits": [
+    "Database coverage is not exhaustive; absence of IDs is not security clearance.",
+    "Package metadata is not authenticated provenance; IDs require condition/remediation triage.",
+    "Only installed Python distributions queried; OS, images, Ollama/model/native binaries excluded.",
+    "No source upload, upgrade, exploit or automatic retry; per-request socket timeout not whole-run deadline."
+  ]
+}

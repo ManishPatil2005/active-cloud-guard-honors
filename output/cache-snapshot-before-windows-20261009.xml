@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.057" timestamp="2026-10-09T20:35:02.217469+05:30" hostname="Welcome"><testcase classname="tests.test_cache_boundaries" name="test_disappeared_snapshot_entry_does_not_over_evict" time="0.004"><failure message="AssertionError: assert None == {'value': 2}&#10; +  where None = get('6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b')&#10; +    where get = &lt;cloudguard.cache.AuditCache object at 0x000001E8DF107230&gt;.get">tmp_path = WindowsPath('D:/research f1/tmp/cache-snapshot-before-20261009/test_disappeared_snapshot_entr0')
+
+    def test_disappeared_snapshot_entry_does_not_over_evict(tmp_path):
+        cache = AuditCache(tmp_path, max_entries=2)
+        first, second, third = [fingerprint(i) for i in range(3)]
+        cache.put(first, {"value": 1})
+        cache.put(second, {"value": 2})
+        original = Path.stat
+        calls = 0
+    
+        def disappear(path, *args, **kwargs):
+            nonlocal calls
+            if path == cache.path(first) and kwargs.get("follow_symlinks", True):
+                calls += 1
+                if calls == 2:
+                    path.unlink()
+                    raise FileNotFoundError("removed between enumeration and sorting")
+            return original(path, *args, **kwargs)
+    
+        with patch.object(Path, "stat", disappear):
+            cache.put(third, {"value": 3})
+&gt;       assert cache.get(second) == {"value": 2}
+E       AssertionError: assert None == {'value': 2}
+E        +  where None = get('6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b')
+E        +    where get = &lt;cloudguard.cache.AuditCache object at 0x000001E8DF107230&gt;.get
+
+tests\test_cache_boundaries.py:119: AssertionError</failure></testcase></testsuite></testsuites>
