@@ -1,5 +1,9 @@
 # Progress Execution
 
+## New step — compare two invented results fairly
+
+Activate the existing Python environment, open repository root and run `python scripts/runtime_paired_accounting_check.py --output output/my-fresh-paired-accounting.json` with a new filename. Open JSON and check six true checks. Both sides contain the same four invented units; one benign flag becomes an abstention. Precision looks better, but coverage falls and the variant's conditional false-positive rate becomes null because it decided no benign unit. The report retains all of this rather than calling it an improvement. No engine/model predictions or real research labels are produced. [Detailed schema/example/limits](SYNTHETIC_PAIRED_ACCOUNTING.md).
+
 ## New refinement — avoid repeatedly searching the same windows
 
 The combined workflow now groups each comparator's window positions once, then looks up each asset. Previously it searched the entire list for every asset—even assets without data. Outputs/scores/abstentions stay the same; this is fewer processing steps, not a new engine or proven energy saving. Run the existing fresh-file example `python scripts/integration_check.py --engine1-pipeline --runtime-ml both --measure-stages --output output/my-fresh-index-check.json`, open JSON and check ten true checks. For simple proof of fewer list passes and unchanged reports, run `python -m pytest -q tests/test_integration_window_index.py`. [Explanation/evidence/limits](INTEGRATION_WINDOW_INDEX.md).

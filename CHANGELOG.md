@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 - Compare matched synthetic decisions with complete denominators
+
+- Add isolated paired accounting library/fixed runner/four-unit invented example; reuse existing accounting, require exact unit/run/label/availability equality and retain all decision transitions.
+- Report conditional/inclusive/coverage and confusion/abstention changes, null undefined metrics and negative FP-count changes without model prediction generation or research approval.
+- 48 new cases; Windows/Linux relevant targets94pass and both fixed examples six checks. Existing engines/algorithms/stack unchanged; WL-077/ADR-065.
+
 ## 2026-10-08 - Index runtime comparator windows once for asset contexts
 
 - Replace repeated full-window filtering per asset with a transient ordered per-comparator index; preserve original windows, scores, abstentions, missing states and report contract.

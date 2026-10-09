@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-065 - 2026-10-09 - Compare only identically declared synthetic populations
+
+E2-046/RES-002/E2-004. Reuse existing accounting instead of inventing model decisions or relying on separate aggregate precision numbers. Require equal unit sets and unit-level run/label/availability; preserve full denominator/transition accounting and null/negative quantities. Exact declared pairing does not prove authentic/independent groups. No CI/bootstrap on unqualified data, model-score conversion, actual ablation or new engine/stack. Consequence: this offline synthetic aid tests arithmetic; approved real-data protocols and matched study/uncertainty remain pending. Contract: SYNTHETIC_PAIRED_ACCOUNTING.md.
+
 ## ADR-064 - 2026-10-08 - Build transient comparator indices once per report
 
 E2-045/V2-004/E2-004. Prefer one ordered in-memory asset/window index over filtering all windows per inventory asset. Preserve current component reports/validation/position semantics and separate models; no persistent cache or fitted-model reuse. Mapping row work changes A×W to W plus asset lookups; extra temporary dictionaries are a memory tradeoff, not a memory/energy saving claim. Validate traversal counts and full legacy-report equivalence instead of flaky timing thresholds. Same stack/algorithms/scientific authority; INTEGRATION_WINDOW_INDEX.md.

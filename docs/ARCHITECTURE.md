@@ -1,5 +1,7 @@
 # Existing architecture
 
+E2-046 adds an isolated runtime_paired_accounting library reusing existing runtime_accounting/metrics helpers, plus fixed runner/fixture/tests. It consumes only caller-supplied synthetic accounting documents, not engine outputs or telemetry; no core CLI, model/scanner/intake/algorithm/dependency/stack changes. [Schema/pairing/limits](SYNTHETIC_PAIRED_ACCOUNTING.md).
+
 E2-045 integration.py builds transient comparator→asset→ordered window-index dictionaries once after unchanged component validation; contexts use lookup instead of per-asset re-filtering. No persistent cache, public schema/algorithm/dependency or engine change. Extra local map memory traded for fewer row visits. [Equivalence/work-count evidence](INTEGRATION_WINDOW_INDEX.md).
 
 E2-044: integration.py owns opt-in local timing boundaries around existing component calls and overall replay; CLI/fixed runner forward --measure-stages. Existing reports remain intact; additional execution_cost only when requested, no imported profiler/dependency/service or algorithm change. [Scope/clock semantics](INTEGRATION_EXECUTION_COST.md).

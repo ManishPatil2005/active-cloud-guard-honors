@@ -1,0 +1,249 @@
+{
+  "status": "synthetic_check_passed",
+  "executed_at": "2026-10-09T11:34:13.196817+00:00",
+  "input_file_sha256": "f5e89f29c486e272fffe7b17daea14ccabf53a49103c218c67b110b312916d4f",
+  "selected_implementation_sha256": {
+    "runtime_paired_accounting.py": "f6a7eeb749e247f6155f51066ec8fdeecccf0871adb8efffbb80cc97cb38ab14",
+    "runtime_accounting.py": "8f89a63e9101bbe3dd917459994f1d22431ec01fa7a15589d61141002ec7bc39",
+    "metrics.py": "689f99adccba436ee03f7a9f2926475ca3341d10399b82992ece5bc8e5a121ba",
+    "runtime.py": "59c52be4ee869d370fb908d0b94021dacdbf2164bab960e7d2c8fea82a05fad5",
+    "runtime_paired_accounting_check.py": "2008ec04ce62f699c1b2bcdab321bd72067cec1c6a2ccd13049ca5702eb10994"
+  },
+  "checks": {
+    "exact_pairing": true,
+    "retained_unavailable": true,
+    "abstention_not_hidden": true,
+    "fp_count_not_rate": true,
+    "unknown_not_confusion": true,
+    "no_evaluation_authority": true
+  },
+  "result": {
+    "protocol": "synthetic_paired_accounting_report_v1",
+    "evidence_level": "synthetic_software_only",
+    "status": "paired_accounting_computed",
+    "input_canonical_sha256": "86dbfcd056900d493c202fc100e93c6c6395257767094a6f910b230ce83b3ffc",
+    "matched_unit_count": 4,
+    "decision_changed_unit_count": 1,
+    "all_declared_decision_transitions": {
+      "flagged": {
+        "flagged": 1,
+        "not_flagged": 0,
+        "abstained": 1
+      },
+      "not_flagged": {
+        "flagged": 0,
+        "not_flagged": 1,
+        "abstained": 0
+      },
+      "abstained": {
+        "flagged": 0,
+        "not_flagged": 0,
+        "abstained": 1
+      }
+    },
+    "known_observed_decision_transitions": {
+      "flagged": {
+        "flagged": 1,
+        "not_flagged": 0,
+        "abstained": 1
+      },
+      "not_flagged": {
+        "flagged": 0,
+        "not_flagged": 0,
+        "abstained": 0
+      },
+      "abstained": {
+        "flagged": 0,
+        "not_flagged": 0,
+        "abstained": 0
+      }
+    },
+    "baseline": {
+      "protocol": "synthetic_runtime_accounting_report_v1",
+      "evidence_level": "synthetic_software_only",
+      "status": "accounting_computed",
+      "input_canonical_sha256": "9caee627882db24cb47282b7a6c20bf7a6b4d331981cedb2b0656397be274026",
+      "declared_unit_count": 4,
+      "represented_run_count": 3,
+      "availability_counts": {
+        "observed": 3,
+        "missing": 1,
+        "unusable": 0
+      },
+      "observed_label_counts": {
+        "benign": 1,
+        "suspicious": 1,
+        "unknown": 1
+      },
+      "observed_decision_counts": {
+        "flagged": 2,
+        "not_flagged": 1,
+        "abstained": 0
+      },
+      "observed_cells": {
+        "benign": {
+          "flagged": 1,
+          "not_flagged": 0,
+          "abstained": 0
+        },
+        "suspicious": {
+          "flagged": 1,
+          "not_flagged": 0,
+          "abstained": 0
+        },
+        "unknown": {
+          "flagged": 0,
+          "not_flagged": 1,
+          "abstained": 0
+        }
+      },
+      "known_observed_unit_count": 2,
+      "known_decided_unit_count": 2,
+      "conditional_confusion": {
+        "tp": 1,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0
+      },
+      "positive_abstentions": 0,
+      "negative_abstentions": 0,
+      "conditional_metrics": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "false_positive_rate": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "all_known_positive_detection_fraction": 1.0,
+      "all_known_negative_flag_fraction": 1.0,
+      "known_decision_coverage": 1.0,
+      "observed_decision_coverage": 1.0,
+      "supervisor_approval_verified": false,
+      "independent_evaluation_verified": false,
+      "real_data_evaluation_authorized": false,
+      "labels_created": false,
+      "model_fitting_performed": false,
+      "model_predictions_generated": false,
+      "calibrated": false,
+      "threat_confirmed": false,
+      "actions_executed": [],
+      "limitations": [
+        "Synthetic supplied labels/decisions only; metadata is not authenticated provenance.",
+        "Conditional confusion excludes unknown labels, unavailable units and abstentions; all remain counted separately.",
+        "Declared units/run IDs are not authenticated coverage, independent groups or a complete planned-run ledger.",
+        "No thresholds, model-score conversion, real-data eligibility, human labeling, fitting or detector evaluation.",
+        "No confidence intervals, grouped uncertainty, delay, overhead, energy or production-readiness claim."
+      ]
+    },
+    "variant": {
+      "protocol": "synthetic_runtime_accounting_report_v1",
+      "evidence_level": "synthetic_software_only",
+      "status": "accounting_computed",
+      "input_canonical_sha256": "0d478ce0edd0e23dc16d7d26d3bfb898ff809e7338869b33b401317f32677642",
+      "declared_unit_count": 4,
+      "represented_run_count": 3,
+      "availability_counts": {
+        "observed": 3,
+        "missing": 1,
+        "unusable": 0
+      },
+      "observed_label_counts": {
+        "benign": 1,
+        "suspicious": 1,
+        "unknown": 1
+      },
+      "observed_decision_counts": {
+        "flagged": 1,
+        "not_flagged": 1,
+        "abstained": 1
+      },
+      "observed_cells": {
+        "benign": {
+          "flagged": 0,
+          "not_flagged": 0,
+          "abstained": 1
+        },
+        "suspicious": {
+          "flagged": 1,
+          "not_flagged": 0,
+          "abstained": 0
+        },
+        "unknown": {
+          "flagged": 0,
+          "not_flagged": 1,
+          "abstained": 0
+        }
+      },
+      "known_observed_unit_count": 2,
+      "known_decided_unit_count": 1,
+      "conditional_confusion": {
+        "tp": 1,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0
+      },
+      "positive_abstentions": 0,
+      "negative_abstentions": 1,
+      "conditional_metrics": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": null,
+        "f1": 1.0
+      },
+      "all_known_positive_detection_fraction": 1.0,
+      "all_known_negative_flag_fraction": 0.0,
+      "known_decision_coverage": 0.5,
+      "observed_decision_coverage": 0.6666666666666666,
+      "supervisor_approval_verified": false,
+      "independent_evaluation_verified": false,
+      "real_data_evaluation_authorized": false,
+      "labels_created": false,
+      "model_fitting_performed": false,
+      "model_predictions_generated": false,
+      "calibrated": false,
+      "threat_confirmed": false,
+      "actions_executed": [],
+      "limitations": [
+        "Synthetic supplied labels/decisions only; metadata is not authenticated provenance.",
+        "Conditional confusion excludes unknown labels, unavailable units and abstentions; all remain counted separately.",
+        "Declared units/run IDs are not authenticated coverage, independent groups or a complete planned-run ledger.",
+        "No thresholds, model-score conversion, real-data eligibility, human labeling, fitting or detector evaluation.",
+        "No confidence intervals, grouped uncertainty, delay, overhead, energy or production-readiness claim."
+      ]
+    },
+    "variant_minus_baseline": {
+      "precision": 0.5,
+      "recall": 0.0,
+      "false_positive_rate": null,
+      "f1": 0.33333333333333337,
+      "all_known_positive_detection_fraction": 0.0,
+      "all_known_negative_flag_fraction": -1.0,
+      "known_decision_coverage": -0.5,
+      "observed_decision_coverage": -0.33333333333333337
+    },
+    "conditional_confusion_changes": {
+      "tp": 0,
+      "fp": -1,
+      "tn": 0,
+      "fn": 0
+    },
+    "fp_count_reduction": 1.0,
+    "positive_abstention_change": 0,
+    "negative_abstention_change": 1,
+    "supervisor_approval_verified": false,
+    "independent_evaluation_verified": false,
+    "real_data_evaluation_authorized": false,
+    "labels_created": false,
+    "model_fitting_performed": false,
+    "model_predictions_generated": false,
+    "calibrated": false,
+    "threat_confirmed": false,
+    "actions_executed": [],
+    "limitations": [
+      "Invented supplied decisions only, not Engine1/Engine2 predictions or independent labels.",
+      "Exact unit/run/label/availability equality establishes declared pairing, not authentic provenance or independent groups.",
+      "Conditional metrics can improve by abstaining; inclusive denominators and coverage remain separate.",
+      "FP count reduction is not false-positive-rate reduction; undefined metrics/differences remain null and negative changes are retained.",
+      "No confidence intervals, bootstrap, significance, calibrated thresholds, held-out effectiveness, latency, overhead or energy evaluation."
+    ]
+  }
+}

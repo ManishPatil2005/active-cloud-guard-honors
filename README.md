@@ -6,6 +6,10 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+Evaluation preparation: [matched synthetic decision accounting](docs/SYNTHETIC_PAIRED_ACCOUNTING.md) checks exact populations and preserves coverage, abstentions, unknowns and undefined rates when comparing variants. Software arithmetic only—not model predictions, an executed ablation study or independent effectiveness evidence.
+
+Latest verification: **1,362 passed / 38 existing skips in the full Windows suite**, plus **94 relevant accounting tests passed on each of Windows and Linux**. No full Linux rerun for this isolated addition; older full-suite counts below remain historical checkpoints.
+
 Latest processing refinement: [single-pass comparator indexing](docs/INTEGRATION_WINDOW_INDEX.md) avoids repeatedly filtering all runtime windows per asset while preserving report evidence. Verified by deterministic row-visit tests and legacy-report comparisons; no measured energy or independent effectiveness claim.
 
 Latest full regression verification: **1,352 passed on Linux; 1,314 passed / 38 existing skips on Windows**. Includes all six new indexing/equivalence cases. Older milestone counts below are historical software checkpoints, not additional attack scenarios.

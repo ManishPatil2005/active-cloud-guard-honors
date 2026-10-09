@@ -1,5 +1,9 @@
 # Research and engineering task ledger
 
+E2-046 final evidence: fullWindows1362pass38existing skips/1400collected/zero failures/errors, relevantLinux+Windows94pass each; no new fullLinux claim. Docs18pass/lint129fileformat/bothpipchecks; cross-platform fixed complete results/current input+source hashes agree. Exact commands WL-077; actual matched study remains open.
+
+E2-046/RES-002/E2-004: [matched synthetic decision accounting](docs/SYNTHETIC_PAIRED_ACCOUNTING.md) implemented/software-tested. Equal declared unit/run/label/availability, intact per-system summaries/transitions/coverage/null+negative changes;48newcases/94targets pass both OS and six-check fixed examples. No model predictions/calibration/independent labels/actual ablation authority. Real matched study/uncertainty/overhead remains open; WL-077/ADR-065.
+
 E2-045 final verification: Linux1352pass/Windows1314pass38existing skips, both1352collected/zero failures/errors/final six cases included. Docs18pass/lint126fileformat/bothpipchecks pass, both fresh10checkdemos/current source-input-launcher hashes match. No scientific-gate completion inferred; WL-076.
 
 E2-045/V2-004/E2-004: [single-pass comparator indexing](docs/INTEGRATION_WINDOW_INDEX.md) implemented; repeated per-asset full-window filtering replaced with a transient ordered index. Actual before5traversals/after2includingvalidation, initial106targetpass; six new cases/final full-report legacy-equivalence tests. No score/algorithm/stack or approval change, matched efficiency/energy evaluation still open. WL-076/ADR-064/INC-066.

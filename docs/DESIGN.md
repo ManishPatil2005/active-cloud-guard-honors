@@ -1,5 +1,7 @@
 # CLI and evidence interface design
 
+E2-046 provides a separate fixed runtime_paired_accounting_check.py --output FRESH_JSON runner, not a new core CLI or engine mode. Output preserves both aggregate summaries, exact-pair transitions, coverage/abstention/null+negative differences and false evaluation authority. No arbitrary capture/model input or generated decision conversion. [Example/contract](SYNTHETIC_PAIRED_ACCOUNTING.md).
+
 Integrated replay/fixed runner expose --measure-stages: optional execution_cost protocol integrated_process_cost_v1, clocks, stages and total with integer wall_ns/process_cpu_ns. Only executed stage names appear; default no field/measurement-clock reads. Report explicitly denies sensor-overhead/energy/independent performance evaluation. [Reproduction/interpretation](INTEGRATION_EXECUTION_COST.md).
 
 Integrated-replay now supports opt-in --engine1-pipeline with required --kb and existing --model/--vector-index/--cache-dir/--timeout/--max-tokens/--policy/--reviews. Options require explicit mode; output labels actual pipeline execution/requested model/distinct probed assets, preserves full reports and adds reviewed model-verification references to contexts. Existing rule mode remains offline; pipeline mode may use requested local services. Stable distinct pipeline protocol, null combined priority/false joint authority. [Contract/examples](PIPELINE_RUNTIME_INTEGRATION.md).

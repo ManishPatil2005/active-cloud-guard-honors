@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest E2-046/WL-077: [matched synthetic decision comparison](SYNTHETIC_PAIRED_ACCOUNTING.md), exact unit/context pairing and intact abstention/unknown/missing denominators.48newcases/94targets both OS, fixed6checkexamples. Arithmetic prerequisite, not executed ablation/calibration/independent benchmark; actual research gates remain open.
+
 Latest E2-045/WL-076: [single-pass comparator window indexing](INTEGRATION_WINDOW_INDEX.md). Preserved failure shows repeated filtering; transient index removes it without changing reports/guards. Six new traversal/equivalence cases, initialtarget106pass/two10checkdemos. No measured latency/energy or independent research acceptance; earlier counts below historical.
 
 Latest E2-044/WL-075: [opt-in execution cost](INTEGRATION_EXECUTION_COST.md), local elapsed/process CPU by executed component and total, unchanged default output/detection. Two fixed synthetic examples10checks;23newcases/target102pass. Measurement prerequisite, not matched overhead/energy/independent benchmark; actual research gates unchanged.

@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest paired-comparison preparation — 9 October 2026
+
+Verification: full Windows1362pass38existing skips/1400collected/zero failures/errors; relevant Linux and Windows accounting targets94pass each. Full Linux not rerun for isolated additive code; last1352full Linux passes are8October historical evidence. Docs18pass/lint129fileformat/bothpipchecks, fixed complete-result equality and current source/input hashes pass. Independent study gates not completed.
+
+E2-046: [matched synthetic accounting](SYNTHETIC_PAIRED_ACCOUNTING.md) reuses existing aggregates/FP count arithmetic on exactly paired declared unit/run/label/availability; separate transitions/coverage/abstention/null+negative differences retained.48newcases/94targets both OS and six-check invented examples, no engine algorithm/stack change. This prepares part of RES-002/E2-004; no actual ablation/labels/score thresholds/fitting/approval/independent effectiveness/uncertainty/overhead results. WL-077/ADR-065; real gates unchanged.
+
 ## Latest processing refinement — 8 October 2026
 
 Final full suites: Linux1352pass/Windows1314pass38existing skips, both1352collected/zero failures/errors/all final source and six new cases included. Docs18pass/lint126fileformat/bothpipchecks pass; two ten-check demos and current hashes verified, negative/historical evidence preserved. Suite duration not speedup/clock-stability proof.

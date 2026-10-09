@@ -1,5 +1,7 @@
 # Research prototype requirements
 
+E2-046/RES-002/E2-004 prepares [matched synthetic accounting](SYNTHETIC_PAIRED_ACCOUNTING.md) with exact populations and complete abstention/coverage/null differences. No primary endpoint, label target, engine/stack or study authority changes; actual matched ablations/independent data/uncertainty remain open.
+
 E2-044/E2-004/V2-004/R7 supplies [opt-in process-cost measurements](INTEGRATION_EXECUTION_COST.md) for existing integrated components as an efficiency-evaluation prerequisite. No success target, research question, model algorithm or architecture change; matched sensor overhead, independent efficiency and energy measurement remain open.
 
 E2-042 connects R4/R5/R6/RQ3 through [existing Engine1 pipeline + saved runtime context](PIPELINE_RUNTIME_INTEGRATION.md): optional pipeline reports retain retrieval/model/probe/priority/review evidence, original rule mode retained. Software wiring is implemented; joint real observations, calibrated fusion/ML/live integration and independent effectiveness remain separate gates. No scope/claim/stack change.

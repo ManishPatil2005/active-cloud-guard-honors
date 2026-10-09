@@ -1,0 +1,24 @@
+{
+  "schema_version": "synthetic_paired_accounting_v1",
+  "origin": "synthetic_fixture",
+  "baseline": {
+    "schema_version": "synthetic_runtime_accounting_v1",
+    "origin": "synthetic_fixture",
+    "units": [
+      {"unit_id":"positive","run_id":"practice-a","label":"suspicious","decision":"flagged","availability":"observed"},
+      {"unit_id":"negative","run_id":"practice-a","label":"benign","decision":"flagged","availability":"observed"},
+      {"unit_id":"unknown","run_id":"practice-b","label":"unknown","decision":"not_flagged","availability":"observed"},
+      {"unit_id":"missing","run_id":"practice-c","label":"unknown","decision":"abstained","availability":"missing"}
+    ]
+  },
+  "variant": {
+    "schema_version": "synthetic_runtime_accounting_v1",
+    "origin": "synthetic_fixture",
+    "units": [
+      {"unit_id":"positive","run_id":"practice-a","label":"suspicious","decision":"flagged","availability":"observed"},
+      {"unit_id":"negative","run_id":"practice-a","label":"benign","decision":"abstained","availability":"observed"},
+      {"unit_id":"unknown","run_id":"practice-b","label":"unknown","decision":"not_flagged","availability":"observed"},
+      {"unit_id":"missing","run_id":"practice-c","label":"unknown","decision":"abstained","availability":"missing"}
+    ]
+  }
+}
