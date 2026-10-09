@@ -181,6 +181,8 @@ An empty candidate list is not a security certification. A rejected model candid
 
 ## Reproducibility
 
+[Manual Windows/Ubuntu CI](docs/MANUAL_CI.md) is operator-dispatched only, with pinned setup/build tools and installed-package checks. Workflow creation/local tests do not establish a remote pass; consult the recorded run outcomes. No scheduled runs, deployment or production credentials.
+
 Optional installed-package validation: [local wheel qualification](docs/PACKAGE_QUALIFICATION.md) covers actual Windows/Linux minimized builds and selected offline entry-point functions without source imports. It reuses portable dependencies, not a fresh-host or optional-vector certification. Default setup below remains source-tree execution.
 
 ### 1. Prepare the environment

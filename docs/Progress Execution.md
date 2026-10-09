@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Next executed gate: manual tests on fresh GitHub runners
+
+You authorized manual Windows/Ubuntu CI. The workflow now installs the pinned portable setup, builds a minimal package and runs the full tests with installed-package checks enabled. It cannot deploy or run on a schedule; results/receipts stay distinct from independent research. [Operator steps and pending actual run](MANUAL_CI.md). Local YAML checks pass, but a workflow file is not a successful remote run; watch the execution log for actual head/run/job results.
+
 ## Current milestone: optional Windows vector setup and fresh-process storage
 
 The previously unfinished full optional setup now installs in a separate temporary environment; all95versions match and compatibility passes. Two invented vectors survive a write-process exit and a new read/query process. [Baby steps and receipts](VECTOR_PROFILE_QUALIFICATION.md). Do not touch your normal index or expose a Chroma server: four Chroma advisory matches remain. Fifteen newcases/final66checks pass eachOS; Linux checks are simulations, not a native vector run. This is compatibility work, not independent research or production approval.

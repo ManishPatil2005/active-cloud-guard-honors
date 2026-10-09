@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-016/WL-090: [manual hosted regression](MANUAL_CI.md). User-authorized manual-only fixed Windows/Ubuntu workflow/immutable action pins/least privilege/budgets/actual wheel paths and restricted receipts. Local structural checks pass; remote run/result must be recorded separately, not claimed from workflow creation. QA-015 below remains local vector compatibility, not CI/native/security clearance.
+
 Current QA-015/WL-089: [optional Windows/vector qualification](VECTOR_PROFILE_QUALIFICATION.md), actual95pininstall/compatibility/ephemeral and separate-process synthetic storage pass; approvedOSV95coverage keeps Chroma findings open.15newcontracts/final66eachOS, Linux mocked only. Prior optional Windows incomplete statements below are historical; no production/research clearance.
 
 Current QA-014/WL-088: [local wheel/installed-package qualification](PACKAGE_QUALIFICATION.md). Pinned builders/minimized offline artifacts/local targets; actual entry-point functions and both-engine offline paths exercised without source imports. No artifact publication/fresh-host/CI/vector/production acceptance; final results and limits in WORK_LOG.

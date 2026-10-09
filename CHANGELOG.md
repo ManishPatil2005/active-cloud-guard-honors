@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Add authorized manual hosted regression workflow
+
+- Define manual-only Windows/Ubuntu/Python3.12.14 regression with read-only permissions, immutable official actions and finite job budgets.
+- Automate isolated pinned core/build installs, minimal offline wheel/target checks and full suite with actual package paths.
+- Preserve only run-specific JSON/XML receipts on success/failure; no deployment/secrets/schedule/source artifact upload.
+- Add10structural contracts; actual remote execution/result remains separately recorded in WL-090.
+
 ## 2026-10-10 - Qualify optional Windows profile and cold-process vector storage
 
 - Install a separate full95pin optional candidate with bounded wheels-only installer; verify all pins/compatibility/ephemeral vectors and approved OSV coverage.

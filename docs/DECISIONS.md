@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-078 - 2026-10-10 - Require deliberate least-privilege hosted CI with real artifact paths
+
+QA-016/R8/WL-090. User approves Windows/Ubuntu manual GitHub Actions and Actions minutes; keep workflow_dispatch only/contentsread/no persisted checkout credentials/no live workloads/secret injection/deployment/schedule. Resolve official actions to full commit SHAs; fixed hosts/Python/budgets/failfastfalse preserve each result. Build minimized wheel separately and supply installed-artifact paths for alltests, avoiding silent qualification skips. Upload only bounded-retention run-specific receipt files, not source/builders/weights/stores. Actual run/head/job receipts required; structural/source-tree passes do not establish hosted, native vector or research/production acceptance.
+
 ## ADR-077 - 2026-10-10 - Separate embedded compatibility from Chroma security clearance
 
 QA-015/WL-089. Finish original full optional profile in fresh ignored candidate under bounded wheels-only installer, not historical environment upgrade or pin substitution. Exact95pin match/ephemeral/two-child synthetic storage tests qualify selected embedded compatibility only; preserve4GHSA+4alias database matches and prior negatives. Fresh trusted synthetic directory/explicit embeddings/no server/model/native-network isolation claims. Python audit guards are selected guards, not host sandbox; retain partial/not-attempted states and ignored artifacts. ManualCI separately approved and remains a distinct execution milestone.

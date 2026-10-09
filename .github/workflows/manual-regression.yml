@@ -1,0 +1,94 @@
+name: Manual cross-platform regression
+
+# Explicit operator dispatch only: no push, PR, schedule or deployment trigger.
+"on":
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  regression:
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Check out exact dispatched revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Select Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12.14'
+      - name: Install isolated portable profile
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if (Test-Path -LiteralPath .venv) { throw 'Environment already exists' }
+          python -m venv .venv
+          if ($LASTEXITCODE -ne 0) { throw 'Environment creation failed' }
+          $ciPython = if ($IsWindows) { '.venv/Scripts/python.exe' } else { '.venv/bin/python' }
+          & $ciPython -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --no-deps --require-hashes --disable-pip-version-check --no-input --retries 0 --timeout 20 -r requirements-remediation-bootstrap-20261009.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Bootstrap failed' }
+          & $ciPython -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --disable-pip-version-check --no-input --retries 0 --resume-retries 0 --timeout 20 -r requirements-core-current.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Portable profile installation failed' }
+      - name: Check profile, smoke, style and publication
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $ciPython = if ($IsWindows) { '.venv/Scripts/python.exe' } else { '.venv/bin/python' }
+          & $ciPython -m pip check
+          if ($LASTEXITCODE -ne 0) { throw 'Dependency compatibility failed' }
+          & $ciPython scripts/core_profile_check.py --output output/ci-core-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.json
+          if ($LASTEXITCODE -ne 0) { throw 'Profile check failed' }
+          & $ciPython scripts/dependency_candidate_check.py --output output/ci-smoke-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.json
+          if ($LASTEXITCODE -ne 0) { throw 'Smoke failed' }
+          & $ciPython -m ruff check cloudguard scripts tests
+          if ($LASTEXITCODE -ne 0) { throw 'Lint failed' }
+          & $ciPython -m ruff format --check cloudguard scripts tests
+          if ($LASTEXITCODE -ne 0) { throw 'Format check failed' }
+          & $ciPython scripts/repository_check.py
+          if ($LASTEXITCODE -ne 0) { throw 'Publication check failed' }
+      - name: Build and install minimized local wheel
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $ciPython = if ($IsWindows) { '.venv/Scripts/python.exe' } else { '.venv/bin/python' }
+          python -m venv tmp/ci-builder
+          if ($LASTEXITCODE -ne 0) { throw 'Builder creation failed' }
+          $ciBuilder = if ($IsWindows) { 'tmp/ci-builder/Scripts/python.exe' } else { 'tmp/ci-builder/bin/python' }
+          & $ciBuilder -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --no-deps --require-hashes --disable-pip-version-check --no-input --retries 0 --timeout 20 -r requirements-build-qualification-20261010.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Builder tool installation failed' }
+          & $ciBuilder -m pip check
+          if ($LASTEXITCODE -ne 0) { throw 'Builder compatibility failed' }
+          New-Item -ItemType Directory -Path tmp/ci-source/cloudguard -ErrorAction Stop | Out-Null
+          Copy-Item -LiteralPath pyproject.toml -Destination tmp/ci-source/pyproject.toml
+          Get-ChildItem -LiteralPath cloudguard -File -Filter '*.py' | Copy-Item -Destination tmp/ci-source/cloudguard
+          & $ciBuilder -m pip --isolated wheel --no-index --no-deps --no-build-isolation --disable-pip-version-check --wheel-dir tmp/ci-wheels tmp/ci-source
+          if ($LASTEXITCODE -ne 0) { throw 'Offline wheel build failed' }
+          & $ciPython -m pip --isolated install --no-index --no-deps --disable-pip-version-check --target tmp/ci-installed tmp/ci-wheels/active_cloud_guard-0.5.0-py3-none-any.whl
+          if ($LASTEXITCODE -ne 0) { throw 'Local target installation failed' }
+      - name: Run full regressions including installed wheel
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $ciPython = if ($IsWindows) { '.venv/Scripts/python.exe' } else { '.venv/bin/python' }
+          $env:ACG_PACKAGE_WHEEL = [IO.Path]::GetFullPath('tmp/ci-wheels/active_cloud_guard-0.5.0-py3-none-any.whl')
+          $env:ACG_PACKAGE_TARGET = [IO.Path]::GetFullPath('tmp/ci-installed')
+          & $ciPython -m pytest -q --basetemp=tmp/ci-tests -o cache_dir=tmp/ci-cache --junitxml=output/ci-tests-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.xml
+          if ($LASTEXITCODE -ne 0) { throw 'Regression tests failed; retain receipt' }
+      - name: Preserve qualification receipts
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: qualification-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            output/ci-*.json
+            output/ci-*.xml
+          if-no-files-found: warn
+          retention-days: 7
+          include-hidden-files: false

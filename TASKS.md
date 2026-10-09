@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-016/R8: [authorized manual CI](docs/MANUAL_CI.md) definition implemented/10structural cases; local27pass6artifactskips eachOS. Fixed2hosts/Python/commitpins/least privilege/budgets/minimal build/fullartifacttests/receipts. User approves actual dispatch; remote run acceptance pending actual execution/identity/results, not proven by local YAML tests. WL-090/ADR-078. Remaining Linux optional-vector/native/Chroma and human/research/production gates unchanged.
+
 QA-015/R7/R8: [optional Windows/vector qualification](docs/VECTOR_PROFILE_QUALIFICATION.md) completes separate95pininstall/allpinsmatch/pipcheck/ephemeral and two-child synthetic persistent read/query. FullWindows1658pass39skip/1697collected before15newcases; final66targets eachOS. Approved95packagequery retains4ChromaGHSA+4aliases; not security remediation. Linux contracts mocked/native install unqualified; original environments preserved. Next authorized manual CI/fresh-host regression plus Linux vector/Chroma/native/research gates. WL-089/ADR-077/INC-077.
 
 QA-014 publication complete/verified at485b62bdd43fb51f2acc72961da900c3cb778c4b;27reviewedfiles/7XML2JSON, no wheel or historical-output replacement. Receipt-count prose correction only; acceptance and next gates below unchanged.
