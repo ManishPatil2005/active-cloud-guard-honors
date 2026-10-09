@@ -1,5 +1,7 @@
 # Research prototype requirements
 
+9October owner requests progression toward production and novelty readiness. [Sequenced acceptance roadmap](PRODUCTION_RESEARCH_ROADMAP.md) preserves present loopback research scope/stack and original questions; no selected production deployment/response authority, proven novelty or independent evaluation implied. QA-007 response-envelope maintenance supports R4/R7/R8, not a changed claim target.
+
 E2-046/RES-002/E2-004 prepares [matched synthetic accounting](SYNTHETIC_PAIRED_ACCOUNTING.md) with exact populations and complete abstention/coverage/null differences. No primary endpoint, label target, engine/stack or study authority changes; actual matched ablations/independent data/uncertainty remain open.
 
 E2-044/E2-004/V2-004/R7 supplies [opt-in process-cost measurements](INTEGRATION_EXECUTION_COST.md) for existing integrated components as an efficiency-evaluation prerequisite. No success target, research question, model algorithm or architecture change; matched sensor overhead, independent efficiency and energy measurement remain open.

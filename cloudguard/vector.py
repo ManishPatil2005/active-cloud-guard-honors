@@ -4,7 +4,7 @@ import hashlib
 import json
 import math
 from urllib.request import Request, build_opener, ProxyHandler
-from .llm import LocalOnlyRedirect
+from .llm import LocalOnlyRedirect, identity_from_models
 from .limits import knowledge, json_response, INPUT_BYTES
 
 
@@ -25,7 +25,10 @@ def embed(texts, model="nomic-embed-text"):
     with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         req, timeout=120
     ) as response:
-        vectors = json_response(response)["embeddings"]
+        payload = json_response(response)
+    if not isinstance(payload, dict) or "embeddings" not in payload:
+        raise ValueError("invalid embedding response envelope")
+    vectors = payload["embeddings"]
     if not isinstance(vectors, list) or len(vectors) != len(texts):
         raise ValueError("embedding row count mismatch")
     dimension = None
@@ -54,12 +57,8 @@ def collection(kb_path, index_path, model):
     with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         "http://127.0.0.1:11434/api/tags", timeout=5
     ) as response:
-        models = json_response(response)["models"]
-    normalized = model if ":" in model else model + ":latest"
-    matches = [m for m in models if m["name"] == normalized]
-    if len(matches) != 1:
-        raise ValueError("embedding model missing or ambiguous")
-    model_digest = matches[0]["digest"]
+        payload = json_response(response)
+    model_digest = identity_from_models(payload, model)
     identity = hashlib.sha256((digest + model_digest).encode()).hexdigest()
     client = chromadb.PersistentClient(
         path=str(index_path), settings=Settings(anonymized_telemetry=False)

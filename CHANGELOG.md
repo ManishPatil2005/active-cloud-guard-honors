@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 - Reject malformed local-model envelopes explicitly
+
+- Add owned chat envelope rejection without masking errors or accepting invalid completion/inference metadata; preserve usable content separately.
+- Validate shared model tags and embedding envelopes before persistent index use; malformed caches require fresh inference, policy4 invalidates old acceptance keys.
+- Preserve52newcases, initial negative failures and corrected test-harness environment-variable failure; exact full suites WL-081.
+- Add sequenced production/research readiness gates without fabricating approval, independent evaluation, novelty or deployment acceptance.
+
 ## 2026-10-09 - Preserve legacy experiment outputs and bound selected input paths
 
 - Require fresh destinations for seven legacy runners before collection; separate live pipeline output and environment lock snapshot, retain existing evidence and failed receipts.

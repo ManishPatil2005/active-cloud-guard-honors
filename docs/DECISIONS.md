@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-069 - 2026-10-09 - Validate response envelopes before interpreting model content
+
+QA-007/R4/R7/R8. Use owned InvalidModelOutput subtype with static codes rather than raw KeyError/AttributeError or arbitrary server error text. Validate optional completion/inference types while allowing missing optional fields; preserve valid string content separately, never manufacture clean output. Bad-cache entries require fresh inference; policy4 invalidates previous acceptance. Share model metadata validation with vector adapter; digest is opaque, not authenticated model provenance. Production/research readiness separated into explicit software/human/empirical/operational gates; next engineering milestone legacy subprocess/input budgets. [Contract](MODEL_ENVELOPE_VALIDATION.md), WL-081/INC-070.
+
 ## ADR-068 - 2026-10-09 - Exclusive legacy publications and selected resource budgets
 
 QA-005/QA-006/R4/R7/R8. Prefer explicit fresh outputs over renamed fixed writers; reserve all before external/collection work, leave failed/partial new artifacts rather than delete history. Environment capture creates a separate lock snapshot, not dependency-lock mutation. Share bounded file/JSON helpers without new dependencies; stream hashes, bound YAML composition and refuse aliases to avoid cyclic/amplified paths. Preserve plain fixture findings/newline identities; tighten multibyte byte limits and invalidate prior audit policy cache. Integration/evaluator/clock preflight freezes include limits.py;24-clock-source count maintained, no native permission. Tradeoffs: compatibility changes to invocation/aliases, partial multi-output publication, post-decode node budgets and trusted filesystem/native dependencies. No human approval/labels/real calibration generated. [Contract](RESEARCH_COMPLETION_STATUS_20261009.md), WL-080/INC-069.

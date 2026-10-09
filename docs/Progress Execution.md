@@ -1,5 +1,9 @@
 # Progress Execution
 
+## First next-stage readiness step
+
+Malformed model-server replies now reject with a clear owned category instead of accidental missing-field errors. Invalid cache data cannot silently become a clean result; fresh inference is required.52new software cases cover model replies/metadata/cache behavior; no new real model experiment was run. [What changed](MODEL_ENVELOPE_VALIDATION.md) and [one-by-one roadmap](PRODUCTION_RESEARCH_ROADMAP.md) show the next engineering task and the separate human/data/experiment/production gates. More code cannot provide independent reviewer votes or prove novelty.
+
 ## What has now been improved, and what needs people/data
 
 Seven older experiment scripts can no longer replace an existing report during normal invocation. Give each a fresh --output filename; live_check also needs --pipeline-output, capture_environment needs --lock-output. Input/model file sizes and structures now have selected enforced budgets; oversized, cyclic/aliased or ambiguous supported envelopes refuse rather than return a clean verdict. These are code changes with tests, not just new documents. [Complete status and simple next-stage steps](RESEARCH_COMPLETION_STATUS_20261009.md) explains the exact interfaces and limits. The engines exist, but professor approval, genuine independent review/data, reliable runtime collection and final measured comparisons are still needed. We cannot truthfully manufacture them in a coding session.

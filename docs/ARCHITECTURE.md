@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-007 keeps existing adapter modules: llm owns chat envelope validation/owned rejection/shared model-tags validation, vector reuses model identity validation and explicitly checks embedding envelope. Existing valid schema/grounding/score/probe semantics retained; policy4 invalidates old audit keys. No dependency/new module/stack/model algorithm change. [Contract](MODEL_ENVELOPE_VALIDATION.md)/[readiness gates](PRODUCTION_RESEARCH_ROADMAP.md).
+
 QA-005/QA-006 adds shared evidence.py exclusive publication and limits.py selected byte/JSON structure helpers without changing engines/stack. Seven legacy scripts expose explicit destinations; scanner UniqueLoader bounds YAML composition and refuses aliases. Selected verification/retrieval/cache/model/vector paths use bounded reads; file_hash streams64KB. Integration/evaluator/clock preflight selected source lists include limits.py. [Contract/research status](RESEARCH_COMPLETION_STATUS_20261009.md); no global sandbox/native intervention acceptance.
 
 QA-004 keeps existing adapters/endpoints: llm validates exact integer port before URL/cache use and owns LocalOnlyRedirect; vector reuses handler for fixed tags/embedding requests. Proxies remain disabled; cache guard version2/local-only invalidates old-policy audits, no index/history rewrite. Same dependencies/algorithms/CLI; [audit/scope](ENGINE_AUDIT_20261009.md).

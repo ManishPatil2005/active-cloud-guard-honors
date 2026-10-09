@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Model-response admission and sequenced readiness — 9 October 2026
+
+Final Windows1516pass38existing skips/Linux1554pass,1554collected each/zero failures/errors; corrected171targets/docs18pass/lint135fileformat/bothpipchecks. Raw negative/harness failures retained; no new live model/sensor or independent experiment.
+
+QA-007: [model envelope contract](MODEL_ENVELOPE_VALIDATION.md),52newcases/corrected171targets, explicit owned malformed chat rejection and shared tags/embedding checks; bad-cache requires actual fresh inference, policy4. [Readiness roadmap](PRODUCTION_RESEARCH_ROADMAP.md) defines the owner's production/novelty goal as separate acceptance gates, not a current guarantee. Next engineering task remains legacy subprocess/input/aggregate budgets; genuine human/data/runtime/empirical/operational gates open. Full results WL-081.
+
 ## Evidence-safe outputs and selected resource hardening — 9 October 2026
 
 Final verification: Windows1464pass38existing skips/Linux1502pass,1502collected each/zero failures/errors; corrected208targets/docs18pass/lint134fileformat/bothpipchecks. Fresh historical summary executed offline; active/model paths mocked, no new experiment or research acceptance. Initial dependency-freeze/count failures preserved.

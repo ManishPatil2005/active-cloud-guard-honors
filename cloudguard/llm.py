@@ -12,7 +12,7 @@ from jsonschema import validate
 from .cache import AuditCache, fingerprint
 from .limits import json_response, json_value, check_structure, INPUT_BYTES
 
-POLICY_VERSION = "engine1-v2-auth-guard-3-bounded-input"
+POLICY_VERSION = "engine1-v2-auth-guard-4-envelope"
 
 
 class LocalOnlyRedirect(HTTPRedirectHandler):
@@ -34,7 +34,25 @@ def model_identity(model, port):
     with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         f"http://127.0.0.1:{port}/api/tags", timeout=5
     ) as response:
-        models = json_response(response)["models"]
+        payload = json_response(response)
+    return identity_from_models(payload, model)
+
+
+def identity_from_models(payload, model):
+    if not isinstance(model, str) or not 1 <= len(model) <= 512:
+        raise ValueError("invalid model name")
+    if not isinstance(payload, dict) or not isinstance(payload.get("models"), list):
+        raise ValueError("invalid model metadata envelope")
+    models = payload["models"]
+    if len(models) > 256 or any(
+        not isinstance(row, dict)
+        or any(
+            not isinstance(row.get(key), str) or not 1 <= len(row[key]) <= 512
+            for key in ("name", "digest")
+        )
+        for row in models
+    ):
+        raise ValueError("invalid model metadata rows")
     name = model if ":" in model else model + ":latest"
     matches = [m["digest"] for m in models if m["name"] == name]
     if len(matches) != 1 or not matches[0]:
@@ -76,6 +94,60 @@ class InvalidModelOutput(ValueError):
     def __init__(self, raw_output, reason):
         super().__init__(reason)
         self.raw_output = raw_output
+
+
+class InvalidModelEnvelope(InvalidModelOutput):
+    """Owned rejection code; raw content is separate, never in the message."""
+
+    CODES = frozenset(
+        {
+            "object_required",
+            "message_required",
+            "content_required",
+            "completion_metadata",
+            "inference_metadata",
+            "invalid_json_or_budget",
+        }
+    )
+
+    def __init__(self, raw_output, code):
+        if type(code) is not str or code not in self.CODES:
+            raise ValueError("invalid model envelope diagnostic code")
+        if raw_output is not None and (
+            not isinstance(raw_output, str) or len(raw_output) > 2_000_000
+        ):
+            raise ValueError("invalid retained model content")
+        super().__init__(raw_output, "invalid model envelope: " + code)
+        self.code = code
+
+
+def chat_content(raw):
+    if not isinstance(raw, dict):
+        raise InvalidModelEnvelope(None, "object_required")
+    message = raw.get("message")
+    if not isinstance(message, dict):
+        raise InvalidModelEnvelope(None, "message_required")
+    content = message.get("content")
+    if not isinstance(content, str) or not content:
+        raise InvalidModelEnvelope(None, "content_required")
+    if ("done" in raw and type(raw["done"]) is not bool) or (
+        "done_reason" in raw
+        and (not isinstance(raw["done_reason"], str) or len(raw["done_reason"]) > 64)
+    ):
+        raise InvalidModelEnvelope(content, "completion_metadata")
+    for key in (
+        "total_duration",
+        "load_duration",
+        "prompt_eval_count",
+        "prompt_eval_duration",
+        "eval_count",
+        "eval_duration",
+    ):
+        if key in raw and (type(raw[key]) is not int or not 0 <= raw[key] <= 2**63 - 1):
+            raise InvalidModelEnvelope(content, "inference_metadata")
+    if raw.get("done_reason") == "length" or raw.get("done") is False:
+        raise InvalidModelOutput(content, "generation budget exhausted")
+    return content
 
 
 def validate_output(output, sources):
@@ -210,9 +282,7 @@ def audit(
     # Recheck cached content before use; malformed cache entries trigger fresh inference.
     if cache_hit:
         try:
-            validate_output(json_value(raw["message"]["content"]), sources)
-            if raw.get("done_reason") == "length" or raw.get("done") is False:
-                raise ValueError("truncated cached response")
+            validate_output(json_value(chat_content(raw)), sources)
         except Exception:
             raw = None
             cache_hit = False
@@ -226,17 +296,15 @@ def audit(
         with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
             req, timeout=timeout
         ) as response:
-            raw = json_response(response)
-    if raw.get("done_reason") == "length" or raw.get("done") is False:
-        raise InvalidModelOutput(
-            raw.get("message", {}).get("content", ""), "generation budget exhausted"
-        )
+            try:
+                raw = json_response(response)
+            except (ValueError, TypeError, UnicodeError) as error:
+                raise InvalidModelEnvelope(None, "invalid_json_or_budget") from error
+    content = chat_content(raw)
     try:
-        output = validate_output(json_value(raw["message"]["content"]), sources)
+        output = validate_output(json_value(content), sources)
     except Exception as error:
-        raise InvalidModelOutput(
-            raw["message"]["content"], type(error).__name__
-        ) from error
+        raise InvalidModelOutput(content, type(error).__name__) from error
     accepted = []
     rejected = []
     for finding in output["findings"]:
