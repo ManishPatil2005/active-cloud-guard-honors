@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+QA-016 actual firsthosted37980052374: Ubuntu1722pass0skip; WindowsPython3.12.14hostedbuildunavailable/pre-test/matrixfailure preserved. Corrected exacthostpairsWindows3.12.10/Ubuntu3.12.14/18case receiptreader implemented; corrected run pending actualdispatch/results, not accepted from source tests. Existinglocalruntime/engineguards unchanged; source/run/downloaded evidence binding in WL-090/INC-078.
+
 Latest QA-016: [manual CI definition](MANUAL_CI.md), explicitly authorized Windows/Ubuntu fresh-runner execution; manual-only/read-only/pinned actions/20minjobs/minimal package builds and full artifact-backed tests.10structural contracts/local27pass6artifactskips eachOS; remote dispatch/result pending actual record in WL-090. Definition not fresh-host acceptance or independent research/production security; Chroma/Linux-native-vector and real-human/data gates remain open.
 
 Latest QA-015: [optional Windows/vector qualification](VECTOR_PROFILE_QUALIFICATION.md), separate full95pin candidate installed/allpinsmatch; compatibility/ephemeral and synthetic cold-process persistent checks pass. FullWindows1658pass39skip before15newcases/final66targets eachOS. Chroma remains advisory-matched, Linux native-vector/fresh-host/CI/research gates open; no working environment/default/algorithm change. User separately approved manual GitHub Actions test; not executed/accepted by these local results. WL-089.

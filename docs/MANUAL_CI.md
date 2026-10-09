@@ -4,7 +4,7 @@ QA-016/R8/WL-090/ADR-078, 10 October 2026. User explicitly approved manual GitHu
 
 ## Implemented workflow
 
-[Workflow](../.github/workflows/manual-regression.yml) runs only on workflow_dispatch, with contents:read and checkout credential persistence disabled. Two fixed hosted runners (windows-2025/ubuntu-24.04), Python3.12.14, fail-fast:false and20minutes per job. No user-supplied command input or environment/protected deployment target.
+[Workflow](../.github/workflows/manual-regression.yml) runs only on workflow_dispatch, with contents:read and checkout credential persistence disabled. Fixed hosted pairs: windows-2025/Python3.12.10 and ubuntu-24.04/Python3.12.14, fail-fast:false and20minutes per job. No user-supplied command input or environment/protected deployment target. The first attempt's unavailable Windows3.12.14 selection is preserved below.
 
 Official action commits were resolved from selected release tags through GitHub's API and their node24 runtime metadata inspected:
 
@@ -22,7 +22,11 @@ Always-uploaded artifacts are restricted to output/ci-*.json and output/ci-*.xml
 
 Ten new structural contract tests enforce manual-only trigger/least privilege/fixed hosts/budget/immutable actions/exact Python, isolated pinned installs, minimal offline package build, actual artifact test paths, restricted always-upload and no deployment/secret/live-service commands. Local selected33case runs:27pass6expected missing-artifact skips eachOS. Those6skips belong to the local contract run, not a remote installed-package success. Structural tests are not a GitHub workflow run.
 
-At definition commit preparation, **remote dispatch/results remain pending**. Actual source SHA/runID/job outcomes, failures and downloaded receipts must be recorded in WORK_LOG/EVIDENCE before claiming fresh-runner acceptance. A passed CI job is reproducibility/regression evidence, not supervisor approval, independent labels/held-out effectiveness, qualified runtime acquisition or production security certification.
+First authorized [run37980052374](https://github.com/ManishPatil2005/active-cloud-guard-honors/actions/runs/37980052374), sourcef76c9340567ca6673b96e607c0c7cad6f73f433b, completed with mixed outcomes: Ubuntu1722tests passed/zero skips; Windows failed before dependencies/tests because hosted Python3.12.14 x64 was unavailable. No Windows XML was fabricated. Original run summary/Ubuntu receipts preserved in EVIDENCE/WORK_LOG; overall result remains failure.
+
+The official [hosted version manifest](https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json), inspected blob6e449c983a836ebb17364e5225798bd8b160b647, lists3.12.10x64 for Windows and3.12.14x64 for Ubuntu24.04. The corrected workflow pins those exact per-host pairs. Existing local3.12.14Windows/3.12.3Linux environments are not changed;3.12.10 is a scoped hosted compatibility test, **not a production-runtime recommendation or matched-patch comparison**. No tests/guards are skipped to obtain green. Corrected source/run outcome remains pending actual new dispatch.
+
+New read-only `scripts/github_ci_receipt.py` requires ACG_CI_RUN_ID and ACG_CI_EXPECTED_SHA, reserves a fresh output before activity, validates exact repository/run/source identities and requires both actual regression steps to succeed. Failed/pending/missing/skipped outcomes cannot become a matrix pass. No dispatch/rerun/monitor/deployment occurs in the reader; downloaded raw test receipts remain necessary for counts/scope. A passed CI job is reproducibility/regression evidence, not supervisor approval, independent labels/held-out effectiveness, qualified runtime acquisition or production security certification.
 
 ## Operator steps
 

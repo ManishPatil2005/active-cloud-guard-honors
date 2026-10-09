@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-016 firsthostedresult: run37980052374/sourcef76c934, Ubuntu1722pass0skip/Windowssetupfailure beforetests/matrixfailed preserved. Verifiedhostedmanifest -> exactWindows3.12.10/Ubuntu3.12.14 pairs, reader18cases/final46localtargets pass. Corrected dispatch/actual acceptance pending, no guard weakening/localruntime downgrade. Originalraw3Ubuntu receipts+negative matrixJSON retained. WL-090/INC-078; native-vector/security/human/research gates unchanged.
+
 QA-016/R8: [authorized manual CI](docs/MANUAL_CI.md) definition implemented/10structural cases; local27pass6artifactskips eachOS. Fixed2hosts/Python/commitpins/least privilege/budgets/minimal build/fullartifacttests/receipts. User approves actual dispatch; remote run acceptance pending actual execution/identity/results, not proven by local YAML tests. WL-090/ADR-078. Remaining Linux optional-vector/native/Chroma and human/research/production gates unchanged.
 
 QA-015/R7/R8: [optional Windows/vector qualification](docs/VECTOR_PROFILE_QUALIFICATION.md) completes separate95pininstall/allpinsmatch/pipcheck/ephemeral and two-child synthetic persistent read/query. FullWindows1658pass39skip/1697collected before15newcases; final66targets eachOS. Approved95packagequery retains4ChromaGHSA+4aliases; not security remediation. Linux contracts mocked/native install unqualified; original environments preserved. Next authorized manual CI/fresh-host regression plus Linux vector/Chroma/native/research gates. WL-089/ADR-077/INC-077.

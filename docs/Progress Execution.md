@@ -1,5 +1,9 @@
 # Progress Execution
 
+## CI found a setup limitation, not an engine failure
+
+First real hosted run: Ubuntu passes1722tests; Windows stops before tests because the requested Python build is not available there. The failed run and Ubuntu receipts are preserved. We selected exact available hosted versions (Windows3.12.10/Ubuntu3.12.14), leaving your local environments unchanged, and added a reader that cannot report missing/skipped/failed test jobs as a successful matrix. The corrected real run is next; no green result claimed yet. [Details](MANUAL_CI.md).
+
 ## Next executed gate: manual tests on fresh GitHub runners
 
 You authorized manual Windows/Ubuntu CI. The workflow now installs the pinned portable setup, builds a minimal package and runs the full tests with installed-package checks enabled. It cannot deploy or run on a schedule; results/receipts stay distinct from independent research. [Operator steps and pending actual run](MANUAL_CI.md). Local YAML checks pass, but a workflow file is not a successful remote run; watch the execution log for actual head/run/job results.

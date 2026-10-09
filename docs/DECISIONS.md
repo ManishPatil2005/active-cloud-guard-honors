@@ -1,5 +1,9 @@
 # Decision register
 
+### ADR-078 execution refinement - exact hosted runtime availability
+
+First authorized run proves Windows3.12.14 unavailable in selectedaction's hostedmanifest, while Ubuntu3.12.14 succeeds. Use verified fixedWindows3.12.10/Ubuntu3.12.14 pairs and label patch mismatch/scopedcompatibility explicitly; no localenvdowngrade/productionrecommendation/testskip to forcegreen. Preserve initialrun and authenticate selected run/source identity by read-only metadata plus rawreceipts, not matrixstatusalone. Missing/skipped actualregressionsteps cannot qualify. INC-078/WL-090.
+
 ## ADR-078 - 2026-10-10 - Require deliberate least-privilege hosted CI with real artifact paths
 
 QA-016/R8/WL-090. User approves Windows/Ubuntu manual GitHub Actions and Actions minutes; keep workflow_dispatch only/contentsread/no persisted checkout credentials/no live workloads/secret injection/deployment/schedule. Resolve official actions to full commit SHAs; fixed hosts/Python/budgets/failfastfalse preserve each result. Build minimized wheel separately and supply installed-artifact paths for alltests, avoiding silent qualification skips. Upload only bounded-retention run-specific receipt files, not source/builders/weights/stores. Actual run/head/job receipts required; structural/source-tree passes do not establish hosted, native vector or research/production acceptance.

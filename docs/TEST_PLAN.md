@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-016 actual firsthosted1722Ubuntu tests pass/Windowsunavailableinterpreter prevents tests; preserve failedmatrix. Fixedexactper-host Python pairs now verifiedagainstmanifest, no engineguard exclusions. New18reader cases for exactsource/run/repository/jobs/stepduplicate/invalidselectors/exclusiveoutput and failedpendingmissingskippedrefusal; final46localtargets pass. Corrected actual hostedrun stillpending; rawXML binds counts/scope, metadata not scientific/security signatures.
+
 QA-016:10structural manual-CI contracts enforce trigger/permissions/fixed matrix/Python/actionSHAs/budgets, pinned isolated installs/minimal offline build/actual installed-artifact paths, failure-preserving restricted receipts/no secrets/deployment/live commands. Local27pass6opt-in-artifactskips eachOS; no remote qualification inferred. Hosted run must record actual sourceSHA/runID/bothjob outcomes/artifact hashes/raw negative receipts in WL-090 before fresh-runner acceptance.
 
 QA-015:15newstoragecases for two separate bounded children, exact version/sourcehash/phase/type/count/ID/envelope, duplicate/malformed/nonzero output, partial timeout diagnostics/no raw private output, first rejection stops read and existing evidence refused before activity. Initial1helperfailure47pass retained; final66targets Windows/Linux (Linux mocked only). Actual Windows two-process2vector persistence/query/owneddelete passes; full1697case optionalWindows suite precedes15newcases. Exact command/scope WL-089, no crash/concurrency/security/real detection qualification.

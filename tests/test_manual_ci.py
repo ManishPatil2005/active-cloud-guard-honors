@@ -25,7 +25,12 @@ def test_fixed_host_matrix_finite_budget_and_both_failures_retained(workflow):
     assert job["timeout-minutes"] == 20
     assert job["strategy"] == {
         "fail-fast": False,
-        "matrix": {"os": ["windows-2025", "ubuntu-24.04"]},
+        "matrix": {
+            "include": [
+                {"os": "windows-2025", "python": "3.12.10"},
+                {"os": "ubuntu-24.04", "python": "3.12.14"},
+            ]
+        },
     }
     assert job["runs-on"] == "${{ matrix.os }}"
     assert workflow["defaults"]["run"]["shell"] == "pwsh"
@@ -58,7 +63,7 @@ def test_checkout_does_not_persist_credentials_and_python_is_exact(workflow):
         row for row in steps if row.get("uses", "").startswith("actions/setup-python@")
     )
     assert checkout["with"] == {"persist-credentials": False}
-    assert python["with"] == {"python-version": "3.12.14"}
+    assert python["with"] == {"python-version": "${{ matrix.python }}"}
 
 
 def test_isolated_pinned_install_and_each_command_failure_visible(workflow):

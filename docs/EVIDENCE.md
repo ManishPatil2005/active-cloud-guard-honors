@@ -1,5 +1,9 @@
 # Evidence index
 
+## First authorized hosted run (2026-10-10)
+
+QA-016/WL-090/INC-078: [source/run-bound failed matrix observation](../output/manual-ci-first-run-37980052374-20261010.json), originalUbuntu [1722testXML](../output/ci-tests-ubuntu-24.04-37980052374-1.xml)/[corepins](../output/ci-core-ubuntu-24.04-37980052374-1.json)/[smoke](../output/ci-smoke-ubuntu-24.04-37980052374-1.json). Sourcef76c934/run37980052374; Ubuntu0fail/errors/skips, Windowssetupfailed/no tests/no invented XML. Originalbytehashes in WORK_LOG; corrected runtime matrix/newrun not yetaccepted. [Initial reader28targets](../output/manual-ci-receipt-target-windows-20261010.xml), [corrected46targets](../output/manual-ci-fix-target-windows-20261010.xml); local structural tests not remote pass.
+
 ## Optional Windows/vector qualification (2026-10-10)
 
 QA-015/[contract](VECTOR_PROFILE_QUALIFICATION.md)/WL-089: [ephemeral smoke](../output/vector-candidate-smoke-windows-20261010.json), [actual95inventory/corepins](../output/vector-candidate-core-pins-windows-20261010.json), [approved95OSVquery](../output/vector-candidate-advisories-windows-20261010.json), [two-child synthetic storage](../output/vector-storage-windows-20261010.json), [full1697caseWindows](../output/vector-full-windows-20261010.xml), [initial helper failure](../output/vector-storage-target-windows-20261010.xml), final66targets [Windows](../output/vector-storage-final-windows-20261010.xml)/[Linux](../output/vector-storage-final-linux-20261010.xml). Only Windows actual Chroma observed; Linux mocked. Chroma matches remain open; no security/production/independent study claim.

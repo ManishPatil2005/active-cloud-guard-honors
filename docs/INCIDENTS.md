@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-079 - 2026-10-10 - Linux optional-profile client timeout and partial environment
+
+New ignoredLinuxcandidate bootstrap succeeds; fullprofile via180s boundedWindowsWSLclient timesout, installerexit/phase/guestcompletion not captured. Subsequent exactcandidate/owner processcheck finds no active match at that snapshot. Actualinventory30packages/ChromaPackageNotFound; pipcheck passes installeddependencyconsistency only, not requestedprofilecompletion. Partialcore-pin receipt retained, no nativevector run or retry-in-place/deletion. Cause confidence unknown (filesystem/IO latency only hypothesis); isolated nativefilesystem follow-up can test compatibility, not causally repair oldtiming/transport. Existing working/portable envs untouched. WL-090; currentCIproblem is separately known unsupportedWindowsbuild/INC-078.
+
+### INC-078 - 2026-10-10 - First hosted Windows Python build unavailable
+
+Actualmanualrun37980052374/sourcef76c934:Windows2025job113987988654 cannot obtain exactPython3.12.14x64 through setup-python, fails beforedependencies/tests; no Windowsreceipt. Ubuntu24.04job113987988811 passes1722tests0skips, but overallmatrixfailure preserved. Cause known: officialmanifest has3.12.14Linux24.04x64/noWin32x64file;3.12.10Win32x64 exists. Correctfixedper-hostmatrixWindows3.12.10/Ubuntu3.12.14, no engineguardweakening or localruntime downgrade. Originalrun/UbuntuXML/core/smoke/negative matrix summary preserved. Newreceipt-reader18cases/final46targets pass; corrected actualrun remains pending, no productionruntime/security/native-import-cause or independentresearchclaim. WL-090/MANUAL_CI.
+
 ### INC-077 - 2026-10-10 - Vector qualification test-helper phase collision
 
 Symptom: initial48case target1failure47passes; changing returned phase invoked child helper with two values for phase, TypeError before production validation. Evidence: vector-storage-target-windows-20261010.xml retained. Cause known: test helper positional keyword collision, not Chroma failure. Rename helper positional argument to expected_phase; final66targets pass eachOS, actual Windows write/new-process read/query passes. Cross-phase/type/JSON/nonzero/timeouts still reject, no guard weakening. Linux nativeChroma not observed; advisory/native/production/research gates unchanged. Exact closure WL-089.

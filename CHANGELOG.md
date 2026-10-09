@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Preserve first hosted result and correct Windows runtime selection
+
+- Preserve failed first matrix run: Ubuntu1722passes; Windows interpreter setup unavailable before tests, not an engine failure.
+- Pin verified available exact hosted pairs Windows3.12.10/Ubuntu3.12.14 without changing local environments or weakening tests.
+- Add read-only exact-run/source CI receipt reader and18cases; skipped/missing/pending/failed jobs cannot be claimed as matrix success.
+- Corrected source/run qualification pending actual dispatch; original receipts retained, no artifact/run deletion or history rewrite.
+
 ## 2026-10-10 - Add authorized manual hosted regression workflow
 
 - Define manual-only Windows/Ubuntu/Python3.12.14 regression with read-only permissions, immutable official actions and finite job budgets.
