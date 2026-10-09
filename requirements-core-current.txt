@@ -1,0 +1,4 @@
+# Recommended source-tree core/ML profile; QA-012.
+# Qualified on Windows and Linux in QA-011; no vector dependencies.
+# Preserve dated candidate and historical snapshots for reproduction.
+-r requirements-remediation-linux-candidate-20261009.txt

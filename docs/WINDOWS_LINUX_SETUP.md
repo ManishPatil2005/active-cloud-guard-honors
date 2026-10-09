@@ -1,5 +1,7 @@
 # Windows-hosted Linux research environment
 
+Current new-checkout recommendation: [portable profile promotion](CORE_PROFILE_PROMOTION.md) and README steps1–2. The dated environment installation commands below preserve historical reproduction guidance and old advisory-matched versions; do not use them to overwrite an existing environment or as today's recommended default. WSL/Docker provisioning is separate from dependency qualification.
+
 Task E2-003. Preserve Windows as the development host and the existing Python/Docker Compose/Ollama/Chroma architecture. Installing a Linux distribution is environment provisioning, not completion of Engine 2.
 
 ## Runtime availability recovery, 6 October 2026

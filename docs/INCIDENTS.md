@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-075 - 2026-10-09 - Promotion target pytest cache permission warning
+
+Symptom: first Windows12case target exited0 but emitted PytestCacheWarning for `.pytest_cache/v/cache/nodeids`, Errno13. Evidence: `output/core-promotion-target-windows-20261009.xml` and console. Cause confidence: cache write denied observed; underlying ACL/ownership/lock cause not established. Subsequent commands select separate explicit cache directories, without deleting/changing permissions of existing data. Full-suite verification recorded in WL-086; no original backend-import fix or broad filesystem certification inferred. Initial documentation patch also failed atomically on an incorrect ledger heading; corrected before creating files, no partial historical edit.
+
 ### INC-074 - 2026-10-09 - Candidate index failure, incomplete optional install and download resume
 
 Fresh Windows pip26.2 dry-run could not find aiohappyeyeballs2.7.1; official metadata/uncached index list release, later uncached metadata resolution progresses. Cause unknown, no lock replacement/global cache purge or claimed repair. Optional full Windows installation explicitly stopped as incomplete after verifying only ownedPID/executable/command; ordinary CIM access unavailable, escalated fixed-target read succeeded. Portable profile pursued separately, not optional-profile acceptance. Linux pip automatically resumes one interrupted Pygments download under distinct resume defaults despite --retries0; later Windowsportablecommand uses --resume-retries0. Existing environments unchanged; preliminary selected smoke/14packageOSV receipt not full95clearance. Exact commands/results/limits WL-085/contract.

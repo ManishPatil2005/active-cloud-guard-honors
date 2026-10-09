@@ -183,37 +183,44 @@ An empty candidate list is not a security certification. A rejected model candid
 
 ### 1. Prepare the environment
 
-Prerequisites: repository access, Python 3.11+, Git, and Docker with Linux-container support for live experiments. Model/image downloads require several GB. Recorded execution used Windows and Python 3.12.14; other platforms require separate validation.
+Prerequisites: repository access, Python 3.11+, and Git. Portable core/ML source-tree checks were qualified on Windows Python 3.12.14 and WSL Linux Python 3.12.3; macOS and other versions remain unqualified. Docker with Linux-container support and several GB of image/model downloads are needed only for separately authorized live experiments.
 
-From the repository root, create and activate an environment.
+From the repository root, create a **new** ignored environment. These commands refuse an existing destination rather than changing a historical environment. Choose a different fresh name if necessary.
 
 **Windows PowerShell**
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+if (Test-Path -LiteralPath tmp/core-current-new) { throw 'Choose a fresh environment directory' }
+python -m venv tmp/core-current-new
+.\tmp\core-current-new\Scripts\Activate.ps1
 ```
 
-**Linux/macOS shell — setup guidance, not a validated run**
+**Linux shell — macOS remains setup guidance only**
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+test ! -e tmp/core-current-new || { echo 'Choose a fresh environment directory'; exit 1; }
+python3 -m venv tmp/core-current-new
+source tmp/core-current-new/bin/activate
 ```
 
-Then install the research package and enable the local publication guard:
+Install the hash-pinned installer, then the recommended source-tree profile. This profile includes optional synthetic ML checks, **not Chroma**; neither engine's detection logic changes. No editable/package build is implied by source-tree execution.
 
 ```bash
-python -m pip install -e ".[vector,test]"
+python -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --no-deps --require-hashes --disable-pip-version-check --no-input -r requirements-remediation-bootstrap-20261009.txt
+python -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --disable-pip-version-check --no-input --retries 0 --resume-retries 0 --timeout 20 -r requirements-core-current.txt
+python -m pip check
+python scripts/dependency_candidate_check.py --output output/core-current-new-smoke.json
 git config core.hooksPath .githooks
 ```
 
-For the captured Windows dependency versions, use `python -m pip install -r requirements-lock.txt` before the editable installation. The [lockfile](requirements-lock.txt) is an environment snapshot, not a guarantee of cross-platform resolution. The [historical environment report](output/environment.json) records earlier image/model identities; v2 model and corpus digests are in its raw observation.
+The smoke requires a fresh output filename. [Profile promotion and limits](docs/CORE_PROFILE_PROMOTION.md) distinguish this recommended setup from untouched working environments. The commit hook may still select the historical `.venv`; configuring the hook does not upgrade it.
+
+The [historical lockfile](requirements-lock.txt) is an evidence snapshot, **not the recommended installation**: it retains known advisory matches. The [full optional candidate](requirements-remediation-windows-candidate-20261009.txt) remains incompletely qualified. Chroma is still part of the architecture, but vector commands below require a separately reviewed optional environment; omission from the portable profile is not remediation. Do not expose a Chroma server or treat these snapshots as production guidance. The [historical environment report](output/environment.json) records earlier image/model identities; v2 model/corpus digests are in its raw observation.
 
 ### 2. Run software checks and a model-free scan
 
 ```bash
-python -m pytest -q
+python -m pytest -q --basetemp=tmp/core-current-tests-new -o cache_dir=tmp/core-current-cache-new
 python -m pip check
 python -m cloudguard.cli scan data/development/postgres-trust.yaml
 python -m cloudguard.cli retrieve "PostgreSQL trust authentication"
@@ -223,6 +230,8 @@ python scripts/repository_check.py
 These commands do not require the live Docker lab. The 45 development fixtures are already versioned; rebuilding them is not required for a first inspection. Lint/format commands and experiment prerequisites are documented in the [test plan](docs/TEST_PLAN.md).
 
 ### 3. Start the controlled lab and local models
+
+Optional-vector/live path only: **not available in the portable profile**. Full optional dependency qualification and explicit operational authorization remain prerequisites; the following is historical research guidance, not an instruction to start workloads during setup.
 
 ```bash
 python scripts/init_secrets.py

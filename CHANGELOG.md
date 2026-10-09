@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 - Promote qualified portable source-tree setup
+
+- Recommend the already qualified core/ML profile through a stable include, preserving dated and historical snapshots.
+- Promote the package test extra to pytest9.0.3; retain optional vector/ML pins and engine algorithms.
+- Replace the legacy combined vector/test default with fresh-directory guarded setup, hash-pinned bootstrap and explicit vector qualification limits.
+- Add three regression contracts; exact cross-platform verification and preserved cache warning in WL-086/INC-075.
+
 ## 2026-10-09 - Qualify isolated patched dependency candidates
 
 - Add hash-pinned pip bootstrap and separate portable/optional candidate profiles, preserving historical locks and working environments.

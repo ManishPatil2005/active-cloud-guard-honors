@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Current step: recommended setup now uses the tested portable profile
+
+For a new checkout, follow README steps1–2: create a new temporary environment, install the checked installer and portable profile, then run the smoke and tests. Existing environments are not upgraded or deleted. The recommended test dependency is now pytest9.0.3; Chroma/vector operations still need separate review. Windows full suite now1629passes39skips; Linux closure is in [the execution log](WORK_LOG.md). [Simple scope and instructions](CORE_PROFILE_PROMOTION.md). This makes setup clearer and repeatable, not production-certified or independent research evidence. Older entries below describe prior steps.
+
 ## Latest step: patched dependencies tested separately
 
 We created separate temporary Python environments, installed patched pip/pytest/OAuthlib and the portable core/ML packages, and ran checks there. Your original setup and historical locks are untouched. Candidate Windows1626tests pass/39skips; Linux1665tests pass. Read the [step-by-step candidate guide](DEPENDENCY_CANDIDATE_QUALIFICATION.md). Both smoke/compatibility checks pass, and candidate32Windows/31Linux OSV queries returned no matches—not clearance of the original environments or Chroma. The full optional Windows/vector setup was incomplete; promotion to the normal setup remains next, not claimed done. Research approval/data/timing/novelty still require genuine evidence.
@@ -473,9 +477,9 @@ On a new checkout only, choose your parent folder using File Explorer, open Powe
 ```powershell
 git clone https://github.com/ManishPatil2005/active-cloud-guard-honors.git
 cd active-cloud-guard-honors
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -e ".[test]"
 ```
+
+Follow README steps1–2 to create a fresh `tmp/core-current-new` environment and install the qualified portable profile. For the later examples in this guide, replace `.\.venv\Scripts\python.exe` with `.\tmp\core-current-new\Scripts\python.exe`. The old path remains valid only for inspecting the untouched historical environment, not for claiming patched dependencies.
 
 If you already use this research computer instead:
 
@@ -493,9 +497,9 @@ For a new Linux checkout with Git, Python and venv support installed:
 ```bash
 git clone https://github.com/ManishPatil2005/active-cloud-guard-honors.git
 cd active-cloud-guard-honors
-python3 -m venv .venv
-.venv/bin/python -m pip install -e '.[test]'
 ```
+
+Current installation uses README steps1–2 and a fresh `tmp/core-current-new` directory. Replace the later Windows interpreter examples with `tmp/core-current-new/bin/python` for that new Linux setup. Do not upgrade `/home/acgresearch/acg-venv` in place or mistake it for the qualified candidate.
 
 In all later Python commands, replace `.\.venv\Scripts\python.exe` with `.venv/bin/python`. Never copy a Windows virtual environment into Linux; create a Linux environment separately. Core/tests are verified on the recorded Ubuntu WSL setup; arbitrary Linux machines and full AI/vector installations are not all validated. For the existing ACG-Research environment, use [the recorded paths and setup](WINDOWS_LINUX_SETUP.md), not a fresh installation over it.
 
@@ -574,6 +578,8 @@ You do not need Docker to open these existing files:
 The saved results came from the recorded research machine and specific dates. Reading them is evidence review, not rerunning their experiments. Raw sensor logs are intentionally not in GitHub; a fresh clone cannot reconstruct those logs from hashes. The minimized summaries are available for review.
 
 ## 11. Optional advanced route: AI and local lab
+
+Qualification gate: the following vector installation is historical guidance, **not the recommended portable setup**. Chroma advisory matches and the full optional Windows profile remain open. Do not execute this route without separate technical review and operational authorization; passing portable tests does not clear it.
 
 Do this only after sections 7–9 pass, on a disposable approved lab computer, with Docker Linux-container support available. Have a technical supervisor help if Docker or model setup is unfamiliar. These steps can download large images/models and start local services. They are not required to understand the research.
 

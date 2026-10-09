@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-074 - 2026-10-09 - Promote portable guidance without mutating historical environments
+
+QA-012/WL-086. Recommend the already cross-platform-qualified dated portable profile through a stable requirements include and align the test extra to pytest9.0.3. Preserve historical snapshots, optional vector pin and working interpreters. README uses fresh-directory guards and source-tree scope; no editable-build/CI/Chroma clearance inferred. Keep the original commit-hook interpreter selection rather than silently moving it to an ignored candidate. New qualification must explicitly separate profile recommendation, actual installation and research/operational acceptance.
+
 ## ADR-073 - 2026-10-09 - Qualify patched candidates without rewriting historical environments
 
 QA-011/WL-085. Separate ignored fresh venvs/hash-pinned pip bootstrap and explicit version profiles; retain root/Linux/ML snapshots and current engines. Portable core/ML qualification is separate from full optional Windows/vector profile and active/default promotion. A failed pip index lookup does not prove release absence; preserve first negative and limited uncached observation without causal claims/global cache purge. No version substitutions/source builds. Optional smoke uses ephemeral explicit vectors only, no persistent-store certification or server deployment. Full default/environment promotion needs its own coherent accepted change; research/operational gates remain open.

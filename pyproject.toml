@@ -11,7 +11,7 @@ dependencies = ["PyYAML==6.0.3", "jsonschema==4.23.0", "python-hcl2==7.3.1"]
 
 [project.optional-dependencies]
 vector = ["chromadb==1.0.20"]
-test = ["pytest==8.3.5"]
+test = ["pytest==9.0.3"]
 runtime-ml = ["scikit-learn==1.9.1"]
 
 [project.scripts]

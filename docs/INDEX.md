@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-012/WL-086: [recommended portable profile promotion](CORE_PROFILE_PROMOTION.md). Reuses the qualified dated core/ML pins, promotes test extra and fresh-directory README setup; old environments and optional vector findings remain unchanged. Exact checks and limits in WORK_LOG. QA-011 below records the prior qualification, not current default guidance.
+
 Current QA-011/WL-085: [isolated dependency candidates](DEPENDENCY_CANDIDATE_QUALIFICATION.md), hash-pinned installer/fresh portable core/ML installs, candidate smokes/pipchecks/32Windows31Linux OSV queries. Active/default promotion and full optional Windows/vector qualification open; old environments/locks intact, no research/production acceptance.
 
 Current QA-010/WL-084: [cache and advisory review](CACHE_ADVISORY_REVIEW.md). Selected file/type/thread/race guards and approved95Windows/23Linux installed-package OSV queries. Findings/conditions/remediation open, no environment upgrades or security certification; full source/test closure in WORK_LOG.

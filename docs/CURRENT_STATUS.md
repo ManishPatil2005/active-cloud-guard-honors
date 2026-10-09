@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Latest QA-012: [portable setup/default promotion](CORE_PROFILE_PROMOTION.md), stable qualified-profile include, pytest9.0.3 test extra and fresh-directory README guidance. Old environments/locks/Engine1 tag and vector boundary unchanged; optional Windows/vector qualification and fresh-host/CI remain next. Exact current checks WL-086; earlier QA-011 default-not-promoted statement is historical.
+
 Latest QA-011: [candidate dependency qualification](DEPENDENCY_CANDIDATE_QUALIFICATION.md), portable candidate installs/patched pip/pytest/OAuthlib/bothsmokes/pipchecks/approvedOSV32Windows31Linux complete/noIDs for candidate inventories. FullWindows1626pass39skip/Linux1665pass,1665collected each;9newcases/docs18pass. Working environments/default testpin unchanged; full optional Windows profile incomplete/Chroma unremediated, genuine research/native timing/import/operational gates unchanged. Prior QA-010 counts below historical.
 
 Latest QA-010: [cache/advisory review](CACHE_ADVISORY_REVIEW.md),29newcases/finalWindows1617pass39skip/finalLinux1656pass,1656collected each; docs18pass. Final review's stale eviction-count failure preserved/fixed; earlier1655case suites preliminary. Actual approved95Windows/23Linux OSV matching completed; open Chroma/OAuthlib/pip/pytest findings, no package upgrade/zero-vulnerability claim. Selected cache guards implemented, different writers/ancestor/native guarantees open. Next isolated dependency/tool update qualification; earlier counts below historical.

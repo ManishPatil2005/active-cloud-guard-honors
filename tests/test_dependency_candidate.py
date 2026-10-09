@@ -1,5 +1,6 @@
 from pathlib import Path
 import importlib.util
+import tomllib
 from unittest.mock import patch
 
 import pytest
@@ -52,6 +53,36 @@ def test_optional_ml_snapshot_reused_not_replaced():
             ROOT / f"requirements-remediation-{name}-candidate-20261009.txt"
         ).read_text()
         assert "-r requirements-runtime-ml-20261006.txt" in text
+
+
+def test_recommended_profile_reuses_qualified_portable_snapshot():
+    lines = (ROOT / "requirements-core-current.txt").read_text().splitlines()
+    assert [line for line in lines if line and not line.startswith("#")] == [
+        "-r requirements-remediation-linux-candidate-20261009.txt"
+    ]
+    assert "chromadb" not in pins(
+        "requirements-remediation-linux-candidate-20261009.txt"
+    )
+
+
+def test_test_extra_promoted_without_changing_vector_boundary():
+    manifest = tomllib.loads((ROOT / "pyproject.toml").read_text())
+    extras = manifest["project"]["optional-dependencies"]
+    assert extras["test"] == ["pytest==9.0.3"]
+    assert extras["vector"] == ["chromadb==1.0.20"]
+    assert extras["runtime-ml"] == ["scikit-learn==1.9.1"]
+
+
+def test_recommended_readme_excludes_legacy_default_install():
+    readme = (ROOT / "README.md").read_text()
+    setup = readme.split("### 1. Prepare the environment", 1)[1].split(
+        "### 2. Run software checks", 1
+    )[0]
+    assert "-r requirements-core-current.txt" in setup
+    assert 'pip install -e ".[vector,test]"' not in setup
+    assert "--require-hashes" in setup
+    assert "Test-Path -LiteralPath tmp/core-current-new" in setup
+    assert "test ! -e tmp/core-current-new" in setup
 
 
 @pytest.mark.parametrize("changed", ["pip", "pytest", "oauthlib", "requests-oauthlib"])
