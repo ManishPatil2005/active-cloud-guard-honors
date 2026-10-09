@@ -103,7 +103,11 @@ def test_only_receipts_uploaded_always_with_bounded_retention(workflow):
     upload = workflow["jobs"]["regression"]["steps"][-1]
     assert upload["if"] == "always()"
     options = upload["with"]
-    assert options["path"].splitlines() == ["output/ci-*.json", "output/ci-*.xml"]
+    assert options["path"].splitlines() == [
+        "output/ci-core-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.json",
+        "output/ci-smoke-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.json",
+        "output/ci-tests-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.xml",
+    ]
     assert options["include-hidden-files"] is False
     assert options["retention-days"] == 7
     assert options["if-no-files-found"] == "warn"

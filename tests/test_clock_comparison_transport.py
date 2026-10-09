@@ -274,7 +274,14 @@ def test_real_inert_helper_after_parent_is_killed(tmp_path):
         creationflags=transport.HIDDEN if sys.platform == "win32" else 0,
     )
     try:
-        pid = int(parent.stdout.readline().decode().strip())
+        pid_line = parent.stdout.readline().decode().strip()
+        if not pid_line:
+            _, error = parent.communicate(timeout=3)
+            pytest.fail(
+                f"inert parent failed before helper PID: exit={parent.returncode}; "
+                f"stderr={error[:4096].decode(errors='replace')}"
+            )
+        pid = int(pid_line)
         wait_file(tmp_path / "watchdog-ready.signal")
         parent.kill()
         parent.wait(timeout=3)

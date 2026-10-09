@@ -1,6 +1,6 @@
 # Active Cloud Guard — current capability and research status
 
-QA-016 actual firsthosted37980052374: Ubuntu1722pass0skip; WindowsPython3.12.14hostedbuildunavailable/pre-test/matrixfailure preserved. Corrected exacthostpairsWindows3.12.10/Ubuntu3.12.14/18case receiptreader implemented; corrected run pending actualdispatch/results, not accepted from source tests. Existinglocalruntime/engineguards unchanged; source/run/downloaded evidence binding in WL-090/INC-078.
+QA-016 current hosted evidence: second run37983312835/source3cfdd4e has Ubuntu1740 passes and Windows1702 passes/37 platform skips/one inert helper lifecycle failure. Setup/profile/build/install passes both; overall matrix failure retained. Hosted helper cause unknown. Exact current-run artifact paths, strict matrix reader and bounded startup diagnostics implemented; original process flags retained,89 selected tests pass each OS. Further diagnostic execution/successful matrix acceptance pending. Engine algorithms and scientific/security gates unchanged; WL-090/INC-080/081.
 
 Latest QA-016: [manual CI definition](MANUAL_CI.md), explicitly authorized Windows/Ubuntu fresh-runner execution; manual-only/read-only/pinned actions/20minjobs/minimal package builds and full artifact-backed tests.10structural contracts/local27pass6artifactskips eachOS; remote dispatch/result pending actual record in WL-090. Definition not fresh-host acceptance or independent research/production security; Chroma/Linux-native-vector and real-human/data gates remain open.
 

@@ -13,6 +13,10 @@ from cloudguard.process_runner import run_bounded
 
 REPOSITORY = "ManishPatil2005/active-cloud-guard-honors"
 JOB_NAMES = {"regression (windows-2025)", "regression (ubuntu-24.04)"}
+HOSTED_JOB_NAMES = {
+    "regression (windows-2025, 3.12.10)",
+    "regression (ubuntu-24.04, 3.12.14)",
+}
 TEST_STEP = "Run full regressions including installed wheel"
 
 
@@ -57,7 +61,7 @@ def collect(args):
     for job in raw["jobs"]:
         if (
             not isinstance(job, dict)
-            or job.get("name") not in JOB_NAMES
+            or job.get("name") not in JOB_NAMES | HOSTED_JOB_NAMES
             or job["name"] in seen
             or type(job.get("databaseId")) is not int
             or not isinstance(job.get("steps"), list)
@@ -89,7 +93,7 @@ def collect(args):
     accepted = (
         raw["status"] == "completed"
         and raw.get("conclusion") == "success"
-        and seen == JOB_NAMES
+        and (seen == JOB_NAMES or seen == HOSTED_JOB_NAMES)
         and all(
             job["status"] == "completed"
             and job["conclusion"] == "success"

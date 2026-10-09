@@ -58,6 +58,25 @@ def test_both_actual_test_steps_required_and_read_only_request():
     )
 
 
+def test_exact_hosted_python_pairs_recognized():
+    data = copy.deepcopy(DATA)
+    for job, name in zip(
+        data["jobs"],
+        ["regression (ubuntu-24.04, 3.12.14)", "regression (windows-2025, 3.12.10)"],
+        strict=True,
+    ):
+        job["name"] = name
+    report, code, _ = collect(data)
+    assert code == 0 and report["both_regression_jobs_succeeded"] is True
+
+
+def test_mixed_historical_and_current_job_names_not_qualified():
+    data = copy.deepcopy(DATA)
+    data["jobs"][0]["name"] = "regression (ubuntu-24.04, 3.12.14)"
+    report, code, _ = collect(data)
+    assert code == 1 and report["both_regression_jobs_succeeded"] is False
+
+
 @pytest.mark.parametrize(
     "change",
     [

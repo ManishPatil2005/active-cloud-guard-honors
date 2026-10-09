@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="20" time="0.104" timestamp="2026-10-10T01:24:26.919726+05:30" hostname="Welcome"><testcase classname="tests.test_github_ci_receipt" name="test_both_actual_test_steps_required_and_read_only_request" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_exact_hosted_python_pairs_recognized" time="0.001"><failure message="ValueError: CI job identity/envelope mismatch">def test_exact_hosted_python_pairs_recognized():
+        data = copy.deepcopy(DATA)
+        for job, name in zip(
+            data["jobs"],
+            ["regression (ubuntu-24.04, 3.12.14)", "regression (windows-2025, 3.12.10)"],
+            strict=True,
+        ):
+            job["name"] = name
+&gt;       report, code, _ = collect(data)
+                          ^^^^^^^^^^^^^
+
+tests\test_github_ci_receipt.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_github_ci_receipt.py:44: in collect
+    reports, code = module.collect(None)
+                    ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = None
+
+    def collect(args):
+        run_id = os.environ.get("ACG_CI_RUN_ID", "")
+        expected = os.environ.get("ACG_CI_EXPECTED_SHA", "")
+        if not re.fullmatch(r"[0-9]{1,20}", run_id) or not re.fullmatch(
+            r"[0-9a-f]{40}", expected
+        ):
+            raise ValueError("explicit numeric run ID and exact source SHA required")
+        response = run_bounded(
+            [
+                "gh",
+                "run",
+                "view",
+                run_id,
+                "--repo",
+                REPOSITORY,
+                "--json",
+                "databaseId,headSha,status,conclusion,url,jobs",
+            ],
+            timeout=30,
+            output_limit=1_000_000,
+        )
+        if response.returncode != 0:
+            raise ValueError("CI metadata query rejected")
+        raw = json_value(response.stdout)
+        url = f"https://github.com/{REPOSITORY}/actions/runs/{run_id}"
+        if (
+            not isinstance(raw, dict)
+            or type(raw.get("databaseId")) is not int
+            or str(raw["databaseId"]) != run_id
+            or raw.get("headSha") != expected
+            or raw.get("url") != url
+            or raw.get("status")
+            not in {"completed", "in_progress", "queued", "requested", "waiting", "pending"}
+            or not isinstance(raw.get("jobs"), list)
+            or len(raw["jobs"]) &gt; 2
+        ):
+            raise ValueError("CI run identity/envelope mismatch")
+        jobs, seen = [], set()
+        for job in raw["jobs"]:
+            if (
+                not isinstance(job, dict)
+                or job.get("name") not in JOB_NAMES
+                or job["name"] in seen
+                or type(job.get("databaseId")) is not int
+                or not isinstance(job.get("steps"), list)
+                or len(job["steps"]) &gt; 64
+            ):
+&gt;               raise ValueError("CI job identity/envelope mismatch")
+E               ValueError: CI job identity/envelope mismatch
+
+scripts\github_ci_receipt.py:66: ValueError</failure></testcase><testcase classname="tests.test_github_ci_receipt" name="test_mixed_historical_and_current_job_names_not_qualified" time="0.001"><failure message="ValueError: CI job identity/envelope mismatch">def test_mixed_historical_and_current_job_names_not_qualified():
+        data = copy.deepcopy(DATA)
+        data["jobs"][0]["name"] = "regression (ubuntu-24.04, 3.12.14)"
+&gt;       report, code, _ = collect(data)
+                          ^^^^^^^^^^^^^
+
+tests\test_github_ci_receipt.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_github_ci_receipt.py:44: in collect
+    reports, code = module.collect(None)
+                    ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = None
+
+    def collect(args):
+        run_id = os.environ.get("ACG_CI_RUN_ID", "")
+        expected = os.environ.get("ACG_CI_EXPECTED_SHA", "")
+        if not re.fullmatch(r"[0-9]{1,20}", run_id) or not re.fullmatch(
+            r"[0-9a-f]{40}", expected
+        ):
+            raise ValueError("explicit numeric run ID and exact source SHA required")
+        response = run_bounded(
+            [
+                "gh",
+                "run",
+                "view",
+                run_id,
+                "--repo",
+                REPOSITORY,
+                "--json",
+                "databaseId,headSha,status,conclusion,url,jobs",
+            ],
+            timeout=30,
+            output_limit=1_000_000,
+        )
+        if response.returncode != 0:
+            raise ValueError("CI metadata query rejected")
+        raw = json_value(response.stdout)
+        url = f"https://github.com/{REPOSITORY}/actions/runs/{run_id}"
+        if (
+            not isinstance(raw, dict)
+            or type(raw.get("databaseId")) is not int
+            or str(raw["databaseId"]) != run_id
+            or raw.get("headSha") != expected
+            or raw.get("url") != url
+            or raw.get("status")
+            not in {"completed", "in_progress", "queued", "requested", "waiting", "pending"}
+            or not isinstance(raw.get("jobs"), list)
+            or len(raw["jobs"]) &gt; 2
+        ):
+            raise ValueError("CI run identity/envelope mismatch")
+        jobs, seen = [], set()
+        for job in raw["jobs"]:
+            if (
+                not isinstance(job, dict)
+                or job.get("name") not in JOB_NAMES
+                or job["name"] in seen
+                or type(job.get("databaseId")) is not int
+                or not isinstance(job.get("steps"), list)
+                or len(job["steps"]) &gt; 64
+            ):
+&gt;               raise ValueError("CI job identity/envelope mismatch")
+E               ValueError: CI job identity/envelope mismatch
+
+scripts\github_ci_receipt.py:66: ValueError</failure></testcase><testcase classname="tests.test_github_ci_receipt" name="test_partial_failed_skipped_missing_is_not_qualified[failed_run]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_partial_failed_skipped_missing_is_not_qualified[failed_job]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_partial_failed_skipped_missing_is_not_qualified[skipped_test]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_partial_failed_skipped_missing_is_not_qualified[missing_test]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_partial_failed_skipped_missing_is_not_qualified[missing_job]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_partial_failed_skipped_missing_is_not_qualified[pending]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_foreign_or_invalid_run_is_refused[databaseId-True]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_foreign_or_invalid_run_is_refused[databaseId-99]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_foreign_or_invalid_run_is_refused[headSha-bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_foreign_or_invalid_run_is_refused[url-https://example.test]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_foreign_or_invalid_run_is_refused[status-invented]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_foreign_or_invalid_run_is_refused[jobs-None]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_duplicate_jobs_and_regression_steps_refused" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_invalid_selection_refused_before_any_network[other/path-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_invalid_selection_refused_before_any_network[12345-main]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_invalid_selection_refused_before_any_network[-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]" time="0.001" /><testcase classname="tests.test_github_ci_receipt" name="test_existing_receipt_refused_before_selection_or_remote_read" time="0.003" /></testsuite></testsuites>

@@ -1,5 +1,9 @@
 # Test and verification plan
 
+Second hosted run1740 cases each: Ubuntu1740 passed; Windows1702 passed/37 platform skips/one inert lifecycle failure. Original XML retained. Five-file diagnostic targets89 cases pass Windows3.80s/Linux9.05s with original flags; failed alternate-parent-flags trial1failure/88passes retained. Tests enforce exact current host/run/attempt artifact paths; no skip/guard relaxation. Further hosted diagnostic results must retain their actual source SHA and failures. WL-090/INC-081.
+
+QA-016 reader refinement: two additional tests reproduce actual matrix display names and reject mixed historical/current sets. Negative Windows receipt retains 2 failures/18 passes; corrected receipt/CI/documentation targets pass all 48 cases on Windows and Linux. Actual hosted run37983312835 tests source3cfdd4e, which precedes this reader refinement; distinguish those scopes. INC-080/WL-090.
+
 QA-016 actual firsthosted1722Ubuntu tests pass/Windowsunavailableinterpreter prevents tests; preserve failedmatrix. Fixedexactper-host Python pairs now verifiedagainstmanifest, no engineguard exclusions. New18reader cases for exactsource/run/repository/jobs/stepduplicate/invalidselectors/exclusiveoutput and failedpendingmissingskippedrefusal; final46localtargets pass. Corrected actual hostedrun stillpending; rawXML binds counts/scope, metadata not scientific/security signatures.
 
 QA-016:10structural manual-CI contracts enforce trigger/permissions/fixed matrix/Python/actionSHAs/budgets, pinned isolated installs/minimal offline build/actual installed-artifact paths, failure-preserving restricted receipts/no secrets/deployment/live commands. Local27pass6opt-in-artifactskips eachOS; no remote qualification inferred. Hosted run must record actual sourceSHA/runID/bothjob outcomes/artifact hashes/raw negative receipts in WL-090 before fresh-runner acceptance.

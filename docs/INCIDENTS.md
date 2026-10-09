@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-081 - 2026-10-10 - Hosted inert helper failure; historical artifact inclusion
+
+Second hosted matrix setup succeeds both platforms. Ubuntu1740 passes; Windows1702 passes/37 platform skips/one lifecycle failure: empty stdout before helper PID, original test did not surface stderr. Hosted cause unknown. Changing intermediate-parent launch flags reproduced a local WinError5 and was reverted; original flags plus bounded startup diagnostics pass89 local selected cases, not a causal hosted fix. Production helper flags/guards unchanged; no skipped failure or rerun-to-hide evidence. Negative trial XML and both actual hosted XMLs retained. Download also included committed older CI receipts under broad globs; corrected upload paths select only exact current host/run/attempt filenames, with structural enforcement. Original download untouched, only exact six new receipts published. Next diagnostic run is pending execution. WL-090.
+
+### INC-080 - 2026-10-10 - CI reader rejected corrected matrix display names
+
+Symptom/evidence: actual run37983312835 reports `regression (windows-2025, 3.12.10)` and `regression (ubuntu-24.04, 3.12.14)`, whereas the reader recognized only the original OS-only names. Two new tests reproduce rejection (2 failed, 18 passed; negative XML preserved). Cause known: adding the Python matrix axis changed GitHub-generated display names, not engine behavior or test results. Fix recognizes only the complete exact historical or corrected pair; mixed, unknown, missing, skipped or failed jobs still cannot qualify. Final 48 selected tests pass each OS; hosted source3cfdd4e predates this reader fix, so no hosted coverage of the newer fix is claimed. Existing source/run/step identity and exclusive-output checks unchanged. WL-090.
+
 ### INC-079 - 2026-10-10 - Linux optional-profile client timeout and partial environment
 
 New ignoredLinuxcandidate bootstrap succeeds; fullprofile via180s boundedWindowsWSLclient timesout, installerexit/phase/guestcompletion not captured. Subsequent exactcandidate/owner processcheck finds no active match at that snapshot. Actualinventory30packages/ChromaPackageNotFound; pipcheck passes installeddependencyconsistency only, not requestedprofilecompletion. Partialcore-pin receipt retained, no nativevector run or retry-in-place/deletion. Cause confidence unknown (filesystem/IO latency only hypothesis); isolated nativefilesystem follow-up can test compatibility, not causally repair oldtiming/transport. Existing working/portable envs untouched. WL-090; currentCIproblem is separately known unsupportedWindowsbuild/INC-078.

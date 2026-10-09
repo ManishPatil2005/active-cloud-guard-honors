@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Preserve second CI failure and improve exact-run diagnostics
+
+- Preserve Ubuntu1740 passes and Windows1702 passes/37 platform skips/one inert helper failure; no green matrix claim.
+- Recognize only exact historical/current matrix job-name sets and reject mixed sets; preserve two reproduced reader failures.
+- Restrict artifact upload to the current host/run/attempt's three receipts instead of matching committed historical evidence.
+- Surface bounded helper startup stderr; revert the unsuccessful parent-flag experiment, retaining original watchdog guards and negative receipts. Selected89 tests pass each OS; hosted cause remains unknown.
+
 ## 2026-10-10 - Preserve first hosted result and correct Windows runtime selection
 
 - Preserve failed first matrix run: Ubuntu1722passes; Windows interpreter setup unavailable before tests, not an engine failure.

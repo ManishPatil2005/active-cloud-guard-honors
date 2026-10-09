@@ -91,8 +91,9 @@ jobs:
         with:
           name: qualification-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            output/ci-*.json
-            output/ci-*.xml
+            output/ci-core-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.json
+            output/ci-smoke-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.json
+            output/ci-tests-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}.xml
           if-no-files-found: warn
           retention-days: 7
           include-hidden-files: false
