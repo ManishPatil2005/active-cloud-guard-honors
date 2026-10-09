@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-073 - 2026-10-09 - Qualify patched candidates without rewriting historical environments
+
+QA-011/WL-085. Separate ignored fresh venvs/hash-pinned pip bootstrap and explicit version profiles; retain root/Linux/ML snapshots and current engines. Portable core/ML qualification is separate from full optional Windows/vector profile and active/default promotion. A failed pip index lookup does not prove release absence; preserve first negative and limited uncached observation without causal claims/global cache purge. No version substitutions/source builds. Optional smoke uses ephemeral explicit vectors only, no persistent-store certification or server deployment. Full default/environment promotion needs its own coherent accepted change; research/operational gates remain open.
+
 ## ADR-072 - 2026-10-09 - Scope cache race guarantees and require inventory egress approval
 
 QA-010/WL-084/INC-073. Reuse existing JSON response/cache semantics with strict types, regular leaf/descriptor identity and available no-follow/nonblocking read flags; same-instance reentrant lock fixes observed Windows thread collision without asserting cross-instance/process serialization. Ignore only vanished eviction victims, preserve other failures and trusted-parent limits. Request0700 for new final cache directories only, not ACL repair. Query approved installed package/version metadata through bounded fixed OSV API/exclusive publisher, preserve unqueried/partial states and negative evidence. Triage conditions/aliases; no blind upgrade/historical lock rewrite or complete security/research acceptance. CACHE_ADVISORY_REVIEW.md.

@@ -1,5 +1,11 @@
 # Evidence index
 
+## Isolated dependency candidates (2026-10-09)
+
+Final[Linux suite](../output/dependency-candidate-full-linux-tests-20261009.xml)1665passed230.82s, same1665collected as Windows1626pass39skips. Both actual fresh portable candidates, no complete optional-vector/install/build/independent research acceptance.
+
+QA-011/[qualification](DEPENDENCY_CANDIDATE_QUALIFICATION.md)/WL-085. [Initial4profile tests](../output/dependency-candidate-profile-tests-20261009.xml), [final9contracts](../output/dependency-candidate-contract-tests-20261009.xml), [candidateWindows full1626pass39skip](../output/dependency-candidate-full-windows-tests-20261009.xml), [candidate docs18pass](../output/dependency-candidate-docs-20261009.xml). [PreliminaryWindows14package query](../output/dependency-candidate-windows-preliminary-advisories-20261009.json)/[preliminary smoke](../output/dependency-candidate-windows-preliminary-smoke-20261009.json) kept separate from final[Windows32query](../output/dependency-candidate-windows-advisories-20261009.json)/[Linux31query](../output/dependency-candidate-linux-advisories-20261009.json) and [Windows](../output/dependency-candidate-windows-smoke-20261009.json)/[Linux](../output/dependency-candidate-linux-smoke-20261009.json) offline smokes. Candidate no-IDs not old-environment/Chroma/production clearance. Initial index error/incomplete optional install recorded in log, no invented failedXML.
+
 ## Cache boundary and advisory review (2026-10-09)
 
 Final source/cases: [stale-count before failure](../output/cache-snapshot-before-windows-20261009.xml) retained; fixed final[Windows](../output/cache-advisory-final-windows-20261009.xml)1617pass39skip/[Linux](../output/cache-advisory-final-linux-20261009.xml)1656pass,1656collected each. Earlier full1655case receipts below are preliminary, not final source acceptance.

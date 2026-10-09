@@ -1,0 +1,102 @@
+{
+  "checked_at_utc": "2026-10-09T17:18:06.047767+00:00",
+  "status": "complete_database_query",
+  "database": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "oauthlib",
+      "version": "4.0.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pip",
+      "version": "26.2",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "pytest",
+      "version": "9.0.3",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "requests-oauthlib",
+      "version": "2.0.0",
+      "status": "queried",
+      "advisory_ids": []
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "status": "queried",
+      "advisory_ids": []
+    }
+  ],
+  "queried_count": 14,
+  "installed_count": 14,
+  "error_type": null,
+  "exploitability_verified": false,
+  "vulnerability_free": false,
+  "limits": [
+    "Database coverage is not exhaustive; absence of IDs is not security clearance.",
+    "Package metadata is not authenticated provenance; IDs require condition/remediation triage.",
+    "Only installed Python distributions queried; OS, images, Ollama/model/native binaries excluded.",
+    "No source upload, upgrade, exploit or automatic retry; per-request socket timeout not whole-run deadline."
+  ]
+}

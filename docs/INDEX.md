@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-011/WL-085: [isolated dependency candidates](DEPENDENCY_CANDIDATE_QUALIFICATION.md), hash-pinned installer/fresh portable core/ML installs, candidate smokes/pipchecks/32Windows31Linux OSV queries. Active/default promotion and full optional Windows/vector qualification open; old environments/locks intact, no research/production acceptance.
+
 Current QA-010/WL-084: [cache and advisory review](CACHE_ADVISORY_REVIEW.md). Selected file/type/thread/race guards and approved95Windows/23Linux installed-package OSV queries. Findings/conditions/remediation open, no environment upgrades or security certification; full source/test closure in WORK_LOG.
 
 Current QA-009/WL-083: [dependency and stream review](DEPENDENCY_STREAM_REVIEW.md), invalid budgets/short reads fixed;23cases/fullWindows1589pass38skip/Linux101targets. Four selected advisories, open Chroma server-condition findings; readiness3 partial, not full vulnerability certification.

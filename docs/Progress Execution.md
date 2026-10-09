@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Latest step: patched dependencies tested separately
+
+We created separate temporary Python environments, installed patched pip/pytest/OAuthlib and the portable core/ML packages, and ran checks there. Your original setup and historical locks are untouched. Candidate Windows1626tests pass/39skips; Linux1665tests pass. Read the [step-by-step candidate guide](DEPENDENCY_CANDIDATE_QUALIFICATION.md). Both smoke/compatibility checks pass, and candidate32Windows/31Linux OSV queries returned no matches—not clearance of the original environments or Chroma. The full optional Windows/vector setup was incomplete; promotion to the normal setup remains next, not claimed done. Research approval/data/timing/novelty still require genuine evidence.
+
 ## Latest work: safer cache and dependency findings
 
 The saved-response cache now rejects invalid settings and suspicious file types; operations sharing one cache object no longer collide in the tested threaded case. Disappearing files no longer cause the tested extra eviction.29new tests preserve failures; finalWindows1617passes39skips/Linux1656passes. With your permission we checked95Windows and23Linux Python packages against OSV, sending names/versions only. Matches need action for Chroma, OAuthlib, pip and pytest; no package has been upgraded yet. [Plain-language reproduction, findings and limits](CACHE_ADVISORY_REVIEW.md). Passing software tests and complete database queries do not mean fully secure or publication-ready research.

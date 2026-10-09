@@ -1,5 +1,7 @@
 # Cache boundary and installed-dependency advisory review
 
+Follow-up QA-011: [isolated patched candidate qualification](DEPENDENCY_CANDIDATE_QUALIFICATION.md). Portable candidate setup has updated pip/pytest/OAuthlib, separate inventories/smokes/regressions; current/historical environments and full optional vector profile not promoted or cleared. This document retains the earlier95/23environment finding scope.
+
 QA-010/R7/R8/V2-001, 9 October 2026, WL-084/ADR-072/INC-073. Continuation of roadmap3: scoped cache fixes and all observed installed Python distributions queried against OSV. Not full system security assurance or independent research evaluation. Existing engine algorithms, model policy4, Python/Compose/Ollama/Chroma architecture and frozen Engine1 tag unchanged.
 
 Final verification includes29newcases: Windows1617passed39skips61.81s/Linux1656passed176.56s,1656collected each/zero failures/errors. Earlier1655case suites precede the reproduced/fixed stale-count regression. Docs18pass/lint144fileformat/bothpipchecks; raw negatives preserved. Test timing is not engine efficiency or security detection measurement.

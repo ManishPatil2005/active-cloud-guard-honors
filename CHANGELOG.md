@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-09 - Qualify isolated patched dependency candidates
+
+- Add hash-pinned pip bootstrap and separate portable/optional candidate profiles, preserving historical locks and working environments.
+- Add offline exact-version/OAuth client/optional ephemeral-vector smoke and9profile/refusal/publication cases.
+- Execute portable candidate installs and approved OSV matching on both platforms; original/full optional Windows index/incomplete-install results preserved, no blind pin substitution or promotion.
+- Exact full-suite/smoke/coverage/limits in WL-085; no Chroma remediation, default environment switch or scientific gate completion.
+
 ## 2026-10-09 - Harden cache boundaries and query installed advisory coverage
 
 - Reject invalid cache options/timestamps, symlink/nonregular/reparse reads and changed opened-file identity; use available no-follow/nonblocking read flags.

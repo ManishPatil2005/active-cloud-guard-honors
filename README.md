@@ -2,6 +2,8 @@
 
 # Active Cloud Guard
 
+Latest reproducibility qualification: [isolated patched dependency candidates](docs/DEPENDENCY_CANDIDATE_QUALIFICATION.md), with separate candidate inventories and cross-platform checks. Historical environments and locks remain unchanged; optional-vector qualification/default promotion, independent evaluation and production acceptance remain open.
+
 Current readiness refinement: [bounded legacy inputs and client subprocesses](docs/LEGACY_RUNNER_BUDGETS.md), with partial failure evidence and explicit remote-job uncertainty. No Docker/model/sensor experiment or production readiness is inferred from passing software checks.
 
 Next-stage readiness: [sequenced production/research acceptance roadmap](docs/PRODUCTION_RESEARCH_ROADMAP.md). [Model envelope rejection](docs/MODEL_ENVELOPE_VALIDATION.md) is implemented; genuine independent evaluation, novelty and production acceptance remain separate open gates.

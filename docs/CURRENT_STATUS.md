@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Latest QA-011: [candidate dependency qualification](DEPENDENCY_CANDIDATE_QUALIFICATION.md), portable candidate installs/patched pip/pytest/OAuthlib/bothsmokes/pipchecks/approvedOSV32Windows31Linux complete/noIDs for candidate inventories. FullWindows1626pass39skip/Linux1665pass,1665collected each;9newcases/docs18pass. Working environments/default testpin unchanged; full optional Windows profile incomplete/Chroma unremediated, genuine research/native timing/import/operational gates unchanged. Prior QA-010 counts below historical.
+
 Latest QA-010: [cache/advisory review](CACHE_ADVISORY_REVIEW.md),29newcases/finalWindows1617pass39skip/finalLinux1656pass,1656collected each; docs18pass. Final review's stale eviction-count failure preserved/fixed; earlier1655case suites preliminary. Actual approved95Windows/23Linux OSV matching completed; open Chroma/OAuthlib/pip/pytest findings, no package upgrade/zero-vulnerability claim. Selected cache guards implemented, different writers/ancestor/native guarantees open. Next isolated dependency/tool update qualification; earlier counts below historical.
 
 Latest QA-009: [stream repair and selected advisory triage](DEPENDENCY_STREAM_REVIEW.md),23newcases/fullWindows1589pass38skip/Linux101targets. Roadmap3 partial; open Chroma server-condition findings and full advisory/cache/native review, no package upgrade or production/research acceptance. Earlier full-suite counts below describe historical checkpoints.
