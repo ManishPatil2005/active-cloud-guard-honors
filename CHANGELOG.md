@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 - Verify every recommended installed dependency pin offline
+
+- Add bounded fixed-profile metadata checker, complete match/missing/mismatch counts and explicitly unqualified extras.
+- Bind three profile file hashes and preserve exclusive outputs before inspection; no install/egress/runtime workload.
+- Add21cases,67target checks each OS and actual candidate/historical-negative receipts; no engine algorithm or original environment change.
+
 ## 2026-10-09 - Promote qualified portable source-tree setup
 
 - Recommend the already qualified core/ML profile through a stable include, preserving dated and historical snapshots.

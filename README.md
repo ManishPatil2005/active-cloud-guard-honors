@@ -209,6 +209,7 @@ Install the hash-pinned installer, then the recommended source-tree profile. Thi
 python -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --no-deps --require-hashes --disable-pip-version-check --no-input -r requirements-remediation-bootstrap-20261009.txt
 python -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: --disable-pip-version-check --no-input --retries 0 --resume-retries 0 --timeout 20 -r requirements-core-current.txt
 python -m pip check
+python scripts/core_profile_check.py --output output/core-current-new-profile.json
 python scripts/dependency_candidate_check.py --output output/core-current-new-smoke.json
 git config core.hooksPath .githooks
 ```

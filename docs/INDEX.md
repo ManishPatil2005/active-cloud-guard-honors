@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-013/WL-087: [offline all-pin verification](CORE_PROFILE_VERIFICATION.md).31required pins checked with explicit missing/mismatch/unqualified extras; both candidates match, untouched historical Windows deliberately mismatches3.21newcases/67targets both OS, no installs/egress/full-suite rerun. QA-012 below remains setup/default promotion evidence.
+
 Current QA-012/WL-086: [recommended portable profile promotion](CORE_PROFILE_PROMOTION.md). Reuses the qualified dated core/ML pins, promotes test extra and fresh-directory README setup; old environments and optional vector findings remain unchanged. Exact checks and limits in WORK_LOG. QA-011 below records the prior qualification, not current default guidance.
 
 Current QA-011/WL-085: [isolated dependency candidates](DEPENDENCY_CANDIDATE_QUALIFICATION.md), hash-pinned installer/fresh portable core/ML installs, candidate smokes/pipchecks/32Windows31Linux OSV queries. Active/default promotion and full optional Windows/vector qualification open; old environments/locks intact, no research/production acceptance.

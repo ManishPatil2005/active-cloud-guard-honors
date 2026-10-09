@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-075 - 2026-10-09 - Verify the fixed portable profile without automatic remediation
+
+QA-013/R8/WL-087. Inspect all required installed version metadata, not only four patched smoke versions. Bound the fixed three-file include chain and reject duplicate/unsupported pins; report extras as unqualified rather than hide or prohibit platform dependencies. Keep mismatch exit1/detailed exclusive evidence; no install, arbitrary requirement evaluation or network action. Source SHA binds observed bytes, not signatures/wheel integrity. No core-engine imports or algorithms change; vector/fresh-host/CI and independent research gates remain separate.
+
 ## ADR-074 - 2026-10-09 - Promote portable guidance without mutating historical environments
 
 QA-012/WL-086. Recommend the already cross-platform-qualified dated portable profile through a stable requirements include and align the test extra to pytest9.0.3. Preserve historical snapshots, optional vector pin and working interpreters. README uses fresh-directory guards and source-tree scope; no editable-build/CI/Chroma clearance inferred. Keep the original commit-hook interpreter selection rather than silently moving it to an ignored candidate. New qualification must explicitly separate profile recommendation, actual installation and research/operational acceptance.

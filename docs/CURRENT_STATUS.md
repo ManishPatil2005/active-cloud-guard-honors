@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Latest QA-013: [offline profile verifier](CORE_PROFILE_VERIFICATION.md), all31required pins match in each qualified candidate; originalWindows28match3mismatch proves it remains historical, not upgraded.21newcases/67targets pass bothOS; no full suite rerun or runtime/research/production approval. QA-012's portable recommendation remains current; next optional-vector/package/fresh-host/CI qualification and genuine human/data gates.
+
 Latest QA-012: [portable setup/default promotion](CORE_PROFILE_PROMOTION.md), stable qualified-profile include, pytest9.0.3 test extra and fresh-directory README guidance. Old environments/locks/Engine1 tag and vector boundary unchanged; optional Windows/vector qualification and fresh-host/CI remain next. Exact current checks WL-086; earlier QA-011 default-not-promoted statement is historical.
 
 Latest QA-011: [candidate dependency qualification](DEPENDENCY_CANDIDATE_QUALIFICATION.md), portable candidate installs/patched pip/pytest/OAuthlib/bothsmokes/pipchecks/approvedOSV32Windows31Linux complete/noIDs for candidate inventories. FullWindows1626pass39skip/Linux1665pass,1665collected each;9newcases/docs18pass. Working environments/default testpin unchanged; full optional Windows profile incomplete/Chroma unremediated, genuine research/native timing/import/operational gates unchanged. Prior QA-010 counts below historical.

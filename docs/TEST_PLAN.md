@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-013:21newcases cover exact normalized pins/hash binding,31realprofilepins, unsupported requirement forms/extra or arbitrary includes, duplicates, oversized/empty/count caps, match/mismatch/missing/extra accounting and existing-output refusal before inspection. Corrected33targets eachOS/expanded67eachOS. Actual candidate31matches and originalWindows28match3mismatch receipts saved; initial nonexistent-test-path negative retained. No new full engine suite or independent effectiveness result; WL-087.
+
 QA-012: three promotion contracts enforce stable include reuse, pytest9.0.3/unchanged optional pins and guarded README setup. Full suites use qualified isolated candidates, explicit basetemp/cache paths and fresh XML evidence; exact results WL-086. Source-tree checks are not package-build/fresh-host/CI or live vector assurance. First12case target emitted a cache permission warning preserved in INC-075.
 
 QA-011 nine new profile/bootstrap/shared-ML/version-refusal/evidence-preservation cases: originalWindows4initial/9finalpass, candidate fullWindows1626pass39skip/Linux1665pass,1665collected each/zero failures/errors. Candidate pipchecks/offline exact-version+synthetic OAuth body/bothOSV inventories complete32/31/noIDs, no server/exploit test; optional vector absent/unqualified. Docs18pass/146fileformat/lint; first index failure and incomplete optional installation recorded, not masked by portable success. Exact commands WL-085/DEPENDENCY_CANDIDATE_QUALIFICATION.md.

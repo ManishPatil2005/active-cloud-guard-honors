@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Current check: verify all installed versions before trusting the setup
+
+Run `python scripts/core_profile_check.py --output output/my-core-profile-check.json` using the new environment and a fresh output name. It checks all31required versions, lists missing/wrong versions and reports extra packages without certifying them. Both tested candidates match31; the old Windows setup still has3wrong versions, deliberately unchanged. [Baby steps and receipts](CORE_PROFILE_VERIFICATION.md).21newtests/67selectedchecks pass on eachOS; this does not upgrade old environments or complete independent research.
+
 ## Current step: recommended setup now uses the tested portable profile
 
 For a new checkout, follow README steps1–2: create a new temporary environment, install the checked installer and portable profile, then run the smoke and tests. Existing environments are not upgraded or deleted. The recommended test dependency is now pytest9.0.3; Chroma/vector operations still need separate review. Windows full suite now1629passes39skips; Linux closure is in [the execution log](WORK_LOG.md). [Simple scope and instructions](CORE_PROFILE_PROMOTION.md). This makes setup clearer and repeatable, not production-certified or independent research evidence. Older entries below describe prior steps.
