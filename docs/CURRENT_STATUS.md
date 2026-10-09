@@ -1,5 +1,9 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest engine/security/research review — 9 October 2026
+
+QA-004: [audit/failure explanation/open gaps](ENGINE_AUDIT_20261009.md). Broad source inventory/search and focused critical boundary review; full both-OS regressions. Fixed unchecked library model port/default redirect behavior on chat/identity/embed/vector metadata;38newcases/final66target/fullWindows1410pass38skip/Linux1448pass. Cache policy bumped to prevent old audit reuse; no baseline tag/stack/model algorithm change. Not exhaustive native/CVE/pentest security proof. Literature/legacywriters/resources/clockcoverage/provenance/actual independent study/calibration/effectiveness remain open; WL-079/ADR-067/INC-068.
+
 ## Latest evidence-preservation fix — 9 October 2026
 
 Final verification: full Windows1372pass38existing skips/1410collected/zero failures/errors, relevantLinux+Windows10evaluator cases each, docs18pass/lint130fileformat/bothpipchecks. Both fresh45case calculated results agree with original historical baseline (timings excluded), raw manifest/selected source hashes current, historical artifacts unchanged. Full Linux not rerun for evaluator-only change; older full counts remain historical. No independent research gate closed.

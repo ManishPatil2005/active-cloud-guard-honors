@@ -6,6 +6,8 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+Latest [engine/security/research audit](docs/ENGINE_AUDIT_20261009.md) fixes local-model port/redirect confinement and documents original-plan alignment and open gaps. Full regressions: Linux1,448pass / Windows1,410pass38existing skips. Focused local audit/software evidence—not exhaustive security certification, independently validated detection or production readiness.
+
 Reproducibility maintenance: [development evaluator evidence preservation](docs/EVALUATOR_EVIDENCE_PRESERVATION.md) requires `python scripts/evaluate.py --output output/NEW_FILENAME.json`, preserving historical reports and failed runs without changing detector calculations. Development fixtures remain distinct from independent research data.
 
 Latest validation: **1,372 passed / 38 existing skips in the full Windows suite**, plus ten evaluator cases and a fresh45-case development run passed on each OS. Full Linux not rerun for this script-only fix; historical report/calculated results preserved and current bindings checked.

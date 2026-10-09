@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-004/R4/R7/R8: [engine/security/research-gap audit](docs/ENGINE_AUDIT_20261009.md) and local-model transport hardening implemented/software-tested. Repository-wide structural/sink inventory plus focused manual review, not exhaustive native/dependency/pentest certification.38newcases/finaltarget66pass/fullWindows1410pass38skip/Linux1448pass. Unchecked library port/default redirects fixed; remaining writers/resource/provenance/timing/data/human/calibration/ablation gaps explicit. No research gate magically completed; WL-079/ADR-067/INC-068.
+
 QA-003 final verification: fullWindows1372pass38existing skips/1410collected/zero failures/errors; evaluator10pass eachOS, docs18pass/lint130fileformat/bothpipchecks. Both fresh45case result metrics/raw identities/rules/hashes equal original baseline (timings excluded), evidence bindings/historical preservation verified. No fullLinux rerun or independent evaluation claim; WL-078.
 
 QA-003/M3-004/R7: [evaluator evidence preservation](docs/EVALUATOR_EVIDENCE_PRESERVATION.md) fixes historical overwrite with required fresh --output/exclusive refusal before scans, saved mismatch/rejection evidence and selected consistency hashes.10newcases pass eachOS, actual45fixture evaluation passes both into fresh files; historical baseline SHA unchanged. Original metrics/algorithms/stack retained, no independent benchmark. WL-078/ADR-066/INC-067.

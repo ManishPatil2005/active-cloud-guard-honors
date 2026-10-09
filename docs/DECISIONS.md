@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-067 - 2026-10-09 - Reject redirects on all existing local-model transport
+
+QA-004/R4/R7. Exact integer loopback port and shared explicit HTTPRedirectHandler refusal, not just disabled proxies. Even local redirects rejected to avoid authority/path ambiguity. Existing fixed URLs retained; old audit cache policy invalidated, past vector collections not rewritten. Update cache-context test constant so each non-policy mutation remains isolated. Same Ollama/Chroma/CLI architecture; no global monkeypatch or cloud service. Test default-handler behavior with synthetic no-socket responses, not a live exfiltration trial. Scope/residual host/dependency/response-bound/provenance assumptions in ENGINE_AUDIT_20261009.md.
+
 ## ADR-066 - 2026-10-09 - Require explicit fresh development evaluation output
 
 QA-003/M3-004/R7. Replace implicit historical filename overwrite with mandatory --output/exclusive create before reading or scanning. Preserve existing calculation fields and save mismatch/rejection evidence under new filenames; selected source/manifest/fixture hashes check consistency. A backward-compatible implicit output would keep risking historical evidence, so no-argument invocation now refuses; summary.py continues reading original baseline. Temporary tests reproduce old writes without touching real reports. No atomic completion/fsync, hostile-race/import/ground-truth attestation or independent-study claim. EVALUATOR_EVIDENCE_PRESERVATION.md.

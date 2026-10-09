@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.615" timestamp="2026-10-09T17:45:03.997715+05:30" hostname="Welcome"><testcase classname="tests.test_local_model_boundary" name="test_port_cannot_change_request_authority[audit]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">operation = 'audit'
+
+    @pytest.mark.parametrize("operation", ["audit", "identity"])
+    def test_port_cannot_change_request_authority(operation):
+        with patch.object(llm, "build_opener") as opener:
+            opener.return_value.open.return_value = io.BytesIO(
+                json.dumps(
+                    {
+                        "models": [{"name": "model:latest", "digest": "test"}],
+                        "message": {"content": '{"findings":[]}'},
+                    }
+                ).encode()
+            )
+&gt;           with pytest.raises(ValueError):
+E           Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_local_model_boundary.py:29: Failed</failure></testcase><testcase classname="tests.test_local_model_boundary" name="test_port_cannot_change_request_authority[identity]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">operation = 'identity'
+
+    @pytest.mark.parametrize("operation", ["audit", "identity"])
+    def test_port_cannot_change_request_authority(operation):
+        with patch.object(llm, "build_opener") as opener:
+            opener.return_value.open.return_value = io.BytesIO(
+                json.dumps(
+                    {
+                        "models": [{"name": "model:latest", "digest": "test"}],
+                        "message": {"content": '{"findings":[]}'},
+                    }
+                ).encode()
+            )
+&gt;           with pytest.raises(ValueError):
+E           Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_local_model_boundary.py:29: Failed</failure></testcase><testcase classname="tests.test_local_model_boundary" name="test_identity_opener_does_not_allow_default_redirects" time="0.001"><failure message="assert False&#10; +  where False = any(&lt;generator object test_identity_opener_does_not_allow_default_redirects.&lt;locals&gt;.&lt;genexpr&gt; at 0x00000257E24FB3E0&gt;)">def test_identity_opener_does_not_allow_default_redirects():
+        with patch.object(llm, "build_opener") as opener:
+            opener.return_value.open.return_value = io.BytesIO(
+                b'{"models":[{"name":"model:latest","digest":"test"}]}'
+            )
+            llm.model_identity("model", 11434)
+        handlers = opener.call_args.args
+&gt;       assert any(
+            isinstance(h, HTTPRedirectHandler) and type(h) is not HTTPRedirectHandler
+            for h in handlers
+        )
+E       assert False
+E        +  where False = any(&lt;generator object test_identity_opener_does_not_allow_default_redirects.&lt;locals&gt;.&lt;genexpr&gt; at 0x00000257E24FB3E0&gt;)
+
+tests\test_local_model_boundary.py:49: AssertionError</failure></testcase></testsuite></testsuites>

@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 from urllib.request import Request, build_opener, ProxyHandler
+from .llm import LocalOnlyRedirect
 
 
 def embed(texts, model="nomic-embed-text"):
@@ -12,7 +13,9 @@ def embed(texts, model="nomic-embed-text"):
         data=json.dumps({"model": model, "input": texts, "truncate": False}).encode(),
         headers={"Content-Type": "application/json"},
     )
-    with build_opener(ProxyHandler({})).open(req, timeout=120) as response:
+    with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
+        req, timeout=120
+    ) as response:
         return json.load(response)["embeddings"]
 
 
@@ -25,7 +28,7 @@ def collection(kb_path, index_path, model):
     docs = json.loads(raw)
     if len({d["id"] for d in docs}) != len(docs):
         raise ValueError("duplicate source ID")
-    with build_opener(ProxyHandler({})).open(
+    with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         "http://127.0.0.1:11434/api/tags", timeout=5
     ) as response:
         models = json.load(response)["models"]

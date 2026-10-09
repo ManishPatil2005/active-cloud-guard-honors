@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 - Audit engine boundaries and confine local-model requests
+
+- Reject noninteger/out-of-range model ports before requests; refuse redirects on existing chat/identity/embedding/vector metadata paths and invalidate old-policy audit caches.
+- Preserve38new security cases/3beforefailures/final66target passes; fullWindows1410pass38skip/Linux1448pass. Same stack/model algorithms/frozen baseline history.
+- Record focused audit scope, original requirement mapping and remaining engineering/research gaps; not exhaustive security certification or independent effectiveness. WL-079/ADR-067/INC-068.
+
 ## 2026-10-09 - Preserve development evaluation history
 
 - Require explicit fresh --output for evaluate.py; refuse existing files before inputs/scans instead of overwriting baseline-development.json.

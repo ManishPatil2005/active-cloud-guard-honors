@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest QA-004/WL-079: [engine audit and research gap review](ENGINE_AUDIT_20261009.md), reproduced local-model port/redirect issue fixed and old audit cache policy invalidated.38newcases/final66target/fullWindows1410pass38skip/Linux1448pass. Read scope, failures explained, requirement mapping and prioritized open findings; not all-secure/production/independent research certification.
+
 Latest QA-003/WL-078: [evaluator evidence preservation](EVALUATOR_EVIDENCE_PRESERVATION.md). Required fresh --output/exclusive refusal fixes existing historical overwrite; old metrics and45fixtures retained.10cases eachOS/fresh actual development runs, preserved initial/negative receipts and original baseline SHA. No independent benchmark; current invocation documented in contract.
 
 Latest E2-046/WL-077: [matched synthetic decision comparison](SYNTHETIC_PAIRED_ACCOUNTING.md), exact unit/context pairing and intact abstention/unknown/missing denominators.48newcases/94targets both OS, fixed6checkexamples. Arithmetic prerequisite, not executed ablation/calibration/independent benchmark; actual research gates remain open.

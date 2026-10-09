@@ -6,15 +6,31 @@ import time
 import yaml
 from .scanner import UniqueLoader
 from .grounding import corroborate
-from urllib.request import Request, build_opener, ProxyHandler
+from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHandler
+from urllib.error import HTTPError
 from jsonschema import validate
 from .cache import AuditCache, fingerprint
 
-POLICY_VERSION = "engine1-v2-auth-guard-1"
+POLICY_VERSION = "engine1-v2-auth-guard-2-local-only"
+
+
+class LocalOnlyRedirect(HTTPRedirectHandler):
+    """Never follow a model-server redirect, even to another local endpoint."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise HTTPError(
+            req.full_url, code, "local model redirect refused", headers, None
+        )
+
+
+def _validate_port(port):
+    if type(port) is not int or not 1 <= port <= 65535:
+        raise ValueError("local model port must be an integer in 1..65535")
 
 
 def model_identity(model, port):
-    with build_opener(ProxyHandler({})).open(
+    _validate_port(port)
+    with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
         f"http://127.0.0.1:{port}/api/tags", timeout=5
     ) as response:
         models = json.load(response)["models"]
@@ -105,6 +121,7 @@ def input_locations(text):
 def audit(
     text, sources, model, port=11434, *, cache_dir=None, timeout=180, max_tokens=512
 ):
+    _validate_port(port)
     started = time.perf_counter()
     if (
         isinstance(max_tokens, bool)
@@ -200,7 +217,9 @@ def audit(
     )
     # Ignore system proxies: configuration never leaves the local model endpoint.
     if raw is None:
-        with build_opener(ProxyHandler({})).open(req, timeout=timeout) as response:
+        with build_opener(ProxyHandler({}), LocalOnlyRedirect()).open(
+            req, timeout=timeout
+        ) as response:
             payload = response.read(2_000_001)
             if len(payload) > 2_000_000:
                 raise ValueError("model response too large")

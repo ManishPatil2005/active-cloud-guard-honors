@@ -1,5 +1,9 @@
 # Progress Execution
 
+## What the engine/security audit found
+
+The project still follows the two-engine research plan, but it is not yet independently validated or fully secure. Some failures are deliberate old-defect tests now fixed; actual clock/coverage and historical intermittent import problems remain unresolved. The newest fixed issue allowed an invalid library model port or HTTP redirect to break the intended local-only request boundary. Ports now require integers and redirects refuse; no real external request was sent to test it. Read [audit with original-plan mapping and remaining priorities](ENGINE_AUDIT_20261009.md). Do not interpret pass counts as attacks tested, security certification or professor approval.
+
 ## New fix — safely rerun the Engine1 development evaluator
 
 Activate the existing environment, open repository root and run `python scripts/evaluate.py --output output/my-fresh-development-evaluation.json`. Use a new filename every time. Open JSON: status should be development_regression_passed, metrics.n45, raw45rows, repetitions5 and empty rule_set_mismatches. If checks fail, keep that report; it is evidence, not something to overwrite. Existing filenames refuse before scanning. Original baseline-development.json stays unchanged; these are seeded development fixtures, not independent research labels. [Safe reproduction/failure history](EVALUATOR_EVIDENCE_PRESERVATION.md).

@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 from cloudguard.cache import AuditCache, fingerprint
-from cloudguard.llm import audit, InvalidModelOutput
+from cloudguard.llm import audit, InvalidModelOutput, POLICY_VERSION
 from cloudguard.pipeline import run
 from cloudguard.vector import index
 from pathlib import Path
@@ -68,7 +68,7 @@ def test_context_changes_invalidate_cache(tmp_path, change):
             budget = 256
         with patch(
             "cloudguard.llm.POLICY_VERSION",
-            "new" if change == "policy" else "engine1-v2-auth-guard-1",
+            "new" if change == "policy" else POLICY_VERSION,
         ):
             result = audit(
                 TEXT, sources, "model", cache_dir=tmp_path, max_tokens=budget
