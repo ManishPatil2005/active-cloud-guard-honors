@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-003 changes only scripts/evaluate.py calculation/publication separation: required fresh output opens exclusively before reads/scans, existing45fixture/five-repeat metrics returned unchanged, mismatch/error receipts retained with selected pre/post hashes. Scanner/metrics/core pipelines/default engine algorithms untouched; summary.py intentionally reads historical baseline. [Contract/compatibility](EVALUATOR_EVIDENCE_PRESERVATION.md).
+
 E2-046 adds an isolated runtime_paired_accounting library reusing existing runtime_accounting/metrics helpers, plus fixed runner/fixture/tests. It consumes only caller-supplied synthetic accounting documents, not engine outputs or telemetry; no core CLI, model/scanner/intake/algorithm/dependency/stack changes. [Schema/pairing/limits](SYNTHETIC_PAIRED_ACCOUNTING.md).
 
 E2-045 integration.py builds transient comparator→asset→ordered window-index dictionaries once after unchanged component validation; contexts use lookup instead of per-asset re-filtering. No persistent cache, public schema/algorithm/dependency or engine change. Extra local map memory traded for fewer row visits. [Equivalence/work-count evidence](INTEGRATION_WINDOW_INDEX.md).

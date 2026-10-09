@@ -1,5 +1,9 @@
 # Research and engineering task ledger
 
+QA-003 final verification: fullWindows1372pass38existing skips/1410collected/zero failures/errors; evaluator10pass eachOS, docs18pass/lint130fileformat/bothpipchecks. Both fresh45case result metrics/raw identities/rules/hashes equal original baseline (timings excluded), evidence bindings/historical preservation verified. No fullLinux rerun or independent evaluation claim; WL-078.
+
+QA-003/M3-004/R7: [evaluator evidence preservation](docs/EVALUATOR_EVIDENCE_PRESERVATION.md) fixes historical overwrite with required fresh --output/exclusive refusal before scans, saved mismatch/rejection evidence and selected consistency hashes.10newcases pass eachOS, actual45fixture evaluation passes both into fresh files; historical baseline SHA unchanged. Original metrics/algorithms/stack retained, no independent benchmark. WL-078/ADR-066/INC-067.
+
 E2-046 final evidence: fullWindows1362pass38existing skips/1400collected/zero failures/errors, relevantLinux+Windows94pass each; no new fullLinux claim. Docs18pass/lint129fileformat/bothpipchecks; cross-platform fixed complete results/current input+source hashes agree. Exact commands WL-077; actual matched study remains open.
 
 E2-046/RES-002/E2-004: [matched synthetic decision accounting](docs/SYNTHETIC_PAIRED_ACCOUNTING.md) implemented/software-tested. Equal declared unit/run/label/availability, intact per-system summaries/transitions/coverage/null+negative changes;48newcases/94targets pass both OS and six-check fixed examples. No model predictions/calibration/independent labels/actual ablation authority. Real matched study/uncertainty/overhead remains open; WL-077/ADR-065.

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="1.061" timestamp="2026-10-09T17:30:32.820652+05:30" hostname="Welcome"><testcase classname="tests.test_evaluate_output" name="test_existing_report_refused_before_scanning" time="0.667"><failure message="AssertionError: assert [(WindowsPath...case.yaml'),)] == []&#10;  &#10;  Left contains 5 more items, first extra item: (WindowsPath('D:/research f1/tmp/evaluator-output-reproduced-20261009/test_existing_report_refused_b0/data/case.yaml'),)&#10;  Use -v to get more diff">tmp_path = WindowsPath('D:/research f1/tmp/evaluator-output-reproduced-20261009/test_existing_report_refused_b0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001D46D33A3C0&gt;
+
+    def test_existing_report_refused_before_scanning(tmp_path, monkeypatch):
+        module, historical, calls = setup_existing(tmp_path, monkeypatch)
+        try:
+            result = module.main()
+        except Exception:
+            result = 1
+&gt;       assert calls == []
+E       AssertionError: assert [(WindowsPath...case.yaml'),)] == []
+E         
+E         Left contains 5 more items, first extra item: (WindowsPath('D:/research f1/tmp/evaluator-output-reproduced-20261009/test_existing_report_refused_b0/data/case.yaml'),)
+E         Use -v to get more diff
+
+tests\test_evaluate_output.py:56: AssertionError</failure></testcase><testcase classname="tests.test_evaluate_output" name="test_existing_report_bytes_preserved" time="0.004"><failure message="assert b'{\r\n  &quot;run...&quot;\r\n  ]\r\n}' == b'preserved h...al evidence\n'&#10;  &#10;  At index 0 diff: b'{' != b'p'&#10;  Use -v to get more diff">tmp_path = WindowsPath('D:/research f1/tmp/evaluator-output-reproduced-20261009/test_existing_report_bytes_pre0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001D46DDC20F0&gt;
+
+    def test_existing_report_bytes_preserved(tmp_path, monkeypatch):
+        module, historical, calls = setup_existing(tmp_path, monkeypatch)
+        module.main()
+&gt;       assert historical.read_bytes() == b"preserved historical evidence\n"
+E       assert b'{\r\n  "run..."\r\n  ]\r\n}' == b'preserved h...al evidence\n'
+E         
+E         At index 0 diff: b'{' != b'p'
+E         Use -v to get more diff
+
+tests\test_evaluate_output.py:63: AssertionError</failure></testcase></testsuite></testsuites>

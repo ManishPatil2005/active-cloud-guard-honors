@@ -1,5 +1,7 @@
 # CLI and evidence interface design
 
+Development evaluator now requires `python scripts/evaluate.py --output FRESH_JSON`; absent argument exits2, existing output refuses before scanning, mismatch/rejected receipts return1. Inspect saved JSON for original metrics/raw/timings plus status/manifest/selected source hashes; stdout is status only. Historical baseline/summary inputs stay untouched. [Contract](EVALUATOR_EVIDENCE_PRESERVATION.md).
+
 E2-046 provides a separate fixed runtime_paired_accounting_check.py --output FRESH_JSON runner, not a new core CLI or engine mode. Output preserves both aggregate summaries, exact-pair transitions, coverage/abstention/null+negative differences and false evaluation authority. No arbitrary capture/model input or generated decision conversion. [Example/contract](SYNTHETIC_PAIRED_ACCOUNTING.md).
 
 Integrated replay/fixed runner expose --measure-stages: optional execution_cost protocol integrated_process_cost_v1, clocks, stages and total with integer wall_ns/process_cpu_ns. Only executed stage names appear; default no field/measurement-clock reads. Report explicitly denies sensor-overhead/energy/independent performance evaluation. [Reproduction/interpretation](INTEGRATION_EXECUTION_COST.md).

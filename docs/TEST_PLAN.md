@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-003: ten new evaluator cases, old overwrite reproduced only in temp roots after correcting ineffective empty-corpus test. Check no-scan/existing byte preservation, required output, five repeats/metrics, mismatch saved, pre/post checksum/manifest/source refusal and empty rejection. Windows/Linux10pass each, fresh45case actual evaluation on both without replacing original baseline. FullWindows/docs/index/binding in [contract](EVALUATOR_EVIDENCE_PRESERVATION.md)/WL-078; full Linux not rerun for evaluator-only change.
+
 E2-046:48newcases cover all27decision/label transitions, exact unit/run/label/availability pairing, child schemas/duplicates/missing slots, empty/null/negative metrics, order/nonmutation/no raw unit projection/noauthority and actual exclusive runner. Shared/new accounting targets94pass Windows/Linux; fixed examples six checks, not detector output/evaluation. Full Windows and document/index/binding results in [contract](SYNTHETIC_PAIRED_ACCOUNTING.md)/WL-077; full Linux not rerun for isolated additive code.
 
 E2-045: six new deterministic traversal/index/equivalence cases; preserved1beforefailure5vs2passes, initialtarget106pass includesfirst4newcases, final2complete-report rule/pipeline comparisons included in full suites. Empty/missing/interleaved assets/models/order/copy and1000rows50assets tested. Both fresh fixed10check demos, not matched speed/energy trials; [contract](INTEGRATION_WINDOW_INDEX.md)/WL-076.

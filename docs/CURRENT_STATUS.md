@@ -1,5 +1,11 @@
 # Active Cloud Guard — current capability and research status
 
+## Latest evidence-preservation fix — 9 October 2026
+
+Final verification: full Windows1372pass38existing skips/1410collected/zero failures/errors, relevantLinux+Windows10evaluator cases each, docs18pass/lint130fileformat/bothpipchecks. Both fresh45case calculated results agree with original historical baseline (timings excluded), raw manifest/selected source hashes current, historical artifacts unchanged. Full Linux not rerun for evaluator-only change; older full counts remain historical. No independent research gate closed.
+
+QA-003: [existing development evaluator](EVALUATOR_EVIDENCE_PRESERVATION.md) no longer overwrites historical baseline; required fresh --output/exclusive refusal precedes reads/scans. Existing five-repeat/metrics/rule behavior retained, mismatch/error evidence saved, selected consistency checks added.10newcases pass eachOS and actual45case evaluation passes both to fresh files; historical baseline unchanged. Negative/insufficient test history retained INC-067/WL-078/ADR-066. No detector algorithm/version/stack or independent-research gate completion.
+
 ## Latest paired-comparison preparation — 9 October 2026
 
 Verification: full Windows1362pass38existing skips/1400collected/zero failures/errors; relevant Linux and Windows accounting targets94pass each. Full Linux not rerun for isolated additive code; last1352full Linux passes are8October historical evidence. Docs18pass/lint129fileformat/bothpipchecks, fixed complete-result equality and current source/input hashes pass. Independent study gates not completed.

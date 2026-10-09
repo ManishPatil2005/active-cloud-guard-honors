@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest QA-003/WL-078: [evaluator evidence preservation](EVALUATOR_EVIDENCE_PRESERVATION.md). Required fresh --output/exclusive refusal fixes existing historical overwrite; old metrics and45fixtures retained.10cases eachOS/fresh actual development runs, preserved initial/negative receipts and original baseline SHA. No independent benchmark; current invocation documented in contract.
+
 Latest E2-046/WL-077: [matched synthetic decision comparison](SYNTHETIC_PAIRED_ACCOUNTING.md), exact unit/context pairing and intact abstention/unknown/missing denominators.48newcases/94targets both OS, fixed6checkexamples. Arithmetic prerequisite, not executed ablation/calibration/independent benchmark; actual research gates remain open.
 
 Latest E2-045/WL-076: [single-pass comparator window indexing](INTEGRATION_WINDOW_INDEX.md). Preserved failure shows repeated filtering; transient index removes it without changing reports/guards. Six new traversal/equivalence cases, initialtarget106pass/two10checkdemos. No measured latency/energy or independent research acceptance; earlier counts below historical.

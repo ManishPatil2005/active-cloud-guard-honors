@@ -1,5 +1,9 @@
 # Progress Execution
 
+## New fix — safely rerun the Engine1 development evaluator
+
+Activate the existing environment, open repository root and run `python scripts/evaluate.py --output output/my-fresh-development-evaluation.json`. Use a new filename every time. Open JSON: status should be development_regression_passed, metrics.n45, raw45rows, repetitions5 and empty rule_set_mismatches. If checks fail, keep that report; it is evidence, not something to overwrite. Existing filenames refuse before scanning. Original baseline-development.json stays unchanged; these are seeded development fixtures, not independent research labels. [Safe reproduction/failure history](EVALUATOR_EVIDENCE_PRESERVATION.md).
+
 ## New step — compare two invented results fairly
 
 Activate the existing Python environment, open repository root and run `python scripts/runtime_paired_accounting_check.py --output output/my-fresh-paired-accounting.json` with a new filename. Open JSON and check six true checks. Both sides contain the same four invented units; one benign flag becomes an abstention. Precision looks better, but coverage falls and the variant's conditional false-positive rate becomes null because it decided no benign unit. The report retains all of this rather than calling it an improvement. No engine/model predictions or real research labels are produced. [Detailed schema/example/limits](SYNTHETIC_PAIRED_ACCOUNTING.md).

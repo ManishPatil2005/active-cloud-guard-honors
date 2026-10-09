@@ -6,6 +6,10 @@
 
 Honors research · Engine 1 v2.2 · Engine 2 replay foundation · Package 0.5.0
 
+Reproducibility maintenance: [development evaluator evidence preservation](docs/EVALUATOR_EVIDENCE_PRESERVATION.md) requires `python scripts/evaluate.py --output output/NEW_FILENAME.json`, preserving historical reports and failed runs without changing detector calculations. Development fixtures remain distinct from independent research data.
+
+Latest validation: **1,372 passed / 38 existing skips in the full Windows suite**, plus ten evaluator cases and a fresh45-case development run passed on each OS. Full Linux not rerun for this script-only fix; historical report/calculated results preserved and current bindings checked.
+
 Evaluation preparation: [matched synthetic decision accounting](docs/SYNTHETIC_PAIRED_ACCOUNTING.md) checks exact populations and preserves coverage, abstentions, unknowns and undefined rates when comparing variants. Software arithmetic only—not model predictions, an executed ablation study or independent effectiveness evidence.
 
 Latest verification: **1,362 passed / 38 existing skips in the full Windows suite**, plus **94 relevant accounting tests passed on each of Windows and Linux**. No full Linux rerun for this isolated addition; older full-suite counts below remain historical checkpoints.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-09 - Preserve development evaluation history
+
+- Require explicit fresh --output for evaluate.py; refuse existing files before inputs/scans instead of overwriting baseline-development.json.
+- Retain existing metrics/raw rules/timings and save mismatch/rejection evidence; verify manifest/fixtures/selected sources before/after calculation.
+- Preserve insufficient initial test and two reproduced temp-only overwrite failures; ten expanded cases pass eachOS, fresh45case reports pass while real historical baseline hash stays unchanged. WL-078/ADR-066/INC-067; no detector/stack/research acceptance change.
+
 ## 2026-10-09 - Compare matched synthetic decisions with complete denominators
 
 - Add isolated paired accounting library/fixed runner/four-unit invented example; reuse existing accounting, require exact unit/run/label/availability equality and retain all decision transitions.

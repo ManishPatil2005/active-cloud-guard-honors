@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+QA-003 evaluator publisher requires explicit output/exclusive create before inputs/scans; existing evidence cannot be overwritten by normal invocation. Rejected new receipts expose class only, not raw private exception text. Trusted corpus/path/label inputs and selected pre/post hashes, not sandbox/ground-truth/race/full import attestation; interrupted writes may leave incomplete new files. No network/model/control path added. [Contract](EVALUATOR_EVIDENCE_PRESERVATION.md).
+
 E2-046 paired aid accepts exact synthetic schema and shared bounded accounting units, refuses changed unit context/population, preserves unavailable/unknown/abstained states and generates no decisions. No code/model deserialization or network/clock/service/engine operation. Fixed runner exclusive output/1MBJSON reads/selected hash checks/errors-as-class, not race/atomic-write/full attestation guarantees. Cooperative synthetic origin is not authenticity or permission to relabel real/private data. [Contract](SYNTHETIC_PAIRED_ACCOUNTING.md).
 
 E2-044 measurements read local elapsed/process CPU clocks only; no sensor/control/subprocess/model invocation is added by the flag. Existing optional component permissions and synthetic-only guards apply. Clock implementation metadata is published, not private raw logs. Measurement failure rejects; no partial successful verdict or performance/resource-limit guarantee. [Contract](INTEGRATION_EXECUTION_COST.md).

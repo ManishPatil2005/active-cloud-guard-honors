@@ -1,6 +1,6 @@
 """Reproducible baseline regression evaluation with raw predictions and timing."""
 
-import hashlib
+import argparse
 import json
 import platform
 import statistics
@@ -13,10 +13,24 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.scanner import scan
 from cloudguard.metrics import metrics
+from cloudguard.verification import file_hash, read_json
+
+SOURCE_ROOT = ROOT
 
 
-def main():
-    records = json.loads((ROOT / "data/labels.json").read_text())
+def evaluate():
+    manifest = ROOT / "data/labels.json"
+    records, manifest_hash = read_json(manifest)
+    sources = [
+        SOURCE_ROOT / name
+        for name in (
+            "scripts/evaluate.py",
+            "cloudguard/scanner.py",
+            "cloudguard/metrics.py",
+            "cloudguard/verification.py",
+        )
+    ]
+    source_hashes = {path.name: file_hash(path) for path in sources}
     labels = {}
     predictions = {}
     rows = []
@@ -24,7 +38,7 @@ def main():
     mismatches = []
     for record in records:
         path = ROOT / record["path"]
-        if hashlib.sha256(path.read_bytes()).hexdigest() != record["sha256"]:
+        if file_hash(path) != record["sha256"]:
             raise ValueError("fixture checksum mismatch")
         samples = []
         for _ in range(5):
@@ -46,7 +60,18 @@ def main():
                 sha256=record["sha256"],
             )
         )
-    report = dict(
+    if read_json(manifest)[1] != manifest_hash or any(
+        file_hash(ROOT / record["path"]) != record["sha256"] for record in records
+    ):
+        raise ValueError("development evaluation inputs changed")
+    if any(file_hash(path) != source_hashes[path.name] for path in sources):
+        raise ValueError("development evaluation selected implementation changed")
+    return dict(
+        status="development_regression_failed"
+        if mismatches
+        else "development_regression_passed",
+        manifest_file_sha256=manifest_hash,
+        selected_implementation_sha256=source_hashes,
         run_at=datetime.now(timezone.utc).isoformat(),
         stage="development regression, NOT independent benchmark",
         python=sys.version,
@@ -63,15 +88,41 @@ def main():
             "No RAG effectiveness, FP reduction, cloud exposure, runtime ML or overhead conclusion.",
         ],
     )
-    out = ROOT / "output"
-    out.mkdir(exist_ok=True)
-    (out / "baseline-development.json").write_text(
-        json.dumps(report, indent=2), encoding="utf-8"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output",
+        required=True,
+        help="Fresh report filename; existing files are refused",
     )
-    print(json.dumps({k: v for k, v in report.items() if k != "raw"}, indent=2))
-    if mismatches:
-        raise SystemExit(1)
+    args = parser.parse_args()
+    try:
+        with Path(args.output).open("x", encoding="utf-8") as stream:
+            try:
+                report = evaluate()
+                code = 1 if report["rule_set_mismatches"] else 0
+            except (Exception, KeyboardInterrupt) as error:
+                code = 1
+                report = dict(
+                    status="rejected",
+                    error_type=type(error).__name__,
+                    stage="development regression, NOT independent benchmark",
+                    actions_executed=[],
+                )
+            json.dump(report, stream, indent=2)
+            stream.write("\n")
+        print(json.dumps(dict(status=report["status"])))
+        return code
+    except (Exception, KeyboardInterrupt) as error:
+        print(
+            json.dumps(
+                dict(status="output_refused_or_failed", error_type=type(error).__name__)
+            )
+        )
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

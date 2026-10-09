@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-066 - 2026-10-09 - Require explicit fresh development evaluation output
+
+QA-003/M3-004/R7. Replace implicit historical filename overwrite with mandatory --output/exclusive create before reading or scanning. Preserve existing calculation fields and save mismatch/rejection evidence under new filenames; selected source/manifest/fixture hashes check consistency. A backward-compatible implicit output would keep risking historical evidence, so no-argument invocation now refuses; summary.py continues reading original baseline. Temporary tests reproduce old writes without touching real reports. No atomic completion/fsync, hostile-race/import/ground-truth attestation or independent-study claim. EVALUATOR_EVIDENCE_PRESERVATION.md.
+
 ## ADR-065 - 2026-10-09 - Compare only identically declared synthetic populations
 
 E2-046/RES-002/E2-004. Reuse existing accounting instead of inventing model decisions or relying on separate aggregate precision numbers. Require equal unit sets and unit-level run/label/availability; preserve full denominator/transition accounting and null/negative quantities. Exact declared pairing does not prove authentic/independent groups. No CI/bootstrap on unqualified data, model-score conversion, actual ablation or new engine/stack. Consequence: this offline synthetic aid tests arithmetic; approved real-data protocols and matched study/uncertainty remain pending. Contract: SYNTHETIC_PAIRED_ACCOUNTING.md.
