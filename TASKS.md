@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-015/R7/R8: [optional Windows/vector qualification](docs/VECTOR_PROFILE_QUALIFICATION.md) completes separate95pininstall/allpinsmatch/pipcheck/ephemeral and two-child synthetic persistent read/query. FullWindows1658pass39skip/1697collected before15newcases; final66targets eachOS. Approved95packagequery retains4ChromaGHSA+4aliases; not security remediation. Linux contracts mocked/native install unqualified; original environments preserved. Next authorized manual CI/fresh-host regression plus Linux vector/Chroma/native/research gates. WL-089/ADR-077/INC-077.
+
 QA-014 publication complete/verified at485b62bdd43fb51f2acc72961da900c3cb778c4b;27reviewedfiles/7XML2JSON, no wheel or historical-output replacement. Receipt-count prose correction only; acceptance and next gates below unchanged.
 
 QA-014/R8: [local package qualification](docs/PACKAGE_QUALIFICATION.md), pinned/hash-checked builders/minimized offline wheels/local targets and8newchecks. Both actual8case targets pass; fullWindows1658pass39skip/Linux1697pass,1697collected each; final amended59targets eachOS. Distinct wheel hashes preserved/no byte-reproduction claim; all31candidatepins/oldlocks/tag/engines unchanged. Installed dependencies reused; fresh-host/CI/vector/native/operational and genuine research gates remain open. WL-088/ADR-076.

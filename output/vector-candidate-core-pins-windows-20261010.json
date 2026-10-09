@@ -1,0 +1,480 @@
+{
+  "status": "profile_pins_match",
+  "profile_sources": [
+    {
+      "file": "requirements-core-current.txt",
+      "sha256": "e732dba87308f1ef58695f3f461e9a8c33b592911c16dcf8302d589aadf33c3d"
+    },
+    {
+      "file": "requirements-remediation-linux-candidate-20261009.txt",
+      "sha256": "bd205dae4bbf2d3713cd674ed04737a1a8fb30e4ed11a6f5ff1108f948233d74"
+    },
+    {
+      "file": "requirements-runtime-ml-20261006.txt",
+      "sha256": "095be8dbfe4927e8c364c75428ea9008ea016fb6f336984022ccb5bfc5101f69"
+    }
+  ],
+  "required_count": 31,
+  "installed_count": 95,
+  "counts": {
+    "match": 31,
+    "missing": 0,
+    "mismatch": 0
+  },
+  "packages": [
+    {
+      "name": "attrs",
+      "expected_version": "26.1.0",
+      "installed_version": "26.1.0",
+      "status": "match"
+    },
+    {
+      "name": "certifi",
+      "expected_version": "2026.7.22",
+      "installed_version": "2026.7.22",
+      "status": "match"
+    },
+    {
+      "name": "charset-normalizer",
+      "expected_version": "3.5.1",
+      "installed_version": "3.5.1",
+      "status": "match"
+    },
+    {
+      "name": "cloudpickle",
+      "expected_version": "3.1.2",
+      "installed_version": "3.1.2",
+      "status": "match"
+    },
+    {
+      "name": "idna",
+      "expected_version": "3.20",
+      "installed_version": "3.20",
+      "status": "match"
+    },
+    {
+      "name": "iniconfig",
+      "expected_version": "2.3.0",
+      "installed_version": "2.3.0",
+      "status": "match"
+    },
+    {
+      "name": "joblib",
+      "expected_version": "1.6.0",
+      "installed_version": "1.6.0",
+      "status": "match"
+    },
+    {
+      "name": "jsonschema",
+      "expected_version": "4.23.0",
+      "installed_version": "4.23.0",
+      "status": "match"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "expected_version": "2025.9.1",
+      "installed_version": "2025.9.1",
+      "status": "match"
+    },
+    {
+      "name": "lark",
+      "expected_version": "1.3.1",
+      "installed_version": "1.3.1",
+      "status": "match"
+    },
+    {
+      "name": "narwhals",
+      "expected_version": "2.26.0",
+      "installed_version": "2.26.0",
+      "status": "match"
+    },
+    {
+      "name": "numpy",
+      "expected_version": "2.5.3",
+      "installed_version": "2.5.3",
+      "status": "match"
+    },
+    {
+      "name": "oauthlib",
+      "expected_version": "4.0.0",
+      "installed_version": "4.0.0",
+      "status": "match"
+    },
+    {
+      "name": "packaging",
+      "expected_version": "26.3",
+      "installed_version": "26.3",
+      "status": "match"
+    },
+    {
+      "name": "pip",
+      "expected_version": "26.2",
+      "installed_version": "26.2",
+      "status": "match"
+    },
+    {
+      "name": "pluggy",
+      "expected_version": "1.6.0",
+      "installed_version": "1.6.0",
+      "status": "match"
+    },
+    {
+      "name": "pygments",
+      "expected_version": "2.21.0",
+      "installed_version": "2.21.0",
+      "status": "match"
+    },
+    {
+      "name": "pytest",
+      "expected_version": "9.0.3",
+      "installed_version": "9.0.3",
+      "status": "match"
+    },
+    {
+      "name": "python-hcl2",
+      "expected_version": "7.3.1",
+      "installed_version": "7.3.1",
+      "status": "match"
+    },
+    {
+      "name": "pyyaml",
+      "expected_version": "6.0.3",
+      "installed_version": "6.0.3",
+      "status": "match"
+    },
+    {
+      "name": "referencing",
+      "expected_version": "0.37.0",
+      "installed_version": "0.37.0",
+      "status": "match"
+    },
+    {
+      "name": "regex",
+      "expected_version": "2026.9.10",
+      "installed_version": "2026.9.10",
+      "status": "match"
+    },
+    {
+      "name": "requests",
+      "expected_version": "2.34.2",
+      "installed_version": "2.34.2",
+      "status": "match"
+    },
+    {
+      "name": "requests-oauthlib",
+      "expected_version": "2.0.0",
+      "installed_version": "2.0.0",
+      "status": "match"
+    },
+    {
+      "name": "rpds-py",
+      "expected_version": "2026.6.3",
+      "installed_version": "2026.6.3",
+      "status": "match"
+    },
+    {
+      "name": "ruff",
+      "expected_version": "0.11.2",
+      "installed_version": "0.11.2",
+      "status": "match"
+    },
+    {
+      "name": "scikit-learn",
+      "expected_version": "1.9.1",
+      "installed_version": "1.9.1",
+      "status": "match"
+    },
+    {
+      "name": "scipy",
+      "expected_version": "1.18.1",
+      "installed_version": "1.18.1",
+      "status": "match"
+    },
+    {
+      "name": "threadpoolctl",
+      "expected_version": "3.7.0",
+      "installed_version": "3.7.0",
+      "status": "match"
+    },
+    {
+      "name": "typing-extensions",
+      "expected_version": "4.16.0",
+      "installed_version": "4.16.0",
+      "status": "match"
+    },
+    {
+      "name": "urllib3",
+      "expected_version": "2.8.0",
+      "installed_version": "2.8.0",
+      "status": "match"
+    }
+  ],
+  "extra_packages": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.3"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1"
+    },
+    {
+      "name": "backoff",
+      "version": "2.2.1"
+    },
+    {
+      "name": "bcrypt",
+      "version": "5.0.0"
+    },
+    {
+      "name": "build",
+      "version": "1.6.1"
+    },
+    {
+      "name": "chromadb",
+      "version": "1.0.20"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "distro",
+      "version": "1.9.0"
+    },
+    {
+      "name": "durationpy",
+      "version": "0.11"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.1"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0"
+    },
+    {
+      "name": "googleapis-common-protos",
+      "version": "1.75.3"
+    },
+    {
+      "name": "grpcio",
+      "version": "1.84.0"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.6.0"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httptools",
+      "version": "0.8.0"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.32.0"
+    },
+    {
+      "name": "importlib-resources",
+      "version": "7.1.0"
+    },
+    {
+      "name": "kubernetes",
+      "version": "36.0.3"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2"
+    },
+    {
+      "name": "mmh3",
+      "version": "5.3.0"
+    },
+    {
+      "name": "multidict",
+      "version": "6.9.1"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.30.0"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.44.0"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-common",
+      "version": "1.44.0"
+    },
+    {
+      "name": "opentelemetry-exporter-otlp-proto-grpc",
+      "version": "1.44.0"
+    },
+    {
+      "name": "opentelemetry-proto",
+      "version": "1.44.0"
+    },
+    {
+      "name": "opentelemetry-sdk",
+      "version": "1.44.0"
+    },
+    {
+      "name": "opentelemetry-semantic-conventions",
+      "version": "0.65b0"
+    },
+    {
+      "name": "orjson",
+      "version": "3.12.0"
+    },
+    {
+      "name": "overrides",
+      "version": "7.7.0"
+    },
+    {
+      "name": "posthog",
+      "version": "5.4.0"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2"
+    },
+    {
+      "name": "pybase64",
+      "version": "1.5.0"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.46.5"
+    },
+    {
+      "name": "pypika",
+      "version": "0.51.1"
+    },
+    {
+      "name": "pyproject-hooks",
+      "version": "1.3.3"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.3"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "tenacity",
+      "version": "9.1.4"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.2"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.2"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.53.0"
+    },
+    {
+      "name": "watchfiles",
+      "version": "1.3.0"
+    },
+    {
+      "name": "websocket-client",
+      "version": "1.9.2"
+    },
+    {
+      "name": "websockets",
+      "version": "17.1"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1"
+    }
+  ],
+  "extra_packages_qualified": false,
+  "vector_qualified": false,
+  "production_ready": false,
+  "independent_evaluation": false,
+  "limits": [
+    "Exact installed metadata matching only; not wheel-byte or runtime integrity attestation.",
+    "Additional distributions are reported, not silently certified or prohibited.",
+    "No installation, package imports, network, service, sensor or model actions.",
+    "Profile files and their parent directory must be trusted; hashes are not signatures."
+  ]
+}

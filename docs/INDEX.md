@@ -1,5 +1,7 @@
 # Documentation index
 
+Current QA-015/WL-089: [optional Windows/vector qualification](VECTOR_PROFILE_QUALIFICATION.md), actual95pininstall/compatibility/ephemeral and separate-process synthetic storage pass; approvedOSV95coverage keeps Chroma findings open.15newcontracts/final66eachOS, Linux mocked only. Prior optional Windows incomplete statements below are historical; no production/research clearance.
+
 Current QA-014/WL-088: [local wheel/installed-package qualification](PACKAGE_QUALIFICATION.md). Pinned builders/minimized offline artifacts/local targets; actual entry-point functions and both-engine offline paths exercised without source imports. No artifact publication/fresh-host/CI/vector/production acceptance; final results and limits in WORK_LOG.
 
 Current QA-013/WL-087: [offline all-pin verification](CORE_PROFILE_VERIFICATION.md).31required pins checked with explicit missing/mismatch/unqualified extras; both candidates match, untouched historical Windows deliberately mismatches3.21newcases/67targets both OS, no installs/egress/full-suite rerun. QA-012 below remains setup/default promotion evidence.

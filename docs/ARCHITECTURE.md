@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-015 adds an isolated operator qualifier using existing bounded child/evidence/strictJSON helpers; pinned Chroma1.0.20 PersistentClient with explicit synthetic vectors only. No core CLI/algorithm/default/stack change; test source and ignored fresh store separated from working index. [Compatibility/security limits](VECTOR_PROFILE_QUALIFICATION.md).
+
 QA-014 changes build qualification only: pinned setuptools83.0.0/fresh ignored builders/minimized wheels/local installed targets and opt-in packaging tests. CLI/library/engine algorithms/version0.5.0/Compose/Ollama/Chroma unchanged. Explicit external inputs remain separate from the42module wheel; default source-tree setup retained. [Contract](PACKAGE_QUALIFICATION.md).
 
 QA-013 adds an isolated operator script, not a third engine: fixed bounded profile reads + reused installed metadata inventory + existing exclusive evidence publisher. No network/installer/runtime package imports or core pipeline dependency; all-pin equality is distinct from vulnerability/runtime/vector/research acceptance. [Contract](CORE_PROFILE_VERIFICATION.md).

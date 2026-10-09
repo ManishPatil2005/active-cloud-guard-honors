@@ -1,0 +1,41 @@
+{
+  "status": "synthetic_storage_checks_passed",
+  "chromadb_version": "1.0.20",
+  "child_source_sha256": "8cbd898de323b51d0c4dc264955cf64a4f1fa5f709f838e0a7a4e61e9e1bc352",
+  "store_directory": "tmp/vector-storage-c1x4jdim",
+  "steps": [
+    {
+      "phase": "write",
+      "status": "passed",
+      "result": {
+        "phase": "write",
+        "stored_count": 2,
+        "nearest_id": "synthetic-one",
+        "deleted_collection": false
+      }
+    },
+    {
+      "phase": "read",
+      "status": "passed",
+      "result": {
+        "phase": "read",
+        "stored_count": 2,
+        "nearest_id": "synthetic-one",
+        "deleted_collection": true
+      }
+    }
+  ],
+  "cold_process_reopen_verified": true,
+  "explicit_vectors_only": true,
+  "production_ready": false,
+  "independent_evaluation": false,
+  "server_security_verified": false,
+  "network_isolation_verified": false,
+  "limits": [
+    "Two fixed synthetic vectors/fresh trusted directory only; no existing index or model server.",
+    "Python socket audit guards are not OS/native network isolation.",
+    "Clean process exit/reopen is not crash, concurrency, durability or security qualification.",
+    "Chroma advisory matches remain open; no server/RBAC/pentest or general clearance.",
+    "Synthetic storage artifacts are retained under ignored tmp for failure review."
+  ]
+}

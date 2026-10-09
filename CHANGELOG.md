@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Qualify optional Windows profile and cold-process vector storage
+
+- Install a separate full95pin optional candidate with bounded wheels-only installer; verify all pins/compatibility/ephemeral vectors and approved OSV coverage.
+- Add two-process synthetic embedded storage qualifier with strict phase envelopes, partial/not-attempted states and retained fresh stores.
+- Add15contract cases; preserve initial helper-keyword failure, full Windows and final66targets eachOS; Linux native vector path not claimed.
+- Keep Chroma advisory matches/security/research/production gates open and original environments/locks unchanged.
+
 ## 2026-10-10 - Verify package milestone publication and receipt inventory
 
 - Verify private GitHub main/local equality at485b62bdd43fb51f2acc72961da900c3cb778c4b.

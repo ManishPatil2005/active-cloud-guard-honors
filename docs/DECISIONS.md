@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-077 - 2026-10-10 - Separate embedded compatibility from Chroma security clearance
+
+QA-015/WL-089. Finish original full optional profile in fresh ignored candidate under bounded wheels-only installer, not historical environment upgrade or pin substitution. Exact95pin match/ephemeral/two-child synthetic storage tests qualify selected embedded compatibility only; preserve4GHSA+4alias database matches and prior negatives. Fresh trusted synthetic directory/explicit embeddings/no server/model/native-network isolation claims. Python audit guards are selected guards, not host sandbox; retain partial/not-attempted states and ignored artifacts. ManualCI separately approved and remains a distinct execution milestone.
+
 ## ADR-076 - 2026-10-10 - Qualify installed wheels using minimized sources and isolated origins
 
 QA-014/R8/WL-088. Pin/hash-check setuptools83.0.0 rather than leave qualification at unconstrained>=75; older considered80.9.0 carries metadata advisory and is not installed. Use fresh ignored builders and42-source/manifest-only stages; offline wheel builds and no-dependency target installs preserve old environments/private data. Test exact archive/installed module bytes, declared metadata and installed entry-point function with Python-I/non-root cwd/explicit copied offline inputs. Keep artifact hashes distinct; no byte-identical build, generated OS-launcher, fresh runtime/host, optional vector/native or security/research certification inferred. No wheel/public package release authorized.

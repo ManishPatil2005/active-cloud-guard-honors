@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-077 - 2026-10-10 - Vector qualification test-helper phase collision
+
+Symptom: initial48case target1failure47passes; changing returned phase invoked child helper with two values for phase, TypeError before production validation. Evidence: vector-storage-target-windows-20261010.xml retained. Cause known: test helper positional keyword collision, not Chroma failure. Rename helper positional argument to expected_phase; final66targets pass eachOS, actual Windows write/new-process read/query passes. Cross-phase/type/JSON/nonzero/timeouts still reject, no guard weakening. Linux nativeChroma not observed; advisory/native/production/research gates unchanged. Exact closure WL-089.
+
 ### INC-076 - 2026-10-09 - Profile verifier harness mistakes and expected historical mismatch
 
 First lint found an unused test import; removed/final checks pass. First test invocation named nonexistent singular `test_dependency_advisory.py`, exit1/no tests; negative XML retained and actual plural file discovered before corrected33/expanded67targets pass each OS. Cause known: harness filename typo, not engine failure. Actual historical Windows profile check reports28match/3mismatch/95installed, expected older pip/pytest/OAuthlib; negative receipt preserved, working environment intentionally untouched. Both qualified candidates31match, not causal repair of native import/clock/advisory findings. Exact commands/evidence/limitations WL-087.

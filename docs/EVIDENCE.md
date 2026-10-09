@@ -1,5 +1,9 @@
 # Evidence index
 
+## Optional Windows/vector qualification (2026-10-10)
+
+QA-015/[contract](VECTOR_PROFILE_QUALIFICATION.md)/WL-089: [ephemeral smoke](../output/vector-candidate-smoke-windows-20261010.json), [actual95inventory/corepins](../output/vector-candidate-core-pins-windows-20261010.json), [approved95OSVquery](../output/vector-candidate-advisories-windows-20261010.json), [two-child synthetic storage](../output/vector-storage-windows-20261010.json), [full1697caseWindows](../output/vector-full-windows-20261010.xml), [initial helper failure](../output/vector-storage-target-windows-20261010.xml), final66targets [Windows](../output/vector-storage-final-windows-20261010.xml)/[Linux](../output/vector-storage-final-linux-20261010.xml). Only Windows actual Chroma observed; Linux mocked. Chroma matches remain open; no security/production/independent study claim.
+
 ## Local wheel qualification (2026-10-10)
 
 QA-014/[contract](PACKAGE_QUALIFICATION.md)/WL-088. Actual8case installed-package targets [Windows](../output/package-target-windows-20261010.xml)/[Linux](../output/package-target-linux-20261010.xml); full [Windows1658pass39skip](../output/package-full-windows-20261010.xml)/[Linux1697pass](../output/package-full-linux-20261010.xml),1697collected each. Final42installed-module byte assertion/expanded59targets eachOS: [Windows](../output/package-final-windows-20261010.xml)/[Linux](../output/package-final-linux-20261010.xml). Candidate all31pins unchanged: [Windows](../output/package-core-profile-windows-20261010.json)/[Linux](../output/package-core-profile-linux-20261010.json),32/31installed distributions. Wheel SHA recorded in suite properties; distinct archive hashes preserved in contract. Same hosts/reused third-party dependencies/not fresh-host/CI/vector/production or independent evaluation; package artifacts/builders remain ignored, no wheel release.

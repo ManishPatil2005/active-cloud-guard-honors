@@ -1,5 +1,9 @@
 # Progress Execution
 
+## Current milestone: optional Windows vector setup and fresh-process storage
+
+The previously unfinished full optional setup now installs in a separate temporary environment; all95versions match and compatibility passes. Two invented vectors survive a write-process exit and a new read/query process. [Baby steps and receipts](VECTOR_PROFILE_QUALIFICATION.md). Do not touch your normal index or expose a Chroma server: four Chroma advisory matches remain. Fifteen newcases/final66checks pass eachOS; Linux checks are simulations, not a native vector run. This is compatibility work, not independent research or production approval.
+
 ## Current milestone: the installed package works for selected offline flows
 
 We built separate Windows/Linux packages using pinned tools and only the42Python modules plus manifest, then installed them into new temporary targets. Eight actual checks pass on each platform: contents/metadata and installed entry-point scanning, retrieval, saved synthetic replay, integration and missing-input rejection. Existing environments stay untouched. [Baby steps and exact limits](PACKAGE_QUALIFICATION.md). This is a same-computer package check, not independent research, CI, a fresh-machine installation or production readiness; vector/native paths still need separate work.
