@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-021 full sourcee0b8d89 suites with new offline wheel/installed-target paths:Linux1794passed0skips;Windows1735passed39skips20failed, matching Application Control _loss block. All8artifact checks pass each OS, exact42source/archive/installed bytes and isolated entry-point imports checked. No full installed-package-only suite/hosted rerun/security or independent effectiveness acceptance. Preserve negative rawXML; [report](PACKAGE_REFRESH_QUALIFICATION.md), WL-097.
+
 QA-020 adds32vector result cases: corpus content substitution, IDs, shape/cardinality, count-before-activity, malformed/duplicate JSON, byte bounds, exact numeric distance/extreme integers, duplicate IDs and two actual ephemeral Chroma explicit-vector valid/forged queries. Selected five-file suites135pass each OS; initial24case negative21fail/3pass retained. No fresh full suite/installed wheel/hosted or independent detection evaluation. [Scope](VECTOR_RESULT_BOUNDARY.md), WL-095.
 
 Final QA-019 acceptance: reject both proposed controller contexts, restore original parent/child flags, keep two platform invariants and successful actor diagnostics. Hosted336fcc4 run1762cases: Ubuntu1762pass; Windows1724pass37skip1failure. Local added-parent-breakaway1failure90pass negative preserved/not dispatched. Final restored six-fileWindows109pass4.03s; full-source hosted qualification is not earned by selected local tests. Original kernel/service/engine code unchanged. WL-094/INC-083.

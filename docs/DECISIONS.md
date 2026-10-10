@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-083 - 2026-10-10 - Preserve policy-blocked Windows qualification instead of bypassing it
+
+QA-021/WL-097. Build new ignored minimal offline artifacts after source change; never reuse old wheel as source-equality proof. Preserve Windows full negative with corroborating Code Integrity evidence alongside Linux full pass. Application Control belongs to the operator/security authority: do not disable policy, unblock files or rerun arbitrary runtime choices for green. Approved signed/runtime policy-owner review is a separate next step. Source/package correctness and host authorization are separate, neither proves research effectiveness or production readiness.
+
 ## ADR-082 - 2026-10-10 - Corpus is authoritative, vector metadata is not
 
 QA-020/WL-095. Keep Chroma and explicit local embeddings; validate complete result rows/unique corpus IDs/strict bounded JSON agreement and return corpus-owned fields. Reject mismatches rather than silently falling back or declaring clean. This does not fix upstream server advisories or authenticate index ranking/storage. No blind dependency promotion when all four inspected advisory records list no patched version. Rebuild changed package before new installed-source qualification.

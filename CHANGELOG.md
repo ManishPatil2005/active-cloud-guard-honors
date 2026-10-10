@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 - Rebuild refined-source wheels and preserve full regression outcomes
+
+- Build fresh offline minimal Windows/Linux wheels; all8actual package checks pass on each OS.
+- Full Linux1794passes; Windows1735passes39skips20failures. Preserve raw negative receipt and corroborating Application Control DLL-block observation.
+- No application-control weakening, test skips, upgrades or retry-to-green; full Windows and research/production gates remain open.
+
 ## 2026-10-10 - Validate vector retrieval against the current corpus
 
 - Reject forged source content/IDs, malformed or truncated result rows, invalid distances and out-of-budget metadata; return authoritative corpus content.

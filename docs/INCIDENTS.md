@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-085 - 2026-10-10 - Windows optional backend DLL blocked by Application Control
+
+QA-021 sourcee0b8d89 full Windows suite20fails/1735passes39skips; raw sklearn._loss._loss import reports Application Control blocked file. Read-only operational CodeIntegrity3077events match exact candidate DLL/process/time;20matches in bounded40event query, selected8297/8292/8287. Strong evidence for current host-policy load refusal, not a vector regression or retrospective proof of historical INC-056 cause. All8installed-package assertions pass and Linux full1794passes, but Windows acceptance stays failed. No bypass/unblock/reinstall/retry/skip. Appropriate policy exception/runtime authorization remains operator-dependent; authority/rule/signature provenance not fully diagnosed. Preserve raw receipt/DLL hash and source identity in report/WL-097.
+
 ### INC-084 - 2026-10-10 - Stored vector metadata could substitute research knowledge
 
 Code inspection and synthetic pre-fix tests show altered source text/title/URL/ID accepted, IDs ignored and zip silently truncating rows;21fail/3pass receipt preserved. High-confidence project-level validation gap, not evidence of actual malicious deployment or exploitation of Chroma advisories. Validate exact result shapes/cardinality, known unique IDs, finite bounded distances, strict1MB JSON/source agreement; return corpus-owned knowledge.32newcases/final135selected passes each OS include real embedded synthetic forged/valid query. Trusted corpus/store/library/native ranking remain assumptions; no full current-source suite/wheel/hosted or independent effectiveness qualification. WL-095/ADR-082.

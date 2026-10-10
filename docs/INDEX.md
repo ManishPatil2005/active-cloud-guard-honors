@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest: [vector retrieval corpus boundary](VECTOR_RESULT_BOUNDARY.md), QA-020/WL-095:135 scoped passes each OS, actual synthetic embedded cases, negative receipt preserved. Upstream Chroma remediation, current-source wheel/full/hosted qualification and research/production gates remain open.
+Latest: [fresh package and full regression qualification](PACKAGE_REFRESH_QUALIFICATION.md), QA-021/WL-097:8artifact checks each OS pass; Linux1794passes, Windows1735passes39skips20failures with Application Control DLL blocking corroborated. New refined-source wheel gap closed for artifact checks only; Windows/native/advisory/research/production gates remain open.
 
 Current: [Linux optional compatibility](LINUX_VECTOR_QUALIFICATION.md) selected scope complete (95 distinct pins, 96 installed, actual embedded checks/full1,760 passes). [Windows diagnosis](WINDOWS_JOB_DIAGNOSTIC.md) observes immediate non-breakaway context; [alternate-controller trials](HEADLESS_CONTROLLER_QUALIFICATION.md) rejected and original flags restored. Latest hosted336fcc4/run38032656526 Ubuntu1,762 passes/Windows1,724 passes37skips1failure, not green. Retained diagnostics/invariants/final109 selected tests each OS pass. Supported-host/Chroma/native/independent research/production gates remain open; no background run/monitor. Earlier checkpoint paragraphs are historical.
 

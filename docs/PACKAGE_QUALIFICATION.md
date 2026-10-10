@@ -1,5 +1,7 @@
 # Local wheel and installed-package qualification
 
+Follow-up QA-021: [refined-source rebuild and full regressions](PACKAGE_REFRESH_QUALIFICATION.md) replaces stale-wheel qualification for sourcee0b8d89. New Windows/Linux artifacts pass all8package checks; Linuxfull1794passes, Windowsfull20failures due observed policy-blocked backend. Historical QA-014 hashes/results below remain unchanged and are not current-source artifacts.
+
 QA-014/R8/WL-088/ADR-076, 10 October 2026. This closes a selected packaging gap, **not independent fresh-host, CI, vector or production qualification**.
 
 ## Why this milestone matters

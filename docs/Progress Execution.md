@@ -1,5 +1,11 @@
 # Progress Execution
 
+## 10 October 2026 - Fresh install checks and a Windows host-policy limit
+
+We rebuilt separate Windows/Linux packages from the refined source rather than reuse outdated packages. All8package checks passed on each system. Linux passed all1,794checks. Windows passed1,735, skipped39platform/privilege-limited checks and failed20: Windows security policy blocked a scikit-learn DLL. Matching system records support that diagnosis. We did not turn off security or hide the failures. Windows full acceptance remains open; this does not undo the passing vector integrity checks.
+
+See [the qualification report](PACKAGE_REFRESH_QUALIFICATION.md) for the exact fresh paths/commands and how to verify the results. Generated packages/environments remain private ignored local artifacts; reviewed reports and test receipts are committed. Next is approved Windows runtime/policy-owner review and native storage qualification, while supervisor/independent-data/research gates remain separate.
+
 ## 10 October 2026 - Vector knowledge integrity refinement
 
 The search index used to supply saved text directly. A changed saved entry could therefore change the advice shown to researchers. It now checks each search result against the current source knowledge file and stops with an error if IDs, text, links or result rows disagree. It does not silently label a failed search as safe.32newchecks were added;135selected checks passed on each operating system, including small invented examples using the real embedded database. No real model or sensor experiment was run.
