@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-022: six explicit storage-parent cases; actual fresh native ext4 two-process Chroma write/reopen/query pass. Linuxfull1800passes precedes final location-wording/two assertion changes; amended-source four-file target62Linux/61Windows+1symlink privilege skip, actual artifact selectors supplied. No Windows full retry/native security/independent effectiveness clearance; WL-098.
+
 QA-021 full sourcee0b8d89 suites with new offline wheel/installed-target paths:Linux1794passed0skips;Windows1735passed39skips20failed, matching Application Control _loss block. All8artifact checks pass each OS, exact42source/archive/installed bytes and isolated entry-point imports checked. No full installed-package-only suite/hosted rerun/security or independent effectiveness acceptance. Preserve negative rawXML; [report](PACKAGE_REFRESH_QUALIFICATION.md), WL-097.
 
 QA-020 adds32vector result cases: corpus content substitution, IDs, shape/cardinality, count-before-activity, malformed/duplicate JSON, byte bounds, exact numeric distance/extreme integers, duplicate IDs and two actual ephemeral Chroma explicit-vector valid/forged queries. Selected five-file suites135pass each OS; initial24case negative21fail/3pass retained. No fresh full suite/installed wheel/hosted or independent detection evaluation. [Scope](VECTOR_RESULT_BOUNDARY.md), WL-095.

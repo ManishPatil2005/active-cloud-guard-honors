@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 - Execute native ext4 vector persistence and add explicit storage parent
+
+- Extend existing storage helper with a validated optional parent; default path unchanged, no new engine.
+- Actual separate-process Chroma write/reopen/query succeeds on native ext4/private700 stores; retain both receipts and stores.
+- Six contracts added; Linux1800full passes precede minor receipt clarification, final62Linux/61Windows+1privilege skip pass. Windows policy/research gates unchanged.
+
 ## 2026-10-10 - Rebuild refined-source wheels and preserve full regression outcomes
 
 - Build fresh offline minimal Windows/Linux wheels; all8actual package checks pass on each OS.

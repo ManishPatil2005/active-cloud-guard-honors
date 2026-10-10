@@ -1,5 +1,11 @@
 # Linux optional-vector compatibility qualification
 
+## QA-022 - Native ext4 clean persistence now executed
+
+10October2026/WL-098: existing helper now accepts `collect(args, storage_parent=Path(...))` for an existing absolute trusted nonsymlink parent. Actual ordinary-user parent `/var/tmp/acg-native-storage-20261010-qa022`, fresh stores r8s8l15m/e7i1vz0c: findmnt confirms ext4, parent/final store mode700acgresearch. Both actual two-process explicit-vector write/clean exit/reopen/query pass; only owned synthetic collection deleted, stores retained. [Final receipt](../output/vector-ext4-final-linux-20261010-qa022.json); earlier receipt preserved, final location wording corrected. This closes native ext4 **clean persistence only**, not crash/concurrency/durability/native security/advisory clearance. Default mounted-store behavior unchanged.
+
+Six new contracts; [Linux full](../output/native-storage-full-linux-20261010-qa022.xml)1800passes/85.11s before minor receipt sentence/two assertions, final four-file amended-source target62Linux passes/61Windows passes1symlink privilege skip with actual current package paths. No engine/core/wheel change; Windows policy/hosted lifecycle and genuine approval/data/research/production gates remain open. Earlier QA-018 paragraphs below describe historical mounted9p scope, superseded only for this named new native clean-persistence observation. Exact command including evidence-first publication in WL-098.
+
 QA-018/R7/R8/WL-093, 10 October 2026. Completes selected Linux installation and embedded synthetic-storage checks, **not Chroma remediation, production security or independent research evaluation**. Existing two-engine Python/Compose/Ollama/Chroma architecture and environments remain unchanged.
 
 ## Actual environment and installation

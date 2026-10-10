@@ -45,11 +45,22 @@ print(json.dumps({'phase': phase, 'stored_count': count,
 """
 
 
-def collect(args):
+def collect(args, *, storage_parent=None):
     if importlib.metadata.version("chromadb") != "1.0.20":
         raise ValueError("unexpected Chroma version")
-    temporary = ROOT / "tmp"
-    temporary.mkdir(exist_ok=True)
+    if storage_parent is None:
+        temporary = ROOT / "tmp"
+        temporary.mkdir(exist_ok=True)
+    else:
+        temporary = Path(storage_parent)
+        if (
+            not temporary.is_absolute()
+            or temporary.is_symlink()
+            or not temporary.is_dir()
+        ):
+            raise ValueError(
+                "storage parent must be an existing absolute trusted directory"
+            )
     directory = Path(tempfile.mkdtemp(prefix="vector-storage-", dir=temporary))
     steps, failure = [], None
     for phase in ("write", "read"):
@@ -95,7 +106,10 @@ def collect(args):
             else "synthetic_storage_checks_incomplete",
             "chromadb_version": "1.0.20",
             "child_source_sha256": hashlib.sha256(CHILD.encode()).hexdigest(),
-            "store_directory": directory.relative_to(ROOT).as_posix(),
+            "store_directory": directory.relative_to(ROOT).as_posix()
+            if storage_parent is None
+            else str(directory),
+            "external_storage_parent_selected": storage_parent is not None,
             "steps": steps,
             "cold_process_reopen_verified": accepted,
             "explicit_vectors_only": True,
@@ -108,7 +122,9 @@ def collect(args):
                 "Python socket audit guards are not OS/native network isolation.",
                 "Clean process exit/reopen is not crash, concurrency, durability or security qualification.",
                 "Chroma advisory matches remain open; no server/RBAC/pentest or general clearance.",
-                "Synthetic storage artifacts are retained under ignored tmp for failure review.",
+                "Synthetic storage artifacts are retained in the selected external parent for failure review."
+                if storage_parent is not None
+                else "Synthetic storage artifacts are retained under ignored tmp for failure review.",
             ],
         }
     }, 0 if accepted else 1

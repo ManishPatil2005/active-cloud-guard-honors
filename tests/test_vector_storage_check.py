@@ -43,6 +43,8 @@ def test_two_separate_bounded_processes_and_no_security_authority(tmp_path):
         == hashlib.sha256(module.CHILD.encode()).hexdigest()
     )
     assert report["store_directory"].startswith("tmp/vector-storage-")
+    assert report["external_storage_parent_selected"] is False
+    assert "ignored tmp" in report["limits"][-1]
     assert (tmp_path / report["store_directory"]).is_dir()
     for key in (
         "production_ready",
@@ -121,3 +123,72 @@ def test_existing_output_refused_before_version_or_directory(tmp_path):
         assert module.evidence_main(module.collect) == 1
     version.assert_not_called()
     assert output.read_bytes() == b"historical failed result"
+
+
+def test_explicit_native_parent_used_without_touching_repository(tmp_path):
+    parent = tmp_path / "native"
+    parent.mkdir()
+    root = tmp_path / "repository"
+    with (
+        patch.object(module, "ROOT", root),
+        patch.object(module.importlib.metadata, "version", return_value="1.0.20"),
+        patch.object(
+            module, "run_bounded", side_effect=[child("write"), child("read")]
+        ) as process,
+    ):
+        reports, code = module.collect(None, storage_parent=parent)
+    report = reports["output"]
+    store = module.Path(report["store_directory"])
+    assert code == 0 and store.parent == parent and store.is_dir()
+    assert report["external_storage_parent_selected"] is True
+    assert "external parent" in report["limits"][-1]
+    assert not root.exists()
+    assert all(call.args[0][-1] == str(store) for call in process.call_args_list)
+
+
+@pytest.mark.parametrize("kind", ["missing", "file", "relative"])
+def test_invalid_storage_parent_refused_before_child(tmp_path, kind):
+    parent = tmp_path / "parent"
+    if kind == "file":
+        parent.write_text("not a directory")
+    elif kind == "relative":
+        parent = module.Path("relative-parent")
+    with (
+        patch.object(module.importlib.metadata, "version", return_value="1.0.20"),
+        patch.object(module, "run_bounded") as process,
+    ):
+        with pytest.raises(ValueError, match="storage parent"):
+            module.collect(None, storage_parent=parent)
+    process.assert_not_called()
+
+
+def test_external_parent_existing_output_refused_before_activity(tmp_path):
+    output = tmp_path / "existing.json"
+    output.write_bytes(b"negative result")
+    with (
+        patch("sys.argv", ["storage", "--output", str(output)]),
+        patch.object(module, "collect") as collect,
+    ):
+        assert (
+            module.evidence_main(lambda args: collect(args, storage_parent=tmp_path))
+            == 1
+        )
+    collect.assert_not_called()
+    assert output.read_bytes() == b"negative result"
+
+
+def test_symlink_storage_parent_refused(tmp_path):
+    target = tmp_path / "real"
+    target.mkdir()
+    link = tmp_path / "link"
+    try:
+        link.symlink_to(target, target_is_directory=True)
+    except OSError:
+        pytest.skip("symlink privilege unavailable")
+    with (
+        patch.object(module.importlib.metadata, "version", return_value="1.0.20"),
+        patch.object(module, "run_bounded") as process,
+    ):
+        with pytest.raises(ValueError, match="storage parent"):
+            module.collect(None, storage_parent=link)
+    process.assert_not_called()
