@@ -1,5 +1,11 @@
 # Progress Execution
 
+## Latest outcome: keep the failed Windows qualification visible
+
+Linux optional compatibility passed its named checks and 1,760 full tests. Windows diagnosis identified a job that does not allow the helper to break away. We tested two alternative controller launch choices; they did not solve hosted qualification, so the original parent flags were restored. The helper's production safety flags were never weakened. Latest hosted run38032656526 passed 1,762 tests on Ubuntu; Windows passed 1,724, skipped37 platform cases and failed one lifecycle test. Final local checks with restored defaults pass109 selected tests on each OS, but these do not cancel the hosted failure.
+
+Read [rejected-trial report](HEADLESS_CONTROLLER_QUALIFICATION.md) for what was tried, why it was rejected and where the raw receipts are stored. No more hosted retry, job-policy/privilege change, service experiment or deployment is running. Next work requires a reviewed supported Windows-host strategy; Chroma advisory/native assurance and genuine research approval/data/evaluation also remain pending. These are engineering qualifications, not a claim the research or production project is finished.
+
 ## Completed next milestones: Windows diagnosis and Linux vector checks
 
 We now observed the exact failing Windows test parent's job restrictions: neither explicit nor silent breakaway was permitted. Its helper launch still failed; we kept the safety flags and failed result. The policy owner and ancestor jobs were not inspected. Separately, a fresh Linux optional environment passed dependency consistency, vector operations, separate-process saved-vector reopen and all 1,760 tests with no skips. This means selected compatibility works—not that Chroma advisories are repaired or research/production approval exists.

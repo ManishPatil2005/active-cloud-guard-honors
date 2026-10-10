@@ -1,0 +1,20 @@
+{
+  "status": "offline_candidate_smoke",
+  "versions": {
+    "pip": "26.2",
+    "pytest": "9.0.3",
+    "oauthlib": "4.0.0",
+    "requests-oauthlib": "2.0.0"
+  },
+  "oauth_request_preparation": true,
+  "vector": {
+    "status": "not_installed",
+    "qualified": false
+  },
+  "production_ready": false,
+  "independent_evaluation": false,
+  "limits": [
+    "No OAuth server, model inference, sensor or exploit test.",
+    "Smoke and dependency matching do not certify all package/native internals or persistent storage."
+  ]
+}

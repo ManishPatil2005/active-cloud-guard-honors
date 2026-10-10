@@ -2,6 +2,8 @@
 
 ## ADR-081 - 2026-10-10 - Declare headless fixture scope instead of weakening the helper
 
+Outcome refinement: no-console-only trial rejected by actual hosted failure; final no-console-plus-parent-breakaway proposal also fails locally and is not dispatched. Restore original parent flags rather than promote an unsupported context; retain two invariant cases/context diagnostics and all negative receipts. No more hosted retries by this batch. A reviewed supported-host strategy, not changed production child flags/job privileges, is needed for qualification. WL-094/INC-083.
+
 QA-019/R8/WL-094. Use DETACHED_PROCESS only for the intermediate inert-controller fixture on Windows, preserving production child HIDDEN|BREAKAWAY|NEW_GROUP and exact readiness/death/outcome assertions. No console is requested and no job policy is changed. Preserve original hidden-console-parent failures and capture successful actor context in XML; a different supported test environment is not a generic host-policy fix or native restoration guarantee. Actual hosted verification required after commit; no skip/fallback or retrospective success label.
 
 ## ADR-080 - 2026-10-10 - Qualify Linux-native persistent candidate without rewriting old evidence

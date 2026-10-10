@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-083 - 2026-10-10 - Rejected detached-controller context trials
+
+Headless-only local91case targets pass, but exact hosted336fcc4/run38032656526 still has parent immediate flags0/no breakaway before child WinError5; Windows1724passes/37skips/one failure, Ubuntu1762passes. Console attachment was not sufficient to obtain supported job context. Final local DETACHED_PROCESS|BREAKAWAY parent trial reports immediate flags8192/no breakaway and fails1/90. No hosted dispatch of that failed proposal. Restore original HIDDEN/zeroLinux parent, retain exact production child flags, invariant tests and context metadata; final109Windows selected tests pass. Who assigned restricting jobs/ancestor/access policy still unknown; successful local checks are not hosted repair/native restoration acceptance. All raw negatives/hashes retained. WL-094; supported-host gate open, no job/privilege changes or hidden history rewrite.
+
 ### INC-082 - 2026-10-10 - Temporary Linux candidate disappeared before full install
 
 Fresh `/tmp/acg-vector-candidate-linux-20261010-qa018` venv/hash-bootstrap succeeds. Later guest timeout returns127/missing interpreter before optional installation; read-only path checks confirm absence and uptime0min. Cause unproven: no paired boot identity/cleanup record; boot cleanup only a hypothesis. No agent deletion, manual WSL restart or original environment overwrite. Use a separately checked-absent `/var/tmp` candidate; unchanged profile install/compatibility/actual storage/full1760tests succeed. Do not describe this as fixing the earlier mounted-drive timeout or erase the missing-path observation. Partial mounted candidate preserved. WL-093.

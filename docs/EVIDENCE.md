@@ -1,5 +1,11 @@
 # Evidence index
 
+## Rejected headless-controller trial (2026-10-10)
+
+Final restored-source selected checks: [Windows109 passes](../output/controller-restored-windows-20261010.xml) and [Linux109 passes](../output/controller-restored-linux-20261010.xml). Original parent flags restored, invariant/context diagnostics retained; no full hosted success or native restoration claim.
+
+QA-019/WL-094: [source/run-bound failed observation](../output/headless-controller-ci-run-38032656526-20261010.json), source336fcc4/run38032656526. [Ubuntu1762passes](../output/ci-tests-ubuntu-24.04-38032656526-1.xml); [Windows1724passes/37skips/one failure](../output/ci-tests-windows-2025-38032656526-1.xml) retains actual immediate parent flags0/no breakaway/WinError5. Exact core/smoke files retained, hashes in WORK_LOG. [Final local alternate failure](../output/detached-breakaway-target-windows-20261010.xml) flags8192/1failure90passes, not sent to another CI run. [Restored original flags109Windows targets](../output/controller-restored-windows-20261010.xml). Proposed context rejected, prior original negatives preserved; no hosted/native/production clearance.
+
 ## Actual Linux optional-vector compatibility (2026-10-10)
 
 QA-018/WL-093/[contract](LINUX_VECTOR_QUALIFICATION.md): [core/complete extras](../output/vector-native-core-linux-20261010.json), [ephemeral smoke](../output/vector-native-smoke-linux-20261010.json), [two-process synthetic persistence](../output/vector-native-storage-linux-20261010.json), [approved96package advisory query](../output/vector-native-advisories-linux-20261010.json), [full1760passes/zero skips](../output/vector-native-full-linux-20261010.xml). Fresh `/var/tmp` venv,95distinct declared pins match/96installed/uvloop platform extra, pipcheck passes and real existing QA-014 installed-wheel cases enabled. Chroma matches open; negative `/tmp` missing interpreter and older mounted partial candidate preserved. Hashes/commands/limitations in WORK_LOG; no production/independent security/effectiveness qualification.

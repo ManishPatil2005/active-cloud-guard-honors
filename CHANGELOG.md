@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Reject unsupported controller trials and restore original flags
+
+- Preserve source336fcc4 hosted result: Ubuntu1762 passes; Windows1724 passes/37 platform skips/one lifecycle failure, immediate non-breakaway parent job observed.
+- Preserve a failed local detached-plus-breakaway trial; do not dispatch a proposal that fails locally or change job policy to obtain green.
+- Restore original parent flags, retain invariant tests and successful-context diagnostics; production helper guards unchanged.
+- Final109 selected tests pass on each OS; supported-host/native/independent research and production qualification remain open.
+
 ## 2026-10-10 - Qualify an explicit headless inert test controller
 
 - Use no-console Windows creation only for the intermediate inert fixture; preserve original production helper flags and all parent-death/PID/outcome checks.

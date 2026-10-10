@@ -250,16 +250,15 @@ def wait_file(path, seconds=5):
 
 
 def inert_parent_flags():
-    # This fixture is a headless controller, not a hidden console controller.
-    # The helper itself keeps the original production breakaway/group flags.
-    return subprocess.DETACHED_PROCESS if sys.platform == "win32" else 0
+    # Keep the original controller context; rejected alternate launch trials
+    # remain evidence, not a supported-host fix or a reason to weaken the child.
+    return transport.HIDDEN if sys.platform == "win32" else 0
 
 
 @pytest.mark.parametrize("platform", ["win32", "linux"])
-def test_inert_parent_headless_flags_do_not_weaken_helper(platform, monkeypatch):
+def test_inert_parent_original_flags_do_not_weaken_helper(platform, monkeypatch):
     monkeypatch.setattr(sys, "platform", platform)
-    monkeypatch.setattr(subprocess, "DETACHED_PROCESS", 8, raising=False)
-    assert inert_parent_flags() == (8 if platform == "win32" else 0)
+    assert inert_parent_flags() == (transport.HIDDEN if platform == "win32" else 0)
     assert transport.helper_flags() == (
         transport.HIDDEN | transport.BREAKAWAY | transport.NEW_GROUP
         if platform == "win32"
