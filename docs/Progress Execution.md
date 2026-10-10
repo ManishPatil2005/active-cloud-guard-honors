@@ -1,5 +1,11 @@
 # Progress Execution
 
+## Completed next milestones: Windows diagnosis and Linux vector checks
+
+We now observed the exact failing Windows test parent's job restrictions: neither explicit nor silent breakaway was permitted. Its helper launch still failed; we kept the safety flags and failed result. The policy owner and ancestor jobs were not inspected. Separately, a fresh Linux optional environment passed dependency consistency, vector operations, separate-process saved-vector reopen and all 1,760 tests with no skips. This means selected compatibility works—not that Chroma advisories are repaired or research/production approval exists.
+
+For simple instructions, open [Linux qualification](LINUX_VECTOR_QUALIFICATION.md). Use a **new** persistent Linux-native venv and fresh output filenames; do not overwrite the old partial environment. Run pip check, the pin verifier, ephemeral smoke and storage checker, then inspect both storage phases. OSV queries require package/version egress approval. Full installed-package tests need the explicit reviewed wheel/target paths described in [package qualification](PACKAGE_QUALIFICATION.md). Keep failures and synthetic stores. No service, clock, model server or sensor needs to run for these checks.
+
 ## Latest check: what passed and what still needs work
 
 We tested the private repository on fresh GitHub Windows and Ubuntu computers, including building and installing the package rather than only importing the source folder. Latest run37984264483 tested commit57c5408: Ubuntu passed all1,742 tests; Windows passed1,704, skipped37 platform-specific cases and failed one helper-process lifecycle check. The overall run is **failed**, not production-ready. Windows refused to create the helper (Access is denied); the exact host policy still needs investigation. Local checks pass with the original safety flags, but that does not cancel the hosted failure. No real service, clock or sensor was changed.

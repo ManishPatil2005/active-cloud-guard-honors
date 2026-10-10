@@ -1,5 +1,7 @@
 # Optional Windows vector-profile qualification
 
+Later QA-018/WL-093 [Linux-native qualification](LINUX_VECTOR_QUALIFICATION.md) now executes actual Linux ephemeral/two-process persistence and full1760-case suite with installed-wheel checks. The original QA-015 Linux mocked-contract statement below remains accurate for that historical milestone. Selected compatibility on both platforms is not Chroma remediation/native server/security/research acceptance; original negative and partial environments preserved.
+
 QA-015/R7/R8/WL-089/ADR-077/INC-077, 10 October 2026. Selected installation/embedded compatibility qualification, **not Chroma security remediation or research/production acceptance**.
 
 ## Actual environment and scope

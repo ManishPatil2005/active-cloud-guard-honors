@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-080 - 2026-10-10 - Qualify Linux-native persistent candidate without rewriting old evidence
+
+QA-018/R7/R8/WL-093. Use fresh checked-absent Linux-native `/var/tmp` venv after separate `/tmp` bootstrap becomes unavailable; guest-side finite installer budget, unchanged full optional pins, actual ephemeral/cold-process vector checks and artifact-enabled full suite. Preserve mounted partial environment, unknown disappearance cause and all historical observations. Declare96installed versus95distinct pins/one platform extra; same-version numpy include repetition is not a conflict. Embedded compatibility and database matching do not remediate Chroma or approve native/server/production/independent research.
+
 ## ADR-079 - 2026-10-10 - Observe failing helper context without weakening independence
 
 QA-017/R8/WL-092. Capture membership/immediate job limits in the explicitly inert intermediate parent before its original detached-helper launch. Read only typed native APIs, preserve unknown/query errors and distinguish immediate versus unqueried ancestors/access policy. Do not remove breakaway, change privileges, skip the failing lifecycle test or claim local flags explain a different hosted actor. Genuine supported-host qualification requires executed contextual evidence; engine algorithms and research/production scope unchanged.

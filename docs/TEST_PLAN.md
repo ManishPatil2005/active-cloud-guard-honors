@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-018 actual isolated Linux optional profile:31core matches/95full distinct pins match/96installed (one uvloop extra), pipcheck/ephemeral and two-process persistent synthetic checks pass; full1760cases135.39s/zero skips/failures/errors with both QA-014 installed-artifact paths. Existing model/native test guards intact, original module bytes tested. Approved96package OSV query complete; database absence is not security clearance. No new tests/code added by compatibility milestone; source2f2d07d preserved during execution, doc closure follows. WL-093/INC-082.
+
 QA-017 executed hosted1760-case suite: Ubuntu1760 passes; Windows1722 passes/37 platform skips/one failure. Actual parent's immediate-job flags0/no explicit/silent breakaway before WinError5 preserved in Windows XML.18 new contracts/89 selected tests pass each OS. Scope: current/immediate native query observed, not who assigned it/ancestor enumeration or successful matrix/native restoration. WL-092; original helper flags unchanged.
 
 QA-017:18contract cases for read-only Windows membership/immediate extended-limit query, selected bit flags, explicit x64 ABI, missing/invalid membership, API errors, wrong returned length, unsupported-platform refusal, non-qualification and exclusive publication. Windows89 selected tests pass; actual local CLI flags observed separately. Existing inert parent logs diagnostic before original flags/helper launch; no host/native guarantee or weakening. Hosted evidence required to attribute QA-016 failure. WL-092.

@@ -1,6 +1,6 @@
 # Documentation index
 
-Current QA-016/WL-090: [actual manual hosted regression](MANUAL_CI.md). Latest source57c5408/run37984264483: Ubuntu1742 passes/zero skips; Windows1704 passes/37 platform skips/one inert lifecycle failure. Child CreateProcess WinError5 observed, responsible policy unproven; overall matrix remains failed. Exact current-only artifact scope live-observed, safeguards intact. Next read-only policy diagnosis/supported-host qualification; no production/independent research acceptance. QA-015 remains local vector compatibility, not advisory/native security clearance.
+Current QA-018/WL-093: [Linux optional-vector compatibility](LINUX_VECTOR_QUALIFICATION.md), actual95pin match/96installed/pipcheck/ephemeral/cold-process synthetic storage/full1760passes with real installed-wheel checks. Chroma matches remain open. QA-017 [actual Windows job diagnosis](WINDOWS_JOB_DIAGNOSTIC.md): hosted failing parent immediate flags0/no breakaway before WinError5, not a fixed/green matrix. Supported-host/native/advisory/independent research/production gates remain open; original architecture/environments/evidence preserved. Earlier checkpoint paragraphs below are historical.
 
 Current QA-015/WL-089: [optional Windows/vector qualification](VECTOR_PROFILE_QUALIFICATION.md), actual95pininstall/compatibility/ephemeral and separate-process synthetic storage pass; approvedOSV95coverage keeps Chroma findings open.15newcontracts/final66eachOS, Linux mocked only. Prior optional Windows incomplete statements below are historical; no production/research clearance.
 

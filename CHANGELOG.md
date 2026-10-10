@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Qualify Linux optional vector compatibility
+
+- Install unchanged95declared pins in a fresh Linux-native persistent candidate;96 distributions include one extra uvloop platform dependency.
+- Verify compatibility, ephemeral vectors and clean two-process persistent reopen; preserve earlier incomplete/vanished candidate observations.
+- Run full Linux1760-test suite with actual installed-wheel paths:zero skips/failures/errors. Query96approved package/version records; Chroma advisories remain open.
+- Preserve original environments/default/locks/algorithms and distinguish compatibility from security, independent research and production readiness.
+
 ## 2026-10-10 - Preserve actual hosted immediate-job diagnosis
 
 - Execute source2f2d07d/run38031235575: Ubuntu1760 passes; Windows1722 passes/37 platform skips/one inert lifecycle failure.

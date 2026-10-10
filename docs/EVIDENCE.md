@@ -1,5 +1,9 @@
 # Evidence index
 
+## Actual Linux optional-vector compatibility (2026-10-10)
+
+QA-018/WL-093/[contract](LINUX_VECTOR_QUALIFICATION.md): [core/complete extras](../output/vector-native-core-linux-20261010.json), [ephemeral smoke](../output/vector-native-smoke-linux-20261010.json), [two-process synthetic persistence](../output/vector-native-storage-linux-20261010.json), [approved96package advisory query](../output/vector-native-advisories-linux-20261010.json), [full1760passes/zero skips](../output/vector-native-full-linux-20261010.xml). Fresh `/var/tmp` venv,95distinct declared pins match/96installed/uvloop platform extra, pipcheck passes and real existing QA-014 installed-wheel cases enabled. Chroma matches open; negative `/tmp` missing interpreter and older mounted partial candidate preserved. Hashes/commands/limitations in WORK_LOG; no production/independent security/effectiveness qualification.
+
 ## Actual hosted job-policy diagnostic (2026-10-10)
 
 QA-017/WL-092: [exact source/run failed summary](../output/job-policy-ci-run-38031235575-20261010.json), source2f2d07d/run38031235575. [Ubuntu1760 passes](../output/ci-tests-ubuntu-24.04-38031235575-1.xml), [Windows1722 passes/37 platform skips/one failure](../output/ci-tests-windows-2025-38031235575-1.xml). Original Windows failure XML contains the actual parent's membershiptrue/flags0/no breakaway JSON before WinError5. Immediate-job observation, not ancestor/policy-owner authentication or supported-host matrix acceptance. Core/smoke raw files and hashes preserved in WORK_LOG; original older failures intact.

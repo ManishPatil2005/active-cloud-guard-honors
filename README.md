@@ -2,7 +2,7 @@
 
 # Active Cloud Guard
 
-Latest reproducibility qualification: [isolated patched dependency candidates](docs/DEPENDENCY_CANDIDATE_QUALIFICATION.md), with separate candidate inventories and cross-platform checks. Historical environments and locks remain unchanged; optional-vector qualification/default promotion, independent evaluation and production acceptance remain open.
+Latest compatibility evidence (10 October 2026): [Linux optional-vector qualification](docs/LINUX_VECTOR_QUALIFICATION.md), actual embedded synthetic storage and 1,760 passing tests with installed-wheel checks; [Windows job-policy diagnosis](docs/WINDOWS_JOB_DIAGNOSTIC.md) preserves a hosted lifecycle failure rather than claiming a green matrix. Historical environments/locks remain unchanged. Chroma advisories, supported-host/native assurance, independent research evaluation and production acceptance remain open.
 
 Current readiness refinement: [bounded legacy inputs and client subprocesses](docs/LEGACY_RUNNER_BUDGETS.md), with partial failure evidence and explicit remote-job uncertainty. No Docker/model/sensor experiment or production readiness is inferred from passing software checks.
 
@@ -220,7 +220,7 @@ git config core.hooksPath .githooks
 
 The smoke requires a fresh output filename. [Profile promotion and limits](docs/CORE_PROFILE_PROMOTION.md) distinguish this recommended setup from untouched working environments. The commit hook may still select the historical `.venv`; configuring the hook does not upgrade it.
 
-The [historical lockfile](requirements-lock.txt) is an evidence snapshot, **not the recommended installation**: it retains known advisory matches. The [full optional candidate](requirements-remediation-windows-candidate-20261009.txt) now has [selected Windows installation/embedded compatibility qualification](docs/VECTOR_PROFILE_QUALIFICATION.md); Chroma advisory matches, native/server assurance and actual Linux optional-vector qualification remain open. Chroma is still part of the architecture, but vector commands below require a separately reviewed optional environment; omission from the portable profile is not remediation. Do not expose a Chroma server or treat these snapshots as production guidance. The [historical environment report](output/environment.json) records earlier image/model identities; v2 model/corpus digests are in its raw observation.
+The [historical lockfile](requirements-lock.txt) is an evidence snapshot, **not the recommended installation**: it retains known advisory matches. The [full optional candidate](requirements-remediation-windows-candidate-20261009.txt) now has selected [Windows](docs/VECTOR_PROFILE_QUALIFICATION.md) and [Linux](docs/LINUX_VECTOR_QUALIFICATION.md) installation/embedded compatibility qualification; Chroma advisory matches and broader native/server assurance remain open. Chroma is still part of the architecture, but vector commands below require a separately reviewed optional environment; omission from the portable profile is not remediation. Do not expose a Chroma server or treat these snapshots as production guidance. The [historical environment report](output/environment.json) records earlier image/model identities; v2 model/corpus digests are in its raw observation.
 
 ### 2. Run software checks and a model-free scan
 
