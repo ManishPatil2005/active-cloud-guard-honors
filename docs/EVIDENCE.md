@@ -1,5 +1,9 @@
 # Evidence index
 
+## Actual hosted job-policy diagnostic (2026-10-10)
+
+QA-017/WL-092: [exact source/run failed summary](../output/job-policy-ci-run-38031235575-20261010.json), source2f2d07d/run38031235575. [Ubuntu1760 passes](../output/ci-tests-ubuntu-24.04-38031235575-1.xml), [Windows1722 passes/37 platform skips/one failure](../output/ci-tests-windows-2025-38031235575-1.xml). Original Windows failure XML contains the actual parent's membershiptrue/flags0/no breakaway JSON before WinError5. Immediate-job observation, not ancestor/policy-owner authentication or supported-host matrix acceptance. Core/smoke raw files and hashes preserved in WORK_LOG; original older failures intact.
+
 ## Latest hosted diagnostic result (2026-10-10)
 
 QA-016/WL-090/INC-081: [exact source/run-bound failed observation](../output/manual-ci-diagnostic-run-37984264483-20261010.json), source57c5408/run37984264483. [Ubuntu1742 passes/zero skips](../output/ci-tests-ubuntu-24.04-37984264483-1.xml); [Windows1704 passes/37 platform skips/one failure](../output/ci-tests-windows-2025-37984264483-1.xml). Exact Windows/Ubuntu core and smoke JSONs retained; raw hashes in WORK_LOG. Windows stderr reveals child CreateProcess WinError5, not the underlying policy. Exactly three current-run artifacts per host confirms narrowed upload selection. Matrix remains failed; no security/effectiveness/production acceptance.

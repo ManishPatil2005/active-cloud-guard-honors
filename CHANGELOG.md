@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Preserve actual hosted immediate-job diagnosis
+
+- Execute source2f2d07d/run38031235575: Ubuntu1760 passes; Windows1722 passes/37 platform skips/one inert lifecycle failure.
+- Observe the actual failing parent's immediate job with flags0/no explicit or silent breakaway before WinError5; ancestors and policy owner remain unqueried.
+- Complete the read-only diagnosis scope without weakening helper flags or claiming successful matrix/native qualification.
+- Preserve exact run-bound summary and all six original current-run receipts; no deployment or job-policy mutation.
+
 ## 2026-10-10 - Add read-only Windows helper job-policy diagnostics
 
 - Query current membership/immediate limits with typed Windows ABI; preserve unknowns and refuse existing evidence outputs.

@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-017 executed hosted1760-case suite: Ubuntu1760 passes; Windows1722 passes/37 platform skips/one failure. Actual parent's immediate-job flags0/no explicit/silent breakaway before WinError5 preserved in Windows XML.18 new contracts/89 selected tests pass each OS. Scope: current/immediate native query observed, not who assigned it/ancestor enumeration or successful matrix/native restoration. WL-092; original helper flags unchanged.
+
 QA-017:18contract cases for read-only Windows membership/immediate extended-limit query, selected bit flags, explicit x64 ABI, missing/invalid membership, API errors, wrong returned length, unsupported-platform refusal, non-qualification and exclusive publication. Windows89 selected tests pass; actual local CLI flags observed separately. Existing inert parent logs diagnostic before original flags/helper launch; no host/native guarantee or weakening. Hosted evidence required to attribute QA-016 failure. WL-092.
 
 Latest actual hosted1742-case suite at57c5408: Ubuntu1742 passes/zero skips; Windows1704 passes/37 existing platform skips/one lifecycle failure, zero errors. Actual installed-wheel checks enabled both hosts. Diagnostic confirms child CreateProcess WinError5; underlying policy unproven. No skip/fallback/native flag weakening. Exact current-only six artifact receipts observed. Further supported-host acceptance remains pending, not earned by local89-case passes. WL-090/INC-081.

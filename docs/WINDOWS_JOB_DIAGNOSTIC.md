@@ -12,6 +12,8 @@ Native definitions and scope were checked against Microsoft [membership API](htt
 
 ## Executed versus pending
 
+Actual authorized [run38031235575](https://github.com/ManishPatil2005/active-cloud-guard-honors/actions/runs/38031235575), exact source2f2d07da38ea647f7878781da3a4b543c61eec44: Ubuntu1760 passes/zero skips; Windows1722 passes/37 platform skips/one inert lifecycle failure. The **failing intermediate parent**, not a different CLI actor, reports successful membership/query, in_jobtrue/limit_flags0/explicit-breakawayfalse/silent-breakawayfalse, followed by child CreateProcess WinError5. This establishes a non-breakaway immediate job at the failed launch. It does not enumerate ancestors, attribute who created that job or prove absence of another access restriction. Original helper flags and matrix failure remain intact; diagnosis is complete for the immediate-job observation, supported-host lifecycle qualification is not.
+
 Eighteen new contract cases: exact flag bits, ABI, absent/invalid membership, API failures, returned-length mismatch, non-Windows refusal, explicit non-qualification and evidence overwrite refusal. Initial Windows selected89 cases pass4.56s. Actual local CLI reports membershiptrue, flags12288 (silent-breakaway and kill-on-close), explicit breakawayfalse. This describes the CLI process in this local execution context, **not the hosted test parent**. Original safeguards and failed hosted receipts are unchanged. Linux contract/lifecycle results and actual hosted follow-up are recorded in WORK_LOG after execution; no hosted fix is inferred from a local observation.
 
 ## Reproduce safely
