@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-020 adds32vector result cases: corpus content substitution, IDs, shape/cardinality, count-before-activity, malformed/duplicate JSON, byte bounds, exact numeric distance/extreme integers, duplicate IDs and two actual ephemeral Chroma explicit-vector valid/forged queries. Selected five-file suites135pass each OS; initial24case negative21fail/3pass retained. No fresh full suite/installed wheel/hosted or independent detection evaluation. [Scope](VECTOR_RESULT_BOUNDARY.md), WL-095.
+
 Final QA-019 acceptance: reject both proposed controller contexts, restore original parent/child flags, keep two platform invariants and successful actor diagnostics. Hosted336fcc4 run1762cases: Ubuntu1762pass; Windows1724pass37skip1failure. Local added-parent-breakaway1failure90pass negative preserved/not dispatched. Final restored six-fileWindows109pass4.03s; full-source hosted qualification is not earned by selected local tests. Original kernel/service/engine code unchanged. WL-094/INC-083.
 
 QA-019: two new platform contracts keep production child flags unchanged and choose explicit no-console Windows/zeroLinux only for intermediate inert parent. Same readiness/PID/nonce/actual parent-kill/helper outcome/cancel checks retained; suite property captures successful actor context.91 selected targets pass each OS, Windows actual immediate flags10240 observed. Hosted/full qualification pending; older1760suite is not this1762-source scope. Original hidden-console negative receipts valid/preserved. WL-094.

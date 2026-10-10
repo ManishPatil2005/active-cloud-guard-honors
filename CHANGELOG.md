@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 - Validate vector retrieval against the current corpus
+
+- Reject forged source content/IDs, malformed or truncated result rows, invalid distances and out-of-budget metadata; return authoritative corpus content.
+- Add32 regression cases including two actual synthetic embedded-Chroma queries;135 selected tests pass on each OS. Preserve21-failure pre-fix receipt.
+- Recheck four Chroma advisories: no patched version listed; dependency/server restrictions and Windows-host/research/production gates remain open.
+
 ## 2026-10-10 - Reject unsupported controller trials and restore original flags
 
 - Preserve source336fcc4 hosted result: Ubuntu1762 passes; Windows1724 passes/37 platform skips/one lifecycle failure, immediate non-breakaway parent job observed.

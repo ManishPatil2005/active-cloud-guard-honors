@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-084 - 2026-10-10 - Stored vector metadata could substitute research knowledge
+
+Code inspection and synthetic pre-fix tests show altered source text/title/URL/ID accepted, IDs ignored and zip silently truncating rows;21fail/3pass receipt preserved. High-confidence project-level validation gap, not evidence of actual malicious deployment or exploitation of Chroma advisories. Validate exact result shapes/cardinality, known unique IDs, finite bounded distances, strict1MB JSON/source agreement; return corpus-owned knowledge.32newcases/final135selected passes each OS include real embedded synthetic forged/valid query. Trusted corpus/store/library/native ranking remain assumptions; no full current-source suite/wheel/hosted or independent effectiveness qualification. WL-095/ADR-082.
+
 ### INC-083 - 2026-10-10 - Rejected detached-controller context trials
 
 Headless-only local91case targets pass, but exact hosted336fcc4/run38032656526 still has parent immediate flags0/no breakaway before child WinError5; Windows1724passes/37skips/one failure, Ubuntu1762passes. Console attachment was not sufficient to obtain supported job context. Final local DETACHED_PROCESS|BREAKAWAY parent trial reports immediate flags8192/no breakaway and fails1/90. No hosted dispatch of that failed proposal. Restore original HIDDEN/zeroLinux parent, retain exact production child flags, invariant tests and context metadata; final109Windows selected tests pass. Who assigned restricting jobs/ancestor/access policy still unknown; successful local checks are not hosted repair/native restoration acceptance. All raw negatives/hashes retained. WL-094; supported-host gate open, no job/privilege changes or hidden history rewrite.

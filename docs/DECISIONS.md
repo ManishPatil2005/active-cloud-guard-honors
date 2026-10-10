@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-082 - 2026-10-10 - Corpus is authoritative, vector metadata is not
+
+QA-020/WL-095. Keep Chroma and explicit local embeddings; validate complete result rows/unique corpus IDs/strict bounded JSON agreement and return corpus-owned fields. Reject mismatches rather than silently falling back or declaring clean. This does not fix upstream server advisories or authenticate index ranking/storage. No blind dependency promotion when all four inspected advisory records list no patched version. Rebuild changed package before new installed-source qualification.
+
 ## ADR-081 - 2026-10-10 - Declare headless fixture scope instead of weakening the helper
 
 Outcome refinement: no-console-only trial rejected by actual hosted failure; final no-console-plus-parent-breakaway proposal also fails locally and is not dispatched. Restore original parent flags rather than promote an unsupported context; retain two invariant cases/context diagnostics and all negative receipts. No more hosted retries by this batch. A reviewed supported-host strategy, not changed production child flags/job privileges, is needed for qualification. WL-094/INC-083.

@@ -5,7 +5,7 @@ import json
 import math
 from urllib.request import Request, build_opener, ProxyHandler
 from .llm import LocalOnlyRedirect, identity_from_models
-from .limits import knowledge, json_response, INPUT_BYTES
+from .limits import knowledge, json_response, json_value, INPUT_BYTES
 
 
 def embed(texts, model="nomic-embed-text"):
@@ -111,6 +111,8 @@ def index(kb_path, index_path, model="nomic-embed-text", *, force=False):
 
 
 def retrieve_vector(query, kb_path, index_path, model="nomic-embed-text", k=3):
+    if type(k) is not int or not 1 <= k <= 256:
+        raise ValueError("vector result count outside bounds")
     col, docs, digest = collection(kb_path, index_path, model)
     if col.count() != len(docs):
         raise ValueError("index missing/stale; run index command")
@@ -119,7 +121,47 @@ def retrieve_vector(query, kb_path, index_path, model="nomic-embed-text", k=3):
         n_results=min(k, len(docs)),
         include=["metadatas", "distances"],
     )
-    return [
-        dict(**json.loads(meta["source_json"]), distance=distance, corpus_sha256=digest)
-        for meta, distance in zip(result["metadatas"][0], result["distances"][0])
-    ]
+    count = min(k, len(docs))
+    if not isinstance(result, dict):
+        raise ValueError("invalid vector result envelope")
+    rows = []
+    for field in ("ids", "metadatas", "distances"):
+        value = result.get(field)
+        if (
+            not isinstance(value, list)
+            or len(value) != 1
+            or not isinstance(value[0], list)
+            or len(value[0]) != count
+        ):
+            raise ValueError("invalid vector result rows")
+        rows.append(value[0])
+    sources = {doc["id"]: doc for doc in docs}
+    accepted, seen, total_bytes = [], set(), 0
+    for source_id, meta, distance in zip(*rows):
+        if (
+            not isinstance(source_id, str)
+            or source_id not in sources
+            or source_id in seen
+            or not isinstance(meta, dict)
+            or not isinstance(meta.get("source_json"), str)
+            or type(distance) not in (int, float)
+            or not -1e100 <= distance <= 1e100
+            or not math.isfinite(distance)
+        ):
+            raise ValueError("invalid vector source or distance")
+        stored = meta["source_json"]
+        if len(stored) > INPUT_BYTES:
+            raise ValueError("vector source byte budget exceeded")
+        total_bytes += len(stored.encode("utf-8"))
+        if total_bytes > INPUT_BYTES:
+            raise ValueError("vector source byte budget exceeded")
+        if json.dumps(json_value(stored), sort_keys=True) != json.dumps(
+            sources[source_id], sort_keys=True
+        ):
+            raise ValueError("vector source differs from current corpus")
+        seen.add(source_id)
+        # The current corpus, not index metadata, supplies returned knowledge.
+        accepted.append(
+            dict(sources[source_id], distance=distance, corpus_sha256=digest)
+        )
+    return accepted

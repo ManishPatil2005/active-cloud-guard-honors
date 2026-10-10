@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest: [vector retrieval corpus boundary](VECTOR_RESULT_BOUNDARY.md), QA-020/WL-095:135 scoped passes each OS, actual synthetic embedded cases, negative receipt preserved. Upstream Chroma remediation, current-source wheel/full/hosted qualification and research/production gates remain open.
+
 Current: [Linux optional compatibility](LINUX_VECTOR_QUALIFICATION.md) selected scope complete (95 distinct pins, 96 installed, actual embedded checks/full1,760 passes). [Windows diagnosis](WINDOWS_JOB_DIAGNOSTIC.md) observes immediate non-breakaway context; [alternate-controller trials](HEADLESS_CONTROLLER_QUALIFICATION.md) rejected and original flags restored. Latest hosted336fcc4/run38032656526 Ubuntu1,762 passes/Windows1,724 passes37skips1failure, not green. Retained diagnostics/invariants/final109 selected tests each OS pass. Supported-host/Chroma/native/independent research/production gates remain open; no background run/monitor. Earlier checkpoint paragraphs are historical.
 
 Current QA-015/WL-089: [optional Windows/vector qualification](VECTOR_PROFILE_QUALIFICATION.md), actual95pininstall/compatibility/ephemeral and separate-process synthetic storage pass; approvedOSV95coverage keeps Chroma findings open.15newcontracts/final66eachOS, Linux mocked only. Prior optional Windows incomplete statements below are historical; no production/research clearance.

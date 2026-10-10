@@ -1,5 +1,11 @@
 # Progress Execution
 
+## 10 October 2026 - Vector knowledge integrity refinement
+
+The search index used to supply saved text directly. A changed saved entry could therefore change the advice shown to researchers. It now checks each search result against the current source knowledge file and stops with an error if IDs, text, links or result rows disagree. It does not silently label a failed search as safe.32newchecks were added;135selected checks passed on each operating system, including small invented examples using the real embedded database. No real model or sensor experiment was run.
+
+To repeat: use the already qualified optional environment and run `python -m pytest -q tests/test_vector_results.py tests/test_vector.py tests/test_v2.py tests/test_model_envelopes.py tests/test_integration_pipeline.py`. Expect135passes when Chroma is installed; without it two actual database checks skip, which is not equivalent verification. From Windows use `tmp/vector-candidate-windows-20261010/Scripts/python.exe` instead of `python`. Keep real indexes private/trusted and never start a public Chroma server. Read [the report](VECTOR_RESULT_BOUNDARY.md) for commands and limits. Chroma advisories, Windows hosted lifecycle, genuine approval and independent research results still remain open; this is software refinement, not publication or production clearance.
+
 ## Latest outcome: keep the failed Windows qualification visible
 
 Linux optional compatibility passed its named checks and 1,760 full tests. Windows diagnosis identified a job that does not allow the helper to break away. We tested two alternative controller launch choices; they did not solve hosted qualification, so the original parent flags were restored. The helper's production safety flags were never weakened. Latest hosted run38032656526 passed 1,762 tests on Ubuntu; Windows passed 1,724, skipped37 platform cases and failed one lifecycle test. Final local checks with restored defaults pass109 selected tests on each OS, but these do not cancel the hosted failure.
