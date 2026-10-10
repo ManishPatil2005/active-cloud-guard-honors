@@ -249,7 +249,25 @@ def wait_file(path, seconds=5):
     pytest.fail("inert helper did not produce expected marker")
 
 
-def test_real_inert_helper_after_parent_is_killed(tmp_path):
+def inert_parent_flags():
+    # This fixture is a headless controller, not a hidden console controller.
+    # The helper itself keeps the original production breakaway/group flags.
+    return subprocess.DETACHED_PROCESS if sys.platform == "win32" else 0
+
+
+@pytest.mark.parametrize("platform", ["win32", "linux"])
+def test_inert_parent_headless_flags_do_not_weaken_helper(platform, monkeypatch):
+    monkeypatch.setattr(sys, "platform", platform)
+    monkeypatch.setattr(subprocess, "DETACHED_PROCESS", 8, raising=False)
+    assert inert_parent_flags() == (8 if platform == "win32" else 0)
+    assert transport.helper_flags() == (
+        transport.HIDDEN | transport.BREAKAWAY | transport.NEW_GROUP
+        if platform == "win32"
+        else 0
+    )
+
+
+def test_real_inert_helper_after_parent_is_killed(tmp_path, record_testsuite_property):
     # Real process lifecycle; the child is explicitly inert, never a service test.
     request(tmp_path, seconds=3)
     script = Path(worker.__file__).resolve()
@@ -273,7 +291,7 @@ def test_real_inert_helper_after_parent_is_killed(tmp_path):
         ],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        creationflags=transport.HIDDEN if sys.platform == "win32" else 0,
+        creationflags=inert_parent_flags(),
     )
     try:
         pid_line = parent.stdout.readline().decode().strip()
@@ -287,6 +305,10 @@ def test_real_inert_helper_after_parent_is_killed(tmp_path):
         wait_file(tmp_path / "watchdog-ready.signal")
         parent.kill()
         parent.wait(timeout=3)
+        _, diagnostics = parent.communicate(timeout=3)
+        record_testsuite_property(
+            "inert_parent_job_context", diagnostics[:4096].decode(errors="replace")
+        )
         wait_file(tmp_path / "watchdog-outcome.json")
         outcome = transport.read_json(tmp_path / "watchdog-outcome.json")
         assert outcome == dict(

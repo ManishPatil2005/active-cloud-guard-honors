@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Qualify an explicit headless inert test controller
+
+- Use no-console Windows creation only for the intermediate inert fixture; preserve original production helper flags and all parent-death/PID/outcome checks.
+- Add two platform flag contracts and retain successful parent job context in JUnit properties.
+- Selected91 tests pass each OS; original hidden-console-parent failures remain preserved and valid for that context.
+- Hosted outcome pending exact-source execution; no production/native restoration or independent research clearance.
+
 ## 2026-10-10 - Qualify Linux optional vector compatibility
 
 - Install unchanged95declared pins in a fresh Linux-native persistent candidate;96 distributions include one extra uvloop platform dependency.

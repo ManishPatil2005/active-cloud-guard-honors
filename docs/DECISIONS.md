@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-081 - 2026-10-10 - Declare headless fixture scope instead of weakening the helper
+
+QA-019/R8/WL-094. Use DETACHED_PROCESS only for the intermediate inert-controller fixture on Windows, preserving production child HIDDEN|BREAKAWAY|NEW_GROUP and exact readiness/death/outcome assertions. No console is requested and no job policy is changed. Preserve original hidden-console-parent failures and capture successful actor context in XML; a different supported test environment is not a generic host-policy fix or native restoration guarantee. Actual hosted verification required after commit; no skip/fallback or retrospective success label.
+
 ## ADR-080 - 2026-10-10 - Qualify Linux-native persistent candidate without rewriting old evidence
 
 QA-018/R7/R8/WL-093. Use fresh checked-absent Linux-native `/var/tmp` venv after separate `/tmp` bootstrap becomes unavailable; guest-side finite installer budget, unchanged full optional pins, actual ephemeral/cold-process vector checks and artifact-enabled full suite. Preserve mounted partial environment, unknown disappearance cause and all historical observations. Declare96installed versus95distinct pins/one platform extra; same-version numpy include repetition is not a conflict. Embedded compatibility and database matching do not remediate Chroma or approve native/server/production/independent research.
