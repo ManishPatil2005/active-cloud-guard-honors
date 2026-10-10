@@ -254,7 +254,9 @@ def test_real_inert_helper_after_parent_is_killed(tmp_path):
     request(tmp_path, seconds=3)
     script = Path(worker.__file__).resolve()
     code = (
-        "import subprocess,sys,time;"
+        "import subprocess,sys,time,json;"
+        "from scripts.windows_job_diagnostic import describe_current_job;"
+        "print('job-diagnostic='+json.dumps(describe_current_job()),file=sys.stderr,flush=True);"
         "p=subprocess.Popen([sys.executable,sys.argv[1],'--directory',sys.argv[2],'--inert'],"
         "stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,"
         "close_fds=True,creationflags=int(sys.argv[3]));"

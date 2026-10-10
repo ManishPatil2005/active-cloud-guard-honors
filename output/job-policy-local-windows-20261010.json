@@ -1,0 +1,14 @@
+{
+  "status": "observed",
+  "in_job": true,
+  "limit_flags": 12288,
+  "breakaway_ok": false,
+  "silent_breakaway_ok": true,
+  "kill_on_job_close": true,
+  "error_code": null,
+  "platform": "win32",
+  "scope": "Current process/immediate job only; ancestors and other access policies unqueried.",
+  "policy_changed": false,
+  "helper_launch_qualified": false,
+  "production_ready": false
+}

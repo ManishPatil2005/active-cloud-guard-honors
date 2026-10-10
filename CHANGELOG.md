@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-10 - Add read-only Windows helper job-policy diagnostics
+
+- Query current membership/immediate limits with typed Windows ABI; preserve unknowns and refuse existing evidence outputs.
+- Record the exact inert parent's job flags before its unchanged launch; no privileged policy changes or safeguard weakening.
+- Add18 cases; Windows89 selected tests pass and actual local flags recorded separately from hosted qualification.
+- Preserve failed CI receipts and keep research, native restoration and production gates open.
+
 ## 2026-10-10 - Record final hosted diagnostic and open qualification boundary
 
 - Execute exact57c5408 manual run: Ubuntu1742 passes; Windows1704 passes/37 platform skips/one inert lifecycle failure. Preserve original failed receipts.

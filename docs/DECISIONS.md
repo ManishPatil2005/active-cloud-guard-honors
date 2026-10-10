@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-079 - 2026-10-10 - Observe failing helper context without weakening independence
+
+QA-017/R8/WL-092. Capture membership/immediate job limits in the explicitly inert intermediate parent before its original detached-helper launch. Read only typed native APIs, preserve unknown/query errors and distinguish immediate versus unqueried ancestors/access policy. Do not remove breakaway, change privileges, skip the failing lifecycle test or claim local flags explain a different hosted actor. Genuine supported-host qualification requires executed contextual evidence; engine algorithms and research/production scope unchanged.
+
 ### ADR-078 execution refinement - exact hosted runtime availability
 
 First authorized run proves Windows3.12.14 unavailable in selectedaction's hostedmanifest, while Ubuntu3.12.14 succeeds. Use verified fixedWindows3.12.10/Ubuntu3.12.14 pairs and label patch mismatch/scopedcompatibility explicitly; no localenvdowngrade/productionrecommendation/testskip to forcegreen. Preserve initialrun and authenticate selected run/source identity by read-only metadata plus rawreceipts, not matrixstatusalone. Missing/skipped actualregressionsteps cannot qualify. INC-078/WL-090.
