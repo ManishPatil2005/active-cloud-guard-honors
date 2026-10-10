@@ -1,5 +1,9 @@
 # Three-trial readiness repeatability study
 
+## QA-023 - Saved event-offset consistency strengthened
+
+10October2026/WL-099: repeat_readiness.accept now requires exact integer event_unix_ns/offset bounds and supported event range; recomputes bounds using checked per-call first/last wall samples and abs(clock difference)+sampling uncertainty. Saved bounds/zero flag must agree exactly; changing the event while retaining favorable bounds cannot pass.11newcases/62selected passes each OS. Historical October5 trials1/2accept and3reject unchanged; pre-fix8fail9pass preserved. This checks saved arithmetic, not raw-export provenance, authenticated asset identity, full coverage, physical time alignment or supervisor eligibility. No new repeat/sensor/workload/clock correction. Future frozen runner hash is different; never retrofit historical receipts. Earlier study results below remain historical.
+
 ## Separately declared follow-up: 5 October 2026
 
 Before execution, declare a new batch at `output/engine2-readiness-repeats-20261005` using the hardened runner and the unchanged acceptance/protocol below. Exactly three planned slots, no replacements or adaptive waits, abort on the first failed gate. The September batch is not overwritten or pooled with this batch. Restore availability only by starting the existing Docker Desktop and existing lab Redis, without container recreation, clock changes or added permissions; record changed startup conditions. Perform a read-only preflight before collection and explicit sensor enumeration afterward. Review hash-matched correlation and collector metrics offline before drawing any conclusion. Even three accepted runs would establish only bounded same-host development repeatability, not general coverage, accuracy or production readiness.

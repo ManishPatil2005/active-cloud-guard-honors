@@ -8,6 +8,66 @@ import subprocess
 
 
 @pytest.mark.parametrize(
+    "defect",
+    [
+        "event_shift",
+        "missing_event",
+        "boolean_event",
+        "float_event",
+        "lower_shift",
+        "upper_shift",
+        "boolean_bound",
+        "forged_zero",
+    ],
+)
+def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+    root = Path(__file__).resolve().parents[1]
+    run = json.loads(
+        (root / "output/engine2-identified-readiness-20260930.json").read_text()
+    )
+    row = run["correlation"]["matches"][0]
+    if defect == "event_shift":
+        row["event_unix_ns"] += 1
+    elif defect == "missing_event":
+        del row["event_unix_ns"]
+    elif defect == "boolean_event":
+        row["event_unix_ns"] = True
+    elif defect == "float_event":
+        row["event_unix_ns"] = float(row["event_unix_ns"])
+    elif defect == "lower_shift":
+        row["offset_lower_ns"] += 1
+    elif defect == "upper_shift":
+        row["offset_upper_ns"] -= 1
+    elif defect == "boolean_bound":
+        row["offset_lower_ns"] = False
+    else:
+        row["event_unix_ns"] += 10**9
+        row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+    with pytest.raises(ValueError):
+        accept(run)
+
+
+def test_historical_clock_negative_stays_rejected():
+    root = Path(__file__).resolve().parents[1]
+    run = json.loads(
+        (root / "output/engine2-readiness-repeats-20261005/trial-3.json").read_text()
+    )
+    with pytest.raises(ValueError, match="timestamp mismatch"):
+        accept(run)
+
+
+@pytest.mark.parametrize("trial", [1, 2])
+def test_historical_accepted_arithmetic_is_unchanged(trial):
+    root = Path(__file__).resolve().parents[1]
+    run = json.loads(
+        (
+            root / f"output/engine2-readiness-repeats-20261005/trial-{trial}.json"
+        ).read_text()
+    )
+    assert accept(run) == run["target_identity_before"]
+
+
+@pytest.mark.parametrize(
     "mode", ["valid", "cleanup", "stale", "clock", "identity", "protocol"]
 )
 def test_acceptance_regression(mode):

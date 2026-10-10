@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="17" time="1.072" timestamp="2026-10-10T17:53:48.877432+05:30" hostname="Welcome"><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[event_shift]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'event_shift'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[missing_event]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'missing_event'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[boolean_event]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'boolean_event'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[float_event]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'float_event'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[lower_shift]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'lower_shift'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[upper_shift]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'upper_shift'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[boolean_bound]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'boolean_bound'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_saved_offset_arithmetic_must_match_event_and_call[forged_zero]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">defect = 'forged_zero'
+
+    @pytest.mark.parametrize("defect", ["event_shift", "missing_event", "boolean_event", "float_event", "lower_shift", "upper_shift", "boolean_bound", "forged_zero"])
+    def test_saved_offset_arithmetic_must_match_event_and_call(defect):
+        root = Path(__file__).resolve().parents[1]
+        run = json.loads((root / "output/engine2-identified-readiness-20260930.json").read_text())
+        row = run["correlation"]["matches"][0]
+        if defect == "event_shift":
+            row["event_unix_ns"] += 1
+        elif defect == "missing_event":
+            del row["event_unix_ns"]
+        elif defect == "boolean_event":
+            row["event_unix_ns"] = True
+        elif defect == "float_event":
+            row["event_unix_ns"] = float(row["event_unix_ns"])
+        elif defect == "lower_shift":
+            row["offset_lower_ns"] += 1
+        elif defect == "upper_shift":
+            row["offset_upper_ns"] -= 1
+        elif defect == "boolean_bound":
+            row["offset_lower_ns"] = False
+        else:
+            row["event_unix_ns"] += 10**9
+            row["offset_lower_ns"], row["offset_upper_ns"] = -1, 1
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_repeat_readiness.py:32: Failed</failure></testcase><testcase classname="tests.test_repeat_readiness" name="test_historical_clock_negative_stays_rejected" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_acceptance_regression[valid]" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_acceptance_regression[cleanup]" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_acceptance_regression[stale]" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_acceptance_regression[clock]" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_acceptance_regression[identity]" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_acceptance_regression[protocol]" time="0.001" /><testcase classname="tests.test_repeat_readiness" name="test_failure_preserved_without_retry[launch]" time="0.004" /><testcase classname="tests.test_repeat_readiness" name="test_failure_preserved_without_retry[timeout]" time="0.003" /></testsuite></testsuites>

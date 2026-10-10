@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+QA-023 recomputes selected saved-readiness correlation offsets from already checked per-call clock samples, with exact numeric types/ranges and stored-bound/flag agreement. It prevents selected inconsistent-receipt acceptance, not authenticated raw telemetry, physical clock proof or malicious mutually consistent fabricated receipts. No correction, service intervention, changed historical evidence or qualified capture claim; WL-099.
+
 QA-022 external storage parent is explicitly selected, existing/absolute/nonsymlink and treated as trusted; no automatic parent creation in helper or index import. Fresh child stores only, unchanged60s/100KB/Python socket guards, evidence reserved before action. Actual ext4/700 observation does not authenticate ancestors/native libraries or prove crash/concurrency/security clearance; no host-policy bypass. WL-098.
 
 QA-021 uses existing isolated builders/new minimal trusted stages/offline installs and explicit artifact checks; no dependency upgrade/source upload/server/probe/service/clock action. Windows Application Control blocks sklearn _loss DLL, corroborated by matching read-only3077events. Do not disable/unblock/modify host policy to obtain passing tests; operator-approved runtime/signing review remains open. Linux and artifact passes do not clear Windows/native/advisory/research/production gates. [Report](PACKAGE_REFRESH_QUALIFICATION.md), WL-097.

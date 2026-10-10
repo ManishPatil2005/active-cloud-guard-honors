@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-023/E2-015: eight inconsistent saved event/bound mutations plus historical failed/accepted trial checks (11newcases). Pre-fix8fail9pass; corrected readiness/correlation/paired/clock targets62passes each OS. Missing/boolean/float event and altered/boolean/forged bounds reject; original failed timing remains failed. No new full/live qualification; WL-099.
+
 QA-022: six explicit storage-parent cases; actual fresh native ext4 two-process Chroma write/reopen/query pass. Linuxfull1800passes precedes final location-wording/two assertion changes; amended-source four-file target62Linux/61Windows+1symlink privilege skip, actual artifact selectors supplied. No Windows full retry/native security/independent effectiveness clearance; WL-098.
 
 QA-021 full sourcee0b8d89 suites with new offline wheel/installed-target paths:Linux1794passed0skips;Windows1735passed39skips20failed, matching Application Control _loss block. All8artifact checks pass each OS, exact42source/archive/installed bytes and isolated entry-point imports checked. No full installed-package-only suite/hosted rerun/security or independent effectiveness acceptance. Preserve negative rawXML; [report](PACKAGE_REFRESH_QUALIFICATION.md), WL-097.

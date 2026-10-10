@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-10 - Recompute readiness receipt event-offset arithmetic
+
+- Fix reproduced acceptance of altered event timestamps/offset bounds; exact integer/range checks and per-call recomputation now required.
+- Add11regressions,62selected passes each OS; preserve pre-fix8fail9pass and historical accepted/rejected outcomes.
+- No clock correction/new sensor run/qualified capture; original timing/coverage and research gates remain open.
+
 ## 2026-10-10 - Execute native ext4 vector persistence and add explicit storage parent
 
 - Extend existing storage helper with a validated optional parent; default path unchanged, no new engine.

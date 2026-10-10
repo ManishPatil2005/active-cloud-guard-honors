@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-086 - 2026-10-10 - Readiness gate trusted saved event offset bounds
+
+Eight mutated historical receipt copies accepted before fix despite missing/type-invalid/shifted event timestamp or inconsistent saved bounds; pre-fix8fail9pass retained. High-confidence project acceptance gap, not evidence of real tampering or physical clock repair. Recompute exact correlation formula after checked command clocks, require exact integer event/bounds and event range; saved values must agree. Eleven new regressions/final62selected passes each OS; historical trial1/2accepted3rejected unchanged. Initial corrected-target filename mistake/no-tests receipt preserved; corrected real filenames pass. Underlying historical clock mismatch/coverage/provenance/human approval remain unresolved; no new sensor/service action. WL-099.
+
 ### INC-085 - 2026-10-10 - Windows optional backend DLL blocked by Application Control
 
 QA-021 sourcee0b8d89 full Windows suite20fails/1735passes39skips; raw sklearn._loss._loss import reports Application Control blocked file. Read-only operational CodeIntegrity3077events match exact candidate DLL/process/time;20matches in bounded40event query, selected8297/8292/8287. Strong evidence for current host-policy load refusal, not a vector regression or retrospective proof of historical INC-056 cause. All8installed-package assertions pass and Linux full1794passes, but Windows acceptance stays failed. No bypass/unblock/reinstall/retry/skip. Appropriate policy exception/runtime authorization remains operator-dependent; authority/rule/signature provenance not fully diagnosed. Preserve raw receipt/DLL hash and source identity in report/WL-097.

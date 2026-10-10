@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 from scripts.paired_pilot import preflight
 from scripts.paired_report import checked_measurement
 from cloudguard.verification import read_json
+from cloudguard.clock_check import compare
 
 SOURCES = [
     "scripts/sensor_trial.py",
@@ -85,6 +86,28 @@ def accept(run, identity=None):
         )
     ):
         raise ValueError("measured timestamp mismatch")
+    for row, call in zip(rows, m["calls"], strict=True):
+        if (
+            any(
+                type(row.get(key)) is not int
+                for key in ("event_unix_ns", "offset_lower_ns", "offset_upper_ns")
+            )
+            or not 0 <= row["event_unix_ns"] < 4133980800 * 10**9
+        ):
+            raise ValueError("invalid measured event timestamp or bounds")
+        clock = call["clock_sampling"]
+        timing = compare(clock["first"], clock["last"])
+        allowance = (
+            abs(timing["clock_difference_ns"]) + timing["sampling_uncertainty_ns"]
+        )
+        lower = row["event_unix_ns"] - clock["last"]["wall_ns"] - allowance
+        upper = row["event_unix_ns"] - clock["first"]["wall_ns"] + allowance
+        if (
+            row["offset_lower_ns"] != lower
+            or row["offset_upper_ns"] != upper
+            or row["zero_within_bounds"] is not (lower <= 0 <= upper)
+        ):
+            raise ValueError("measured event offset arithmetic mismatch")
     return run["target_identity_before"]
 
 
