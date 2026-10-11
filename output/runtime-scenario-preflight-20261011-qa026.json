@@ -1,0 +1,72 @@
+{
+  "protocol": "runtime_qualification_catalogue_v1",
+  "status": "preflight_completed_execution_blocked",
+  "asset_id": "compose/redis",
+  "host_endpoint": {
+    "host": "127.0.0.1",
+    "port": 16379
+  },
+  "command_inside_identity_checked_container": [
+    "redis-cli",
+    "-h",
+    "127.0.0.1",
+    "PING"
+  ],
+  "profiles": [
+    {
+      "profile": "ping_1",
+      "family_id": "redis-ping-development",
+      "measurement_duration_seconds": 4,
+      "measurement_offsets_seconds": [
+        0
+      ],
+      "measurement_ping_count": 1,
+      "fixed_warmup_ping_count": 2,
+      "expected_reply": "PONG",
+      "purpose": "collector qualification only; not independent security data"
+    },
+    {
+      "profile": "ping_4",
+      "family_id": "redis-ping-development",
+      "measurement_duration_seconds": 4,
+      "measurement_offsets_seconds": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "measurement_ping_count": 4,
+      "fixed_warmup_ping_count": 2,
+      "expected_reply": "PONG",
+      "purpose": "collector qualification only; not independent security data"
+    }
+  ],
+  "declared_development_families": 1,
+  "proposed_study_families": 12,
+  "proposed_window_seconds": 60,
+  "measurement_covers_study_window": false,
+  "blockers": [
+    "four_second_measurement_is_not_sixty_second_observed_coverage",
+    "two_ping_profiles_are_one_previously_used_development_family",
+    "independent_task_policy_context_and_scenario_definitions_missing",
+    "live_collector_identity_timing_and_coverage_not_qualified_here",
+    "reviewer_assignments_and_operational_plan_review_required"
+  ],
+  "execution_ready": false,
+  "collection_authorized": false,
+  "labels_created": false,
+  "model_fitting_authorized": false,
+  "actions_executed": [],
+  "source_sha256": {
+    "docs/ENGINE2_SUPERVISOR_REVIEW_PROPOSAL.md": "dada21e7f3d27acc3b2dcf260b61252322453b3c6f349a12f0a955f50090d32b",
+    "testbed/inventory.json": "80cba29b5afd5fc8ec6d217d19bc3b2002a90f43ecec514219803e2cb9e2930a",
+    "testbed/compose.yaml": "68bee92f00678268a860534b4b1879e2c920b5e0ba8632edfa319c1f8d465390",
+    "cloudguard/workload.py": "92f091f7ac030f67c797ec7474b413a0fd563cf7e8bcf2a29afcb87bfd3775dd",
+    "scripts/sensor_trial.py": "198c7e04209fa84ca491d54ff5457927463a675da6d2bfe287c6e164c4d2f897",
+    "scripts/workload_control.py": "80c1d7c1cbc5fb8b43582f9ddcc81862b756be9d1308072b721906f614530765",
+    "scripts/runtime_study_plan.py": "1fe960a72c17ae849f4f8be238ef2dde3e344123d530fba8e7cd1d7aff12f936",
+    "scripts/runtime_scenario_preflight.py": "3ea7e8a6550990350ca3d375bb7306afac8e42bf9d281782d9d8446b036c6a44"
+  },
+  "source_binding_limit": "local snapshot only; no running-container or complete import-closure attestation",
+  "compose_validation": "bytes recorded only; not live deployment validation"
+}

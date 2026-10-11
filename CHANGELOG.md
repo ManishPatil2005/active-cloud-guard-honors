@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Add executable Redis scenario feasibility preflight
+
+- Record existing bounded PING profiles/loopback inventory/source snapshots without execution; expose4second/60second and one-family/12placeholder mismatch.
+- Add25tests;48selected cases pass on each OS. Preserve independent-context/qualification/label and production gates; core algorithms unchanged.
+
+
 ## 2026-10-11 - Implement proposed grouped runtime study schedule
 
 - Add runnable offline plan builder/checker:36slots,12family placeholders, fixed group-held-out splits/order, failed/unlaunched accounting and no eligibility bypass.
