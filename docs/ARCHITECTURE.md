@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-034 adds pure runtime_uncertainty.py on top of unchanged synthetic paired accounting; current package has 43 core modules. No engine, stack, service, model-fitting or collector behavior changes. A fixed source-tree runner publishes hash-bound synthetic practice results. [Analysis contract](GROUPED_UNCERTAINTY.md).
+
 QA-031 factors existing UTC wait into wait_alignment, returning all samples/reasons before caller admission, and adds explicit sensor-free --alignment-only CLI mode. No detector/feature/scoring/dependency change; native trial and timing limits in [protocol](RUNTIME_WINDOW_TRIAL.md), WL-108.
 
 QA-030 / E2-003 / E2-005 / E2-004 / RQ3 / WL-107: integrated journaled full-window development coordinator implemented and software-tested. Exclusive fsynced phase/command records, second-canary timing, UTC alignment, 60 PID-correlated calls, metrics bracketing/drop checks, source/raw hashes and owned cleanup. Binary tar export corrected without changing default strict-text transport. Final Windows143 selected passes; Linux full1973 passes/6 explicit package-artifact skips. Live trial separately approved but not yet launched at this checkpoint; no independent data, labels, novelty or production acceptance. See [full-window protocol](RUNTIME_WINDOW_TRIAL.md).

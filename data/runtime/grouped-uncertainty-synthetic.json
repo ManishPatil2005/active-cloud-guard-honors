@@ -1,0 +1,502 @@
+{
+  "schema_version": "synthetic_grouped_uncertainty_v1",
+  "origin": "synthetic_fixture",
+  "paired": {
+    "schema_version": "synthetic_paired_accounting_v1",
+    "origin": "synthetic_fixture",
+    "baseline": {
+      "schema_version": "synthetic_runtime_accounting_v1",
+      "origin": "synthetic_fixture",
+      "units": [
+        {
+          "unit_id": "g0-u0",
+          "run_id": "run-0",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u1",
+          "run_id": "run-0",
+          "label": "benign",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u2",
+          "run_id": "run-0",
+          "label": "suspicious",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u3",
+          "run_id": "run-0",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u4",
+          "run_id": "run-0",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u5",
+          "run_id": "run-0",
+          "label": "unknown",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u6",
+          "run_id": "run-0",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g0-u7",
+          "run_id": "run-0",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        },
+        {
+          "unit_id": "g1-u0",
+          "run_id": "run-1",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u1",
+          "run_id": "run-1",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u2",
+          "run_id": "run-1",
+          "label": "suspicious",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u3",
+          "run_id": "run-1",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u4",
+          "run_id": "run-1",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u5",
+          "run_id": "run-1",
+          "label": "unknown",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u6",
+          "run_id": "run-1",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g1-u7",
+          "run_id": "run-1",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        },
+        {
+          "unit_id": "g2-u0",
+          "run_id": "run-2",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u1",
+          "run_id": "run-2",
+          "label": "benign",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u2",
+          "run_id": "run-2",
+          "label": "suspicious",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u3",
+          "run_id": "run-2",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u4",
+          "run_id": "run-2",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u5",
+          "run_id": "run-2",
+          "label": "unknown",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u6",
+          "run_id": "run-2",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g2-u7",
+          "run_id": "run-2",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        },
+        {
+          "unit_id": "g3-u0",
+          "run_id": "run-3",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u1",
+          "run_id": "run-3",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u2",
+          "run_id": "run-3",
+          "label": "suspicious",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u3",
+          "run_id": "run-3",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u4",
+          "run_id": "run-3",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u5",
+          "run_id": "run-3",
+          "label": "unknown",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u6",
+          "run_id": "run-3",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g3-u7",
+          "run_id": "run-3",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        }
+      ]
+    },
+    "variant": {
+      "schema_version": "synthetic_runtime_accounting_v1",
+      "origin": "synthetic_fixture",
+      "units": [
+        {
+          "unit_id": "g0-u0",
+          "run_id": "run-0",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u1",
+          "run_id": "run-0",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u2",
+          "run_id": "run-0",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u3",
+          "run_id": "run-0",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u4",
+          "run_id": "run-0",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u5",
+          "run_id": "run-0",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g0-u6",
+          "run_id": "run-0",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g0-u7",
+          "run_id": "run-0",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        },
+        {
+          "unit_id": "g1-u0",
+          "run_id": "run-1",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u1",
+          "run_id": "run-1",
+          "label": "benign",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u2",
+          "run_id": "run-1",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u3",
+          "run_id": "run-1",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u4",
+          "run_id": "run-1",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u5",
+          "run_id": "run-1",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g1-u6",
+          "run_id": "run-1",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g1-u7",
+          "run_id": "run-1",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        },
+        {
+          "unit_id": "g2-u0",
+          "run_id": "run-2",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u1",
+          "run_id": "run-2",
+          "label": "benign",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u2",
+          "run_id": "run-2",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u3",
+          "run_id": "run-2",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u4",
+          "run_id": "run-2",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u5",
+          "run_id": "run-2",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g2-u6",
+          "run_id": "run-2",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g2-u7",
+          "run_id": "run-2",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        },
+        {
+          "unit_id": "g3-u0",
+          "run_id": "run-3",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u1",
+          "run_id": "run-3",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u2",
+          "run_id": "run-3",
+          "label": "suspicious",
+          "decision": "flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u3",
+          "run_id": "run-3",
+          "label": "suspicious",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u4",
+          "run_id": "run-3",
+          "label": "benign",
+          "decision": "not_flagged",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u5",
+          "run_id": "run-3",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "observed"
+        },
+        {
+          "unit_id": "g3-u6",
+          "run_id": "run-3",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "missing"
+        },
+        {
+          "unit_id": "g3-u7",
+          "run_id": "run-3",
+          "label": "unknown",
+          "decision": "abstained",
+          "availability": "unusable"
+        }
+      ]
+    }
+  },
+  "unit_groups": {
+    "g0-u0": "family-a",
+    "g0-u1": "family-a",
+    "g0-u2": "family-a",
+    "g0-u3": "family-a",
+    "g0-u4": "family-a",
+    "g0-u5": "family-a",
+    "g0-u6": "family-a",
+    "g0-u7": "family-a",
+    "g1-u0": "family-b",
+    "g1-u1": "family-b",
+    "g1-u2": "family-b",
+    "g1-u3": "family-b",
+    "g1-u4": "family-b",
+    "g1-u5": "family-b",
+    "g1-u6": "family-b",
+    "g1-u7": "family-b",
+    "g2-u0": "family-c",
+    "g2-u1": "family-c",
+    "g2-u2": "family-c",
+    "g2-u3": "family-c",
+    "g2-u4": "family-c",
+    "g2-u5": "family-c",
+    "g2-u6": "family-c",
+    "g2-u7": "family-c",
+    "g3-u0": "family-d",
+    "g3-u1": "family-d",
+    "g3-u2": "family-d",
+    "g3-u3": "family-d",
+    "g3-u4": "family-d",
+    "g3-u5": "family-d",
+    "g3-u6": "family-d",
+    "g3-u7": "family-d"
+  }
+}

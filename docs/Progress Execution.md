@@ -1,5 +1,11 @@
 # Progress Execution
 
+## 11 October 2026 - Research comparison software improved
+
+The comparison tool now keeps repeated observations from one scenario together. It compares both systems on the same sampled groups and preserves missing evidence and abstentions. Undefined results stay unknown, rather than being discarded to improve a result.
+
+The demonstration is invented practice data, not research findings. All 2,030 Linux tests pass, plus 140 selected checks on each platform and 8 Windows installation checks. Real publication results still require qualified data and genuine reviewer labels. [Method and repeat commands](GROUPED_UNCERTAINTY.md).
+
 ## 11 October 2026 - Clock investigation continues without changing settings
 
 A short new observation found consistent clock relationships during that sample, but Linux still reported that time was not synchronized. We did not change settings or run the sensor again. This does not undo the earlier failed trial. The supervisor has been nominated to review cases; a second independent reviewer or an approved change to that requirement is still needed. No research labels have been invented.

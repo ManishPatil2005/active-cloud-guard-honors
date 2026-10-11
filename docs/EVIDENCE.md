@@ -1,5 +1,9 @@
 # Evidence index
 
+## Grouped paired uncertainty preparation (11 October 2026)
+
+QA-034 [receipt](../output/grouped-statistics-qualification-20261011-qa034.json): [Windows 140 targets](../output/grouped-statistics-windows-20261011-qa034.xml), [Linux 140 targets](../output/grouped-statistics-linux-20261011-qa034.xml), [full Linux 2,030 passes](../output/grouped-statistics-full-linux-20261011-qa034.xml), [Windows 8 package tests](../output/grouped-statistics-package-windows-20261011-qa034.xml). [Windows](../output/grouped-statistics-demo-windows-20261011-qa034.json)/[Linux](../output/grouped-statistics-demo-linux-20261011-qa034.json) fixed demos match numerically. Invented data only; numerical differences are not engine effectiveness/novelty results. WL-111.
+
 ## Owner-requested WSL follow-up (11 October 2026)
 
 [QA-033 actual observation](../output/kernel-clock-followup-20261011-qa033.json) and [recomputed review](../output/kernel-clock-followup-review-20261011-qa033.json): 16 packets/32 zero-mode queries, short interval consistency plus unsynchronized state. No historical correction, collector qualification or independent study. WL-110 / INC-090.

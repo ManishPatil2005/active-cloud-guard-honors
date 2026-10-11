@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Add grouped paired uncertainty software
+
+- Implement bounded, seeded whole-family paired bootstrap with preserved denominators and explicit undefined intervals.
+- Add a fixed synthetic evidence runner and 46 tests; no new detector, human labels or real-data fitting authority.
+- Verify 140 targeted tests each OS, full Linux 2,030 passes/zero skips and 8 Windows package checks against fresh packages. WL-111.
+
 ## 2026-10-11 - Preserve read-only WSL clock follow-up
 
 - Execute and independently recompute one existing 16-packet diagnostic after the owner's request; preserve actual receipts and unchanged historical failures.

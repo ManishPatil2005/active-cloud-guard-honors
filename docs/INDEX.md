@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest software: [QA-034 grouped paired uncertainty](GROUPED_UNCERTAINTY.md), whole-family resampling with undefined denominators retained, synthetic preparation only. Full Linux 2,030 passes/zero skips and current packages verified; live acquisition, independent labels/evaluation and production gates remain open.
+
 Latest observation: [QA-033 read-only clock follow-up](KERNEL_CLOCK_STATE.md), 16 packets/32 queries; short consistency observed but synchronization/collector qualification not established. Supervisor nominated as one reviewer; no actual labels. Earlier checkpoints retain their dated scope.
 
 QA-032 / R8 / WL-109: rebuilt fresh isolated Windows/Linux packages from source f624e6c, including the binary process-export change. Exact42module archive/installed-source checks and isolated installed CLI paths pass: Windows8package checks; full Linux1984passes, zero skips/failures/errors with fresh artifacts supplied. Initial Windows build-temp permission failure preserved; workspace-local command-only TEMP/TMP resolves build, no security-policy changes. Latest selected coordinator148passes each OS remains QA-031 scope. Actual native collection still rejected at alignment; separate clock observation2.064462457s divergence remains unresolved. No fresh-host/full-Windows/independent-research/production acceptance. See [package qualification](PACKAGE_REFRESH_QUALIFICATION.md).

@@ -1,0 +1,57 @@
+{
+  "milestone": "QA-034",
+  "base_commit": "017ac34bba72e1faf9d71ff2c0cc0de41c0596f4",
+  "core_module_count": 43,
+  "tests": [
+    {
+      "path": "output/grouped-statistics-windows-20261011-qa034.xml",
+      "sha256": "5be2859d4f42df5897c73e762f4b77377e5b355774e2c91f53d7780e9177c350",
+      "tests": 140,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_seconds": 1.106
+    },
+    {
+      "path": "output/grouped-statistics-linux-20261011-qa034.xml",
+      "sha256": "c7d9f9cb5ec14a50d7a7f798a3ff2daeefe455a8cb689c56e18d912c12eac1f9",
+      "tests": 140,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_seconds": 2.963
+    },
+    {
+      "path": "output/grouped-statistics-package-windows-20261011-qa034.xml",
+      "sha256": "22bff2861a677344f35d4da02c141710939a02b4715738386facd3866dbaa377",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_seconds": 1.323
+    },
+    {
+      "path": "output/grouped-statistics-full-linux-20261011-qa034.xml",
+      "sha256": "01c441bc7c16880716316727238ff610187400741aa3a2a0175bfd6960d6d2b3",
+      "tests": 2030,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_seconds": 71.279
+    }
+  ],
+  "wheels": [
+    {
+      "path": "tmp/package-statistics-windows-qa034/artifacts/active_cloud_guard-0.5.0-py3-none-any.whl",
+      "sha256": "115d7e18aca28fbf63909a363b305ea775e4877b4e21a116cca8edee5c0d8df5",
+      "bytes": 98757
+    },
+    {
+      "path": "tmp/package-statistics-linux-qa034/artifacts/active_cloud_guard-0.5.0-py3-none-any.whl",
+      "sha256": "47b190089f764529dd35f5b721edb0313fce4c0bee3021ca0cf8a07bce4568b8",
+      "bytes": 98750
+    }
+  ],
+  "independent_evaluation_verified": false,
+  "full_windows_qualified": false
+}

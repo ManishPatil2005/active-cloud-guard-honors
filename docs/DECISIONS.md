@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-089 - 2026-10-11 - Paired family uncertainty as synthetic preparation
+
+Implement the existing grouped-bootstrap requirement without altering either engine or relaxing real-data gates. Resample whole families once per paired draw, pool all their units, retain missing/unknown/abstention counts and withhold intervals when any draw is undefined. Seeded percentile arithmetic is transparent exploratory software, not scientific acceptance. BCa/basic methods, equal-family estimands, sample adequacy and fixed-recall operating points require actual protocol review. Existing accounting/fitting wrappers unchanged. Cross-platform numeric equality and a separate expanded-row oracle tested; GROUPED_UNCERTAINTY / WL-111.
+
 ## ADR-088 - 2026-10-11 - Retain sampled rejection inputs before admission and stop unqualified collection
 
 QA-031/WL-108. A failed timing predicate must not discard its input samples. Store all alignment evidence/reasons before raising; make the same wait observable without sensor/workload activity. Preserve old missing samples as missing. Observed2.064sclock divergence is outside the unchanged50ms gate; do not align/correct timestamps, relax limits or reuse the single sensor authorization. Resume collection only under a reviewed qualified timing environment. This choice preserves scientific validity at the cost of deferring data/model milestones; source tests are not a clock repair.
