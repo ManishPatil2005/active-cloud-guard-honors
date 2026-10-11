@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest live result: [QA-035 approved single qualification](RUNTIME_WINDOW_TRIAL.md), rejected at alignment with both samples retained:5.473448109s clock disagreement,0measuredPINGs. Owned sensor removed/Redis restored stopped; synchronization flag yes is not clock stability. No retry or clock intervention; empirical/publication gates remain open. WL-113/INC-091.
+
 Latest software: [QA-034 grouped paired uncertainty](GROUPED_UNCERTAINTY.md), whole-family resampling with undefined denominators retained, synthetic preparation only. Full Linux 2,030 passes/zero skips and current packages verified; live acquisition, independent labels/evaluation and production gates remain open.
 
 Latest observation: [QA-033 read-only clock follow-up](KERNEL_CLOCK_STATE.md), 16 packets/32 queries; short consistency observed but synchronization/collector qualification not established. Supervisor nominated as one reviewer; no actual labels. Earlier checkpoints retain their dated scope.

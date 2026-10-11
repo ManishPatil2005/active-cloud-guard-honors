@@ -1,5 +1,29 @@
 # Incident and resolution ledger
 
+### INC-091 - 2026-10-11 - Newly approved trial rejects despite synchronization flag
+
+QA-035 / E2-003 / E2-005 / RQ3. Expected: one bounded development trial either
+passes all unchanged timing/coverage gates or preserves a rejected outcome and
+restores only its owned resources. At source29cd9c4, both readiness calls return
+PONG but UTC alignment rejects before any measured PING. Eleven-record journal
+includes both samples: elapsed monotonic57,364,514,565ns, wall-minus-monotonic
+5,473,448,109ns, sampling uncertainty1,217ns, boundary error5,473,528,008ns.
+The existing50ms clock and100ms boundary tolerances both reject. Offline
+recomputation matches exactly. High confidence in this observed disagreement;
+responsible clock writer/mechanism and relation to prior failures remain unknown.
+Timedatectl reports NTPSynchronized=yes before/after, not proof of stable elapsed
+time or authenticated UTC; no continuous kernel discipline trace was collected.
+
+Containment: do not change gates or time services and do not retry. Preserve raw
+exports before removing the exact owned sensor; verify sensor absence and Redis
+restored to its original stopped state. Source99files unchanged, raw hashes and
+all original QA-030journal/raw hashes verified. Metrics59snapshots/zero selected
+reported drops do not establish full coverage. This is an unresolved experiment
+qualification failure, not a claimed detector repair or research result. Receipt:
+output/window-trial-native-summary-20261011-qa035.json; raw evidence stays ignored.
+WL-113 records exact commands, scope and remaining limits. New trial permission
+is consumed; next operational action requires its own scope/authority.
+
 ### INC-090 - 2026-10-11 - Short consistent clock sample remains unsynchronized
 
 QA-033 records all 16 packets/32 zero-mode kernel queries. Sampled RAW/MONO and wall/BOOT differences include zero, while all kernel states are TIME_ERROR=5/status=8256 and timedatectl reports NTPSynchronized=no. This is a different observed regime from the historical timing rejection, not a repair or attribution. Service remains active/running/enabled and implicit host sync Y. Ordinary-user journal visibility is restricted; no causal log evidence obtained. No clock/service/policy change or sensor retry. Preserve both positive sample consistency and negative synchronization state; full-window/repeatability/collector qualification remains open. WL-110.

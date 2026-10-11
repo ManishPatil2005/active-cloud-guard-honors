@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Preserve newly approved native trial rejection and verified restoration
+
+- Execute one bounded Redis/Falco qualification at29cd9c4; retain11journal records and raw evidence, including both rejected alignment samples.
+- Record5.473448109s elapsed-clock disagreement despite a synchronized service flag; keep every timing/coverage gate unchanged and leave cause unresolved.
+- Verify owned sensor removal, original Redis stopped state and unchanged historical failure hashes. No code change or automatic retry; QA-035/WL-113/INC-091.
+
 ## 2026-10-11 - Record bounded service-log review and pending qualification consent
 
 - Obtain previously restricted time-service log context read-only; do not infer causal repair from selected entries.

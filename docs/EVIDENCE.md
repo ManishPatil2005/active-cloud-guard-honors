@@ -1,5 +1,9 @@
 # Evidence index
 
+## Newly approved native qualification (11 October 2026)
+
+QA-035 [minimized actual receipt](../output/window-trial-native-summary-20261011-qa035.json):11hash-linked journal records,2readinessPONGs,0measuredPINGs; rejected alignment with5.473448109s elapsed-clock disagreement and5.473528008s boundary error. Both samples preserved/recomputed; unchanged99source hashes/raw exports/owned cleanup/Redis stopped restoration verified. Synchronized service flag yes before/after did not establish stable timing. Historical QA-030journal/raw hashes unchanged. Private raw paths/logs excluded; no retry, code modification, independent evaluation or production acceptance. WL-113/INC-091.
+
 ## Grouped paired uncertainty preparation (11 October 2026)
 
 QA-034 [receipt](../output/grouped-statistics-qualification-20261011-qa034.json): [Windows 140 targets](../output/grouped-statistics-windows-20261011-qa034.xml), [Linux 140 targets](../output/grouped-statistics-linux-20261011-qa034.xml), [full Linux 2,030 passes](../output/grouped-statistics-full-linux-20261011-qa034.xml), [Windows 8 package tests](../output/grouped-statistics-package-windows-20261011-qa034.xml). [Windows](../output/grouped-statistics-demo-windows-20261011-qa034.json)/[Linux](../output/grouped-statistics-demo-linux-20261011-qa034.json) fixed demos match numerically. Invented data only; numerical differences are not engine effectiveness/novelty results. WL-111.

@@ -1,5 +1,15 @@
 # Live kernel clock-state diagnostic (E2-025)
 
+## Later qualification observation - QA-035 / WL-113
+
+One newly authorized Redis/Falco trial, not another kernel-state diagnostic,
+rejected at UTC alignment with5.473448109s wall-minus-monotonic elapsed difference
+over57.364514565s. Timedatectl now reports NTPSynchronized=yes before/after; this
+supersedes only the latest service-flag observation, not QA-033's saved negative
+state or the unresolved timing cause. No clock/time-service intervention or
+continuous adjtimex trace. [Trial record](RUNTIME_WINDOW_TRIAL.md) preserves both
+alignment samples, no measured minute and verified sensor/Redis cleanup.
+
 ## 11 October follow-up - QA-033 / WL-110
 
 WL-112 addendum: a separately bounded root read of the last 20 timesyncd journal entries succeeded after ordinary-user visibility was insufficient. Selected synchronization/service/boot/server-contact events do not identify the prior failure's actor or establish synchronization now. No settings or service mutation. Root access was used only for this log read; the actual clock-state observation remained ordinary-user. A new full-window development trial was requested separately, not executed at this checkpoint.

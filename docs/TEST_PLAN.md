@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-035 / WL-113: one newly approved native qualification executed, rejected at alignment before measuredPINGs;11record journal and rejected samples reviewed offline,99source hashes stable, raw/metrics hashes and original QA-030evidence preserved, owned sensor absence and Redis restoration checked. Timing/coverage gates unchanged. This evidence-only milestone does not rerun full software suites or establish independent detector effectiveness. Actual receipt and commands in RUNTIME_WINDOW_TRIAL/WORK_LOG; documentation verification recorded at closure.
+
 QA-034 / WL-111: 46 new grouped uncertainty cases; 140 selected passes each OS. Unequal-family row-expansion oracle, all accounting cells, pairing, unknown/abstention/undefined states, RNG isolation, strict budgets and exclusive CLI output. Both fixed synthetic demos pass five checks with identical numerical results. Full Linux 2,030 passes/zero skips with fresh 43-module package; Windows 8 package checks, Ruff/172-file formatting/both pip checks pass. No full Windows or independent detector study clearance. [Contract](GROUPED_UNCERTAINTY.md).
 
 QA-033: exactly one existing 16-packet/32-query native diagnostic plus its offline source/packet/summary review executed; both exit 0. Observation completion is not clock stability/synchronization or collector acceptance. No full suite rerun for this evidence-only milestone; exact commands and service-state checks in WL-110.

@@ -1,6 +1,44 @@
 # Journaled full-window development qualification
 
-## Latest observed outcome - QA-031
+## Latest observed outcome - QA-035 / WL-113
+
+The owner explicitly approved one new trial after WL-112. It ran once at source
+29cd9c470e4df90cc5200bbc9c0023d5350185e5, with the same pinned image and watchdog,
+and rejected at UTC alignment before any of the 60 measured PINGs. Both readiness
+PINGs returned PONG; the second PID had exactly one event within its command
+clock bracket. The first PID had no matching connect event, as in the earlier
+trial; readiness does not establish full capture.
+[Minimized actual receipt](../output/window-trial-native-summary-20261011-qa035.json).
+
+All 11 journal records passed structural review; both rejected alignment samples
+are present. Recomputed wall-minus-monotonic elapsed difference: 5,473,448,109 ns
+over 57,364,514,565 ns, sampling uncertainty 1,217 ns. UTC-boundary error:
+5,473,528,008 ns. Unchanged 50 ms clock-disagreement and 0..100 ms boundary gates
+both reject. No measured workload or full-window capture review was reached.
+
+The selected 99 source hashes stayed unchanged. Exported 45,863-byte raw log and
+101,954-byte metrics file hashes match; 59 metrics snapshots show 26,218
+collector-wide events and zero selected reported drop deltas, not complete
+telemetry or Redis coverage. Owned sensor cleanup verified; a separate
+exact-nonce inventory found no remaining container. Redis restored to its
+observed original stopped state, same loopback binding/restart policy. Earlier
+QA-030 journal/raw hashes remain unchanged.
+
+Timedatectl reports NTP=yes and NTPSynchronized=yes before/after this trial,
+unlike QA-033's negative synchronization state. Timesyncd remains active/running/
+enabled. No clock/time-service changes by this trial and no concurrent kernel
+discipline trace: the flag transition's cause, timing writer and mechanism are
+unknown. A positive synchronization flag did not establish stable elapsed
+relationships. Neither a causal fix nor qualified UTC is claimed (INC-091).
+
+This new one-trial authorization is consumed. No automatic retry, downloads,
+production target or clock intervention. Next requires a separately scoped
+timing investigation/qualified-host plan, not relaxed acceptance or repeated
+success-seeking trials. Independent data/review/calibration and publication
+claims still require actual research evidence. Original outcomes below remain
+unchanged; source/test behavior was not edited for this evidence-only milestone.
+
+## Earlier observed outcome - QA-031
 
 The one approved native trial at e9cc775 rejected during UTC alignment before any
 measured PING. Two readiness PINGs ran; second PID connection observed. Raw binary

@@ -1,0 +1,118 @@
+{
+  "report_kind": "minimized_actual_development_trial",
+  "source_commit": "29cd9c470e4df90cc5200bbc9c0023d5350185e5",
+  "protocol": "redis_window_trial_v1",
+  "status": "rejected",
+  "exit_code": 1,
+  "authorization": "One newly approved development trial; consumed by this rejected execution",
+  "source_unchanged": true,
+  "source_file_count": 99,
+  "source_manifest_sha256": "15168648fa2e84b04be9b1e82d835ca89a3ff26130f837887aedcafc5233f4ad",
+  "source_manifest_encoding": "UTF-8 json.dumps(source_sha256, sort_keys=True, separators=(',', ':')) without trailing newline",
+  "journal_record_count": 11,
+  "journal_status": "terminal_record_present",
+  "journal_sha256": {
+    "000.json": "a39b6747dfd75b39055da281cd94ad3c6837cd767bfbf9e3a16be09a8f0630b1",
+    "001.json": "69917a557b096e76a7e02bb5c977580a2297669d84988c8abbcedc5f0eb99703",
+    "002.json": "dc59cafa465ea7ad4089fea14fddc4df2fa0f6c75331dec90e731c11de595562",
+    "003.json": "12d9d3bb348279e76f1008dfbf60ffb67006ad50cf24ec417aaff12f966d0eaf",
+    "004.json": "d4e008a10d67f9c462f44613e51bdbc56dc4349d89aedc038c93b905c7f766de",
+    "005.json": "2758569223e224bcf7d9b0c88437a733fc741c7328941856f5e66ecad2ebb928",
+    "006.json": "08000a80296323b55bafc4a0509b1faa3f06445fe6259ca36a3b3346ca2498cd",
+    "007.json": "49f7a81a9b4bcd37ff5bb11961db69c68e10067f0193e26c483a1c2b535ee965",
+    "008.json": "94f0d1d91467effd595e4684d357f291429d00d705b5837ed983c678123f0bd0",
+    "009.json": "6a64c0406da86230f470cb057740875c747594a8eb540d978f9af6def1d6ec3b",
+    "010.json": "26547ebf3acb0edf1a8440498a7be245beaf31466070ec29397c12b6b3b2107d"
+  },
+  "readiness_pings_completed": 2,
+  "final_canary_connect_counts": [0, 1],
+  "second_canary_event_in_command_bracket": true,
+  "second_canary_final_event_matches_readiness": true,
+  "alignment": {
+    "accepted": false,
+    "boundary_error_ns": 5473528008,
+    "boundary_ns": 1791727620000000000,
+    "first": {
+      "monotonic_mid_ns": 4214832412258,
+      "sampling_span_ns": 480,
+      "wall_ns": 1791727562635565334
+    },
+    "last": {
+      "monotonic_mid_ns": 4272196926823,
+      "sampling_span_ns": 1953,
+      "wall_ns": 1791727625473528008
+    },
+    "reasons": ["clock_disagreement", "utc_boundary_outside_tolerance"],
+    "timing": {
+      "clock_difference_ns": 5473448109,
+      "elapsed_monotonic_ns": 57364514565,
+      "sampling_uncertainty_ns": 1217,
+      "within_tolerance": false
+    }
+  },
+  "measured_ping_intents": 0,
+  "workload": null,
+  "capture_checks": null,
+  "faults": [{"code": "ValueError", "phase": "collection"}],
+  "lease": {
+    "launch_confirmed": true,
+    "launch_completion_uncertain": false,
+    "cleanup_attempted": true,
+    "removal_observed": true,
+    "cleanup_verified": true,
+    "faults": [],
+    "raw_log_sha256": "7589aa6a69029b558b0a7f3ab8fa0a4d9ec04989dfde4dc300626208882dad9a",
+    "metrics_raw_sha256": "6ca5ef0f0e91780af8166cf9a4c5a5c781162a805811cb0158dbadf636db4ec0"
+  },
+  "raw_log_bytes": 45863,
+  "metrics_raw_bytes": 101954,
+  "metrics": {
+    "snapshot_count": 59,
+    "observed_counter_deltas": {
+      "scap.n_evts": 26218,
+      "scap.n_drops": 0,
+      "falco.outputs_queue_num_drops": 0
+    },
+    "scope": "collector-wide, not Redis-specific",
+    "coverage": "partial_or_unknown"
+  },
+  "read_only_state_observations": {
+    "timedatectl_before": {"NTP": "yes", "NTPSynchronized": "yes"},
+    "timedatectl_after": {"NTP": "yes", "NTPSynchronized": "yes"},
+    "timesyncd_before": {"ActiveState": "active", "SubState": "running", "UnitFileState": "enabled"},
+    "timesyncd_after": {"ActiveState": "active", "SubState": "running", "UnitFileState": "enabled"},
+    "redis_before_running": false,
+    "redis_after_running": false,
+    "redis_restored_to_prior_stopped_state": true,
+    "owned_sensor_absent_postcheck": true,
+    "note": "Selected shell observations, not authenticated service history or clock stability"
+  },
+  "offline_checks": {
+    "journal_terminal_present": true,
+    "sources_still_match": true,
+    "alignment_arithmetic_matches": true,
+    "raw_hash_matches": true,
+    "metrics_hash_matches": true,
+    "exactly_two_completed_readiness": true,
+    "second_canary_final_event_matches": true,
+    "no_measured_ping": true,
+    "owned_cleanup_verified": true,
+    "qa030_original_journal_and_raw_hashes_unchanged": true
+  },
+  "raw_bytes_private": true,
+  "automatic_retries": 0,
+  "clock_or_time_service_changes_by_this_trial": false,
+  "downloads": false,
+  "independent_evaluation_verified": false,
+  "labels_created": false,
+  "complete_telemetry_verified": false,
+  "historical_clock_cause_resolved": false,
+  "limits": [
+    "Both original alignment thresholds rejected: 50 ms clock disagreement and 0..100 ms UTC-boundary lateness; thresholds were unchanged.",
+    "The service synchronization flag was yes before and after, unlike QA-033; it did not establish stable elapsed relationships or authenticate UTC.",
+    "The responsible clock writer, mechanism, and relation to prior failures are unknown; no continuous kernel discipline trace was collected.",
+    "First readiness PID has no matching connect event; only the second is required by this development readiness protocol.",
+    "No measured minute was collected; collector-wide zero reported drops do not prove complete delivery or security effectiveness.",
+    "This rejected development trial supplies no independent labels, detector comparison, novelty result, or production acceptance."
+  ]
+}
