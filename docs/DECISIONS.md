@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-084 - 2026-10-11 - Separate full-window scheduling from historical sensor diagnostics
+
+QA-027/WL-104. Keep old four-second profiles/25second sensor watchdog unchanged instead of silently extending historical protocol. Add fixed60second qualification scheduling with virtual-clock tests and definition-only CLI; do not wire unreviewed live collector callbacks. Callback deadlines require external supervision; timing success cannot prove continuous UTC-grid coverage, identity, labels or independent families. Next versioned bounded collector integration and separate qualification must meet those gates. No new engine/stack or security operating-point claim.
+
 ## ADR-083 - 2026-10-10 - Preserve policy-blocked Windows qualification instead of bypassing it
 
 QA-021/WL-097. Build new ignored minimal offline artifacts after source change; never reuse old wheel as source-equality proof. Preserve Windows full negative with corroborating Code Integrity evidence alongside Linux full pass. Application Control belongs to the operator/security authority: do not disable policy, unblock files or rerun arbitrary runtime choices for green. Approved signed/runtime policy-owner review is a separate next step. Source/package correctness and host authorization are separate, neither proves research effectiveness or production readiness.

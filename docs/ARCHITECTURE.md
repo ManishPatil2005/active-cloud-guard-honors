@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-027 adds separate research scheduler scripts/window_workload.py, not a third engine or core pipeline change. Fixed60second callback-driven qualification timing; specification-only CLI and virtual-clock tests. Existing four-second profiles/25second collector remain unchanged. Full-window transport/supervision/UTC coverage not integrated; callback deadlines require external enforcement. [Protocol](RUNTIME_WORKLOAD_PROTOCOL.md), ADR-084/WL-104.
+
 QA-020 preserves embedded Chroma/local Ollama/two-engine flow. Vector query results now pass corpus provenance validation before entering research knowledge: IDs select current corpus documents, stored metadata must agree, distances/envelopes are bounded and typed. Native ranking and trusted store/model/corpus assumptions unchanged; no third engine or dependency migration. [Contract](VECTOR_RESULT_BOUNDARY.md).
 
 QA-015 adds an isolated operator qualifier using existing bounded child/evidence/strictJSON helpers; pinned Chroma1.0.20 PersistentClient with explicit synthetic vectors only. No core CLI/algorithm/default/stack change; test source and ignored fresh store separated from working index. [Compatibility/security limits](VECTOR_PROFILE_QUALIFICATION.md).

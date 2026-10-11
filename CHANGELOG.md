@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Implement fixed 60-second qualification workload scheduling
+
+- Add separate fixed60PING/60second scheduler, fail-stop timing/response checks and partial-attempt accounting; preserve old diagnostics.
+- Add21virtual-clock cases;60selected Windows tests pass. Specification CLI performs no launch; collector/watchdog/UTC coverage integration remains pending.
+
+
 ## 2026-10-11 - Add executable Redis scenario feasibility preflight
 
 - Record existing bounded PING profiles/loopback inventory/source snapshots without execution; expose4second/60second and one-family/12placeholder mismatch.

@@ -1,5 +1,13 @@
 # Runtime workload protocol v0.1
 
+## Separate full-window scheduler proposal - 11 October 2026
+
+QA-027/WL-104 implements [window_workload.py](../scripts/window_workload.py) as a separate qualification scheduler, not an amendment to the historical four-second live protocol below. Fixed60PINGs at offsets0..59seconds over60seconds;250ms maximum dispatch lateness,750ms measured round-trip and100ms end lateness. Existing clock bracket/tolerance checks retained. Stop at failure without catch-up/retry; retain attempted/completed/unattempted counts and missing clock records. Callback exception text/reply contents are not stored. Engineering thresholds are proposed, not calibrated security operating points. PING frequency has no threat label; this remains the existing development family.
+
+CLI `tmp/dependency-candidate-windows-20261009/Scripts/python.exe scripts/window_workload.py --output output/window-definition-NEW.json` publishes definition only. [Actual definition](../output/window-workload-definition-20261011-qa027.json) explicitly marks collection unauthorized/live transport unintegrated/watchdog incompatible. The library callback needs separately bounded deadline enforcement; post-return timing checks cannot kill a stuck callback. No sensor or Redis launched in21new virtual-clock tests. Existing sensor_trial25second watchdog/32second wait and four-second choices remain unchanged. Do not wire this scheduler into that old sensor command.
+
+Next integration requires separately versioned collector lifespan/cleanup, identity/canary readiness, metrics and raw evidence bracketing, source binding and partial-failure preservation. Sixty seconds elapsed can straddle two UTC feature bins: align/review continuous observed boundaries before accepting a full60second feature window. Timing acceptance alone never verifies collector coverage or independent benchmark eligibility. Live qualification and actual task/policy context/reviewers remain open.
+
 Defined 29 September 2026 before the measured-profile pilot. Scope: engineering validation of measurement boundaries, not independent effectiveness evaluation. Preserve all earlier captures unchanged. Engine 1 and existing stack remain fixed.
 
 ## Pilot acceptance
