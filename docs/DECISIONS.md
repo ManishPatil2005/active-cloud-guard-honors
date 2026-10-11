@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-086 - 2026-10-11 - Preserve sensor evidence before owned removal and retain launch uncertainty
+
+QA-029/WL-106. Separate proposed140/150second lifecycle from historical15/25second sensor. Require literal trusted operational approval, nonce/full-ID/name/image ownership, stopped-state recheck and successful bounded raw export before removal. Unknown Docker launch delivery cannot become verified cleanup through a later absence check. Export failure leaves stopped container for operator review; no force-remove/retry or fabricated clean verdict. Native compatibility/durable coordinator/full coverage still require qualification. Library gate is not authentic supervisor attestation or permission for unattended collection.
+
 ## ADR-085 - 2026-10-11 - Freeze local endpoint and stop after uncertain Redis exec
 
 QA-028/WL-105. Use explicit reviewed Unix socket/full container ID and fixed PID+PING script through existing bounded process runner, refusing Docker environment overrides. Do not rely on current context routing or unbounded legacy command. Preserve selected pre/post identity/attempts and sticky failures. Direct-client timeout/reaping is not remote-exec cancellation: no replacement/retry or clean-completion claim. Collector lifetime/cleanup and coverage need separate integration/qualification; no new live sensor authority or old watchdog change.

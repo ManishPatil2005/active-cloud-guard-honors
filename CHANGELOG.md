@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Implement owned sensor lifecycle and evidence-preserving cleanup
+
+- Add explicit-approval-gated library with proposed bounded collector runtime, nonce/full-ID cleanup and raw export before removal; old sensor unchanged.
+- Add26mock cases/final86selected passes each OS; retain preliminary receipts. Unknown launch remains unknown; failed export preserves stopped container, no live qualification claimed.
+
+
 ## 2026-10-11 - Implement bounded Redis full-window callback transport
 
 - Add fixed local-socket/identity/PID+PING callback with finite client output/deadline/attempt budgets and sticky failures; no implicit sensor launch.

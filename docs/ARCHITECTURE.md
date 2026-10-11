@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-029 scripts/window_sensor.py adds owned lifecycle/raw-export library around existing bounded runner, Redis transport and existing rule generator; no third engine/core package/dependency or old sensor changes. Proposed140/150second budgets and explicit launch gate, nonce-specific cleanup, failures/snapshots retained. End-to-end durable collector coordinator/canary/UTC coverage/native qualification still pending; [protocol](RUNTIME_WORKLOAD_PROTOCOL.md), WL-106.
+
 QA-028 adds scripts/window_transport.py callback/selected identity layer using existing bounded process runner and PID parser. Fixed Unix-socket Redis commands feed window_workload.run; mutable evidence returned only as deep-copy snapshots. No new engine/package module/dependency/CLI or old sensor change. Actual collector supervision/coverage integration and live qualification remain pending; [protocol](RUNTIME_WORKLOAD_PROTOCOL.md), WL-105.
 
 QA-027 adds separate research scheduler scripts/window_workload.py, not a third engine or core pipeline change. Fixed60second callback-driven qualification timing; specification-only CLI and virtual-clock tests. Existing four-second profiles/25second collector remain unchanged. Full-window transport/supervision/UTC coverage not integrated; callback deadlines require external enforcement. [Protocol](RUNTIME_WORKLOAD_PROTOCOL.md), ADR-084/WL-104.
