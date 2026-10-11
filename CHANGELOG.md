@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Implement bounded Redis full-window callback transport
+
+- Add fixed local-socket/identity/PID+PING callback with finite client output/deadline/attempt budgets and sticky failures; no implicit sensor launch.
+- Add39cases;83selected tests pass each OS. Direct-client cleanup is not remote-exec completion or live coverage; collector integration remains pending.
+
+
 ## 2026-10-11 - Implement fixed 60-second qualification workload scheduling
 
 - Add separate fixed60PING/60second scheduler, fail-stop timing/response checks and partial-attempt accounting; preserve old diagnostics.

@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-028 adds scripts/window_transport.py callback/selected identity layer using existing bounded process runner and PID parser. Fixed Unix-socket Redis commands feed window_workload.run; mutable evidence returned only as deep-copy snapshots. No new engine/package module/dependency/CLI or old sensor change. Actual collector supervision/coverage integration and live qualification remain pending; [protocol](RUNTIME_WORKLOAD_PROTOCOL.md), WL-105.
+
 QA-027 adds separate research scheduler scripts/window_workload.py, not a third engine or core pipeline change. Fixed60second callback-driven qualification timing; specification-only CLI and virtual-clock tests. Existing four-second profiles/25second collector remain unchanged. Full-window transport/supervision/UTC coverage not integrated; callback deadlines require external enforcement. [Protocol](RUNTIME_WORKLOAD_PROTOCOL.md), ADR-084/WL-104.
 
 QA-020 preserves embedded Chroma/local Ollama/two-engine flow. Vector query results now pass corpus provenance validation before entering research knowledge: IDs select current corpus documents, stored metadata must agree, distances/envelopes are bounded and typed. Native ranking and trusted store/model/corpus assumptions unchanged; no third engine or dependency migration. [Contract](VECTOR_RESULT_BOUNDARY.md).

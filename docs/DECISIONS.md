@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-085 - 2026-10-11 - Freeze local endpoint and stop after uncertain Redis exec
+
+QA-028/WL-105. Use explicit reviewed Unix socket/full container ID and fixed PID+PING script through existing bounded process runner, refusing Docker environment overrides. Do not rely on current context routing or unbounded legacy command. Preserve selected pre/post identity/attempts and sticky failures. Direct-client timeout/reaping is not remote-exec cancellation: no replacement/retry or clean-completion claim. Collector lifetime/cleanup and coverage need separate integration/qualification; no new live sensor authority or old watchdog change.
+
 ## ADR-084 - 2026-10-11 - Separate full-window scheduling from historical sensor diagnostics
 
 QA-027/WL-104. Keep old four-second profiles/25second sensor watchdog unchanged instead of silently extending historical protocol. Add fixed60second qualification scheduling with virtual-clock tests and definition-only CLI; do not wire unreviewed live collector callbacks. Callback deadlines require external supervision; timing success cannot prove continuous UTC-grid coverage, identity, labels or independent families. Next versioned bounded collector integration and separate qualification must meet those gates. No new engine/stack or security operating-point claim.
