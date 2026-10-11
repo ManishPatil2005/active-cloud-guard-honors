@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Requalify fresh packages and complete full Linux regression
+
+- Build isolated current-source Windows/Linux wheels with existing pinned offline builders; no downloads, runtime replacement or architecture change.
+- Verify42module source/installed-byte equality and installed CLI behavior; Windows8package checks pass, Linux full1984passes with zero skips.
+- Preserve initial Windows build-temp permission failure; use command-local workspace temp, no policy bypass or broad cleanup. Clock/native-study and full-Windows gates remain open. WL-109.
+
 ## 2026-10-11 - Preserve rejected alignment evidence and record native qualification failure
 
 - Run the single approved Redis/Falco development trial: readiness and owned raw-export/cleanup observed, UTC gate rejected before the60PINGmeasurement; Redis restored stopped.

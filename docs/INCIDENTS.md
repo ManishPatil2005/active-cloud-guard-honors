@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-089 - 2026-10-11 - Windows package build-tracker temporary-directory refusal
+
+Offline pip26.2 build in a fresh QA-032 stage exits2: PermissionError opening build-tracker entry in sandbox-managed system temp; cleanup warnings also observed. No wheel/install completed in that attempt. Cause evidence supports inaccessible temp location in this execution context, not a project source or scikit-learn policy repair. Use new workspace local-temp and process-only TEMP/TMP with fresh artifacts-final; same pinned builder/source builds and installs successfully. No ACL/policy modification, manual cleanup or historical artifact overwrite. Windows8actual package tests and Linux1984full tests pass with new artifacts; prior Windows optional/native and clock failures remain unrelated/open. WL-109.
+
 ### INC-088 - 2026-10-11 - Live UTC qualification rejection and missing rejected end sample
 
 At publishede9cc775, the single approved sensor trial produced two PONG canaries and a unique second-PID event, then rejected before any measured PING. Journal10records ends rejected/ValueError after alignment_intent. Old code checked before saving the alignment end sample; consequently the exact violated condition for this original run cannot be reconstructed. High-confidence reporting defect, not proof of a particular clock actor or a retrospective clock repair. New regression failed1/1 before fix (XML SHA0717954232659320740108a7615db7a12a04687b4f1bb498231ba2dbd8231044); save first/last/comparison/error/reasons before rejecting. Final148selected tests each OS pass.

@@ -1,0 +1,54 @@
+{
+  "milestone": "QA-032",
+  "source_commit": "f624e6c535319125abe52185e9b217a8a9091512",
+  "package_version": "0.5.0",
+  "core_module_count": 42,
+  "pip_version": "26.2",
+  "setuptools_version": "83.0.0",
+  "downloads_performed": false,
+  "working_environment_replaced": false,
+  "windows_initial_build": {
+    "exit_code": 2,
+    "outcome": "permission_denied",
+    "phase": "pip_build_tracker",
+    "location_class": "sandbox-managed system temporary directory",
+    "recovery": "fresh workspace-local TEMP/TMP for this command only",
+    "security_policy_changed": false
+  },
+  "wheels": [
+    {
+      "path": "tmp/package-window-windows-20261011-qa032/artifacts-final/active_cloud_guard-0.5.0-py3-none-any.whl",
+      "bytes": 95736,
+      "sha256": "8a87e5c9b1247f1846a82137b5ce117debfe06085887cdcc1a9553e25be96e06"
+    },
+    {
+      "path": "tmp/package-window-linux-20261011-qa032/artifacts/active_cloud_guard-0.5.0-py3-none-any.whl",
+      "bytes": 95728,
+      "sha256": "2cf5d09e13b49f008d17aa25d0f353354142921cdc73e308dc760410bf9a30cf"
+    }
+  ],
+  "tests": [
+    {
+      "path": "output/package-window-check-windows-20261011-qa032.xml",
+      "sha256": "ce1c5de6bf7d7b089c01b0fcf1e800ebf4615bfda1de49e18232b50d1d4f0ba8",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_seconds": 1.488
+    },
+    {
+      "path": "output/package-window-full-linux-20261011-qa032.xml",
+      "sha256": "52e8fb53f49a6b330941663579f3c345176db3f64da89e1d1e1dbf3701bbefe3",
+      "tests": 1984,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_seconds": 99.365
+    }
+  ],
+  "fresh_host_qualified": false,
+  "independent_evaluation_verified": false,
+  "clock_qualification": "rejected",
+  "full_windows_qualified": false
+}

@@ -1,5 +1,15 @@
 # Progress Execution
 
+## 11 October 2026 - Fresh install checks completed after the collector changes
+
+We rebuilt separate local packages so the install checks include the latest code.
+All 8 Windows package checks passed. The complete Linux suite passed 1,984 tests with
+no skips, including the 6 install checks skipped in the earlier run. A Windows
+temporary-folder permission error was resolved using a new project-local build
+folder, without changing security settings. These results improve reproducibility;
+the clock qualification failure below still prevents the independent study.
+See [package report and repeat instructions](PACKAGE_REFRESH_QUALIFICATION.md).
+
 ## 11 October 2026 - Connected runtime collector; timing qualification still fails
 
 Engine2 now has a connected one-minute development collector with saved progress,

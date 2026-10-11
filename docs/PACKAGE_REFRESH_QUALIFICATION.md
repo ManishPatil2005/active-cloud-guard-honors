@@ -1,5 +1,36 @@
 # Refined-source package and full regression qualification
 
+## 11 October follow-up - QA-032 / WL-109
+
+After the runtime binary-export refinement, rebuilt from source f624e6c535319125abe52185e9b217a8a9091512.
+Existing pip26.2/setuptools83.0.0 builders reused; only pyproject.toml and42core
+modules copied to fresh ignored stages. Dependencies reused, no download or
+working-environment replacement. Supplementary research scripts remain source-tree tools.
+
+Fresh roots: tmp/package-window-windows-20261011-qa032 and
+tmp/package-window-linux-20261011-qa032. Windows artifacts-final/ and Linux
+artifacts/ contain active_cloud_guard-0.5.0-py3-none-any.whl; installed/ holds each
+separate target. Windows wheel95,736bytes/SHA8a87e5c9b1247f1846a82137b5ce117debfe06085887cdcc1a9553e25be96e06;
+Linux95,728bytes/SHA2cf5d09e13b49f008d17aa25d0f353354142921cdc73e308dc760410bf9a30cf.
+Byte-identical cross-platform builds are not claimed; exact source/package bytes pass.
+
+Windows initial pip build-tracker writes in sandbox system temp failed with
+PermissionError/exit2. A fresh workspace-local local-temp/ and per-command
+TEMP/TMP resolved the build; original stage and failed-temp observations retained,
+no ACL/security-policy changes or manual deletion. INC-089.
+
+Actual installed-package checks:8passed on Windows, zero skips. Full Linux
+source-tree suite with the new wheel/target supplied:1,984passed, zero skips,
+including all8package checks and the6artifact-dependent checks absent in QA-030.
+Only selected installed-entry-point children execute installed code; the full
+suite itself is source-tree. Not a fresh-host certification or a repaired
+Windows native-policy result. No new sensor/clock workload or research acceptance.
+
+Machine-readable [build/test receipt](../output/package-window-qualification-20261011-qa032.json),
+[Windows tests](../output/package-window-check-windows-20261011-qa032.xml),
+[Linux full tests](../output/package-window-full-linux-20261011-qa032.xml).
+Exact commands and scope in WL-109; repeat only into fresh paths. Earlier results below remain historical.
+
 QA-021/R8/WL-097, 10 October 2026, source `e0b8d89ca14f4b0961b278f10529cbb530f68a9d`. No detector, architecture, dependency, version or test change in this milestone.
 
 ## Actual outcomes

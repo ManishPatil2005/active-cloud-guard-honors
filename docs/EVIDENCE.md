@@ -1,5 +1,9 @@
 # Evidence index
 
+## Fresh packages and current Linux regression (11 October 2026)
+
+QA-032 [source-bound build receipt](../output/package-window-qualification-20261011-qa032.json): fresh isolated42module packages, [Windows8package checks](../output/package-window-check-windows-20261011-qa032.xml) and [Linux1984full passes/zero skips](../output/package-window-full-linux-20261011-qa032.xml). Initial Windows build-temp refusal and safe local-temp resolution retained; no dependency upgrade, fresh-host/full-Windows or scientific clock/data/production clearance. WL-109/INC-089.
+
 ## Journaled collector and rejected alignment (11 October 2026)
 
 QA-030 [full Linux source-tree1973passes/6explicit package-artifact skips](../output/window-trial-full-linux-20261011-qa030.xml); selected Windows143passes. QA-031 [before-fix1failure](../output/window-alignment-negative-windows-20261011-qa031.xml), corrected [Windows148passes](../output/window-alignment-fixed-windows-20261011-qa031.xml)/[Linux148passes](../output/window-alignment-fixed-linux-20261011-qa031.xml). Later selected tests do not replace earlier full-source scope.
