@@ -1,5 +1,11 @@
 # Live kernel clock-state diagnostic (E2-025)
 
+## 11 October follow-up - QA-033 / WL-110
+
+Owner explicitly chose continued read-only WSL diagnostics. One unchanged 16-packet protocol completed; [actual receipt](../output/kernel-clock-followup-20261011-qa033.json) and [offline review](../output/kernel-clock-followup-review-20261011-qa033.json). All 15 RAW-minus-MONO elapsed bounds and all 16 wall-minus-BOOT changes include zero. Final bounds: [-10749, 21187] ns and [-456, 421] ns respectively.
+
+However every state reports time_state=5/status=8256, tick=10000 us and frequency=-16386 scaled ppm; timedatectl independently reports NTP=yes, NTPSynchronized=no. Service active/running/enabled before/after; no running acg- named containers observed. Service journal unavailable to ordinary user, not empty-history proof. No intervention or causal repair. A short consistent unsynchronized sample does not qualify UTC, full collector coverage or future stability. Earlier negative evidence below is unchanged. No further diagnostic/sensor run scheduled.
+
 ## Question and scope
 
 E2-024 observed adjusted/unadjusted elapsed disagreement without live kernel discipline state. Does a new sensor-free observation retain that difference while recording kernel frequency, tick, phase, status and return state? Diagnostic only, not Engine 2 ML, matched overhead, clock correction or stability certification. Engine 1 and existing lineage sources/receipts remain unchanged.

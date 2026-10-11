@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Preserve read-only WSL clock follow-up
+
+- Execute and independently recompute one existing 16-packet diagnostic after the owner's request; preserve actual receipts and unchanged historical failures.
+- Record short sampled clock consistency alongside unsynchronized kernel/time-service status, without declaring a clock fix or live-study qualification.
+- Record supervisor nomination as one reviewer; no fabricated second reviewer, label or new sensor authorization. WL-110.
+
 ## 2026-10-11 - Requalify fresh packages and complete full Linux regression
 
 - Build isolated current-source Windows/Linux wheels with existing pinned offline builders; no downloads, runtime replacement or architecture change.

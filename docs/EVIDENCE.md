@@ -1,5 +1,9 @@
 # Evidence index
 
+## Owner-requested WSL follow-up (11 October 2026)
+
+[QA-033 actual observation](../output/kernel-clock-followup-20261011-qa033.json) and [recomputed review](../output/kernel-clock-followup-review-20261011-qa033.json): 16 packets/32 zero-mode queries, short interval consistency plus unsynchronized state. No historical correction, collector qualification or independent study. WL-110 / INC-090.
+
 ## Fresh packages and current Linux regression (11 October 2026)
 
 QA-032 [source-bound build receipt](../output/package-window-qualification-20261011-qa032.json): fresh isolated42module packages, [Windows8package checks](../output/package-window-check-windows-20261011-qa032.xml) and [Linux1984full passes/zero skips](../output/package-window-full-linux-20261011-qa032.xml). Initial Windows build-temp refusal and safe local-temp resolution retained; no dependency upgrade, fresh-host/full-Windows or scientific clock/data/production clearance. WL-109/INC-089.

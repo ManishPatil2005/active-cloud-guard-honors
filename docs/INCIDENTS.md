@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-090 - 2026-10-11 - Short consistent clock sample remains unsynchronized
+
+QA-033 records all 16 packets/32 zero-mode kernel queries. Sampled RAW/MONO and wall/BOOT differences include zero, while all kernel states are TIME_ERROR=5/status=8256 and timedatectl reports NTPSynchronized=no. This is a different observed regime from the historical timing rejection, not a repair or attribution. Service remains active/running/enabled and implicit host sync Y. Ordinary-user journal visibility is restricted; no causal log evidence obtained. No clock/service/policy change or sensor retry. Preserve both positive sample consistency and negative synchronization state; full-window/repeatability/collector qualification remains open. WL-110.
+
 ### INC-089 - 2026-10-11 - Windows package build-tracker temporary-directory refusal
 
 Offline pip26.2 build in a fresh QA-032 stage exits2: PermissionError opening build-tracker entry in sandbox-managed system temp; cleanup warnings also observed. No wheel/install completed in that attempt. Cause evidence supports inaccessible temp location in this execution context, not a project source or scikit-learn policy repair. Use new workspace local-temp and process-only TEMP/TMP with fresh artifacts-final; same pinned builder/source builds and installs successfully. No ACL/policy modification, manual cleanup or historical artifact overwrite. Windows8actual package tests and Linux1984full tests pass with new artifacts; prior Windows optional/native and clock failures remain unrelated/open. WL-109.
