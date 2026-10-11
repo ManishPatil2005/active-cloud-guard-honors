@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest QA-023/WL-099: [readiness repeatability gate](READINESS_REPEATS.md) now recomputes saved event-offset arithmetic,11newcases/62selected passes each OS. Historical negative timing remains rejected; no new live capture/clock repair, independent evaluation or production clearance.
+Latest QA-024/WL-100: [closest-work audit](LITERATURE.md) expanded and [remaining roadmap](PRODUCTION_RESEARCH_ROADMAP.md) retained; current-sourceLinux1811fullpasses and one fixed6interval local clock check eachOS pass. Not independent novelty, collector alignment, Windows-policy repair or production clearance.
 
 Current: [Linux optional compatibility](LINUX_VECTOR_QUALIFICATION.md) selected scope complete (95 distinct pins, 96 installed, actual embedded checks/full1,760 passes). [Windows diagnosis](WINDOWS_JOB_DIAGNOSTIC.md) observes immediate non-breakaway context; [alternate-controller trials](HEADLESS_CONTROLLER_QUALIFICATION.md) rejected and original flags restored. Latest hosted336fcc4/run38032656526 Ubuntu1,762 passes/Windows1,724 passes37skips1failure, not green. Retained diagnostics/invariants/final109 selected tests each OS pass. Supported-host/Chroma/native/independent research/production gates remain open; no background run/monitor. Earlier checkpoint paragraphs are historical.
 
