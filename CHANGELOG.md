@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Investigate changing clock discipline without intervention
+
+- Recompute two gaps in the saved trial metrics and preserve all original evidence.
+- Execute one existing sensor-free diagnostic: 16 packets/32 zero-mode queries reveal changing tick values and RAW/monotonic disagreement; no wall/BOOT step is established in this later sample.
+- Record selected service/log/source context, unknown writer and the next scoped tracing gate. No clock changes, installations, sensor trial or detector modification; QA-036/WL-114/INC-092.
+
 ## 2026-10-11 - Preserve newly approved native trial rejection and verified restoration
 
 - Execute one bounded Redis/Falco qualification at29cd9c4; retain11journal records and raw evidence, including both rejected alignment samples.

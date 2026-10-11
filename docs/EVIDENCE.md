@@ -1,5 +1,9 @@
 # Evidence index
 
+## Read-only timing investigation (11 October 2026)
+
+QA-036 [actual kernel receipt](../output/kernel-clock-followup-20261011-qa036.json), [recomputed review](../output/kernel-clock-followup-review-20261011-qa036.json) and [minimized investigation](../output/timing-investigation-summary-20261011-qa036.json). Sixteen packets/32 zero-mode queries; changing tick values and RAW/monotonic disagreement, but wall/BOOT change bounds include zero. Not a reproduction or attribution of QA-035's different event. Old journal/raw hashes unchanged; selected log absence cannot exclude writers. WL-114/INC-092.
+
 ## Newly approved native qualification (11 October 2026)
 
 QA-035 [minimized actual receipt](../output/window-trial-native-summary-20261011-qa035.json):11hash-linked journal records,2readinessPONGs,0measuredPINGs; rejected alignment with5.473448109s elapsed-clock disagreement and5.473528008s boundary error. Both samples preserved/recomputed; unchanged99source hashes/raw exports/owned cleanup/Redis stopped restoration verified. Synchronized service flag yes before/after did not establish stable timing. Historical QA-030journal/raw hashes unchanged. Private raw paths/logs excluded; no retry, code modification, independent evaluation or production acceptance. WL-113/INC-091.

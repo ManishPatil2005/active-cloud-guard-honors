@@ -1,5 +1,24 @@
 # Incident and resolution ledger
 
+### INC-092 - 2026-10-11 - Kernel rate changes observed without writer attribution
+
+QA-036 read-only follow-up finds tick10000/10833 and four sampled frequency
+values across 32 zero-mode queries. All 15 RAW/monotonic elapsed comparisons
+exclude zero; final RAW-minus-monotonic interval [-518316516,-518295966]ns.
+All wall/BOOT changes include zero. High confidence in the saved, recomputed
+rate inconsistency and parameter changes; this does not reproduce QA-035's
+wall-time discontinuity or identify the caller. Synchronized=yes/TIME_OK did
+not establish stability. No matching selected guest/host log events; cached NTP
+properties and coexistence of guest/host synchronization are context, not proof.
+
+Containment: retain both regimes and unchanged QA-035 failures, keep gates,
+no correction/stop/restart/retry. No installed tracer found on ordinary PATH;
+new tracing/tool acquisition requires approval. Selected Windows services were
+initially invisible in the sandbox; host-context read succeeds with W32Time
+running/vmictimesync stopped. Initial absence is not host service deletion.
+Exact evidence/commands in KERNEL_CLOCK_STATE and WL-114. Open causal/timing gate;
+no detector or production acceptance.
+
 ### INC-091 - 2026-10-11 - Newly approved trial rejects despite synchronization flag
 
 QA-035 / E2-003 / E2-005 / RQ3. Expected: one bounded development trial either

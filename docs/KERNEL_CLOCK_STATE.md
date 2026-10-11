@@ -1,5 +1,55 @@
 # Live kernel clock-state diagnostic (E2-025)
 
+## Current investigation - QA-036 / WL-114
+
+After the owner's request to proceed, one existing **sensor-free, read-only**
+16-packet/32-zero-mode-query observation ran. It found changing kernel discipline,
+not a repair: tick values 10,000 and 10,833 microseconds, with the larger value
+at packet indices 1–3 and 9–11. All states report TIME_OK=0/status8192, while all
+15 RAW-minus-monotonic elapsed bounds exclude zero. Final bound:
+[-518316516, -518295966] ns; adjusted monotonic elapsed about 0.518 seconds more
+than RAW over approximately 15.39 RAW seconds. Every wall-minus-BOOT change bound
+includes zero (final [-321,257] ns). This is another clock inconsistency, **not a
+reproduction or explanation of QA-035's 5.473-second wall/monotonic event**.
+
+[Actual observation](../output/kernel-clock-followup-20261011-qa036.json),
+[recomputed review](../output/kernel-clock-followup-review-20261011-qa036.json),
+and [investigation summary](../output/timing-investigation-summary-20261011-qa036.json).
+The six execution-file hashes and backend continuity passed the existing review.
+Handwritten endpoint arithmetic separately reproduced the final bounds.
+
+Offline QA-035 metrics review found two adjacent timestamp gaps: 3.713261 and
+3.742961 seconds (indices 14 and 44); the other 56 gaps range from 0.890160 to
+1.016125 seconds. These are premeasurement observations, not proof of missing
+events or a specific writer. All original trial journal/raw hashes stay unchanged.
+
+Selected five-minute guest timesyncd logs and Windows Kernel-General time-change
+events contain no matching entries; logging absence cannot exclude adjustments.
+Current observations: guest timesyncd active/running, implicit Hyper-V sync Y,
+clocksource tsc, Windows W32Time running, vmictimesync stopped; service flag
+synchronized=yes before/after. Selected executable/unit/drop-in hashes match the
+5 October review. Cached Frequency=-58327 and poll interval32s do not identify
+the writer of sampled tick changes. No settings or service changes were made.
+
+Canonical documents potential conflicts between guest NTP and implicit Hyper-V
+synchronization in [Ubuntu on WSL](https://ubuntu.com/wsl/docs/stable/explanation/time-sync/).
+This supports a hypothesis, not attribution here. Reviewed versioned systemd
+[bus code](https://raw.githubusercontent.com/systemd/systemd-stable/v255.4/src/timesync/timesyncd-bus.c)
+exports cached drift_freq; the [manager](https://raw.githubusercontent.com/systemd/systemd-stable/v255.4/src/timesync/timesyncd-manager.c)
+updates it from clock_adjtime's result and logs individual adjustments at debug
+level. The inspected adjustment masks do not request ADJ_TICK. Binary hashes
+matching an earlier observation are not binary-to-source attestation, and an
+empty normal-priority journal cannot identify or exclude all clock writers.
+
+Next useful step is writer attribution under a separately authorized, bounded
+trace, not another qualification trial or tolerance relaxation. strace, bpftrace
+and perf were not found on the ordinary user's PATH. No tracer was installed or
+attached. A trace of timesyncd alone could test one candidate but would not cover
+Hyper-V/kernel or another process. Tool acquisition and tracing require explicit
+scope/approval; service intervention remains unapproved and existing restoration
+machinery is not promoted to live-safe by this observation. Redis remains stopped,
+no research sensor was launched, and independent evaluation remains gated.
+
 ## Later qualification observation - QA-035 / WL-113
 
 One newly authorized Redis/Falco trial, not another kernel-state diagnostic,

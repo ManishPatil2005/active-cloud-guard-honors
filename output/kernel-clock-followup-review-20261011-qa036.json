@@ -1,0 +1,275 @@
+{
+  "input_sha256": "f4af5d0239c2afcc3cf79605ce8210f014a77038a61436c58cefb8c0f6b7bd4d",
+  "summary": {
+    "protocol": "linux_raw_timex_pairs_v1",
+    "rows": [
+      {
+        "index": 0,
+        "wall_minus_boot_change": {
+          "lower_ns": -409,
+          "upper_ns": 409,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 1,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -41901694,
+          "upper_ns": -41874847,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -450,
+          "upper_ns": 378,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 2,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -121606611,
+          "upper_ns": -121573308,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -560,
+          "upper_ns": 402,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 3,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -207204567,
+          "upper_ns": -207177832,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -414,
+          "upper_ns": 364,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 4,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -272600599,
+          "upper_ns": -272571581,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -466,
+          "upper_ns": 381,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 5,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -272602381,
+          "upper_ns": -272568124,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -575,
+          "upper_ns": 423,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 6,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -272600611,
+          "upper_ns": -272569727,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -461,
+          "upper_ns": 385,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 7,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -272597208,
+          "upper_ns": -272564554,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -374,
+          "upper_ns": 308,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 8,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -272597448,
+          "upper_ns": -272572802,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -474,
+          "upper_ns": 327,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 9,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -321930364,
+          "upper_ns": -321897942,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -541,
+          "upper_ns": 412,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 10,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -408623883,
+          "upper_ns": -408599701,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -373,
+          "upper_ns": 317,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 11,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -492760481,
+          "upper_ns": -492729859,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -461,
+          "upper_ns": 398,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 12,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -518325027,
+          "upper_ns": -518305376,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -321,
+          "upper_ns": 260,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 13,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -518327748,
+          "upper_ns": -518294436,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -514,
+          "upper_ns": 409,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 14,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -518324355,
+          "upper_ns": -518291846,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -502,
+          "upper_ns": 372,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -518316516,
+          "upper_ns": -518295966,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -321,
+          "upper_ns": 257,
+          "includes_zero": true
+        }
+      }
+    ],
+    "sampled_state_values": {
+      "query_modes": [
+        0
+      ],
+      "time_state": [
+        0
+      ],
+      "status": [
+        8192
+      ],
+      "frequency_scaled_ppm": [
+        -184980,
+        -58327,
+        -18654,
+        2166296
+      ],
+      "tick_usec": [
+        10000,
+        10833
+      ],
+      "phase_offset": [
+        0
+      ],
+      "phase_offset_unit": [
+        "ns"
+      ],
+      "time_constant": [
+        1
+      ],
+      "maxerror_usec": [
+        2500,
+        370842,
+        371342,
+        371842,
+        372342,
+        372842,
+        373342,
+        373842,
+        428279,
+        428779,
+        429279,
+        429779,
+        430279,
+        430779,
+        431279,
+        431779
+      ],
+      "esterror_usec": [
+        0,
+        244417,
+        272443
+      ],
+      "tolerance_scaled_ppm": [
+        32768000
+      ]
+    },
+    "state_read_count": 32,
+    "correction_applied": false,
+    "causal_attribution": "not_proven",
+    "independent_evaluation": false
+  },
+  "local_consistency_verified": true,
+  "authenticated_attestation": false,
+  "independently_evaluated": false,
+  "libc_bytes_rechecked_on_review_host": false
+}
