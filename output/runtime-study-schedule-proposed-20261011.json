@@ -1,0 +1,301 @@
+{
+  "protocol": "runtime_study_schedule_draft_v1",
+  "status": "proposed_not_execution_approved",
+  "proposal_sha256": "dada21e7f3d27acc3b2dcf260b61252322453b3c6f349a12f0a955f50090d32b",
+  "schedule_seed": 20261011,
+  "window_seconds": 60,
+  "slots": [
+    {
+      "slot_id": "slot-07-3",
+      "family_id": "family-07",
+      "split": "validation",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-04-1",
+      "family_id": "family-04",
+      "split": "train",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-03-3",
+      "family_id": "family-03",
+      "split": "train",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-04-2",
+      "family_id": "family-04",
+      "split": "train",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-08-3",
+      "family_id": "family-08",
+      "split": "validation",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-09-3",
+      "family_id": "family-09",
+      "split": "validation",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-05-3",
+      "family_id": "family-05",
+      "split": "train",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-12-1",
+      "family_id": "family-12",
+      "split": "test",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-03-2",
+      "family_id": "family-03",
+      "split": "train",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-02-3",
+      "family_id": "family-02",
+      "split": "train",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-05-1",
+      "family_id": "family-05",
+      "split": "train",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-01-3",
+      "family_id": "family-01",
+      "split": "train",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-05-2",
+      "family_id": "family-05",
+      "split": "train",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-02-1",
+      "family_id": "family-02",
+      "split": "train",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-07-1",
+      "family_id": "family-07",
+      "split": "validation",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-09-1",
+      "family_id": "family-09",
+      "split": "validation",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-10-1",
+      "family_id": "family-10",
+      "split": "test",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-02-2",
+      "family_id": "family-02",
+      "split": "train",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-06-2",
+      "family_id": "family-06",
+      "split": "train",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-07-2",
+      "family_id": "family-07",
+      "split": "validation",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-03-1",
+      "family_id": "family-03",
+      "split": "train",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-10-2",
+      "family_id": "family-10",
+      "split": "test",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-11-3",
+      "family_id": "family-11",
+      "split": "test",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-09-2",
+      "family_id": "family-09",
+      "split": "validation",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-01-1",
+      "family_id": "family-01",
+      "split": "train",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-12-2",
+      "family_id": "family-12",
+      "split": "test",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-10-3",
+      "family_id": "family-10",
+      "split": "test",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-06-1",
+      "family_id": "family-06",
+      "split": "train",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-04-3",
+      "family_id": "family-04",
+      "split": "train",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-11-1",
+      "family_id": "family-11",
+      "split": "test",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-01-2",
+      "family_id": "family-01",
+      "split": "train",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-06-3",
+      "family_id": "family-06",
+      "split": "train",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-08-1",
+      "family_id": "family-08",
+      "split": "validation",
+      "repeat": 1,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-12-3",
+      "family_id": "family-12",
+      "split": "test",
+      "repeat": 3,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-08-2",
+      "family_id": "family-08",
+      "split": "validation",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    },
+    {
+      "slot_id": "slot-11-2",
+      "family_id": "family-11",
+      "split": "test",
+      "repeat": 2,
+      "status": "not_launched",
+      "receipt_sha256": null
+    }
+  ],
+  "labels_created": false,
+  "collection_authorized": false,
+  "model_fitting_authorized": false,
+  "independent_evaluation_verified": false
+}

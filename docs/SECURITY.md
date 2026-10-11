@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+QA-025 planner performs only bounded approved-snapshot reads/offline schedule construction and exclusive evidence publication; no network/subprocess/collector/model action. Requires fixed draft envelope and authorityflagsfalse; supplied status/hash syntax does not authenticate original outcomes or authorize fitting. Coordinator splitmap is not a blinded reviewer packet. Actual independent context/reviewers/operational qualification remain separate; WL-102.
+
 QA-023 recomputes selected saved-readiness correlation offsets from already checked per-call clock samples, with exact numeric types/ranges and stored-bound/flag agreement. It prevents selected inconsistent-receipt acceptance, not authenticated raw telemetry, physical clock proof or malicious mutually consistent fabricated receipts. No correction, service intervention, changed historical evidence or qualified capture claim; WL-099.
 
 QA-022 external storage parent is explicitly selected, existing/absolute/nonsymlink and treated as trusted; no automatic parent creation in helper or index import. Fresh child stores only, unchanged60s/100KB/Python socket guards, evidence reserved before action. Actual ext4/700 observation does not authenticate ancestors/native libraries or prove crash/concurrency/security clearance; no host-policy bypass. WL-098.

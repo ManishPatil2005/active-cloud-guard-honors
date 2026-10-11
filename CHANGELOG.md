@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Implement proposed grouped runtime study schedule
+
+- Add runnable offline plan builder/checker:36slots,12family placeholders, fixed group-held-out splits/order, failed/unlaunched accounting and no eligibility bypass.
+- Add23tests;42selected Windows cases/fullLinux1834cases pass, actual proposed schedule generated without collection/labels/fitting.
+- Numeric feasibility plan is newly proposed, not supervisor-approved sample adequacy; core two-engine stack and empirical gates preserved.
+
 ## 2026-10-11 - Record owner-confirmed supervisor approval with exact scope
 
 - Record proposal0.1/investigation-necessity approval as reported by owner; bind unchanged proposal SHA without inventing signatures/dates.

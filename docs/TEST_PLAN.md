@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-025 adds23proposed-schedule cases for fixed group splits/order,36slot denominator, typed identity/counts, supported failed/pending statuses/hashsyntax, authority refusal, immutable proposal and exclusive output.42Windows selected cases pass, actual proposed schedule generated. No collection/fitting/independent label or sample-power claim; [plan](RUNTIME_STUDY_EXECUTION_PLAN.md), WL-102. Full Linux1834passed/zero skips with actual package checks.
+
 QA-023/E2-015: eight inconsistent saved event/bound mutations plus historical failed/accepted trial checks (11newcases). Pre-fix8fail9pass; corrected readiness/correlation/paired/clock targets62passes each OS. Missing/boolean/float event and altered/boolean/forged bounds reject; original failed timing remains failed. No new full/live qualification; WL-099.
 
 QA-022: six explicit storage-parent cases; actual fresh native ext4 two-process Chroma write/reopen/query pass. Linuxfull1800passes precedes final location-wording/two assertion changes; amended-source four-file target62Linux/61Windows+1symlink privilege skip, actual artifact selectors supplied. No Windows full retry/native security/independent effectiveness clearance; WL-098.

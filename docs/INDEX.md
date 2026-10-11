@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest DOC-009/WL-101: [owner-reported supervisor approval](SUPERVISOR_APPROVAL_RECORD.md) for exact proposal0.1 and investigation-necessity target; preserve original proposal hash/draft snapshot. Internal Linux analyst/research demonstration scope confirmed. Missing concrete study decisions, acquisition/independent-label/evaluation/production gates remain open; no eligibility bypass.
+Latest QA-025/WL-102: [runtime execution plan](RUNTIME_STUDY_EXECUTION_PLAN.md) plus executable proposed schedule validation implemented;36unlaunched slots,23newcases/42Windows selected passes. Full Linux1834passed/zero skips with real artifact checks. Original supervisor approval scope preserved, numeric plan/context/independent data/reviewers/qualification remain separate gates.
 
 Current: [Linux optional compatibility](LINUX_VECTOR_QUALIFICATION.md) selected scope complete (95 distinct pins, 96 installed, actual embedded checks/full1,760 passes). [Windows diagnosis](WINDOWS_JOB_DIAGNOSTIC.md) observes immediate non-breakaway context; [alternate-controller trials](HEADLESS_CONTROLLER_QUALIFICATION.md) rejected and original flags restored. Latest hosted336fcc4/run38032656526 Ubuntu1,762 passes/Windows1,724 passes37skips1failure, not green. Retained diagnostics/invariants/final109 selected tests each OS pass. Supported-host/Chroma/native/independent research/production gates remain open; no background run/monitor. Earlier checkpoint paragraphs are historical.
 
