@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-11 - Record owner-confirmed supervisor approval with exact scope
+
+- Record proposal0.1/investigation-necessity approval as reported by owner; bind unchanged proposal SHA without inventing signatures/dates.
+- Confirm internal Linux analyst plus research demonstration scope; no Internet service or operational intervention authorization.
+- Preserve unresolved concrete sampling/reviewer/qualification/evaluation decisions and existing fitting guards.
+
 ## 2026-10-11 - Execute current full Linux checks and expand closest-work research
 
 - Current-sourceLinux1811passes with actual installed artifact checks; one fixed local clock diagnostic eachOS passes6/6, no repair/alignment claim.

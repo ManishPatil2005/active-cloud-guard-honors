@@ -1,5 +1,13 @@
 # Work log
 
+## WL-101 - 2026-10-11 - Record supervisor approval reported by owner
+
+Closure checks: documentation18passed0.45s; repository_check PASS854publication files (bounded, not comprehensive secrets/doc accuracy proof). Full staged whitespace/8-file scope inspection pass, original proposal SHA rechecked unchanged. Foreign6-doc41-line presentation work remains unstaged. Commit/push/intendedremote identity verified after validation; no empirical execution or independent approval attestation claimed.
+
+DOC-009. Owner answered deployment scope "both" and approval "he approved all", then confirmed "yes" to version0.1 as written including investigation-necessity target, not confirmed attack. Read required index/memory/tasks/rules and complete proposal including reporting/private custody/decision table; inspect intake and existing data audit. Get-FileHash of unchanged proposal SHA dada21e7f3d27acc3b2dcf260b61252322453b3c6f349a12f0a955f50090d32b. Record in SUPERVISOR_APPROVAL_RECORD with owner-report evidence level, no invented direct supervisor communication/name/signature/approval date. Current record date is not asserted supervisor decision date. Original approved-by-report proposal bytes/header/history retained. Scope both internal Linux analyst/research demo, not Internet service or new operational actions.
+
+Version0.1 deliberately requests future choices for exact families/runs/splits/sample rationale/reviewers/operating point and qualification. Approval of that text does not fabricate those values. No change to intake/fitting flags, existing synthetic wrappers, capture roles, model algorithms or architecture; no collection/fitting/labels/service/policy/cloud action. Next request concrete missing study decisions and verify acquisition before empirical use. Foreign PDF/PPTX work preserved/excluded. Documentation/publication/staged/named commit/push/intended remote checks recorded after execution.
+
 ## WL-100 - 2026-10-11 - Current-source verification and closest-work research
 
 Closure: current full XML1811/0fail0error0skip/time89.733s versus console89.77s. Documentation18passed1.05s; lint/157-file format pass; repository_check PASS852publication files, not exhaustive secrets/doc accuracy assurance. Explicit12-file staged scope inspected/full whitespace pass; foreign PDF/PPTX six-doc41-line work excluded. Named research/verification commit/push/intendedremote equality follow checks; no claim all human/security/research/production gates achieved.
