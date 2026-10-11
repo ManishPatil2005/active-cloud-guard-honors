@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-11 - Record bounded service-log review and pending qualification consent
+
+- Obtain previously restricted time-service log context read-only; do not infer causal repair from selected entries.
+- Verify existing stopped Redis/loopback binding and installed sensor image without launching anything; request new one-trial consent. WL-112.
+
 ## 2026-10-11 - Add grouped paired uncertainty software
 
 - Implement bounded, seeded whole-family paired bootstrap with preserved denominators and explicit undefined intervals.

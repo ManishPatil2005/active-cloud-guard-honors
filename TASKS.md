@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+WL-112: restricted service-log read obtained via bounded root journalctl, with no state changes; recent selected events do not identify the timing-failure cause. Exact stopped Redis/loopback binding and installed pinned sensor verified read-only. New one-trial approval requested, not yet received/executed at this checkpoint; no automatic retry. QA-034 code/evidence published and remote-verified at81d0650.
+
 QA-034 / RES-002 / E2-004 / WL-111: grouped paired bootstrap arithmetic implemented (46 new cases; 140 selected passes each OS). Whole-family pairing, pooled ratios, preserved unknown/abstained/missing units and withheld undefined intervals; fixed synthetic example only. Full Linux 2,030 passes/zero skips with fresh 43-module wheel; Windows 8 package checks. Actual independent comparisons/calibration/sample adequacy remain open. [Method](docs/GROUPED_UNCERTAINTY.md).
 
 QA-033 / E2-025 / WL-110: one owner-requested read-only WSL follow-up completed (16 packets/32 zero-mode queries); local elapsed-clock relationships consistent during the short sample, but kernel and timedatectl report unsynchronized time. Offline source/arithmetic review passes; historical timing failure, full-window qualification and cause remain open. Supervisor nominated as one reviewer; second independent reviewer or explicit protocol revision still required. Next software priority: grouped paired uncertainty, not generated labels or automatic sensor retries.
