@@ -366,6 +366,27 @@ def test_clock_jump_blocks_measurement(lab, tmp_path):
     assert report["workload"] is None
 
 
+def test_rejected_alignment_retains_end_sample_and_reason(lab, tmp_path):
+    original = lab.clock.sleep
+
+    def jump(seconds):
+        original(seconds)
+        if seconds == 0.5:
+            lab.clock.epoch += 1_000_000_000
+
+    lab.clock.sleep = jump
+    lab.execute(tmp_path / "journal")
+    records = [
+        json.loads(path.read_text())
+        for path in sorted((tmp_path / "journal").iterdir())
+    ]
+    observed = [row["payload"] for row in records if row["phase"] == "alignment_result"]
+    assert len(observed) == 1
+    assert observed[0]["last"]["wall_ns"] > observed[0]["boundary_ns"]
+    assert observed[0]["accepted"] is False
+    assert "clock_disagreement" in observed[0]["reasons"]
+
+
 def test_metrics_hash_change_fails_before_acceptance(lab, tmp_path, monkeypatch):
     original = module.summarize
 
@@ -377,3 +398,33 @@ def test_metrics_hash_change_fails_before_acceptance(lab, tmp_path, monkeypatch)
     monkeypatch.setattr(module, "summarize", changed)
     report = lab.execute(tmp_path / "journal")
     assert report["status"] == "rejected" and lab.cleanups == 1
+
+
+@pytest.mark.parametrize("offset", [-200_000_000, 200_000_000, 0])
+def test_alignment_returns_complete_numeric_evidence_without_correction(offset):
+    clock = Clock()
+    first = module.sample(clock.mono, clock.wall)
+    boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+    clock.epoch += offset
+    report = module.wait_alignment(
+        first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+    )
+    assert report["boundary_error_ns"] == offset
+    assert report["timing"]["clock_difference_ns"] == offset
+    assert report["accepted"] is (offset == 0)
+    assert report["last"]["wall_ns"] == boundary + offset
+
+
+def test_sensor_free_diagnostic_never_constructs_transport(tmp_path, monkeypatch):
+    monkeypatch.setattr(module, "sources", lambda: {"synthetic_source": "0" * 64})
+    monkeypatch.setattr(module, "wait_alignment", lambda *_: {"accepted": False})
+
+    def forbid(*_, **__):
+        raise AssertionError("no sensor or Docker in clock-only observation")
+
+    monkeypatch.setattr(module, "SensorLease", forbid)
+    monkeypatch.setattr(module, "RedisWindowTransport", forbid)
+    report = module.alignment_diagnostic(tmp_path / "journal")
+    assert report["status"] == "rejected"
+    assert report["sensor_or_workload_executed"] is False
+    assert module.review_journal(tmp_path / "journal")["valid_records"] == 3

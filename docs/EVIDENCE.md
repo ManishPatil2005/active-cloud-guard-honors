@@ -1,5 +1,11 @@
 # Evidence index
 
+## Journaled collector and rejected alignment (11 October 2026)
+
+QA-030 [full Linux source-tree1973passes/6explicit package-artifact skips](../output/window-trial-full-linux-20261011-qa030.xml); selected Windows143passes. QA-031 [before-fix1failure](../output/window-alignment-negative-windows-20261011-qa031.xml), corrected [Windows148passes](../output/window-alignment-fixed-windows-20261011-qa031.xml)/[Linux148passes](../output/window-alignment-fixed-linux-20261011-qa031.xml). Later selected tests do not replace earlier full-source scope.
+
+Actual [single native trial summary](../output/window-trial-native-summary-20261011-qa030.json) preserves rejected outcome/no measured PING, hashes/readiness/cleanup. Separate [sensor-free alignment summary](../output/window-alignment-native-summary-20261011-qa031.json) preserves source hashes and2.064462457sclock divergence. Raw journals/logs stay private. Independent evaluation, full telemetry completeness, clock cause and production remain unestablished; WL-107/108/INC-088.
+
 ## Rejected headless-controller trial (2026-10-10)
 
 Final restored-source selected checks: [Windows109 passes](../output/controller-restored-windows-20261010.xml) and [Linux109 passes](../output/controller-restored-linux-20261010.xml). Original parent flags restored, invariant/context diagnostics retained; no full hosted success or native restoration claim.

@@ -1,0 +1,148 @@
+{
+  "report_kind": "minimized_actual_development_trial",
+  "source_commit": "e9cc775f4d8b50f22f56dec1344e9986c92fb003",
+  "protocol": "redis_window_trial_v1",
+  "status": "rejected",
+  "faults": [
+    {
+      "code": "ValueError",
+      "phase": "collection"
+    }
+  ],
+  "source_unchanged": true,
+  "canary_results": [
+    {
+      "index": 0,
+      "first": {
+        "monotonic_mid_ns": 401075580765,
+        "sampling_span_ns": 658,
+        "wall_ns": 1791723624261498714
+      },
+      "last": {
+        "monotonic_mid_ns": 401147337552,
+        "sampling_span_ns": 480,
+        "wall_ns": 1791723624333255538
+      }
+    },
+    {
+      "index": 1,
+      "first": {
+        "monotonic_mid_ns": 402174195692,
+        "sampling_span_ns": 1030,
+        "wall_ns": 1791723625360113804
+      },
+      "last": {
+        "monotonic_mid_ns": 402236420065,
+        "sampling_span_ns": 417,
+        "wall_ns": 1791723625422338011
+      }
+    }
+  ],
+  "readiness": {
+    "event_ns": 1791723625415567758,
+    "first": {
+      "monotonic_mid_ns": 402174195692,
+      "sampling_span_ns": 1030,
+      "wall_ns": 1791723625360113804
+    },
+    "last": {
+      "monotonic_mid_ns": 402236420065,
+      "sampling_span_ns": 417,
+      "wall_ns": 1791723625422338011
+    },
+    "snapshot_sha256": "681c8866cf30590fe52dbbec7934f7497b4c91561849155e3e0ecfa56bd5f178",
+    "warmup_pids": [
+      21,
+      27
+    ]
+  },
+  "alignment_intent": {
+    "boundary_ns": 1791723660000000000,
+    "first": {
+      "monotonic_mid_ns": 403357066861,
+      "sampling_span_ns": 585,
+      "wall_ns": 1791723626542984906
+    }
+  },
+  "rejected_alignment_end_sample_preserved": false,
+  "measured_ping_intents": 0,
+  "workload": null,
+  "lease": {
+    "launch_confirmed": true,
+    "launch_completion_uncertain": false,
+    "cleanup_attempted": true,
+    "removal_observed": true,
+    "cleanup_verified": true,
+    "commands": [
+      {
+        "phase": "launch",
+        "status": "completed"
+      },
+      {
+        "phase": "ownership",
+        "status": "completed"
+      },
+      {
+        "phase": "ownership",
+        "status": "completed"
+      },
+      {
+        "phase": "readiness_logs",
+        "status": "completed"
+      },
+      {
+        "phase": "ownership",
+        "status": "completed"
+      },
+      {
+        "phase": "stop",
+        "status": "completed"
+      },
+      {
+        "phase": "ownership",
+        "status": "completed"
+      },
+      {
+        "phase": "logs",
+        "status": "completed"
+      },
+      {
+        "phase": "metrics",
+        "status": "completed"
+      },
+      {
+        "phase": "remove",
+        "status": "completed"
+      },
+      {
+        "phase": "absence",
+        "status": "completed"
+      }
+    ],
+    "faults": [],
+    "raw_log_sha256": "763247a5dfc7abe1707d286fa925e60cf61755b6c05377cf2cdefc5c7e1d8b48",
+    "metrics_raw_sha256": "69947a117894b6a80b236e3ac2f477875041d92c5e506ed3fb95d2249e549209"
+  },
+  "journal_sha256": {
+    "007.json": "e720d50791647065739022945cd7cff8abad7941abe3398b6ef54e6a1f163322",
+    "002.json": "bc826ea9d42ec49fc6d58ae48465a4b67aa4eeb80530894db0bc878acb607e71",
+    "005.json": "22fdc262a1b0a1bc6181d8d243932a150d616cf03d968f9ffa1310d3b0302e7a",
+    "003.json": "17fab0d795c0372fcce20c4f6881c0e9db16c74eaf034322b91a5bb8e08ab7a7",
+    "009.json": "93782e96b9f6e6be29f652ebaffe3b094464f7382d90c6bdd8388b940a6260c3",
+    "001.json": "9b56764b2943751c00f679382a15c8ac3fa03bf893e9ba1eae1e052f46ee9dbc",
+    "004.json": "f091a260863427bc2ed53fe3821ae6cd5929744eeea11980666d3f80bc366828",
+    "000.json": "948ce4b83644c2398b7a6ac4b60479936b3e8b1b61b79e136e4f39f531500f0d",
+    "008.json": "25375b2677353406f2dcfc83a654c69f27da901a71ecbf64e35bbc7d7717e651",
+    "006.json": "9052b182695be6788321203b2aac7d0e06a2a5ae204edea65af84ec848512111"
+  },
+  "raw_bytes_private": true,
+  "redis_restored_to_prior_stopped_state": true,
+  "independent_evaluation_verified": false,
+  "labels_created": false,
+  "sensor_trial_retried": false,
+  "limits": [
+    "Alignment gate rejected; terminal ValueError does not identify which timing condition failed.",
+    "Missing rejected end sample cannot be reconstructed.",
+    "Readiness and owned cleanup observed; full-window collection and independent evaluation not completed."
+  ]
+}

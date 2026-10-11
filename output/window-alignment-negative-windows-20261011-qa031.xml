@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.527" timestamp="2026-10-11T13:02:43.472492+05:30" hostname="Welcome"><testcase classname="tests.test_window_trial" name="test_rejected_alignment_retains_end_sample_and_reason" time="0.049"><failure message="assert 0 == 1&#10; +  where 0 = len([])">lab = &lt;test_window_trial.Lab object at 0x000002A399059EB0&gt;
+tmp_path = WindowsPath('D:/research f1/tmp/window-alignment-negative-qa031/test_rejected_alignment_retain0')
+
+    def test_rejected_alignment_retains_end_sample_and_reason(lab, tmp_path):
+        original = lab.clock.sleep
+    
+        def jump(seconds):
+            original(seconds)
+            if seconds == 0.5:
+                lab.clock.epoch += 1_000_000_000
+    
+        lab.clock.sleep = jump
+        lab.execute(tmp_path / "journal")
+        records = [json.loads(path.read_text()) for path in sorted((tmp_path / "journal").iterdir())]
+        observed = [row["payload"] for row in records if row["phase"] == "alignment_result"]
+&gt;       assert len(observed) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\test_window_trial.py:381: AssertionError</failure></testcase></testsuite></testsuites>

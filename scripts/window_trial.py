@@ -202,6 +202,77 @@ def check_capture(
     )
 
 
+def wait_alignment(
+    first,
+    boundary,
+    *,
+    monotonic_ns=time.monotonic_ns,
+    wall_ns=time.time_ns,
+    sleep=time.sleep,
+):
+    """Return all sampled evidence before the caller decides whether to reject."""
+    deadline = first["monotonic_mid_ns"] + boundary - first["wall_ns"]
+    while monotonic_ns() < deadline:
+        sleep(min(0.5, max(0, (deadline - monotonic_ns()) / 1e9)))
+    last = sample(monotonic_ns, wall_ns)
+    timing = compare(first, last)
+    error = last["wall_ns"] - boundary
+    reasons = []
+    if not timing["within_tolerance"]:
+        reasons.append("clock_disagreement")
+    if not 0 <= error <= 100_000_000:
+        reasons.append("utc_boundary_outside_tolerance")
+    return dict(
+        first=first,
+        last=last,
+        boundary_ns=boundary,
+        timing=timing,
+        boundary_error_ns=error,
+        accepted=not reasons,
+        reasons=reasons,
+    )
+
+
+def alignment_diagnostic(directory):
+    """One sensor-free clock observation, no Docker/service/workload operations."""
+    journal = Journal(directory)
+    frozen = sources()
+    first = sample()
+    boundary = (first["wall_ns"] // MINUTE + 1) * MINUTE
+    journal.record(
+        "intent",
+        dict(
+            protocol="sensor_free_window_alignment_v1",
+            first=first,
+            boundary_ns=boundary,
+            source_sha256=frozen,
+            actions_executed=[],
+        ),
+    )
+    try:
+        result = wait_alignment(first, boundary)
+        journal.record("alignment_result", result)
+        unchanged = frozen == sources()
+        report = dict(
+            status="alignment_observed"
+            if result["accepted"] and unchanged
+            else "rejected",
+            alignment=result,
+            source_unchanged=unchanged,
+            sensor_or_workload_executed=False,
+            historical_cause_resolved=False,
+        )
+    except (Exception, KeyboardInterrupt) as error:
+        report = dict(
+            status="rejected",
+            error_type=type(error).__name__,
+            sensor_or_workload_executed=False,
+            historical_cause_resolved=False,
+        )
+    journal.record("terminal", report)
+    return report
+
+
 def execute(
     directory,
     target,
@@ -313,16 +384,17 @@ def execute(
         boundary = (phase_first["wall_ns"] // MINUTE + 1) * MINUTE
         save("alignment_intent", dict(first=phase_first, boundary_ns=boundary))
         # Bound each sleep so a wall adjustment cannot create an unbounded wait.
-        deadline = phase_first["monotonic_mid_ns"] + boundary - phase_first["wall_ns"]
-        while monotonic_ns() < deadline:
-            sleep(min(0.5, max(0, (deadline - monotonic_ns()) / 1e9)))
-        phase_last = clock()
-        if (
-            not compare(phase_first, phase_last)["within_tolerance"]
-            or not 0 <= phase_last["wall_ns"] - boundary <= 100_000_000
-        ):
+        alignment = wait_alignment(
+            phase_first,
+            boundary,
+            monotonic_ns=monotonic_ns,
+            wall_ns=wall_ns,
+            sleep=sleep,
+        )
+        save("alignment_result", alignment)
+        report["alignment"] = alignment
+        if not alignment["accepted"]:
             raise ValueError("UTC alignment rejected")
-        save("aligned", dict(first=phase_first, last=phase_last, boundary_ns=boundary))
 
         def ping():
             save("ping_intent", dict(index=len(client.snapshot()["attempts"])))
@@ -403,7 +475,9 @@ def main():
     parser.add_argument(
         "--directory", required=True, help="Fresh private journal directory"
     )
-    parser.add_argument("--review-only", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--review-only", action="store_true")
+    mode.add_argument("--alignment-only", action="store_true")
     parser.add_argument("--target")
     parser.add_argument("--endpoint")
     parser.add_argument("--approve-development-trial", action="store_true")
@@ -413,6 +487,14 @@ def main():
             result = review_journal(args.directory)
             print(json.dumps(result))
             return 0 if result["status"] == "terminal_record_present" else 1
+        if args.alignment_only:
+            result = alignment_diagnostic(args.directory)
+            print(
+                json.dumps(
+                    dict(status=result["status"], sensor_or_workload_executed=False)
+                )
+            )
+            return 0 if result["status"] == "alignment_observed" else 1
         if sys.platform != "linux" or not args.approve_development_trial:
             raise ValueError(
                 "Linux and explicit reviewed development approval required"

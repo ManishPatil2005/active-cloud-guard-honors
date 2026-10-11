@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-11 - Preserve rejected alignment evidence and record native qualification failure
+
+- Run the single approved Redis/Falco development trial: readiness and owned raw-export/cleanup observed, UTC gate rejected before the60PINGmeasurement; Redis restored stopped.
+- Reproduce and fix missing rejected alignment end-sample retention; record first/last, computed difference and explicit reasons before rejection.
+- Add sensor-free alignment diagnostic; one actual observation rejects a2.064462457second wall/monotonic divergence over47.690497544seconds. Do not infer original missing values or clock actor/cause.
+- Preserve original/private journals and minimized public receipts; five new tests,148selected passes each OS. No retries, altered thresholds, clock/service intervention or scientific acceptance. WL-108.
+
 ## 2026-10-11 - Integrate journaled runtime qualification and binary evidence export
 
 - Connect the full-window scheduler, bounded Redis transport and owned sensor lifecycle with exclusive flushed checkpoints and read-only incomplete-run review.

@@ -1,5 +1,11 @@
 # Incident and resolution ledger
 
+### INC-088 - 2026-10-11 - Live UTC qualification rejection and missing rejected end sample
+
+At publishede9cc775, the single approved sensor trial produced two PONG canaries and a unique second-PID event, then rejected before any measured PING. Journal10records ends rejected/ValueError after alignment_intent. Old code checked before saving the alignment end sample; consequently the exact violated condition for this original run cannot be reconstructed. High-confidence reporting defect, not proof of a particular clock actor or a retrospective clock repair. New regression failed1/1 before fix (XML SHA0717954232659320740108a7615db7a12a04687b4f1bb498231ba2dbd8231044); save first/last/comparison/error/reasons before rejecting. Final148selected tests each OS pass.
+
+One separately executed sensor-free observation of the corrected recorder reports monotonic47,690,497,544ns, wall-minus-monotonic2,064,462,457ns, sample uncertainty914ns, UTC error2,064,615,290ns. Both existing50msclock and100msboundary gates reject. This directly establishes current clock divergence, not why the original missing sample failed, the responsible writer, a long-term rate or calibrated correction. No service/NTP/policy change, correction, tolerance relaxation or second sensor trial. Original journals/raw hashes unchanged; binary export/owned removal passed and Redis returned stopped. Next: qualified clock-stable runtime or separately reviewed intervention; independent study remains gated. WL-108.
+
 ### INC-087 - 2026-10-11 - Binary sensor archive incorrectly required UTF-8 transport
 
 Source inspection found SensorLease using default strict-text run_bounded for Docker cp tar stdout, then encoding it back to bytes. Valid tar binary headers can contain non-UTF8 bytes; high-confidence compatibility defect, not an observed historical Docker corruption or loss. Add opt-in BinaryProcessResult/binary=True under the same deadlines and byte budgets; keep default text rejection. Tests exercise real harmless child bytes255/0/128 and a valid GNU base256 tar header. Corrected archive export passes; bad archive/type/size/export still prevents removal. No pre-fix failing Docker trial or retroactive repaired native result is claimed. QA-030/WL-107.

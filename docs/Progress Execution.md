@@ -1,5 +1,33 @@
 # Progress Execution
 
+## 11 October 2026 - Connected runtime collector; timing qualification still fails
+
+Engine2 now has a connected one-minute development collector with saved progress,
+checks for the correct container, readiness evidence and cleanup. It does not
+create attack labels or automatically approve a research dataset.
+
+We tried it once with your permission. Both setup PINGs completed, but timing
+checks stopped the experiment before the60measurement PINGs. The sensor was
+removed after saving its evidence, and Redis was returned to its earlier stopped
+state. A separate clock-only observation found the wall clock gained about2.064
+seconds relative to elapsed time over47.69seconds. That is too large for our
+50millisecond tolerance. We fixed missing failure details, not the host clock.
+
+To check the software without touching the lab, open a terminal in the project
+folder and run the following using the existing Windows test environment:
+
+```powershell
+tmp/dependency-candidate-windows-20261009/Scripts/python.exe -m pytest -q tests/test_window_trial.py tests/test_process_runner.py tests/test_window_sensor.py tests/test_window_transport.py tests/test_window_workload.py
+```
+
+The recorded final result is148passes on Windows and148on Linux. These tests use
+invented clocks/fake Docker plus harmless local child processes. They prove the
+tested software rules, not cloud security effectiveness. Read the [trial guide](RUNTIME_WINDOW_TRIAL.md)
+and [saved clock result](../output/window-alignment-native-summary-20261011-qa031.json)
+for what failed. Do not launch another sensor or change time settings simply to
+obtain a pass. Next: qualify a stable Linux timing environment, then independently
+defined scenarios, human reviewers, untouched evaluation and the paper.
+
 ## 10 October 2026 - Fresh install checks and a Windows host-policy limit
 
 We rebuilt separate Windows/Linux packages from the refined source rather than reuse outdated packages. All8package checks passed on each system. Linux passed all1,794checks. Windows passed1,735, skipped39platform/privilege-limited checks and failed20: Windows security policy blocked a scikit-learn DLL. Matching system records support that diagnosis. We did not turn off security or hide the failures. Windows full acceptance remains open; this does not undo the passing vector integrity checks.

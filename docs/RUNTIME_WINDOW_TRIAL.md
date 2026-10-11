@@ -1,5 +1,31 @@
 # Journaled full-window development qualification
 
+## Latest observed outcome - QA-031
+
+The one approved native trial at e9cc775 rejected during UTC alignment before any
+measured PING. Two readiness PINGs ran; second PID connection observed. Raw binary
+export and owned cleanup passed; Redis restored to its original stopped state.
+The initial recorder omitted the rejected alignment end sample; that gap is now
+regression-tested and fixed. Rejected results are preserved, not repaired retroactively.
+
+One sensor-free follow-up using the corrected recorder measured2.064462457seconds
+wall-minus-monotonic difference over47.690497544seconds, and2.064615290seconds UTC
+boundary error. Existing50ms/100ms thresholds reject. Clock writer/root cause and
+full-window native qualification remain open. No new sensor trial or time-service
+change. Actual data: [native summary](../output/window-trial-native-summary-20261011-qa030.json),
+[clock summary](../output/window-alignment-native-summary-20261011-qa031.json).
+
+Read-only clock observation (fresh directory; no sensor, workload or service operation):
+
+```text
+/var/tmp/acg-vector-candidate-linux-20261010-qa018/bin/python scripts/window_trial.py --directory output/runtime-raw/alignment-NEW --alignment-only
+```
+
+This command runs one wait to the next UTC minute and stores first/last samples,
+comparison, boundary error and rejection reasons. A passing later observation
+would not resolve historical cause or establish runtime stability. Do not poll
+until green. No further observation is scheduled.
+
 QA-030 / E2-003 / E2-005 / E2-004 / RQ3; 11 October 2026.
 
 ## Purpose and authority
