@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-087 - 2026-10-11 - Journal one explicit development trial and preserve binary archives
+
+QA-030/WL-107. Integrate existing components without another engine or a replacement architecture. Fixed two-canary/60PING protocol, full UTC-bin event checks and selected collector metric brackets; retain full-telemetry/independent-evaluation false even on engineering success. Flush hash-linked exclusive intent/result/terminal records; incomplete/torn records require operator review, never auto-resume. Cleanup must still be attempted on storage failure. Bound and preserve tar bytes directly; retain strict default text transport. No independent dataset acceptance, automatic retries, service/clock changes or background monitoring. The owner separately authorized exactly one native lab trial and Docker Desktop startup; results must be recorded after execution. Detailed contract in RUNTIME_WINDOW_TRIAL.md.
+
 ## ADR-086 - 2026-10-11 - Preserve sensor evidence before owned removal and retain launch uncertainty
 
 QA-029/WL-106. Separate proposed140/150second lifecycle from historical15/25second sensor. Require literal trusted operational approval, nonce/full-ID/name/image ownership, stopped-state recheck and successful bounded raw export before removal. Unknown Docker launch delivery cannot become verified cleanup through a later absence check. Export failure leaves stopped container for operator review; no force-remove/retry or fabricated clean verdict. Native compatibility/durable coordinator/full coverage still require qualification. Library gate is not authentic supervisor attestation or permission for unattended collection.

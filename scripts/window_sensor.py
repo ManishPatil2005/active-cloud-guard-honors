@@ -13,7 +13,12 @@ import uuid
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.limits import json_value, read_bytes
-from cloudguard.process_runner import BoundedProcessError, ProcessResult, run_bounded
+from cloudguard.process_runner import (
+    BinaryProcessResult,
+    BoundedProcessError,
+    ProcessResult,
+    run_bounded,
+)
 from scripts.sensor_trial import IMAGE, rules
 from scripts.window_transport import RedisWindowTransport
 
@@ -55,7 +60,7 @@ class SensorLease:
             faults=[],
         )
 
-    def _command(self, phase, args, timeout=5, limit=4096, combine=False):
+    def _command(self, phase, args, timeout=5, limit=4096, combine=False, binary=False):
         entry = dict(phase=phase, status="attempted")
         self._report["commands"].append(entry)
         try:
@@ -65,17 +70,18 @@ class SensorLease:
                 ["docker", "--host", self._endpoint, *args],
                 timeout=timeout,
                 output_limit=limit,
+                **({"binary": True} if binary else {}),
             )
             if (
-                type(result) is not ProcessResult
+                type(result) is not (BinaryProcessResult if binary else ProcessResult)
                 or type(result.returncode) is not int
                 or result.returncode != 0
-                or type(result.stdout) is not str
-                or type(result.stderr) is not str
+                or type(result.stdout) is not (bytes if binary else str)
+                or type(result.stderr) is not (bytes if binary else str)
                 or (result.stderr and not combine)
                 or len(result.stdout) + len(result.stderr) > limit
-                or len(result.stdout.encode("utf-8"))
-                + len(result.stderr.encode("utf-8"))
+                or len(result.stdout if binary else result.stdout.encode("utf-8"))
+                + len(result.stderr if binary else result.stderr.encode("utf-8"))
                 > limit
             ):
                 raise SensorRejected("invalid_client_result")
@@ -112,6 +118,8 @@ class SensorLease:
             rule_text = rules(self._target, correlation=True)
             with rule_path.open("x", encoding="utf-8", newline="\n") as stream:
                 stream.write(rule_text)
+                stream.flush()
+                os.fsync(stream.fileno())
             if any(
                 char in str(path)
                 for path in (rule_path, config)
@@ -246,12 +254,15 @@ class SensorLease:
             ).encode("utf-8")
             with (self._raw_dir / "sensor.log").open("xb") as stream:
                 stream.write(log)
+                stream.flush()
+                os.fsync(stream.fileno())
             self._report["raw_log_sha256"] = hashlib.sha256(log).hexdigest()
             archive = self._command(
                 "metrics",
                 ["cp", self._id + ":/tmp/acg-metrics.jsonl", "-"],
                 limit=1_000_000,
-            ).encode("utf-8")
+                binary=True,
+            )
             with tarfile.open(fileobj=io.BytesIO(archive), mode="r:") as bundle:
                 members = bundle.getmembers()
                 if (
@@ -267,6 +278,8 @@ class SensorLease:
                     raise SensorRejected("incomplete metrics archive")
             with (self._raw_dir / "metrics.jsonl").open("xb") as stream:
                 stream.write(metrics)
+                stream.flush()
+                os.fsync(stream.fileno())
             self._report["metrics_raw_sha256"] = hashlib.sha256(metrics).hexdigest()
             self._command("remove", ["rm", self._id], timeout=5, limit=128)
             remaining = self._command(
@@ -296,4 +309,25 @@ class SensorLease:
         return self.snapshot()
 
     def snapshot(self):
-        return copy.deepcopy(self._report)
+        return copy.deepcopy(
+            dict(
+                self._report,
+                recovery=dict(
+                    name=self._name,
+                    nonce=self._nonce,
+                    sensor_id=self._id,
+                    target_id=self._target,
+                    endpoint=self._endpoint,
+                    raw_directory=str(self._raw_dir) if self._raw_dir else None,
+                ),
+            )
+        )
+
+    def observe_log(self):
+        """Bounded readiness snapshot from the exact owned, running sensor."""
+        if not self._report["launch_confirmed"] or self._sealed:
+            raise SensorRejected("active owned lease required")
+        self._owned(require_running=True)
+        return self._command(
+            "readiness_logs", ["logs", self._id], limit=1_000_000, combine=True
+        ).encode("utf-8")

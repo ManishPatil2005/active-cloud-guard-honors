@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-087 - 2026-10-11 - Binary sensor archive incorrectly required UTF-8 transport
+
+Source inspection found SensorLease using default strict-text run_bounded for Docker cp tar stdout, then encoding it back to bytes. Valid tar binary headers can contain non-UTF8 bytes; high-confidence compatibility defect, not an observed historical Docker corruption or loss. Add opt-in BinaryProcessResult/binary=True under the same deadlines and byte budgets; keep default text rejection. Tests exercise real harmless child bytes255/0/128 and a valid GNU base256 tar header. Corrected archive export passes; bad archive/type/size/export still prevents removal. No pre-fix failing Docker trial or retroactive repaired native result is claimed. QA-030/WL-107.
+
 ### INC-086 - 2026-10-10 - Readiness gate trusted saved event offset bounds
 
 Eight mutated historical receipt copies accepted before fix despite missing/type-invalid/shifted event timestamp or inconsistent saved bounds; pre-fix8fail9pass retained. High-confidence project acceptance gap, not evidence of real tampering or physical clock repair. Recompute exact correlation formula after checked command clocks, require exact integer event/bounds and event range; saved values must agree. Eleven new regressions/final62selected passes each OS; historical trial1/2accepted3rejected unchanged. Initial corrected-target filename mistake/no-tests receipt preserved; corrected real filenames pass. Underlying historical clock mismatch/coverage/provenance/human approval remain unresolved; no new sensor/service action. WL-099.

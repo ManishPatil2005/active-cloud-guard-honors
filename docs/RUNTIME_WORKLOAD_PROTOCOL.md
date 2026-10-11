@@ -1,5 +1,7 @@
 # Runtime workload protocol v0.1
 
+QA-030 adds the separately versioned [journaled full-window trial](RUNTIME_WINDOW_TRIAL.md), integrating QA-027/028/029 and correcting binary metrics export. The historical four-second/25second protocol and its evidence below remain unchanged. Owner approved one new bounded development qualification, no retries or independent benchmark collection. Execution outcome follows in WL-107; software tests alone do not qualify native timing/coverage.
+
 ## Separate full-window scheduler proposal - 11 October 2026
 
 QA-029/WL-106 implements [SensorLease](../scripts/window_sensor.py), a separate explicit-approval-gated lifecycle library, not an end-to-end live collector CLI. Same pinned Falco image/caps/mounts, no-pull/networknone, proposed140second Falco duration plus150second TERM/3second kill watchdog. Fresh unique nonce rules directory/exact config hash, selected Redis precheck. Launch/cleanup commands bounded and audited; full-ID/name/nonce/image ownership before stop/removal. Stop and re-inspect, then exclusive bounded raw logs and single regular-file metrics tar export/hash before removal. Never extract archive paths. NonUTF8/unsupported tar/oversize/partial export preserves stopped container and marks cleanup unverified. Unknown launch delivery remains unknown despite later removal/absence; sealed one-attempt lease, no retries.26new mocked cases/final86selected passes each OS; no actual collector/native tar/deadline compatibility proven.

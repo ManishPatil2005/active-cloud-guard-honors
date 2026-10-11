@@ -68,6 +68,27 @@ def test_invalid_utf8_is_not_successful_metadata():
     assert error.value.code == "invalid_utf8" and error.value.stdout == b"\xff"
 
 
+def test_binary_process_preserves_non_utf8_and_nuls():
+    result = runner.run_bounded(
+        [
+            sys.executable,
+            "-c",
+            "import os;os.write(1,bytes([255,0,128]));os.write(2,b'err')",
+        ],
+        timeout=10,
+        binary=True,
+    )
+    assert type(result) is runner.BinaryProcessResult
+    assert result.stdout == bytes([255, 0, 128]) and result.stderr == b"err"
+
+
+@pytest.mark.parametrize("binary", [None, 1, "yes"])
+def test_binary_option_rejects_non_boolean_before_launch(binary):
+    with patch.object(runner.subprocess, "Popen") as launch, pytest.raises(ValueError):
+        runner.run_bounded(["trusted"], binary=binary)
+    launch.assert_not_called()
+
+
 @pytest.mark.parametrize(
     "options",
     [

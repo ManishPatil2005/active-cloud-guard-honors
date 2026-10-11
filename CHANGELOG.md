@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-11 - Integrate journaled runtime qualification and binary evidence export
+
+- Connect the full-window scheduler, bounded Redis transport and owned sensor lifecycle with exclusive flushed checkpoints and read-only incomplete-run review.
+- Verify canary timing, UTC alignment, all60measured PID events, selected metrics, source/raw hashes and cleanup; preserve rejected/unknown outcomes.
+- Correct tar export to bounded binary transport; keep default strict UTF-8 behavior and add byte/header regressions.
+- Windows143selected tests pass; Linux1973full source-tree tests pass/6package-artifact checks explicitly skipped. Native qualification and independent research remain separate. WL-107.
+
 ## 2026-10-11 - Implement owned sensor lifecycle and evidence-preserving cleanup
 
 - Add explicit-approval-gated library with proposed bounded collector runtime, nonce/full-ID cleanup and raw export before removal; old sensor unchanged.

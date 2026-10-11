@@ -6,7 +6,11 @@ import tarfile
 
 import pytest
 
-from cloudguard.process_runner import BoundedProcessError, ProcessResult
+from cloudguard.process_runner import (
+    BinaryProcessResult,
+    BoundedProcessError,
+    ProcessResult,
+)
 from scripts import window_sensor as module
 
 TARGET = "a" * 64
@@ -72,7 +76,7 @@ class Daemon:
             data = b'{"metrics":"uninterpreted raw"}\n'
             archive = io.BytesIO()
             with tarfile.open(
-                fileobj=archive, mode="w", format=tarfile.USTAR_FORMAT
+                fileobj=archive, mode="w", format=tarfile.GNU_FORMAT
             ) as bundle:
                 member = tarfile.TarInfo(
                     "wrong" if self.mode == "bad_archive" else "acg-metrics.jsonl"
@@ -82,6 +86,8 @@ class Daemon:
                 elif self.mode == "oversize_metrics":
                     data = b"x" * 900_001
                 member.size = len(data)
+                if self.mode == "binary_archive":
+                    member.uid = 2**40  # GNU base-256 header, invalid UTF-8.
                 if self.mode == "link_metrics":
                     member.type = tarfile.SYMTYPE
                     member.linkname = "/etc/passwd"
@@ -90,7 +96,8 @@ class Daemon:
                 if self.mode == "multiple_metrics":
                     other = tarfile.TarInfo("extra")
                     bundle.addfile(other)
-            return ProcessResult(0, archive.getvalue().decode("utf-8"), "")
+            assert kwargs["binary"] is True
+            return BinaryProcessResult(0, archive.getvalue(), b"")
         if args[0] == "ps":
             return ProcessResult(0, SENSOR if self.mode == "still_present" else "", "")
         raise AssertionError("unplanned command")
@@ -145,6 +152,14 @@ def test_fixed_runtime_and_owned_cleanup(factory):
     assert len(daemon.calls) == count
     with pytest.raises(module.SensorRejected):
         lease.start(approved=True)
+
+
+def test_binary_tar_header_is_preserved_without_text_decoding(factory):
+    lease, daemon = factory("binary_archive")
+    lease.start(approved=True)
+    report = lease.cleanup()
+    assert report["cleanup_verified"] is True
+    assert "metrics_raw_sha256" in report
 
 
 @pytest.mark.parametrize("approval", [False, None, 1, "yes"])

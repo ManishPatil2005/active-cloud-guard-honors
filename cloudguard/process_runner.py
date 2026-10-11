@@ -56,11 +56,20 @@ class ProcessResult:
     stderr: str
 
 
+@dataclass(frozen=True)
+class BinaryProcessResult:
+    returncode: int
+    stdout: bytes
+    stderr: bytes
+
+
 def _pause():
     time.sleep(0.01)
 
 
-def run_bounded(command, *, timeout=30, output_limit=2_000_000):
+def run_bounded(command, *, timeout=30, output_limit=2_000_000, binary=False):
+    if type(binary) is not bool:
+        raise ValueError("binary must be a boolean")
     if (
         not isinstance(command, (list, tuple))
         or not 1 <= len(command) <= 100
@@ -175,6 +184,8 @@ def run_bounded(command, *, timeout=30, output_limit=2_000_000):
         raise BoundedProcessError(
             code, stdout, stderr, reaped=reaped, pipes_closed=closed
         )
+    if binary:
+        return BinaryProcessResult(process.returncode, stdout, stderr)
     try:
         return ProcessResult(
             process.returncode, stdout.decode("utf-8"), stderr.decode("utf-8")
