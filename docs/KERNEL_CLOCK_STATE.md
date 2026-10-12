@@ -1,5 +1,7 @@
 # Live kernel clock-state diagnostic (E2-025)
 
+Latest QA-037/WL-115: [one separately approved process trace](CLOCK_WRITER_TRACE.md) now observes two successful timesyncd adjustments. Isolated tool acquired/verified, no system installation or service/clock intervention; same process running/detached afterward. Prior no-trace statements below are historical. This does not resolve the changing tick's writer or previous alignment failure; no repeat/qualification acceptance.
+
 ## Current investigation - QA-036 / WL-114
 
 After the owner's request to proceed, one existing **sensor-free, read-only**

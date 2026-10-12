@@ -2,6 +2,8 @@
 
 ### INC-092 - 2026-10-11 - Kernel rate changes observed without writer attribution
 
+12October QA-037 follow-up: one approved process trace identifies two successful timesyncd clock_adjtime calls but neither has ADJ_TICK/ADJ_SETOFFSET mode. Different returned tick fields are exit-decoded state, not original requested inputs. Same PID/service remains running and detached afterward. Historical timing cause remains unresolved; no causal fix or retry. [Trace report](CLOCK_WRITER_TRACE.md).
+
 QA-036 read-only follow-up finds tick10000/10833 and four sampled frequency
 values across 32 zero-mode queries. All 15 RAW/monotonic elapsed comparisons
 exclude zero; final RAW-minus-monotonic interval [-518316516,-518295966]ns.

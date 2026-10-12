@@ -1,5 +1,9 @@
 # Evidence index
 
+## Approved clock-writer trace (12 October 2026)
+
+QA-037 [minimized receipt](../output/clock-writer-trace-summary-20261012-qa037.json), [method and limits](CLOCK_WRITER_TRACE.md), WL-115. One45second timesyncd main-PID trace: two successful clock_adjtime calls, no tick/step-setting modes; differing exit-decoded tick fields do not identify their writer. Signed Ubuntu index/package verified before local extraction; service identity/running/detached state verified after. Raw evidence/tools ignored/private, no retry or intervention. Not a full-window qualification, original-fault attribution or independent research result.
+
 ## Read-only timing investigation (11 October 2026)
 
 QA-036 [actual kernel receipt](../output/kernel-clock-followup-20261011-qa036.json), [recomputed review](../output/kernel-clock-followup-review-20261011-qa036.json) and [minimized investigation](../output/timing-investigation-summary-20261011-qa036.json). Sixteen packets/32 zero-mode queries; changing tick values and RAW/monotonic disagreement, but wall/BOOT change bounds include zero. Not a reproduction or attribution of QA-035's different event. Old journal/raw hashes unchanged; selected log absence cannot exclude writers. WL-114/INC-092.

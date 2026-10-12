@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-037: signed-index/package identity assertions, fixed PID/executable/start-time/no-tracer preflight, one45second actual trace,1MiB child output caps, original service identity/running state/TracerPid0 postcheck, offline raw-to-summary assertions and documentation/publication checks. Exact results in WL-115. No production code change or full-suite rerun; no clock fix/collector qualification. Future trace/service intervention requires new scope approval.
+
 QA-036: one existing 16-packet sensor-free diagnostic and offline review completed. Independent endpoint arithmetic matches final RAW/monotonic bounds; saved trial metric gaps recomputed with integer timestamps; original 11-record journal and both raw hashes unchanged. No timing threshold changes or new collector qualification. Reader/documentation test commands and scope are recorded in WL-114; a completed diagnostic is not a stable clock.
 
 QA-035 / WL-113: one newly approved native qualification executed, rejected at alignment before measuredPINGs;11record journal and rejected samples reviewed offline,99source hashes stable, raw/metrics hashes and original QA-030evidence preserved, owned sensor absence and Redis restoration checked. Timing/coverage gates unchanged. This evidence-only milestone does not rerun full software suites or establish independent detector effectiveness. Actual receipt and commands in RUNTIME_WINDOW_TRIAL/WORK_LOG; documentation verification recorded at closure.

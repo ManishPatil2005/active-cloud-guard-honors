@@ -1,0 +1,72 @@
+{
+  "schema": "acg_clock_writer_trace_summary_v1",
+  "milestone": "QA-037",
+  "date": "2026-10-12",
+  "source_commit": "03d504c374df102354d753e75acf677f2453148a",
+  "classification": "single_process_development_diagnostic_not_qualification",
+  "attempts": 1,
+  "package": {
+    "name": "strace",
+    "version": "6.8-0ubuntu2",
+    "architecture": "amd64",
+    "url": "https://archive.ubuntu.com/ubuntu/pool/main/s/strace/strace_6.8-0ubuntu2_amd64.deb",
+    "bytes": 584172,
+    "sha256": "d588810ae26b06fee6678dc81e5b54f6efcde8e718e4589adb4d11d254b9820b"
+  },
+  "provenance": {
+    "signed_index_sha256": "8f6f71ae839c8cba390a7643fcbbdacddb0bc7d12c1583a2dd80a1f8443a30e5",
+    "index_bytes": 7165069,
+    "release_signer": "F6ECB3762474EDA9D21B7022871920D1991BC93C",
+    "binary_sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001",
+    "runner_sha256": "d70fb381c0294dff71210ef0c117a4132c6334c67c90b861248f26dbf9198cc4",
+    "system_installation": false,
+    "latest_or_vulnerability_free_claim": false
+  },
+  "execution": {
+    "pid": 176,
+    "start_ticks_before_and_after": "164",
+    "service_executable_sha256": "cbf92a41ffb29efd75daebf8a1a1dd4d0c078d2f3c50f0fc7e9e35715eefb7cd",
+    "requested_timeout_seconds": 45,
+    "kill_after_seconds": 3,
+    "per_output_file_limit_bytes": 1048576,
+    "timeout_returncode": 124,
+    "wrapper_returncode": 0,
+    "guest_monotonic_elapsed_ns": 45018289348,
+    "selected_syscalls": ["adjtimex", "clock_adjtime", "clock_settime", "settimeofday"],
+    "follow_children_or_other_threads": false,
+    "same_service_identity_and_state": true,
+    "tracer_pid_after": 0,
+    "service_after": "active/running/enabled",
+    "detached_and_not_stopped": true
+  },
+  "observations": {
+    "clock_adjtime_calls": 2,
+    "other_selected_syscall_lines": 0,
+    "clock": "CLOCK_REALTIME",
+    "decoded_modes_each": ["ADJ_OFFSET", "ADJ_MAXERROR", "ADJ_ESTERROR", "ADJ_STATUS", "ADJ_TIMECONST", "ADJ_NANO"],
+    "return_states": [0, 0],
+    "decoded_return_tick_us": [10791, 9983],
+    "decoded_return_frequency_scaled_ppm": [-1763827, -742349],
+    "decoded_return_offset_ns": [-58645962, -44702767],
+    "timex_decode_phase": "syscall_exit_not_original_input_buffer",
+    "adj_tick_mode_observed": false,
+    "adj_setoffset_mode_observed": false,
+    "historical_failure_cause_established": false,
+    "qualified_live_window": false
+  },
+  "private_evidence": {
+    "directory": "output/runtime-raw/clock-writer-trace-20261012-qa037",
+    "clock_calls_log_bytes": 848,
+    "clock_calls_log_sha256": "b00cb9683ba558abaa693a6addeb20d9e8e54a6945ca73efdb9b30da47edab4e",
+    "before_json_sha256": "83f9fd91b1078b374b27ca91c68255bd335b52deec9a7f415e3b4687179c0fcc",
+    "execution_json_sha256": "38b406db58fbf27c35da9576325856036c9106877e90e70c361b0d5492e3fef0",
+    "tracer_stderr_sha256": "f2e35a72752f7468d411f220f6796a3ad6fd1532634082b9a3dedf85d2b9b21d"
+  },
+  "limits": [
+    "One PID and four syscall names only; no global, host, kernel or other-thread writer coverage.",
+    "Tracer overhead and guest-clock timeout preclude independent physical-time or overhead claims.",
+    "Returned timex fields are not a complete record of requested input values.",
+    "No clock/service changes, sensor/workload, automatic retry or stability qualification.",
+    "Local file and endpoint checks are not authenticated continuous attestation."
+  ]
+}

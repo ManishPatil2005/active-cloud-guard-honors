@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-12 - Observe one clock-adjusting process with bounded private tracing
+
+- Verify official Ubuntu strace provenance and extract locally without system installation.
+- Complete one approved45second PID176 trace, preserving two successful clock-adjustment calls and verified detachment/service identity.
+- Distinguish exit-decoded kernel fields from requested inputs; historical timing cause, qualified collection and research/production gates remain open. No engine, clock or service changes; QA-037/WL-115.
+
 ## 2026-10-11 - Investigate changing clock discipline without intervention
 
 - Recompute two gaps in the saved trial metrics and preserve all original evidence.

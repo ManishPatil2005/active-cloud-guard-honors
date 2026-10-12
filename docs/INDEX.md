@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest: [QA-037 approved clock-writer trace](CLOCK_WRITER_TRACE.md), two successful calls from timesyncd observed, exact service still running and detached afterward. One candidate writer identified, historical failure cause not resolved; no service/clock intervention or collector qualification. Earlier no-tracer statements below describe earlier checkpoints.
+
 Latest investigation: [QA-036 read-only clock evidence](KERNEL_CLOCK_STATE.md), changing tick values and RAW/monotonic rate inconsistency observed, writer unknown. No wall/BOOT change established in the later short sample; QA-035's failed alignment remains uncorrected. No new sensor trial, service change, installation or tracing. Next requires scoped writer attribution, not another blind qualification attempt.
 
 Latest live result: [QA-035 approved single qualification](RUNTIME_WINDOW_TRIAL.md), rejected at alignment with both samples retained:5.473448109s clock disagreement,0measuredPINGs. Owned sensor removed/Redis restored stopped; synchronization flag yes is not clock stability. No retry or clock intervention; empirical/publication gates remain open. WL-113/INC-091.
