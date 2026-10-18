@@ -1,5 +1,10 @@
 # Live timing investigation and bounded UTC wait repair
 
+QA-045 adds earlier cumulative sampled refusal, not a physical clock correction.
+SavedQA-044breach beforeindex19 verified; no live/service/clock action. Nonrotating
+capture refinement and unresolved capacity/native/discipline gates are recorded
+in [the offline refinement report](CAPTURE_RETENTION_CLOCK_REFINEMENT.md).
+
 QA-044 integrated follow-up is now executed once with fresh approval: initial
 alignment/all60PINGs pass, but minute clock difference-129.242680ms rejects50ms.
 Final retention/command-time correspondence also fail; clock-only QA-042 is not a

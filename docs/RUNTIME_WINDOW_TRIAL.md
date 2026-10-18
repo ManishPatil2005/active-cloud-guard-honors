@@ -1,5 +1,12 @@
 # Journaled full-window development qualification
 
+QA-045 software-only follow-up: new receipts use `redis_window_trial_v2`, leasev2
+and hash-bound falco-window.yaml. Authoritative alerts now use a capped nonrotating
+file rather than Dockerlogs; cumulative sampled clock faults reject earlier at
+the same50ms gate. Oldprotocol/results below remain historical and unchanged.
+No new live trial; cap overflow/native behavior/host discipline/full coverage
+remain unqualified. [Fixes, tests and limits](CAPTURE_RETENTION_CLOCK_REFINEMENT.md).
+
 ## Current actual result - QA-044 / WL-121 (18 October 2026)
 
 Fresh user approval authorized one integrated trial under the candidate condition:

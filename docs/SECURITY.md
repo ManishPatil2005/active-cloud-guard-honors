@@ -1,5 +1,16 @@
 # Security boundaries and publication policy
 
+QA-045 removes rotatingDockerstdout as authority for futurefull-window trials,
+using separateFalcofile/nonrotating output and fsize1MBcap with same image/caps/
+resources/no-network; no live invocation. Bounded1MBbinarytar/singlefixedregular
+member, metrics900KB, no extraction/fallback/limit increase. Export/saturation
+failure preserves stoppedownedcontainer, even if manualrecovery needed. Filelimit
+applies perfile/inheritedprocess, not aggregatedisk or maliciousprivilegedhost
+defense. Fixedfile-output/no-buffering nativecompatibility unvalidated. Cumulative
+clockrefusal uses existing50ms/5ms gates/retainedsamples, never setter/correction.
+Tests/inertchild enforcement not Falco/clockqualification. Newapproval needed
+for live trial; originalcollector/evidence unchanged. [Contract](CAPTURE_RETENTION_CLOCK_REFINEMENT.md).
+
 QA-044: fresh explicit user scope allowed one integrated development trial with
 temporary guest time-service stop/fixed120second settling, not Windows/host-agent
 changes. Clock rollback480seconds, root orchestration360seconds/coordinator180seconds

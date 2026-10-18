@@ -1,5 +1,12 @@
 # Experimental protocol v0.1
 
+QA-045 distinguishes futurelease/coordinatorv2 from historicalv1: authoritative
+nonrotatingcapped alertfile, same eventJSON/rules/metrics/timing/resource ceilings,
+cumulative sampledclock checks before/after commands. No live repeat or change to
+old timestamps/results/labels. These engineering fixes cannot qualify faileddata,
+clockcause, fullcapacity/coverage or independent study; new nativeprotocol must
+be separately reviewed/approved before execution. [Contract](CAPTURE_RETENTION_CLOCK_REFINEMENT.md).
+
 QA-038 adds exact case/rule development accounting beside existing binary metrics, rejecting duplicate case IDs before scans. This is a narrower unit than the independent scenario/asset/type/location primary endpoint below; it does not manufacture missing location/actionability labels or constitute held-out evaluation. See EVALUATOR_EVIDENCE_PRESERVATION and WL-116. Original study endpoint remains unchanged.
 
 QA-034 implements [grouped paired uncertainty](GROUPED_UNCERTAINTY.md) on synthetic decisions only: whole-family shared resampling, pooled metric differences and withheld undefined intervals. Actual independent comparisons, fixed-recall operating point, sample sufficiency and final analysis-method review remain pending. Original endpoints/data boundaries unchanged. Owner-reported approval is in SUPERVISOR_APPROVAL_RECORD; older approval statements below retain their dated scope.

@@ -163,3 +163,40 @@ def test_specification_cli_does_not_launch_workload():
     assert spec["collector_watchdog_compatible"] is False
     assert spec["live_transport_integrated"] is False
     assert spec["collection_authorized"] is False
+
+
+@pytest.mark.parametrize("step", [-5_000_000, 5_000_000])
+def test_cumulative_clock_drift_stops_before_sixty_calls(step):
+    clock = Clock()
+
+    def ping():
+        result = clock.ping()
+        clock.wall_offset += step
+        return result
+
+    report = clock.execute(ping)
+    assert report["status"] == "window_clock_outside_tolerance"
+    assert report["attempted_calls"] == 11
+    assert report["completed_calls"] == 10
+    assert report["unattempted_calls"] == 49
+    assert report["clock_stop"]["phase"] == "after_command"
+    assert report["clock_stop"]["timing"]["clock_difference_ns"] == 11 * step
+    assert report["workload_timing_accepted"] is False
+
+
+@pytest.mark.parametrize("step", [-50_000_001, 50_000_001])
+def test_between_call_clock_fault_is_not_hidden_by_later_recovery(step):
+    clock = Clock()
+
+    def sleep(seconds):
+        clock.sleep(seconds)
+        if clock.sleeps == 10:
+            clock.wall_offset += step
+        if clock.sleeps == 11:
+            clock.wall_offset -= step
+
+    report = clock.execute(sleep=sleep)
+    assert report["status"] == "window_clock_outside_tolerance"
+    assert clock.calls == 9
+    assert report["clock_stop"]["phase"] == "before_command"
+    assert report["clock_stop"]["index"] == 9

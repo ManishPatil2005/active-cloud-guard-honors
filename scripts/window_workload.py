@@ -53,6 +53,8 @@ def run(
         labels_created=False,
         overhead_estimate=None,
         callback_deadline_enforcement="caller_required",
+        clock_check_protocol="cumulative_window_samples_v2",
+        clock_stop=None,
     )
     try:
         first = sample(monotonic_ns, wall_ns)
@@ -61,6 +63,19 @@ def run(
         for offset in spec["offsets_ns"]:
             sleep(max(0, (start + offset - monotonic_ns()) / 1_000_000_000))
             before = sample(monotonic_ns, wall_ns)
+            progress = compare(first, before)
+            if offset and not progress["within_tolerance"]:
+                report.update(
+                    status="window_clock_outside_tolerance",
+                    clock_stop=dict(
+                        phase="before_command",
+                        index=len(report["calls"]),
+                        first=first,
+                        last=before,
+                        timing=progress,
+                    ),
+                )
+                break
             dispatch = monotonic_ns()
             if (
                 not offset
@@ -100,6 +115,20 @@ def run(
                 call["status"] = "call_clock_outside_tolerance"
             else:
                 call["status"] = "completed"
+            # Local command brackets can pass while small changes accumulate
+            # beyond the unchanged full-window gate. Never wait until the end
+            # (or a later recovery) to notice an already sampled clock fault.
+            progress = compare(first, after)
+            call["window_timing"] = progress
+            if call["status"] == "completed" and not progress["within_tolerance"]:
+                call["status"] = "window_clock_outside_tolerance"
+                report["clock_stop"] = dict(
+                    phase="after_command",
+                    index=len(report["calls"]) - 1,
+                    first=first,
+                    last=after,
+                    timing=progress,
+                )
             if call["status"] != "completed":
                 report["status"] = call["status"]
                 break

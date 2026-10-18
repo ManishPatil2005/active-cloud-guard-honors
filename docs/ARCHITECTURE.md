@@ -1,5 +1,11 @@
 # Existing architecture
 
+QA-045 only changes full-window research plumbing: lease/coordinatorv2 bind a
+separate capped nonrotating Falco alertfile (sameJSON/rules/kinds), fixedboundedtar
+export and sampled cumulative-clock refusal. Historical smokeconfig/25secondpath
+unchanged; no new corepackage/detector/engine/stack/dependency. No native or
+scientific acceptance inferred. [Contract](CAPTURE_RETENTION_CLOCK_REFINEMENT.md).
+
 QA-034 adds pure runtime_uncertainty.py on top of unchanged synthetic paired accounting; current package has 43 core modules. No engine, stack, service, model-fitting or collector behavior changes. A fixed source-tree runner publishes hash-bound synthetic practice results. [Analysis contract](GROUPED_UNCERTAINTY.md).
 
 QA-031 factors existing UTC wait into wait_alignment, returning all samples/reasons before caller admission, and adds explicit sensor-free --alignment-only CLI mode. No detector/feature/scoring/dependency change; native trial and timing limits in [protocol](RUNTIME_WINDOW_TRIAL.md), WL-108.

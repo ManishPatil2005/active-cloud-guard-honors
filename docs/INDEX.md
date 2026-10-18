@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest live result: [QA-044 integrated trial](RUNTIME_WINDOW_TRIAL.md). Initial alignment/all60PINGs pass, full-minute clock difference-129.242680ms rejects50ms; only21/60connections retained in final export, no accepted coverage. Post-workload identity not reached (not changed). Sensor removed, Redis/time service restored, no retries/changed limits. Retention and clock-domain diagnosis needed before another separately approved trial; real-data/research acceptance remains open. QA-042 candidate not a cure.
+Latest software: [QA-045 retention/cumulative-clock refinement](CAPTURE_RETENTION_CLOCK_REFINEMENT.md), no live trial or service action. Nonrotating capped alert file and earlier cumulative50ms rejection; six reproduced failures, fullLinux2124passes/zero skips, Windows143targets/oneLinux-onlyskip. Prefix preservation is not unlimited capacity; native collector/host clock/coverage remain unqualified. Latest actualQA-044still rejected, all negative receipts preserved; no real-data/novelty/production acceptance.
 
 Latest QA-040: [current-source packages/regression](PACKAGE_REFRESH_QUALIFICATION.md), fullLinux2101passes/zero skips and8Windows installed-package checks. Evaluator278e129/reviewer-agreement6aa5b0e published. Research-data qualification, independent evaluation and production acceptance remain outstanding; old test counts below are dated checkpoints.
 

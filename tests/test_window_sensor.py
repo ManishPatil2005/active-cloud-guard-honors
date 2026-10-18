@@ -3,6 +3,8 @@
 import json
 import io
 import tarfile
+from pathlib import Path
+import sys
 
 import pytest
 
@@ -73,27 +75,43 @@ class Daemon:
                 return ProcessResult(0, "x" * 1_000_001, "")
             return ProcessResult(0, "saved raw\n", "saved stderr\n")
         if args[0] == "cp":
+            events = args[-2].endswith(":/tmp/acg-events.jsonl")
             data = b'{"metrics":"uninterpreted raw"}\n'
+            if events:
+                data = b"saved raw\nsaved stderr\n"
+            if events and self.mode == "oversize_log":
+                data = b"x" * 1_000_001
+            if events and self.mode == "events_empty":
+                data = b""
             archive = io.BytesIO()
             with tarfile.open(
                 fileobj=archive, mode="w", format=tarfile.GNU_FORMAT
             ) as bundle:
                 member = tarfile.TarInfo(
-                    "wrong" if self.mode == "bad_archive" else "acg-metrics.jsonl"
+                    "wrong"
+                    if (self.mode == "bad_archive" and not events)
+                    or (self.mode == "events_name" and events)
+                    else "acg-events.jsonl"
+                    if events
+                    else "acg-metrics.jsonl"
                 )
-                if self.mode == "empty_metrics":
+                if self.mode == "empty_metrics" and not events:
                     data = b""
-                elif self.mode == "oversize_metrics":
+                elif self.mode == "oversize_metrics" and not events:
                     data = b"x" * 900_001
                 member.size = len(data)
                 if self.mode == "binary_archive":
                     member.uid = 2**40  # GNU base-256 header, invalid UTF-8.
-                if self.mode == "link_metrics":
+                if (self.mode == "link_metrics" and not events) or (
+                    self.mode == "events_link" and events
+                ):
                     member.type = tarfile.SYMTYPE
                     member.linkname = "/etc/passwd"
                     member.size = 0
                 bundle.addfile(member, io.BytesIO(data))
-                if self.mode == "multiple_metrics":
+                if (self.mode == "multiple_metrics" and not events) or (
+                    self.mode == "events_multiple" and events
+                ):
                     other = tarfile.TarInfo("extra")
                     bundle.addfile(other)
             assert kwargs["binary"] is True
@@ -107,10 +125,10 @@ class Daemon:
 def factory(tmp_path, monkeypatch):
     monkeypatch.delenv("DOCKER_HOST", raising=False)
     monkeypatch.delenv("DOCKER_CONTEXT", raising=False)
-    config = module.read_bytes(module.ROOT / "testbed/falco-trial.yaml")
+    config = module.read_bytes(module.ROOT / "testbed/falco-window.yaml")
     monkeypatch.setattr(module, "ROOT", tmp_path)
     (tmp_path / "testbed").mkdir()
-    (tmp_path / "testbed/falco-trial.yaml").write_bytes(config)
+    (tmp_path / "testbed/falco-window.yaml").write_bytes(config)
 
     def build(mode="normal"):
         daemon = Daemon(mode)
@@ -211,7 +229,7 @@ def test_cleanup_failures_preserved_and_not_retried(factory, mode):
 
 def test_changed_config_blocks_launch(factory):
     lease, daemon = factory()
-    (module.ROOT / "testbed/falco-trial.yaml").write_bytes(b"changed")
+    (module.ROOT / "testbed/falco-window.yaml").write_bytes(b"changed")
     with pytest.raises(module.SensorRejected):
         lease.start(approved=True)
     assert not any(argv[3] == "run" for argv, _ in daemon.calls)
@@ -275,3 +293,97 @@ def test_export_limits_no_archive_extraction_or_unsafe_remove(factory, mode):
     assert daemon.running is False
     assert not any(argv[3] == "rm" for argv, _ in daemon.calls)
     assert not (module.ROOT / "etc/passwd").exists()
+
+
+def test_authoritative_capture_is_not_rotating_docker_stdout(factory):
+    lease, daemon = factory()
+    report = lease.start(approved=True)
+    assert report["protocol"] == "sensor_window_lease_v2"
+    assert report["retention_protocol"] == "nonrotating_file_fsize_v1"
+    launch = next(argv for argv, _ in daemon.calls if "run" in argv)
+    assert launch[launch.index("--ulimit") + 1] == "fsize=1000000:1000000"
+    assert "max-size=1m" in launch and "max-file=1" in launch
+
+
+def test_cleanup_exports_authoritative_events_before_removing_sensor(factory):
+    lease, daemon = factory()
+    lease.start(approved=True)
+    lease.cleanup()
+    exports = [argv for argv, _ in daemon.calls if argv[3] == "cp"]
+    assert any(argv[-2].endswith(":/tmp/acg-events.jsonl") for argv in exports)
+    assert not any(argv[3] == "logs" for argv, _ in daemon.calls)
+
+
+@pytest.mark.parametrize(
+    "mode", ["events_empty", "events_name", "events_link", "events_multiple"]
+)
+def test_unexportable_event_file_keeps_stopped_sensor(factory, mode):
+    lease, daemon = factory(mode)
+    lease.start(approved=True)
+    report = lease.cleanup()
+    assert not daemon.running
+    assert report["cleanup_verified"] is False
+    assert report["faults"]
+    assert not any(argv[3] == "rm" for argv, _ in daemon.calls)
+
+
+def test_versioned_config_preserves_alert_schema_and_original_limits():
+    import yaml
+
+    root = Path(__file__).resolve().parents[1]
+    old = yaml.safe_load((root / "testbed/falco-trial.yaml").read_bytes())
+    new = yaml.safe_load((root / "testbed/falco-window.yaml").read_bytes())
+    assert old["stdout_output"]["enabled"] and not old["file_output"]["enabled"]
+    assert not new["stdout_output"]["enabled"] and new["file_output"]["enabled"]
+    assert new["file_output"]["filename"] == "/tmp/acg-events.jsonl"
+    assert new["buffered_outputs"] is False
+    assert new["metrics"] == old["metrics"]
+    assert new["json_output"] is old["json_output"] is True
+    assert new["engine"] == old["engine"]
+
+
+def test_export_does_not_raise_pipe_budget_to_accommodate_tar(factory):
+    lease, daemon = factory("oversize_log")
+    lease.start(approved=True)
+    report = lease.cleanup()
+    assert report["cleanup_verified"] is False
+    exports = [(argv, options) for argv, options in daemon.calls if argv[3] == "cp"]
+    assert exports[0][1]["output_limit"] == 1_000_000
+    assert not any(argv[3] == "rm" for argv, _ in daemon.calls)
+
+
+def test_unreviewed_export_name_refuses_without_external_call(factory):
+    lease, daemon = factory()
+    with pytest.raises(module.SensorRejected):
+        lease._file("../other", 1_000_000)
+    assert not daemon.calls
+
+
+@pytest.mark.skipif(sys.platform != "linux", reason="native RLIMIT_FSIZE primitive")
+def test_native_file_size_limit_retains_prefix_in_inert_child(tmp_path):
+    # Only this disposable child/file is affected; no Docker, sensor or clock API.
+    from cloudguard.process_runner import run_bounded
+
+    code = """
+import errno, os, resource, signal, sys
+resource.setrlimit(resource.RLIMIT_FSIZE, (1000000, 1000000))
+signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
+with open(sys.argv[1], 'xb', buffering=0) as f:
+    assert f.write(b'a' * 1000000) == 1000000
+    try:
+        f.write(b'b')
+    except OSError as e:
+        assert e.errno == errno.EFBIG
+    else:
+        raise AssertionError('cap not enforced')
+assert os.stat(sys.argv[1]).st_size == 1000000
+with open(sys.argv[1], 'rb') as f:
+    assert f.read() == b'a' * 1000000
+print('prefix retained at unchanged 1000000-byte cap')
+"""
+    result = run_bounded(
+        [sys.executable, "-c", code, str(tmp_path / "prefix")],
+        timeout=5,
+        output_limit=256,
+    )
+    assert result.returncode == 0 and "prefix retained" in result.stdout

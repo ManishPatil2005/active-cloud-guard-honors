@@ -1,5 +1,9 @@
 # Evidence index
 
+## Offline retention and sampled-clock fixes (18 October 2026)
+
+QA-045 [saved diagnosis](../output/retention-clock-saved-diagnosis-20261018-qa045.json), original99source hashes verified against originalGitcommit; first cumulativefault beforeindex19, no new acquisition. [6before-fix failures](../output/retention-clock-before-20261018-qa045.xml), [Windows143pass/1Linuxskip](../output/retention-clock-windows-20261018-qa045.xml), [Linux144targets](../output/retention-clock-linux-20261018-qa045.xml), [fullLinux2124zero skips](../output/retention-clock-full-linux-20261018-qa045.xml). No live/nativeFalco/service/clockchange; nonrotating prefix preservation/fail-fast validity do not establish sufficient capacity or cure. [Method and remaining gates](CAPTURE_RETENTION_CLOCK_REFINEMENT.md), WL-122/INC-100.
+
 ## Integrated settled-clock trial (18 October 2026)
 
 QA-044 [reviewed actual result](../output/window-trial-settled-reviewed-20261018-qa044.json):132journal records/99sources,29controller hashes, full-minute timing rejection despite60completedPINGs; finalexport21/60measured connections/no finalcanaries/no accepted command brackets. Initialalignment passes, no complete coverage or post-running identity qualification. Service/Redis restored and owned sensor removed; no retry/changed gate. [Initial derivation retained](../output/window-trial-settled-summary-20261018-qa044.json) contains corrected false-vs-missing identity inference; do not treat thatfield as observed change (INC-099). [3documentation checks](../output/integrated-settled-docs-20261018-qa044.xml); [method/limits](RUNTIME_WINDOW_TRIAL.md), WL-121/INC-098. Earlier candidate/failure evidence remains unchanged; no independent data or effectiveness result.

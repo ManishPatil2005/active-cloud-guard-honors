@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="6" time="0.497" timestamp="2026-10-18T17:33:16.831153+05:30" hostname="Welcome"><testcase classname="tests.test_window_workload" name="test_cumulative_clock_drift_stops_before_sixty_calls[-5000000]" time="0.001"><failure message="AssertionError: assert 'window_timin...ide_tolerance' == 'window_clock...ide_tolerance'&#10;  &#10;  - window_clock_outside_tolerance&#10;  ?        ^^^^^&#10;  + window_timing_outside_tolerance&#10;  ?        ^^^^^^">step = -5000000
+
+    @pytest.mark.parametrize("step", [-5_000_000, 5_000_000])
+    def test_cumulative_clock_drift_stops_before_sixty_calls(step):
+        clock = Clock()
+    
+        def ping():
+            result = clock.ping()
+            clock.wall_offset += step
+            return result
+    
+        report = clock.execute(ping)
+&gt;       assert report["status"] == "window_clock_outside_tolerance"
+E       AssertionError: assert 'window_timin...ide_tolerance' == 'window_clock...ide_tolerance'
+E         
+E         - window_clock_outside_tolerance
+E         ?        ^^^^^
+E         + window_timing_outside_tolerance
+E         ?        ^^^^^^
+
+tests\test_window_workload.py:178: AssertionError</failure></testcase><testcase classname="tests.test_window_workload" name="test_cumulative_clock_drift_stops_before_sixty_calls[5000000]" time="0.001"><failure message="AssertionError: assert 'window_timin...ide_tolerance' == 'window_clock...ide_tolerance'&#10;  &#10;  - window_clock_outside_tolerance&#10;  ?        ^^^^^&#10;  + window_timing_outside_tolerance&#10;  ?        ^^^^^^">step = 5000000
+
+    @pytest.mark.parametrize("step", [-5_000_000, 5_000_000])
+    def test_cumulative_clock_drift_stops_before_sixty_calls(step):
+        clock = Clock()
+    
+        def ping():
+            result = clock.ping()
+            clock.wall_offset += step
+            return result
+    
+        report = clock.execute(ping)
+&gt;       assert report["status"] == "window_clock_outside_tolerance"
+E       AssertionError: assert 'window_timin...ide_tolerance' == 'window_clock...ide_tolerance'
+E         
+E         - window_clock_outside_tolerance
+E         ?        ^^^^^
+E         + window_timing_outside_tolerance
+E         ?        ^^^^^^
+
+tests\test_window_workload.py:178: AssertionError</failure></testcase><testcase classname="tests.test_window_workload" name="test_between_call_clock_fault_is_not_hidden_by_later_recovery[-50000001]" time="0.001"><failure message="AssertionError: assert 'completed' == 'window_clock...ide_tolerance'&#10;  &#10;  - window_clock_outside_tolerance&#10;  + completed">step = -50000001
+
+    @pytest.mark.parametrize("step", [-50_000_001, 50_000_001])
+    def test_between_call_clock_fault_is_not_hidden_by_later_recovery(step):
+        clock = Clock()
+    
+        def sleep(seconds):
+            clock.sleep(seconds)
+            if clock.sleeps == 10:
+                clock.wall_offset += step
+            if clock.sleeps == 11:
+                clock.wall_offset -= step
+    
+        report = clock.execute(sleep=sleep)
+&gt;       assert report["status"] == "window_clock_outside_tolerance"
+E       AssertionError: assert 'completed' == 'window_clock...ide_tolerance'
+E         
+E         - window_clock_outside_tolerance
+E         + completed
+
+tests\test_window_workload.py:199: AssertionError</failure></testcase><testcase classname="tests.test_window_workload" name="test_between_call_clock_fault_is_not_hidden_by_later_recovery[50000001]" time="0.001"><failure message="AssertionError: assert 'completed' == 'window_clock...ide_tolerance'&#10;  &#10;  - window_clock_outside_tolerance&#10;  + completed">step = 50000001
+
+    @pytest.mark.parametrize("step", [-50_000_001, 50_000_001])
+    def test_between_call_clock_fault_is_not_hidden_by_later_recovery(step):
+        clock = Clock()
+    
+        def sleep(seconds):
+            clock.sleep(seconds)
+            if clock.sleeps == 10:
+                clock.wall_offset += step
+            if clock.sleeps == 11:
+                clock.wall_offset -= step
+    
+        report = clock.execute(sleep=sleep)
+&gt;       assert report["status"] == "window_clock_outside_tolerance"
+E       AssertionError: assert 'completed' == 'window_clock...ide_tolerance'
+E         
+E         - window_clock_outside_tolerance
+E         + completed
+
+tests\test_window_workload.py:199: AssertionError</failure></testcase><testcase classname="tests.test_window_sensor" name="test_authoritative_capture_is_not_rotating_docker_stdout" time="0.009"><failure message="AssertionError: assert 'sensor_window_lease_v1' == 'sensor_window_lease_v2'&#10;  &#10;  - sensor_window_lease_v2&#10;  ?                      ^&#10;  + sensor_window_lease_v1&#10;  ?                      ^">factory = &lt;function factory.&lt;locals&gt;.build at 0x0000013D586D6C00&gt;
+
+    def test_authoritative_capture_is_not_rotating_docker_stdout(factory):
+        lease, daemon = factory()
+        report = lease.start(approved=True)
+&gt;       assert report["protocol"] == "sensor_window_lease_v2"
+E       AssertionError: assert 'sensor_window_lease_v1' == 'sensor_window_lease_v2'
+E         
+E         - sensor_window_lease_v2
+E         ?                      ^
+E         + sensor_window_lease_v1
+E         ?                      ^
+
+tests\test_window_sensor.py:283: AssertionError</failure></testcase><testcase classname="tests.test_window_sensor" name="test_cleanup_exports_authoritative_events_before_removing_sensor" time="0.016"><failure message="assert False&#10; +  where False = any(&lt;generator object test_cleanup_exports_authoritative_events_before_removing_sensor.&lt;locals&gt;.&lt;genexpr&gt; at 0x0000013D58743030&gt;)">factory = &lt;function factory.&lt;locals&gt;.build at 0x0000013D586D7240&gt;
+
+    def test_cleanup_exports_authoritative_events_before_removing_sensor(factory):
+        lease, daemon = factory()
+        lease.start(approved=True)
+        lease.cleanup()
+        exports = [argv for argv, _ in daemon.calls if argv[3] == "cp"]
+&gt;       assert any(argv[-2].endswith(":/tmp/acg-events.jsonl") for argv in exports)
+E       assert False
+E        +  where False = any(&lt;generator object test_cleanup_exports_authoritative_events_before_removing_sensor.&lt;locals&gt;.&lt;genexpr&gt; at 0x0000013D58743030&gt;)
+
+tests\test_window_sensor.py:295: AssertionError</failure></testcase></testsuite></testsuites>

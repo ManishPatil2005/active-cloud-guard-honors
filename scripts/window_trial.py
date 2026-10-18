@@ -28,7 +28,11 @@ def digest(raw):
 
 def sources():
     paths = sorted([*ROOT.glob("cloudguard/*.py"), *ROOT.glob("scripts/*.py")])
-    paths += [ROOT / "testbed/falco-trial.yaml", ROOT / "testbed/inventory.json"]
+    paths += [
+        ROOT / "testbed/falco-trial.yaml",
+        ROOT / "testbed/falco-window.yaml",
+        ROOT / "testbed/inventory.json",
+    ]
     if not 1 <= len(paths) <= 250:
         raise ValueError("source count outside budget")
     result, total = {}, 0
@@ -313,7 +317,7 @@ def execute(
     journal = Journal(directory)  # Refuse reuse before any external operation.
     lease = None
     report = dict(
-        protocol="redis_window_trial_v1",
+        protocol="redis_window_trial_v2",
         status="started",
         independent_evaluation_verified=False,
         labels_created=False,

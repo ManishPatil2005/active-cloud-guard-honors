@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 - Prevent rotating capture evidence and reject sampled cumulative drift
+
+- Version the full-window lease/config/coordinator: capped nonrotating alert file, strict bounded file export, no stdout fallback; retain stopped sensor on saturated/unexportable evidence.
+- Check cumulative start-to-current clock bounds before/after calls with unchanged limits; preserve the first failure and stop without replacement or timestamp correction.
+- Preserve six regressions and QA-044negative evidence; fullLinux2124passes/Windows143targets+1Linux-onlyskip. Native retention/capacity/host clock remain unqualified; no live trial. QA-045/WL-122.
+
 ## 2026-10-18 - Execute and preserve the approved integrated settled-clock trial
 
 - Initial alignment accepted and60PINGs completed, but whole-window clock disagreement129.243ms rejects unchanged50ms; final export misses39measured connects and both readiness events.

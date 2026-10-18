@@ -1,5 +1,14 @@
 # Test and verification plan
 
+QA-045: sixbefore failures preserved, fourteennewcases total including signed
+gradual/transient cumulative drift, newconfig/limits/file-export ordering,
+malformedfilearchives/pipeoverflow/name refusal and inertLinuxfsizeprimitive.
+FinalLinux144targets/full2124zero skips; Windows143targets/1explicitLinuxskip.
+174fileformat/lint/bothpipchecks pass. No new nativecollector/clock/sensortrial.
+Cap saturation/partialdata must reject/preserve stopped ownedcontainer, not
+increasebudget/removeevidence; fullcapacity/hostcure remain open. WL-122 and
+[scope/evidence](CAPTURE_RETENTION_CLOCK_REFINEMENT.md).
+
 QA-044: one approved actual integrated trial, no retry/changed limits. Initial UTC
 alignment passes,60individualPINGs complete; fullminute clock difference129.243ms
 rejects50ms. Offline finalexport21/60connects, missing finalcanaries, zero accepted

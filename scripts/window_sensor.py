@@ -22,7 +22,7 @@ from cloudguard.process_runner import (
 from scripts.sensor_trial import IMAGE, rules
 from scripts.window_transport import RedisWindowTransport
 
-CONFIG_SHA = "0fc09cd6d0645fa30d5f3da0526666ba372424d31a7adcd448e4b3b37dff50de"
+CONFIG_SHA = "72d2c6fb542e40b7f70f212a5d0b093aa717599c70b74fde86016a377040f461"
 OWNERSHIP_FORMAT = (
     '{"id":{{json .Id}},"name":{{json .Name}},"image":{{json .Config.Image}},'
     '"running":{{json .State.Running}},'
@@ -47,7 +47,9 @@ class SensorLease:
         self._sealed = False
         self._raw_dir = None
         self._report = dict(
-            protocol="sensor_window_lease_v1",
+            protocol="sensor_window_lease_v2",
+            retention_protocol="nonrotating_file_fsize_v1",
+            event_file_limit_bytes=1_000_000,
             status="not_launched",
             launch_confirmed=False,
             launch_completion_uncertain=False,
@@ -108,7 +110,7 @@ class SensorLease:
         self._report["status"] = "preflight"
         try:
             self.redis.check_identity()
-            config = ROOT / "testbed/falco-trial.yaml"
+            config = ROOT / "testbed/falco-window.yaml"
             if hashlib.sha256(read_bytes(config)).hexdigest() != CONFIG_SHA:
                 raise SensorRejected("collector config changed")
             raw_dir = ROOT / "output/runtime-raw" / self._name
@@ -163,6 +165,8 @@ class SensorLease:
                 "max-size=1m",
                 "--log-opt",
                 "max-file=1",
+                "--ulimit",
+                "fsize=1000000:1000000",
                 "--mount",
                 "type=bind,src=/proc,dst=/host/proc,readonly",
                 "--mount",
@@ -249,33 +253,17 @@ class SensorLease:
                 self._owned(require_running=False)
             # Preserve raw evidence before removing this container. On export
             # failure leave the stopped container for operator review.
-            log = self._command(
-                "logs", ["logs", self._id], limit=1_000_000, combine=True
-            ).encode("utf-8")
+            log = self._file("acg-events.jsonl", 1_000_000)
             with (self._raw_dir / "sensor.log").open("xb") as stream:
                 stream.write(log)
                 stream.flush()
                 os.fsync(stream.fileno())
             self._report["raw_log_sha256"] = hashlib.sha256(log).hexdigest()
-            archive = self._command(
-                "metrics",
-                ["cp", self._id + ":/tmp/acg-metrics.jsonl", "-"],
-                limit=1_000_000,
-                binary=True,
-            )
-            with tarfile.open(fileobj=io.BytesIO(archive), mode="r:") as bundle:
-                members = bundle.getmembers()
-                if (
-                    len(members) != 1
-                    or members[0].name != "acg-metrics.jsonl"
-                    or not members[0].isreg()
-                    or not 1 <= members[0].size <= 900_000
-                ):
-                    raise SensorRejected("invalid bounded metrics archive")
-                with bundle.extractfile(members[0]) as source:
-                    metrics = source.read(900_001)
-                if len(metrics) != members[0].size:
-                    raise SensorRejected("incomplete metrics archive")
+            if len(log) == 1_000_000:
+                raise SensorRejected(
+                    "event file reached hard cap; preserve stopped sensor"
+                )
+            metrics = self._file("acg-metrics.jsonl", 900_000)
             with (self._raw_dir / "metrics.jsonl").open("xb") as stream:
                 stream.write(metrics)
                 stream.flush()
@@ -328,6 +316,37 @@ class SensorLease:
         if not self._report["launch_confirmed"] or self._sealed:
             raise SensorRejected("active owned lease required")
         self._owned(require_running=True)
-        return self._command(
-            "readiness_logs", ["logs", self._id], limit=1_000_000, combine=True
-        ).encode("utf-8")
+        return self._file("acg-events.jsonl", 1_000_000)
+
+    def _file(self, name, payload_limit):
+        """One fixed regular file, bounded tar bytes; never extract archive paths.
+
+        Tar overhead counts toward the original 1MB pipe budget. A near-cap
+        file may therefore refuse export: retain the stopped container, never
+        truncate it or increase the pipe limit to force a completed receipt.
+        """
+        if (name, payload_limit) not in (
+            ("acg-events.jsonl", 1_000_000),
+            ("acg-metrics.jsonl", 900_000),
+        ):
+            raise SensorRejected("unreviewed file export")
+        archive = self._command(
+            "events" if name == "acg-events.jsonl" else "metrics",
+            ["cp", self._id + ":/tmp/" + name, "-"],
+            limit=1_000_000,
+            binary=True,
+        )
+        with tarfile.open(fileobj=io.BytesIO(archive), mode="r:") as bundle:
+            members = bundle.getmembers()
+            if (
+                len(members) != 1
+                or members[0].name != name
+                or not members[0].isreg()
+                or not 1 <= members[0].size <= payload_limit
+            ):
+                raise SensorRejected("invalid bounded file archive")
+            with bundle.extractfile(members[0]) as source:
+                data = source.read(payload_limit + 1)
+            if len(data) != members[0].size:
+                raise SensorRejected("incomplete file archive")
+        return data
