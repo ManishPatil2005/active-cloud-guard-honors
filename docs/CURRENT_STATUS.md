@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+QA-050/WL-127: [offline domain review and proposed D diagnostic](CLOCK_CAUSE_DIAGNOSTIC_PLAN.md) prepared/software-tested, no new native observation. Existing sources/limits unchanged; actual clock cause/full-minute qualification unresolved. D needs exact fresh approval, not granted; latest actual QA-049 rejection below remains current.
+
 QA-049/WL-126 actual [sensor-free step A result](SENSOR_FREE_CLOCK_SCREEN.md): six short intervals pass; alignment rejects71.062678ms combined disagreement/50ms, despite boundary gate passing. One approved observation sequence only; no retries/Docker/Redis/sensor/clock/service action. B remains unapproved, native full-minute capacity/loaded timing/coverage unqualified; original QA-044 integrated failure remains unchanged.
 
 QA-048/WL-125 historical planning checkpoint: [native plan and exact approval scopes](NATIVE_VALIDATION_PLAN.md). A subsequently approved/executed and rejected in QA-049 above; B/C still require separate scope/consent, B controller readiness pending. Limits unchanged.

@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-104 - 2026-10-19 - Offline diagnostic tests had oracle and parameter-ID defects
+
+QA-050/WL-127. Expanded run preserved2failures/92passes/2setup errors: new monotonic-shift test ignored fixture's pre-existing+1000ns-per-step RAW drift; a100KB input became an oversized pytest parameter ID and caused setup/path errors. Correct independent expectation and use fixed short IDs, rather than change correct interval arithmetic/native code. Corrected same four-target suite95passes. Initial120160byte XML retained, no normalization/hiding. This is a test-harness incident, not evidence of a native WSL cure or clock backend defect. Historical inputs/results unchanged; no native read/service change.
+
 ### INC-103 - 2026-10-18 - Approved sensor-free screen fails longer alignment gate
 
 QA-049/WL-126. One approved A sequence; six4s intervals pass (worst48.768863ms incluncertainty,1.231137ms margin), then45.003052868s alignment observes+71.061457ms difference +0.001221ms uncertainty=71.062678ms>50ms. Boundaryerror72.273769ms passes100ms but cannot override clock rejection. Exit1/complete3recordjournal; no watchdog timeout or retry. High confidence in saved/recomputed arithmetic; writer/rate-versus-step/cross-domain cause unknown, no fix claimed.17raw manifest entries/101source hashes verified against execution commit; original evidence private and minimized receipt published. No Docker/Redis/sensor/service/clock intervention; no restoration required for our commands. Gate correctly stops progression; B remains unapproved/native capacity and real-data qualification pending. Any next native diagnostic needs exact fresh scope.

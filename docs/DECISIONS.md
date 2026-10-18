@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-099 - 2026-10-19 - Localize clock domains before proposing another intervention
+
+QA-050/E2-005/E2-025/RQ3. Reuse fixed16packet/32zero-mode native reader unchanged; add only offline offset-change accounting and same-domain/backend/order checks across exactly four planned blocks. Do not infer a writer or step-versus-slew uniquely from sampled differences, reclassify historical failures or correct timestamps. Proposed read-only D batch needs fresh consent; no tracing, time services, host/WSL changes, network or sensor trial. Existing per-block45sINT+3skill/5ms widths and all qualification gates retained;240s outer orchestration ceiling is not a longer acquisition block. Original QA-041 receipt preserved; new derived report explicit. Existing two-engine architecture/frozen baseline/stack intact. See CLOCK_CAUSE_DIAGNOSTIC_PLAN/WL-127.
+
 ## ADR-098 - 2026-10-18 - Separate clock screening from native sensor consent
 
 QA-048/E2-003/E2-005/E2-025/RQ3. Plan A uses existing sensor-free diagnostics, not a new clock setter. Passing short intervals/alignment cannot authorize or qualify B's loaded minute. B requires separately reviewed consent and a no-clock-change outer restoration controller; historical QA-044 wrapper is explicitly excluded because it stops guest timesyncd. No borrowed past approval, automatic retries, increased caps or implied native saturation tests. Native plan freezes existing source limits, distinguishes current second-readiness predicate from reporting both canaries, and preserves stopped owned sensor if export fails. Plan preparation changes no executable behavior or scientific status. See NATIVE_VALIDATION_PLAN/WL-125.

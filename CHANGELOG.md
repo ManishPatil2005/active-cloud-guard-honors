@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 - Prepare read-only domain localization and saved-evidence review
+
+- Add offline-only kernel domain reviewer: first/adjacent offset-change bounds, kernel state timeline and fixed one/four-block continuity, unchanged native reader/limits.
+- Re-analyze saved QA-041 without new clock reads; prepare exact separate D approval for four fixed read-only blocks. No causal cure or native/capacity qualification. QA-050/WL-127.
+
 ## 2026-10-18 - Preserve approved sensor-free alignment rejection
 
 - Run step A once with unchanged45/75second diagnostic watchdogs and original clock/alignment gates; six short checks pass, alignment rejects71.062678ms/50ms.

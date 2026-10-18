@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-050 / E2-005/E2-025/RQ3 / WL-127: [clock-cause diagnostic plan](docs/CLOCK_CAUSE_DIAGNOSTIC_PLAN.md) and offline saved-domain reviewer implemented/software-tested. Native D batch prepared, not approved/run; all limits/native queries unchanged. QA-049 remains latest actual rejection. No clock cure/writer attribution/capacity qualification; B unapproved.
+
 QA-049 / E2-005/E2-025/RQ3 / WL-126: approved A executed once, six4second comparisons pass but conditional alignment rejects71.062678ms bound/50ms; three-record journal and17raw files/101source hashes checked offline. No retry/sensor/service intervention. B unapproved; actual clock remediation and native full-minute capacity/coverage remain open. [Result](docs/SENSOR_FREE_CLOCK_SCREEN.md).
 
 QA-048 / E2-003/E2-005/E2-025/RQ3 / WL-125 planning checkpoint: [native validation plan](docs/NATIVE_VALIDATION_PLAN.md). A subsequently approved/executed as QA-049 above; B/C remain unapproved, B no-clock-change restoration controller still pending. All limits unchanged; no sensor trial/service change/scientific acceptance supplied by planning.

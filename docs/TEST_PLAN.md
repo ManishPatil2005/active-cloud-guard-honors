@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-050: offline-only domain review covers synthetic wall/monotonic perturbations, first/adjacent bounds, four-block continuity and source/backend/domain/order/partial/summary/JSON/size failures, exclusive output and no native backend. Corrected target95passes; final Windows299passes/one existing Linux-only skip including documentation and unchanged window targets. Lint/176-file format/pipcheck pass. Initial fixture expectations/oversized pytest IDs failed, preserved separately; no native diagnostic or fresh Linux qualification run. See CLOCK_CAUSE_DIAGNOSTIC_PLAN.
+
 QA-049: approved A ran once with unchanged diagnostic watchdogs/gates. Six4s comparisons pass; conditional alignment rejects71.062678ms/50ms. Offline review validates17raw hashes,101execution sources and complete3record journal. No retry/sensor/service action or capacity qualification. [Actual result](SENSOR_FREE_CLOCK_SCREEN.md); B/C remain unapproved.
 
 QA-048: [native clock/capacity plan](NATIVE_VALIDATION_PLAN.md) is prepared, not executed. A is sensor-free screening only; B requires separate consent and no-clock-change restoration-controller readiness. Native saturation/overflow and repeatability are separate future scopes, not implied by a successful minute. Existing limits and evidence levels unchanged.

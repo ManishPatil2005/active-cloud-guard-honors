@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+QA-050: offline kernel-domain reviewer retains existing100KB per-receipt strict JSON/source/schema bounds and exclusive fresh output; accepts one or four complete blocks, rejects domain/backend/order changes. It never calls native observation or time setters. Proposed D needs separate explicit consent; no root/tracing/service/network/sensor scope. Returned timex state is not writer identity or proof of request modes.
+
 QA-047: full-window admission rejects noninteger/negative clock and transport nanoseconds and dispatch/completion inconsistent with sample brackets. Consistency is not authenticity or continuous monitoring. All limits unchanged; native WSL clock/capture capacity and operational acceptance remain unqualified. No live trial or service intervention.
 
 QA-046 fields-onlyformat is anexplicittrustedboolean/profile, exact7property

@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-050: scripts/kernel_domain_review.py is an offline-only consumer of validated saved kernel receipts, not another clock provider or runtime engine. First/adjacent domain changes and cross-block continuity supplement existing summaries without changing native collection or admission gates. Native D remains unapproved.
+
 QA-047: existing full-window admission additionally binds integer transport timings to reconstructed before/after monotonic sample brackets, including odd sampling widths. No engine, clock provider, collector profile, workload, resource cap or tolerance changed. Native clock/capacity qualification remains separate; see CAPACITY_TIMING_OFFLINE_REFINEMENT.
 
 QA-046 adds declared fields-onlyv3 producer/parser (omit optionaldisplayoutput,

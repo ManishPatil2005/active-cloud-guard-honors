@@ -1,0 +1,1190 @@
+{
+  "protocol": "saved_kernel_domain_changes_v1",
+  "status": "reviewed",
+  "input_sha256": [
+    "84b52dad4643231cda33f118043f1e980dafbe0215498777577be0aeb7f4d9b8"
+  ],
+  "blocks": 1,
+  "samples": 16,
+  "rows": [
+    {
+      "block": 0,
+      "index": 0,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -21970,
+          "upper_ns": 21970,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -953,
+          "upper_ns": 953,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -22923,
+          "upper_ns": 22923,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": -49438,
+          "upper_ns": 49438,
+          "includes_zero": true
+        }
+      },
+      "from_previous": null,
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -169025271,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 500,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -169025271,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 500,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 1,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -5439,
+          "upper_ns": 20505,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -682,
+          "upper_ns": 500,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5939,
+          "upper_ns": 21187,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 23483152,
+          "upper_ns": 23542872,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -5439,
+          "upper_ns": 20505,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -682,
+          "upper_ns": 500,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5939,
+          "upper_ns": 21187,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 23483152,
+          "upper_ns": 23542872,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -147897112,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 1000,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -147897112,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 1000,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 2,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -5178,
+          "upper_ns": 20284,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -673,
+          "upper_ns": 451,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5629,
+          "upper_ns": 20957,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 43381845,
+          "upper_ns": 43440040,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -3713,
+          "upper_ns": 3753,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -220,
+          "upper_ns": 180,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -3893,
+          "upper_ns": 3973,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 19888411,
+          "upper_ns": 19907450,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -129409973,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 1500,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -129409973,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 1500,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 3,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -6557,
+          "upper_ns": 20422,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -756,
+          "upper_ns": 519,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -7076,
+          "upper_ns": 21178,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 61050147,
+          "upper_ns": 61112723,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -4871,
+          "upper_ns": 3630,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -254,
+          "upper_ns": 239,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5110,
+          "upper_ns": 3884,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 17659545,
+          "upper_ns": 17681440,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -113233726,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 2000,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -113233726,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 2000,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 4,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -7848,
+          "upper_ns": 20625,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -852,
+          "upper_ns": 564,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -8412,
+          "upper_ns": 21477,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 76188178,
+          "upper_ns": 76255195,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -6300,
+          "upper_ns": 5212,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -418,
+          "upper_ns": 367,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6667,
+          "upper_ns": 5630,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 15124893,
+          "upper_ns": 15155610,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -99079511,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 2500,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -99079511,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 2500,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 5,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -7988,
+          "upper_ns": 20633,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -736,
+          "upper_ns": 566,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -8554,
+          "upper_ns": 21369,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 89592509,
+          "upper_ns": 89659287,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -6643,
+          "upper_ns": 6511,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -347,
+          "upper_ns": 465,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -7108,
+          "upper_ns": 6858,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 13386752,
+          "upper_ns": 13421671,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -86694572,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 3000,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 8193,
+        "frequency_scaled_ppm": 5663,
+        "tick_usec": 10000,
+        "phase_offset": -86694572,
+        "phase_offset_unit": "ns",
+        "time_constant": 1,
+        "maxerror_usec": 3000,
+        "esterror_usec": 0,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 6,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -7470,
+          "upper_ns": 20533,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -774,
+          "upper_ns": 544,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -8014,
+          "upper_ns": 21307,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 98705260,
+          "upper_ns": 98770079,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -6133,
+          "upper_ns": 6551,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -387,
+          "upper_ns": 327,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6460,
+          "upper_ns": 6938,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 9095411,
+          "upper_ns": 9128132,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -75857,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3780381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -75857,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3780381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 7,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -7397,
+          "upper_ns": 20383,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -785,
+          "upper_ns": 561,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -7958,
+          "upper_ns": 21168,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 96374169,
+          "upper_ns": 96448929,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -5960,
+          "upper_ns": 5883,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -376,
+          "upper_ns": 382,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6342,
+          "upper_ns": 6259,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": -2346472,
+          "upper_ns": -2305769,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -66375,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3780881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -66375,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3780881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 8,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -8942,
+          "upper_ns": 20887,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -828,
+          "upper_ns": 590,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -9532,
+          "upper_ns": 21715,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 92796069,
+          "upper_ns": 92865897,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -7355,
+          "upper_ns": 6314,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -436,
+          "upper_ns": 422,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -7777,
+          "upper_ns": 6750,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": -3603422,
+          "upper_ns": -3557710,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -58078,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3781381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -58078,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3781381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 9,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -6185,
+          "upper_ns": 20383,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -748,
+          "upper_ns": 509,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6694,
+          "upper_ns": 21131,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 88059546,
+          "upper_ns": 88121184,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -5102,
+          "upper_ns": 7355,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -385,
+          "upper_ns": 384,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5486,
+          "upper_ns": 7740,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": -4756913,
+          "upper_ns": -4724323,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -50818,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3781881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2182206,
+        "tick_usec": 10121,
+        "phase_offset": -50818,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3781881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 10,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -4846,
+          "upper_ns": 19980,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -648,
+          "upper_ns": 454,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5300,
+          "upper_ns": 20628,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 90073917,
+          "upper_ns": 90130977,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -3259,
+          "upper_ns": 4195,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -204,
+          "upper_ns": 249,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -3508,
+          "upper_ns": 4399,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 2002171,
+          "upper_ns": 2021993,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -44466,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3782381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -44466,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3782381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 11,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -4751,
+          "upper_ns": 20005,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -652,
+          "upper_ns": 451,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5202,
+          "upper_ns": 20657,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 96390693,
+          "upper_ns": 96447297,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -2761,
+          "upper_ns": 2881,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -153,
+          "upper_ns": 146,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -2907,
+          "upper_ns": 3034,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 6309154,
+          "upper_ns": 6323942,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -38908,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3782881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -34044,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3783381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 12,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -8001,
+          "upper_ns": 20907,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -814,
+          "upper_ns": 552,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -8553,
+          "upper_ns": 21721,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 101489131,
+          "upper_ns": 101557112,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -6036,
+          "upper_ns": 3688,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -312,
+          "upper_ns": 251,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6287,
+          "upper_ns": 4000,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 5091272,
+          "upper_ns": 5116981,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -29789,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3783881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -29789,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3783881,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 13,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -11104,
+          "upper_ns": 20756,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -872,
+          "upper_ns": 622,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -11726,
+          "upper_ns": 21628,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 106194748,
+          "upper_ns": 106269537,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -10041,
+          "upper_ns": 6787,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -471,
+          "upper_ns": 483,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -10524,
+          "upper_ns": 7258,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 4687074,
+          "upper_ns": 4730968,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -26065,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3784381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": -2,
+        "tick_usec": 10000,
+        "phase_offset": -26065,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 3784381,
+        "esterror_usec": 43553,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 14,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -8567,
+          "upper_ns": 20803,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -875,
+          "upper_ns": 598,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -9165,
+          "upper_ns": 21678,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 101873403,
+          "upper_ns": 101942167,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -7353,
+          "upper_ns": 9937,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -544,
+          "upper_ns": 517,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -7870,
+          "upper_ns": 10481,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": -4346696,
+          "upper_ns": -4302019,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": 750861,
+        "tick_usec": 10146,
+        "phase_offset": -22807,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 2284939,
+        "esterror_usec": 59992,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": 750861,
+        "tick_usec": 10146,
+        "phase_offset": -22807,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 2284939,
+        "esterror_usec": 59992,
+        "tolerance_scaled_ppm": 32768000
+      }
+    },
+    {
+      "block": 0,
+      "index": 15,
+      "from_first": {
+        "wall_minus_mono": {
+          "lower_ns": -9228,
+          "upper_ns": 19981,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -664,
+          "upper_ns": 486,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -9714,
+          "upper_ns": 20645,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 89384485,
+          "upper_ns": 89450212,
+          "includes_zero": false
+        }
+      },
+      "from_previous": {
+        "wall_minus_mono": {
+          "lower_ns": -8061,
+          "upper_ns": 6578,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -309,
+          "upper_ns": 408,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -8469,
+          "upper_ns": 6887,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": -12508244,
+          "upper_ns": -12472629,
+          "includes_zero": false
+        }
+      },
+      "state_before": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": 750861,
+        "tick_usec": 10146,
+        "phase_offset": -19956,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 2285439,
+        "esterror_usec": 59992,
+        "tolerance_scaled_ppm": 32768000
+      },
+      "state_after": {
+        "query_modes": 0,
+        "time_state": 0,
+        "status": 0,
+        "frequency_scaled_ppm": 750861,
+        "tick_usec": 10146,
+        "phase_offset": -19956,
+        "phase_offset_unit": "us",
+        "time_constant": 1,
+        "maxerror_usec": 2285439,
+        "esterror_usec": 59992,
+        "tolerance_scaled_ppm": 32768000
+      }
+    }
+  ],
+  "reviewer_sha256": "a1a96af799ddc422d86115b1c8d438e5d722471a066e25d42dd122ef9b7fb18e",
+  "source_sha256": {
+    "scripts/clock_lineage.py": "6d78b1c3ad293b206acff6edf6362dbfaaaeccfc9361a7df6ac4af2eadbb7ab4",
+    "cloudguard/clock_lineage.py": "9fedf7dfdd69b0d7e30b6d764b734ccf7397053378f286db25480395a68b2ee6",
+    "cloudguard/boot_clock.py": "1efcbe3433565273fc9bcb40099d08b728bde38ff2c396e760563afc47950177",
+    "cloudguard/clock_check.py": "354a756331a971dbca9326d21818edd5d50ec3f998a51f94e767a8aa8b157dbc",
+    "scripts/kernel_clock_diagnostic.py": "18b32a901ec05f8d02214e0283f69615b5e9a81f94f440cfdac30e2cbf7ce83f",
+    "cloudguard/kernel_clock_state.py": "5e8f32492d5ff00ba0db2d2b8b344291f43bd2e9addd65347385ada6f6da8202"
+  },
+  "live_actions_executed": [],
+  "clock_settings_modified": false,
+  "step_vs_slew_identified": false,
+  "causal_attribution": "not_proven",
+  "stable_full_minute_verified": false,
+  "collector_capacity_verified": false,
+  "independently_evaluated": false
+}

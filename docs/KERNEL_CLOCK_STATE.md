@@ -1,5 +1,11 @@
 # Live kernel clock-state diagnostic (E2-025)
 
+QA-050 offline follow-up: [domain-localization plan and reviewer](CLOCK_CAUSE_DIAGNOSTIC_PLAN.md)
+adds saved first/adjacent clock relationships and fixed cross-block review. Native
+reader/ABI/query modes/limits unchanged; D needs fresh consent, not executed.
+Latest actual clock observation is QA-049's rejected sensor-free alignment; old
+native observations and approval states below are historical checkpoints.
+
 18October QA-041: [current observation and guest-NTP comparison](WSL_TIMING_REMEDIATION.md) now include one actual temporary stop and verified restoration. Removing that guest writer alone did not pass consistency; host PHC-agent tracking is additional context. Revised settling comparison is unexecuted pending fresh approval. Older no-service-action statements below describe earlier checkpoints; historical failures remain unchanged.
 
 Latest QA-037/WL-115: [one separately approved process trace](CLOCK_WRITER_TRACE.md) now observes two successful timesyncd adjustments. Isolated tool acquired/verified, no system installation or service/clock intervention; same process running/detached afterward. Prior no-trace statements below are historical. This does not resolve the changing tick's writer or previous alignment failure; no repeat/qualification acceptance.
