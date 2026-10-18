@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="34" time="0.327" timestamp="2026-10-18T19:28:38.775062+05:30" hostname="Welcome"><testcase classname="tests.test_window_workload" name="test_full_window_keeps_coverage_and_labels_unverified" time="0.001" /><testcase classname="tests.test_window_workload" name="test_wrong_reply_stops_without_padding_or_retry[None]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_wrong_reply_stops_without_padding_or_retry[False]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_wrong_reply_stops_without_padding_or_retry[reply2]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_wrong_reply_stops_without_padding_or_retry[ERROR]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_wrong_reply_stops_without_padding_or_retry[PONG\n]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_callback_exception_retains_attempt_not_private_message" time="0.000" /><testcase classname="tests.test_window_workload" name="test_late_dispatch_does_not_catch_up" time="0.000" /><testcase classname="tests.test_window_workload" name="test_round_trip_budget_failure_retained[0]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_round_trip_budget_failure_retained[-1]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_round_trip_budget_failure_retained[750000001]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_round_trip_budget_failure_retained[61000000000]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_transient_call_clock_jump_rejected" time="0.000" /><testcase classname="tests.test_window_workload" name="test_window_end_failure_or_exception_never_accepted[late_end]" time="0.001" /><testcase classname="tests.test_window_workload" name="test_window_end_failure_or_exception_never_accepted[clock_end]" time="0.001" /><testcase classname="tests.test_window_workload" name="test_window_end_failure_or_exception_never_accepted[sleep_exception]" time="0.001" /><testcase classname="tests.test_window_workload" name="test_bad_callbacks_refused_before_activity[ping]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_bad_callbacks_refused_before_activity[monotonic_ns]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_bad_callbacks_refused_before_activity[wall_ns]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_bad_callbacks_refused_before_activity[sleep]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_specification_cli_does_not_launch_workload" time="0.000" /><testcase classname="tests.test_window_workload" name="test_cumulative_clock_drift_stops_before_sixty_calls[-5000000]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_cumulative_clock_drift_stops_before_sixty_calls[5000000]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_between_call_clock_fault_is_not_hidden_by_later_recovery[-50000001]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_between_call_clock_fault_is_not_hidden_by_later_recovery[50000001]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_clock_fault_before_first_command_never_calls_callback[-50000001]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_clock_fault_before_first_command_never_calls_callback[50000001]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_initial_clock_limit_is_not_silently_tightened[-50000000]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_initial_clock_limit_is_not_silently_tightened[50000000]" time="0.001" /><testcase classname="tests.test_window_workload" name="test_receipt_clock_numbers_and_transport_brackets_must_be_consistent[negative_span]" time="0.000" /><testcase classname="tests.test_window_workload" name="test_receipt_clock_numbers_and_transport_brackets_must_be_consistent[boolean_span]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">fault = 'boolean_span'
+
+    @pytest.mark.parametrize("fault", ["negative_span", "boolean_span", "fake_dispatch", "fake_rtt"])
+    def test_receipt_clock_numbers_and_transport_brackets_must_be_consistent(fault):
+        report = Clock().execute()
+        call = report["calls"][0]
+        if fault == "negative_span":
+            report["first"]["sampling_span_ns"] = -1
+        elif fault == "boolean_span":
+            report["first"]["sampling_span_ns"] = False
+        elif fault == "fake_dispatch":
+            call["dispatch_offset_ns"] = 200_000_000
+        else:
+            call["round_trip_ns"] = 700_000_000
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_window_workload.py:247: Failed</failure></testcase><testcase classname="tests.test_window_workload" name="test_receipt_clock_numbers_and_transport_brackets_must_be_consistent[fake_dispatch]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">fault = 'fake_dispatch'
+
+    @pytest.mark.parametrize("fault", ["negative_span", "boolean_span", "fake_dispatch", "fake_rtt"])
+    def test_receipt_clock_numbers_and_transport_brackets_must_be_consistent(fault):
+        report = Clock().execute()
+        call = report["calls"][0]
+        if fault == "negative_span":
+            report["first"]["sampling_span_ns"] = -1
+        elif fault == "boolean_span":
+            report["first"]["sampling_span_ns"] = False
+        elif fault == "fake_dispatch":
+            call["dispatch_offset_ns"] = 200_000_000
+        else:
+            call["round_trip_ns"] = 700_000_000
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_window_workload.py:247: Failed</failure></testcase><testcase classname="tests.test_window_workload" name="test_receipt_clock_numbers_and_transport_brackets_must_be_consistent[fake_rtt]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">fault = 'fake_rtt'
+
+    @pytest.mark.parametrize("fault", ["negative_span", "boolean_span", "fake_dispatch", "fake_rtt"])
+    def test_receipt_clock_numbers_and_transport_brackets_must_be_consistent(fault):
+        report = Clock().execute()
+        call = report["calls"][0]
+        if fault == "negative_span":
+            report["first"]["sampling_span_ns"] = -1
+        elif fault == "boolean_span":
+            report["first"]["sampling_span_ns"] = False
+        elif fault == "fake_dispatch":
+            call["dispatch_offset_ns"] = 200_000_000
+        else:
+            call["round_trip_ns"] = 700_000_000
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_window_workload.py:247: Failed</failure></testcase><testcase classname="tests.test_window_workload" name="test_unmodified_virtual_clock_receipt_is_admissible" time="0.001" /></testsuite></testsuites>

@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-047: preserve three before-fix admission failures;18 new cases cover exact integer sample/transport values, contradictory dispatch/completion, and valid zero/odd-width brackets. FinalWindows201pass/one existing Linuxskip; full offline Linux2164pass/zero skips including unchanged QA-046 installed-package checks. No native producer, sensor, workload, clock observation or service action; full-minute clock/capacity/coverage validation remains pending.
+
 QA-046: fivebeforefailurespreserved;22newcases total forstrictdeclaredfields-only
 format/olddefault/field/PID/scope/time/kind/bytebound, initialfaultwithzerocallbacks,
 exact±50msboundary andfinalsample-basedadmission withmutatedstatus/summary/short

@@ -1,5 +1,7 @@
 # Existing architecture
 
+QA-047: existing full-window admission additionally binds integer transport timings to reconstructed before/after monotonic sample brackets, including odd sampling widths. No engine, clock provider, collector profile, workload, resource cap or tolerance changed. Native clock/capacity qualification remains separate; see CAPACITY_TIMING_OFFLINE_REFINEMENT.
+
 QA-046 adds declared fields-onlyv3 producer/parser (omit optionaldisplayoutput,
 retain allstructuredfields/events), unchangedlegacydefault, and pure recomputed
 clockadmission. Same twoengines/stack/rules/budgets, no alternateclient. Shared

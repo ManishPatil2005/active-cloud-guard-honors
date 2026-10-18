@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+QA-047: full-window admission rejects noninteger/negative clock and transport nanoseconds and dispatch/completion inconsistent with sample brackets. Consistency is not authenticity or continuous monitoring. All limits unchanged; native WSL clock/capture capacity and operational acceptance remain unqualified. No live trial or service intervention.
+
 QA-046 fields-onlyformat is anexplicittrustedboolean/profile, exact7property
 envelope; defaultlegacy8unchanged, noauto-detection/fallback. Allstructuredfields,
 PID/scope/kind/timestampand1MBlimits retained. Omitoptionaldisplaytext atproducer,

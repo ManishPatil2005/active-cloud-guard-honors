@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-097 - 2026-10-18 - Bind transport timing to sample brackets
+
+QA-047/E2-003/E2-005/E2-025/RQ3. Reject invalid clock/transport numbers; require dispatch/completion between the pre-call sample end and post-call sample start. Recover endpoints exactly from midpoint/width rather than introduce tolerance. Keep valid odd/zero-width receipts and all thresholds. No new collector/client, host intervention or trial. Fields-only reduction remains a candidate, not proof of a minute's fit. Actual producer/export, whole-load capacity and repeatable clock/identity/coverage require native validation. See CAPACITY_TIMING_OFFLINE_REFINEMENT/INC-102/WL-124.
+
 ## ADR-096 - 2026-10-18 - Version presentation-only reduction and recompute clock admission
 
 QA-046/E2-003/E2-005/E2-025/RQ3. Userkeepsalllimits/no live trial. OmitonlyoptionalFalcoformattedoutput viaexplicitv3/fields-onlyprofile; retainallstructuredfields/events/othermetadata/rules andoldconfig/defaultstrict8propertyparser. No silentlypermissiveenvelope, eventfiltering, sampling, alternateclient or largercap. Savedbytesreductiononretainedsuffixisnotfull-minutequalification; overcapstillrefuses. Add initialsamplecheck andfinaladmissionrecomputationfromendpoints insteadoftrustingstatus, same50ms/5ms/dispatch/rtt/endbounds; no timestamp/hostclockcorrection. Coreparserchanged, so rebuildbothfresh43modulepackagesofflineandtestexactsourceidentity. Nativeproducer/adequatecapacity/actualWSLdiscipline/crossdomaincause/fullcoverage remainopen; do not run anothertrialorchange serviceswithoutnewscope. MethodCAPACITY_TIMING_OFFLINE_REFINEMENT/WL-123.

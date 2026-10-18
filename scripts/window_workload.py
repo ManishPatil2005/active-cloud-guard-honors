@@ -39,6 +39,21 @@ def validate_timing(report):
     """Recompute admission from actual endpoints; flags are not timing proof."""
     spec = definition()
     first, last, calls = report["first"], report["last"], report["calls"]
+
+    def checked_sample(value):
+        for key in ("wall_ns", "monotonic_mid_ns", "sampling_span_ns"):
+            if type(value[key]) is not int or value[key] < 0:
+                raise ValueError("invalid clock sample integer")
+        if value["sampling_span_ns"] > 5_000_000:
+            raise ValueError("clock sample exceeds width limit")
+        mid, span = value["monotonic_mid_ns"], value["sampling_span_ns"]
+        lower, upper = mid - span // 2, mid + (span + 1) // 2
+        if lower < 0:
+            raise ValueError("invalid monotonic sample bracket")
+        return lower, upper
+
+    checked_sample(first)
+    checked_sample(last)
     timing = compare(first, last)
     if (
         report["status"] != "completed"
@@ -54,6 +69,13 @@ def validate_timing(report):
     previous = first
     for index, call in enumerate(calls):
         a, b = call["first"], call["last"]
+        _, before_end = checked_sample(a)
+        after_start, _ = checked_sample(b)
+        for key in ("scheduled_offset_ns", "dispatch_offset_ns", "round_trip_ns"):
+            if type(call[key]) is not int or call[key] < 0:
+                raise ValueError("invalid transport timing integer")
+        dispatch = first["monotonic_mid_ns"] + call["dispatch_offset_ns"]
+        complete = dispatch + call["round_trip_ns"]
         local = compare(a, b)
         before, after = compare(first, a), compare(first, b)
         offset = spec["offsets_ns"][index]
@@ -71,6 +93,8 @@ def validate_timing(report):
             <= call["dispatch_offset_ns"]
             <= offset + spec["dispatch_lateness_limit_ns"]
             or not 0 < call["round_trip_ns"] <= spec["round_trip_limit_ns"]
+            or dispatch < before_end
+            or complete > after_start
             or ("window_timing" in call and call["window_timing"] != after)
         ):
             raise ValueError("command or cumulative clock evidence rejected")

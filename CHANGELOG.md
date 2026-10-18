@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 - Reject contradictory clock and transport receipts
+
+- Require integer clock/transport nanoseconds and bracket-consistent dispatch/completion; preserve odd-width sampling and all limits.
+- Preserve three reproduced failures; full offline Linux2,164 passes, Windows201 targets/one Linux-only skip. Native clock/full-minute capacity remain open. No live trial or service change. QA-047/WL-124.
+
 ## 2026-10-18 - Reduce duplicate capture output and recompute clock admission
 
 - Add versioned fields-only window profile with identical events/structured fields; saved-suffix bytes reduce40.474% under unchanged caps, not a full-minute qualification.

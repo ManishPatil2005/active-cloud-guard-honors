@@ -2,7 +2,7 @@
 
 import pytest
 
-from scripts.window_workload import collect, definition, run
+from scripts.window_workload import collect, definition, run, validate_timing
 
 
 class Clock:
@@ -230,3 +230,57 @@ def test_initial_clock_limit_is_not_silently_tightened(step):
     report = clock.execute(sleep=sleep)
     assert report["workload_timing_accepted"] is True
     assert report["completed_calls"] == 60
+
+
+@pytest.mark.parametrize(
+    "fault", ["negative_span", "boolean_span", "fake_dispatch", "fake_rtt"]
+)
+def test_receipt_clock_numbers_and_transport_brackets_must_be_consistent(fault):
+    report = Clock().execute()
+    call = report["calls"][0]
+    if fault == "negative_span":
+        report["first"]["sampling_span_ns"] = -1
+    elif fault == "boolean_span":
+        report["first"]["sampling_span_ns"] = False
+    elif fault == "fake_dispatch":
+        call["dispatch_offset_ns"] = 200_000_000
+    else:
+        call["round_trip_ns"] = 700_000_000
+    with pytest.raises(ValueError):
+        validate_timing(report)
+
+
+def test_unmodified_virtual_clock_receipt_is_admissible():
+    validate_timing(Clock().execute())
+
+
+@pytest.mark.parametrize("key", ["wall_ns", "monotonic_mid_ns", "sampling_span_ns"])
+@pytest.mark.parametrize("bad", [True, -1, 0.5])
+def test_each_clock_sample_requires_nonnegative_integer_nanoseconds(key, bad):
+    report = Clock().execute()
+    report["calls"][20]["last"][key] = bad
+    with pytest.raises(ValueError):
+        validate_timing(report)
+
+
+@pytest.mark.parametrize(
+    "key", ["scheduled_offset_ns", "dispatch_offset_ns", "round_trip_ns"]
+)
+def test_boolean_transport_numbers_are_not_nanoseconds(key):
+    report = Clock().execute()
+    report["calls"][0][key] = False if key != "round_trip_ns" else True
+    with pytest.raises(ValueError):
+        validate_timing(report)
+
+
+def test_realistic_odd_width_sampling_brackets_remain_admissible():
+    clock = Clock()
+
+    def mono():
+        clock.now += 1001
+        return clock.now
+
+    report = run(clock.ping, monotonic_ns=mono, wall_ns=clock.wall, sleep=clock.sleep)
+    assert report["workload_timing_accepted"] is True
+    assert report["first"]["sampling_span_ns"] == 1001
+    validate_timing(report)

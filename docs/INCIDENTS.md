@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-102 - 2026-10-18 - Contradictory timing receipts passed admission
+
+QA-047/WL-124. Virtual-clock tests reproduce three accepted invalid receipts: boolean span, dispatch outside command brackets, and round trip exceeding those brackets. High-confidence software cause: False equals zero in Python; independent numeric gates did not bind transport values to sample endpoints. Require exact nonnegative integers and reconstruct sample edges from midpoint/span, including odd widths. Preserve before-fix XML:3failures/31passes/two cache-access warnings; later fresh-cache tests pass. Negative-span case already rejected, not a fourth defect. FinalWindows201pass/one Linuxskip; fullLinux2164pass/zero skips. Receipt consistency does not repair physical WSL drift, authenticate clocks or qualify capacity. No live trial/service action/relaxed limits.
+
 ### INC-101 - 2026-10-18 - Initial sampled fault and final flag-trust timing gaps
 
 QA-046 offline5beforefailures. At offset0 cumulativeprecheck was skipped, allowingonecallback despiteanexisting±50ms+1nsfault; nowstopsbeforecallback, keepingidenticalzero-elapsedinitialsamples/5mswidth andexact±50msboundaries valid. Finalcheck_capture trustedworkload_timing_accepted pluslocalcalls; virtual±129mschangedminuteendpoints witholdtrueflagwerenotrejected. Newvalidate_timing recomputes minute/local/cumulative/order/dispatch/rtt andstoredsummarybeforeadmission. Highconfidenceinsource/syntheticreproduction, no claimofWSLactorcause. Thirdcase verifiesnewfields-onlyAPIneeded; versionedprofile removesoptionalduplicatetext, notstructuredfields/events. FinalWindows183+1Linuxskip/8freshpackagechecks/fullLinux2146zero skips.40.474%suffixbytesreductiondoesnotprove60secondfit; doubledsuffixstillrejects1MB. No live/clock/service action; earlierQA-044rejectionunchanged. WL-123/ADR-096.
