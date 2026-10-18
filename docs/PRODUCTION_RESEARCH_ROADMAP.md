@@ -1,5 +1,17 @@
 # Sequenced production and research readiness roadmap
 
+18October2026 current checkpoint: evaluator exact case/rule accounting (QA-038)
+and optional original-review agreement/unknown coverage (QA-039) implemented,
+tested and published. Fresh current-source packages pass8Windows installation
+checks and fullLinux2101cases/zero skips (QA-040). The broad approval of proposal0.1
+is [reported by the owner](SUPERVISOR_APPROVAL_RECORD.md); the old draft header
+below is historical, not a claim that no approval was ever reported. Concrete
+scenario/sample/reviewer details and actual labels remain needed. Next research
+critical path is reliable capture, independent grouped observations/reviews and
+real-data calibration/comparison, followed by manuscript and deployment-specific
+security/operations. Earlier engineering counts below are historical; these
+new checks do not establish independent effectiveness or novelty.
+
 11October2026 QA-024 update: full current-sourceLinux1811passes, fixed six local clock intervals pass each host, native ext4 clean persistence and readiness arithmetic fixes implemented/verified. These supersede only corresponding older engineering counts below; historical Windows policy/hosted negatives remain open. [Closest-work review](LITERATURE.md) expands container-RAG/active/layered prior art; novelty requires measured incremental benefit. Gates5–13are not closed by regression counts. Genuine approved protocol/data/reviewer inputs and specified deployment scope are still required; no public service/cloud deployment or host-policy bypass selected. Earlier table dated9October is sequencing/history, not current full completion.
 
 9 October 2026. User asks to finish remaining work one by one, preserving the architecture. This is an execution/acceptance roadmap, not a claim of production readiness, novelty, supervisor approval or deployment authorization. Engineering and scientific gates can proceed in parallel where dependencies allow.

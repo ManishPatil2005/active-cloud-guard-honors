@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 - Qualify current source and fresh installable packages
+
+- Rebuild Windows/Linux wheels offline from6aa5b0e with43source modules and fresh isolated installations.
+- Verify8Windows package cases and fullLinux2101passes/zero skips; retain distinct archive hashes and dated evidence.
+- Preserve independent research, live timing and deployment/security boundaries. QA-040/WL-118.
+
 ## 2026-10-18 - Add optional original-review agreement analysis
 
 - Add full label-pair counts, unknown coverage and known-pair Cohen kappa before adjudication.

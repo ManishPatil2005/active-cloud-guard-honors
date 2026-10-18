@@ -1,5 +1,9 @@
 # Evidence index
 
+## Current-source installable package verification (18 October 2026)
+
+QA-040 [qualification receipt](../output/package-completion-qualification-20261018-qa040.json), [Windows installed checks](../output/package-completion-windows-20261018-qa040.xml):8pass; [full Linux suite](../output/package-completion-full-linux-20261018-qa040.xml):2101pass/zero skips/failures/errors. Source6aa5b0e includes QA-038/039,43module exact-byte assertions. Existing hosts/reused dependencies, source-tree full suite with selected installed CLI children. No independent efficacy/fresh-host/fullWindows/clock or production acceptance. WL-118.
+
 ## Original-review agreement software (18 October 2026)
 
 QA-039 [corrected Windows](../output/reviewer-agreement-corrected-windows-20261018-qa039.xml):204pass/1existing symlink skip; [corrected Linux](../output/reviewer-agreement-corrected-linux-20261018-qa039.xml):205pass. [Windows demonstration](../output/reviewer-agreement-demo-windows-20261018-qa039.json)/[Linux demonstration](../output/reviewer-agreement-demo-linux-20261018-qa039.json) match:3invented pairs,2known/1unknown, known agreement0.5/kappa0. Initial sandbox71failure receipt and both one-failure fixture-assumption receipts retained. Statistics describe original supplied votes, not authenticated humans or independent study quality. WL-117/INC-094.

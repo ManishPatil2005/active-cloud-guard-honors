@@ -1,0 +1,45 @@
+{
+  "milestone": "QA-040",
+  "observed_date": "2026-10-18",
+  "source_commit": "6aa5b0e1ee1cd7dc6a37076f899d2e550c4b434e",
+  "source_modules": 43,
+  "build_mode": "offline_existing_isolated_builders",
+  "downloads": false,
+  "working_environment_replaced": false,
+  "package_version": "0.5.0",
+  "platforms": {
+    "windows": {
+      "wheel_path": "tmp/package-completion-windows-20261018-qa040/artifacts/active_cloud_guard-0.5.0-py3-none-any.whl",
+      "wheel_bytes": 100461,
+      "wheel_sha256": "6798e3324fc85f94fafa301db79338fae534baae8a9ca6cb2d469c61de8734d0",
+      "installed_target": "tmp/package-completion-windows-20261018-qa040/installed",
+      "test_receipt": "output/package-completion-windows-20261018-qa040.xml",
+      "test_receipt_sha256": "ba5d6796294bc5c3a1cd6b709a36aa4311189d1b7ea92519d182ba35a6f750ae",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_duration_seconds": 1.085
+    },
+    "linux": {
+      "wheel_path": "tmp/package-completion-linux-20261018-qa040/artifacts/active_cloud_guard-0.5.0-py3-none-any.whl",
+      "wheel_bytes": 100454,
+      "wheel_sha256": "29be94199e96034f6a18de967a499684ea3fc4f10805169600e986517d78af49",
+      "installed_target": "tmp/package-completion-linux-20261018-qa040/installed",
+      "test_receipt": "output/package-completion-full-linux-20261018-qa040.xml",
+      "test_receipt_sha256": "dd20d3ca4c1d234ae2e4b117260162f0a9ef27322eb04b4da51de1d5bd2c42db",
+      "tests": 2101,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xml_duration_seconds": 93.879
+    }
+  },
+  "limits": [
+    "Same existing hosts and reused dependencies; not fresh-host certification.",
+    "Linux full suite runs from source; selected installed CLI children verify installed package origin.",
+    "Windows checks only eight package cases, not full-suite acceptance or repair of host-policy failures.",
+    "Different wheel hashes retained; byte-identical cross-platform builds not established.",
+    "No independent effectiveness, clock/coverage qualification, novelty, Internet deployment or production acceptance."
+  ]
+}

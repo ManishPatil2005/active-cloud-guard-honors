@@ -1,5 +1,38 @@
 # Refined-source package and full regression qualification
 
+## 18 October qualification — QA-040 / WL-118
+
+Built source6aa5b0e1ee1cd7dc6a37076f899d2e550c4b434e, including the completed
+exact rule accounting and reviewer agreement changes. Fresh isolated Windows
+and Linux stages copy only pyproject.toml/43core Python modules. Existing
+pip/setuptools builders reused with --no-index/--no-deps/--no-build-isolation;
+fresh target installations, no downloads or working-environment replacement.
+Windows TEMP/TMP redirected only within the build command and restored afterward.
+
+Windows installed-package checks:8passed/no skips. Linux full suite:2101passed,
+zero skips/failures/errors,93.90s console. This supersedes the earlier2030case
+checkpoint for current source, not independent effectiveness or full Windows
+qualification. The suite runs from source; selected isolated installed CLI
+children check the package origin, metadata, exact43module bytes and both
+offline engines. Same existing hosts/dependencies, not fresh-machine acceptance.
+
+| Platform | Wheel bytes | SHA256 |
+|---|---:|---|
+| Windows |100461|`6798e3324fc85f94fafa301db79338fae534baae8a9ca6cb2d469c61de8734d0`|
+| Linux |100454|`29be94199e96034f6a18de967a499684ea3fc4f10805169600e986517d78af49`|
+
+Ignored roots:tmp/package-completion-PLATFORM-20261018-qa040; artifacts/ holds
+the wheel and installed/ its fresh target. Archive bytes differ and are retained;
+no byte-reproducibility or public artifact release claimed. [Qualification receipt](../output/package-completion-qualification-20261018-qa040.json),
+[Windows checks](../output/package-completion-windows-20261018-qa040.xml),
+[full Linux](../output/package-completion-full-linux-20261018-qa040.xml).
+
+Windows host-policy/hosted-process failures, Chroma advisory conditions, live
+clock/coverage qualification, real-data evaluation, independent human labels,
+calibration/novelty and deployment-specific acceptance remain separate gates.
+No clock/service action, new sensor or model experiment. Commands in WL-118;
+earlier dates below retain their historical scope.
+
 ## 11 October follow-up - QA-032 / WL-109
 
 After the runtime binary-export refinement, rebuilt from source f624e6c535319125abe52185e9b217a8a9091512.
