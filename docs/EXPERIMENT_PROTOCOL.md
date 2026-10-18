@@ -1,5 +1,11 @@
 # Experimental protocol v0.1
 
+QA-046 futurecoordinator/leasev3 usesexplicitfields-onlyFalcoJSON withallstructured
+values/events preserved, originalbudgets andnewpureclockadmissionrecomputation.
+Saved-suffix40.474%reduction isformataccountingonly, notindependentbenchmark,
+completecapture or nativefit. Historicalprofiles/labels/timestampsunchanged;
+no alternativeclient/workload oractualtrial. [Contract](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
+
 QA-045 distinguishes futurelease/coordinatorv2 from historicalv1: authoritative
 nonrotatingcapped alertfile, same eventJSON/rules/metrics/timing/resource ceilings,
 cumulative sampledclock checks before/after commands. No live repeat or change to

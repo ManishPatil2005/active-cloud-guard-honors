@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 - Reduce duplicate capture output and recompute clock admission
+
+- Add versioned fields-only window profile with identical events/structured fields; saved-suffix bytes reduce40.474% under unchanged caps, not a full-minute qualification.
+- Reject clock faults before the first callback and independently recompute minute/cumulative/local timing and dispatch/round-trip gates before capture acceptance.
+- Preserve five regressions; fullLinux2146passes, Windows183targets+1Linuxskip/8freshpackagechecks. Rebuild both43module wheels offline; no live trial or host-clock cure. QA-046/WL-123.
+
 ## 2026-10-18 - Prevent rotating capture evidence and reject sampled cumulative drift
 
 - Version the full-window lease/config/coordinator: capped nonrotating alert file, strict bounded file export, no stdout fallback; retain stopped sensor on saturated/unexportable evidence.

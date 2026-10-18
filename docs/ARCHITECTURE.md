@@ -1,5 +1,11 @@
 # Existing architecture
 
+QA-046 adds declared fields-onlyv3 producer/parser (omit optionaldisplayoutput,
+retain allstructuredfields/events), unchangedlegacydefault, and pure recomputed
+clockadmission. Same twoengines/stack/rules/budgets, no alternateclient. Shared
+correlation changed; bothfresh43modulewheels requalified. No nativecapture or
+hostcure implied. [Contract](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
+
 QA-045 only changes full-window research plumbing: lease/coordinatorv2 bind a
 separate capped nonrotating Falco alertfile (sameJSON/rules/kinds), fixedboundedtar
 export and sampled cumulative-clock refusal. Historical smokeconfig/25secondpath

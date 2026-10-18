@@ -19,8 +19,11 @@ def parse_ping(reply):
     return int(parts[0])
 
 
-def connection_counts(raw, container, tracked):
+def connection_counts(raw, container, tracked, *, fields_only=False):
     """Strict shared parser for readiness snapshots and final correlation."""
+    if type(fields_only) is not bool:
+        raise ValueError("explicit boolean event format required")
+    envelope = ENVELOPE - {"output"} if fields_only else ENVELOPE
     if not re.fullmatch(r"[a-f0-9]{64}", container):
         raise ValueError("full target identity required")
     if (
@@ -41,7 +44,7 @@ def connection_counts(raw, container, tracked):
         )
         if (
             not isinstance(event, dict)
-            or set(event) != ENVELOPE
+            or set(event) != envelope
             or event["rule"] != RULE
             or event["source"] != "syscall"
         ):

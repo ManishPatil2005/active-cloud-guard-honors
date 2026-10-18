@@ -1,5 +1,14 @@
 # Test and verification plan
 
+QA-046: fivebeforefailurespreserved;22newcases total forstrictdeclaredfields-only
+format/olddefault/field/PID/scope/time/kind/bytebound, initialfaultwithzerocallbacks,
+exact±50msboundary andfinalsample-basedadmission withmutatedstatus/summary/short
+minute/transient/dispatch/rtt. Windows183+1Linuxskip/8freshpackagechecks;
+fullLinux2146zero skips withnewmatchingcorewheel.174format/lint/bothpipchecks pass.
+Saved832eventprojectionchecksstructuredvalueequality/bytes/sameconnectcounts,
+doubledsuffixstillrejects1MB; no independent/fullminute/native acceptance.
+[Method](CAPACITY_TIMING_OFFLINE_REFINEMENT.md), WL-123.
+
 QA-045: sixbefore failures preserved, fourteennewcases total including signed
 gradual/transient cumulative drift, newconfig/limits/file-export ordering,
 malformedfilearchives/pipeoverflow/name refusal and inertLinuxfsizeprimitive.

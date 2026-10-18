@@ -1,5 +1,9 @@
 # Evidence index
 
+## Offline fields-only capacity and clock admission (18 October 2026)
+
+QA-046 [saved suffix/packageidentity](../output/capacity-timing-saved-review-20261018-qa046.json):832events/structuredvalues/connectcounts retained,40.474%fewerbytes; duplicatedsuffixoverflowrejects, notfull-minutequalification. [5beforefailures](../output/capacity-timing-before-20261018-qa046.xml), [Windows183+1Linuxskip](../output/capacity-timing-windows-20261018-qa046.xml), [8freshWindowspackagechecks](../output/capacity-package-windows-20261018-qa046.xml), [fullLinux2146zero skips](../output/capacity-timing-full-linux-20261018-qa046.xml) withfreshmatchingwheel. No live/Docker/clock/service action; actualhostcause/nativeformat/capacity remainopen. [Contract](CAPACITY_TIMING_OFFLINE_REFINEMENT.md), WL-123/INC-101. Older profiles/negativeevidence unchanged.
+
 ## Offline retention and sampled-clock fixes (18 October 2026)
 
 QA-045 [saved diagnosis](../output/retention-clock-saved-diagnosis-20261018-qa045.json), original99source hashes verified against originalGitcommit; first cumulativefault beforeindex19, no new acquisition. [6before-fix failures](../output/retention-clock-before-20261018-qa045.xml), [Windows143pass/1Linuxskip](../output/retention-clock-windows-20261018-qa045.xml), [Linux144targets](../output/retention-clock-linux-20261018-qa045.xml), [fullLinux2124zero skips](../output/retention-clock-full-linux-20261018-qa045.xml). No live/nativeFalco/service/clockchange; nonrotating prefix preservation/fail-fast validity do not establish sufficient capacity or cure. [Method and remaining gates](CAPTURE_RETENTION_CLOCK_REFINEMENT.md), WL-122/INC-100.

@@ -1,5 +1,11 @@
 # Journaled full-window development qualification
 
+QA-046 software-only: futurelease/coordinatorv3 declaresfalco_fields_only_v1,
+separatehash-boundfieldsconfig; no optionalduplicateddisplaystring butallstructured
+values/events retained. Samecaps/clockbounds, initialprecheck/finaltimingrecomputation.
+No livequalification; priorv2/v1andactualQA-044below historical/unchanged.
+[Capacity result and unresolved gates](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
+
 QA-045 software-only follow-up: new receipts use `redis_window_trial_v2`, leasev2
 and hash-bound falco-window.yaml. Authoritative alerts now use a capped nonrotating
 file rather than Dockerlogs; cumulative sampled clock faults reject earlier at

@@ -200,3 +200,33 @@ def test_between_call_clock_fault_is_not_hidden_by_later_recovery(step):
     assert clock.calls == 9
     assert report["clock_stop"]["phase"] == "before_command"
     assert report["clock_stop"]["index"] == 9
+
+
+@pytest.mark.parametrize("step", [-50_000_001, 50_000_001])
+def test_clock_fault_before_first_command_never_calls_callback(step):
+    clock = Clock()
+
+    def sleep(seconds):
+        clock.sleep(seconds)
+        clock.now += 1_000
+        clock.wall_offset += step
+
+    report = clock.execute(sleep=sleep)
+    assert report["status"] == "window_clock_outside_tolerance"
+    assert clock.calls == 0
+    assert report["clock_stop"]["index"] == 0
+
+
+@pytest.mark.parametrize("step", [-50_000_000, 50_000_000])
+def test_initial_clock_limit_is_not_silently_tightened(step):
+    clock = Clock()
+
+    def sleep(seconds):
+        clock.sleep(seconds)
+        if clock.sleeps == 1:
+            clock.now += 1_000
+            clock.wall_offset += step
+
+    report = clock.execute(sleep=sleep)
+    assert report["workload_timing_accepted"] is True
+    assert report["completed_calls"] == 60

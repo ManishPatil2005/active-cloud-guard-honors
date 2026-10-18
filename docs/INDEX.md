@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest software: [QA-045 retention/cumulative-clock refinement](CAPTURE_RETENTION_CLOCK_REFINEMENT.md), no live trial or service action. Nonrotating capped alert file and earlier cumulative50ms rejection; six reproduced failures, fullLinux2124passes/zero skips, Windows143targets/oneLinux-onlyskip. Prefix preservation is not unlimited capacity; native collector/host clock/coverage remain unqualified. Latest actualQA-044still rejected, all negative receipts preserved; no real-data/novelty/production acceptance.
+Latest software: [QA-046 capacity/clock-admission refinement](CAPACITY_TIMING_OFFLINE_REFINEMENT.md), offlineonly. Saved suffix40.474%smaller with sameevents/structuredfields; full-minute fit not proven. Initial-clock rejection/final sample recomputation fixed, fivefailures preserved; fullLinux2146passes/zero skips, Windows183targets+1Linuxskip/8freshpackagechecks. No live/service action; actualWSLclock/nativeformat/fullcoverage and research/production gates remain open. QA-044latestactualrejection unchanged.
 
 Latest QA-040: [current-source packages/regression](PACKAGE_REFRESH_QUALIFICATION.md), fullLinux2101passes/zero skips and8Windows installed-package checks. Evaluator278e129/reviewer-agreement6aa5b0e published. Research-data qualification, independent evaluation and production acceptance remain outstanding; old test counts below are dated checkpoints.
 

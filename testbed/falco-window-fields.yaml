@@ -1,0 +1,43 @@
+# Versioned fields-only window capture: no event/structured field is sampled out.
+config_files: []
+rules_files: []
+plugins: []
+load_plugins: []
+append_output: []
+engine:
+  kind: modern_ebpf
+json_output: true
+json_include_output_property: false
+json_include_message_property: false
+json_include_output_fields_property: true
+buffered_outputs: false
+stdout_output:
+  enabled: false
+syslog_output:
+  enabled: false
+file_output:
+  enabled: true
+  keep_alive: false
+  filename: /tmp/acg-events.jsonl
+http_output:
+  enabled: false
+program_output:
+  enabled: false
+webserver:
+  enabled: false
+log_stderr: true
+log_syslog: false
+log_level: info
+metrics:
+  enabled: true
+  interval: 1s
+  output_rule: false
+  output_file: /tmp/acg-metrics.jsonl
+  rules_counters_enabled: false
+  resource_utilization_enabled: false
+  state_counters_enabled: false
+  kernel_event_counters_enabled: true
+  kernel_event_counters_per_cpu_enabled: false
+  libbpf_stats_enabled: false
+  plugins_metrics_enabled: false
+  include_empty_values: true

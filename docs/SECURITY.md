@@ -1,5 +1,14 @@
 # Security boundaries and publication policy
 
+QA-046 fields-onlyformat is anexplicittrustedboolean/profile, exact7property
+envelope; defaultlegacy8unchanged, noauto-detection/fallback. Allstructuredfields,
+PID/scope/kind/timestampand1MBlimits retained. Omitoptionaldisplaytext atproducer,
+not actualevents or safetyfields. Newfinaltimingrecomputationpreventsstale/forged
+acceptanceflags fromoverridingobservedminute/cumulativefaults; notauthenticatedUTC,
+generaluntrustedreceiptcertification or physicalclockrepair. Fresh43modulewheels
+built/installedoffline, sourcehashchecked; no nativeFalco/Docker/servicechanges.
+Capacity/nativeformat remainunqualified. [Contract](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
+
 QA-045 removes rotatingDockerstdout as authority for futurefull-window trials,
 using separateFalcofile/nonrotating output and fsize1MBcap with same image/caps/
 resources/no-network; no live invocation. Bounded1MBbinarytar/singlefixedregular

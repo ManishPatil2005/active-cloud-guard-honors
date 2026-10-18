@@ -16,7 +16,7 @@ from cloudguard.limits import json_value, read_bytes
 from cloudguard.sensor_metrics import summarize
 from scripts.window_sensor import SensorLease
 from scripts.window_transport import RedisWindowTransport
-from scripts.window_workload import run as workload
+from scripts.window_workload import run as workload, validate_timing
 
 MINUTE = 60_000_000_000
 ALIGNMENT_WAIT_PROTOCOL = "utc_boundary_single_recheck_v2"
@@ -31,6 +31,7 @@ def sources():
     paths += [
         ROOT / "testbed/falco-trial.yaml",
         ROOT / "testbed/falco-window.yaml",
+        ROOT / "testbed/falco-window-fields.yaml",
         ROOT / "testbed/inventory.json",
     ]
     if not 1 <= len(paths) <= 250:
@@ -142,7 +143,16 @@ def review_journal(directory):
 
 
 def check_capture(
-    raw, metrics_path, metrics_sha, target, warmup_pids, transport, measured, boundary
+    raw,
+    metrics_path,
+    metrics_sha,
+    target,
+    warmup_pids,
+    transport,
+    measured,
+    boundary,
+    *,
+    fields_only=False,
 ):
     """Recompute checks on saved evidence; never certify all telemetry or labels."""
     attempts = transport["attempts"]
@@ -157,7 +167,10 @@ def check_capture(
         or any(row["status"] != "completed" for row in attempts)
     ):
         raise ValueError("incomplete workload or unstable identity")
-    matches, unassigned = connection_counts(raw, target, warmup_pids + pids)
+    validate_timing(measured)
+    matches, unassigned = connection_counts(
+        raw, target, warmup_pids + pids, fields_only=fields_only
+    )
     offsets = []
     for pid, call in zip(pids, calls):
         if len(matches[pid]) != 1 or call["status"] != "completed":
@@ -317,7 +330,8 @@ def execute(
     journal = Journal(directory)  # Refuse reuse before any external operation.
     lease = None
     report = dict(
-        protocol="redis_window_trial_v2",
+        protocol="redis_window_trial_v3",
+        event_format="falco_fields_only_v1",
         status="started",
         independent_evaluation_verified=False,
         labels_created=False,
@@ -373,7 +387,7 @@ def execute(
             sleep(1)
         raw = lease.observe_log()
         warmup = [row["pid"] for row in lease.redis.snapshot()["attempts"]]
-        matches, _ = connection_counts(raw, target, warmup)
+        matches, _ = connection_counts(raw, target, warmup, fields_only=True)
         ready_end = clock()
         if (
             len(matches[warmup[-1]]) != 1
@@ -485,6 +499,7 @@ def execute(
                 report["transport"],
                 report["workload"],
                 report["boundary_ns"],
+                fields_only=True,
             )
             report["status"] = "development_checks_passed"
     except (Exception, KeyboardInterrupt) as error:

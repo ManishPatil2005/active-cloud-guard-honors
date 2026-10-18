@@ -1,5 +1,9 @@
 # Live timing investigation and bounded UTC wait repair
 
+QA-046 offlinefollow-up closesinitialcall/finalflag-trustsoftwaregaps and reduces
+duplicatedoutputbytes; actualWSLtimingcause unresolved. No newclockobservation,
+serviceintervention orsensortrial. [Latestlimits/results](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
+
 QA-045 adds earlier cumulative sampled refusal, not a physical clock correction.
 SavedQA-044breach beforeindex19 verified; no live/service/clock action. Nonrotating
 capture refinement and unresolved capacity/native/discipline gates are recorded

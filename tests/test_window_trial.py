@@ -136,7 +136,13 @@ class Lab:
         return self.raw()
 
     def raw(self):
-        return ("\n".join(json.dumps(row) for row in self.events) + "\n").encode()
+        return (
+            "\n".join(
+                json.dumps({k: v for k, v in row.items() if k != "output"})
+                for row in self.events
+            )
+            + "\n"
+        ).encode()
 
     def snapshot(self):
         return json.loads(json.dumps(self.report))
@@ -222,6 +228,56 @@ def test_virtual_end_to_end_journal_and_full_selected_checks(lab, tmp_path):
     assert review["last"]["payload"] == report
     assert review["authenticated"] is False
     assert review["valid_records"] == 132
+
+
+@pytest.mark.parametrize("difference", [-129_000_000, 129_000_000])
+def test_capture_recomputes_window_clock_instead_of_trusting_flag(
+    lab, tmp_path, difference
+):
+    report = lab.execute(tmp_path / "journal")
+    assert report["status"] == "development_checks_passed"
+    measured = report["workload"]
+    measured["last"]["wall_ns"] += difference
+    assert measured["workload_timing_accepted"] is True
+    with pytest.raises(ValueError):
+        module.check_capture(
+            (lab.path / "sensor.log").read_bytes(),
+            lab.path / "metrics.jsonl",
+            report["lease"]["metrics_raw_sha256"],
+            TARGET,
+            report["warmup_pids"],
+            report["transport"],
+            measured,
+            report["boundary_ns"],
+            fields_only=True,
+        )
+
+
+@pytest.mark.parametrize(
+    "fault", ["transient", "short", "round_trip", "dispatch", "stale_summary"]
+)
+def test_final_clock_admission_checks_samples_not_status_only(lab, tmp_path, fault):
+    from scripts.window_workload import validate_timing
+
+    report = lab.execute(tmp_path / "journal")
+    measured = report["workload"]
+    validate_timing(measured)
+    if fault == "transient":
+        measured["calls"][20]["first"]["wall_ns"] += 70_000_000
+        measured["calls"][20]["last"]["wall_ns"] += 70_000_000
+    elif fault == "short":
+        measured["last"]["wall_ns"] -= 1_000_000_000
+        measured["last"]["monotonic_mid_ns"] -= 1_000_000_000
+        measured["timing"] = module.compare(measured["first"], measured["last"])
+    elif fault == "round_trip":
+        measured["calls"][0]["round_trip_ns"] = 750_000_001
+    elif fault == "dispatch":
+        measured["calls"][0]["dispatch_offset_ns"] = 250_000_001
+    elif fault == "stale_summary":
+        measured["timing"]["clock_difference_ns"] = 1
+    assert measured["workload_timing_accepted"] is True
+    with pytest.raises(ValueError):
+        validate_timing(measured)
 
 
 @pytest.mark.parametrize(

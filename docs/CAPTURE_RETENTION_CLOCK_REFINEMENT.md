@@ -1,5 +1,9 @@
 # Capture retention and cumulative-clock refinement
 
+Historical QA-045 checkpoint below. Latest [QA-046 refinement](CAPACITY_TIMING_OFFLINE_REFINEMENT.md)
+versions a fields-only producer/parser and recomputes final clock admission;
+same caps, no native trial or physical-clock cure. Both QA-045configs remain unchanged.
+
 18 October 2026 · QA-045 · E2-003/E2-005/E2-025/RQ3 · WL-122.
 
 The user requested diagnosis and fixes without another live trial or larger limits.

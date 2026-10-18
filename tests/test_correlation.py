@@ -6,6 +6,62 @@ from cloudguard.clock_check import compare
 from scripts.sensor_trial import rules
 
 
+def test_fields_only_profile_keeps_legacy_envelope_strict():
+    from cloudguard.correlation import connection_counts
+
+    _, events = inputs()
+    for event in events:
+        del event["output"]
+    raw = ("\n".join(json.dumps(e) for e in events) + "\n").encode()
+    with pytest.raises(ValueError):
+        connection_counts(raw, "a" * 64, [1, 2, 3, 4])
+    counts, extra = connection_counts(raw, "a" * 64, [1, 2, 3, 4], fields_only=True)
+    assert all(len(v) == 1 for v in counts.values()) and extra == 0
+
+
+@pytest.mark.parametrize("flag", [None, 1, "true"])
+def test_format_is_explicit_boolean_not_truthiness(flag):
+    from cloudguard.correlation import connection_counts
+
+    with pytest.raises(ValueError):
+        connection_counts(b"", "a" * 64, [1], fields_only=flag)
+
+
+@pytest.mark.parametrize(
+    "fault", ["legacy_output", "pid", "scope", "time", "field", "kind"]
+)
+def test_fields_only_rejects_unexpected_or_invalid_original_fields(fault):
+    from cloudguard.correlation import connection_counts
+
+    _, events = inputs()
+    row = events[0]
+    row.pop("output")
+    fields = row["output_fields"]
+    if fault == "legacy_output":
+        row["output"] = "not the declared profile"
+    elif fault == "pid":
+        fields["proc.vpid"] = True
+    elif fault == "scope":
+        fields["thread.cgroups"] = "b" * 64
+    elif fault == "time":
+        fields["evt.rawtime"] += 1
+    elif fault == "field":
+        fields["unexpected"] = 0
+    elif fault == "kind":
+        fields["evt.type"] = "unsupported"
+    with pytest.raises(ValueError):
+        connection_counts(
+            (json.dumps(row) + "\n").encode(), "a" * 64, [1], fields_only=True
+        )
+
+
+def test_fields_only_never_increases_the_raw_byte_limit():
+    from cloudguard.correlation import connection_counts
+
+    with pytest.raises(ValueError, match="oversized"):
+        connection_counts(b" " * 1_000_001, "a" * 64, [1], fields_only=True)
+
+
 def inputs():
     calls, events = [], []
     for p in range(1, 5):

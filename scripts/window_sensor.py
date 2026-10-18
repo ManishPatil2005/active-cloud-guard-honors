@@ -22,7 +22,7 @@ from cloudguard.process_runner import (
 from scripts.sensor_trial import IMAGE, rules
 from scripts.window_transport import RedisWindowTransport
 
-CONFIG_SHA = "72d2c6fb542e40b7f70f212a5d0b093aa717599c70b74fde86016a377040f461"
+CONFIG_SHA = "0777b22af20748394a8f403e1a8e6c4c6452452a4de77f015723e463c0d2e54a"
 OWNERSHIP_FORMAT = (
     '{"id":{{json .Id}},"name":{{json .Name}},"image":{{json .Config.Image}},'
     '"running":{{json .State.Running}},'
@@ -47,7 +47,8 @@ class SensorLease:
         self._sealed = False
         self._raw_dir = None
         self._report = dict(
-            protocol="sensor_window_lease_v2",
+            protocol="sensor_window_lease_v3",
+            event_format="falco_fields_only_v1",
             retention_protocol="nonrotating_file_fsize_v1",
             event_file_limit_bytes=1_000_000,
             status="not_launched",
@@ -110,7 +111,7 @@ class SensorLease:
         self._report["status"] = "preflight"
         try:
             self.redis.check_identity()
-            config = ROOT / "testbed/falco-window.yaml"
+            config = ROOT / "testbed/falco-window-fields.yaml"
             if hashlib.sha256(read_bytes(config)).hexdigest() != CONFIG_SHA:
                 raise SensorRejected("collector config changed")
             raw_dir = ROOT / "output/runtime-raw" / self._name

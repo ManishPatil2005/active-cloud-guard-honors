@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="5" time="2.043" timestamp="2026-10-18T18:31:17.656814+05:30" hostname="Welcome"><testcase classname="tests.test_window_workload" name="test_clock_fault_before_first_command_never_calls_callback[-50000001]" time="0.001"><failure message="assert 1 == 0&#10; +  where 1 = &lt;test_window_workload.Clock object at 0x0000020A53BD2180&gt;.calls">step = -50000001
+
+    @pytest.mark.parametrize("step", [-50_000_001, 50_000_001])
+    def test_clock_fault_before_first_command_never_calls_callback(step):
+        clock = Clock()
+    
+        def sleep(seconds):
+            clock.sleep(seconds)
+            clock.now += 1_000
+            clock.wall_offset += step
+    
+        report = clock.execute(sleep=sleep)
+        assert report["status"] == "window_clock_outside_tolerance"
+&gt;       assert clock.calls == 0
+E       assert 1 == 0
+E        +  where 1 = &lt;test_window_workload.Clock object at 0x0000020A53BD2180&gt;.calls
+
+tests\test_window_workload.py:216: AssertionError</failure></testcase><testcase classname="tests.test_window_workload" name="test_clock_fault_before_first_command_never_calls_callback[50000001]" time="0.001"><failure message="assert 1 == 0&#10; +  where 1 = &lt;test_window_workload.Clock object at 0x0000020A562C39B0&gt;.calls">step = 50000001
+
+    @pytest.mark.parametrize("step", [-50_000_001, 50_000_001])
+    def test_clock_fault_before_first_command_never_calls_callback(step):
+        clock = Clock()
+    
+        def sleep(seconds):
+            clock.sleep(seconds)
+            clock.now += 1_000
+            clock.wall_offset += step
+    
+        report = clock.execute(sleep=sleep)
+        assert report["status"] == "window_clock_outside_tolerance"
+&gt;       assert clock.calls == 0
+E       assert 1 == 0
+E        +  where 1 = &lt;test_window_workload.Clock object at 0x0000020A562C39B0&gt;.calls
+
+tests\test_window_workload.py:216: AssertionError</failure></testcase><testcase classname="tests.test_window_trial" name="test_capture_recomputes_window_clock_instead_of_trusting_flag[-129000000]" time="0.478"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">lab = &lt;test_window_trial.Lab object at 0x0000020A556DA180&gt;
+tmp_path = WindowsPath('D:/research f1/tmp/capacity-timing-before-qa046/test_capture_recomputes_window0')
+difference = -129000000
+
+    @pytest.mark.parametrize("difference", [-129_000_000, 129_000_000])
+    def test_capture_recomputes_window_clock_instead_of_trusting_flag(lab, tmp_path, difference):
+        report = lab.execute(tmp_path / "journal")
+        measured = report["workload"]
+        measured["last"]["wall_ns"] += difference
+        assert measured["workload_timing_accepted"] is True
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_window_trial.py:233: Failed</failure></testcase><testcase classname="tests.test_window_trial" name="test_capture_recomputes_window_clock_instead_of_trusting_flag[129000000]" time="0.455"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">lab = &lt;test_window_trial.Lab object at 0x0000020A556B4440&gt;
+tmp_path = WindowsPath('D:/research f1/tmp/capacity-timing-before-qa046/test_capture_recomputes_window1')
+difference = 129000000
+
+    @pytest.mark.parametrize("difference", [-129_000_000, 129_000_000])
+    def test_capture_recomputes_window_clock_instead_of_trusting_flag(lab, tmp_path, difference):
+        report = lab.execute(tmp_path / "journal")
+        measured = report["workload"]
+        measured["last"]["wall_ns"] += difference
+        assert measured["workload_timing_accepted"] is True
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_window_trial.py:233: Failed</failure></testcase><testcase classname="tests.test_correlation" name="test_fields_only_profile_keeps_legacy_envelope_strict" time="0.001"><failure message="TypeError: connection_counts() got an unexpected keyword argument 'fields_only'">def test_fields_only_profile_keeps_legacy_envelope_strict():
+        from cloudguard.correlation import connection_counts
+    
+        _, events = inputs()
+        for event in events:
+            del event["output"]
+        raw = ("\n".join(json.dumps(e) for e in events)+"\n").encode()
+        with pytest.raises(ValueError):
+            connection_counts(raw, "a"*64, [1,2,3,4])
+&gt;       counts, extra = connection_counts(raw, "a"*64, [1,2,3,4], fields_only=True)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: connection_counts() got an unexpected keyword argument 'fields_only'
+
+tests\test_correlation.py:18: TypeError</failure></testcase></testsuite></testsuites>

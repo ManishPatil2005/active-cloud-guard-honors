@@ -125,10 +125,10 @@ class Daemon:
 def factory(tmp_path, monkeypatch):
     monkeypatch.delenv("DOCKER_HOST", raising=False)
     monkeypatch.delenv("DOCKER_CONTEXT", raising=False)
-    config = module.read_bytes(module.ROOT / "testbed/falco-window.yaml")
+    config = module.read_bytes(module.ROOT / "testbed/falco-window-fields.yaml")
     monkeypatch.setattr(module, "ROOT", tmp_path)
     (tmp_path / "testbed").mkdir()
-    (tmp_path / "testbed/falco-window.yaml").write_bytes(config)
+    (tmp_path / "testbed/falco-window-fields.yaml").write_bytes(config)
 
     def build(mode="normal"):
         daemon = Daemon(mode)
@@ -229,7 +229,7 @@ def test_cleanup_failures_preserved_and_not_retried(factory, mode):
 
 def test_changed_config_blocks_launch(factory):
     lease, daemon = factory()
-    (module.ROOT / "testbed/falco-window.yaml").write_bytes(b"changed")
+    (module.ROOT / "testbed/falco-window-fields.yaml").write_bytes(b"changed")
     with pytest.raises(module.SensorRejected):
         lease.start(approved=True)
     assert not any(argv[3] == "run" for argv, _ in daemon.calls)
@@ -298,7 +298,7 @@ def test_export_limits_no_archive_extraction_or_unsafe_remove(factory, mode):
 def test_authoritative_capture_is_not_rotating_docker_stdout(factory):
     lease, daemon = factory()
     report = lease.start(approved=True)
-    assert report["protocol"] == "sensor_window_lease_v2"
+    assert report["protocol"] == "sensor_window_lease_v3"
     assert report["retention_protocol"] == "nonrotating_file_fsize_v1"
     launch = next(argv for argv, _ in daemon.calls if "run" in argv)
     assert launch[launch.index("--ulimit") + 1] == "fsize=1000000:1000000"
@@ -332,13 +332,15 @@ def test_versioned_config_preserves_alert_schema_and_original_limits():
 
     root = Path(__file__).resolve().parents[1]
     old = yaml.safe_load((root / "testbed/falco-trial.yaml").read_bytes())
-    new = yaml.safe_load((root / "testbed/falco-window.yaml").read_bytes())
+    new = yaml.safe_load((root / "testbed/falco-window-fields.yaml").read_bytes())
     assert old["stdout_output"]["enabled"] and not old["file_output"]["enabled"]
     assert not new["stdout_output"]["enabled"] and new["file_output"]["enabled"]
     assert new["file_output"]["filename"] == "/tmp/acg-events.jsonl"
     assert new["buffered_outputs"] is False
     assert new["metrics"] == old["metrics"]
     assert new["json_output"] is old["json_output"] is True
+    assert new["json_include_output_property"] is False
+    assert new["json_include_output_fields_property"] is True
     assert new["engine"] == old["engine"]
 
 
