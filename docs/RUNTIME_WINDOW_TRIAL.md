@@ -1,5 +1,10 @@
 # Journaled full-window development qualification
 
+QA-048 planned only: [exact native validation and approval scopes](NATIVE_VALIDATION_PLAN.md).
+No new trial or service intervention. A screen does not authorize B; B needs
+separate consent and offline no-clock-change restoration-controller readiness.
+All existing limits remain unchanged; historical QA-044 failure below preserved.
+
 QA-046 software-only: futurelease/coordinatorv3 declaresfalco_fields_only_v1,
 separatehash-boundfieldsconfig; no optionalduplicateddisplaystring butallstructured
 values/events retained. Samecaps/clockbounds, initialprecheck/finaltimingrecomputation.

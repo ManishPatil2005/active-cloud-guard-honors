@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 - Plan separately approved native clock and capacity validation
+
+- Add QA-048 native plan with exact A/B approval wording, frozen limits, first-failure stops, private evidence and bounded owned restoration.
+- Exclude prior clock-service-changing wrapper; identify unimplemented no-clock-change outer controller and separate native saturation/repeatability gates. Plan only, no trial/settings/code change. WL-125.
+
 ## 2026-10-18 - Reject contradictory clock and transport receipts
 
 - Require integer clock/transport nanoseconds and bracket-consistent dispatch/completion; preserve odd-width sampling and all limits.

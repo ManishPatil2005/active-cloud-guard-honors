@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-048: [native clock/capacity plan](NATIVE_VALIDATION_PLAN.md) is prepared, not executed. A is sensor-free screening only; B requires separate consent and no-clock-change restoration-controller readiness. Native saturation/overflow and repeatability are separate future scopes, not implied by a successful minute. Existing limits and evidence levels unchanged.
+
 QA-047: preserve three before-fix admission failures;18 new cases cover exact integer sample/transport values, contradictory dispatch/completion, and valid zero/odd-width brackets. FinalWindows201pass/one existing Linuxskip; full offline Linux2164pass/zero skips including unchanged QA-046 installed-package checks. No native producer, sensor, workload, clock observation or service action; full-minute clock/capacity/coverage validation remains pending.
 
 QA-046: fivebeforefailurespreserved;22newcases total forstrictdeclaredfields-only

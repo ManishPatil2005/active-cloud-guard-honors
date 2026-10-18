@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-098 - 2026-10-18 - Separate clock screening from native sensor consent
+
+QA-048/E2-003/E2-005/E2-025/RQ3. Plan A uses existing sensor-free diagnostics, not a new clock setter. Passing short intervals/alignment cannot authorize or qualify B's loaded minute. B requires separately reviewed consent and a no-clock-change outer restoration controller; historical QA-044 wrapper is explicitly excluded because it stops guest timesyncd. No borrowed past approval, automatic retries, increased caps or implied native saturation tests. Native plan freezes existing source limits, distinguishes current second-readiness predicate from reporting both canaries, and preserves stopped owned sensor if export fails. Plan preparation changes no executable behavior or scientific status. See NATIVE_VALIDATION_PLAN/WL-125.
+
 ## ADR-097 - 2026-10-18 - Bind transport timing to sample brackets
 
 QA-047/E2-003/E2-005/E2-025/RQ3. Reject invalid clock/transport numbers; require dispatch/completion between the pre-call sample end and post-call sample start. Recover endpoints exactly from midpoint/width rather than introduce tolerance. Keep valid odd/zero-width receipts and all thresholds. No new collector/client, host intervention or trial. Fields-only reduction remains a candidate, not proof of a minute's fit. Actual producer/export, whole-load capacity and repeatable clock/identity/coverage require native validation. See CAPACITY_TIMING_OFFLINE_REFINEMENT/INC-102/WL-124.

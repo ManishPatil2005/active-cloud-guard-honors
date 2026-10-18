@@ -1,5 +1,7 @@
 # Documentation index
 
+Next QA-048: [native validation and exact approval plan](NATIVE_VALIDATION_PLAN.md), prepared only. Separate sensor-free A and later integrated B consent; no time-service changes, limits unchanged. Old stop/settle wrapper explicitly excluded; B controller readiness remains pending. No native execution.
+
 Latest QA-047: [clock receipt consistency and native checklist](CAPACITY_TIMING_OFFLINE_REFINEMENT.md). Three failures reproduced/repaired; full offline Linux2164 passes/zero skips. Unchanged limits/no live trial; WSL clock cause and full-minute capacity remain open.
 
 Latest software: [QA-046 capacity/clock-admission refinement](CAPACITY_TIMING_OFFLINE_REFINEMENT.md), offlineonly. Saved suffix40.474%smaller with sameevents/structuredfields; full-minute fit not proven. Initial-clock rejection/final sample recomputation fixed, fivefailures preserved; fullLinux2146passes/zero skips, Windows183targets+1Linuxskip/8freshpackagechecks. No live/service action; actualWSLclock/nativeformat/fullcoverage and research/production gates remain open. QA-044latestactualrejection unchanged.
