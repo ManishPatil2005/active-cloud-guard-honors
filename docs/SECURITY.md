@@ -1,5 +1,19 @@
 # Security boundaries and publication policy
 
+QA-044: fresh explicit user scope allowed one integrated development trial with
+temporary guest time-service stop/fixed120second settling, not Windows/host-agent
+changes. Clock rollback480seconds, root orchestration360seconds/coordinator180seconds
+bound the sequence; original150second sensor watchdog and all resource/byte/timing/
+identity/coverage gates unchanged. Restore original enabled/running service and
+stopped Redis; owned sensor evidence exported before removal, separate postchecks.
+Timing rejected despite allPINGs completing; no privileged fallback, repeated
+sensor, permanentdisable, gate relaxation or admission of faileddata. Missing
+postidentity is unknown, not changed; zero global drops not retention or complete
+capture. Full raw Docker inspect/command/collector records remain ignored/private;
+only minimized reviewed hashes/numerics published. Parentdeath/host suspension/
+trusted daemon/filesystem/guesttimer assumptions still limit guaranteed restoration.
+Fresh scoped approval required for another live intervention. WL-121/INC-098/099.
+
 QA-034 grouped uncertainty uses exact synthetic schemas, existing bounded units, at most 100 families/10,000 draws and strict integer seeds. No network, subprocess, model deserialization, fitting, sensor or service action. Origin/group flags are not authenticated independence or permission to relabel real data. Fixed CLI takes only fresh output, reserves before reads and checks selected input/source hashes; not a hard CPU/IO/race/transaction guarantee. Human/private-data and real-fitting gates unchanged. [Contract](GROUPED_UNCERTAINTY.md).
 
 QA-031 alignment-only mode reads clocks/writes exclusive local records; it never creates a sensor/transport, changes time settings or exercises Redis. One native trial authorization was consumed, and no second sensor trial ran. Raw logs/journals remain ignored; minimized summaries retain hashes/numeric samples and reject states. Actual cleanup/target restoration observed, but host clock qualification remains failed. No threshold weakening, timestamp correction or permission expansion. WL-108/INC-088.

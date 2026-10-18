@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest live-timing work: [QA-042 approved settling comparison](WSL_TIMING_REMEDIATION.md). One post-settling candidate passes64samples/worst47.943999ms under unchanged50ms; original service restored. Baseline remained unstable, earlier failed comparison preserved, causal cure and sensor/full-window/real-data acceptance NOT established. UTC repair remains software-tested; next integrated trial needs separate scope/approval.
+Latest live result: [QA-044 integrated trial](RUNTIME_WINDOW_TRIAL.md). Initial alignment/all60PINGs pass, full-minute clock difference-129.242680ms rejects50ms; only21/60connections retained in final export, no accepted coverage. Post-workload identity not reached (not changed). Sensor removed, Redis/time service restored, no retries/changed limits. Retention and clock-domain diagnosis needed before another separately approved trial; real-data/research acceptance remains open. QA-042 candidate not a cure.
 
 Latest QA-040: [current-source packages/regression](PACKAGE_REFRESH_QUALIFICATION.md), fullLinux2101passes/zero skips and8Windows installed-package checks. Evaluator278e129/reviewer-agreement6aa5b0e published. Research-data qualification, independent evaluation and production acceptance remain outstanding; old test counts below are dated checkpoints.
 

@@ -1,5 +1,11 @@
 # Live timing investigation and bounded UTC wait repair
 
+QA-044 integrated follow-up is now executed once with fresh approval: initial
+alignment/all60PINGs pass, but minute clock difference-129.242680ms rejects50ms.
+Final retention/command-time correspondence also fail; clock-only QA-042 is not a
+cure. Service/Redis restored and sensor removed. [Actual integrated result](RUNTIME_WINDOW_TRIAL.md),
+WL-121/INC-098; no retry, relaxed limits, real-data qualification or host changes.
+
 18 October 2026; QA-041/QA-042/QA-043, E2-005/E2-025/RQ3. The user explicitly requested
 fixing live timing and coverage. **Live qualification remains open.** A scheduler
 defect is repaired and software-tested; the first service correction was rejected
@@ -107,8 +113,8 @@ cancelled; separate read-only verification confirmed exact timer inactive and
 not-found, no pending jobs. No permanent service/host setting changed. The
 candidate condition was deliberately not left active for another workload.
 
-Next is a separately scoped and approved integrated development qualification
-under the candidate condition, with unchanged UTC alignment/readiness/identity/
+At this checkpoint the next step was a separately scoped integrated qualification
+under the candidate condition (subsequently approved/executed as QA-044), with unchanged UTC alignment/readiness/identity/
 coverage/drop gates and unconditional restoration. This clock-only permission
 does not authorize a sensor trial or changes to host PHC synchronization. A
 passing post-settling segment does not prove full-window capture or explain the

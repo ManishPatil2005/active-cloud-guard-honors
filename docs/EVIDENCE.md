@@ -1,5 +1,9 @@
 # Evidence index
 
+## Integrated settled-clock trial (18 October 2026)
+
+QA-044 [reviewed actual result](../output/window-trial-settled-reviewed-20261018-qa044.json):132journal records/99sources,29controller hashes, full-minute timing rejection despite60completedPINGs; finalexport21/60measured connections/no finalcanaries/no accepted command brackets. Initialalignment passes, no complete coverage or post-running identity qualification. Service/Redis restored and owned sensor removed; no retry/changed gate. [Initial derivation retained](../output/window-trial-settled-summary-20261018-qa044.json) contains corrected false-vs-missing identity inference; do not treat thatfield as observed change (INC-099). [3documentation checks](../output/integrated-settled-docs-20261018-qa044.xml); [method/limits](RUNTIME_WINDOW_TRIAL.md), WL-121/INC-098. Earlier candidate/failure evidence remains unchanged; no independent data or effectiveness result.
+
 ## Approved settled-clock comparison (18 October 2026)
 
 QA-042 [minimized result](../output/guest-ntp-settle-summary-20261018-qa042.json):5native blocks,26private file hashes,64post-settling bounds recomputed locally. Candidate passes unchanged50ms limit, maximum47.943999ms; baseline wall/BOOT about-297.815ms remains unstable. Original guest service restored; timer cancelled and separately verified. No sensor/real-data/independent research acceptance. [Scope and limitations](WSL_TIMING_REMEDIATION.md), WL-120; earlier pending proposal and failed QA-041 outputs remain historical and byte-unchanged.

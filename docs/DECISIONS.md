@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-094 - 2026-10-18 - Preserve integrated rejection and distinguish missing identity evidence
+
+QA-044/WL-121. Fresh user message authorized one integrated trial with unchanged gates and restoration under the candidate condition. Run once, preserve failure, restore original guest service and stopped Redis even though alignment passes and everyPING completes. Root wrapper360s/coordinator180s supervise settling plus cleanup; these controller budgets do not alter original150s sensor watchdog or timing/coverage/byte limits. Do not promote the earlier sensor-free pass into a causal cure, zero drops into coverage, missing end identity into a changed identity, or plausible rotation into verified cause. Retain the initial derived-summary mistake beside a fresh corrected report. Next investigate timing/retention/domain mismatch without another automatic sensor run or relaxed limits. No new engine/stack or production/independent-evaluation claim.
+
 ## ADR-093 - 2026-10-18 - Treat settled clock pass as a bounded candidate only
 
 QA-042/WL-120. Fresh exact user approval allowed one longer comparison; it now supersedes the earlier pending status, not historical QA-041 evidence.64post-settling samples pass with only2.056001ms margin below50ms, while the baseline is unstable. Restore original service even on success; do not persistently disable it or infer a unique cause/repeatability from one uncontrolled-host comparison. Do not combine separately scoped clock and sensor approvals. A proposed integrated trial must retain original timing/identity/coverage gates, watchdog and unconditional restoration, with fresh approval before execution. No production or research-data admission from this sensor-free result.

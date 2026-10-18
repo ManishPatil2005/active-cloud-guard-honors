@@ -1,10 +1,58 @@
 # Journaled full-window development qualification
 
+## Current actual result - QA-044 / WL-121 (18 October 2026)
+
+Fresh user approval authorized one integrated trial under the candidate condition:
+temporary guest-timesyncd stop, fixed120second settling, then unchanged coordinator,
+two readinessPINGs and60measuredPINGs, original150second sensor watchdog, no retries.
+Service rollback480seconds armed before stop; root controller360seconds and ordinary
+coordinator180seconds supervise settling/collection/cleanup, without relaxing any
+original timing, identity, capture, response, byte or resource gate. No host changes.
+
+**Rejected after completing all60PINGs.** Initial UTC alignment passes:0.523504ms
+late, clock difference312ns. The measured minute lasts60.000294169s monotonic but
+wall-minus-monotonic is-129.242680ms, beyond unchanged50ms. Individual calls and
+dispatch limits pass; those do not override the full-window gate. No automatic repeat.
+[Reviewed result](../output/window-trial-settled-reviewed-20261018-qa044.json).
+
+Offline coverage review finds21/60measured connection events (indices39..59),39
+missing and neither readiness event in the final902464byte export. Earliest retained
+event is39.103147891s after intended start. None of21event command brackets includes
+zero; timestamp bound extrema are positive30.914481..293.972306ms. All21are within
+the intended UTC minute, which alone does not establish command-time correspondence.
+67metrics snapshots report zero selected drops, but do not bracket the entire minute
+(last sample before end; fixedtail was not reached after timing rejection). Metric
+maximum gap1.015412s. Coverage is rejected/unknown, not complete. Configured1m/max-file1
+retention makes rotation a possible explanation for missing early events, NOT verified
+causality; remaining clock writers/domain mismatch are unresolved.
+
+End-running identity check was not reached. This is missing evidence, not proof of
+an identity change. The [initial derived summary](../output/window-trial-settled-summary-20261018-qa044.json)
+incorrectly compared before withafter=null and emittedfalse; retained unchanged and
+explicitly superseded by reviewednull/not-reached (INC-099). Selected start/restored
+RedisID/image/config agree; that is not a completed in-window pre/post identity check.
+
+All132journal records/99source hashes preserved,29controller+132journal hashes
+checked locally; raw log/metrics exported before owned sensor removal. Original
+guest service restored enabled/running/PID3472, Redis restored stopped with sameID,
+loopback binding/restartpolicy; only own rollback cancelled. Separate read-only
+postchecks confirm service/timer/Redis state and emptyacg-window sensor inventory.
+Root wrapperexit0 means restoration finished; coordinatorexit1 means trial failed.
+
+The earlier QA-042 narrow sensor-free pass is not a clock cure. This failed
+development family cannot enter fitting/calibration/independent evaluation. Next
+investigate retention feasibility under unchanged budgets and cross-domain timing
+before a separately reviewed live attempt. No new source/engine/stack or dataset
+acceptance. Exact command/evidence/restoration details WL-121; INC-098/ADR-094.
+
+## Prior candidate and software checkpoints
+
 18October QA-042: the separately approved fixed-settling clock-only comparison
 passes64post-settling samples narrowly (maximum47.943999ms/50ms). Baseline
 unstable; guest service restored. This did NOT execute the coordinator or a sensor
-workload. Combining that intervention with the integrated qualification requires
-new scoped approval; original timing/identity/coverage/drop gates remain unchanged.
+workload. Combining that intervention with the integrated qualification required
+new scoped approval, subsequently received for QA-044 above; original timing/
+identity/coverage/drop gates remain unchanged.
 [Evidence](WSL_TIMING_REMEDIATION.md). No live UTC alignment or coverage acceptance.
 
 18October QA-043: `utc_boundary_single_recheck_v2` repairs the wait deadline for
@@ -16,7 +64,7 @@ The first guest-NTP comparison failed and restored state; no new sensor trial or
 full-window coverage acceptance. At that checkpoint the revised comparison still
 needed fresh approval; its later limited result is recorded above.
 
-## Latest observed outcome - QA-035 / WL-113
+## Earlier observed outcome - QA-035 / WL-113
 
 The owner explicitly approved one new trial after WL-112. It ran once at source
 29cd9c470e4df90cc5200bbc9c0023d5350185e5, with the same pinned image and watchdog,

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 - Execute and preserve the approved integrated settled-clock trial
+
+- Initial alignment accepted and60PINGs completed, but whole-window clock disagreement129.243ms rejects unchanged50ms; final export misses39measured connects and both readiness events.
+- Preserve132journal records/99source bindings, original and corrected minimized derivations; end identity is not reached, not proven changed.
+- Verify owned sensor removal, restored guest service and stopped Redis; no retries, limit changes or real-data admission. QA-044/WL-121.
+
 ## 2026-10-18 - Observe approved post-settling clock consistency candidate
 
 - Execute QA-042 once after fresh exact approval:64post-settling samples pass original50ms bounds, worst47.943999ms; baseline instability remains explicit.

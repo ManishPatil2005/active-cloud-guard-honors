@@ -1,5 +1,15 @@
 # Test and verification plan
 
+QA-044: one approved actual integrated trial, no retry/changed limits. Initial UTC
+alignment passes,60individualPINGs complete; fullminute clock difference129.243ms
+rejects50ms. Offline finalexport21/60connects, missing finalcanaries, zero accepted
+command brackets and unbracketed metrics prevent coverage acceptance. Endrunning
+identity not reached. Validate132record journal/99sources, raw/metrics hashes,
+allcall/window arithmetic and161private hashes; verify originalservice/Redisstate
+restoration and sensor absence. Correct a derivedfalse identity inference with a
+fresh receipt, preserve original bytes.3documentation checks pass0.31s; fullsuite
+not rerun for unchanged source. Actual scope/results WL-121/RUNTIME_WINDOW_TRIAL.
+
 QA-042/WL-120: one approved baseline/settle/four-block live clock comparison,
 not a sensor test.64post-settling bounds pass50ms, worst47.943999ms; unstable
 baseline preserved. Offline native review of5blocks,64bound recomputations and
