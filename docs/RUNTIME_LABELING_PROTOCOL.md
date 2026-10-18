@@ -1,5 +1,12 @@
 # Runtime labeling coordinator pack — draft 0.1
 
+18October2026 implementation update: optional `--review-agreement` now computes
+the original pair table, unknown coverage and known-pair Cohen kappa before
+adjudication. [Method and interpretation](RUNTIME_INTAKE.md). Older statements
+below describing agreement fraction only are historical. This software extension
+does not supply actual humans, approve a final analysis plan or certify blinding.
+Owner-reported proposal0.1 approval is [recorded separately](SUPERVISOR_APPROVAL_RECORD.md).
+
 **DRAFT — NOT APPROVED.** E2-035/RQ3/E2-004 preparation, 6 October 2026. This pack is prepared for supervisor review, not supervisor-reviewed or signed. No actual reviewers recruited, messages sent, labels obtained, telemetry collected, model trained or benchmark established. Existing Python/Compose/Ollama/Chroma and two-engine boundaries preserved. [Current status](CURRENT_STATUS.md).
 
 ## Decisions before annotation

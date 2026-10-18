@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-094 - 2026-10-18 - Agreement test execution context and fixture-assumption failure
+
+Initial Windows sandbox run:71failed/29passed/1symlink skip, primarily Path.resolve(strict=True) WinError5 on existing bundle directories, the previously observed restricted-context boundary. Host-context unchanged code passes100/1skip; Linux101passes. No path guard, ACL or policy bypass changed. A later new test incorrectly expected two reviews in manifest-typed-counted.json, which actually has reviews=[]; each platform preserved one failure. Corrected the test to require unavailable statistics for that unchanged fixture. Final205related cases:Windows204pass1existing symlink skip/Linux205pass. Source arithmetic remained unchanged by the fixture correction. Negative receipts retained, no retries of native sensors/services or claimed original clock fix.
+
 ### INC-093 - 2026-10-12 - Duplicate evaluator cases and coarse binary accounting
 
 QA-038 tests reproduce duplicate case IDs being scanned twice while dictionaries silently collapse their metric entries, returning a development pass; missing exact rule metrics also reproduced (KeyError). A wrong-rule report already failed the existing rule-set mismatch guard, so this is not a claim that that safeguard was absent. Root cause high confidence: unvalidated case IDs and bool(any-finding) metric inputs. Fix: pre-scan manifest/identity validation and additive exact case/rule counts; historical binary metrics retained/labeled. Initial2failures preserved; final104selected passes each OS and actual45fixture runs agree. No original evidence replaced. Full asset/location independent evaluation and clock issues remain open.

@@ -1,5 +1,9 @@
 # Evidence index
 
+## Original-review agreement software (18 October 2026)
+
+QA-039 [corrected Windows](../output/reviewer-agreement-corrected-windows-20261018-qa039.xml):204pass/1existing symlink skip; [corrected Linux](../output/reviewer-agreement-corrected-linux-20261018-qa039.xml):205pass. [Windows demonstration](../output/reviewer-agreement-demo-windows-20261018-qa039.json)/[Linux demonstration](../output/reviewer-agreement-demo-linux-20261018-qa039.json) match:3invented pairs,2known/1unknown, known agreement0.5/kappa0. Initial sandbox71failure receipt and both one-failure fixture-assumption receipts retained. Statistics describe original supplied votes, not authenticated humans or independent study quality. WL-117/INC-094.
+
 ## Exact development case/rule accounting (12 October 2026)
 
 QA-038 [Windows tests](../output/rule-accounting-final-windows-20261012-qa038.xml)/[Linux tests](../output/rule-accounting-final-linux-20261012-qa038.xml):104passes each. [Windows actual development evaluation](../output/rule-accounting-development-windows-20261012-qa038.json)/[Linux evaluation](../output/rule-accounting-development-linux-20261012-qa038.json):45cases,26case-rule matches,0FP/0FN, old binary metrics unchanged. [Initial two regression failures](../output/rule-accounting-before-20261012-qa038.xml) retained. Seeded predicate accounting only; not independent accuracy, full location/actionability evaluation or measured novelty. WL-116.

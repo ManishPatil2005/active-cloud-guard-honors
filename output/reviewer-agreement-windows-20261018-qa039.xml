@@ -1,0 +1,3024 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="71" skipped="1" tests="101" time="7.997" timestamp="2026-10-18T15:46:14.820647+05:30" hostname="Welcome"><testcase classname="tests.test_reviewer_agreement" name="test_balanced_half_agreement_is_zero_kappa" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_perfect_agreement_and_reversal[other0-1]" time="0.001" /><testcase classname="tests.test_reviewer_agreement" name="test_perfect_agreement_and_reversal[other1--1]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_undefined_kappa_is_null[a0-b0-no_known_pairs]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_undefined_kappa_is_null[a1-b1-no_known_pairs]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_undefined_kappa_is_null[a2-b2-chance_agreement_is_one]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_unknowns_are_retained_in_full_table_and_coverage" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_incomplete_reviews_do_not_create_pairs[votes0]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_incomplete_reviews_do_not_create_pairs[votes1]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_exhaustive_three_window_oracle_and_reviewer_swap" time="0.014" /><testcase classname="tests.test_reviewer_agreement" name="test_opt_in_preserves_default_report_and_original_agreement" time="0.012"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\data\\runtime\\intake-example'">def test_opt_in_preserves_default_report_and_original_agreement():
+&gt;       default = inspect(EXAMPLE)
+                  ^^^^^^^^^^^^^^^^
+
+tests\test_reviewer_agreement.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\data\\runtime\\intake-example'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\data\\runtime\\intake-example'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_reviewer_agreement" name="test_exact_boolean_required_before_input_read[None]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_exact_boolean_required_before_input_read[0]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_exact_boolean_required_before_input_read[1]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_exact_boolean_required_before_input_read[yes]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_exact_boolean_required_before_input_read[bad4]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_exact_boolean_required_before_input_read[bad5]" time="0.000" /><testcase classname="tests.test_reviewer_agreement" name="test_cli_report_is_exclusive_and_does_not_export_reasons" time="0.222"><failure message="assert 1 == 0&#10; +  where 1 = CompletedProcess(args=['D:\\research f1\\tmp\\dependency-candidate-windows-20261009\\Scripts\\python.exe', 'D:\\resear..., '--review-agreement'], returncode=1, stdout='{&quot;status&quot;: &quot;rejected&quot;, &quot;model_fitting_authorized&quot;: false}\n', stderr='').returncode">tmp_path = WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cli_report_is_exclusive_a0')
+
+    def test_cli_report_is_exclusive_and_does_not_export_reasons(tmp_path):
+        destination = tmp_path / "fresh.json"
+        command = [
+            sys.executable,
+            str(ROOT / "scripts/runtime_intake.py"),
+            "--manifest",
+            str(EXAMPLE),
+            "--output",
+            str(destination),
+            "--review-agreement",
+        ]
+        r = subprocess.run(command, capture_output=True, text=True, timeout=15)
+&gt;       assert r.returncode == 0
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['D:\\research f1\\tmp\\dependency-candidate-windows-20261009\\Scripts\\python.exe', 'D:\\resear..., '--review-agreement'], returncode=1, stdout='{"status": "rejected", "model_fitting_authorized": false}\n', stderr='').returncode
+
+tests\test_reviewer_agreement.py:137: AssertionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_minimized_consistency_is_never_eligibility" time="0.026"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_minimized_consistency_is_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_minimized_consistency_is_0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+
+    def test_minimized_consistency_is_never_eligibility(bundle):
+        root, manifest = bundle
+        ref = save(
+            root, "receipts/opaque.json", {"claimed_pass": True, "private": "must not leak"}
+        )
+        manifest["runs"][0]["receipts"] = dict.fromkeys(
+            ("accounting", "identity", "timing"), ref
+        )
+        review(bundle, "fixture-a", ("benign", "suspicious"))
+        second = review(bundle, "fixture-b", ("benign", "unknown"))
+        adjudication(bundle, second)
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_minimized_consistency_is_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_minimized_consistency_is_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_pre_adjudication_agreement_preserved[labels0-expected0]" time="0.026"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_pre_adjudication_agreemen0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_pre_adjudication_agreemen0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+labels = ('unknown', 'unknown'), expected = (0, 0, 2, None)
+
+    @pytest.mark.parametrize(
+        "labels,expected",
+        [
+            (("unknown", "unknown"), (0, 0, 2, None)),
+            (("suspicious", "benign"), (1, 1, 0, 0.5)),
+        ],
+    )
+    def test_pre_adjudication_agreement_preserved(bundle, labels, expected):
+        review(bundle, "a", ("benign", "benign"))
+        second = review(bundle, "b", labels)
+        adjudication(bundle, second)
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:216: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_pre_adjudication_agreemen0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_pre_adjudication_agreemen0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_pre_adjudication_agreement_preserved[labels1-expected1]" time="0.027"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_pre_adjudication_agreemen1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_pre_adjudication_agreemen1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+labels = ('suspicious', 'benign'), expected = (1, 1, 0, 0.5)
+
+    @pytest.mark.parametrize(
+        "labels,expected",
+        [
+            (("unknown", "unknown"), (0, 0, 2, None)),
+            (("suspicious", "benign"), (1, 1, 0, 0.5)),
+        ],
+    )
+    def test_pre_adjudication_agreement_preserved(bundle, labels, expected):
+        review(bundle, "a", ("benign", "benign"))
+        second = review(bundle, "b", labels)
+        adjudication(bundle, second)
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:216: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_pre_adjudication_agreemen1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_pre_adjudication_agreemen1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_empty_capture_is_not_zero_or_benign" time="0.026"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_empty_capture_is_not_zero0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_empty_capture_is_not_zero0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+
+    def test_empty_capture_is_not_zero_or_benign(bundle):
+        edit_capture(bundle, lambda value: value.update(events=[]))
+        review(bundle, "a")
+        review(bundle, "b")
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:236: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_empty_capture_is_not_zero0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_empty_capture_is_not_zero0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_optional_reviews_and_missing_receipts[0]" time="0.017"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_optional_reviews_and_miss0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+count = 0
+
+    @pytest.mark.parametrize("count", [0, 1, 2])
+    def test_optional_reviews_and_missing_receipts(bundle, count):
+        for index in range(count):
+            review(bundle, f"review-{index}")
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:247: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_optional_reviews_and_missing_receipts[1]" time="0.021"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_optional_reviews_and_miss1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+count = 1
+
+    @pytest.mark.parametrize("count", [0, 1, 2])
+    def test_optional_reviews_and_missing_receipts(bundle, count):
+        for index in range(count):
+            review(bundle, f"review-{index}")
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:247: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_optional_reviews_and_missing_receipts[2]" time="0.025"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss2\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_optional_reviews_and_miss2/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+count = 2
+
+    @pytest.mark.parametrize("count", [0, 1, 2])
+    def test_optional_reviews_and_missing_receipts(bundle, count):
+        for index in range(count):
+            review(bundle, f"review-{index}")
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:247: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss2\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_optional_reviews_and_miss2\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_hash_mismatch_rejected[inventory]" time="0.027"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_in0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_hash_mismatch_rejected_in0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '0000000000000000000000000000000000000000000000000000000000000000'}, ...})
+role = 'inventory'
+
+    @pytest.mark.parametrize(
+        "role", ["inventory", "guidelines", "capture", "review", "adjudication", "receipt"]
+    )
+    def test_hash_mismatch_rejected(bundle, role):
+        root, manifest = bundle
+        first = review(bundle, "a")
+        review(bundle, "b")
+        adjudication(bundle, first)
+        manifest["runs"][0]["receipts"]["timing"] = save(root, "receipts/timing.json", {})
+        refs = dict(
+            inventory=manifest["inventory"],
+            guidelines=manifest["guidelines"],
+            capture=manifest["runs"][0]["capture"],
+            review=manifest["reviews"][0],
+            adjudication=manifest["adjudication"],
+            receipt=manifest["runs"][0]["receipts"]["timing"],
+        )
+        refs[role]["sha256"] = "0" * 64
+        with pytest.raises(ValueError, match="hash mismatch"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_in0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_in0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_hash_mismatch_rejected[guidelines]" time="0.029"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_gu0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_hash_mismatch_rejected_gu0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+role = 'guidelines'
+
+    @pytest.mark.parametrize(
+        "role", ["inventory", "guidelines", "capture", "review", "adjudication", "receipt"]
+    )
+    def test_hash_mismatch_rejected(bundle, role):
+        root, manifest = bundle
+        first = review(bundle, "a")
+        review(bundle, "b")
+        adjudication(bundle, first)
+        manifest["runs"][0]["receipts"]["timing"] = save(root, "receipts/timing.json", {})
+        refs = dict(
+            inventory=manifest["inventory"],
+            guidelines=manifest["guidelines"],
+            capture=manifest["runs"][0]["capture"],
+            review=manifest["reviews"][0],
+            adjudication=manifest["adjudication"],
+            receipt=manifest["runs"][0]["receipts"]["timing"],
+        )
+        refs[role]["sha256"] = "0" * 64
+        with pytest.raises(ValueError, match="hash mismatch"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_gu0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_gu0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_hash_mismatch_rejected[capture]" time="0.027"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_ca0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_hash_mismatch_rejected_ca0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+role = 'capture'
+
+    @pytest.mark.parametrize(
+        "role", ["inventory", "guidelines", "capture", "review", "adjudication", "receipt"]
+    )
+    def test_hash_mismatch_rejected(bundle, role):
+        root, manifest = bundle
+        first = review(bundle, "a")
+        review(bundle, "b")
+        adjudication(bundle, first)
+        manifest["runs"][0]["receipts"]["timing"] = save(root, "receipts/timing.json", {})
+        refs = dict(
+            inventory=manifest["inventory"],
+            guidelines=manifest["guidelines"],
+            capture=manifest["runs"][0]["capture"],
+            review=manifest["reviews"][0],
+            adjudication=manifest["adjudication"],
+            receipt=manifest["runs"][0]["receipts"]["timing"],
+        )
+        refs[role]["sha256"] = "0" * 64
+        with pytest.raises(ValueError, match="hash mismatch"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_ca0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_ca0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_hash_mismatch_rejected[review]" time="0.027"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_re0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_hash_mismatch_rejected_re0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+role = 'review'
+
+    @pytest.mark.parametrize(
+        "role", ["inventory", "guidelines", "capture", "review", "adjudication", "receipt"]
+    )
+    def test_hash_mismatch_rejected(bundle, role):
+        root, manifest = bundle
+        first = review(bundle, "a")
+        review(bundle, "b")
+        adjudication(bundle, first)
+        manifest["runs"][0]["receipts"]["timing"] = save(root, "receipts/timing.json", {})
+        refs = dict(
+            inventory=manifest["inventory"],
+            guidelines=manifest["guidelines"],
+            capture=manifest["runs"][0]["capture"],
+            review=manifest["reviews"][0],
+            adjudication=manifest["adjudication"],
+            receipt=manifest["runs"][0]["receipts"]["timing"],
+        )
+        refs[role]["sha256"] = "0" * 64
+        with pytest.raises(ValueError, match="hash mismatch"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_re0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_re0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_hash_mismatch_rejected[adjudication]" time="0.027"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_ad0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_hash_mismatch_rejected_ad0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+role = 'adjudication'
+
+    @pytest.mark.parametrize(
+        "role", ["inventory", "guidelines", "capture", "review", "adjudication", "receipt"]
+    )
+    def test_hash_mismatch_rejected(bundle, role):
+        root, manifest = bundle
+        first = review(bundle, "a")
+        review(bundle, "b")
+        adjudication(bundle, first)
+        manifest["runs"][0]["receipts"]["timing"] = save(root, "receipts/timing.json", {})
+        refs = dict(
+            inventory=manifest["inventory"],
+            guidelines=manifest["guidelines"],
+            capture=manifest["runs"][0]["capture"],
+            review=manifest["reviews"][0],
+            adjudication=manifest["adjudication"],
+            receipt=manifest["runs"][0]["receipts"]["timing"],
+        )
+        refs[role]["sha256"] = "0" * 64
+        with pytest.raises(ValueError, match="hash mismatch"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_ad0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_ad0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_hash_mismatch_rejected[receipt]" time="0.027"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_re1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_hash_mismatch_rejected_re1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+role = 'receipt'
+
+    @pytest.mark.parametrize(
+        "role", ["inventory", "guidelines", "capture", "review", "adjudication", "receipt"]
+    )
+    def test_hash_mismatch_rejected(bundle, role):
+        root, manifest = bundle
+        first = review(bundle, "a")
+        review(bundle, "b")
+        adjudication(bundle, first)
+        manifest["runs"][0]["receipts"]["timing"] = save(root, "receipts/timing.json", {})
+        refs = dict(
+            inventory=manifest["inventory"],
+            guidelines=manifest["guidelines"],
+            capture=manifest["runs"][0]["capture"],
+            review=manifest["reviews"][0],
+            adjudication=manifest["adjudication"],
+            receipt=manifest["runs"][0]["receipts"]["timing"],
+        )
+        refs[role]["sha256"] = "0" * 64
+        with pytest.raises(ValueError, match="hash mismatch"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:275: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_re1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_hash_mismatch_rejected_re1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_cross_partition_group_rejected[template_family]" time="0.017"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cross_partition_group_rej0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+kind = 'template_family'
+
+    @pytest.mark.parametrize(
+        "kind", ["template_family", "deployment_id", "run_family", "scenario_group"]
+    )
+    def test_cross_partition_group_rejected(bundle, kind):
+        root, manifest = bundle
+        capture = add_run(bundle, sensor=True)
+        if kind == "scenario_group":
+            capture[kind] = json.loads((root / "captures/a.json").read_text())[kind]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        else:
+            manifest["runs"][1]["groups"][kind] = manifest["runs"][0]["groups"][kind]
+        with pytest.raises(ValueError, match="crosses"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_cross_partition_group_rejected[deployment_id]" time="0.018"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cross_partition_group_rej1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+kind = 'deployment_id'
+
+    @pytest.mark.parametrize(
+        "kind", ["template_family", "deployment_id", "run_family", "scenario_group"]
+    )
+    def test_cross_partition_group_rejected(bundle, kind):
+        root, manifest = bundle
+        capture = add_run(bundle, sensor=True)
+        if kind == "scenario_group":
+            capture[kind] = json.loads((root / "captures/a.json").read_text())[kind]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        else:
+            manifest["runs"][1]["groups"][kind] = manifest["runs"][0]["groups"][kind]
+        with pytest.raises(ValueError, match="crosses"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_cross_partition_group_rejected[run_family]" time="0.018"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej2\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cross_partition_group_rej2/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+kind = 'run_family'
+
+    @pytest.mark.parametrize(
+        "kind", ["template_family", "deployment_id", "run_family", "scenario_group"]
+    )
+    def test_cross_partition_group_rejected(bundle, kind):
+        root, manifest = bundle
+        capture = add_run(bundle, sensor=True)
+        if kind == "scenario_group":
+            capture[kind] = json.loads((root / "captures/a.json").read_text())[kind]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        else:
+            manifest["runs"][1]["groups"][kind] = manifest["runs"][0]["groups"][kind]
+        with pytest.raises(ValueError, match="crosses"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej2\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej2\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_cross_partition_group_rejected[scenario_group]" time="0.017"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej3\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cross_partition_group_rej3/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+kind = 'scenario_group'
+
+    @pytest.mark.parametrize(
+        "kind", ["template_family", "deployment_id", "run_family", "scenario_group"]
+    )
+    def test_cross_partition_group_rejected(bundle, kind):
+        root, manifest = bundle
+        capture = add_run(bundle, sensor=True)
+        if kind == "scenario_group":
+            capture[kind] = json.loads((root / "captures/a.json").read_text())[kind]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        else:
+            manifest["runs"][1]["groups"][kind] = manifest["runs"][0]["groups"][kind]
+        with pytest.raises(ValueError, match="crosses"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:290: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej3\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_cross_partition_group_rej3\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_candidate_sensor_declaration_never_authorizes_fit" time="0.018"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_candidate_sensor_declarat0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_candidate_sensor_declarat0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+
+    def test_candidate_sensor_declaration_never_authorizes_fit(bundle):
+        add_run(bundle, sensor=True)
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:295: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_candidate_sensor_declarat0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_candidate_sensor_declarat0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_duplicates_rejected[run]" time="0.015"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_run_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_duplicates_rejected_run_0/bundle'), {'adjudication'... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'run'
+
+    @pytest.mark.parametrize("change", ["run", "capture", "hash", "event"])
+    def test_duplicates_rejected(bundle, change):
+        root, manifest = bundle
+        capture = add_run(bundle)
+        if change == "run":
+            manifest["runs"][1]["run_id"] = "run-a"
+        elif change == "hash":
+            manifest["runs"][1]["capture"] = manifest["runs"][0]["capture"]
+        else:
+            original = json.loads((root / "captures/a.json").read_text())
+            if change == "capture":
+                capture["capture_id"] = original["capture_id"]
+            else:
+                capture["events"] = original["events"]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        with pytest.raises(ValueError, match="duplicate|overlapping"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:317: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_run_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_run_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_duplicates_rejected[capture]" time="0.016"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_captu0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_duplicates_rejected_captu0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'capture'
+
+    @pytest.mark.parametrize("change", ["run", "capture", "hash", "event"])
+    def test_duplicates_rejected(bundle, change):
+        root, manifest = bundle
+        capture = add_run(bundle)
+        if change == "run":
+            manifest["runs"][1]["run_id"] = "run-a"
+        elif change == "hash":
+            manifest["runs"][1]["capture"] = manifest["runs"][0]["capture"]
+        else:
+            original = json.loads((root / "captures/a.json").read_text())
+            if change == "capture":
+                capture["capture_id"] = original["capture_id"]
+            else:
+                capture["events"] = original["events"]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        with pytest.raises(ValueError, match="duplicate|overlapping"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:317: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_captu0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_captu0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_duplicates_rejected[hash]" time="0.015"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_hash_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_duplicates_rejected_hash_0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'hash'
+
+    @pytest.mark.parametrize("change", ["run", "capture", "hash", "event"])
+    def test_duplicates_rejected(bundle, change):
+        root, manifest = bundle
+        capture = add_run(bundle)
+        if change == "run":
+            manifest["runs"][1]["run_id"] = "run-a"
+        elif change == "hash":
+            manifest["runs"][1]["capture"] = manifest["runs"][0]["capture"]
+        else:
+            original = json.loads((root / "captures/a.json").read_text())
+            if change == "capture":
+                capture["capture_id"] = original["capture_id"]
+            else:
+                capture["events"] = original["events"]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        with pytest.raises(ValueError, match="duplicate|overlapping"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:317: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_hash_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_hash_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_duplicates_rejected[event]" time="0.015"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_event0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_duplicates_rejected_event0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'event'
+
+    @pytest.mark.parametrize("change", ["run", "capture", "hash", "event"])
+    def test_duplicates_rejected(bundle, change):
+        root, manifest = bundle
+        capture = add_run(bundle)
+        if change == "run":
+            manifest["runs"][1]["run_id"] = "run-a"
+        elif change == "hash":
+            manifest["runs"][1]["capture"] = manifest["runs"][0]["capture"]
+        else:
+            original = json.loads((root / "captures/a.json").read_text())
+            if change == "capture":
+                capture["capture_id"] = original["capture_id"]
+            else:
+                capture["events"] = original["events"]
+            manifest["runs"][1]["capture"] = save(root, "captures/b.json", capture)
+        with pytest.raises(ValueError, match="duplicate|overlapping"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:317: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_event0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_duplicates_rejected_event0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_development_promotion_rejected[synthetic]" time="0.014"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_development_promotion_rej0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CE38CE0&gt;
+change = 'synthetic'
+
+    @pytest.mark.parametrize("change", ["synthetic", "split", "role", "known"])
+    def test_development_promotion_rejected(bundle, monkeypatch, change):
+        _, manifest = bundle
+        run = manifest["runs"][0]
+        if change == "split":
+            run["split"] = "test"
+        elif change == "role":
+            run["data_role"] = "candidate_evaluation"
+        else:
+            run.update(data_role="candidate_evaluation", split="test")
+            if change == "known":
+                edit_capture(
+                    bundle, lambda value: value.update(source="normalized_sensor_export")
+                )
+                monkeypatch.setattr(
+                    intake, "KNOWN_DEVELOPMENT_CAPTURES", {run["capture"]["sha256"]}
+                )
+        with pytest.raises(ValueError, match="development only|cannot enter"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:338: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_development_promotion_rejected[split]" time="0.014"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_development_promotion_rej1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CDD93D0&gt;
+change = 'split'
+
+    @pytest.mark.parametrize("change", ["synthetic", "split", "role", "known"])
+    def test_development_promotion_rejected(bundle, monkeypatch, change):
+        _, manifest = bundle
+        run = manifest["runs"][0]
+        if change == "split":
+            run["split"] = "test"
+        elif change == "role":
+            run["data_role"] = "candidate_evaluation"
+        else:
+            run.update(data_role="candidate_evaluation", split="test")
+            if change == "known":
+                edit_capture(
+                    bundle, lambda value: value.update(source="normalized_sensor_export")
+                )
+                monkeypatch.setattr(
+                    intake, "KNOWN_DEVELOPMENT_CAPTURES", {run["capture"]["sha256"]}
+                )
+        with pytest.raises(ValueError, match="development only|cannot enter"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:338: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_development_promotion_rejected[role]" time="0.015"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej2\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_development_promotion_rej2/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CDDE4B0&gt;
+change = 'role'
+
+    @pytest.mark.parametrize("change", ["synthetic", "split", "role", "known"])
+    def test_development_promotion_rejected(bundle, monkeypatch, change):
+        _, manifest = bundle
+        run = manifest["runs"][0]
+        if change == "split":
+            run["split"] = "test"
+        elif change == "role":
+            run["data_role"] = "candidate_evaluation"
+        else:
+            run.update(data_role="candidate_evaluation", split="test")
+            if change == "known":
+                edit_capture(
+                    bundle, lambda value: value.update(source="normalized_sensor_export")
+                )
+                monkeypatch.setattr(
+                    intake, "KNOWN_DEVELOPMENT_CAPTURES", {run["capture"]["sha256"]}
+                )
+        with pytest.raises(ValueError, match="development only|cannot enter"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:338: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej2\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej2\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_development_promotion_rejected[known]" time="0.016"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej3\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_development_promotion_rej3/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CE96270&gt;
+change = 'known'
+
+    @pytest.mark.parametrize("change", ["synthetic", "split", "role", "known"])
+    def test_development_promotion_rejected(bundle, monkeypatch, change):
+        _, manifest = bundle
+        run = manifest["runs"][0]
+        if change == "split":
+            run["split"] = "test"
+        elif change == "role":
+            run["data_role"] = "candidate_evaluation"
+        else:
+            run.update(data_role="candidate_evaluation", split="test")
+            if change == "known":
+                edit_capture(
+                    bundle, lambda value: value.update(source="normalized_sensor_export")
+                )
+                monkeypatch.setattr(
+                    intake, "KNOWN_DEVELOPMENT_CAPTURES", {run["capture"]["sha256"]}
+                )
+        with pytest.raises(ValueError, match="development only|cannot enter"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:338: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej3\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_development_promotion_rej3\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_known_historical_hashes_match_unchanged_artifacts" time="0.001" /><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[../outside.json]" time="0.016"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = '../outside.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[C:/outside.json]" time="0.018"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'C:/outside.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[/captures/a.json]" time="0.016"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej2\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej2/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = '/captures/a.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej2\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej2\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[captures\\a.json]" time="0.016"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej3\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej3/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'captures\\a.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej3\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej3\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[captures/../a.json]" time="0.055"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej4\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej4/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'captures/../a.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej4\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej4\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[captures/.hidden.json]" time="0.082"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej5\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej5/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'captures/.hidden.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej5\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej5\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[labels/a.json]" time="0.044"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej6\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej6/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'labels/a.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej6\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej6\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[captures/a.txt]" time="0.036"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej7\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej7/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'captures/a.txt'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej7\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej7\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_role_and_escape_paths_rejected[captures//a.json]" time="0.045"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej8\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_role_and_escape_paths_rej8/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+name = 'captures//a.json'
+
+    @pytest.mark.parametrize(
+        "name",
+        [
+            "../outside.json",
+            "C:/outside.json",
+            "/captures/a.json",
+            "captures\\a.json",
+            "captures/../a.json",
+            "captures/.hidden.json",
+            "labels/a.json",
+            "captures/a.txt",
+            "captures//a.json",
+        ],
+    )
+    def test_role_and_escape_paths_rejected(bundle, name):
+        bundle[1]["runs"][0]["capture"]["path"] = name
+        with pytest.raises(ValueError, match="path"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:369: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej8\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_role_and_escape_paths_rej8\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_strict_json[{&quot;a&quot;:1,&quot;a&quot;:2}]" time="0.001" /><testcase classname="tests.test_runtime_intake" name="test_strict_json[{&quot;a&quot;:NaN}]" time="0.001" /><testcase classname="tests.test_runtime_intake" name="test_strict_json[{&quot;a&quot;:Infinity}]" time="0.001" /><testcase classname="tests.test_runtime_intake" name="test_strict_json[{&quot;a&quot;:1e999}]" time="0.001" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[extra]" time="0.033" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[boolean_window]" time="0.034" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[float_window]" time="0.033" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[zero_window]" time="0.032" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[newline_id]" time="0.032" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[empty_runs]" time="0.033" /><testcase classname="tests.test_runtime_intake" name="test_manifest_schema_rejected[too_many_reviews]" time="0.033" /><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[duplicate]" time="0.062"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_duplicat0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_duplicat0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'duplicate'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_duplicat0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_duplicat0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[missing]" time="0.058"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_missing_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_missing_0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'missing'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_missing_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_missing_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[extra]" time="0.054"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_extra_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_extra_0/bundle'), {'adjudication':... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'extra'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_extra_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_extra_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[boolean_epoch]" time="0.054"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_boolean_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_boolean_0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'boolean_epoch'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_boolean_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_boolean_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[off_window]" time="0.053"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_off_wind0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_off_wind0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'off_window'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_off_wind0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_off_wind0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[blinded_false]" time="0.058"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_blinded_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_blinded_0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'blinded_false'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_blinded_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_blinded_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[blinded_one]" time="0.094"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_blinded_1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_blinded_1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'blinded_one'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_blinded_1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_blinded_1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[guidelines]" time="0.120"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_guidelin0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_guidelin0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'guidelines'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_guidelin0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_guidelin0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[same_reviewer]" time="0.066"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_same_rev0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_same_rev0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'same_reviewer'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_same_rev0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_same_rev0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_reviews_rejected[bad_label]" time="0.091"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_bad_labe0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_reviews_rejected_bad_labe0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'bad_label'
+
+    @pytest.mark.parametrize(
+        "change",
+        [
+            "duplicate",
+            "missing",
+            "extra",
+            "boolean_epoch",
+            "off_window",
+            "blinded_false",
+            "blinded_one",
+            "guidelines",
+            "same_reviewer",
+            "bad_label",
+        ],
+    )
+    def test_reviews_rejected(bundle, change):
+        first = review(bundle, "a")
+        value = review(bundle, "b")
+        if change == "duplicate":
+            value["labels"].append(value["labels"][0])
+        elif change == "missing":
+            value["labels"].pop()
+        elif change == "extra":
+            value["labels"][0]["run_id"] = "unbound"
+        elif change == "boolean_epoch":
+            value["labels"][0]["start_epoch"] = True
+        elif change == "off_window":
+            value["labels"][0]["start_epoch"] += 1
+        elif change.startswith("blinded"):
+            value["blinded"] = False if change.endswith("false") else 1
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "same_reviewer":
+            value["reviewer_id"] = first["reviewer_id"]
+        else:
+            value["labels"][0]["label"] = "confirmed_attack"
+        edit_review(bundle, 1, value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:448: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_bad_labe0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_reviews_rejected_bad_labe0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_adjudication_rejected[one_review]" time="0.145"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_one0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_adjudication_rejected_one0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'one_review'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["one_review", "review_binding", "guidelines", "flip_agreement", "missing"],
+    )
+    def test_adjudication_rejected(bundle, change):
+        first = review(bundle, "a")
+        review(bundle, "b")
+        value = adjudication(bundle, first)
+        if change == "one_review":
+            bundle[1]["reviews"].pop()
+        elif change == "review_binding":
+            value["review_sha256"][0] = "0" * 64
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "flip_agreement":
+            value["labels"][0]["label"] = "suspicious"
+        else:
+            value["labels"].pop()
+        bundle[1]["adjudication"] = save(bundle[0], "labels/adjudication.json", value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:471: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_one0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_one0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_adjudication_rejected[review_binding]" time="0.111"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_rev0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_adjudication_rejected_rev0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'review_binding'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["one_review", "review_binding", "guidelines", "flip_agreement", "missing"],
+    )
+    def test_adjudication_rejected(bundle, change):
+        first = review(bundle, "a")
+        review(bundle, "b")
+        value = adjudication(bundle, first)
+        if change == "one_review":
+            bundle[1]["reviews"].pop()
+        elif change == "review_binding":
+            value["review_sha256"][0] = "0" * 64
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "flip_agreement":
+            value["labels"][0]["label"] = "suspicious"
+        else:
+            value["labels"].pop()
+        bundle[1]["adjudication"] = save(bundle[0], "labels/adjudication.json", value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:471: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_rev0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_rev0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_adjudication_rejected[guidelines]" time="0.099"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_gui0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_adjudication_rejected_gui0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'guidelines'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["one_review", "review_binding", "guidelines", "flip_agreement", "missing"],
+    )
+    def test_adjudication_rejected(bundle, change):
+        first = review(bundle, "a")
+        review(bundle, "b")
+        value = adjudication(bundle, first)
+        if change == "one_review":
+            bundle[1]["reviews"].pop()
+        elif change == "review_binding":
+            value["review_sha256"][0] = "0" * 64
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "flip_agreement":
+            value["labels"][0]["label"] = "suspicious"
+        else:
+            value["labels"].pop()
+        bundle[1]["adjudication"] = save(bundle[0], "labels/adjudication.json", value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:471: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_gui0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_gui0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_adjudication_rejected[flip_agreement]" time="0.061"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_fli0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_adjudication_rejected_fli0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'flip_agreement'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["one_review", "review_binding", "guidelines", "flip_agreement", "missing"],
+    )
+    def test_adjudication_rejected(bundle, change):
+        first = review(bundle, "a")
+        review(bundle, "b")
+        value = adjudication(bundle, first)
+        if change == "one_review":
+            bundle[1]["reviews"].pop()
+        elif change == "review_binding":
+            value["review_sha256"][0] = "0" * 64
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "flip_agreement":
+            value["labels"][0]["label"] = "suspicious"
+        else:
+            value["labels"].pop()
+        bundle[1]["adjudication"] = save(bundle[0], "labels/adjudication.json", value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:471: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_fli0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_fli0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_adjudication_rejected[missing]" time="0.062"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_mis0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_adjudication_rejected_mis0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'missing'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["one_review", "review_binding", "guidelines", "flip_agreement", "missing"],
+    )
+    def test_adjudication_rejected(bundle, change):
+        first = review(bundle, "a")
+        review(bundle, "b")
+        value = adjudication(bundle, first)
+        if change == "one_review":
+            bundle[1]["reviews"].pop()
+        elif change == "review_binding":
+            value["review_sha256"][0] = "0" * 64
+        elif change == "guidelines":
+            value["guidelines_sha256"] = "0" * 64
+        elif change == "flip_agreement":
+            value["labels"][0]["label"] = "suspicious"
+        else:
+            value["labels"].pop()
+        bundle[1]["adjudication"] = save(bundle[0], "labels/adjudication.json", value)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:471: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_mis0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_adjudication_rejected_mis0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_receipt_requires_object[value0]" time="0.037"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_v0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_receipt_requires_object_v0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+value = []
+
+    @pytest.mark.parametrize("value", [[], None, "receipt"])
+    def test_receipt_requires_object(bundle, value):
+        bundle[1]["runs"][0]["receipts"]["timing"] = save(
+            bundle[0], "receipts/timing.json", value
+        )
+        with pytest.raises(ValueError, match="JSON object"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:480: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_v0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_v0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_receipt_requires_object[None]" time="0.036"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_N0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_receipt_requires_object_N0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+value = None
+
+    @pytest.mark.parametrize("value", [[], None, "receipt"])
+    def test_receipt_requires_object(bundle, value):
+        bundle[1]["runs"][0]["receipts"]["timing"] = save(
+            bundle[0], "receipts/timing.json", value
+        )
+        with pytest.raises(ValueError, match="JSON object"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:480: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_N0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_N0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_receipt_requires_object[receipt]" time="0.051"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_r0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_receipt_requires_object_r0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+value = 'receipt'
+
+    @pytest.mark.parametrize("value", [[], None, "receipt"])
+    def test_receipt_requires_object(bundle, value):
+        bundle[1]["runs"][0]["receipts"]["timing"] = save(
+            bundle[0], "receipts/timing.json", value
+        )
+        with pytest.raises(ValueError, match="JSON object"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:480: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_r0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_receipt_requires_object_r0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_resource_limits[FILE_LIMIT]" time="0.056"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_FILE_LIMI0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_resource_limits_FILE_LIMI0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CE55490&gt;
+limit = 'FILE_LIMIT'
+
+    @pytest.mark.parametrize("limit", ["FILE_LIMIT", "TOTAL_LIMIT", "WINDOW_LIMIT"])
+    def test_resource_limits(bundle, monkeypatch, limit):
+        if limit == "FILE_LIMIT":
+            bundle[1]["runs"][0]["receipts"]["timing"] = save(
+                bundle[0], "receipts/oversize.json", {"fixture": "x" * intake.FILE_LIMIT}
+            )
+        else:
+            monkeypatch.setattr(intake, limit, 1)
+        with pytest.raises(ValueError, match="limit"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:492: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_FILE_LIMI0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_FILE_LIMI0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_resource_limits[TOTAL_LIMIT]" time="0.055"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_TOTAL_LIM0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_resource_limits_TOTAL_LIM0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CE7A120&gt;
+limit = 'TOTAL_LIMIT'
+
+    @pytest.mark.parametrize("limit", ["FILE_LIMIT", "TOTAL_LIMIT", "WINDOW_LIMIT"])
+    def test_resource_limits(bundle, monkeypatch, limit):
+        if limit == "FILE_LIMIT":
+            bundle[1]["runs"][0]["receipts"]["timing"] = save(
+                bundle[0], "receipts/oversize.json", {"fixture": "x" * intake.FILE_LIMIT}
+            )
+        else:
+            monkeypatch.setattr(intake, limit, 1)
+        with pytest.raises(ValueError, match="limit"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:492: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_TOTAL_LIM0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_TOTAL_LIM0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_resource_limits[WINDOW_LIMIT]" time="0.049"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_WINDOW_LI0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_resource_limits_WINDOW_LI0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CCF5D30&gt;
+limit = 'WINDOW_LIMIT'
+
+    @pytest.mark.parametrize("limit", ["FILE_LIMIT", "TOTAL_LIMIT", "WINDOW_LIMIT"])
+    def test_resource_limits(bundle, monkeypatch, limit):
+        if limit == "FILE_LIMIT":
+            bundle[1]["runs"][0]["receipts"]["timing"] = save(
+                bundle[0], "receipts/oversize.json", {"fixture": "x" * intake.FILE_LIMIT}
+            )
+        else:
+            monkeypatch.setattr(intake, limit, 1)
+        with pytest.raises(ValueError, match="limit"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:492: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_WINDOW_LI0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_resource_limits_WINDOW_LI0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_nonregular_artifact_refused" time="0.066"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_nonregular_artifact_refus0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_nonregular_artifact_refus0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+
+    def test_nonregular_artifact_refused(bundle):
+        bundle[1]["runs"][0]["capture"]["path"] = "captures/directory.json"
+        (bundle[0] / "captures/directory.json").mkdir()
+        with pytest.raises(ValueError, match="regular"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:499: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_nonregular_artifact_refus0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_nonregular_artifact_refus0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_symlink_artifact_refused" time="0.013"><skipped type="pytest.skip" message="host symlink privilege unavailable">D:\research f1\tests\test_runtime_intake.py:508: host symlink privilege unavailable</skipped></testcase><testcase classname="tests.test_runtime_intake" name="test_postflight_change_rejected[manifest]" time="0.040"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_postflight_change_rejecte0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_postflight_change_rejecte0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CE19460&gt;
+which = 'manifest'
+
+    @pytest.mark.parametrize("which", ["manifest", "capture"])
+    def test_postflight_change_rejected(bundle, monkeypatch, which):
+        original = runtime.windows
+    
+        def changing(*args):
+            result = original(*args)
+            target = bundle[0] / (
+                "manifest.json" if which == "manifest" else "captures/a.json"
+            )
+            target.write_bytes(target.read_bytes() + b" ")
+            return result
+    
+        monkeypatch.setattr(runtime, "windows", changing)
+        with pytest.raises(ValueError, match="changed"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:528: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_postflight_change_rejecte0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_postflight_change_rejecte0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_postflight_change_rejected[capture]" time="0.047"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_postflight_change_rejecte1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_postflight_change_rejecte1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002A26CD99B20&gt;
+which = 'capture'
+
+    @pytest.mark.parametrize("which", ["manifest", "capture"])
+    def test_postflight_change_rejected(bundle, monkeypatch, which):
+        original = runtime.windows
+    
+        def changing(*args):
+            result = original(*args)
+            target = bundle[0] / (
+                "manifest.json" if which == "manifest" else "captures/a.json"
+            )
+            target.write_bytes(target.read_bytes() + b" ")
+            return result
+    
+        monkeypatch.setattr(runtime, "windows", changing)
+        with pytest.raises(ValueError, match="changed"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:528: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_postflight_change_rejecte1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_postflight_change_rejecte1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_cli_fresh_report_no_overwrite_and_redacted_rejection" time="0.293"><failure message="assert (1 == 0)&#10; +  where 1 = CompletedProcess(args=['D:\\research f1\\tmp\\dependency-candidate-windows-20261009\\Scripts\\python.exe', 'D:\\resear...o_overw0\\report.json'], returncode=1, stdout='{&quot;status&quot;: &quot;rejected&quot;, &quot;model_fitting_authorized&quot;: false}\n', stderr='').returncode">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cli_fresh_report_no_overw0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+tmp_path = WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_cli_fresh_report_no_overw0')
+
+    def test_cli_fresh_report_no_overwrite_and_redacted_rejection(bundle, tmp_path):
+        root, manifest = bundle
+        output = tmp_path / "report.json"
+        result = command(root / "manifest.json", output)
+&gt;       assert result.returncode == 0 and not result.stderr
+E       assert (1 == 0)
+E        +  where 1 = CompletedProcess(args=['D:\\research f1\\tmp\\dependency-candidate-windows-20261009\\Scripts\\python.exe', 'D:\\resear...o_overw0\\report.json'], returncode=1, stdout='{"status": "rejected", "model_fitting_authorized": false}\n', stderr='').returncode
+
+tests\test_runtime_intake.py:550: AssertionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_cli_output_inside_bundle_refused" time="0.261" /><testcase classname="tests.test_runtime_intake" name="test_committed_example_is_explicitly_synthetic" time="0.050"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\data\\runtime\\intake-example'">def test_committed_example_is_explicitly_synthetic():
+&gt;       report = intake.inspect(ROOT / "data/runtime/intake-example/manifest.json")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:577: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\data\\runtime\\intake-example'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\data\\runtime\\intake-example'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_human_metadata_is_not_human_authentication" time="0.075"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_human_metadata_is_not_hum0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_human_metadata_is_not_hum0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+
+    def test_human_metadata_is_not_human_authentication(bundle):
+        for identifier in ("a", "b"):
+            value = review(bundle, identifier)
+            value["origin"] = "human_submission"
+            edit_review(bundle, len(bundle[1]["reviews"]) - 1, value)
+&gt;       report = execute(bundle)
+                 ^^^^^^^^^^^^^^^
+
+tests\test_runtime_intake.py:601: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_human_metadata_is_not_hum0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_human_metadata_is_not_hum0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_existing_capture_schema_and_identity_reused[asset]" time="0.053"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_existing_capture_schema_a0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'asset'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["asset", "container", "duplicate_event", "time", "field", "newline_capture_id"],
+    )
+    def test_existing_capture_schema_and_identity_reused(bundle, change):
+        def edit(value):
+            if change == "asset":
+                value["bindings"][0]["asset_id"] = "unbound"
+            elif change == "container":
+                value["events"][0]["container_id"] = "a" * 64
+            elif change == "duplicate_event":
+                value["events"].append(value["events"][0])
+            elif change == "time":
+                value["events"][0]["timestamp"] = "2026-01-02T00:00:00.000"
+            elif change == "field":
+                value["events"][0]["command"] = "never execute"
+            else:
+                value["capture_id"] = "bad\n"
+    
+        edit_capture(bundle, edit)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:627: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_existing_capture_schema_and_identity_reused[container]" time="0.094"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a1\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_existing_capture_schema_a1/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'container'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["asset", "container", "duplicate_event", "time", "field", "newline_capture_id"],
+    )
+    def test_existing_capture_schema_and_identity_reused(bundle, change):
+        def edit(value):
+            if change == "asset":
+                value["bindings"][0]["asset_id"] = "unbound"
+            elif change == "container":
+                value["events"][0]["container_id"] = "a" * 64
+            elif change == "duplicate_event":
+                value["events"].append(value["events"][0])
+            elif change == "time":
+                value["events"][0]["timestamp"] = "2026-01-02T00:00:00.000"
+            elif change == "field":
+                value["events"][0]["command"] = "never execute"
+            else:
+                value["capture_id"] = "bad\n"
+    
+        edit_capture(bundle, edit)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:627: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a1\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a1\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_existing_capture_schema_and_identity_reused[duplicate_event]" time="0.041"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a2\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_existing_capture_schema_a2/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'duplicate_event'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["asset", "container", "duplicate_event", "time", "field", "newline_capture_id"],
+    )
+    def test_existing_capture_schema_and_identity_reused(bundle, change):
+        def edit(value):
+            if change == "asset":
+                value["bindings"][0]["asset_id"] = "unbound"
+            elif change == "container":
+                value["events"][0]["container_id"] = "a" * 64
+            elif change == "duplicate_event":
+                value["events"].append(value["events"][0])
+            elif change == "time":
+                value["events"][0]["timestamp"] = "2026-01-02T00:00:00.000"
+            elif change == "field":
+                value["events"][0]["command"] = "never execute"
+            else:
+                value["capture_id"] = "bad\n"
+    
+        edit_capture(bundle, edit)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:627: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a2\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a2\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_existing_capture_schema_and_identity_reused[time]" time="0.077"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a3\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_existing_capture_schema_a3/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'time'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["asset", "container", "duplicate_event", "time", "field", "newline_capture_id"],
+    )
+    def test_existing_capture_schema_and_identity_reused(bundle, change):
+        def edit(value):
+            if change == "asset":
+                value["bindings"][0]["asset_id"] = "unbound"
+            elif change == "container":
+                value["events"][0]["container_id"] = "a" * 64
+            elif change == "duplicate_event":
+                value["events"].append(value["events"][0])
+            elif change == "time":
+                value["events"][0]["timestamp"] = "2026-01-02T00:00:00.000"
+            elif change == "field":
+                value["events"][0]["command"] = "never execute"
+            else:
+                value["capture_id"] = "bad\n"
+    
+        edit_capture(bundle, edit)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:627: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a3\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a3\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_existing_capture_schema_and_identity_reused[field]" time="0.042"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a4\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_existing_capture_schema_a4/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'field'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["asset", "container", "duplicate_event", "time", "field", "newline_capture_id"],
+    )
+    def test_existing_capture_schema_and_identity_reused(bundle, change):
+        def edit(value):
+            if change == "asset":
+                value["bindings"][0]["asset_id"] = "unbound"
+            elif change == "container":
+                value["events"][0]["container_id"] = "a" * 64
+            elif change == "duplicate_event":
+                value["events"].append(value["events"][0])
+            elif change == "time":
+                value["events"][0]["timestamp"] = "2026-01-02T00:00:00.000"
+            elif change == "field":
+                value["events"][0]["command"] = "never execute"
+            else:
+                value["capture_id"] = "bad\n"
+    
+        edit_capture(bundle, edit)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:627: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a4\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a4\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_existing_capture_schema_and_identity_reused[newline_capture_id]" time="0.067"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a5\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_existing_capture_schema_a5/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+change = 'newline_capture_id'
+
+    @pytest.mark.parametrize(
+        "change",
+        ["asset", "container", "duplicate_event", "time", "field", "newline_capture_id"],
+    )
+    def test_existing_capture_schema_and_identity_reused(bundle, change):
+        def edit(value):
+            if change == "asset":
+                value["bindings"][0]["asset_id"] = "unbound"
+            elif change == "container":
+                value["events"][0]["container_id"] = "a" * 64
+            elif change == "duplicate_event":
+                value["events"].append(value["events"][0])
+            elif change == "time":
+                value["events"][0]["timestamp"] = "2026-01-02T00:00:00.000"
+            elif change == "field":
+                value["events"][0]["command"] = "never execute"
+            else:
+                value["capture_id"] = "bad\n"
+    
+        edit_capture(bundle, edit)
+        with pytest.raises(ValueError):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:627: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a5\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_existing_capture_schema_a5\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase><testcase classname="tests.test_runtime_intake" name="test_empty_guidelines_and_top_manifest_bound" time="0.055"><failure message="PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_empty_guidelines_and_top_0\\bundle'">bundle = (WindowsPath('D:/research f1/tmp/reviewer-agreement-win-qa039/test_empty_guidelines_and_top_0/bundle'), {'adjudication... {'path': 'inventory/assets.json', 'sha256': '5c58b597b77df2c7e071b1df08d40313bdea1425349354d3e93a7e85c4e45923'}, ...})
+
+    def test_empty_guidelines_and_top_manifest_bound(bundle):
+        root, manifest = bundle
+        guide = root / manifest["guidelines"]["path"]
+        guide.write_bytes(b" \n")
+        manifest["guidelines"]["sha256"] = hashlib.sha256(guide.read_bytes()).hexdigest()
+        with pytest.raises(ValueError, match="nonempty"):
+&gt;           execute(bundle)
+
+tests\test_runtime_intake.py:636: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_runtime_intake.py:76: in execute
+    return intake.inspect(root / "manifest.json")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:290: in inspect
+    bundle = _Bundle(manifest_path.parent)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+cloudguard\runtime_intake.py:147: in __init__
+    self.root = root.resolve(strict=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\manis\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py:1240: in resolve
+    s = self._flavour.realpath(self, strict=strict)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_empty_guidelines_and_top_0\\bundle'
+
+&gt;   ???
+E   PermissionError: [WinError 5] Access is denied: 'D:\\research f1\\tmp\\reviewer-agreement-win-qa039\\test_empty_guidelines_and_top_0\\bundle'
+
+&lt;frozen ntpath&gt;:695: PermissionError</failure></testcase></testsuite></testsuites>

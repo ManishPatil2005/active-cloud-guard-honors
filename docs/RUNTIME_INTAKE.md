@@ -1,5 +1,47 @@
 # Offline runtime research intake formats (E2-035)
 
+## Original-review agreement extension — QA-039, 18 October 2026
+
+`inspect(manifest, include_review_agreement=True)` and CLI `--review-agreement`
+add an aggregate `reviewer_agreement` report after existing integrity/schema/
+complete-window checks. Default v1/v2 reports remain identical to their saved
+JSON results. The annotation-index and agreement CLI modes are mutually exclusive.
+No dependency or prediction/fitting/eligibility flag changes.
+
+The report retains all nine original benign/suspicious/unknown pair counts,
+reviewer marginals, paired/known/unknown counts, known-pair coverage, all-label
+agreement and known-pair agreement. Rows follow the first review reference in
+the manifest, columns the second. It exports no original reasons, events or
+individual window keys. Counts are computed from original votes before
+adjudication; later adjudication cannot inflate them.
+
+For pairs with two known labels only, unweighted Cohen kappa is
+`(p_observed - p_expected)/(1 - p_expected)`, where expected agreement uses the
+two reviewers' known-pair marginal proportions. This follows the
+[scikit-learn definition](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html).
+The implementation uses integer cross-products before division, with no sklearn
+import. Kappa is null with fewer than two reviews, no known pairs, or expected
+agreement1; an explicit reason accompanies it. Negative kappa is retained.
+
+Unknown pairs remain in the full table and coverage denominator. A matching
+unknown/unknown pair indicates matching uncertainty, not correct classification.
+Report kappa alongside coverage/table: excluding unknown pairs can select easier
+cases. Correlated windows, prevalence and actual reviewer independence affect
+interpretation; no confidence interval, quality threshold, approval or independent
+study acceptance is inferred. Actual reviewer assignments/labels remain pending.
+
+Example, into a new destination:
+
+```powershell
+python scripts/runtime_intake.py --manifest data/runtime/intake-example/manifest.json --review-agreement --output output/my-fresh-review-agreement.json
+```
+
+Committed example votes are invented:3pairs,2known/1unknown, known agreement0.5,
+chance agreement0.5, kappa0, coverage2/3. These verify software only. Both platform
+demonstrations match. Tests include a Fraction-based exhaustive729-case oracle,
+reviewer swap symmetry, unavailable/degenerate cases and existing intake/history
+compatibility. Exact failed and corrected executions: WL-117/INC-094.
+
 6 October 2026: **implemented/software-tested artifact-consistency subset** of E2-035/RQ3/E2-004. Isolated offline tooling, not a new engine, detector, collector, trained model or independent benchmark. Engine2's saved-capture statistical baseline already exists. [Current status](CURRENT_STATUS.md), [evaluation plan](RUNTIME_EVALUATION_PLAN.md).
 
 Latest refinement: opt-in runtime_intake_v2 adds [selected typed-source checks](RUNTIME_RECEIPTS.md); v1 report/API and opaque-receipt behavior preserved. Full final Linux1,014passed/Windows976passed38skips;77new cases, including two saved-artifact checks, not new captures. INC-049 trial/accounting count gap reproduced/fixed with negative evidence retained. This format version is not a new runtime model/Engine2 release. Sections below retain the v1 baseline contract unless explicitly extended.

@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest QA-039: [original-review agreement](RUNTIME_INTAKE.md) implemented as an opt-in extension;205related cases pass Linux/204Windows with1existing platform skip. Original pair counts/unknown coverage and descriptive known-pair kappa are available; human labels and qualified capture remain research dependencies. QA-038 evaluator milestone published at278e129.
+
 Latest software: [QA-038 exact case/rule development accounting](EVALUATOR_EVIDENCE_PRESERVATION.md),104selected passes each platform and fresh45fixture evaluations. Duplicate case IDs rejected; legacy binary metrics retained. This closes an evaluator gap without waiting for live timing; independent evaluation remains separate.
 
 Latest: [QA-037 approved clock-writer trace](CLOCK_WRITER_TRACE.md), two successful calls from timesyncd observed, exact service still running and detached afterward. One candidate writer identified, historical failure cause not resolved; no service/clock intervention or collector qualification. Earlier no-tracer statements below describe earlier checkpoints.

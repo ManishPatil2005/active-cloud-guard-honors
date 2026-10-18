@@ -13,10 +13,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument(
+    output_mode = parser.add_mutually_exclusive_group()
+    output_mode.add_argument(
         "--annotation-index",
         action="store_true",
         help="Index observed units for a coordinator, not a blinded packet or labels",
+    )
+    output_mode.add_argument(
+        "--review-agreement",
+        action="store_true",
+        help="Add original-review agreement counts and known-pair Cohen kappa",
     )
     args = parser.parse_args()
     destination = Path(args.output)
@@ -29,6 +35,8 @@ def main():
                 report = (
                     annotation_index(manifest)
                     if args.annotation_index
+                    else inspect(manifest, include_review_agreement=True)
+                    if args.review_agreement
                     else inspect(manifest)
                 )
                 code = 0

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 - Add optional original-review agreement analysis
+
+- Add full label-pair counts, unknown coverage and known-pair Cohen kappa before adjudication.
+- Preserve default intake reports, missing-review/undefined states and original review files; verify compatibility and an exhaustive arithmetic oracle.
+- Record sandbox access failures and a corrected test-fixture assumption. Actual independent reviews remain outstanding; QA-039/WL-117.
+
 ## 2026-10-12 - Add exact development rule accounting and reject duplicate cases
 
 - Add case/rule micro TP/FP/FN and per-rule counts beside unchanged binary case metrics.

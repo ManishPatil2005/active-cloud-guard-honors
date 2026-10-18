@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-091 - 2026-10-18 - Optional descriptive review agreement with unknown coverage
+
+E2-035/RES-001/RES-002. Add a full original-vote pair table and known-pair unweighted Cohen kappa to existing intake behind an explicit option. Preserve default reports, unknown denominators, unavailable/degenerate nulls, negative agreement and original review hashes; compute before adjudication. Use integer cross-products without a new statistical dependency, test against Fraction arithmetic. Do not assume window independence, reviewer authenticity, meaningful unknown-as-threat class or an agreed quality threshold. Qualified data and actual human reviews remain prerequisites for research claims. Method/source RUNTIME_INTAKE; WL-117.
+
 ## ADR-090 - 2026-10-12 - Add exact rule-presence accounting without inventing labels
 
 QA-038/RQ1/RQ2. Existing labels name rule presence per fixture, not independent asset/location/actionability truth. Add exact case/rule micro accounting and strict case identity validation to the existing evaluator; preserve old binary metrics for compatibility, leave TN/FPR undefined without a negative-rule universe, and explicitly retain repeated-location collapse. Do not synthesize missing location labels, promote fixtures to held-out data or conflate this work with novelty. This advances an offline research prerequisite while runtime qualification is blocked; engines/stack unchanged. Verification WL-116.

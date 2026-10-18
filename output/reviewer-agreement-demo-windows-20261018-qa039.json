@@ -1,0 +1,134 @@
+{
+  "protocol": "runtime_intake_v1",
+  "dataset_id": "synthetic-intake-demonstration",
+  "status": "artifact_consistency_checked",
+  "manifest_sha256": "14773c6750b954ecd4f153e927fdaeed57951b042c32921793503ff1e328367a",
+  "inventory_sha256": "400d5b6a75b33968c93982f2b77142bf6bd8134c59bc03d1c964478fa9f83a3a",
+  "guidelines_sha256": "d95630b170a48f240ef4a7ca5c93971e45e6d1a802ddcec698c9eec0e3d1cd9d",
+  "window_seconds": 60,
+  "observed_window_count": 3,
+  "empty_capture_count": 0,
+  "missing_windows_not_materialized": true,
+  "runs": [
+    {
+      "run_id": "demo-run",
+      "capture_id": "intake-synthetic-demo",
+      "capture_sha256": "b240bfcb239a1beca18a30288c9f16389ed1fb5f8612b7a45cd6e62cff08f837",
+      "source": "synthetic",
+      "data_role_declared": "development",
+      "split_declared": "development",
+      "observed_window_count": 3,
+      "event_count": 3,
+      "collection_coverage": "partial_or_unknown",
+      "binding_verified": false,
+      "receipt_hashes_checked": [],
+      "missing_receipts": [
+        "accounting",
+        "identity",
+        "timing"
+      ],
+      "receipt_semantics_verified": false,
+      "evaluation_eligible": false
+    }
+  ],
+  "review_submissions": [
+    {
+      "reviewer_id_declared": "synthetic-fixture-a",
+      "origin_declared": "synthetic_fixture",
+      "sha256": "9ed271a31bf92287ebe2f1a04419db05430199e45c956e65065ba3c264640384",
+      "blinding_declared": true
+    },
+    {
+      "reviewer_id_declared": "synthetic-fixture-b",
+      "origin_declared": "synthetic_fixture",
+      "sha256": "38e6245ffc2172b0450de75ed7ccaa7ada65ec74eb8f8e3918edfe2daa64b58e",
+      "blinding_declared": true
+    }
+  ],
+  "pre_adjudication_agreement": {
+    "known_pairs": 2,
+    "known_agreements": 1,
+    "known_disagreements": 1,
+    "unknown_pairs": 1,
+    "known_agreement_fraction": 0.5
+  },
+  "adjudication": {
+    "sha256": "c0aa5dad1b001a800dedef6a5119de5a38beb0cdafab95ce4e27db3d8765fda5",
+    "adjudicator_id_declared": "synthetic-fixture-adjudicator",
+    "label_counts": {
+      "benign": 1,
+      "suspicious": 0,
+      "unknown": 2
+    }
+  },
+  "unique_artifact_bytes": 3596,
+  "unique_artifact_count": 6,
+  "independent_evaluation_verified": false,
+  "model_fitting_authorized": false,
+  "predictions_computed": false,
+  "actions_executed": [],
+  "limitations": [
+    "Grouping/roles/reviewer identity/blinding are supplied declarations, not authenticated independence.",
+    "Receipt hashes are checked; receipt protocols/timing/coverage/identity and real-data eligibility are not verified.",
+    "Event overlap uses the existing lossy runtime projection; renamed/structurally similar cases are not fully detected.",
+    "No threat accuracy, model fitting, independent labels or eligibility is established by this report."
+  ],
+  "reviewer_agreement": {
+    "protocol": "runtime_reviewer_agreement_v1",
+    "status": "paired_original_votes",
+    "observed_windows": 3,
+    "supplied_reviews": 2,
+    "paired_windows": 3,
+    "label_order": [
+      "benign",
+      "suspicious",
+      "unknown"
+    ],
+    "rows": "first_manifest_review",
+    "columns": "second_manifest_review",
+    "original_label_pair_counts": {
+      "benign": {
+        "benign": 1,
+        "suspicious": 0,
+        "unknown": 0
+      },
+      "suspicious": {
+        "benign": 1,
+        "suspicious": 0,
+        "unknown": 0
+      },
+      "unknown": {
+        "benign": 0,
+        "suspicious": 1,
+        "unknown": 0
+      }
+    },
+    "original_reviewer_label_counts": [
+      {
+        "benign": 1,
+        "suspicious": 1,
+        "unknown": 1
+      },
+      {
+        "benign": 2,
+        "suspicious": 1,
+        "unknown": 0
+      }
+    ],
+    "known_pairs": 2,
+    "unknown_pairs": 1,
+    "known_pair_coverage": 0.6666666666666666,
+    "all_label_agreement_fraction": 0.3333333333333333,
+    "known_agreement_fraction": 0.5,
+    "known_chance_agreement": 0.5,
+    "known_cohen_kappa": 0.0,
+    "kappa_undefined_reason": null,
+    "computed_before_adjudication": true,
+    "independent_review_verified": false,
+    "limitations": [
+      "Known-pair kappa excludes pairs containing unknown; coverage and full table must accompany it.",
+      "Matching unknown labels indicates matching uncertainty, not a correct security decision.",
+      "Descriptive counts only: correlated windows, prevalence and reviewer independence require study review; no confidence interval or acceptance threshold."
+    ]
+  }
+}

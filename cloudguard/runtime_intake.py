@@ -202,15 +202,82 @@ def _labels(document, keys):
     return result
 
 
-def inspect(manifest_path, *, include_window_index=False):
+def _reviewer_agreement(votes, keys):
+    """Descriptive original-vote counts after intake validation, before adjudication."""
+    labels = ("benign", "suspicious", "unknown")
+    matrix = {a: {b: 0 for b in labels} for a in labels}
+    marginals = [
+        {label: sum(value == label for value in review.values()) for label in labels}
+        for review in votes
+    ]
+    paired = len(votes) == 2
+    if paired:
+        for key in keys:
+            matrix[votes[0][key]][votes[1][key]] += 1
+    known = sum(matrix[a][b] for a in labels[:2] for b in labels[:2])
+    matching = sum(matrix[a][a] for a in labels[:2])
+    # Integer numerator/denominator avoid a floating comparison near chance=1.
+    chance_numerator = sum(
+        sum(matrix[a][b] for b in labels[:2]) * sum(matrix[b][a] for b in labels[:2])
+        for a in labels[:2]
+    )
+    denominator = known * known - chance_numerator
+    pairs = len(keys) if paired else 0
+    return dict(
+        protocol="runtime_reviewer_agreement_v1",
+        status="paired_original_votes" if paired else "requires_two_reviews",
+        observed_windows=len(keys),
+        supplied_reviews=len(votes),
+        paired_windows=pairs,
+        label_order=list(labels),
+        rows="first_manifest_review",
+        columns="second_manifest_review",
+        original_label_pair_counts=matrix,
+        original_reviewer_label_counts=marginals,
+        known_pairs=known,
+        unknown_pairs=pairs - known,
+        known_pair_coverage=known / pairs if pairs else None,
+        all_label_agreement_fraction=(
+            sum(matrix[a][a] for a in labels) / pairs if pairs else None
+        ),
+        known_agreement_fraction=matching / known if known else None,
+        known_chance_agreement=(chance_numerator / (known * known) if known else None),
+        known_cohen_kappa=(
+            (matching * known - chance_numerator) / denominator if denominator else None
+        ),
+        kappa_undefined_reason=(
+            "requires_two_reviews"
+            if not paired
+            else "no_known_pairs"
+            if not known
+            else "chance_agreement_is_one"
+            if not denominator
+            else None
+        ),
+        computed_before_adjudication=True,
+        independent_review_verified=False,
+        limitations=[
+            "Known-pair kappa excludes pairs containing unknown; coverage and full table must accompany it.",
+            "Matching unknown labels indicates matching uncertainty, not a correct security decision.",
+            "Descriptive counts only: correlated windows, prevalence and reviewer independence require study review; no confidence interval or acceptance threshold.",
+        ],
+    )
+
+
+def inspect(
+    manifest_path, *, include_window_index=False, include_review_agreement=False
+):
     """Read a dedicated local bundle; return minimized declarations/consistency.
 
     v1 receipts are opaque; v2 checks selected source facts, never eligibility.
     Reviewer reasons/receipt contents are never included in the returned report.
     Optional unit keys are not a blinded packet; the default report is unchanged.
     """
-    if type(include_window_index) is not bool:
-        raise ValueError("exact boolean window-index option required")
+    if (
+        type(include_window_index) is not bool
+        or type(include_review_agreement) is not bool
+    ):
+        raise ValueError("exact boolean intake options required")
     manifest_path = Path(manifest_path)
     original = _raw(manifest_path, 100_000)
     manifest = _json(original)
@@ -421,6 +488,8 @@ def inspect(manifest_path, *, include_window_index=False):
             dict(run_id=run_id, asset_id=asset_id, start_epoch=start)
             for run_id, asset_id, start in sorted(keys)
         ]
+    if include_review_agreement:
+        report["reviewer_agreement"] = _reviewer_agreement(votes, keys)
     return report
 
 
