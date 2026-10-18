@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-038:48new cases cover wrong-rule FP/FN, cross-case nonmatching, per-rule/micro conservation, empty denominators, strict identities/list types/duplicates/resource limits, no input mutation, order invariance, pre-scan duplicate/malformed rejection and explicitly collapsed repeated locations. Final104selected passes each OS include45existing corpus regressions and historical metric check; fresh actual45fixture evaluations agree. Preserved initial2failures; no full-suite/model/sensor/security/production acceptance. Commands WL-116.
+
 QA-037: signed-index/package identity assertions, fixed PID/executable/start-time/no-tracer preflight, one45second actual trace,1MiB child output caps, original service identity/running state/TracerPid0 postcheck, offline raw-to-summary assertions and documentation/publication checks. Exact results in WL-115. No production code change or full-suite rerun; no clock fix/collector qualification. Future trace/service intervention requires new scope approval.
 
 QA-036: one existing 16-packet sensor-free diagnostic and offline review completed. Independent endpoint arithmetic matches final RAW/monotonic bounds; saved trial metric gaps recomputed with integer timestamps; original 11-record journal and both raw hashes unchanged. No timing threshold changes or new collector qualification. Reader/documentation test commands and scope are recorded in WL-114; a completed diagnostic is not a stable clock.

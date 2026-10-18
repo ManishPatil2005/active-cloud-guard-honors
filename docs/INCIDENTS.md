@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-093 - 2026-10-12 - Duplicate evaluator cases and coarse binary accounting
+
+QA-038 tests reproduce duplicate case IDs being scanned twice while dictionaries silently collapse their metric entries, returning a development pass; missing exact rule metrics also reproduced (KeyError). A wrong-rule report already failed the existing rule-set mismatch guard, so this is not a claim that that safeguard was absent. Root cause high confidence: unvalidated case IDs and bool(any-finding) metric inputs. Fix: pre-scan manifest/identity validation and additive exact case/rule counts; historical binary metrics retained/labeled. Initial2failures preserved; final104selected passes each OS and actual45fixture runs agree. No original evidence replaced. Full asset/location independent evaluation and clock issues remain open.
+
 ### INC-092 - 2026-10-11 - Kernel rate changes observed without writer attribution
 
 12October QA-037 follow-up: one approved process trace identifies two successful timesyncd clock_adjtime calls but neither has ADJ_TICK/ADJ_SETOFFSET mode. Different returned tick fields are exit-decoded state, not original requested inputs. Same PID/service remains running and detached afterward. Historical timing cause remains unresolved; no causal fix or retry. [Trace report](CLOCK_WRITER_TRACE.md).

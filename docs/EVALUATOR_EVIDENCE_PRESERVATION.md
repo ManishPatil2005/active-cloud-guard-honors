@@ -1,5 +1,48 @@
 # Preserve every development-evaluation report
 
+## QA-038 — exact case/rule accounting, 12 October 2026
+
+RQ1/RQ2/RES-002 require meaningful precision/recall accounting. The original
+binary case metrics answer only whether a file has any finding. A wrong rule
+can count as a binary true positive, although the existing mismatch guard
+correctly fails that report. Also, duplicate manifest case IDs previously
+collapsed in metric dictionaries while both rows were scanned. Two preserved
+before-fix regressions reproduce missing exact accounting and duplicate admission.
+
+`cloudguard.metrics.rule_metrics` now computes exact **(case_id, rule_id)**
+micro TP/FP/FN, precision/recall/F1, expected/predicted counts, exact case matches
+and sorted per-rule counts. Wrong rules produce both FP and FN; the same rule
+in the wrong case cannot match. Empty denominators return null. No declared
+negative-rule universe exists, so TN and false-positive rate stay null. No
+Wilson interval or independence assumption is attached to the new counts.
+
+Inputs require matching nonempty case inventories, unique nonblank string rule
+lists, at most10000cases/1000rules per case,1024character case IDs and256character
+rule IDs. Evaluator manifests reject duplicate IDs and malformed labels before
+the first scan. Expected order is irrelevant; original label order is retained
+in raw rows. Repeated predicted occurrences at different locations still count
+once per case/rule: this is **not full asset/location finding-level evaluation**.
+
+The fresh report adds `rule_metrics`; historical `metrics` and output refusal,
+source/input hashes, five-repeat scanning and negative-evidence behavior remain.
+No scanner, model, scoring, fixture, threshold, runtime or architecture change.
+Independent actionability labels and location-aware matching remain necessary
+for the final paper's primary endpoint. This closes a development-accounting
+gap, not the entire independent evaluation milestone.
+
+Final Windows/Linux selected tests:104passed each (48new cases in this change).
+Actual fresh45fixture runs on both hosts agree:26expected/predicted case-rule
+instances,26TP/0FP/0FN,45exact cases. These are deliberately seeded development
+fixtures, **not 100% real-world accuracy or established novelty**. Historical
+binary metrics match, and original baseline SHA remains
+`0df82eca188b274936d2273c7059191f59f739b9d2a677744d421b46f0e5f50f`.
+
+Receipts: `output/rule-accounting-before-20261012-qa038.xml` (2failures),
+`output/rule-accounting-final-{windows,linux}-20261012-qa038.xml`, and
+`output/rule-accounting-development-{windows,linux}-20261012-qa038.json`.
+Intermediate48-pass receipts are retained separately. Commands and limitations:
+WL-116 in [WORK_LOG](WORK_LOG.md); INC-093 and ADR-090.
+
 QA-003 / M3-004 / R7, 9 October 2026. Fixes report publication in the existing Engine1 development evaluator, not detector algorithms or independent research acceptance.
 
 ## Defect, fix and compatibility

@@ -1,5 +1,7 @@
 # First-three-month deliverables and acceptance ledger
 
+12October2026 clarification: the table below is the original first-three-month ledger, not a claim that later implemented work is still absent. Policy/authentication-aware Engine1 refinements, Engine2 replay and synthetic ML comparators, guarded integration and evaluation tooling have since been implemented; use [current status](CURRENT_STATUS.md) for their evidence levels. QA-038 adds exact development case/rule accounting. Supervisor approval of proposal0.1 is [reported by the owner](SUPERVISOR_APPROVAL_RECORD.md); actual independent labels/results remain outstanding. No first-three-month deliverable is retroactively presented as independently validated research.
+
 This work implements the initial research milestone now. It does not fabricate three months of historical activities or experiments. The status ledger separates engineering completion from scientific validation.
 
 | Month | Deliverable | Evidence | Remaining scientific gate |

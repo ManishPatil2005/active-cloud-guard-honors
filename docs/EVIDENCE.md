@@ -1,5 +1,9 @@
 # Evidence index
 
+## Exact development case/rule accounting (12 October 2026)
+
+QA-038 [Windows tests](../output/rule-accounting-final-windows-20261012-qa038.xml)/[Linux tests](../output/rule-accounting-final-linux-20261012-qa038.xml):104passes each. [Windows actual development evaluation](../output/rule-accounting-development-windows-20261012-qa038.json)/[Linux evaluation](../output/rule-accounting-development-linux-20261012-qa038.json):45cases,26case-rule matches,0FP/0FN, old binary metrics unchanged. [Initial two regression failures](../output/rule-accounting-before-20261012-qa038.xml) retained. Seeded predicate accounting only; not independent accuracy, full location/actionability evaluation or measured novelty. WL-116.
+
 ## Approved clock-writer trace (12 October 2026)
 
 QA-037 [minimized receipt](../output/clock-writer-trace-summary-20261012-qa037.json), [method and limits](CLOCK_WRITER_TRACE.md), WL-115. One45second timesyncd main-PID trace: two successful clock_adjtime calls, no tick/step-setting modes; differing exit-decoded tick fields do not identify their writer. Signed Ubuntu index/package verified before local extraction; service identity/running/detached state verified after. Raw evidence/tools ignored/private, no retry or intervention. Not a full-window qualification, original-fault attribution or independent research result.

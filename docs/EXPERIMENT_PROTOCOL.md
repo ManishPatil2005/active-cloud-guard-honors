@@ -1,5 +1,7 @@
 # Experimental protocol v0.1
 
+QA-038 adds exact case/rule development accounting beside existing binary metrics, rejecting duplicate case IDs before scans. This is a narrower unit than the independent scenario/asset/type/location primary endpoint below; it does not manufacture missing location/actionability labels or constitute held-out evaluation. See EVALUATOR_EVIDENCE_PRESERVATION and WL-116. Original study endpoint remains unchanged.
+
 QA-034 implements [grouped paired uncertainty](GROUPED_UNCERTAINTY.md) on synthetic decisions only: whole-family shared resampling, pooled metric differences and withheld undefined intervals. Actual independent comparisons, fixed-recall operating point, sample sufficiency and final analysis-method review remain pending. Original endpoints/data boundaries unchanged. Owner-reported approval is in SUPERVISOR_APPROVAL_RECORD; older approval statements below retain their dated scope.
 
 E2-046 software-only preparation: [matched synthetic accounting](SYNTHETIC_PAIRED_ACCOUNTING.md) tests exact unit/context equality and complete per-variant denominator/transition reporting on four invented units. No actual matched ablation, model prediction/score conversion, independent labels, approved real-data protocol or grouped uncertainty computation. Original endpoints/study gates remain unchanged; this is not approval or a replacement estimand.

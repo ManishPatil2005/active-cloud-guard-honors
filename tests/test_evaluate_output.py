@@ -150,3 +150,67 @@ def test_output_required_before_any_scan(tmp_path, monkeypatch):
         module.main()
     assert error.value.code == 2 and calls == []
     assert historical.read_bytes() == b"preserved historical evidence\n"
+
+
+def test_wrong_rule_is_false_positive_and_false_negative(tmp_path, monkeypatch):
+    module, historical, calls, output = fresh_setup(tmp_path, monkeypatch)
+    manifest = tmp_path / "data/labels.json"
+    records = json.loads(manifest.read_text())
+    records[0]["expected_rules"] = ["AUTH001"]
+    manifest.write_text(json.dumps(records))
+    monkeypatch.setattr(
+        module, "scan", lambda path: {"findings": [{"rule_id": "NET001"}]}
+    )
+    assert module.main() == 1
+    report = json.loads(output.read_text())
+    assert report["metrics"]["tp"] == 1  # Historical binary metric retained.
+    assert report["rule_metrics"]["tp"] == 0
+    assert report["rule_metrics"]["fp"] == 1
+    assert report["rule_metrics"]["fn"] == 1
+    assert report["rule_metrics"]["recall"] == 0
+    assert report["rule_metrics"]["unit"] == "case_id_and_rule_id"
+
+
+def test_duplicate_case_id_rejected_before_scanning(tmp_path, monkeypatch):
+    module, historical, calls, output = fresh_setup(tmp_path, monkeypatch)
+    manifest = tmp_path / "data/labels.json"
+    records = json.loads(manifest.read_text())
+    manifest.write_text(json.dumps(records + records))
+    assert module.main() == 1
+    assert calls == []
+    assert json.loads(output.read_text())["status"] == "rejected"
+
+
+@pytest.mark.parametrize("rules", [None, "R", ["R", "R"], [False], [""], [{}]])
+def test_invalid_labels_rejected_before_scanning(tmp_path, monkeypatch, rules):
+    module, historical, calls, output = fresh_setup(tmp_path, monkeypatch)
+    manifest = tmp_path / "data/labels.json"
+    records = json.loads(manifest.read_text())
+    records[0]["expected_rules"] = rules
+    manifest.write_text(json.dumps(records))
+    assert module.main() == 1 and calls == []
+    assert json.loads(output.read_text())["status"] == "rejected"
+
+
+def test_unordered_expected_rules_and_repeated_locations(tmp_path, monkeypatch):
+    module, historical, calls, output = fresh_setup(tmp_path, monkeypatch)
+    manifest = tmp_path / "data/labels.json"
+    records = json.loads(manifest.read_text())
+    records[0]["expected_rules"] = ["Z", "A"]
+    manifest.write_text(json.dumps(records))
+    monkeypatch.setattr(
+        module,
+        "scan",
+        lambda path: {
+            "findings": [
+                {"rule_id": "A", "location": "x"},
+                {"rule_id": "A", "location": "y"},
+                {"rule_id": "Z", "location": "z"},
+            ]
+        },
+    )
+    assert module.main() == 0
+    report = json.loads(output.read_text())
+    assert report["rule_metrics"]["tp"] == 2
+    assert report["rule_metrics"]["predicted_instances"] == 2
+    assert report["raw"][0]["expected"] == ["Z", "A"]

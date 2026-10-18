@@ -1,0 +1,803 @@
+{
+  "status": "development_regression_passed",
+  "manifest_file_sha256": "5b5b0d78bf5a5fb676fc2ac6bede1603635e68f27de442e8d35de5e2d101a575",
+  "selected_implementation_sha256": {
+    "evaluate.py": "d198cc8c5da52deff790751d216b436a756d17d8cf0fb877a88ab86eed871c36",
+    "scanner.py": "6e0ca16b04515723897db3dc7891dd7ff281982a81a7df9ba6475781cba15404",
+    "metrics.py": "63fcab1f8b233eb0bd4782dd47dcfcac84997b15613c790baa2660eef2d7fab3",
+    "verification.py": "466a7e7862927933691c609e73cd9b89821bbbd3dfd0549a8f81dd69838329cc",
+    "limits.py": "187ce9c826e4b1b3d2aa8e13adf88caeccef1cdd15a5f243da48e73f667c0d13"
+  },
+  "run_at": "2026-10-12T16:30:56.718502+00:00",
+  "stage": "development regression, NOT independent benchmark",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "metrics": {
+    "n": 45,
+    "tp": 26,
+    "fp": 0,
+    "fn": 0,
+    "tn": 19,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_positive_rate": 0.0,
+    "precision_wilson95": [
+      0.8712710781407846,
+      1
+    ],
+    "recall_wilson95": [
+      0.8712710781407846,
+      1
+    ]
+  },
+  "rule_metrics": {
+    "unit": "case_id_and_rule_id",
+    "aggregation": "micro",
+    "cases": 45,
+    "exact_match_cases": 45,
+    "mismatched_cases": 0,
+    "expected_instances": 26,
+    "predicted_instances": 26,
+    "tp": 26,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tn": null,
+    "false_positive_rate": null,
+    "per_rule": {
+      "AUTH001": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "AUTH002": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "NET001": {
+        "tp": 12,
+        "fp": 0,
+        "fn": 0
+      },
+      "NET002": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "NET003": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "PRIV001": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "RBAC001": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      },
+      "SEC001": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "WEB001": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0
+      }
+    },
+    "limitations": [
+      "Case/rule presence collapses repeated assets and locations within a case.",
+      "No declared negative-rule universe: TN and false-positive rate undefined.",
+      "No independent labels, actionability, uncertainty or calibrated scores established."
+    ]
+  },
+  "rule_set_mismatches": [],
+  "median_ms": 4.782598000019789,
+  "p95_ms": 18.948111006466206,
+  "repetitions": 5,
+  "raw": [
+    {
+      "id": "redis-all.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        4.7951849992387,
+        4.610387004504446,
+        4.584258000249974,
+        4.826586002309341,
+        5.299923999700695
+      ],
+      "sha256": "4e6e756d2a063a8f64ab2f2a9a4132187dfaf2b498f6a81940b8a0571ec8ff1d"
+    },
+    {
+      "id": "redis-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        7.9293509988929145,
+        8.609427997726016,
+        10.441493999678642,
+        8.70081999892136,
+        8.566882999730296
+      ],
+      "sha256": "e32f6c4fa769ce889b2a72e6346f02e3e3c2f1846441572092bd23ade137a347"
+    },
+    {
+      "id": "redis-ipv6.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        4.2604480040608905,
+        2.9013980019954033,
+        6.347290996927768,
+        6.065399000362959,
+        6.326198999886401
+      ],
+      "sha256": "6a975b1e3d8d1fb8f5c3ee1b682359aa7615fe4fb283eb59892e088aa8dbdbeb"
+    },
+    {
+      "id": "redis-ipv6-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        3.9958790002856404,
+        5.449172000226099,
+        9.130287005973514,
+        5.18162200023653,
+        18.795538002450485
+      ],
+      "sha256": "78696264585840aeaf5abbf0ec2a6b89c708e3cbf5bab708aeca2044f065e5e3"
+    },
+    {
+      "id": "redis-long.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        9.999342997616623,
+        2.6106119985342957,
+        3.3312590021523647,
+        2.03861699992558,
+        2.194373999373056
+      ],
+      "sha256": "93149399b079e9ecff11bdbdeb2e3480005eba5f3634cb84d3c85743309efc26"
+    },
+    {
+      "id": "postgres-all.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        2.694137001526542,
+        2.5606600029277615,
+        2.175572000851389,
+        2.138367999577895,
+        2.3399590063490905
+      ],
+      "sha256": "3ff05ee87d0b26a09732e728aea3a2224de6daeb014b6213a7e96e794b652f83"
+    },
+    {
+      "id": "postgres-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        1.600579998921603,
+        2.0242199971107766,
+        1.3294629970914684,
+        2.6349270046921447,
+        1.706809998722747
+      ],
+      "sha256": "c1f180b468c3383722dda4d961929926d4d4699f41c2caf6a4550f2ff079a873"
+    },
+    {
+      "id": "postgres-ipv6.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        1.493177995143924,
+        2.1206509991316125,
+        1.486720000684727,
+        2.0248209984856658,
+        2.0598160044755787
+      ],
+      "sha256": "95c85b02cbb801812b39754adb2c1ddeadf7ecdbf16709fbc2e8f69c55630c89"
+    },
+    {
+      "id": "postgres-ipv6-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        1.956643995072227,
+        1.644773998123128,
+        2.745470999798272,
+        1.640390997636132,
+        2.311543001269456
+      ],
+      "sha256": "5d342df54b664611be07e90b5b4ec340cc334b0d3fe98e0b5853907fd6bd9312"
+    },
+    {
+      "id": "postgres-long.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        3.0362319957930595,
+        2.261040994198993,
+        1.9102439982816577,
+        1.7569789997651242,
+        2.442256001813803
+      ],
+      "sha256": "c3484433b9bb01104dcf86e75fbf5a26db1b60330bdf4b047b32b150302d563e"
+    },
+    {
+      "id": "nginx-all.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        52.27579400525428,
+        6.269518002227414,
+        8.39833899954101,
+        3.1691420008428395,
+        3.86095999419922
+      ],
+      "sha256": "bceb52d066f5fecd40e61710c4d65780552cef61047921afe671f96c1aa1c018"
+    },
+    {
+      "id": "nginx-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        4.034869001770858,
+        3.3344670009682886,
+        4.0335539961233735,
+        5.139847002283204,
+        3.373154999280814
+      ],
+      "sha256": "712dd7537abe74e0a9e86a9ed0bebc131d0f66e30713379a3619c157796320cb"
+    },
+    {
+      "id": "nginx-ipv6.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        3.779226004553493,
+        5.1302749998285435,
+        4.468762002943549,
+        3.5976110011688434,
+        3.2605650048935786
+      ],
+      "sha256": "c99069f94b712bcb0d82448ddd431230036738450169d0fef8dc67ace7a5b63c"
+    },
+    {
+      "id": "nginx-ipv6-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        3.26395300362492,
+        2.97680599760497,
+        1.7270099997404031,
+        2.853031000995543,
+        1.4872630054014735
+      ],
+      "sha256": "72bcd95ff9aa49f070a9814111f777b7a8791afbc3307303387d1a34d6ff127a"
+    },
+    {
+      "id": "nginx-long.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        1.7474279957241379,
+        2.9747989974566735,
+        8.272589002444874,
+        5.197806996875443,
+        7.152570004109293
+      ],
+      "sha256": "770331419de0ff312f13efdc51cfbbc6ec6e354418a8af9c633b197cd811c248"
+    },
+    {
+      "id": "minio-all.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        8.085077999567147,
+        5.541471000469755,
+        7.4865839997073635,
+        7.724636001512408,
+        5.932287000177894
+      ],
+      "sha256": "bfbf99d9b701f4194bcfd770406a1bb7b0a2c79ab828d32304bd62d17d2a06c6"
+    },
+    {
+      "id": "minio-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        3.8091830065241084,
+        3.499336999084335,
+        7.559860998298973,
+        2.232721002656035,
+        3.2843519948073663
+      ],
+      "sha256": "6247945663a529c3f88d841e02f8ba0aa4297b2255862814cabc584ad233f484"
+    },
+    {
+      "id": "minio-ipv6.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        18.948111006466206,
+        13.720306997129228,
+        11.737344997527543,
+        11.84162499703234,
+        13.535990001400933
+      ],
+      "sha256": "5ddf834019a56bf1105ed2acf5d641e1d511dede6c8cd63432b7d13a56d9e1f4"
+    },
+    {
+      "id": "minio-ipv6-loopback.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        6.4981129980878904,
+        5.755316997237969,
+        5.810917005874217,
+        4.969344998244196,
+        4.000329005066305
+      ],
+      "sha256": "bba014e7b12caeea1c1b33bf627e3093076aec1ee8760af579e8a096fa30c4c6"
+    },
+    {
+      "id": "minio-long.yaml",
+      "expected": [
+        "NET001"
+      ],
+      "predicted": [
+        "NET001"
+      ],
+      "latency_ms": [
+        2.7258619957137853,
+        4.149644999415614,
+        4.367854999145493,
+        4.069447000802029,
+        5.577331998210866
+      ],
+      "sha256": "7c2cc406635dd3e623a85f123ebd595fa3ff393f8d33e44e495f6e8f652cf399"
+    },
+    {
+      "id": "postgres-trust.yaml",
+      "expected": [
+        "AUTH001"
+      ],
+      "predicted": [
+        "AUTH001"
+      ],
+      "latency_ms": [
+        3.7729910036432557,
+        3.3331280064885505,
+        4.178142997261602,
+        3.8070090013206936,
+        3.881732001900673
+      ],
+      "sha256": "409b67d24104ca5c96daa610d3f14c857c9d888f4c2374607c7e9bc8ad9abbee"
+    },
+    {
+      "id": "postgres-secret.yaml",
+      "expected": [
+        "SEC001"
+      ],
+      "predicted": [
+        "SEC001"
+      ],
+      "latency_ms": [
+        4.378434001409914,
+        3.647502002422698,
+        3.9134050020948052,
+        4.968431996530853,
+        4.054058998008259
+      ],
+      "sha256": "a1dd0a8fde0db0efc3c41efe7217a7a9afa412cde103f9c820c534c8727be2fa"
+    },
+    {
+      "id": "postgres-reference.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        4.282550995412748,
+        3.395997002371587,
+        4.670300004363526,
+        3.784341002756264,
+        4.917995000141673
+      ],
+      "sha256": "4c62e35533fc078d6fa5b6d24ee8879a27de8459bdcad758d8eda84445aaa69f"
+    },
+    {
+      "id": "redis-unprotected.yaml",
+      "expected": [
+        "AUTH002"
+      ],
+      "predicted": [
+        "AUTH002"
+      ],
+      "latency_ms": [
+        4.485462006414309,
+        3.5304699995322153,
+        4.558934000669979,
+        4.025750997243449,
+        4.969368994352408
+      ],
+      "sha256": "70e97e27923a8e0620b3f0f6e31407596010c138ca17ddc02b64764065b65b66"
+    },
+    {
+      "id": "redis-protected.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        3.545578998455312,
+        3.00742299441481,
+        3.631717998359818,
+        3.9914160006446764,
+        5.587662999460008
+      ],
+      "sha256": "110c3cdcda60d1fd6df3534221ad9c5acdd77cf0899cd6d74ea8138d9541a7c1"
+    },
+    {
+      "id": "privileged.yaml",
+      "expected": [
+        "PRIV001"
+      ],
+      "predicted": [
+        "PRIV001"
+      ],
+      "latency_ms": [
+        4.635804994904902,
+        4.573509002511855,
+        3.8192499996512197,
+        4.994285998691339,
+        7.345186997554265
+      ],
+      "sha256": "4a5b344df2d516354263d45d32c05f96385b118963a11fa72ded95fc88904bde"
+    },
+    {
+      "id": "unprivileged.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        8.40572000015527,
+        7.8710430025239475,
+        8.806371995888185,
+        8.676038996782154,
+        11.119474002043717
+      ],
+      "sha256": "cd5ab1dcc50e919efc59827dfdc9746fc0dccf9e6eb20ad2752b8c937f91de1d"
+    },
+    {
+      "id": "minio-secret.yaml",
+      "expected": [
+        "SEC001"
+      ],
+      "predicted": [
+        "SEC001"
+      ],
+      "latency_ms": [
+        6.404531995940488,
+        11.808939998445567,
+        28.345869002805557,
+        23.152827998274006,
+        21.99192599800881
+      ],
+      "sha256": "98a710dcba44548df8ac500d67f24575c447d00fedfbc62d2dcd5ff3a6b8453f"
+    },
+    {
+      "id": "k8s-NodePort.yaml",
+      "expected": [
+        "NET002"
+      ],
+      "predicted": [
+        "NET002"
+      ],
+      "latency_ms": [
+        9.708081001008395,
+        9.509985997283366,
+        6.496800000604708,
+        7.925095000246074,
+        7.660634997591842
+      ],
+      "sha256": "f64244cd4e6342297df49deb0b41712e7f99f48dee8cc72a90d2809365451bf3"
+    },
+    {
+      "id": "k8s-LoadBalancer.yaml",
+      "expected": [
+        "NET002"
+      ],
+      "predicted": [
+        "NET002"
+      ],
+      "latency_ms": [
+        6.84340199950384,
+        6.53404100012267,
+        32.177011999010574,
+        24.488775998179335,
+        9.639707001042552
+      ],
+      "sha256": "de140ec71ee69bc93c5294414f2773e7075c0f7e80b3b88a5a2a700a089272e9"
+    },
+    {
+      "id": "k8s-ClusterIP.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        7.376704001217149,
+        24.520191000192426,
+        21.63498099980643,
+        29.288222998729907,
+        13.28866900439607
+      ],
+      "sha256": "27619daa230535fcf38e93a3969612ac03abe814b1799664959da432919aa1ee"
+    },
+    {
+      "id": "k8s-role-True.yaml",
+      "expected": [
+        "RBAC001"
+      ],
+      "predicted": [
+        "RBAC001"
+      ],
+      "latency_ms": [
+        12.613853999937419,
+        5.877033996512182,
+        48.99264499545097,
+        8.015244995476678,
+        4.534665000392124
+      ],
+      "sha256": "d7d58d8f6a47a53b5f6a9bdbeab6827593bdc905af9e4d000055d6f29c1a8404"
+    },
+    {
+      "id": "k8s-role-False.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        5.541603997698985,
+        4.0891759999794886,
+        14.724541004397906,
+        13.654860995302442,
+        9.229670002241619
+      ],
+      "sha256": "f0efc6a2e512c5a38536dd4b1b47c7dfc79acd1583ec85f74dd748a22f935a8d"
+    },
+    {
+      "id": "k8s-pod-True.yaml",
+      "expected": [
+        "PRIV001"
+      ],
+      "predicted": [
+        "PRIV001"
+      ],
+      "latency_ms": [
+        12.2205279985792,
+        8.481652999762446,
+        8.713228002307005,
+        8.30381500418298,
+        8.373529002710711
+      ],
+      "sha256": "de716b585c439ee8e92fbb9f46ce315b1ae1cf553ce4557217a6996c64d2b1cc"
+    },
+    {
+      "id": "k8s-pod-False.yaml",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        5.404340001405217,
+        7.730356002866756,
+        4.860540000663605,
+        3.6754019965883344,
+        1.728625997202471
+      ],
+      "sha256": "3d24eb3226dea78607a8d1b08a5b3f073838d030178b4041d83b8b5b56b0907e"
+    },
+    {
+      "id": "sg-world.tf",
+      "expected": [
+        "NET003"
+      ],
+      "predicted": [
+        "NET003"
+      ],
+      "latency_ms": [
+        24.054005996731576,
+        6.776344001991674,
+        4.467521001060959,
+        3.298311996331904,
+        3.7972450008965097
+      ],
+      "sha256": "19f663535d3d6b20c39296199571724da7c5d9922aa6dd09d9eb35f358f263ed"
+    },
+    {
+      "id": "sg-private.tf",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        2.648654000950046,
+        3.099640001892112,
+        5.782560998341069,
+        5.636087997118011,
+        3.5677499981829897
+      ],
+      "sha256": "029b4cb48f99b1271468b3674f6c5f226dd29ebbeeaa4bd2af93e08f6493f107"
+    },
+    {
+      "id": "Dockerfile.secret",
+      "expected": [
+        "SEC001"
+      ],
+      "predicted": [
+        "SEC001"
+      ],
+      "latency_ms": [
+        2.0126729941694066,
+        4.086606000782922,
+        4.046305999509059,
+        4.570570999931078,
+        15.920243997243233
+      ],
+      "sha256": "4486fc7d43f54cc552d34988980e03ecbbca209dab52669738d5ff3eeef3bb3d"
+    },
+    {
+      "id": "Dockerfile.clean",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        1.569619998917915,
+        3.4169490027124994,
+        1.7213040046044625,
+        2.4734559992793947,
+        1.9511490027070977
+      ],
+      "sha256": "99f67ef907b63b38d272890159f5d1cd955ad78efb0dfaf5aa57153b3c25cdf6"
+    },
+    {
+      "id": "nginx-on.conf",
+      "expected": [
+        "WEB001"
+      ],
+      "predicted": [
+        "WEB001"
+      ],
+      "latency_ms": [
+        3.772374999243766,
+        2.140639000572264,
+        2.5812579988269135,
+        2.27261600230122,
+        6.633777004026342
+      ],
+      "sha256": "251a4ba12e2b13d83e1098dce720e9362cc4d822403b812627755474160c35c6"
+    },
+    {
+      "id": "nginx-off.conf",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        7.603252000990324,
+        3.7889919985900633,
+        5.305490005412139,
+        7.114607004041318,
+        7.249784001032822
+      ],
+      "sha256": "63f3decc6b8ec9f57f99ce0780b498d0126eff9e1d37b260cc3b32d893edccd4"
+    },
+    {
+      "id": "redis-off.conf",
+      "expected": [
+        "AUTH002"
+      ],
+      "predicted": [
+        "AUTH002"
+      ],
+      "latency_ms": [
+        1.765453998814337,
+        2.2806449997005984,
+        3.661112998088356,
+        7.8102620027493685,
+        3.488700996967964
+      ],
+      "sha256": "7e4cfac23370f1703da46ed3321d0d45cd638aeac7b66d78da1c0563de1152d2"
+    },
+    {
+      "id": "redis-on.conf",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        5.693300001439638,
+        7.595842995215207,
+        8.169808003003709,
+        4.805645003216341,
+        16.28543299739249
+      ],
+      "sha256": "0ef30fe42c835b161d1ebfa93db6ca75975a80a69e8b2ecad0a38ba5b4f5339c"
+    },
+    {
+      "id": "pg-trust.conf",
+      "expected": [
+        "AUTH001"
+      ],
+      "predicted": [
+        "AUTH001"
+      ],
+      "latency_ms": [
+        25.92393200029619,
+        14.825800994003657,
+        7.287041997187771,
+        5.481684005644638,
+        4.9298200028715655
+      ],
+      "sha256": "a263f29bccce21de19b4d4619b656519626886f42ffe8bb2409f7e0faa997a9c"
+    },
+    {
+      "id": "pg-scram.conf",
+      "expected": [],
+      "predicted": [],
+      "latency_ms": [
+        8.038056999794208,
+        5.403974995715544,
+        4.782598000019789,
+        6.7406090020085685,
+        5.299727999954484
+      ],
+      "sha256": "3c698f65615a26244b528a7a62f1995c5bc0b90467e40faab21260b952c3e1ae"
+    }
+  ],
+  "limitations": [
+    "Fixtures authored alongside implementation; optimistic scores expected.",
+    "Legacy binary case metrics collapse multiple findings; rule_metrics counts exact case/rule identities, not asset/location matches.",
+    "No RAG effectiveness, FP reduction, cloud exposure, runtime ML or overhead conclusion."
+  ]
+}

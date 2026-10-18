@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from cloudguard.scanner import scan
-from cloudguard.metrics import metrics
+from cloudguard.metrics import metrics, rule_metrics
 from cloudguard.verification import file_hash, read_json
 
 SOURCE_ROOT = ROOT
@@ -21,6 +21,17 @@ SOURCE_ROOT = ROOT
 def evaluate():
     manifest = ROOT / "data/labels.json"
     records, manifest_hash = read_json(manifest)
+    if type(records) is not list or not records or len(records) > 10000:
+        raise ValueError("development manifest must be a bounded nonempty list")
+    expected_rules = {}
+    for record in records:
+        if type(record) is not dict or type(record.get("id")) is not str:
+            raise ValueError("invalid development record")
+        if record["id"] in expected_rules:
+            raise ValueError("duplicate development case identity")
+        expected_rules[record["id"]] = record.get("expected_rules")
+    # Validate all label identities before scanning; this is not a prediction run.
+    rule_metrics(expected_rules, {case: [] for case in expected_rules})
     sources = [
         SOURCE_ROOT / name
         for name in (
@@ -34,6 +45,7 @@ def evaluate():
     source_hashes = {path.name: file_hash(path) for path in sources}
     labels = {}
     predictions = {}
+    predicted_rules = {}
     rows = []
     timings = []
     mismatches = []
@@ -49,7 +61,8 @@ def evaluate():
         actual = sorted(set(f["rule_id"] for f in result["findings"]))
         labels[record["id"]] = bool(record["expected_rules"])
         predictions[record["id"]] = bool(actual)
-        if actual != record["expected_rules"]:
+        predicted_rules[record["id"]] = actual
+        if actual != sorted(record["expected_rules"]):
             mismatches.append(record["id"])
         timings.extend(samples)
         rows.append(
@@ -78,6 +91,7 @@ def evaluate():
         python=sys.version,
         platform=platform.platform(),
         metrics=metrics(labels, predictions),
+        rule_metrics=rule_metrics(expected_rules, predicted_rules),
         rule_set_mismatches=mismatches,
         median_ms=statistics.median(timings),
         p95_ms=sorted(timings)[int(0.95 * (len(timings) - 1))],
@@ -85,7 +99,7 @@ def evaluate():
         raw=rows,
         limitations=[
             "Fixtures authored alongside implementation; optimistic scores expected.",
-            "Binary case metrics collapse multiple findings. Exact rule-set checks are reported separately.",
+            "Legacy binary case metrics collapse multiple findings; rule_metrics counts exact case/rule identities, not asset/location matches.",
             "No RAG effectiveness, FP reduction, cloud exposure, runtime ML or overhead conclusion.",
         ],
     )

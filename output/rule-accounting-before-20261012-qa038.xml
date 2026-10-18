@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="1.440" timestamp="2026-10-12T21:57:15.777685+05:30" hostname="Welcome"><testcase classname="tests.test_evaluate_output" name="test_wrong_rule_is_false_positive_and_false_negative" time="0.987"><failure message="KeyError: 'rule_metrics'">tmp_path = WindowsPath('D:/research f1/tmp/rule-accounting-before-qa038/test_wrong_rule_is_false_posit0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E076A950D0&gt;
+
+    def test_wrong_rule_is_false_positive_and_false_negative(tmp_path, monkeypatch):
+        module, historical, calls, output = fresh_setup(tmp_path, monkeypatch)
+        manifest = tmp_path / "data/labels.json"
+        records = json.loads(manifest.read_text())
+        records[0]["expected_rules"] = ["AUTH001"]
+        manifest.write_text(json.dumps(records))
+        monkeypatch.setattr(
+            module, "scan", lambda path: {"findings": [{"rule_id": "NET001"}]}
+        )
+        assert module.main() == 1
+        report = json.loads(output.read_text())
+        assert report["metrics"]["tp"] == 1  # Historical binary metric retained.
+&gt;       assert report["rule_metrics"]["tp"] == 0
+               ^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'rule_metrics'
+
+tests\test_evaluate_output.py:167: KeyError</failure></testcase><testcase classname="tests.test_evaluate_output" name="test_duplicate_case_id_rejected_before_scanning" time="0.007"><failure message="AssertionError: assert 0 == 1&#10; +  where 0 = &lt;function main at 0x000001E078810A40&gt;()&#10; +    where &lt;function main at 0x000001E078810A40&gt; = &lt;module 'development_evaluator' from 'D:\\research f1\\scripts\\evaluate.py'&gt;.main">tmp_path = WindowsPath('D:/research f1/tmp/rule-accounting-before-qa038/test_duplicate_case_id_rejecte0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001E0787F3320&gt;
+
+    def test_duplicate_case_id_rejected_before_scanning(tmp_path, monkeypatch):
+        module, historical, calls, output = fresh_setup(tmp_path, monkeypatch)
+        manifest = tmp_path / "data/labels.json"
+        records = json.loads(manifest.read_text())
+        manifest.write_text(json.dumps(records + records))
+&gt;       assert module.main() == 1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = &lt;function main at 0x000001E078810A40&gt;()
+E        +    where &lt;function main at 0x000001E078810A40&gt; = &lt;module 'development_evaluator' from 'D:\\research f1\\scripts\\evaluate.py'&gt;.main
+
+tests\test_evaluate_output.py:179: AssertionError</failure></testcase></testsuite></testsuites>

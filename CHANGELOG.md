@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-12 - Add exact development rule accounting and reject duplicate cases
+
+- Add case/rule micro TP/FP/FN and per-rule counts beside unchanged binary case metrics.
+- Reject duplicate case identities/malformed labels before scans; preserve wrong-rule and duplicate-ID regression failures.
+- Verify104selected tests and fresh45fixture evaluation on each platform; no independent benchmark, detector, clock or architecture change. QA-038/WL-116.
+
 ## 2026-10-12 - Observe one clock-adjusting process with bounded private tracing
 
 - Verify official Ubuntu strace provenance and extract locally without system installation.

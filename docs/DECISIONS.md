@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-090 - 2026-10-12 - Add exact rule-presence accounting without inventing labels
+
+QA-038/RQ1/RQ2. Existing labels name rule presence per fixture, not independent asset/location/actionability truth. Add exact case/rule micro accounting and strict case identity validation to the existing evaluator; preserve old binary metrics for compatibility, leave TN/FPR undefined without a negative-rule universe, and explicitly retain repeated-location collapse. Do not synthesize missing location labels, promote fixtures to held-out data or conflate this work with novelty. This advances an offline research prerequisite while runtime qualification is blocked; engines/stack unchanged. Verification WL-116.
+
 ## ADR-089 - 2026-10-11 - Paired family uncertainty as synthetic preparation
 
 Implement the existing grouped-bootstrap requirement without altering either engine or relaxing real-data gates. Resample whole families once per paired draw, pool all their units, retain missing/unknown/abstention counts and withhold intervals when any draw is undefined. Seeded percentile arithmetic is transparent exploratory software, not scientific acceptance. BCa/basic methods, equal-family estimands, sample adequacy and fixed-recall operating points require actual protocol review. Existing accounting/fitting wrappers unchanged. Cross-platform numeric equality and a separate expanded-row oracle tested; GROUPED_UNCERTAINTY / WL-111.
