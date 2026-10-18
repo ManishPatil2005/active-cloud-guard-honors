@@ -1,6 +1,8 @@
 # Active Cloud Guard — current capability and research status
 
-QA-048/WL-125: [native plan and exact approval scopes](NATIVE_VALIDATION_PLAN.md) prepared only, not executed or approved. A sensor-free screen first; B requires separate consent and controller readiness. Unchanged limits/no clock-service intervention; implementation and open physical blockers below unchanged.
+QA-049/WL-126 actual [sensor-free step A result](SENSOR_FREE_CLOCK_SCREEN.md): six short intervals pass; alignment rejects71.062678ms combined disagreement/50ms, despite boundary gate passing. One approved observation sequence only; no retries/Docker/Redis/sensor/clock/service action. B remains unapproved, native full-minute capacity/loaded timing/coverage unqualified; original QA-044 integrated failure remains unchanged.
+
+QA-048/WL-125 historical planning checkpoint: [native plan and exact approval scopes](NATIVE_VALIDATION_PLAN.md). A subsequently approved/executed and rejected in QA-049 above; B/C still require separate scope/consent, B controller readiness pending. Limits unchanged.
 
 QA-047 / WL-124: offline validation rejects invalid clock nanoseconds and transport values inconsistent with sample brackets. Three failures preserved; fullLinux2164 passes/zero skips, Windows201 targets/one Linux-only skip. No live trial or clock/service action, unchanged limits. Not a WSL clock cure or capacity pass. [Native checklist](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
 

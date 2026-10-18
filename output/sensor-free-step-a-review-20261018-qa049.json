@@ -1,0 +1,91 @@
+{
+  "protocol": "sensor_free_step_a_review_v1",
+  "execution_commit": "b0e9a114ef2c8005fdd51460194de5206bf25335",
+  "result": "alignment_rejected",
+  "approval_scope": "QA-048 step A only",
+  "raw_manifest_sha256": "1346e7295606b6b9d3c7d023958cf1788b37372d84637de19443b408f76ea5cb",
+  "raw_clock_sha256": "6b101113bcafb6a03fecd06eda14621ff20b8ae7d8c399e2299305b0adddbad1",
+  "raw_terminal_sha256": "609dd09aaeddefd79bce21a3597e9cf17996f4b5228353c7509ada25354d85f8",
+  "controller_sha256": "7c4a4af89c66d5a9cafcd6cfa845decb77452379db84998dd2bcc541fd159a23",
+  "verified_raw_files": 17,
+  "verified_source_files": 101,
+  "screen": [
+    {
+      "index": 0,
+      "elapsed_monotonic_ns": 4000035515,
+      "clock_difference_ns": 237,
+      "sampling_uncertainty_ns": 1165,
+      "within_tolerance": true,
+      "maximum_sample_span_ns": 1756
+    },
+    {
+      "index": 1,
+      "elapsed_monotonic_ns": 4000099154,
+      "clock_difference_ns": 513,
+      "sampling_uncertainty_ns": 935,
+      "within_tolerance": true,
+      "maximum_sample_span_ns": 1726
+    },
+    {
+      "index": 2,
+      "elapsed_monotonic_ns": 4000655698,
+      "clock_difference_ns": 48767794,
+      "sampling_uncertainty_ns": 1069,
+      "within_tolerance": true,
+      "maximum_sample_span_ns": 1947
+    },
+    {
+      "index": 3,
+      "elapsed_monotonic_ns": 4000223121,
+      "clock_difference_ns": 619,
+      "sampling_uncertainty_ns": 1201,
+      "within_tolerance": true,
+      "maximum_sample_span_ns": 2281
+    },
+    {
+      "index": 4,
+      "elapsed_monotonic_ns": 4000264859,
+      "clock_difference_ns": 648,
+      "sampling_uncertainty_ns": 1267,
+      "within_tolerance": true,
+      "maximum_sample_span_ns": 2311
+    },
+    {
+      "index": 5,
+      "elapsed_monotonic_ns": 4000121409,
+      "clock_difference_ns": 607,
+      "sampling_uncertainty_ns": 1207,
+      "within_tolerance": true,
+      "maximum_sample_span_ns": 2230
+    }
+  ],
+  "screen_passed": true,
+  "worst_interval_bound_ns": 48768863,
+  "alignment": {
+    "accepted": false,
+    "status": "rejected",
+    "exit_code": 1,
+    "journal_records": 3,
+    "timing": {
+      "elapsed_monotonic_ns": 45003052868,
+      "clock_difference_ns": 71061457,
+      "sampling_uncertainty_ns": 1221,
+      "within_tolerance": false
+    },
+    "boundary_error_ns": 72273769,
+    "reasons": [
+      "clock_disagreement"
+    ],
+    "wait_protocol": "utc_boundary_single_recheck_v2",
+    "deadline_repair_present": false
+  },
+  "retries": 0,
+  "sensor_or_workload_executed": false,
+  "clock_or_service_settings_modified": false,
+  "boot_domain_writer_attributed": false,
+  "full_minute_clock_qualified": false,
+  "native_format_or_capacity_validated": false,
+  "repeatability_verified": false,
+  "independent_evaluation_verified": false,
+  "step_b_approved": false
+}

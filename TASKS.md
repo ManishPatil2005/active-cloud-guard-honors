@@ -1,6 +1,8 @@
 # Research and engineering task ledger
 
-QA-048 / E2-003/E2-005/E2-025/RQ3 / WL-125: [native validation plan](docs/NATIVE_VALIDATION_PLAN.md) prepared, NOT executed/approved. Next request A: sensor-free24second screen then conditional alignment. Separate B approval after evidence review and offline no-clock-change restoration-controller readiness. All limits unchanged; no trial, service change or scientific acceptance.
+QA-049 / E2-005/E2-025/RQ3 / WL-126: approved A executed once, six4second comparisons pass but conditional alignment rejects71.062678ms bound/50ms; three-record journal and17raw files/101source hashes checked offline. No retry/sensor/service intervention. B unapproved; actual clock remediation and native full-minute capacity/coverage remain open. [Result](docs/SENSOR_FREE_CLOCK_SCREEN.md).
+
+QA-048 / E2-003/E2-005/E2-025/RQ3 / WL-125 planning checkpoint: [native validation plan](docs/NATIVE_VALIDATION_PLAN.md). A subsequently approved/executed as QA-049 above; B/C remain unapproved, B no-clock-change restoration controller still pending. All limits unchanged; no sensor trial/service change/scientific acceptance supplied by planning.
 
 QA-047 / E2-003/E2-005/E2-025/RQ3 / WL-124: clock-receipt numeric/bracket consistency implemented after three reproduced failures. Full Linux2164 passes/zero skips; Windows201 targets/one Linux-only skip. Unchanged limits, no live trial. Native clock stability, v3 producer/export and full-minute capacity/identity/coverage remain pending. [Native checklist](docs/CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
 

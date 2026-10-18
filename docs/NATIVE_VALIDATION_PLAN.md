@@ -2,7 +2,12 @@
 
 QA-048 / WL-125 · 18 October 2026 · E2-003/E2-005/E2-025/RQ3.
 
-**Prepared, not executed or approved.** This document authorizes nothing. It
+**Update QA-049:** step A was separately approved and executed once; its six short
+checks passed, but alignment rejected at71.062678ms combined bound against50ms.
+No retry or B execution. [Observed result](SENSOR_FREE_CLOCK_SCREEN.md).
+Step B/C remain unapproved; the procedures below do not authorize themselves.
+
+**Original QA-048 planning checkpoint: prepared, not executed or approved.** It
 defines the next bounded decisions, not a new engine, stack, dataset or benchmark.
 Software basis: QA-047 commit `15597b77785a7b4ce284d3bd489e3fb4b46c7e23`;
 record the actual execution commit and source hashes again before any future run.

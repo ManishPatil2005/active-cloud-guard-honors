@@ -1,6 +1,8 @@
 # Documentation index
 
-Next QA-048: [native validation and exact approval plan](NATIVE_VALIDATION_PLAN.md), prepared only. Separate sensor-free A and later integrated B consent; no time-service changes, limits unchanged. Old stop/settle wrapper explicitly excluded; B controller readiness remains pending. No native execution.
+Latest native QA-049: [approved sensor-free step A](SENSOR_FREE_CLOCK_SCREEN.md) rejected at alignment,71.062678ms combined bound versus50ms. Six short comparisons pass narrowly; no retry, sensor/Docker/Redis or service/clock change. B remains unapproved and capacity untested. WL-126.
+
+QA-048 planning checkpoint: [native validation and exact approval plan](NATIVE_VALIDATION_PLAN.md). Its A scope was subsequently approved/executed as QA-049 above; B/C remain unapproved. Old stop/settle wrapper excluded; B controller readiness and actual native capacity remain pending.
 
 Latest QA-047: [clock receipt consistency and native checklist](CAPACITY_TIMING_OFFLINE_REFINEMENT.md). Three failures reproduced/repaired; full offline Linux2164 passes/zero skips. Unchanged limits/no live trial; WSL clock cause and full-minute capacity remain open.
 

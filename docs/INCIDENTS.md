@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-103 - 2026-10-18 - Approved sensor-free screen fails longer alignment gate
+
+QA-049/WL-126. One approved A sequence; six4s intervals pass (worst48.768863ms incluncertainty,1.231137ms margin), then45.003052868s alignment observes+71.061457ms difference +0.001221ms uncertainty=71.062678ms>50ms. Boundaryerror72.273769ms passes100ms but cannot override clock rejection. Exit1/complete3recordjournal; no watchdog timeout or retry. High confidence in saved/recomputed arithmetic; writer/rate-versus-step/cross-domain cause unknown, no fix claimed.17raw manifest entries/101source hashes verified against execution commit; original evidence private and minimized receipt published. No Docker/Redis/sensor/service/clock intervention; no restoration required for our commands. Gate correctly stops progression; B remains unapproved/native capacity and real-data qualification pending. Any next native diagnostic needs exact fresh scope.
+
 ### INC-102 - 2026-10-18 - Contradictory timing receipts passed admission
 
 QA-047/WL-124. Virtual-clock tests reproduce three accepted invalid receipts: boolean span, dispatch outside command brackets, and round trip exceeding those brackets. High-confidence software cause: False equals zero in Python; independent numeric gates did not bind transport values to sample endpoints. Require exact nonnegative integers and reconstruct sample edges from midpoint/span, including odd widths. Preserve before-fix XML:3failures/31passes/two cache-access warnings; later fresh-cache tests pass. Negative-span case already rejected, not a fourth defect. FinalWindows201pass/one Linuxskip; fullLinux2164pass/zero skips. Receipt consistency does not repair physical WSL drift, authenticate clocks or qualify capacity. No live trial/service action/relaxed limits.

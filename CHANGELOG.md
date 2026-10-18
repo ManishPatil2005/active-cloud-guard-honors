@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 - Preserve approved sensor-free alignment rejection
+
+- Run step A once with unchanged45/75second diagnostic watchdogs and original clock/alignment gates; six short checks pass, alignment rejects71.062678ms/50ms.
+- Preserve private raw evidence and reviewed minimized receipt; verify17raw hashes/101source hashes and three-record journal. No retry, Docker/Redis/sensor or clock/service changes; B unapproved. QA-049/WL-126.
+
 ## 2026-10-18 - Plan separately approved native clock and capacity validation
 
 - Add QA-048 native plan with exact A/B approval wording, frozen limits, first-failure stops, private evidence and bounded owned restoration.

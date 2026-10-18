@@ -1,5 +1,10 @@
 # Live timing investigation and bounded UTC wait repair
 
+Latest QA-049: [approved sensor-free A screen](SENSOR_FREE_CLOCK_SCREEN.md)
+ran once without service/clock changes. Six short intervals pass narrowly, then
+alignment rejects71.062678ms combined bound versus50ms. No retry/sensor/workload;
+cause still unresolved, B unapproved and full-minute capacity unqualified.
+
 QA-046 offlinefollow-up closesinitialcall/finalflag-trustsoftwaregaps and reduces
 duplicatedoutputbytes; actualWSLtimingcause unresolved. No newclockobservation,
 serviceintervention orsensortrial. [Latestlimits/results](CAPACITY_TIMING_OFFLINE_REFINEMENT.md).
