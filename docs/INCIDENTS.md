@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-097 - 2026-10-18 - Unstable baseline and narrow settled-clock margin
+
+QA-042 fresh-approved single comparison: baseline wall/BOOT[-297815116,-297814202]ns exceeds50ms; after fixed settling64samples pass with maximum47,943,999ns. High confidence in saved arithmetic, low confidence in causal attribution/repeatability; host controller not traced or altered. No claim that guest removal permanently fixes timing. Original enabled/running service restored/PID1990 before own rollback cancelled; separately verified. Retain failed baseline and QA-041 failure, do not promote post-settling candidate into sensor coverage/independent dataset acceptance. Full evidence and exact commands WL-120/WSL_TIMING_REMEDIATION; next integrated qualification requires separate scope.
+
 ### INC-095 - 2026-10-18 - Guest writer removal insufficient; rollback verified
 
 QA-041 ordinary-user sample still shows RAW/MONO disagreement. Read-only chronyc in WSL system distribution responds with PHC0 tracking; matched WSL2.7.3 source launches chronyd outside the guest inventory. One baseline/fourpost-stop clock blocks reject after temporarily stopping guest timesyncd:finalRAW/MONO[-118369934,-118348908]ns,wall/BOOT[-52337372,-52336746]ns. High confidence in sampled inconsistency; exact writer/cause unresolved. Armed rollback before stop; original enabled/running state restored/newPID720, timer cancelled. No lasting change or sensor. Revised longer intervention auto-review rejected for absent fresh approval; no bypass/retry executed. Native/source facts and limits WSL_TIMING_REMEDIATION/WL-119.

@@ -1,0 +1,168 @@
+{
+  "milestone": "QA-042",
+  "date": "2026-10-18",
+  "source_commit": "4a4384c190a31e9b3ce92dad8eda2d882357fadf",
+  "fresh_exact_user_approval": true,
+  "intent": {
+    "service_before": {
+      "MainPID": "720",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    },
+    "watchdog": "acg-clock-restore-20261018-qa042",
+    "rollback_seconds": 480,
+    "fixed_settle_seconds": 120,
+    "blocks_before": 1,
+    "blocks_after": 4,
+    "runner_sha256": "f16a530dbef15b158802a3efd51f6a1cdf74196fd146a8965f54ddb3f63e11df",
+    "utc_ns": 1792321994791966829,
+    "clock_setter_called": false
+  },
+  "phase_summaries": [
+    {
+      "phase": "before",
+      "sha256": "ad95109d32d6f3e9f69b5e0abf935b4326a1f31cf992f1b27e0bd5bfb77bfc63",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 438455,
+          "upper_ns": 470494,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -297815116,
+          "upper_ns": -297814202,
+          "includes_zero": false
+        }
+      }
+    },
+    {
+      "phase": "after-0",
+      "sha256": "1a5ab0b35a977be4d9a989ec6e166ea5e41c2e33c72e548ba549c0cc734894f8",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -27981384,
+          "upper_ns": -27953192,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -500,
+          "upper_ns": 308,
+          "includes_zero": true
+        }
+      }
+    },
+    {
+      "phase": "after-1",
+      "sha256": "6a278f67f35df2b58adb3914612e14e20f7e887f74911b242c79bfca45bcea36",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -11545690,
+          "upper_ns": -11518579,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -23209381,
+          "upper_ns": -23208621,
+          "includes_zero": false
+        }
+      }
+    },
+    {
+      "phase": "after-2",
+      "sha256": "357d3d540f0402f7bb69394b23093c1a45cdd181aad1539814f6217196122843",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -7355415,
+          "upper_ns": -7337601,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -341,
+          "upper_ns": 215,
+          "includes_zero": true
+        }
+      }
+    },
+    {
+      "phase": "after-3",
+      "sha256": "17a7cb18ce96b9c1ab7dcb207249ed94d3b3427d019794b5219b159aacd49b65",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -291542,
+          "upper_ns": -259348,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -12629906,
+          "upper_ns": -12629072,
+          "includes_zero": false
+        }
+      }
+    }
+  ],
+  "settling_raw_elapsed_ns": 119798299536,
+  "post_samples": 64,
+  "combined_post_stop_last": {
+    "raw_minus_mono_ns": [
+      -47772347,
+      -47740756
+    ],
+    "wall_minus_boot_change_ns": [
+      -35838831,
+      -35838003
+    ]
+  },
+  "maximum_absolute_bound_ns": 47943999,
+  "candidate_status": "candidate_consistency_passed",
+  "offline_arithmetic_source_domain_review_passed": true,
+  "service_restored": {
+    "MainPID": "1990",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "watchdog_cancelled_after_restoration": true,
+  "private_file_sha256": {
+    "after-0.json": "1a5ab0b35a977be4d9a989ec6e166ea5e41c2e33c72e548ba549c0cc734894f8",
+    "after-1.json": "6a278f67f35df2b58adb3914612e14e20f7e887f74911b242c79bfca45bcea36",
+    "after-2.json": "357d3d540f0402f7bb69394b23093c1a45cdd181aad1539814f6217196122843",
+    "after-3.json": "17a7cb18ce96b9c1ab7dcb207249ed94d3b3427d019794b5219b159aacd49b65",
+    "before.json": "ad95109d32d6f3e9f69b5e0abf935b4326a1f31cf992f1b27e0bd5bfb77bfc63",
+    "command-00.json": "c090cf9cfcc563bf92cea42109c105e99a00312a19de0853b989016d610ede37",
+    "command-01.json": "84153af8224ccf4b344fd9d599d50ab3a93c47b69fefb661bf629ebcdb89df4a",
+    "command-02.json": "83870d1d963001083f1637fae0c3008402f77230019a1069853c4d80b3a6bc51",
+    "command-03.json": "f5c38a6d8eb712bfbe030ce5f54a680b848b9f12ec08f764b93e73cccac3184f",
+    "command-04.json": "c39ab1ac03b579f28fce496a9858b7a0dc70d1c6c4063bed3894d3be3bb8242c",
+    "command-05.json": "9b8ba820546f85b027496b48458aef9f0f5bab5ce049d5440dc7bc0d7db60cdd",
+    "command-06.json": "cbcf37f0216ae6732110914c22b0b25ad52aa0ea196b22168b3494aecd85e38f",
+    "command-07.json": "277161c36b8c2af4f6c61eff7a3252ebbae9a3cb76ed4411bc0e2289c22eb305",
+    "command-08.json": "b5a0afca58c799b9376474dca2f90036f820fcb290a08c33e6635eef7f7d522a",
+    "command-09.json": "807d2d4a0b1287ee3e86e26564f3c2f9a28779c07a51fa219adf31e14418eaf4",
+    "command-10.json": "f64c7a48e915193678b2153e6c23f7e0146bf45b526f2a41b8409b7d5dabbc79",
+    "command-11.json": "24edb09fe20cc0fcc46330066fab792625af11b50309ced266c93ea9da098a0b",
+    "command-12.json": "277161c36b8c2af4f6c61eff7a3252ebbae9a3cb76ed4411bc0e2289c22eb305",
+    "command-13.json": "5542f9d0a3d1bcce7cdd1392473570623ff0d15c8c7905581f2e0cfb448670c4",
+    "command-14.json": "2ee440be3bcc3e50392689f0ec32268c81cac035e67666045860d7b0b36795cf",
+    "command-15.json": "954dcd6db3cc35151a87fa53e6a47b45aeb03ab96fc7a559f7df1c3c96ff150f",
+    "intent.json": "5b1ae4886b51a29575e6883ac7c698dfc82ec5398263e9bf5d2ea668c4644a4e",
+    "restored.json": "5bde154d4d96d0cde2d257e43188b3348951ecde93955154d683f1c634b477e5",
+    "result.json": "acdcc1bb40ce553dde712e8ccb564aa98d7530facbd542aa8cfee2c56be9e424",
+    "settle-complete.json": "84207f8fa8227ed29c2163d9e39de8c138ba0ebaddf20d51df439070202f387e",
+    "settle-start.json": "70a72620267d1362936cebbcee0ad2c6c44ec9304b34bf11c96fdcd976e73dbf"
+  },
+  "sensor_trials": 0,
+  "full_window_qualified": false,
+  "independently_evaluated": false,
+  "clock_cause_resolved": false
+}

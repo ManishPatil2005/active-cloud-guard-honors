@@ -1,10 +1,11 @@
 # Live timing investigation and bounded UTC wait repair
 
-18 October 2026; QA-041/QA-043, E2-005/E2-025/RQ3. The user explicitly requested
+18 October 2026; QA-041/QA-042/QA-043, E2-005/E2-025/RQ3. The user explicitly requested
 fixing live timing and coverage. **Live qualification remains open.** A scheduler
 defect is repaired and software-tested; the first service correction was rejected
-and restored. The revised service comparison is prepared, blocked pending fresh
-approval, and has not run. No new sensor workload or real-data study occurred.
+and restored. After fresh exact approval the revised service comparison ran once:
+its post-settling segment passed narrowly. No new sensor workload or real-data
+study occurred; the underlying clock cause is not resolved.
 
 ## Current observations and correction attempt
 
@@ -76,7 +77,7 @@ This repairs scheduling under an already acceptable small adjustment; it cannot
 repair the observed large rate/step behavior, certify event coverage, or qualify
 historical failures. New tests preserve both initial and final evidence.
 
-## Prepared next live step — QA-042, NOT EXECUTED
+## Executed revised comparison — QA-042, limited candidate pass
 
 Revised private helper tmp/qa042_clock_settle.py: one baseline, arm480second
 rollback, stop only guest timesyncd, fixed120second settling period, then four
@@ -86,13 +87,32 @@ no Windows or host-agent changes.
 The purpose is to test convergence of the remaining controller after the first
 attempt showed continuing correction, not to select a favorable trial.
 
-Automatic approval review rejected launching this second, longer intervention
-because the earlier scope prohibited automatic retries and no fresh approval
-for its exact duration/settling period was present. No part of it executed.
-Explicit approval has been requested; elapsed time is not approval. The service
-has been checked enabled/running afterward. Existing sensor-trial permissions
-are not reused. Any later acquisition must retain identity/readiness/coverage/
-clock gates and cannot be promoted into independent evaluation without actual
-context, reviewer labels, grouped splits and calibration.
+Automatic approval review initially rejected this longer intervention without
+fresh approval. The user subsequently explicitly approved the exact revised
+comparison, which ran once at source4a4384c. This does not alter the earlier
+QA-041 failure or its historical pending proposal. No automatic repeat.
 
-Exact commands, failures, verification and named publication: WL-119.
+[Minimized result](../output/guest-ntp-settle-summary-20261018-qa042.json) binds
+26private JSON files, the helper digest and5native block receipts. Baseline
+wall/BOOT change[-297815116,-297814202]ns remains outside50ms. After the fixed
+twelve10second sleeps, all64post-settling bounds passed the unchanged50ms limit.
+Maximum endpoint47,943,999ns leaves only2,056,001ns margin; finalRAW/MONO
+[-47772347,-47740756]ns and wall/BOOT[-35838831,-35838003]ns. Settling measured
+119,798,299,536ns against RAW, not proof of120physical seconds. Clock-domain,
+source/backend and summary arithmetic were checked offline; that is not signed
+attestation, independent human evaluation or a repeatability study.
+
+Original service restored enabled/active/running/PID1990 and only then rollback
+cancelled; separate read-only verification confirmed exact timer inactive and
+not-found, no pending jobs. No permanent service/host setting changed. The
+candidate condition was deliberately not left active for another workload.
+
+Next is a separately scoped and approved integrated development qualification
+under the candidate condition, with unchanged UTC alignment/readiness/identity/
+coverage/drop gates and unconditional restoration. This clock-only permission
+does not authorize a sensor trial or changes to host PHC synchronization. A
+passing post-settling segment does not prove full-window capture or explain the
+baseline/earlier failures. Actual context, reviewer labels, grouped splits and
+calibration remain prerequisites for independent research evaluation.
+
+Exact commands, failures, verification and named publication: WL-119/WL-120.

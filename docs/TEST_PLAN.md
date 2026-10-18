@@ -1,11 +1,19 @@
 # Test and verification plan
 
+QA-042/WL-120: one approved baseline/settle/four-block live clock comparison,
+not a sensor test.64post-settling bounds pass50ms, worst47.943999ms; unstable
+baseline preserved. Offline native review of5blocks,64bound recomputations and
+26private digests; restoration and timer cancellation separately observed.
+New documentation checks recorded in WL-120. No code/full-suite rerun or qualified
+UTC alignment/identity/coverage/real-data claim; next integrated test needs scope.
+
 QA-043: preserve4before-fix small-backward-step failures, add9regressions for
 bounded repair/retained initial evidence, unchanged large-jump refusal, a second
 fault during repair and explicit wait version.130related Windows targets pass;
 full Linux result at WL-119 closure. QA-041 actual clocks remain inconsistent;
 inert rollback timer and actual guest-service restoration observed. QA-042
-second intervention blocked before execution; no sensor/real-data acceptance.
+second intervention was blocked at that checkpoint, later approved/executed as
+recorded above; no sensor/real-data acceptance.
 
 Final QA-043:130related Windows passes/fullLinux2110passes with matching
 unchanged core package artifacts,zero Linux skips/failures/errors. Offline

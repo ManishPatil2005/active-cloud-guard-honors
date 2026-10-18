@@ -1,6 +1,6 @@
 # Documentation index
 
-Latest live-timing work: [QA-041/043 remediation record](WSL_TIMING_REMEDIATION.md). UTC scheduling defect repaired/tested; guest-NTP removal alone failed, service restored. PHC-agent context observed. Revised settling comparison prepared but blocked pending fresh approval; live coverage/real-data acceptance remains open.
+Latest live-timing work: [QA-042 approved settling comparison](WSL_TIMING_REMEDIATION.md). One post-settling candidate passes64samples/worst47.943999ms under unchanged50ms; original service restored. Baseline remained unstable, earlier failed comparison preserved, causal cure and sensor/full-window/real-data acceptance NOT established. UTC repair remains software-tested; next integrated trial needs separate scope/approval.
 
 Latest QA-040: [current-source packages/regression](PACKAGE_REFRESH_QUALIFICATION.md), fullLinux2101passes/zero skips and8Windows installed-package checks. Evaluator278e129/reviewer-agreement6aa5b0e published. Research-data qualification, independent evaluation and production acceptance remain outstanding; old test counts below are dated checkpoints.
 

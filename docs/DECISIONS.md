@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-093 - 2026-10-18 - Treat settled clock pass as a bounded candidate only
+
+QA-042/WL-120. Fresh exact user approval allowed one longer comparison; it now supersedes the earlier pending status, not historical QA-041 evidence.64post-settling samples pass with only2.056001ms margin below50ms, while the baseline is unstable. Restore original service even on success; do not persistently disable it or infer a unique cause/repeatability from one uncontrolled-host comparison. Do not combine separately scoped clock and sensor approvals. A proposed integrated trial must retain original timing/identity/coverage gates, watchdog and unconditional restoration, with fresh approval before execution. No production or research-data admission from this sensor-free result.
+
 ## ADR-092 - 2026-10-18 - Preserve failed clock correction and bound one deadline repair
 
 User requests live timing/coverage fix. Do not persistently remove guest NTP after its first comparison fails; restore original enabled/running state and retain private/raw plus minimized evidence. PHC-agent response/versioned source motivates a fixed settling comparison, not unique causal attribution. Automatic review requires fresh permission for the longer second intervention, so it remains unexecuted. Independently fix the demonstrated UTC wait defect through one bounded<=50ms recheck while retaining both samples and original acceptance gates. New receipts declare wait version; no timestamp corrections or promotion of failed data. WL-119/WSL_TIMING_REMEDIATION.

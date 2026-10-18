@@ -1,12 +1,20 @@
 # Journaled full-window development qualification
 
+18October QA-042: the separately approved fixed-settling clock-only comparison
+passes64post-settling samples narrowly (maximum47.943999ms/50ms). Baseline
+unstable; guest service restored. This did NOT execute the coordinator or a sensor
+workload. Combining that intervention with the integrated qualification requires
+new scoped approval; original timing/identity/coverage/drop gates remain unchanged.
+[Evidence](WSL_TIMING_REMEDIATION.md). No live UTC alignment or coverage acceptance.
+
 18October QA-043: `utc_boundary_single_recheck_v2` repairs the wait deadline for
 small accepted backward adjustments, with one additional wait<=50ms and both
 samples retained. The original50ms clock and0..100ms boundary gates still apply
 to the fresh final sample. Large changes remain rejected; no historical result
 is corrected. [Tests and actual clock investigation](WSL_TIMING_REMEDIATION.md).
-The guest-NTP comparison failed and restored state; no new sensor trial or
-full-window coverage acceptance. The revised comparison needs fresh approval.
+The first guest-NTP comparison failed and restored state; no new sensor trial or
+full-window coverage acceptance. At that checkpoint the revised comparison still
+needed fresh approval; its later limited result is recorded above.
 
 ## Latest observed outcome - QA-035 / WL-113
 

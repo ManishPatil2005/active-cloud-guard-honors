@@ -1,8 +1,12 @@
 # Evidence index
 
+## Approved settled-clock comparison (18 October 2026)
+
+QA-042 [minimized result](../output/guest-ntp-settle-summary-20261018-qa042.json):5native blocks,26private file hashes,64post-settling bounds recomputed locally. Candidate passes unchanged50ms limit, maximum47.943999ms; baseline wall/BOOT about-297.815ms remains unstable. Original guest service restored; timer cancelled and separately verified. No sensor/real-data/independent research acceptance. [Scope and limitations](WSL_TIMING_REMEDIATION.md), WL-120; earlier pending proposal and failed QA-041 outputs remain historical and byte-unchanged.
+
 ## Live timing diagnosis and deadline repair (18 October 2026)
 
-QA-041 [ordinary-user clock receipt](../output/kernel-clock-current-20261018-qa041.json), [review](../output/kernel-clock-current-review-20261018-qa041.json), [rejected comparison summary](../output/guest-ntp-correction-summary-20261018-qa041.json):one baseline/fourpost-stop blocks,24private artifact hashes, failed consistency and enabled/running restoration. QA-043 [4before-fix regressions](../output/alignment-boundary-before-20261018-qa043.xml), [130Windows targets](../output/alignment-boundary-versioned-windows-20261018-qa043.xml). [Method](WSL_TIMING_REMEDIATION.md), WL-119. Revised comparison unexecuted; coverage/clock cause and independent evaluation open.
+QA-041 [ordinary-user clock receipt](../output/kernel-clock-current-20261018-qa041.json), [review](../output/kernel-clock-current-review-20261018-qa041.json), [rejected comparison summary](../output/guest-ntp-correction-summary-20261018-qa041.json):one baseline/fourpost-stop blocks,24private artifact hashes, failed consistency and enabled/running restoration. QA-043 [4before-fix regressions](../output/alignment-boundary-before-20261018-qa043.xml), [130Windows targets](../output/alignment-boundary-versioned-windows-20261018-qa043.xml). [Method](WSL_TIMING_REMEDIATION.md), WL-119. Revised comparison was unexecuted at that checkpoint; QA-042 result above supersedes pending status only. Coverage/clock cause and independent evaluation open.
 
 Final [full Linux regression](../output/alignment-boundary-full-linux-20261018-qa043.xml):2110passes/zero skips/failures/errors, with matching unchanged QA-040core package artifacts. This verifies software, not clock stability or independent security effectiveness. Intermediate42/129case receipts retained separately with their actual scope.
 

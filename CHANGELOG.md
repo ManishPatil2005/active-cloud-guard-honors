@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-18 - Observe approved post-settling clock consistency candidate
+
+- Execute QA-042 once after fresh exact approval:64post-settling samples pass original50ms bounds, worst47.943999ms; baseline instability remains explicit.
+- Review5native blocks/26private hashes and restore original guest service before cancelling rollback. No sensor trial, permanent settings, causal-cure or research-data qualification claim; WL-120.
+
 ## 2026-10-18 - Repair bounded UTC waiting and preserve rejected clock correction
 
 - Fix avoidable early-boundary rejection after small backward adjustments; keep both samples and all original timing gates, with explicit wait-version metadata.
