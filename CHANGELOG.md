@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-18 - Repair bounded UTC waiting and preserve rejected clock correction
+
+- Fix avoidable early-boundary rejection after small backward adjustments; keep both samples and all original timing gates, with explicit wait-version metadata.
+- Record host PHC-agent context and one rejected guest-NTP comparison with verified restoration; retain negative evidence.
+- Preserve the blocked revised comparison as unexecuted pending fresh approval. No new sensor or qualified real-data collection; QA-041/043/WL-119.
+
 ## 2026-10-18 - Qualify current source and fresh installable packages
 
 - Rebuild Windows/Linux wheels offline from6aa5b0e with43source modules and fresh isolated installations.

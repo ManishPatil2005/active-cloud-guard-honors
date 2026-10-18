@@ -19,6 +19,7 @@ from scripts.window_transport import RedisWindowTransport
 from scripts.window_workload import run as workload
 
 MINUTE = 60_000_000_000
+ALIGNMENT_WAIT_PROTOCOL = "utc_boundary_single_recheck_v2"
 
 
 def digest(raw):
@@ -217,12 +218,31 @@ def wait_alignment(
     last = sample(monotonic_ns, wall_ns)
     timing = compare(first, last)
     error = last["wall_ns"] - boundary
+    repair = None
+    # A small backward wall adjustment can leave the original monotonic deadline
+    # early even when the clock-consistency gate passes. Wait once for the actual
+    # boundary; retain both samples and reapply every original gate afterward.
+    if timing["within_tolerance"] and -50_000_000 <= error < 0:
+        repair = dict(
+            initial_last=last,
+            initial_timing=timing,
+            initial_boundary_error_ns=error,
+            extra_wait_ns=-error,
+            maximum_extra_wait_ns=50_000_000,
+        )
+        corrected_deadline = last["monotonic_mid_ns"] - error
+        while monotonic_ns() < corrected_deadline:
+            sleep(max(0, (corrected_deadline - monotonic_ns()) / 1e9))
+        last = sample(monotonic_ns, wall_ns)
+        timing = compare(first, last)
+        error = last["wall_ns"] - boundary
     reasons = []
     if not timing["within_tolerance"]:
         reasons.append("clock_disagreement")
     if not 0 <= error <= 100_000_000:
         reasons.append("utc_boundary_outside_tolerance")
-    return dict(
+    result = dict(
+        wait_protocol=ALIGNMENT_WAIT_PROTOCOL,
         first=first,
         last=last,
         boundary_ns=boundary,
@@ -231,6 +251,9 @@ def wait_alignment(
         accepted=not reasons,
         reasons=reasons,
     )
+    if repair is not None:
+        result["deadline_repair"] = repair
+    return result
 
 
 def alignment_diagnostic(directory):

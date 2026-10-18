@@ -1,5 +1,11 @@
 # Evidence index
 
+## Live timing diagnosis and deadline repair (18 October 2026)
+
+QA-041 [ordinary-user clock receipt](../output/kernel-clock-current-20261018-qa041.json), [review](../output/kernel-clock-current-review-20261018-qa041.json), [rejected comparison summary](../output/guest-ntp-correction-summary-20261018-qa041.json):one baseline/fourpost-stop blocks,24private artifact hashes, failed consistency and enabled/running restoration. QA-043 [4before-fix regressions](../output/alignment-boundary-before-20261018-qa043.xml), [130Windows targets](../output/alignment-boundary-versioned-windows-20261018-qa043.xml). [Method](WSL_TIMING_REMEDIATION.md), WL-119. Revised comparison unexecuted; coverage/clock cause and independent evaluation open.
+
+Final [full Linux regression](../output/alignment-boundary-full-linux-20261018-qa043.xml):2110passes/zero skips/failures/errors, with matching unchanged QA-040core package artifacts. This verifies software, not clock stability or independent security effectiveness. Intermediate42/129case receipts retained separately with their actual scope.
+
 ## Current-source installable package verification (18 October 2026)
 
 QA-040 [qualification receipt](../output/package-completion-qualification-20261018-qa040.json), [Windows installed checks](../output/package-completion-windows-20261018-qa040.xml):8pass; [full Linux suite](../output/package-completion-full-linux-20261018-qa040.xml):2101pass/zero skips/failures/errors. Source6aa5b0e includes QA-038/039,43module exact-byte assertions. Existing hosts/reused dependencies, source-tree full suite with selected installed CLI children. No independent efficacy/fresh-host/fullWindows/clock or production acceptance. WL-118.

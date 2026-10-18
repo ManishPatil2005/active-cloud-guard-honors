@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest live-timing work: [QA-041/043 remediation record](WSL_TIMING_REMEDIATION.md). UTC scheduling defect repaired/tested; guest-NTP removal alone failed, service restored. PHC-agent context observed. Revised settling comparison prepared but blocked pending fresh approval; live coverage/real-data acceptance remains open.
+
 Latest QA-040: [current-source packages/regression](PACKAGE_REFRESH_QUALIFICATION.md), fullLinux2101passes/zero skips and8Windows installed-package checks. Evaluator278e129/reviewer-agreement6aa5b0e published. Research-data qualification, independent evaluation and production acceptance remain outstanding; old test counts below are dated checkpoints.
 
 Latest QA-039: [original-review agreement](RUNTIME_INTAKE.md) implemented as an opt-in extension;205related cases pass Linux/204Windows with1existing platform skip. Original pair counts/unknown coverage and descriptive known-pair kappa are available; human labels and qualified capture remain research dependencies. QA-038 evaluator milestone published at278e129.

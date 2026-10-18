@@ -415,6 +415,74 @@ def test_alignment_returns_complete_numeric_evidence_without_correction(offset):
     assert report["last"]["wall_ns"] == boundary + offset
 
 
+@pytest.mark.parametrize("offset", [-1, -1_000_000, -49_000_000, -50_000_000])
+def test_small_backward_adjustment_waits_for_actual_boundary(offset):
+    clock = Clock()
+    first = module.sample(clock.mono, clock.wall)
+    boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+    clock.epoch += offset
+    report = module.wait_alignment(
+        first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+    )
+    assert report["accepted"] is True
+    assert report["boundary_error_ns"] == 0
+    assert report["timing"]["clock_difference_ns"] == offset
+    assert report["deadline_repair"]["initial_boundary_error_ns"] == offset
+    assert report["deadline_repair"]["extra_wait_ns"] == -offset
+
+
+@pytest.mark.parametrize("offset", [-50_000_001, -200_000_000, 200_000_000])
+def test_clock_fault_does_not_trigger_boundary_repair(offset):
+    clock = Clock()
+    first = module.sample(clock.mono, clock.wall)
+    boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+    clock.epoch += offset
+    report = module.wait_alignment(
+        first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+    )
+    assert report["accepted"] is False
+    assert "deadline_repair" not in report
+    assert "clock_disagreement" in report["reasons"]
+
+
+def test_new_clock_jump_during_boundary_repair_still_rejects():
+    clock = Clock()
+    first = module.sample(clock.mono, clock.wall)
+    boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+    clock.epoch -= 1_000_000
+    sleeps = []
+
+    def interrupted_wait(seconds):
+        sleeps.append(seconds)
+        clock.sleep(seconds)
+        if seconds < 0.5:
+            clock.epoch -= 1_000_000_000
+
+    report = module.wait_alignment(
+        first,
+        boundary,
+        monotonic_ns=clock.mono,
+        wall_ns=clock.wall,
+        sleep=interrupted_wait,
+    )
+    assert report["accepted"] is False
+    assert report["deadline_repair"]["initial_boundary_error_ns"] == -1_000_000
+    assert report["boundary_error_ns"] == -1_000_000_000
+    assert sleeps.count(0.001) == 1
+    assert "clock_disagreement" in report["reasons"]
+
+
+def test_alignment_wait_version_is_explicit():
+    clock = Clock()
+    first = module.sample(clock.mono, clock.wall)
+    boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+    report = module.wait_alignment(
+        first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+    )
+    assert report["wait_protocol"] == "utc_boundary_single_recheck_v2"
+    assert report["accepted"] is True and "deadline_repair" not in report
+
+
 def test_sensor_free_diagnostic_never_constructs_transport(tmp_path, monkeypatch):
     monkeypatch.setattr(module, "sources", lambda: {"synthetic_source": "0" * 64})
     monkeypatch.setattr(module, "wait_alignment", lambda *_: {"accepted": False})

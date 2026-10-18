@@ -1,5 +1,18 @@
 # Test and verification plan
 
+QA-043: preserve4before-fix small-backward-step failures, add9regressions for
+bounded repair/retained initial evidence, unchanged large-jump refusal, a second
+fault during repair and explicit wait version.130related Windows targets pass;
+full Linux result at WL-119 closure. QA-041 actual clocks remain inconsistent;
+inert rollback timer and actual guest-service restoration observed. QA-042
+second intervention blocked before execution; no sensor/real-data acceptance.
+
+Final QA-043:130related Windows passes/fullLinux2110passes with matching
+unchanged core package artifacts,zero Linux skips/failures/errors. Offline
+comparison review matches24private hashes/5blocks/64rows/restoration/cancel.
+Keepalive stopped; original guest service active/running/enabled. No actual
+coverage or clock fix accepted; QA-042 approval still pending at closure.
+
 QA-040: rebuild43module current source into fresh isolated offline Windows/Linux wheels/targets.8Windows package checks pass; fullLinux2101passes/zero skips/failures/errors, including exact archive/installed module bytes and isolated CLI origin. No whole Windows rerun, fresh-host qualification, model/sensor/clock experiment or independent security/detection claim. Exact source/hash/test receipts and commands WL-118/PACKAGE_REFRESH_QUALIFICATION.
 
 QA-039:23new cases and existing intake/typed/index targets total205. Tests cover729three-window label pairings against Fraction oracle, reviewer-order symmetry, perfect/negative/undefined kappa, unknown-pair denominators, zero/one reviews, type guards, v1/v2 data, legacy JSON equality, exclusive CLI output and conflicting-mode refusal. Initial sandbox access failures and one mistaken typed-fixture assumption retained; correctedWindows204pass1existing skip/Linux205pass. Actual synthetic demos match; no human reliability/independent research qualification. WL-117.

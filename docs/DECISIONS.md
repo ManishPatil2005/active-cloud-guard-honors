@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-092 - 2026-10-18 - Preserve failed clock correction and bound one deadline repair
+
+User requests live timing/coverage fix. Do not persistently remove guest NTP after its first comparison fails; restore original enabled/running state and retain private/raw plus minimized evidence. PHC-agent response/versioned source motivates a fixed settling comparison, not unique causal attribution. Automatic review requires fresh permission for the longer second intervention, so it remains unexecuted. Independently fix the demonstrated UTC wait defect through one bounded<=50ms recheck while retaining both samples and original acceptance gates. New receipts declare wait version; no timestamp corrections or promotion of failed data. WL-119/WSL_TIMING_REMEDIATION.
+
 ## ADR-091 - 2026-10-18 - Optional descriptive review agreement with unknown coverage
 
 E2-035/RES-001/RES-002. Add a full original-vote pair table and known-pair unweighted Cohen kappa to existing intake behind an explicit option. Preserve default reports, unknown denominators, unavailable/degenerate nulls, negative agreement and original review hashes; compute before adjudication. Use integer cross-products without a new statistical dependency, test against Fraction arithmetic. Do not assume window independence, reviewer authenticity, meaningful unknown-as-threat class or an agreed quality threshold. Qualified data and actual human reviews remain prerequisites for research claims. Method/source RUNTIME_INTAKE; WL-117.

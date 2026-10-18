@@ -1,5 +1,13 @@
 # Journaled full-window development qualification
 
+18October QA-043: `utc_boundary_single_recheck_v2` repairs the wait deadline for
+small accepted backward adjustments, with one additional wait<=50ms and both
+samples retained. The original50ms clock and0..100ms boundary gates still apply
+to the fresh final sample. Large changes remain rejected; no historical result
+is corrected. [Tests and actual clock investigation](WSL_TIMING_REMEDIATION.md).
+The guest-NTP comparison failed and restored state; no new sensor trial or
+full-window coverage acceptance. The revised comparison needs fresh approval.
+
 ## Latest observed outcome - QA-035 / WL-113
 
 The owner explicitly approved one new trial after WL-112. It ran once at source

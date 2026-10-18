@@ -2,6 +2,8 @@
 
 # Active Cloud Guard
 
+Current checkpoint (18 October 2026): [live timing investigation and UTC wait repair](docs/WSL_TIMING_REMEDIATION.md), full Linux2,110software tests pass and130related Windows tests pass. The guest-NTP correction attempt failed and restored original service state; a revised settling comparison awaits fresh approval. Qualified live coverage, independent labels/evaluation and production acceptance remain open. Evaluator and reviewer-agreement tooling are implemented. Proposal0.1 approval is [reported by the owner](docs/SUPERVISOR_APPROVAL_RECORD.md). Older dated “latest” paragraphs below preserve earlier checkpoints; use [current status](docs/CURRENT_STATUS.md) for present capability.
+
 Latest compatibility evidence (10 October 2026): [Linux optional-vector qualification](docs/LINUX_VECTOR_QUALIFICATION.md), actual embedded synthetic storage and 1,760 passing tests with installed-wheel checks; [Windows job-policy diagnosis](docs/WINDOWS_JOB_DIAGNOSTIC.md) preserves a hosted lifecycle failure rather than claiming a green matrix. Historical environments/locks remain unchanged. Chroma advisories, supported-host/native assurance, independent research evaluation and production acceptance remain open.
 
 Current readiness refinement: [bounded legacy inputs and client subprocesses](docs/LEGACY_RUNNER_BUDGETS.md), with partial failure evidence and explicit remote-job uncertainty. No Docker/model/sensor experiment or production readiness is inferred from passing software checks.

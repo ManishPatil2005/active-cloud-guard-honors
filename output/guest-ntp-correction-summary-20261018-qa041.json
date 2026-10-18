@@ -1,0 +1,242 @@
+{
+  "milestone": "QA-041",
+  "date": "2026-10-18",
+  "source_commit": "ad84d696b8e9a0edff99dcda212f2d1922083d1f",
+  "wsl_version": "2.7.3.0",
+  "kernel": "6.6.114.1-microsoft-standard-WSL2",
+  "intent": {
+    "service_before": {
+      "MainPID": "168",
+      "ActiveState": "active",
+      "SubState": "running",
+      "UnitFileState": "enabled"
+    },
+    "watchdog": "acg-clock-restore-20261018-qa041",
+    "rollback_seconds": 240,
+    "blocks_before": 1,
+    "blocks_after": 4,
+    "runner_sha256": "affcc25a4b4b6fd5ec450a3e16917fa10724bb25419f3a97b2a7cd5dd707afca",
+    "utc_ns": 1792319749237452300,
+    "clock_setter_called": false
+  },
+  "phase_summaries": [
+    {
+      "phase": "before",
+      "sha256": "54e070ba5dfb6f03c9d1536c4885c9f850745e81df50692d04563a759f66280f",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 24869865,
+          "upper_ns": 24902729,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -10646157,
+          "upper_ns": -10645202,
+          "includes_zero": false
+        }
+      },
+      "tick_usec": [
+        10000,
+        10067,
+        10225
+      ],
+      "frequency_scaled_ppm": [
+        -2706377,
+        -456467,
+        2760711,
+        2772471,
+        2773738
+      ]
+    },
+    {
+      "phase": "after-0",
+      "sha256": "2401d977dc016ee15a278df3dc2720e38b61e6a88d38dd2a73476f55b5335963",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -55829835,
+          "upper_ns": -55801758,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -450,
+          "upper_ns": 371,
+          "includes_zero": true
+        }
+      },
+      "tick_usec": [
+        10000,
+        10256,
+        10317
+      ],
+      "frequency_scaled_ppm": [
+        282828,
+        770283,
+        2768273,
+        2769811,
+        2773738
+      ]
+    },
+    {
+      "phase": "after-1",
+      "sha256": "cd7aed47857d55464eb30d45922747a2062e87904eb2f334c3d4304e8345f25b",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": -84464225,
+          "upper_ns": -84431172,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -18399833,
+          "upper_ns": -18398816,
+          "includes_zero": false
+        }
+      },
+      "tick_usec": [
+        10000,
+        10147,
+        10174
+      ],
+      "frequency_scaled_ppm": [
+        -3008635,
+        1737648,
+        2769811,
+        2773586,
+        2773640
+      ]
+    },
+    {
+      "phase": "after-2",
+      "sha256": "8a817dc56bbfc577183d70654c247ccc6d159d16f29e4c8b7e8153292fb81039",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 10261892,
+          "upper_ns": 10286722,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -497,
+          "upper_ns": 310,
+          "includes_zero": true
+        }
+      },
+      "tick_usec": [
+        9915,
+        10000,
+        10079
+      ],
+      "frequency_scaled_ppm": [
+        -2009752,
+        1552572,
+        2773586,
+        2773738,
+        2773741
+      ]
+    },
+    {
+      "phase": "after-3",
+      "sha256": "28564a47a1364dd93f14c4d998075eacba0dc5c0a3552e75f65444fb92a9274a",
+      "packets": 16,
+      "last_bounds": {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 10977574,
+          "upper_ns": 10998563,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -33938283,
+          "upper_ns": -33937551,
+          "includes_zero": false
+        }
+      },
+      "tick_usec": [
+        9989,
+        9995,
+        10000
+      ],
+      "frequency_scaled_ppm": [
+        1730594,
+        2773741,
+        2871625
+      ]
+    }
+  ],
+  "combined_post_stop_last": {
+    "raw_minus_mono_ns": [
+      -118369934,
+      -118348908
+    ],
+    "wall_minus_boot_change_ns": [
+      -52337372,
+      -52336746
+    ]
+  },
+  "candidate_status": "candidate_rejected",
+  "service_restored": {
+    "MainPID": "720",
+    "ActiveState": "active",
+    "SubState": "running",
+    "UnitFileState": "enabled"
+  },
+  "watchdog_cancelled_after_restoration": true,
+  "private_file_sha256": {
+    "after-0.json": "2401d977dc016ee15a278df3dc2720e38b61e6a88d38dd2a73476f55b5335963",
+    "after-1.json": "cd7aed47857d55464eb30d45922747a2062e87904eb2f334c3d4304e8345f25b",
+    "after-2.json": "8a817dc56bbfc577183d70654c247ccc6d159d16f29e4c8b7e8153292fb81039",
+    "after-3.json": "28564a47a1364dd93f14c4d998075eacba0dc5c0a3552e75f65444fb92a9274a",
+    "before.json": "54e070ba5dfb6f03c9d1536c4885c9f850745e81df50692d04563a759f66280f",
+    "command-00.json": "f5a5ea76569c30e52affff156d8baeb8727bbe4f910b6e007d9a6f0699e772af",
+    "command-01.json": "84153af8224ccf4b344fd9d599d50ab3a93c47b69fefb661bf629ebcdb89df4a",
+    "command-02.json": "24c30f1dfffd80bf0dde386dfc087c915128c203ee74e85a503f69a20b4f65bf",
+    "command-03.json": "0b0074f0d6092c447c9ed17ebe2cf5a84559ff3b72cfcc6cbdf7f2c772d221d8",
+    "command-04.json": "673bd8dac5194c6caf6e813b83064c035829a2befb06248a121f42edda558b25",
+    "command-05.json": "2f7112e239a7897b52d3b7d9b0222b6e8571c080440ec726f41e9496ffc0da9c",
+    "command-06.json": "cbcf37f0216ae6732110914c22b0b25ad52aa0ea196b22168b3494aecd85e38f",
+    "command-07.json": "277161c36b8c2af4f6c61eff7a3252ebbae9a3cb76ed4411bc0e2289c22eb305",
+    "command-08.json": "59d99c06736aeca3dfff8b94565e6d3f02846ebf603f4caeb6463d3344fa16a5",
+    "command-09.json": "48353fcbaac13ff622a47fc320ae6ccece4fe139cc8e8419d290bf1f718a993f",
+    "command-10.json": "2cd9500cbb40c1cfb7d9ea2bfc16dbbcb92974e5f462cfc8b8795613ecb1bc4b",
+    "command-11.json": "c27e42e045fbfcb5817a0941720b4528bdd9b1c0565bf938ba1dc4113018b925",
+    "command-12.json": "277161c36b8c2af4f6c61eff7a3252ebbae9a3cb76ed4411bc0e2289c22eb305",
+    "command-13.json": "5542f9d0a3d1bcce7cdd1392473570623ff0d15c8c7905581f2e0cfb448670c4",
+    "command-14.json": "c090cf9cfcc563bf92cea42109c105e99a00312a19de0853b989016d610ede37",
+    "command-15.json": "bff82c482c37a900c7f00bba4f08aecb0a03a8156b9dbf1aad408cc444088c2b",
+    "intent.json": "f20ab2f7895a431e3311557602ab2b74015df6bbfa5c35e46e000ec1e3da9dbd",
+    "restored.json": "0bf7f20e8b4c68380f6f9618b385838f29ca2b1d7d38db827405858bd9aaaf38",
+    "result.json": "ccfa47b25f4c4604ca58737e0c0ead1a1b417c63965c82e04f4b8d3bf03dc14e"
+  },
+  "host_agent_context": {
+    "query": "wsl --system chronyc tracking",
+    "reference": "PHC0",
+    "after_comparison_residual_frequency_ppm": -2058.617,
+    "after_comparison_rms_offset_seconds": 0.039912418,
+    "clock_writer_identity_verified": false,
+    "system_clock_settings_modified": false
+  },
+  "next_proposal": {
+    "milestone": "QA-042",
+    "fixed_settle_seconds": 120,
+    "rollback_seconds": 480,
+    "controller_timeout_seconds": 260,
+    "executed": false,
+    "automatic_review_rejected": true,
+    "fresh_user_approval_pending": true
+  },
+  "sensor_trials": 0,
+  "independent_evaluation": false,
+  "clock_cause_resolved": false,
+  "limits": [
+    "Changing kernel tick parameters and residual PHC-agent correction remain observed after guest timesyncd stop.",
+    "The rejected attempt is preserved; no threshold relaxation or data qualification.",
+    "Root comparison restored guest service enabled/running; no persistent configuration change.",
+    "Source review and tracking are context, not authenticated attribution of every clock write."
+  ]
+}

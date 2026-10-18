@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.603" timestamp="2026-10-18T16:10:06.010560+05:30" hostname="Welcome"><testcase classname="tests.test_window_trial" name="test_small_backward_adjustment_waits_for_actual_boundary[-1]" time="0.001"><failure message="assert False is True">offset = -1
+
+    @pytest.mark.parametrize("offset", [-1, -1_000_000, -49_000_000, -50_000_000])
+    def test_small_backward_adjustment_waits_for_actual_boundary(offset):
+        clock = Clock()
+        first = module.sample(clock.mono, clock.wall)
+        boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+        clock.epoch += offset
+        report = module.wait_alignment(
+            first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+        )
+&gt;       assert report["accepted"] is True
+E       assert False is True
+
+tests\test_window_trial.py:427: AssertionError</failure></testcase><testcase classname="tests.test_window_trial" name="test_small_backward_adjustment_waits_for_actual_boundary[-1000000]" time="0.001"><failure message="assert False is True">offset = -1000000
+
+    @pytest.mark.parametrize("offset", [-1, -1_000_000, -49_000_000, -50_000_000])
+    def test_small_backward_adjustment_waits_for_actual_boundary(offset):
+        clock = Clock()
+        first = module.sample(clock.mono, clock.wall)
+        boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+        clock.epoch += offset
+        report = module.wait_alignment(
+            first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+        )
+&gt;       assert report["accepted"] is True
+E       assert False is True
+
+tests\test_window_trial.py:427: AssertionError</failure></testcase><testcase classname="tests.test_window_trial" name="test_small_backward_adjustment_waits_for_actual_boundary[-49000000]" time="0.001"><failure message="assert False is True">offset = -49000000
+
+    @pytest.mark.parametrize("offset", [-1, -1_000_000, -49_000_000, -50_000_000])
+    def test_small_backward_adjustment_waits_for_actual_boundary(offset):
+        clock = Clock()
+        first = module.sample(clock.mono, clock.wall)
+        boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+        clock.epoch += offset
+        report = module.wait_alignment(
+            first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+        )
+&gt;       assert report["accepted"] is True
+E       assert False is True
+
+tests\test_window_trial.py:427: AssertionError</failure></testcase><testcase classname="tests.test_window_trial" name="test_small_backward_adjustment_waits_for_actual_boundary[-50000000]" time="0.001"><failure message="assert False is True">offset = -50000000
+
+    @pytest.mark.parametrize("offset", [-1, -1_000_000, -49_000_000, -50_000_000])
+    def test_small_backward_adjustment_waits_for_actual_boundary(offset):
+        clock = Clock()
+        first = module.sample(clock.mono, clock.wall)
+        boundary = (first["wall_ns"] // module.MINUTE + 1) * module.MINUTE
+        clock.epoch += offset
+        report = module.wait_alignment(
+            first, boundary, monotonic_ns=clock.mono, wall_ns=clock.wall, sleep=clock.sleep
+        )
+&gt;       assert report["accepted"] is True
+E       assert False is True
+
+tests\test_window_trial.py:427: AssertionError</failure></testcase></testsuite></testsuites>

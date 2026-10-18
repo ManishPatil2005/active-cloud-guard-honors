@@ -1,0 +1,295 @@
+{
+  "input_sha256": "84b52dad4643231cda33f118043f1e980dafbe0215498777577be0aeb7f4d9b8",
+  "summary": {
+    "protocol": "linux_raw_timex_pairs_v1",
+    "rows": [
+      {
+        "index": 0,
+        "wall_minus_boot_change": {
+          "lower_ns": -953,
+          "upper_ns": 953,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 1,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 23483152,
+          "upper_ns": 23542872,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -682,
+          "upper_ns": 500,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 2,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 43381845,
+          "upper_ns": 43440040,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -673,
+          "upper_ns": 451,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 3,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 61050147,
+          "upper_ns": 61112723,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -756,
+          "upper_ns": 519,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 4,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 76188178,
+          "upper_ns": 76255195,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -852,
+          "upper_ns": 564,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 5,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 89592509,
+          "upper_ns": 89659287,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -736,
+          "upper_ns": 566,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 6,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 98705260,
+          "upper_ns": 98770079,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -774,
+          "upper_ns": 544,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 7,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 96374169,
+          "upper_ns": 96448929,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -785,
+          "upper_ns": 561,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 8,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 92796069,
+          "upper_ns": 92865897,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -828,
+          "upper_ns": 590,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 9,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 88059546,
+          "upper_ns": 88121184,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -748,
+          "upper_ns": 509,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 10,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 90073917,
+          "upper_ns": 90130977,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -648,
+          "upper_ns": 454,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 11,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 96390693,
+          "upper_ns": 96447297,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -652,
+          "upper_ns": 451,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 12,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 101489131,
+          "upper_ns": 101557112,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -814,
+          "upper_ns": 552,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 13,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 106194748,
+          "upper_ns": 106269537,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -872,
+          "upper_ns": 622,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 14,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 101873403,
+          "upper_ns": 101942167,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -875,
+          "upper_ns": 598,
+          "includes_zero": true
+        }
+      },
+      {
+        "index": 15,
+        "raw_minus_mono_elapsed": {
+          "lower_ns": 89384485,
+          "upper_ns": 89450212,
+          "includes_zero": false
+        },
+        "wall_minus_boot_change": {
+          "lower_ns": -664,
+          "upper_ns": 486,
+          "includes_zero": true
+        }
+      }
+    ],
+    "sampled_state_values": {
+      "query_modes": [
+        0
+      ],
+      "time_state": [
+        0
+      ],
+      "status": [
+        0,
+        8193
+      ],
+      "frequency_scaled_ppm": [
+        -2182206,
+        -2,
+        5663,
+        750861
+      ],
+      "tick_usec": [
+        10000,
+        10121,
+        10146
+      ],
+      "phase_offset": [
+        -169025271,
+        -147897112,
+        -129409973,
+        -113233726,
+        -99079511,
+        -86694572,
+        -75857,
+        -66375,
+        -58078,
+        -50818,
+        -44466,
+        -38908,
+        -34044,
+        -29789,
+        -26065,
+        -22807,
+        -19956
+      ],
+      "phase_offset_unit": [
+        "ns",
+        "us"
+      ],
+      "time_constant": [
+        1
+      ],
+      "maxerror_usec": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        2284939,
+        2285439,
+        3780381,
+        3780881,
+        3781381,
+        3781881,
+        3782381,
+        3782881,
+        3783381,
+        3783881,
+        3784381
+      ],
+      "esterror_usec": [
+        0,
+        43553,
+        59992
+      ],
+      "tolerance_scaled_ppm": [
+        32768000
+      ]
+    },
+    "state_read_count": 32,
+    "correction_applied": false,
+    "causal_attribution": "not_proven",
+    "independent_evaluation": false
+  },
+  "local_consistency_verified": true,
+  "authenticated_attestation": false,
+  "independently_evaluated": false,
+  "libc_bytes_rechecked_on_review_host": false
+}

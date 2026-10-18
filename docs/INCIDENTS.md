@@ -1,5 +1,13 @@
 # Incident and resolution ledger
 
+### INC-095 - 2026-10-18 - Guest writer removal insufficient; rollback verified
+
+QA-041 ordinary-user sample still shows RAW/MONO disagreement. Read-only chronyc in WSL system distribution responds with PHC0 tracking; matched WSL2.7.3 source launches chronyd outside the guest inventory. One baseline/fourpost-stop clock blocks reject after temporarily stopping guest timesyncd:finalRAW/MONO[-118369934,-118348908]ns,wall/BOOT[-52337372,-52336746]ns. High confidence in sampled inconsistency; exact writer/cause unresolved. Armed rollback before stop; original enabled/running state restored/newPID720, timer cancelled. No lasting change or sensor. Revised longer intervention auto-review rejected for absent fresh approval; no bypass/retry executed. Native/source facts and limits WSL_TIMING_REMEDIATION/WL-119.
+
+### INC-096 - 2026-10-18 - UTC deadline can remain early under acceptable small adjustments
+
+QA-043 four virtual regressions (-1ns/-1ms/-49ms/-50ms) reproduce rejected early boundaries despite passing clock-consistency gate. Root cause high confidence:deadline derived once from initial realtime and monotonic sample. Fix one extra wait capped50ms only after a passing initial clock check, retain initial evidence, resample/reapply original50ms/0..100ms gates; explicit wait version. Large/second clock faults remain rejected.130related Windows tests pass; Linux closure WL-119. Not the cause or repair of historical multi-second clock faults; live coverage unqualified.
+
 ### INC-094 - 2026-10-18 - Agreement test execution context and fixture-assumption failure
 
 Initial Windows sandbox run:71failed/29passed/1symlink skip, primarily Path.resolve(strict=True) WinError5 on existing bundle directories, the previously observed restricted-context boundary. Host-context unchanged code passes100/1skip; Linux101passes. No path guard, ACL or policy bypass changed. A later new test incorrectly expected two reviews in manifest-typed-counted.json, which actually has reviews=[]; each platform preserved one failure. Corrected the test to require unavailable statistics for that unchanged fixture. Final205related cases:Windows204pass1existing symlink skip/Linux205pass. Source arithmetic remained unchanged by the fixture correction. Negative receipts retained, no retries of native sensors/services or claimed original clock fix.
