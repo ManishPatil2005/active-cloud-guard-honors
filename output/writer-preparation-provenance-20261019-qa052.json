@@ -1,0 +1,17 @@
+{
+  "protocol": "saved_writer_preparation_provenance_v1",
+  "historical_summary_sha256": "527ecb6492152210a0341469b684cff055781782b74bd87b5b93a87f8f3b1e4d",
+  "verified_original_bindings": {
+    "clock-calls.log": "b00cb9683ba558abaa693a6addeb20d9e8e54a6945ca73efdb9b30da47edab4e",
+    "before.json": "83f9fd91b1078b374b27ca91c68255bd335b52deec9a7f415e3b4687179c0fcc",
+    "execution.json": "38b406db58fbf27c35da9576325856036c9106877e90e70c361b0d5492e3fef0",
+    "tracer.stderr": "f2e35a72752f7468d411f220f6796a3ad6fd1532634082b9a3dedf85d2b9b21d"
+  },
+  "local_tool_sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001",
+  "tool_executed": false,
+  "native_context_availability_verified": false,
+  "review_sha256": "a5755cb43781d2f4f669cd3136fc00b7a5594f5e9bb2508eb277759add164186",
+  "reviewer_sha256": "421732852e9c17676487beaaf51373ca563aaef90bf22960a9fbc34f7bfe5e74",
+  "live_actions_executed": [],
+  "cause_identified": false
+}

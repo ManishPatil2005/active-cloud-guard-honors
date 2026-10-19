@@ -1,0 +1,56 @@
+{
+  "protocol": "selected_strace_accounting_v1",
+  "decoder_profile": "strace_6_8_single_pid_ttt_T_s128",
+  "reviewer_sha256": "421732852e9c17676487beaaf51373ca563aaef90bf22960a9fbc34f7bfe5e74",
+  "input_sha256": "b00cb9683ba558abaa693a6addeb20d9e8e54a6945ca73efdb9b30da47edab4e",
+  "bytes": 848,
+  "lines": 2,
+  "rows": [
+    {
+      "line": 0,
+      "syscall": "clock_adjtime",
+      "status": "parsed",
+      "return_value": 0,
+      "entry_buffer_verified": false,
+      "mode_observation": "decoded_nonquery_modes",
+      "decoded_modes": [
+        "ADJ_OFFSET",
+        "ADJ_MAXERROR",
+        "ADJ_ESTERROR",
+        "ADJ_STATUS",
+        "ADJ_TIMECONST",
+        "ADJ_NANO"
+      ],
+      "decode_phase": "syscall_exit",
+      "completion": "nonnegative_return_state"
+    },
+    {
+      "line": 1,
+      "syscall": "clock_adjtime",
+      "status": "parsed",
+      "return_value": 0,
+      "entry_buffer_verified": false,
+      "mode_observation": "decoded_nonquery_modes",
+      "decoded_modes": [
+        "ADJ_OFFSET",
+        "ADJ_MAXERROR",
+        "ADJ_ESTERROR",
+        "ADJ_STATUS",
+        "ADJ_TIMECONST",
+        "ADJ_NANO"
+      ],
+      "decode_phase": "syscall_exit",
+      "completion": "nonnegative_return_state"
+    }
+  ],
+  "parsed_calls": 2,
+  "uninterpreted_lines": 0,
+  "live_actions_executed": [],
+  "process_identity_verified": false,
+  "trace_completeness_verified": false,
+  "entry_buffer_verified": false,
+  "returned_timex_values_are_requests": false,
+  "cause_identified": false,
+  "global_writer_coverage": false,
+  "independent_evaluation": false
+}

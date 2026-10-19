@@ -1,5 +1,7 @@
 # Security boundaries and publication policy
 
+QA-052: saved trace reviewer requires expected digest, original1MiB byte ceiling, finite line/width guards and fresh exclusive output; unknown/private text is not copied. No native calls or process control. E0 proposed root scope is read-only selected metadata only, not attachment/clock/service/settings changes; E1 needs separate exact target consent. No raw trace, process environment or binaries committed.
+
 QA-050: offline kernel-domain reviewer retains existing100KB per-receipt strict JSON/source/schema bounds and exclusive fresh output; accepts one or four complete blocks, rejects domain/backend/order changes. It never calls native observation or time setters. Proposed D needs separate explicit consent; no root/tracing/service/network/sensor scope. Returned timex state is not writer identity or proof of request modes.
 
 QA-047: full-window admission rejects noninteger/negative clock and transport nanoseconds and dispatch/completion inconsistent with sample brackets. Consistency is not authenticity or continuous monitoring. All limits unchanged; native WSL clock/capture capacity and operational acceptance remain unqualified. No live trial or service intervention.

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 - Prepare writer-candidate inventory and conservative saved-trace review
+
+- Add offline selected-strace accounting with explicit query/read-marker/non-query distinctions, unknown-line preservation and no inferred identity/completeness/cause.
+- Recheck original QA-037 evidence/tool hashes without executing them; prepare separate E0 inventory and later exact-target E1 approval. No native run or clock/service/sensor change. QA-052/WL-129.
+
 ## 2026-10-19 - Preserve approved four-block native clock-domain instability
 
 - Execute D once with unchanged guards/queries: four complete blocks/64packets/128zero-mode queries; wall-MONO offset change~1.900s, RAW-MONO~2.043s and changing kernel timing state.

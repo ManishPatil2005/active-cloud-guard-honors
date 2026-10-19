@@ -1,5 +1,11 @@
 # Bounded clock-writer observation — QA-037
 
+QA-052 offline preparation: [next writer-attribution plan](WRITER_ATTRIBUTION_PLAN.md)
+separates unapproved candidate/tool inventory from later exact-target tracing.
+Original QA-037 bytes/tool hashes rechecked locally and saved trace accounted by
+new offline helper; no new native operation or stronger causal claim. Historical
+single-process result and consumed approval below remain unchanged.
+
 ## Outcome, 12 October 2026
 
 The one expressly authorized trace completed. PID176, the existing

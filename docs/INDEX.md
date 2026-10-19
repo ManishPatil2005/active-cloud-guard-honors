@@ -1,5 +1,7 @@
 # Documentation index
 
+Next QA-052: [writer attribution plan and exact E0 approval](WRITER_ATTRIBUTION_PLAN.md), offline trace reviewer implemented; old QA-037 input/tool hashes checked without execution. E0 inventory unapproved; E1 target trace cannot be approved blindly. No new native observation or service/sensor change; QA-051 below remains latest actual.
+
 Latest native QA-051: [approved four-block domain batch](KERNEL_DOMAIN_BATCH_RESULT.md). Four complete blocks/64packets/128zero-mode queries; wall-MONO changes about1.900s, RAW-MONO about2.043s, BOOT-MONO remains close. Diagnostic completed, NOT stable clock/cause/capacity qualification. No retries/interventions/sensor, limits unchanged. WL-128.
 
 QA-050 planning/software checkpoint: [domain reviewer and D scope](CLOCK_CAUSE_DIAGNOSTIC_PLAN.md). D subsequently approved/executed as QA-051 above; no future native action follows automatically.

@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-052 / E2-005/E2-025/RQ3 / WL-129: [writer-attribution preparation](docs/WRITER_ATTRIBUTION_PLAN.md) implements offline saved-trace accounting; original QA-037 evidence/tool hashes rechecked locally. E0 bounded two-context candidate/tool inventory proposed, NOT approved/run. E1 actual target trace needs later exact identity/compatibility/consent. No clock cure/native change or capacity qualification; QA-051 remains latest native result.
+
 QA-051 / E2-005/E2-025/RQ3 / WL-128: approved D executed once, four complete blocks/64samples/128zero-mode queries. Wall-MONO change~1.900s, RAW-MONO~2.043s, BOOT-MONO close; native clock instability retained, writer not identified.28raw-file/seven-source checks and508independent arithmetic intervals pass; no retry/service/sensor changes, limits unchanged. [Result](docs/KERNEL_DOMAIN_BATCH_RESULT.md). D consumed; actual remediation/capacity/coverage and B approval remain open.
 
 QA-050 / E2-005/E2-025/RQ3 / WL-127 software/planning checkpoint: [domain plan/reviewer](docs/CLOCK_CAUSE_DIAGNOSTIC_PLAN.md) implemented/tested. D subsequently approved/executed as QA-051; no writer attribution/cure/capacity acceptance supplied by review software.

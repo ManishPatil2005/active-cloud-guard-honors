@@ -1,5 +1,9 @@
 # Decision register
 
+## ADR-100 - 2026-10-19 - Inventory actual writer contexts before another attachment
+
+QA-052/E2-005/E2-025/RQ3. Existing guest-only trace already shows selected non-query calls but cannot cover system-distro/kernel paths or establish QA-051 cause. Do not repeat stale PID176 or assume Ubuntu tracer compatibility in WSL system distro. Propose bounded read-only E0 inventory with fresh exact consent; E1 attachment requires later named context/PID/start/executable/tool/loader facts and separate approval. No tracing or native inventory during preparation. Offline parser deliberately treats exit-decoded timex fields as observations, read markers/unknown lines separately, and no trace text as identity/global-coverage/cause proof. Existing45s/+3s/1MiB trace and all timing/sensor limits unchanged. No new package, service changes, provider/engine migration or automatic follow-up. See WRITER_ATTRIBUTION_PLAN/WL-129.
+
 ## ADR-099 - 2026-10-19 - Localize clock domains before proposing another intervention
 
 QA-050/E2-005/E2-025/RQ3. Reuse fixed16packet/32zero-mode native reader unchanged; add only offline offset-change accounting and same-domain/backend/order checks across exactly four planned blocks. Do not infer a writer or step-versus-slew uniquely from sampled differences, reclassify historical failures or correct timestamps. Proposed read-only D batch needs fresh consent; no tracing, time services, host/WSL changes, network or sensor trial. Existing per-block45sINT+3skill/5ms widths and all qualification gates retained;240s outer orchestration ceiling is not a longer acquisition block. Original QA-041 receipt preserved; new derived report explicit. Existing two-engine architecture/frozen baseline/stack intact. See CLOCK_CAUSE_DIAGNOSTIC_PLAN/WL-127.
