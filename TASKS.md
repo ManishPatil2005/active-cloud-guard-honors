@@ -1,6 +1,8 @@
 # Research and engineering task ledger
 
-QA-050 / E2-005/E2-025/RQ3 / WL-127: [clock-cause diagnostic plan](docs/CLOCK_CAUSE_DIAGNOSTIC_PLAN.md) and offline saved-domain reviewer implemented/software-tested. Native D batch prepared, not approved/run; all limits/native queries unchanged. QA-049 remains latest actual rejection. No clock cure/writer attribution/capacity qualification; B unapproved.
+QA-051 / E2-005/E2-025/RQ3 / WL-128: approved D executed once, four complete blocks/64samples/128zero-mode queries. Wall-MONO change~1.900s, RAW-MONO~2.043s, BOOT-MONO close; native clock instability retained, writer not identified.28raw-file/seven-source checks and508independent arithmetic intervals pass; no retry/service/sensor changes, limits unchanged. [Result](docs/KERNEL_DOMAIN_BATCH_RESULT.md). D consumed; actual remediation/capacity/coverage and B approval remain open.
+
+QA-050 / E2-005/E2-025/RQ3 / WL-127 software/planning checkpoint: [domain plan/reviewer](docs/CLOCK_CAUSE_DIAGNOSTIC_PLAN.md) implemented/tested. D subsequently approved/executed as QA-051; no writer attribution/cure/capacity acceptance supplied by review software.
 
 QA-049 / E2-005/E2-025/RQ3 / WL-126: approved A executed once, six4second comparisons pass but conditional alignment rejects71.062678ms bound/50ms; three-record journal and17raw files/101source hashes checked offline. No retry/sensor/service intervention. B unapproved; actual clock remediation and native full-minute capacity/coverage remain open. [Result](docs/SENSOR_FREE_CLOCK_SCREEN.md).
 

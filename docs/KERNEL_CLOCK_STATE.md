@@ -1,9 +1,14 @@
 # Live kernel clock-state diagnostic (E2-025)
 
+Latest actual QA-051: [approved four-block domain observation](KERNEL_DOMAIN_BATCH_RESULT.md)
+completed once with64samples/128zero-mode queries; large wall/boot and RAW/monotonic
+changes observed, not a clock cure/writer attribution. D consumed, no retry or
+clock/service/sensor intervention. Older pending-approval statements below are historical.
+
 QA-050 offline follow-up: [domain-localization plan and reviewer](CLOCK_CAUSE_DIAGNOSTIC_PLAN.md)
 adds saved first/adjacent clock relationships and fixed cross-block review. Native
-reader/ABI/query modes/limits unchanged; D needs fresh consent, not executed.
-Latest actual clock observation is QA-049's rejected sensor-free alignment; old
+reader/ABI/query modes/limits unchanged; its D scope was later executed as QA-051.
+QA-049's rejected sensor-free alignment preceded that batch; old
 native observations and approval states below are historical checkpoints.
 
 18October QA-041: [current observation and guest-NTP comparison](WSL_TIMING_REMEDIATION.md) now include one actual temporary stop and verified restoration. Removing that guest writer alone did not pass consistency; host PHC-agent tracking is additional context. Revised settling comparison is unexecuted pending fresh approval. Older no-service-action statements below describe earlier checkpoints; historical failures remain unchanged.

@@ -1,0 +1,9 @@
+{
+  "protocol": "saved_batch_integer_endpoint_check_v1",
+  "samples": 64,
+  "interval_checks": 508,
+  "all_equal": true,
+  "live_actions_executed": [],
+  "input_sha256": "171be6f7b59d0d51e2cf0099184081e5ccb3e8cda77e413c7a4aeb7881ee6ac7",
+  "independent_research_evaluation": false
+}

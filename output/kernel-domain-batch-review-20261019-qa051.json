@@ -1,0 +1,1054 @@
+{
+  "protocol": "approved_kernel_domain_batch_review_v1",
+  "execution_commit": "07ea13f8b3e60a09d7429ef7d4ff5d93bf6c4be8",
+  "status": "four_blocks_observed_and_reviewed",
+  "completed_blocks": 4,
+  "attempted_blocks": 4,
+  "raw_manifest_sha256": "15e7d7fa00a8b1013a62cd19b11ccff8f9bf22ab2d0b1a0d9c94dfb9a06feda9",
+  "raw_terminal_sha256": "f0fd99c38604c0ebe4c9a059badb2784dc47f6f60e537b866c248561cc658873",
+  "controller_sha256": "49f5b7be4f617172fb183b718e18bdeef17c8da2a23b9966d76971e35cf3e3f2",
+  "verified_raw_files": 28,
+  "verified_source_files": 7,
+  "source_unchanged": true,
+  "controller_elapsed_monotonic_seconds": 63.813946661000955,
+  "blocks": [
+    {
+      "index": 0,
+      "status": "complete_and_reviewed",
+      "returncode": 0,
+      "raw_sha256": "2240b4217a4c7d529fe0c9c082076148442035f8f9830f4f242b02826ac232a9",
+      "samples": 16,
+      "state_queries": 32,
+      "final_domain_changes": {
+        "wall_minus_mono": {
+          "lower_ns": -6400,
+          "upper_ns": 3787,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -560,
+          "upper_ns": 292,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6692,
+          "upper_ns": 4347,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 506101603,
+          "upper_ns": 506127284,
+          "includes_zero": false
+        }
+      },
+      "monotonic_elapsed_bounds_ns": [
+        15366203181,
+        15366213368
+      ],
+      "sampled_state_values": {
+        "query_modes": [
+          0
+        ],
+        "time_state": [
+          0
+        ],
+        "status": [
+          8192
+        ],
+        "frequency_scaled_ppm": [
+          -3090289,
+          30126,
+          6246622
+        ],
+        "tick_usec": [
+          9676,
+          9678,
+          9689
+        ],
+        "phase_offset": [
+          0
+        ],
+        "phase_offset_unit": [
+          "ns"
+        ],
+        "time_constant": [
+          1
+        ],
+        "maxerror_usec": [
+          91415,
+          91915,
+          92415,
+          92915,
+          93415,
+          93915,
+          105981,
+          106481,
+          109868,
+          110368,
+          110868,
+          111368,
+          111868,
+          112368,
+          112868,
+          113368
+        ],
+        "esterror_usec": [
+          60933,
+          61498,
+          63240
+        ],
+        "tolerance_scaled_ppm": [
+          32768000
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "status": "complete_and_reviewed",
+      "returncode": 0,
+      "raw_sha256": "b6c844e68b08f9643ba2eccd0d3a446c7f504967000f69342afd916a286751fd",
+      "samples": 16,
+      "state_queries": 32,
+      "final_domain_changes": {
+        "wall_minus_mono": {
+          "lower_ns": 988034964,
+          "upper_ns": 988045352,
+          "includes_zero": false
+        },
+        "wall_minus_boot": {
+          "lower_ns": 988040952,
+          "upper_ns": 988041716,
+          "includes_zero": false
+        },
+        "boot_minus_mono": {
+          "lower_ns": -6752,
+          "upper_ns": 4400,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 505465875,
+          "upper_ns": 505493044,
+          "includes_zero": false
+        }
+      },
+      "monotonic_elapsed_bounds_ns": [
+        15638960281,
+        15638970669
+      ],
+      "sampled_state_values": {
+        "query_modes": [
+          0
+        ],
+        "time_state": [
+          0
+        ],
+        "status": [
+          8192
+        ],
+        "frequency_scaled_ppm": [
+          -455709,
+          30126,
+          1700490
+        ],
+        "tick_usec": [
+          9678,
+          9691,
+          9693
+        ],
+        "phase_offset": [
+          0
+        ],
+        "phase_offset_unit": [
+          "ns"
+        ],
+        "time_constant": [
+          1
+        ],
+        "maxerror_usec": [
+          0,
+          500,
+          1000,
+          1500,
+          2000,
+          2500,
+          91808,
+          92308,
+          95012,
+          95512,
+          106481,
+          106981,
+          107481,
+          107981,
+          108481,
+          108981,
+          109481
+        ],
+        "esterror_usec": [
+          0,
+          60325,
+          60933,
+          61686
+        ],
+        "tolerance_scaled_ppm": [
+          32768000
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "status": "complete_and_reviewed",
+      "returncode": 0,
+      "raw_sha256": "b5c4acd525a868175e519d91fea833d5b8ef68e90618f6e5edf64937ccbf5a3e",
+      "samples": 16,
+      "state_queries": 32,
+      "final_domain_changes": {
+        "wall_minus_mono": {
+          "lower_ns": -5030,
+          "upper_ns": 8854,
+          "includes_zero": true
+        },
+        "wall_minus_boot": {
+          "lower_ns": -452,
+          "upper_ns": 297,
+          "includes_zero": true
+        },
+        "boot_minus_mono": {
+          "lower_ns": -5327,
+          "upper_ns": 9306,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 500556663,
+          "upper_ns": 500590253,
+          "includes_zero": false
+        }
+      },
+      "monotonic_elapsed_bounds_ns": [
+        15609854445,
+        15609868329
+      ],
+      "sampled_state_values": {
+        "query_modes": [
+          0
+        ],
+        "time_state": [
+          0
+        ],
+        "status": [
+          8192
+        ],
+        "frequency_scaled_ppm": [
+          218253,
+          232708,
+          1700490
+        ],
+        "tick_usec": [
+          9688,
+          9691
+        ],
+        "phase_offset": [
+          0
+        ],
+        "phase_offset_unit": [
+          "ns"
+        ],
+        "time_constant": [
+          1
+        ],
+        "maxerror_usec": [
+          92941,
+          92957,
+          93441,
+          93457,
+          93941,
+          94441,
+          94941,
+          95441,
+          95512,
+          95941,
+          96012,
+          96441,
+          96512,
+          97012,
+          97512,
+          98012,
+          98512
+        ],
+        "esterror_usec": [
+          61686,
+          61772,
+          62601
+        ],
+        "tolerance_scaled_ppm": [
+          32768000
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "status": "complete_and_reviewed",
+      "returncode": 0,
+      "raw_sha256": "a5e8e8de51529781cdc175848869f5b13550ddeb1904d5a8d7fcac5ad59fefe9",
+      "samples": 16,
+      "state_queries": 32,
+      "final_domain_changes": {
+        "wall_minus_mono": {
+          "lower_ns": 911911218,
+          "upper_ns": 911918243,
+          "includes_zero": false
+        },
+        "wall_minus_boot": {
+          "lower_ns": 911914726,
+          "upper_ns": 911915232,
+          "includes_zero": false
+        },
+        "boot_minus_mono": {
+          "lower_ns": -4014,
+          "upper_ns": 3517,
+          "includes_zero": true
+        },
+        "raw_minus_mono": {
+          "lower_ns": 496715163,
+          "upper_ns": 496733705,
+          "includes_zero": false
+        }
+      },
+      "monotonic_elapsed_bounds_ns": [
+        15642315051,
+        15642322076
+      ],
+      "sampled_state_values": {
+        "query_modes": [
+          0
+        ],
+        "time_state": [
+          0
+        ],
+        "status": [
+          8192
+        ],
+        "frequency_scaled_ppm": [
+          -2969828,
+          232708,
+          764976
+        ],
+        "tick_usec": [
+          9688,
+          9689,
+          9696
+        ],
+        "phase_offset": [
+          0
+        ],
+        "phase_offset_unit": [
+          "ns"
+        ],
+        "time_constant": [
+          1
+        ],
+        "maxerror_usec": [
+          500,
+          1000,
+          1500,
+          2000,
+          2500,
+          3000,
+          3500,
+          88186,
+          88686,
+          93457,
+          93957,
+          94457,
+          94957,
+          95457,
+          95957,
+          96457,
+          105399
+        ],
+        "esterror_usec": [
+          0,
+          62283,
+          62601,
+          62856
+        ],
+        "tolerance_scaled_ppm": [
+          32768000
+        ]
+      }
+    }
+  ],
+  "aggregate": {
+    "samples": 64,
+    "final_domain_changes": {
+      "wall_minus_mono": {
+        "lower_ns": 1899952678,
+        "upper_ns": 1899959455,
+        "includes_zero": false
+      },
+      "wall_minus_boot": {
+        "lower_ns": 1899956122,
+        "upper_ns": 1899956592,
+        "includes_zero": false
+      },
+      "boot_minus_mono": {
+        "lower_ns": -3914,
+        "upper_ns": 3333,
+        "includes_zero": true
+      },
+      "raw_minus_mono": {
+        "lower_ns": 2043345372,
+        "upper_ns": 2043362939,
+        "includes_zero": false
+      }
+    },
+    "monotonic_elapsed_bounds_ns": [
+      63325564446,
+      63325571223
+    ],
+    "maximum_cumulative_absolute_bound_ns": {
+      "wall_minus_mono": 1899960467,
+      "wall_minus_boot": 1899956734,
+      "boot_minus_mono": 9096,
+      "raw_minus_mono": 2043362939
+    },
+    "adjacent_excludes_zero": {
+      "wall_minus_mono": [
+        {
+          "block": 1,
+          "index": 8,
+          "bounds": {
+            "lower_ns": 988031952,
+            "upper_ns": 988048051,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 6,
+          "bounds": {
+            "lower_ns": 405489590,
+            "upper_ns": 405501375,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 7,
+          "bounds": {
+            "lower_ns": 506410258,
+            "upper_ns": 506426280,
+            "includes_zero": false
+          }
+        }
+      ],
+      "wall_minus_boot": [
+        {
+          "block": 1,
+          "index": 8,
+          "bounds": {
+            "lower_ns": 988040947,
+            "upper_ns": 988041771,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 6,
+          "bounds": {
+            "lower_ns": 405496122,
+            "upper_ns": 405496900,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 7,
+          "bounds": {
+            "lower_ns": 506418032,
+            "upper_ns": 506418999,
+            "includes_zero": false
+          }
+        }
+      ],
+      "boot_minus_mono": [],
+      "raw_minus_mono": [
+        {
+          "block": 0,
+          "index": 1,
+          "bounds": {
+            "lower_ns": 32215575,
+            "upper_ns": 32234917,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 2,
+          "bounds": {
+            "lower_ns": 32303606,
+            "upper_ns": 32333323,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 3,
+          "bounds": {
+            "lower_ns": 32549105,
+            "upper_ns": 32580476,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 4,
+          "bounds": {
+            "lower_ns": 32494395,
+            "upper_ns": 32520855,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 5,
+          "bounds": {
+            "lower_ns": 32403657,
+            "upper_ns": 32432279,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 6,
+          "bounds": {
+            "lower_ns": 34653193,
+            "upper_ns": 34680833,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 7,
+          "bounds": {
+            "lower_ns": 34622137,
+            "upper_ns": 34653028,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 8,
+          "bounds": {
+            "lower_ns": 34096138,
+            "upper_ns": 34130280,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 9,
+          "bounds": {
+            "lower_ns": 33998125,
+            "upper_ns": 34030936,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 10,
+          "bounds": {
+            "lower_ns": 33812226,
+            "upper_ns": 33851153,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 11,
+          "bounds": {
+            "lower_ns": 33947586,
+            "upper_ns": 33989100,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 12,
+          "bounds": {
+            "lower_ns": 34235976,
+            "upper_ns": 34279487,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 13,
+          "bounds": {
+            "lower_ns": 34283869,
+            "upper_ns": 34315007,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 14,
+          "bounds": {
+            "lower_ns": 36190753,
+            "upper_ns": 36215632,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 0,
+          "index": 15,
+          "bounds": {
+            "lower_ns": 34069986,
+            "upper_ns": 34105254,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 0,
+          "bounds": {
+            "lower_ns": 7053900,
+            "upper_ns": 7079877,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 1,
+          "bounds": {
+            "lower_ns": 33599614,
+            "upper_ns": 33619079,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 2,
+          "bounds": {
+            "lower_ns": 36380784,
+            "upper_ns": 36410740,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 3,
+          "bounds": {
+            "lower_ns": 35188152,
+            "upper_ns": 35227952,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 4,
+          "bounds": {
+            "lower_ns": 34169750,
+            "upper_ns": 34212665,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 5,
+          "bounds": {
+            "lower_ns": 33777771,
+            "upper_ns": 33812632,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 6,
+          "bounds": {
+            "lower_ns": 37215287,
+            "upper_ns": 37246443,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 7,
+          "bounds": {
+            "lower_ns": 32669922,
+            "upper_ns": 32722994,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 8,
+          "bounds": {
+            "lower_ns": 34444370,
+            "upper_ns": 34494924,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 9,
+          "bounds": {
+            "lower_ns": 32230843,
+            "upper_ns": 32254721,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 10,
+          "bounds": {
+            "lower_ns": 32524516,
+            "upper_ns": 32552270,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 11,
+          "bounds": {
+            "lower_ns": 32414180,
+            "upper_ns": 32448221,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 12,
+          "bounds": {
+            "lower_ns": 33404317,
+            "upper_ns": 33426648,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 13,
+          "bounds": {
+            "lower_ns": 32100515,
+            "upper_ns": 32121646,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 14,
+          "bounds": {
+            "lower_ns": 32638466,
+            "upper_ns": 32665085,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 1,
+          "index": 15,
+          "bounds": {
+            "lower_ns": 32476103,
+            "upper_ns": 32508309,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 0,
+          "bounds": {
+            "lower_ns": 14828913,
+            "upper_ns": 14868577,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 1,
+          "bounds": {
+            "lower_ns": 32596320,
+            "upper_ns": 32638492,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 2,
+          "bounds": {
+            "lower_ns": 35742854,
+            "upper_ns": 35789702,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 3,
+          "bounds": {
+            "lower_ns": 32793638,
+            "upper_ns": 32836718,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 4,
+          "bounds": {
+            "lower_ns": 32742273,
+            "upper_ns": 32780620,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 5,
+          "bounds": {
+            "lower_ns": 32768962,
+            "upper_ns": 32806272,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 6,
+          "bounds": {
+            "lower_ns": 32685906,
+            "upper_ns": 32717435,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 7,
+          "bounds": {
+            "lower_ns": 34715816,
+            "upper_ns": 34776557,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 8,
+          "bounds": {
+            "lower_ns": 34371205,
+            "upper_ns": 34434985,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 9,
+          "bounds": {
+            "lower_ns": 32864715,
+            "upper_ns": 32896104,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 10,
+          "bounds": {
+            "lower_ns": 34479398,
+            "upper_ns": 34510701,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 11,
+          "bounds": {
+            "lower_ns": 33256476,
+            "upper_ns": 33286916,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 12,
+          "bounds": {
+            "lower_ns": 32558196,
+            "upper_ns": 32585594,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 13,
+          "bounds": {
+            "lower_ns": 32721112,
+            "upper_ns": 32756728,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 14,
+          "bounds": {
+            "lower_ns": 33011082,
+            "upper_ns": 33054611,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 2,
+          "index": 15,
+          "bounds": {
+            "lower_ns": 32965976,
+            "upper_ns": 33001552,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 0,
+          "bounds": {
+            "lower_ns": 12535840,
+            "upper_ns": 12557614,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 1,
+          "bounds": {
+            "lower_ns": 32542823,
+            "upper_ns": 32569760,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 2,
+          "bounds": {
+            "lower_ns": 33029316,
+            "upper_ns": 33061167,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 3,
+          "bounds": {
+            "lower_ns": 33359431,
+            "upper_ns": 33394150,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 4,
+          "bounds": {
+            "lower_ns": 33659586,
+            "upper_ns": 33703640,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 5,
+          "bounds": {
+            "lower_ns": 34009376,
+            "upper_ns": 34053555,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 6,
+          "bounds": {
+            "lower_ns": 34013578,
+            "upper_ns": 34054791,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 7,
+          "bounds": {
+            "lower_ns": 32786150,
+            "upper_ns": 32842959,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 8,
+          "bounds": {
+            "lower_ns": 32111346,
+            "upper_ns": 32165918,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 9,
+          "bounds": {
+            "lower_ns": 33652643,
+            "upper_ns": 33678342,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 10,
+          "bounds": {
+            "lower_ns": 31566860,
+            "upper_ns": 31592461,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 11,
+          "bounds": {
+            "lower_ns": 34094286,
+            "upper_ns": 34122085,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 12,
+          "bounds": {
+            "lower_ns": 31638298,
+            "upper_ns": 31668608,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 13,
+          "bounds": {
+            "lower_ns": 34008940,
+            "upper_ns": 34048293,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 14,
+          "bounds": {
+            "lower_ns": 32231027,
+            "upper_ns": 32268803,
+            "includes_zero": false
+          }
+        },
+        {
+          "block": 3,
+          "index": 15,
+          "bounds": {
+            "lower_ns": 33746126,
+            "upper_ns": 33774550,
+            "includes_zero": false
+          }
+        }
+      ]
+    }
+  },
+  "retries": 0,
+  "clock_or_service_settings_modified": false,
+  "sensor_or_workload_executed": false,
+  "causal_attribution": "not_proven",
+  "step_vs_slew_identified": false,
+  "stable_full_minute_verified": false,
+  "collector_capacity_verified": false,
+  "independently_evaluated": false,
+  "integrated_trial_approved": false
+}

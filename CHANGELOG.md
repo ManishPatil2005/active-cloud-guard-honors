@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 - Preserve approved four-block native clock-domain instability
+
+- Execute D once with unchanged guards/queries: four complete blocks/64packets/128zero-mode queries; wall-MONO offset change~1.900s, RAW-MONO~2.043s and changing kernel timing state.
+- Preserve private raw evidence; verify28raw hashes/seven sources/508interval arithmetic checks. Diagnostic completion is not clock stability or writer attribution. No retry, time/service intervention or sensor trial. QA-051/WL-128.
+
 ## 2026-10-19 - Prepare read-only domain localization and saved-evidence review
 
 - Add offline-only kernel domain reviewer: first/adjacent offset-change bounds, kernel state timeline and fixed one/four-block continuity, unchanged native reader/limits.

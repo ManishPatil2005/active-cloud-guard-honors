@@ -2,7 +2,12 @@
 
 19 October 2026 · QA-050 / WL-127 · E2-005/E2-025/RQ3.
 
-**Prepared offline; native batch not approved or executed.** The latest actual
+**Update QA-051:** D was separately approved and ran once: all four blocks and
+128 zero-mode state queries completed; large wall/boot and RAW/monotonic changes
+were observed. [Actual result](KERNEL_DOMAIN_BATCH_RESULT.md). No retry or clock/service
+change; D consent consumed and no further native action approved.
+
+**Original QA-050 planning checkpoint: prepared offline, not executed.** The then-latest
 clock observation remains [QA-049's rejected step A](SENSOR_FREE_CLOCK_SCREEN.md).
 Its consent is consumed. No sensor trial, time setter, clock/service intervention,
 WSL/host change, download, tracing or new native clock read ran in QA-050.

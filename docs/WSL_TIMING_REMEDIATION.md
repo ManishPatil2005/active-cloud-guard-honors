@@ -1,5 +1,10 @@
 # Live timing investigation and bounded UTC wait repair
 
+Latest QA-051: [one approved D batch](KERNEL_DOMAIN_BATCH_RESULT.md) completed all
+four blocks without intervention, observed wall/boot offset change~1.900s and
+RAW/monotonic change~2.043s. Source/domain continuity verified, clock writer/cure
+not established. No sensor trial, service change, retry or relaxed gate; D consumed.
+
 Latest QA-049: [approved sensor-free A screen](SENSOR_FREE_CLOCK_SCREEN.md)
 ran once without service/clock changes. Six short intervals pass narrowly, then
 alignment rejects71.062678ms combined bound versus50ms. No retry/sensor/workload;

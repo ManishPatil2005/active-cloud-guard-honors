@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-051: approved D once,4blocks/64samples/128zero-mode queries with original45sINT+3skill/per-block and240s outer ceiling. All native receipts/source/domain/backend ordering complete; observations unstable, not qualification. Offline recheck28raw/seven-source hashes and508integer endpoint intervals;58offline reviewer/kernel/documentation tests pass. No source changes, retry or sensor/service intervention. KERNEL_DOMAIN_BATCH_RESULT.
+
 QA-050: offline-only domain review covers synthetic wall/monotonic perturbations, first/adjacent bounds, four-block continuity and source/backend/domain/order/partial/summary/JSON/size failures, exclusive output and no native backend. Corrected target95passes; final Windows299passes/one existing Linux-only skip including documentation and unchanged window targets. Lint/176-file format/pipcheck pass. Initial fixture expectations/oversized pytest IDs failed, preserved separately; no native diagnostic or fresh Linux qualification run. See CLOCK_CAUSE_DIAGNOSTIC_PLAN.
 
 QA-049: approved A ran once with unchanged diagnostic watchdogs/gates. Six4s comparisons pass; conditional alignment rejects71.062678ms/50ms. Offline review validates17raw hashes,101execution sources and complete3record journal. No retry/sensor/service action or capacity qualification. [Actual result](SENSOR_FREE_CLOCK_SCREEN.md); B/C remain unapproved.

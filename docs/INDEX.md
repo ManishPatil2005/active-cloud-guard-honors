@@ -1,8 +1,10 @@
 # Documentation index
 
-Next QA-050: [clock-domain diagnostic plan and exact D approval](CLOCK_CAUSE_DIAGNOSTIC_PLAN.md). Offline reviewer implemented; saved QA-041 re-analysis only. No fresh native read or service change, native D unapproved, qualification limits unchanged. Latest actual observation remains QA-049 below.
+Latest native QA-051: [approved four-block domain batch](KERNEL_DOMAIN_BATCH_RESULT.md). Four complete blocks/64packets/128zero-mode queries; wall-MONO changes about1.900s, RAW-MONO about2.043s, BOOT-MONO remains close. Diagnostic completed, NOT stable clock/cause/capacity qualification. No retries/interventions/sensor, limits unchanged. WL-128.
 
-Latest native QA-049: [approved sensor-free step A](SENSOR_FREE_CLOCK_SCREEN.md) rejected at alignment,71.062678ms combined bound versus50ms. Six short comparisons pass narrowly; no retry, sensor/Docker/Redis or service/clock change. B remains unapproved and capacity untested. WL-126.
+QA-050 planning/software checkpoint: [domain reviewer and D scope](CLOCK_CAUSE_DIAGNOSTIC_PLAN.md). D subsequently approved/executed as QA-051 above; no future native action follows automatically.
+
+Previous native QA-049: [approved sensor-free step A](SENSOR_FREE_CLOCK_SCREEN.md) rejected at alignment,71.062678ms combined bound versus50ms. Six short comparisons pass narrowly; no retry, sensor/Docker/Redis or service/clock change. B remains unapproved and capacity untested. WL-126.
 
 QA-048 planning checkpoint: [native validation and exact approval plan](NATIVE_VALIDATION_PLAN.md). Its A scope was subsequently approved/executed as QA-049 above; B/C remain unapproved. Old stop/settle wrapper excluded; B controller readiness and actual native capacity remain pending.
 

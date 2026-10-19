@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-105 - 2026-10-19 - Read-only domain batch observes large offset/rate disagreement
+
+QA-051/WL-128, one approved D batch. Four blocks complete/exit0,64packets/128zero-mode queries; final wall-MONO[1899952678,1899959455]ns, wall-BOOT[1899956122,1899956592]ns, RAW-MONO[2043345372,2043362939]ns. BOOT-MONO endpoint[-3914,3333]ns includeszero, all-sample absolute bound<=9096ns. Adjacent wall-BOOT changes~988.041/405.497/506.419ms at(block,index)(1,8)/(3,6)/(3,7). High confidence in sampled arithmetic/source/domain continuity; writer, step-versus-slew and unique historical cause remain unknown. Returned tick/frequency state varies, not proof of requested flags/writer. No fix claimed, timestamps corrected or trial gates relaxed.28raw hashes/seven sources/508independent endpoint intervals verified; original raw private. No retries/clock/service/host/sensor operations, no restoration needed for our commands. D consumed; next causal-attribution scope requires fresh approval. Diagnostic exit0 is collection completion, not timing qualification.
+
 ### INC-104 - 2026-10-19 - Offline diagnostic tests had oracle and parameter-ID defects
 
 QA-050/WL-127. Expanded run preserved2failures/92passes/2setup errors: new monotonic-shift test ignored fixture's pre-existing+1000ns-per-step RAW drift; a100KB input became an oversized pytest parameter ID and caused setup/path errors. Correct independent expectation and use fixed short IDs, rather than change correct interval arithmetic/native code. Corrected same four-target suite95passes. Initial120160byte XML retained, no normalization/hiding. This is a test-harness incident, not evidence of a native WSL cure or clock backend defect. Historical inputs/results unchanged; no native read/service change.
