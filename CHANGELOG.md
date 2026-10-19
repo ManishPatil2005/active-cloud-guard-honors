@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-19 - Preserve approved two-context read-only writer inventory
+
+- Execute E0 once within120seconds:37guest/78system PID entries; one guest candidate, zero exact system allowlist matches. Static retained-tool hashes match; no inspected binary executed.
+- Preserve20raw file bindings and reviewed readiness/identity facts; runtime compatibility/clock cause remain unverified. No tracing, clock/service changes or sensor trial; E0 consumed/E1 unapproved. QA-053/WL-130.
+
 ## 2026-10-19 - Prepare writer-candidate inventory and conservative saved-trace review
 
 - Add offline selected-strace accounting with explicit query/read-marker/non-query distinctions, unknown-line preservation and no inferred identity/completeness/cause.

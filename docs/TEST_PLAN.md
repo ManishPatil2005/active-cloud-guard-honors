@@ -1,5 +1,7 @@
 # Test and verification plan
 
+QA-053: approved E0 once, four5second-bounded WSL client commands within120s outer: running-state gates and two root metadata contexts. Observed per-context process/candidate/file/output caps pass;20raw hashes/independent frame reconstruction/identity endpoint checks pass.27offline documentation/trace tests pass. No product source change, no inspected-binary execution, trace, clock/service or sensor action. Runtime compatibility and writer cause unverified. WRITER_INVENTORY_RESULT.
+
 QA-052: saved trace tests cover zero/read-marker/nonquery modes, unknown/duplicate/numeric flags, returned state5 and syscall failure, unsupported/unfinished/multi-PID/empty traces, backward wall timestamps, NULL setters, digest/byte/line/width/encoding guards and exclusive/minimized failure output. First24Windows cases pass; final combined323pass/one existing Linux-only skip including documentation and prior clock/window checks. Lint/178-file format/pipcheck pass. No native writer inventory/trace or fresh Linux suite; existing core/native readers/dependencies unchanged. WL-129.
 
 QA-051: approved D once,4blocks/64samples/128zero-mode queries with original45sINT+3skill/per-block and240s outer ceiling. All native receipts/source/domain/backend ordering complete; observations unstable, not qualification. Offline recheck28raw/seven-source hashes and508integer endpoint intervals;58offline reviewer/kernel/documentation tests pass. No source changes, retry or sensor/service intervention. KERNEL_DOMAIN_BATCH_RESULT.

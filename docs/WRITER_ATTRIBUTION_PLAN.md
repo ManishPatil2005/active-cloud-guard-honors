@@ -2,8 +2,13 @@
 
 19 October 2026 · QA-052 / WL-129 · E2-005/E2-025/RQ3.
 
-**Prepared offline. No inventory, attachment, fresh clock observation or native
-execution ran.** The latest native evidence is [QA-051](KERNEL_DOMAIN_BATCH_RESULT.md),
+**Update QA-053:** E0 was explicitly approved and completed once. Guest candidate
+PID6922 was identified; no exact allowlist match in the system view. No attachment
+or inspected-binary execution. [Actual result and unapproved E1 proposal](WRITER_INVENTORY_RESULT.md).
+E0 consent is consumed; E1 still needs fresh consent and identity/compatibility checks.
+
+**Original QA-052 planning checkpoint.** No inventory, attachment, fresh clock observation or native
+execution ran during that preparation. The then-latest clock evidence was [QA-051](KERNEL_DOMAIN_BATCH_RESULT.md),
 which observed large wall/boot and RAW/monotonic changes without identifying a
 writer. D approval is consumed; the proposed scopes below need new consent.
 
@@ -131,9 +136,10 @@ alignment run or guest-service trace is folded into an inventory approval.
 
 ## E1 — separate exact target trace, only after E0 review
 
-This is **not ready for operational approval now** because the current target
+At the QA-052 planning checkpoint this was **not ready for approval** because the current target
 PID/start time/namespace/executable and compatible tracer context are unknown.
-Use E0 to propose one exact candidate and explain what remains unobserved.
+QA-053 subsequently supplies one exact guest candidate and a conditional proposal;
+system targets and runtime compatibility remain unresolved. No automatic attachment.
 
 The later proposal must name the actual context, PID/start ticks/executable hash,
 tool/loader identity and support for the chosen flags. Revalidate immediately

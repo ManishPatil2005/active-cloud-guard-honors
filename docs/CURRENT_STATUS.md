@@ -1,6 +1,8 @@
 # Active Cloud Guard — current capability and research status
 
-QA-052/WL-129: [writer plan/offline accounting](WRITER_ATTRIBUTION_PLAN.md) prepared; E0 candidate/tool inventory and E1 trace not approved/run. Existing QA-037 files re-analyzed only, retained binary hash verified on Windows, not executed. No fresh native observation/clock/service/sensor change, cause/cure/capacity still unknown; QA-051 below remains latest actual.
+QA-053/WL-130 [E0 inventory](WRITER_INVENTORY_RESULT.md) executed once with scoped root reads, guest37/system78 PID entries and one exact guest candidate. No system-name matches does not exclude writers. Tool/ELF files visible but not executed, compatibility untested. No clock/service changes, attachment or sensor; all limits unchanged.20raw bindings/27offline tests pass. E0 consumed; exact conditional E1 guest proposal not approved. Latest clock observation remains QA-051 below, cause/capacity unresolved.
+
+QA-052/WL-129 historical [offline preparation](WRITER_ATTRIBUTION_PLAN.md); E0 later executed as QA-053, no automatic next diagnostic.
 
 Latest QA-051/WL-128: [approved D batch result](KERNEL_DOMAIN_BATCH_RESULT.md), four complete read-only blocks/64samples/128zero-mode queries. Wall-MONO changes~1.900s, wall-BOOT~1.900s and RAW-MONO~2.043s, while BOOT-MONO stays close. Diagnostic completed, not a clock cure/cause proof or capacity qualification.28raw/seven-source hashes/508endpoint checks verified; no retry/clock/service/sensor action, unchanged limits. D consumed; B/C remain unapproved and research/production gates open.
 

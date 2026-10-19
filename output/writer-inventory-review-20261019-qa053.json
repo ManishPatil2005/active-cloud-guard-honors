@@ -1,0 +1,97 @@
+{
+  "protocol": "approved_writer_inventory_review_v1",
+  "execution_commit": "e85ec6716f651f8ace49f49491296c9ea03ff900",
+  "status": "two_contexts_observed_metadata_only",
+  "elapsed_monotonic_seconds": 0.860000000015134,
+  "verified_raw_files": 20,
+  "raw_manifest_sha256": "d09f0169c50005ade94b5ba054b26af88aa24e63b2f5a9a0fc1189e62b2e1d08",
+  "raw_terminal_sha256": "b2ba2161bab0247ce4b2130f559d70fab4be3f584063239bca6e6ba346ffd39e",
+  "controller_sha256": "809d2733f4c5bafd923c0ec91674215219a8f83d80ab032eb571f06a3047f3a7",
+  "collector_source_sha256": "c1b204ff340d06454e1304d79bf4ba7687374e675734a5d4fc3a657e4fd78868",
+  "imported_runner_sha256": "9e27c5c4f413ea4a9ed343304c1a8bbfc19ce2736f2d414a637b5d189b4aea63",
+  "contexts": [
+    {
+      "context": "guest",
+      "enumerated_pids": 37,
+      "candidates": [
+        {
+          "pid": 6922,
+          "comm": "systemd-timesyn",
+          "executable": "/usr/lib/systemd/systemd-timesyncd",
+          "start_ticks": 6379794,
+          "executable_sha256": "5e87427803daf1dbe974cc62fba335c96ff24e37892f67d9095d6703d2c32009",
+          "state_before": "S",
+          "state_after": "S",
+          "tracer_pid_before": 0,
+          "tracer_pid_after": 0,
+          "identity_endpoints_equal": true
+        }
+      ],
+      "ptrace_scope": 1,
+      "hash_input_bytes": 4636624,
+      "metadata_pipe_bytes": 4621,
+      "collector_payload_sha256": "7e9a155ca705f756d137b76aecb2dedba2ec436c8cf94315e7a05fd75b8525c9",
+      "tool": {
+        "sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001",
+        "bytes": 2087432,
+        "elf_profile": "ELF64_little_endian_x86_64",
+        "executed": false
+      },
+      "selected_library_paths": {
+        "library.loader.sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da",
+        "library.libc_debian.sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+        "library.unwind_debian.sha256": "28e77a498f2f17f8cb883c91303f9901343ea0d8e34959d138dd462fcc9b201f",
+        "library.libc_lib64.available": "no",
+        "library.unwind_lib64.available": "no"
+      },
+      "guest_service_fields": "MainPID=6922\nActiveState=active\nSubState=running\nUnitFileState=enabled",
+      "runtime_compatibility_verified": false,
+      "candidate_filter_complete_for_observed_enumeration": true,
+      "all_writers_covered": false
+    },
+    {
+      "context": "system",
+      "enumerated_pids": 78,
+      "candidates": [],
+      "ptrace_scope": 1,
+      "hash_input_bytes": 4677312,
+      "metadata_pipe_bytes": 2092,
+      "collector_payload_sha256": "7e9a155ca705f756d137b76aecb2dedba2ec436c8cf94315e7a05fd75b8525c9",
+      "tool": {
+        "sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001",
+        "bytes": 2087432,
+        "elf_profile": "ELF64_little_endian_x86_64",
+        "executed": false
+      },
+      "selected_library_paths": {
+        "library.loader.sha256": "2aa7ccd99bf22de10ab1723d4b9a00acc44912955756fcc59abc9f1ce1bcde76",
+        "library.libc_debian.available": "no",
+        "library.unwind_debian.available": "no",
+        "library.libc_lib64.sha256": "5cd1fa0f5603d63b1346185485fa9d3b33ab4afe4103ef48af5cdcb6f80ad05c",
+        "library.unwind_lib64.available": "no"
+      },
+      "guest_service_fields": null,
+      "runtime_compatibility_verified": false,
+      "candidate_filter_complete_for_observed_enumeration": true,
+      "all_writers_covered": false
+    }
+  ],
+  "context_comparisons": {
+    "boot_identity_equal": true,
+    "time_namespace_equal": true,
+    "pid_namespace_equal": false
+  },
+  "guest_executable_differs_from_QA037": true,
+  "retries": 0,
+  "clock_or_service_changes_issued": false,
+  "inspected_binaries_executed": false,
+  "process_attachment": false,
+  "sensor_or_workload_executed": false,
+  "writer_identified": false,
+  "runtime_compatibility_verified": false,
+  "clock_cause_resolved": false,
+  "collector_capacity_verified": false,
+  "independently_evaluated": false,
+  "E0_approval_consumed": true,
+  "E1_approved": false
+}

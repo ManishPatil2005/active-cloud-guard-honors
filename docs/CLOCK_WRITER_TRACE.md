@@ -1,5 +1,10 @@
 # Bounded clock-writer observation — QA-037
 
+QA-053 actual E0 metadata: [current inventory](WRITER_INVENTORY_RESULT.md) found
+guestPID6922 with a different executable hash from QA-037; old PID/source identity
+is not reusable as current. No new attachment or tool execution, cause unknown.
+E0 consumed and conditional E1 remains unapproved; QA-037 trace below unchanged.
+
 QA-052 offline preparation: [next writer-attribution plan](WRITER_ATTRIBUTION_PLAN.md)
 separates unapproved candidate/tool inventory from later exact-target tracing.
 Original QA-037 bytes/tool hashes rechecked locally and saved trace accounted by
