@@ -1,5 +1,7 @@
 # Active Cloud Guard — current capability and research status
 
+Latest QA-054/WL-131 [E1 attempt](WRITER_TRACE_E1_RESULT.md): approved exact scope stopped at `wsl.exe --list --running` after `Wsl/E_ACCESSDENIED`; no guest access, version check or attachment. Cause/guest state unknown; no retry, clock/service changes or sensor work. Approval consumed; fresh approval after WSL access restoration is needed for another attempt. No research/clock acceptance.
+
 QA-053/WL-130 [E0 inventory](WRITER_INVENTORY_RESULT.md) executed once with scoped root reads, guest37/system78 PID entries and one exact guest candidate. No system-name matches does not exclude writers. Tool/ELF files visible but not executed, compatibility untested. No clock/service changes, attachment or sensor; all limits unchanged.20raw bindings/27offline tests pass. E0 consumed; exact conditional E1 guest proposal not approved. Latest clock observation remains QA-051 below, cause/capacity unresolved.
 
 QA-052/WL-129 historical [offline preparation](WRITER_ATTRIBUTION_PLAN.md); E0 later executed as QA-053, no automatic next diagnostic.

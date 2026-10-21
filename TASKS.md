@@ -1,5 +1,7 @@
 # Research and engineering task ledger
 
+QA-054 / E2-005/E2-025/RQ3 / WL-131: [approved E1 preflight result](docs/WRITER_TRACE_E1_RESULT.md). `wsl.exe --list --running` returned `Wsl/E_ACCESSDENIED`; attempt stopped before guest access, version check or attachment. Cause/guest state unknown; no retry or other native operation. E1 approval consumed. A new attempt requires restored WSL access and fresh approval. Clock cause, capacity, coverage, independent research and production gates remain open.
+
 QA-053 / E2-005/E2-025/RQ3 / WL-130: [approved E0 result](docs/WRITER_INVENTORY_RESULT.md), one pass, guest37/system78 PID entries, one guest candidate PID6922 and zero exact system-name matches. Static tool visible both, not executed; compatibility/cause unverified.20raw-file bindings and bounded metadata/identity facts checked;27offline tests pass. E0 consumed, E1 conditional guest trace proposal remains unapproved; all clock/service/sensor gates unchanged.
 
 QA-052 / E2-005/E2-025/RQ3 / WL-129 preparation checkpoint: [writer plan/reviewer](docs/WRITER_ATTRIBUTION_PLAN.md); E0 subsequently executed as QA-053. No root cause or compatibility supplied by offline trace text; E1 still requires fresh exact consent.

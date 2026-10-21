@@ -840,3 +840,8 @@ Changes are recorded on the date they occurred or were documented. Historical fa
 - Created and pushed the private `ManishPatil2005/active-cloud-guard-honors` GitHub repository on main. GitHub API and Git remote verification matched local HEAD; receipt and commit identities are tracked in docs/WORK_LOG.md.
 - Preserved the existing architecture and stack. The user's supplied web-product guide was used only as a documentation-process reference.
 - Preserved saved-report bytes and applied a path-specific CRLF-aware whitespace check after recording the initial publication warning in INC-017.
+
+## 2026-10-21 - Record blocked writer-attribution preflight
+
+- Preserve the approved E1 attempt's WSL `E_ACCESSDENIED` result. It stopped before guest access, tool execution or process attachment; cause and guest state remain unknown.
+- Keep the exact E1 limits unchanged. No retry, clock/service action, sensor trial or research acceptance is claimed.

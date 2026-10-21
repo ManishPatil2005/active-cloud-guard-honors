@@ -1,5 +1,11 @@
 # Work log
 
+## WL-131 - 2026-10-21 - Approved E1 attempt blocked at WSL preflight
+
+Acceptance: perform at most one approved guest-only E1 attempt against the exact QA-053 PID/start-ticks/executable hash, with a 120-second outer ceiling, five-second/4,096-byte version check, and only then the documented 45-second trace and existing per-file limits. The user explicitly approved this exact scope. Before any guest access, `wsl.exe --list --running` returned `Access is denied` and `Error code: Wsl/E_ACCESSDENIED`; the exit code was not captured. This was the first gate and the attempt stopped immediately. No guest identity/service read, `strace --version`, process attachment, trace, retry, clock/service change, download, network action, sensor or workload occurred. Cause is unknown; guest status and target identity remain unknown. The trace budget was not used or changed.
+
+Preserved minimized outcome in `output/writer-trace-e1-preflight-20261021-qa054.json`; readable account in `docs/WRITER_TRACE_E1_RESULT.md`; INC-106 records the access failure. No raw guest evidence exists. QA-037 and QA-053 evidence remain unchanged. Closure checks: `.venv/Scripts/python.exe scripts/repository_check.py` PASS1024 publication files; working and staged `git diff --check` PASS. Explicitly staged ten E1-only documentation/receipt paths; the pre-existing presentation edits and `output/pdf/`, `output/pptx/` remain unstaged. Named commit and intended-remote verification are reported in the Git handoff. No writer/cause/stability/coverage/research acceptance follows from this blocked preflight.
+
 ## WL-130 - 2026-10-19 - Execute approved bounded E0 inventory once
 
 Publication closure observed: portable `scripts/repository_check.py` PASS1022publication files/required docs/links/exclusions/bounded credential checks, not comprehensive security certification. Reviewed12file docs/oneJSON/oneXML scope; no root raw metadata/collector/controller, binary, credentials, environment, model or vector stores staged. `git diff --cached --check` passes. Original six-doc41-line presentation changes/outputpdf,pptx remain unstaged/preserved. Named commit/intended-origin push and exact remote SHA equality verified separately after this entry. No E1/tool execution/trace is authorized by publishing; E0 is consumed.

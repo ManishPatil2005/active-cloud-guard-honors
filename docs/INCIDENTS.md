@@ -1,5 +1,9 @@
 # Incident and resolution ledger
 
+### INC-106 - 2026-10-21 - Approved E1 preflight blocked by WSL access denial
+
+QA-054/WL-131. User approved one exact guest-only E1 trace attempt. Its first gate, `wsl.exe --list --running`, returned `Access is denied` / `Wsl/E_ACCESSDENIED`; the exit code was not captured. Cause confidence is unknown. No guest access, identity check, tracer version check, attachment, trace, retry, clock/service change, download, network, sensor or workload followed. Preserved minimized receipt at `output/writer-trace-e1-preflight-20261021-qa054.json`. Containment: stop before guest access. Resolution remains open; restore WSL access in the intended context and seek fresh approval for a new bounded attempt. No writer, clock, stability, capacity or research result is inferred.
+
 ### INC-105 - 2026-10-19 - Read-only domain batch observes large offset/rate disagreement
 
 QA-051/WL-128, one approved D batch. Four blocks complete/exit0,64packets/128zero-mode queries; final wall-MONO[1899952678,1899959455]ns, wall-BOOT[1899956122,1899956592]ns, RAW-MONO[2043345372,2043362939]ns. BOOT-MONO endpoint[-3914,3333]ns includeszero, all-sample absolute bound<=9096ns. Adjacent wall-BOOT changes~988.041/405.497/506.419ms at(block,index)(1,8)/(3,6)/(3,7). High confidence in sampled arithmetic/source/domain continuity; writer, step-versus-slew and unique historical cause remain unknown. Returned tick/frequency state varies, not proof of requested flags/writer. No fix claimed, timestamps corrected or trial gates relaxed.28raw hashes/seven sources/508independent endpoint intervals verified; original raw private. No retries/clock/service/host/sensor operations, no restoration needed for our commands. D consumed; next causal-attribution scope requires fresh approval. Diagnostic exit0 is collection completion, not timing qualification.

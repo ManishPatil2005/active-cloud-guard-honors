@@ -1,5 +1,7 @@
 # Documentation index
 
+Latest QA-054/WL-131: [approved E1 attempt](WRITER_TRACE_E1_RESULT.md) blocked at the first WSL running-state check (`Wsl/E_ACCESSDENIED`). No guest access, version check, attachment or trace; no retry. Cause/guest state unknown; approval consumed. QA-053 remains the latest guest inventory; clock cause and research gates remain open.
+
 Latest inventory QA-053: [approved E0 result and pending E1 scope](WRITER_INVENTORY_RESULT.md). One guest/system pass, one guest candidate, zero exact system allowlist matches. Tool file visible/hash matched, runtime compatibility not tested. No tracing/clock/service/sensor change; E0 consumed and E1 unapproved. Latest clock observation remains QA-051 below.
 
 QA-052 historical preparation: [writer plan/offline accounting](WRITER_ATTRIBUTION_PLAN.md); E0 later executed as QA-053. No automatic authority for E1 or new clock/sensor observations.

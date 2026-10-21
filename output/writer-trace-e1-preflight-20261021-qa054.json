@@ -1,0 +1,23 @@
+{
+  "qa": "QA-054",
+  "work_log": "WL-131",
+  "date": "2026-10-21",
+  "approved_scope": "E1 guest-only trace of the exact QA-053 candidate, once",
+  "preflight_command": "wsl.exe --list --running",
+  "observed_output": [
+    "Access is denied.",
+    "Error code: Wsl/E_ACCESSDENIED"
+  ],
+  "exit_code": "not captured",
+  "status": "blocked_before_guest_access",
+  "steps_not_run": [
+    "guest identity recheck",
+    "strace --version",
+    "process attachment or trace"
+  ],
+  "retry": false,
+  "clock_or_service_changes": false,
+  "sensor_or_workload": false,
+  "research_acceptance": false,
+  "interpretation": "WSL running-state access was denied in this invocation context. Cause is unknown; no inference about guest state or process identity is supported."
+}

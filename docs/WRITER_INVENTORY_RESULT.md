@@ -87,7 +87,18 @@ was commanded; external changes were not ruled out. Offline reviewer/documentati
 checks passed27tests. Product/core/native reader/reviewer source and dependencies
 were unchanged; no full-suite or Linux package requalification is claimed.
 
-## Proposed E1 guest-only trace — not approved or executed
+## E1 attempt update — QA-054
+
+The user subsequently approved one E1 attempt using the exact scope below.
+Its first gate, `wsl.exe --list --running`, returned `Access is denied` /
+`Wsl/E_ACCESSDENIED`; the exit code was not captured. The attempt stopped there.
+No guest identity check, tracer version check, attachment, trace or retry ran.
+See [QA-054 result](WRITER_TRACE_E1_RESULT.md). The cause of the WSL access
+denial is unknown, and this attempt provides no new guest/process evidence.
+The approval is consumed; another E1 attempt requires restored WSL access and
+fresh approval.
+
+## Proposed E1 guest-only trace — approval scope (consumed; attempt blocked)
 
 E0 consent is consumed. The following is an optional next proposal grounded in
 the observed guest identity, not authority to attach now. It would observe the
